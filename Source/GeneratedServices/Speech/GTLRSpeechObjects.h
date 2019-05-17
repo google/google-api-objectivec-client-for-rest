@@ -409,7 +409,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -505,7 +505,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 
 /**
  *  The audio data bytes encoded as specified in
- *  `RecognitionConfig`. Note: as with all bytes fields, protobuffers use a
+ *  `RecognitionConfig`. Note: as with all bytes fields, proto buffers use a
  *  pure binary representation, whereas JSON representations use base64.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably

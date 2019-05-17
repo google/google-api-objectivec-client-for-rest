@@ -27,9 +27,11 @@
 @class GTLRAndroidManagement_ApplicationPolicy_ManagedConfiguration;
 @class GTLRAndroidManagement_ApplicationReport;
 @class GTLRAndroidManagement_ApplicationReportingSettings;
+@class GTLRAndroidManagement_BlockAction;
 @class GTLRAndroidManagement_ChoosePrivateKeyRule;
 @class GTLRAndroidManagement_ComplianceRule;
 @class GTLRAndroidManagement_Device;
+@class GTLRAndroidManagement_Device_SystemProperties;
 @class GTLRAndroidManagement_DeviceSettings;
 @class GTLRAndroidManagement_Display;
 @class GTLRAndroidManagement_ExternalData;
@@ -55,6 +57,7 @@
 @class GTLRAndroidManagement_PersistentPreferredActivity;
 @class GTLRAndroidManagement_Policy;
 @class GTLRAndroidManagement_Policy_OpenNetworkConfiguration;
+@class GTLRAndroidManagement_PolicyEnforcementRule;
 @class GTLRAndroidManagement_PowerManagementEvent;
 @class GTLRAndroidManagement_ProxyInfo;
 @class GTLRAndroidManagement_SetupAction;
@@ -70,6 +73,7 @@
 @class GTLRAndroidManagement_UserFacingMessage_LocalizedMessages;
 @class GTLRAndroidManagement_WebApp;
 @class GTLRAndroidManagement_WebAppIcon;
+@class GTLRAndroidManagement_WipeAction;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1667,6 +1671,26 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 
 /**
+ *  An action to block access to apps and data on a fully managed device or in a
+ *  work profile. This action also triggers a device or work profile to displays
+ *  a user-facing notification with information (where possible) on how to
+ *  correct the compliance issue. Note: wipeAction must also be specified.
+ */
+@interface GTLRAndroidManagement_BlockAction : GTLRObject
+
+/**
+ *  Number of days the policy is non-compliant before the device or work profile
+ *  is blocked. To block access immediately, set to 0. blockAfterDays must be
+ *  less than wipeAfterDays.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blockAfterDays;
+
+@end
+
+
+/**
  *  A rule for automatically choosing a private key and certificate to
  *  authenticate the device to a server.
  */
@@ -2015,6 +2039,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/** Map of selected system properties name and value related to the device. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_Device_SystemProperties *systemProperties;
+
 /** The user who owns the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_User *user;
 
@@ -2024,6 +2051,18 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, copy, nullable) NSString *userName;
 
+@end
+
+
+/**
+ *  Map of selected system properties name and value related to the device.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAndroidManagement_Device_SystemProperties : GTLRObject
 @end
 
 
@@ -3055,7 +3094,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the name should
- *  have the format of operations/some/unique/name.
+ *  be a resource name ending with operations/{unique_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3610,6 +3649,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSNumber *maximumTimeToLock;
 
 /**
+ *  The minimum allowed Android API level.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumApiLevel;
+
+/**
  *  Whether configuring mobile networks is disabled.
  *
  *  Uses NSNumber of boolValue.
@@ -3720,6 +3766,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        "WHITELIST")
  */
 @property(nonatomic, copy, nullable) NSString *playStoreMode;
+
+/**
+ *  Rules that define the behavior when a particular policy can not be applied
+ *  on device
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PolicyEnforcementRule *> *policyEnforcementRules;
 
 /**
  *  Allows showing UI on a device for a user to choose a private key alias if
@@ -3908,6 +3960,35 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAndroidManagement_Policy_OpenNetworkConfiguration : GTLRObject
+@end
+
+
+/**
+ *  A rule that defines the actions to take if a device or work profile is not
+ *  compliant with the policy specified in settingName.
+ */
+@interface GTLRAndroidManagement_PolicyEnforcementRule : GTLRObject
+
+/**
+ *  An action to block access to apps and data on a fully managed device or in a
+ *  work profile. This action also triggers a user-facing notification with
+ *  information (where possible) on how to correct the compliance issue. Note:
+ *  wipeAction must also be specified.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_BlockAction *blockAction;
+
+/**
+ *  The top-level policy to enforce. For example, applications or
+ *  passwordRequirements.
+ */
+@property(nonatomic, copy, nullable) NSString *settingName;
+
+/**
+ *  An action to reset a fully managed device or delete a work profile. Note:
+ *  blockAction must also be specified.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_WipeAction *wipeAction;
+
 @end
 
 
@@ -4475,6 +4556,31 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  with the embedded UI. This is a read-only field generated by the server.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  An action to reset a fully managed device or delete a work profile. Note:
+ *  blockAction must also be specified.
+ */
+@interface GTLRAndroidManagement_WipeAction : GTLRObject
+
+/**
+ *  Whether the factory-reset protection data is preserved on the device. This
+ *  setting doesn’t apply to work profiles.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preserveFrp;
+
+/**
+ *  Number of days the policy is non-compliant before the device or work profile
+ *  is wiped. wipeAfterDays must be greater than blockAfterDays.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wipeAfterDays;
 
 @end
 

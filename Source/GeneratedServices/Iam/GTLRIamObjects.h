@@ -29,6 +29,7 @@
 @class GTLRIam_LintPolicyRequest_Context;
 @class GTLRIam_LintResult;
 @class GTLRIam_Permission;
+@class GTLRIam_PermissionDelta;
 @class GTLRIam_Policy;
 @class GTLRIam_PolicyDelta;
 @class GTLRIam_Role;
@@ -387,6 +388,19 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypePkcs1
 GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified;
 
 /**
+ *  Audit log information specific to Cloud IAM admin APIs. This message is
+ *  serialized as an `Any` type in the `ServiceData` message of an
+ *  `AuditLog` message.
+ */
+@interface GTLRIam_AdminAuditData : GTLRObject
+
+/** The permission_delta when when creating or updating a Role. */
+@property(nonatomic, strong, nullable) GTLRIam_PermissionDelta *permissionDelta;
+
+@end
+
+
+/**
  *  Contains information about an auditable service.
  */
 @interface GTLRIam_AuditableService : GTLRObject
@@ -530,7 +544,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
+ *  NOTE: An unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
  */
@@ -1087,6 +1101,21 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 /** The title of this Permission. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A PermissionDelta message to record the added_permissions and
+ *  removed_permissions inside a role.
+ */
+@interface GTLRIam_PermissionDelta : GTLRObject
+
+/** Added permissions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addedPermissions;
+
+/** Removed permissions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *removedPermissions;
 
 @end
 

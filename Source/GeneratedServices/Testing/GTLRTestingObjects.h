@@ -592,7 +592,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Scenar
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioNotDeclared;
 /**
- *  There there is no test loop intent filter, or the one that is given is
+ *  There is no test loop intent filter, or the one that is given is
  *  not formatted correctly.
  *
  *  Value: "TEST_LOOP_INTENT_FILTER_NOT_FOUND"
@@ -625,6 +625,48 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestSa
  *  Value: "USE_DESTINATION_ARTIFACTS"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_UseDestinationArtifacts;
+
+// ----------------------------------------------------------------------------
+// GTLRTesting_TestMatrix.outcomeSummary
+
+/**
+ *  A run failed, for instance:
+ *  - One or more test case failed.
+ *  - A test timed out.
+ *  - The application under test crashed.
+ *
+ *  Value: "FAILURE"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Failure;
+/**
+ *  Something unexpected happened. The run should still be considered
+ *  unsuccessful but this is likely a transient problem and re-running the
+ *  test might be successful.
+ *
+ *  Value: "INCONCLUSIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Inconclusive;
+/**
+ *  Do not use. For proto versioning only.
+ *
+ *  Value: "OUTCOME_SUMMARY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_OutcomeSummaryUnspecified;
+/**
+ *  All tests were skipped, for instance:
+ *  - All device configurations were incompatible.
+ *
+ *  Value: "SKIPPED"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Skipped;
+/**
+ *  The test matrix run was successful, for instance:
+ *  - All the test cases passed.
+ *  - Robo did not detect a crash of the application under test.
+ *
+ *  Value: "SUCCESS"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Success;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_TestMatrix.state
@@ -1248,6 +1290,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
+/**
+ *  Specifies the API Level on which the application is designed to run.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetSdkVersion;
+
 @end
 
 
@@ -1405,10 +1454,10 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_DeviceFile : GTLRObject
 
-/** A reference to an opaque binary blob file */
+/** A reference to an opaque binary blob file. */
 @property(nonatomic, strong, nullable) GTLRTesting_ObbFile *obbFile;
 
-/** A reference to a regular file */
+/** A reference to a regular file. */
 @property(nonatomic, strong, nullable) GTLRTesting_RegularFile *regularFile;
 
 @end
@@ -1509,8 +1558,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Enables automatic Google account login.
- *  If set, the service will automatically generate a Google test account and
- *  add
+ *  If set, the service automatically generates a Google test account and adds
  *  it to the device, before executing the test. Note that test accounts might
  *  be
  *  reused.
@@ -1688,7 +1736,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  A description of how to set up an iOS device prior to a test.
+ *  A description of how to set up an iOS device prior to running the test.
  */
 @interface GTLRTesting_IosTestSetup : GTLRObject
 
@@ -1958,6 +2006,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** Required. */
 @property(nonatomic, strong, nullable) GTLRTesting_GoogleCloudStorage *googleCloudStorage;
 
+/** Output only. URL to the results in the Firebase Web Console. */
+@property(nonatomic, copy, nullable) NSString *resultsUrl;
+
 /** Output only. The tool results execution that results are written to. */
 @property(nonatomic, strong, nullable) GTLRTesting_ToolResultsExecution *toolResultsExecution;
 
@@ -2021,7 +2072,10 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @interface GTLRTesting_RoboStartingIntent : GTLRObject
 
+/** An intent that starts the main launcher activity. */
 @property(nonatomic, strong, nullable) GTLRTesting_LauncherActivityIntent *launcherActivity;
+
+/** An intent that starts an activity with specific details. */
 @property(nonatomic, strong, nullable) GTLRTesting_StartActivityIntent *startActivity;
 
 /** Timeout in seconds for each intent. */
@@ -2093,7 +2147,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  Specifies a single test to be executed in a single environment.
+ *  A single test executed in a single environment.
  */
 @interface GTLRTesting_TestExecution : GTLRObject
 
@@ -2101,7 +2155,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) GTLRTesting_Environment *environment;
 
 /**
- *  Output only. Unique id set by the backend.
+ *  Output only. Unique id set by the service.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2181,15 +2235,16 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  A group of one or more TestExecutions, built by taking a
- *  product of values over a pre-defined set of axes.
+ *  TestMatrix captures all details about a test. It contains the environment
+ *  configuration, test specification, test executions and overall state and
+ *  outcome.
  */
 @interface GTLRTesting_TestMatrix : GTLRObject
 
 /** Information about the client which invoked the test. */
 @property(nonatomic, strong, nullable) GTLRTesting_ClientInfo *clientInfo;
 
-/** Required. How the host machine(s) are configured. */
+/** Required. The devices the tests are being executed on. */
 @property(nonatomic, strong, nullable) GTLRTesting_EnvironmentMatrix *environmentMatrix;
 
 /**
@@ -2306,7 +2361,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        The request contains a scenario number that was not declared in the
  *        manifest. (Value: "SCENARIO_NOT_DECLARED")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestLoopIntentFilterNotFound
- *        There there is no test loop intent filter, or the one that is given is
+ *        There is no test loop intent filter, or the one that is given is
  *        not formatted correctly. (Value: "TEST_LOOP_INTENT_FILTER_NOT_FOUND")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestNotAppHosted XC
  *        tests which run on physical devices must have
@@ -2325,6 +2380,34 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, copy, nullable) NSString *invalidMatrixDetails;
 
+/**
+ *  Output Only. The overall outcome of the test.
+ *  Only set when the test matrix state is FINISHED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTesting_TestMatrix_OutcomeSummary_Failure A run failed, for
+ *        instance:
+ *        - One or more test case failed.
+ *        - A test timed out.
+ *        - The application under test crashed. (Value: "FAILURE")
+ *    @arg @c kGTLRTesting_TestMatrix_OutcomeSummary_Inconclusive Something
+ *        unexpected happened. The run should still be considered
+ *        unsuccessful but this is likely a transient problem and re-running the
+ *        test might be successful. (Value: "INCONCLUSIVE")
+ *    @arg @c kGTLRTesting_TestMatrix_OutcomeSummary_OutcomeSummaryUnspecified
+ *        Do not use. For proto versioning only. (Value:
+ *        "OUTCOME_SUMMARY_UNSPECIFIED")
+ *    @arg @c kGTLRTesting_TestMatrix_OutcomeSummary_Skipped All tests were
+ *        skipped, for instance:
+ *        - All device configurations were incompatible. (Value: "SKIPPED")
+ *    @arg @c kGTLRTesting_TestMatrix_OutcomeSummary_Success The test matrix run
+ *        was successful, for instance:
+ *        - All the test cases passed.
+ *        - Robo did not detect a crash of the application under test. (Value:
+ *        "SUCCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *outcomeSummary;
+
 /** The cloud project that owns the test matrix. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2332,8 +2415,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) GTLRTesting_ResultStorage *resultStorage;
 
 /**
- *  Output only. Indicates the current progress of the test matrix
- *  (e.g., FINISHED).
+ *  Output only. Indicates the current progress of the test matrix.
  *
  *  Likely values:
  *    @arg @c kGTLRTesting_TestMatrix_State_Cancelled The user cancelled the
@@ -2463,14 +2545,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) GTLRTesting_AndroidTestLoop *androidTestLoop;
 
 /**
- *  Disables performance metrics recording; may reduce test latency.
+ *  Disables performance metrics recording. May reduce test latency.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disablePerformanceMetrics;
 
 /**
- *  Disables video recording; may reduce test latency.
+ *  Disables video recording. May reduce test latency.
  *
  *  Uses NSNumber of boolValue.
  */

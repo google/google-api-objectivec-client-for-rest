@@ -770,7 +770,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
 
 
 /**
- *  GTLRToolResults_FailureDetail
+ *  Details for an outcome with a FAILURE outcome summary.
  */
 @interface GTLRToolResults_FailureDetail : GTLRObject
 
@@ -1011,7 +1011,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
 
 
 /**
- *  GTLRToolResults_InconclusiveDetail
+ *  Details for an outcome with an INCONCLUSIVE outcome summary.
  */
 @interface GTLRToolResults_InconclusiveDetail : GTLRObject
 
@@ -1044,6 +1044,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
 @interface GTLRToolResults_IndividualOutcome : GTLRObject
 
 /**
+ *  Unique int given to each step. Ranges from 0(inclusive) to total number of
+ *  steps(exclusive). The primary step is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multistepNumber;
+
+/**
  *  outcomeSummary
  *
  *  Likely values:
@@ -1061,6 +1069,9 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
  *        "unset"
  */
 @property(nonatomic, copy, nullable) NSString *outcomeSummary;
+
+/** How long it took for this step to run. */
+@property(nonatomic, strong, nullable) GTLRToolResults_Duration *runDuration;
 
 @property(nonatomic, copy, nullable) NSString *stepId;
 
@@ -1563,7 +1574,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
 
 
 /**
- *  GTLRToolResults_SkippedDetail
+ *  Details for an outcome with a SKIPPED outcome summary.
  */
 @interface GTLRToolResults_SkippedDetail : GTLRObject
 
@@ -1883,7 +1894,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
 
 
 /**
- *  GTLRToolResults_SuccessDetail
+ *  Details for an outcome with a SUCCESS outcome summary.
  */
 @interface GTLRToolResults_SuccessDetail : GTLRObject
 

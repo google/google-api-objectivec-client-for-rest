@@ -62,6 +62,14 @@ NSString * const kGTLRServiceConsumerManagement_LabelDescriptor_ValueType_String
 NSString * const kGTLRServiceConsumerManagement_Method_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceConsumerManagement_Method_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
+// GTLRServiceConsumerManagement_MetricDescriptor.launchStage
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_LaunchStage_Ga = @"GA";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+
 // GTLRServiceConsumerManagement_MetricDescriptor.metricKind
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_MetricKind_Cumulative = @"CUMULATIVE";
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_MetricKind_Delta = @"DELTA";
@@ -84,6 +92,14 @@ NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchS
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+
+// GTLRServiceConsumerManagement_MonitoredResourceDescriptor.launchStage
+NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Ga = @"GA";
+NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
 
 // GTLRServiceConsumerManagement_TenantResource.status
 NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_Active = @"ACTIVE";
@@ -181,16 +197,6 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceConsumerManagement_AuthorizationConfig
-//
-
-@implementation GTLRServiceConsumerManagement_AuthorizationConfig
-@dynamic provider;
 @end
 
 
@@ -520,16 +526,6 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceConsumerManagement_Experimental
-//
-
-@implementation GTLRServiceConsumerManagement_Experimental
-@dynamic authorization;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceConsumerManagement_Field
 //
 
@@ -737,8 +733,8 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 //
 
 @implementation GTLRServiceConsumerManagement_MetricDescriptor
-@dynamic descriptionProperty, displayName, labels, metadata, metricKind, name,
-         type, unit, valueType;
+@dynamic descriptionProperty, displayName, labels, launchStage, metadata,
+         metricKind, name, type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -804,7 +800,7 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 //
 
 @implementation GTLRServiceConsumerManagement_MonitoredResourceDescriptor
-@dynamic descriptionProperty, displayName, labels, name, type;
+@dynamic descriptionProperty, displayName, labels, launchStage, name, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1053,10 +1049,10 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 
 @implementation GTLRServiceConsumerManagement_Service
 @dynamic apis, authentication, backend, billing, configVersion, context,
-         control, customError, documentation, endpoints, enums, experimental,
-         http, identifier, logging, logs, metrics, monitoredResources,
-         monitoring, name, producerProjectId, quota, sourceInfo,
-         systemParameters, systemTypes, title, types, usage;
+         control, customError, documentation, endpoints, enums, http,
+         identifier, logging, logs, metrics, monitoredResources, monitoring,
+         name, producerProjectId, quota, sourceInfo, systemParameters,
+         systemTypes, title, types, usage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

@@ -18,9 +18,9 @@
 @implementation GTLRStorage_Bucket
 @dynamic acl, billing, cors, defaultEventBasedHold, defaultObjectAcl,
          encryption, ETag, iamConfiguration, identifier, kind, labels,
-         lifecycle, location, logging, metageneration, name, owner,
-         projectNumber, retentionPolicy, selfLink, storageClass, timeCreated,
-         updated, versioning, website;
+         lifecycle, location, locationType, logging, metageneration, name,
+         owner, projectNumber, retentionPolicy, selfLink, storageClass,
+         timeCreated, updated, versioning, website;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

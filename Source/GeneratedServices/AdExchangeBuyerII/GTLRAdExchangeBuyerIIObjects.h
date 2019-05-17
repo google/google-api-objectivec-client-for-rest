@@ -51,7 +51,6 @@
 @class GTLRAdExchangeBuyerII_Disapproval;
 @class GTLRAdExchangeBuyerII_FilteredBidCreativeRow;
 @class GTLRAdExchangeBuyerII_FilteredBidDetailRow;
-@class GTLRAdExchangeBuyerII_FilteringStats;
 @class GTLRAdExchangeBuyerII_FilterSet;
 @class GTLRAdExchangeBuyerII_FirstPartyMobileApplicationTargeting;
 @class GTLRAdExchangeBuyerII_FrequencyCap;
@@ -80,7 +79,6 @@
 @class GTLRAdExchangeBuyerII_Proposal;
 @class GTLRAdExchangeBuyerII_PublisherProfile;
 @class GTLRAdExchangeBuyerII_RealtimeTimeRange;
-@class GTLRAdExchangeBuyerII_Reason;
 @class GTLRAdExchangeBuyerII_RelativeDateRange;
 @class GTLRAdExchangeBuyerII_RowDimensions;
 @class GTLRAdExchangeBuyerII_SecurityContext;
@@ -2148,7 +2146,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 
 /**
- *  \@OutputOnly The app type the restriction applies to for mobile device.
+ *  Output only. The app type the restriction applies to for mobile device.
  */
 @interface GTLRAdExchangeBuyerII_AppContext : GTLRObject
 
@@ -2159,7 +2157,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 
 /**
- *  \@OutputOnly The auction type the restriction applies to.
+ *  Output only. The auction type the restriction applies to.
  */
 @interface GTLRAdExchangeBuyerII_AuctionContext : GTLRObject
 
@@ -2545,7 +2543,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 
 /**
- *  \@OutputOnly Shows any corrections that were applied to this creative.
+ *  Output only. Shows any corrections that were applied to this creative.
  */
 @interface GTLRAdExchangeBuyerII_Correction : GTLRObject
 
@@ -2630,7 +2628,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @property(nonatomic, strong, nullable) NSNumber *agencyId;
 
-/** \@OutputOnly The last update timestamp of the creative via API. */
+/** Output only. The last update timestamp of the creative via API. */
 @property(nonatomic, strong, nullable) GTLRDateTime *apiUpdateTime;
 
 /**
@@ -2644,7 +2642,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 /** The set of destination URLs for the creative. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clickThroughUrls;
 
-/** \@OutputOnly Shows any corrections that were applied to this creative. */
+/** Output only. Shows any corrections that were applied to this creative. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Correction *> *corrections;
 
 /**
@@ -2656,7 +2654,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, copy, nullable) NSString *creativeId;
 
 /**
- *  \@OutputOnly The top-level deals status of this creative.
+ *  Output only. The top-level deals status of this creative.
  *  If disapproved, an entry for 'auctionType=DIRECT_DEALS' (or 'ALL') in
  *  serving_restrictions will also exist. Note
  *  that this may be nuanced with other contextual restrictions, in which case,
@@ -2685,28 +2683,24 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, strong, nullable) NSArray<NSString *> *declaredClickThroughUrls;
 
 /**
- *  \@OutputOnly Detected advertiser IDs, if any.
+ *  Output only. Detected advertiser IDs, if any.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *detectedAdvertiserIds;
 
-/**
- *  \@OutputOnly
- *  The detected domains for this creative.
- */
+/** Output only. The detected domains for this creative. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedDomains;
 
 /**
- *  \@OutputOnly
- *  The detected languages for this creative. The order is arbitrary. The codes
- *  are 2 or 5 characters and are documented at
+ *  Output only. The detected languages for this creative. The order is
+ *  arbitrary. The codes are 2 or 5 characters and are documented at
  *  https://developers.google.com/adwords/api/docs/appendix/languagecodes.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedLanguages;
 
 /**
- *  \@OutputOnly Detected product categories, if any.
+ *  Output only. Detected product categories, if any.
  *  See the ad-product-categories.txt file in the technical documentation
  *  for a list of IDs.
  *
@@ -2715,7 +2709,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *detectedProductCategories;
 
 /**
- *  \@OutputOnly Detected sensitive categories, if any.
+ *  Output only. Detected sensitive categories, if any.
  *  See the ad-sensitive-categories.txt file in the technical documentation for
  *  a list of IDs. You should use these IDs along with the
  *  excluded-sensitive-category field in the bid request to filter your bids.
@@ -2723,14 +2717,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *detectedSensitiveCategories;
-
-/**
- *  \@OutputOnly The filtering stats for this creative.
- *  Deprecated; please use
- *  bidders.accounts.filterSets.filteredBids.creatives.list
- *  method instead.
- */
-@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_FilteringStats *filteringStats;
 
 /** An HTML creative. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_HtmlContent *html;
@@ -2742,7 +2728,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_NativeContent *native;
 
 /**
- *  \@OutputOnly The top-level open auction status of this creative.
+ *  Output only. The top-level open auction status of this creative.
  *  If disapproved, an entry for 'auctionType = OPEN_AUCTION' (or 'ALL') in
  *  serving_restrictions will also exist. Note
  *  that this may be nuanced with other contextual restrictions, in which case,
@@ -2773,7 +2759,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedCategories;
 
 /**
- *  \@OutputOnly The granular status of this ad in specific contexts.
+ *  Output only. The granular status of this ad in specific contexts.
  *  A context here relates to where something ultimately serves (for example,
  *  a physical location, a platform, an HTTPS vs HTTP request, or the type
  *  of auction).
@@ -2790,7 +2776,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *vendorIds;
 
 /**
- *  \@OutputOnly The version of this creative.
+ *  Output only. The version of this creative.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2904,9 +2890,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, copy, nullable) NSString *creativeSizeType;
 
 /**
- *  The native template for this creative. It will have a value only if
- *  creative_size_type = CreativeSizeType.NATIVE.
- *  \@OutputOnly
+ *  Output only. The native template for this creative. It will have a value
+ *  only if creative_size_type = CreativeSizeType.NATIVE.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeAppInstallAd
@@ -3179,15 +3164,11 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @property(nonatomic, strong, nullable) NSNumber *createProductRevision;
 
-/**
- *  The time of the deal creation.
- *  \@OutputOnly
- */
+/** Output only. The time of the deal creation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Specifies the creative pre-approval policy.
- *  \@OutputOnly
+ *  Output only. Specifies the creative pre-approval policy.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_CreativePreApprovalPolicyUnspecified
@@ -3203,16 +3184,14 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, copy, nullable) NSString *creativePreApprovalPolicy;
 
 /**
- *  Restricitions about the creatives associated with the deal (i.e., size)
- *  This is available for Programmatic Guaranteed/Preferred Deals in Ad
- *  Manager.
- *  \@OutputOnly
+ *  Output only. Restricitions about the creatives associated with the deal
+ *  (i.e., size) This is available for Programmatic Guaranteed/Preferred Deals
+ *  in Ad Manager.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CreativeRestrictions *creativeRestrictions;
 
 /**
- *  Specifies whether the creative is safeFrame compatible.
- *  \@OutputOnly
+ *  Output only. Specifies whether the creative is safeFrame compatible.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_Compatible
@@ -3227,16 +3206,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @property(nonatomic, copy, nullable) NSString *creativeSafeFrameCompatibility;
 
-/**
- *  A unique deal ID for the deal (server-assigned).
- *  \@OutputOnly
- */
+/** Output only. A unique deal ID for the deal (server-assigned). */
 @property(nonatomic, copy, nullable) NSString *dealId;
 
-/**
- *  Metadata about the serving status of this deal.
- *  \@OutputOnly
- */
+/** Output only. Metadata about the serving status of this deal. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_DealServingMetadata *dealServingMetadata;
 
 /** The negotiable terms of the deal. */
@@ -3259,25 +3232,23 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The external deal ID assigned to this deal once the deal is finalized.
- *  This is the deal ID that shows up in serving/reporting etc.
- *  \@OutputOnly
+ *  Output only. The external deal ID assigned to this deal once the deal is
+ *  finalized. This is the deal ID that shows up in serving/reporting etc.
  */
 @property(nonatomic, copy, nullable) NSString *externalDealId;
 
 /**
- *  True, if the buyside inventory setup is complete for this deal.
- *  \@OutputOnly
+ *  Output only. True, if the buyside inventory setup is complete for this
+ *  deal.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isSetupComplete;
 
 /**
- *  Specifies the creative source for programmatic deals. PUBLISHER means
- *  creative is provided by seller and ADVERTISER means creative is
- *  provided by buyer.
- *  \@OutputOnly
+ *  Output only. Specifies the creative source for programmatic deals.
+ *  PUBLISHER means creative is provided by seller and ADVERTISER means
+ *  creative is provided by buyer.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_Advertiser
@@ -3291,16 +3262,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @property(nonatomic, copy, nullable) NSString *programmaticCreativeSource;
 
-/**
- *  ID of the proposal that this deal is part of.
- *  \@OutputOnly
- */
+/** Output only. ID of the proposal that this deal is part of. */
 @property(nonatomic, copy, nullable) NSString *proposalId;
 
-/**
- *  Seller contact information for the deal.
- *  \@OutputOnly
- */
+/** Output only. Seller contact information for the deal. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ContactInformation *> *sellerContacts;
 
 /**
@@ -3323,10 +3288,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @property(nonatomic, copy, nullable) NSString *syndicationProduct;
 
-/**
- *  Specifies the subset of inventory targeted by the deal.
- *  \@OutputOnly
- */
+/** Output only. Specifies the subset of inventory targeted by the deal. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MarketplaceTargeting *targeting;
 
 /**
@@ -3335,10 +3297,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_TargetingCriteria *> *targetingCriterion;
 
-/**
- *  The time when the deal was last updated.
- *  \@OutputOnly
- */
+/** Output only. The time when the deal was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /** The web property code for the seller copied over from the product. */
@@ -3396,10 +3355,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @interface GTLRAdExchangeBuyerII_DealServingMetadata : GTLRObject
 
-/**
- *  Tracks which parties (if any) have paused a deal.
- *  \@OutputOnly
- */
+/** Output only. Tracks which parties (if any) have paused a deal. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_DealPauseStatus *dealPauseStatus;
 
 @end
@@ -3474,8 +3430,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @interface GTLRAdExchangeBuyerII_DeliveryControl : GTLRObject
 
 /**
- *  Specified the creative blocking levels to be applied.
- *  \@OutputOnly
+ *  Output only. Specified the creative blocking levels to be applied.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_AdxPolicyBlockingOnly
@@ -3491,8 +3446,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, copy, nullable) NSString *creativeBlockingLevel;
 
 /**
- *  Specifies how the impression delivery will be paced.
- *  \@OutputOnly
+ *  Output only. Specifies how the impression delivery will be paced.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_AsFastAsPossible
@@ -3509,17 +3463,14 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @property(nonatomic, copy, nullable) NSString *deliveryRateType;
 
-/**
- *  Specifies any frequency caps.
- *  \@OutputOnly
- */
+/** Output only. Specifies any frequency caps. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_FrequencyCap *> *frequencyCaps;
 
 @end
 
 
 /**
- *  \@OutputOnly The reason and details for a disapproval.
+ *  Output only. The reason and details for a disapproval.
  */
 @interface GTLRAdExchangeBuyerII_Disapproval : GTLRObject
 
@@ -3859,26 +3810,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 /** The values of all dimensions associated with metric values in this row. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_RowDimensions *rowDimensions;
-
-@end
-
-
-/**
- *  \@OutputOnly Filtering reasons for this creative during a period of a single
- *  day (from midnight to midnight Pacific).
- */
-@interface GTLRAdExchangeBuyerII_FilteringStats : GTLRObject
-
-/**
- *  The day during which the data was collected.
- *  The data is collected from 00:00:00 to 23:59:59 PT.
- *  During switches from PST to PDT and back, the day may
- *  contain 23 or 25 hours of data instead of the usual 24.
- */
-@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Date *date;
-
-/** The set of filtering reasons for this date. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Reason *> *reasons;
 
 @end
 
@@ -4835,7 +4766,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 
 /**
- *  \@OutputOnly The Geo criteria the restriction applies to.
+ *  Output only. The Geo criteria the restriction applies to.
  */
 @interface GTLRAdExchangeBuyerII_LocationContext : GTLRObject
 
@@ -5078,15 +5009,11 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @interface GTLRAdExchangeBuyerII_Note : GTLRObject
 
-/**
- *  The timestamp for when this note was created.
- *  \@OutputOnly
- */
+/** Output only. The timestamp for when this note was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The role of the person (buyer/seller) creating the note.
- *  \@OutputOnly
+ *  Output only. The role of the person (buyer/seller) creating the note.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Note_CreatorRole_Buyer Specifies the role
@@ -5107,15 +5034,11 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @property(nonatomic, copy, nullable) NSString *note;
 
-/**
- *  The unique ID for the note.
- *  \@OutputOnly
- */
+/** Output only. The unique ID for the note. */
 @property(nonatomic, copy, nullable) NSString *noteId;
 
 /**
- *  The revision number of the proposal when the note is created.
- *  \@OutputOnly
+ *  Output only. The revision number of the proposal when the note is created.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5173,7 +5096,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 
 /**
- *  \@OutputOnly The type of platform the restriction applies to.
+ *  Output only. The type of platform the restriction applies to.
  */
 @interface GTLRAdExchangeBuyerII_PlatformContext : GTLRObject
 
@@ -5367,8 +5290,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @interface GTLRAdExchangeBuyerII_Proposal : GTLRObject
 
 /**
- *  Reference to the buyer that will get billed for this proposal.
- *  \@OutputOnly
+ *  Output only. Reference to the buyer that will get billed for this proposal.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Buyer *billedBuyer;
 
@@ -5395,25 +5317,23 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  True if the proposal is being renegotiated.
- *  \@OutputOnly
+ *  Output only. True if the proposal is being renegotiated.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isRenegotiating;
 
 /**
- *  True, if the buyside inventory setup is complete for this proposal.
- *  \@OutputOnly
+ *  Output only. True, if the buyside inventory setup is complete for this
+ *  proposal.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isSetupComplete;
 
 /**
- *  The role of the last user that either updated the proposal or left a
- *  comment.
- *  \@OutputOnly
+ *  Output only. The role of the last user that either updated the proposal or
+ *  left a comment.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_Buyer
@@ -5426,15 +5346,11 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @property(nonatomic, copy, nullable) NSString *lastUpdaterOrCommentorRole;
 
-/**
- *  The notes associated with this proposal.
- *  \@OutputOnly
- */
+/** Output only. The notes associated with this proposal. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Note *> *notes;
 
 /**
- *  Indicates whether the buyer/seller created the proposal.
- *  \@OutputOnly
+ *  Output only. Indicates whether the buyer/seller created the proposal.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_Buyer Specifies the
@@ -5448,34 +5364,29 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, copy, nullable) NSString *originatorRole;
 
 /**
- *  Private auction ID if this proposal is a private auction proposal.
- *  \@OutputOnly
+ *  Output only. Private auction ID if this proposal is a private auction
+ *  proposal.
  */
 @property(nonatomic, copy, nullable) NSString *privateAuctionId;
 
-/**
- *  The unique ID of the proposal.
- *  \@OutputOnly
- */
+/** Output only. The unique ID of the proposal. */
 @property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
- *  The revision number for the proposal.
+ *  Output only. The revision number for the proposal.
  *  Each update to the proposal or the deal causes the proposal revision number
  *  to auto-increment. The buyer keeps track of the last revision number they
  *  know of and pass it in when making an update. If the head revision number
  *  on the server has since incremented, then an ABORTED error is returned
  *  during the update operation to let the buyer know that a subsequent update
  *  was made.
- *  \@OutputOnly
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *proposalRevision;
 
 /**
- *  The current state of the proposal.
- *  \@OutputOnly
+ *  Output only. The current state of the proposal.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Proposal_ProposalState_BuyerAccepted The
@@ -5503,16 +5414,10 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Seller *seller;
 
-/**
- *  Contact information for the seller.
- *  \@OutputOnly
- */
+/** Output only. Contact information for the seller. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ContactInformation *> *sellerContacts;
 
-/**
- *  The time when the proposal was last revised.
- *  \@OutputOnly
- */
+/** Output only. The time when the proposal was last revised. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -5612,31 +5517,6 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 
 /**
- *  A specific filtering status and how many times it occurred.
- */
-@interface GTLRAdExchangeBuyerII_Reason : GTLRObject
-
-/**
- *  The number of times the creative was filtered for the status. The
- *  count is aggregated across all publishers on the exchange.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *count;
-
-/**
- *  The filtering status code. Please refer to the
- *  [creative-status-codes.txt](https://storage.googleapis.com/adx-rtb-dictionaries/creative-status-codes.txt)
- *  file for different statuses.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *status;
-
-@end
-
-
-/**
  *  A relative date range, specified by an offset and a duration.
  *  The supported range of dates begins 30 days before today and ends today,
  *  i.e., the limits for these values are:
@@ -5705,7 +5585,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 
 /**
- *  \@OutputOnly A security context.
+ *  Output only. A security context.
  */
 @interface GTLRAdExchangeBuyerII_SecurityContext : GTLRObject
 
@@ -5769,7 +5649,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 
 /**
- *  \@OutputOnly A representation of the status of an ad in a
+ *  Output only. A representation of the status of an ad in a
  *  specific context. A context here relates to where something ultimately
  *  serves
  *  (for example, a user or publisher geo, a platform, an HTTPS vs HTTP request,

@@ -1054,6 +1054,25 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 @end
 
+@implementation GTLRGmailQuery_UsersSettingsGetLanguage
+
+@dynamic userId;
+
++ (instancetype)queryWithUserId:(NSString *)userId {
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/language";
+  GTLRGmailQuery_UsersSettingsGetLanguage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_LanguageSettings class];
+  query.loggingName = @"gmail.users.settings.getLanguage";
+  return query;
+}
+
+@end
+
 @implementation GTLRGmailQuery_UsersSettingsGetPop
 
 @dynamic userId;
@@ -1443,6 +1462,31 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   query.userId = userId;
   query.expectedObjectClass = [GTLRGmail_ImapSettings class];
   query.loggingName = @"gmail.users.settings.updateImap";
+  return query;
+}
+
+@end
+
+@implementation GTLRGmailQuery_UsersSettingsUpdateLanguage
+
+@dynamic userId;
+
++ (instancetype)queryWithObject:(GTLRGmail_LanguageSettings *)object
+                         userId:(NSString *)userId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"userId" ];
+  NSString *pathURITemplate = @"{userId}/settings/language";
+  GTLRGmailQuery_UsersSettingsUpdateLanguage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRGmail_LanguageSettings class];
+  query.loggingName = @"gmail.users.settings.updateLanguage";
   return query;
 }
 

@@ -337,9 +337,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  clusters.
  *
  *  Method: container.projects.locations.clusters.getJwks
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersGetJwks : GTLRContainerQuery
 // Previous library name was
@@ -1287,9 +1284,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  clusters.
  *
  *  Method: container.projects.locations.clusters.well-known.getOpenid-configuration
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersWellKnownGetOpenidConfiguration : GTLRContainerQuery
 // Previous library name was

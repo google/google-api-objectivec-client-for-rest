@@ -1102,6 +1102,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  * `max_points`
  *  * `scheduled_time`
  *  * `submission_modification_mode`
+ *  * `topic_id`
  *
  *  String format is a comma-separated list of fields.
  */

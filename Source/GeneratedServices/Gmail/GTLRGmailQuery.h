@@ -27,6 +27,7 @@
 @class GTLRGmail_ForwardingAddress;
 @class GTLRGmail_ImapSettings;
 @class GTLRGmail_Label;
+@class GTLRGmail_LanguageSettings;
 @class GTLRGmail_Message;
 @class GTLRGmail_ModifyMessageRequest;
 @class GTLRGmail_ModifyThreadRequest;
@@ -2029,6 +2030,43 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
+ *  Gets language settings.
+ *
+ *  Method: gmail.users.settings.getLanguage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailMailGoogleCom
+ *    @c kGTLRAuthScopeGmailModify
+ *    @c kGTLRAuthScopeGmailReadonly
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ */
+@interface GTLRGmailQuery_UsersSettingsGetLanguage : GTLRGmailQuery
+// Previous library name was
+//   +[GTLQueryGmail queryForUsersSettingsGetLanguageWithuserId:]
+
+/**
+ *  User's email address. The special value "me" can be used to indicate the
+ *  authenticated user.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_LanguageSettings.
+ *
+ *  Gets language settings.
+ *
+ *  @param userId User's email address. The special value "me" can be used to
+ *    indicate the authenticated user. (Default me)
+ *
+ *  @return GTLRGmailQuery_UsersSettingsGetLanguage
+ */
++ (instancetype)queryWithUserId:(NSString *)userId;
+
+@end
+
+/**
  *  Gets POP settings.
  *
  *  Method: gmail.users.settings.getPop
@@ -2762,6 +2800,52 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  @return GTLRGmailQuery_UsersSettingsUpdateImap
  */
 + (instancetype)queryWithObject:(GTLRGmail_ImapSettings *)object
+                         userId:(NSString *)userId;
+
+@end
+
+/**
+ *  Updates language settings.
+ *  If successful, the return object contains the displayLanguage that was saved
+ *  for the user, which may differ from the value passed into the request. This
+ *  is because the requested displayLanguage may not be directly supported by
+ *  Gmail but have a close variant that is, and so the variant may be chosen and
+ *  saved instead.
+ *
+ *  Method: gmail.users.settings.updateLanguage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailSettingsBasic
+ */
+@interface GTLRGmailQuery_UsersSettingsUpdateLanguage : GTLRGmailQuery
+// Previous library name was
+//   +[GTLQueryGmail queryForUsersSettingsUpdateLanguageWithObject:userId:]
+
+/**
+ *  User's email address. The special value "me" can be used to indicate the
+ *  authenticated user.
+ *
+ *  @note If not set, the documented server-side default will be me.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRGmail_LanguageSettings.
+ *
+ *  Updates language settings.
+ *  If successful, the return object contains the displayLanguage that was saved
+ *  for the user, which may differ from the value passed into the request. This
+ *  is because the requested displayLanguage may not be directly supported by
+ *  Gmail but have a close variant that is, and so the variant may be chosen and
+ *  saved instead.
+ *
+ *  @param object The @c GTLRGmail_LanguageSettings to include in the query.
+ *  @param userId User's email address. The special value "me" can be used to
+ *    indicate the authenticated user. (Default me)
+ *
+ *  @return GTLRGmailQuery_UsersSettingsUpdateLanguage
+ */
++ (instancetype)queryWithObject:(GTLRGmail_LanguageSettings *)object
                          userId:(NSString *)userId;
 
 @end

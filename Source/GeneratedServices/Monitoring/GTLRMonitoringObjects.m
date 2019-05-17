@@ -102,6 +102,14 @@ NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Bool = @"BOOL";
 NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Int64 = @"INT64";
 NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_String = @"STRING";
 
+// GTLRMonitoring_MetricDescriptor.launchStage
+NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Ga = @"GA";
+NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+
 // GTLRMonitoring_MetricDescriptor.metricKind
 NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_Cumulative = @"CUMULATIVE";
 NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_Delta = @"DELTA";
@@ -133,6 +141,14 @@ NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonLe = @"COM
 NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonLt = @"COMPARISON_LT";
 NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonNe = @"COMPARISON_NE";
 NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonUnspecified = @"COMPARISON_UNSPECIFIED";
+
+// GTLRMonitoring_MonitoredResourceDescriptor.launchStage
+NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Ga = @"GA";
+NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
 
 // GTLRMonitoring_NotificationChannel.verificationStatus
 NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_Unverified = @"UNVERIFIED";
@@ -901,8 +917,8 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_MetricDescriptor
-@dynamic descriptionProperty, displayName, labels, metadata, metricKind, name,
-         type, unit, valueType;
+@dynamic descriptionProperty, displayName, labels, launchStage, metadata,
+         metricKind, name, type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -978,7 +994,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_MonitoredResourceDescriptor
-@dynamic descriptionProperty, displayName, labels, name, type;
+@dynamic descriptionProperty, displayName, labels, launchStage, name, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

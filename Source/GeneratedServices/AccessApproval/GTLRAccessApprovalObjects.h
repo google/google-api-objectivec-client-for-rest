@@ -23,6 +23,7 @@
 @class GTLRAccessApproval_ApprovalRequest;
 @class GTLRAccessApproval_ApproveDecision;
 @class GTLRAccessApproval_DismissDecision;
+@class GTLRAccessApproval_ResourceProperties;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -207,6 +208,11 @@ GTLR_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecifi
  */
 @property(nonatomic, copy, nullable) NSString *requestedResourceName;
 
+/**
+ *  Properties related to the resource represented by requested_resource_name.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessApproval_ResourceProperties *requestedResourceProperties;
+
 /** The time at which approval was requested. */
 @property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
 
@@ -278,6 +284,22 @@ GTLR_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecifi
  *  Token to retrieve the next page of results, or empty if there are no more.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The properties associated with the resource of the request.
+ */
+@interface GTLRAccessApproval_ResourceProperties : GTLRObject
+
+/**
+ *  Whether an approval will exclude the descendants of the resource being
+ *  requested.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *excludesDescendants;
 
 @end
 

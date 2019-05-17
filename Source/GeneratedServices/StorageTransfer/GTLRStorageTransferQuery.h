@@ -61,9 +61,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryStorageTransfer queryForGoogleServiceAccountsGetWithprojectId:]
 
 /**
- *  The ID of the Google Cloud Platform Console project that the Google service
- *  account is associated with.
- *  Required.
+ *  Required. The ID of the Google Cloud Platform Console project that the
+ *  Google service account is associated with.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -79,10 +78,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  account is created and owned by Storage Transfer Service and can
  *  only be used by Storage Transfer Service.
  *
- *  @param projectId The ID of the Google Cloud Platform Console project that
- *    the Google service
- *    account is associated with.
- *    Required.
+ *  @param projectId Required. The ID of the Google Cloud Platform Console
+ *    project that the
+ *    Google service account is associated with.
  *
  *  @return GTLRStorageTransferQuery_GoogleServiceAccountsGet
  */
@@ -128,15 +126,12 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryStorageTransfer queryForTransferJobsGetWithjobName:]
 
-/**
- *  The job to get.
- *  Required.
- */
+/** Required. The job to get. */
 @property(nonatomic, copy, nullable) NSString *jobName;
 
 /**
- *  The ID of the Google Cloud Platform Console project that owns the job.
- *  Required.
+ *  Required. The ID of the Google Cloud Platform Console project that owns the
+ *  job.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -145,8 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a transfer job.
  *
- *  @param jobName The job to get.
- *    Required.
+ *  @param jobName Required. The job to get.
  *
  *  @return GTLRStorageTransferQuery_TransferJobsGet
  */
@@ -167,7 +161,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryStorageTransfer queryForTransferJobsList]
 
 /**
- *  A list of query parameters specified as JSON text in the form of
+ *  Required. A list of query parameters specified as JSON text in the form of:
  *  {"project_id":"my_project_id",
  *  "job_names":["jobid1","jobid2",...],
  *  "job_statuses":["status1","status2",...]}.
@@ -213,10 +207,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryStorageTransfer queryForTransferJobsPatchWithObject:jobName:]
 
-/**
- *  The name of job to update.
- *  Required.
- */
+/** Required. The name of job to update. */
 @property(nonatomic, copy, nullable) NSString *jobName;
 
 /**
@@ -228,8 +219,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRStorageTransfer_UpdateTransferJobRequest to include
  *    in the query.
- *  @param jobName The name of job to update.
- *    Required.
+ *  @param jobName Required. The name of job to update.
  *
  *  @return GTLRStorageTransferQuery_TransferJobsPatch
  */
@@ -349,17 +339,20 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryStorageTransfer queryForTransferOperationsListWithname:]
 
 /**
- *  A list of query parameters specified as JSON text in the form of
- *  {\\"project_id\\" : \\"my_project_id\\", \\"job_names\\" : [\\"jobid1\\",
- *  \\"jobid2\\",...], \\"operation_names\\" : [\\"opid1\\", \\"opid2\\",...],
- *  \\"transfer_statuses\\":[\\"status1\\", \\"status2\\",...]}. Since
- *  `job_names`, `operation_names`, and `transfer_statuses` support multiple
- *  values, they must be specified with array notation. `job_names`,
- *  `operation_names`, and `transfer_statuses` are optional.
+ *  Required. A list of query parameters specified as JSON text in the form of:
+ *  {"project_id":"my_project_id",
+ *  "job_names":["jobid1","jobid2",...],
+ *  "operation_names":["opid1","opid2",...],
+ *  "transfer_statuses":["status1","status2",...]}.
+ *  Since `job_names`, `operation_names`, and `transfer_statuses` support
+ *  multiple values, they must be specified with array notation. `project_id` is
+ *  required. `job_names`, `operation_names`, and `transfer_statuses` are
+ *  optional. The valid values for `transfer_statuses` are case-insensitive:
+ *  `IN_PROGRESS`, `PAUSED`, `SUCCESS`, `FAILED`, and `ABORTED`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The value `transferOperations`. */
+/** Required. The value `transferOperations`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The list page size. The max allowed value is 256. */
@@ -381,7 +374,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  collection id, however overriding users must ensure the name binding
  *  is the parent resource, without the operations collection id.
  *
- *  @param name The value `transferOperations`.
+ *  @param name Required. The value `transferOperations`.
  *
  *  @return GTLRStorageTransferQuery_TransferOperationsList
  *
@@ -405,10 +398,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryStorageTransfer queryForTransferOperationsPauseWithObject:name:]
 
-/**
- *  The name of the transfer operation.
- *  Required.
- */
+/** Required. The name of the transfer operation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -418,8 +408,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRStorageTransfer_PauseTransferOperationRequest to
  *    include in the query.
- *  @param name The name of the transfer operation.
- *    Required.
+ *  @param name Required. The name of the transfer operation.
  *
  *  @return GTLRStorageTransferQuery_TransferOperationsPause
  */
@@ -440,10 +429,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryStorageTransfer queryForTransferOperationsResumeWithObject:name:]
 
-/**
- *  The name of the transfer operation.
- *  Required.
- */
+/** Required. The name of the transfer operation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -453,8 +439,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRStorageTransfer_ResumeTransferOperationRequest to
  *    include in the query.
- *  @param name The name of the transfer operation.
- *    Required.
+ *  @param name Required. The name of the transfer operation.
  *
  *  @return GTLRStorageTransferQuery_TransferOperationsResume
  */

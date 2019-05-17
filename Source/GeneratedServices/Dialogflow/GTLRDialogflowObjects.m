@@ -35,6 +35,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_Kin
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent.defaultResponsePlatforms
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_ActionsOnGoogle = @"ACTIONS_ON_GOOGLE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Facebook = @"FACEBOOK";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_GoogleHangouts = @"GOOGLE_HANGOUTS";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Kik = @"KIK";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Line = @"LINE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_PlatformUnspecified = @"PLATFORM_UNSPECIFIED";
@@ -52,6 +53,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_WebhookState
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage.platform
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_ActionsOnGoogle = @"ACTIONS_ON_GOOGLE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Facebook = @"FACEBOOK";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_GoogleHangouts = @"GOOGLE_HANGOUTS";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Kik = @"KIK";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Line = @"LINE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_PlatformUnspecified = @"PLATFORM_UNSPECIFIED";
@@ -97,9 +99,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEn
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingSpeexWithHeaderByte = @"AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingUnspecified = @"AUDIO_ENCODING_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig.modelVariant
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_SpeechModelVariantUnspecified = @"SPEECH_MODEL_VARIANT_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseBestAvailable = @"USE_BEST_AVAILABLE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseEnhanced = @"USE_ENHANCED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseStandard = @"USE_STANDARD";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2Intent.defaultResponsePlatforms
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_ActionsOnGoogle = @"ACTIONS_ON_GOOGLE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Facebook = @"FACEBOOK";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_GoogleHangouts = @"GOOGLE_HANGOUTS";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Kik = @"KIK";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Line = @"LINE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_PlatformUnspecified = @"PLATFORM_UNSPECIFIED";
@@ -116,6 +125,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_WebhookState_Webh
 // GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage.platform
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_ActionsOnGoogle = @"ACTIONS_ON_GOOGLE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Facebook = @"FACEBOOK";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_GoogleHangouts = @"GOOGLE_HANGOUTS";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Kik = @"KIK";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Line = @"LINE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_PlatformUnspecified = @"PLATFORM_UNSPECIFIED";
@@ -1222,7 +1232,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig
-@dynamic audioEncoding, languageCode, phraseHints, sampleRateHertz;
+@dynamic audioEncoding, languageCode, modelVariant, phraseHints,
+         sampleRateHertz;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

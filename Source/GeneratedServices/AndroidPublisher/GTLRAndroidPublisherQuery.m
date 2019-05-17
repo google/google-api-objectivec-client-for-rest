@@ -1127,6 +1127,48 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadapk
+
+@dynamic packageName;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                    uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"internalappsharing/{packageName}/artifacts/apk";
+  GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadapk *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRAndroidPublisher_InternalAppSharingArtifact class];
+  query.loggingName = @"androidpublisher.internalappsharingartifacts.uploadapk";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadbundle
+
+@dynamic packageName;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                    uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"internalappsharing/{packageName}/artifacts/bundle";
+  GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadbundle *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRAndroidPublisher_InternalAppSharingArtifact class];
+  query.loggingName = @"androidpublisher.internalappsharingartifacts.uploadbundle";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_OrdersRefund
 
 @dynamic orderId, packageName, revoke;
@@ -1144,6 +1186,36 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   query.packageName = packageName;
   query.orderId = orderId;
   query.loggingName = @"androidpublisher.orders.refund";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_PurchasesProductsAcknowledge
+
+@dynamic packageName, productId, token;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                          token:(NSString *)token {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"productId", @"token"
+  ];
+  NSString *pathURITemplate = @"{packageName}/purchases/products/{productId}/tokens/{token}:acknowledge";
+  GTLRAndroidPublisherQuery_PurchasesProductsAcknowledge *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.token = token;
+  query.loggingName = @"androidpublisher.purchases.products.acknowledge";
   return query;
 }
 
@@ -1169,6 +1241,36 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   query.token = token;
   query.expectedObjectClass = [GTLRAndroidPublisher_ProductPurchase class];
   query.loggingName = @"androidpublisher.purchases.products.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_PurchasesSubscriptionsAcknowledge
+
+@dynamic packageName, subscriptionId, token;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest *)object
+                    packageName:(NSString *)packageName
+                 subscriptionId:(NSString *)subscriptionId
+                          token:(NSString *)token {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"subscriptionId", @"token"
+  ];
+  NSString *pathURITemplate = @"{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:acknowledge";
+  GTLRAndroidPublisherQuery_PurchasesSubscriptionsAcknowledge *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.subscriptionId = subscriptionId;
+  query.token = token;
+  query.loggingName = @"androidpublisher.purchases.subscriptions.acknowledge";
   return query;
 }
 

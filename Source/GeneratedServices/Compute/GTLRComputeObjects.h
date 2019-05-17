@@ -10589,7 +10589,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding. NOTE: an unsatisfied
+ *  The condition that is associated with this binding. NOTE: An unsatisfied
  *  condition will not allow user access via current binding. Different
  *  bindings, including their conditions, are examined independently.
  */
@@ -13028,7 +13028,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  [Output Only] Absolute value of VM instances calculated based on the
  *  specific mode.
- *  - If the value is fixed, then the caculated value is equal to the fixed
+ *  - If the value is fixed, then the calculated value is equal to the fixed
  *  value.
  *  - If the value is a percent, then the calculated value is percent/100 *
  *  targetSize. For example, the calculated value of a 80% of a managed instance
@@ -13898,9 +13898,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSNumber *timeoutSec;
 
 /**
- *  Specifies the type of the healthCheck, either TCP, SSL, HTTP or HTTPS. If
- *  not specified, the default is TCP. Exactly one of the protocol-specific
- *  health check field must be specified, which must match type field.
+ *  Specifies the type of the healthCheck, either TCP, SSL, HTTP, HTTPS or
+ *  HTTP2. If not specified, the default is TCP. Exactly one of the
+ *  protocol-specific health check field must be specified, which must match
+ *  type field.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_HealthCheck_Type_Http Value "HTTP"
@@ -16180,8 +16181,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  Specifies the instance templates used by this managed instance group to
  *  create instances.
- *  Each version is defined by an instanceTemplate. Every template can appear at
- *  most once per instance group. This field overrides the top-level
+ *  Each version is defined by an instanceTemplate and a name. Every version can
+ *  appear at most once per instance group. This field overrides the top-level
  *  instanceTemplate field. Read more about the relationships between these
  *  fields. Exactly one version must leave the targetSize field unset. That
  *  version will be applied to all remaining instances. For more information,
@@ -16901,6 +16902,11 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @interface GTLRCompute_InstanceGroupManagerVersion : GTLRObject
 
+/**
+ *  The URL of the instance template that is specified for this managed instance
+ *  group. The group uses this template to create new instances in the managed
+ *  instance group until the `targetSize` for this version is reached.
+ */
 @property(nonatomic, copy, nullable) NSString *instanceTemplate;
 
 /**
@@ -22048,8 +22054,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
- *  A NodeGroup resource. (== resource_for beta.nodeGroups ==) (== resource_for
- *  v1.nodeGroups ==)
+ *  A NodeGroup resource. To create a node group, you must first create a node
+ *  templates. To learn more about node groups and sole-tenant nodes, read the
+ *  Sole-tenant nodes documentation. (== resource_for beta.nodeGroups ==) (==
+ *  resource_for v1.nodeGroups ==)
  */
 @interface GTLRCompute_NodeGroup : GTLRObject
 
@@ -22734,7 +22742,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
- *  A Node Template resource.
+ *  A Node Template resource. To learn more about node templates and sole-tenant
+ *  nodes, read the Sole-tenant nodes documentation. (== resource_for
+ *  beta.nodeTemplates ==) (== resource_for v1.nodeTemplates ==)
  */
 @interface GTLRCompute_NodeTemplate : GTLRObject
 
@@ -33601,7 +33611,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  A Zone resource. (== resource_for beta.zones ==) (== resource_for v1.zones
- *  ==)
+ *  ==) Next ID: 17
  */
 @interface GTLRCompute_Zone : GTLRObject
 

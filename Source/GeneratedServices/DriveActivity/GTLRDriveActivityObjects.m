@@ -38,6 +38,12 @@ NSString * const kGTLRDriveActivity_Delete_Type_PermanentDelete = @"PERMANENT_DE
 NSString * const kGTLRDriveActivity_Delete_Type_Trash          = @"TRASH";
 NSString * const kGTLRDriveActivity_Delete_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDriveActivity_DriveFolder.type
+NSString * const kGTLRDriveActivity_DriveFolder_Type_MyDriveRoot = @"MY_DRIVE_ROOT";
+NSString * const kGTLRDriveActivity_DriveFolder_Type_SharedDriveRoot = @"SHARED_DRIVE_ROOT";
+NSString * const kGTLRDriveActivity_DriveFolder_Type_StandardFolder = @"STANDARD_FOLDER";
+NSString * const kGTLRDriveActivity_DriveFolder_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRDriveActivity_Folder.type
 NSString * const kGTLRDriveActivity_Folder_Type_MyDriveRoot    = @"MY_DRIVE_ROOT";
 NSString * const kGTLRDriveActivity_Folder_Type_StandardFolder = @"STANDARD_FOLDER";
@@ -276,6 +282,16 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDriveActivity_Drive
+//
+
+@implementation GTLRDriveActivity_Drive
+@dynamic name, root, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDriveActivity_DriveActivity
 //
 
@@ -296,11 +312,30 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDriveActivity_DriveFile
+//
+
+@implementation GTLRDriveActivity_DriveFile
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveActivity_DriveFolder
+//
+
+@implementation GTLRDriveActivity_DriveFolder
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDriveActivity_DriveItem
 //
 
 @implementation GTLRDriveActivity_DriveItem
-@dynamic file, folder, mimeType, name, owner, title;
+@dynamic driveFile, driveFolder, file, folder, mimeType, name, owner, title;
 @end
 
 
@@ -310,7 +345,17 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 //
 
 @implementation GTLRDriveActivity_DriveItemReference
-@dynamic file, folder, name, title;
+@dynamic driveFile, driveFolder, file, folder, name, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDriveActivity_DriveReference
+//
+
+@implementation GTLRDriveActivity_DriveReference
+@dynamic name, title;
 @end
 
 
@@ -434,7 +479,7 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 //
 
 @implementation GTLRDriveActivity_Owner
-@dynamic domain, teamDrive, user;
+@dynamic domain, drive, teamDrive, user;
 @end
 
 
@@ -584,7 +629,7 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 //
 
 @implementation GTLRDriveActivity_Target
-@dynamic driveItem, fileComment, teamDrive;
+@dynamic drive, driveItem, fileComment, teamDrive;
 @end
 
 
@@ -594,7 +639,7 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 //
 
 @implementation GTLRDriveActivity_TargetReference
-@dynamic driveItem, teamDrive;
+@dynamic drive, driveItem, teamDrive;
 @end
 
 

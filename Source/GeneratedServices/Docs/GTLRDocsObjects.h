@@ -78,6 +78,7 @@
 @class GTLRDocs_InsertInlineImageResponse;
 @class GTLRDocs_InsertInlineSheetsChartResponse;
 @class GTLRDocs_InsertPageBreakRequest;
+@class GTLRDocs_InsertTableColumnRequest;
 @class GTLRDocs_InsertTableRequest;
 @class GTLRDocs_InsertTableRowRequest;
 @class GTLRDocs_InsertTextRequest;
@@ -162,6 +163,8 @@
 @class GTLRDocs_TextStyle;
 @class GTLRDocs_TextStyleSuggestionState;
 @class GTLRDocs_UpdateParagraphStyleRequest;
+@class GTLRDocs_UpdateTableColumnPropertiesRequest;
+@class GTLRDocs_UpdateTableRowStyleRequest;
 @class GTLRDocs_UpdateTextStyleRequest;
 @class GTLRDocs_WeightedFontFamily;
 @class GTLRDocs_WriteControl;
@@ -2857,6 +2860,31 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
+ *  Inserts an empty column into a table.
+ */
+@interface GTLRDocs_InsertTableColumnRequest : GTLRObject
+
+/**
+ *  Whether to insert new column to the right of the reference cell location.
+ *  - `True`: insert to the right.
+ *  - `False`: insert to the left.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *insertRight;
+
+/**
+ *  The reference table cell location from which columns will be inserted.
+ *  A new column will be inserted to the left (or right) of the column where
+ *  the reference cell is. If the reference cell is a merged cell, a new
+ *  column will be inserted to the left (or right) of the merged cell.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_TableCellLocation *tableCellLocation;
+
+@end
+
+
+/**
  *  Inserts a table at the specified location.
  *  A newline character will be inserted before the inserted table.
  */
@@ -4383,6 +4411,9 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /** Inserts a table at the specified location. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertTableRequest *insertTable;
 
+/** Inserts an empty column into a table. */
+@property(nonatomic, strong, nullable) GTLRDocs_InsertTableColumnRequest *insertTableColumn;
+
 /** Inserts an empty row into a table. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertTableRowRequest *insertTableRow;
 
@@ -4394,6 +4425,12 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /** Updates the paragraph style at the specified range. */
 @property(nonatomic, strong, nullable) GTLRDocs_UpdateParagraphStyleRequest *updateParagraphStyle;
+
+/** Updates the properties of columns in a table. */
+@property(nonatomic, strong, nullable) GTLRDocs_UpdateTableColumnPropertiesRequest *updateTableColumnProperties;
+
+/** Updates the row style in a table. */
+@property(nonatomic, strong, nullable) GTLRDocs_UpdateTableRowStyleRequest *updateTableRowStyle;
 
 /** Updates the text style at the specified range. */
 @property(nonatomic, strong, nullable) GTLRDocs_UpdateTextStyleRequest *updateTextStyle;
@@ -5739,6 +5776,80 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /** The range overlapping the paragraphs to style. */
 @property(nonatomic, strong, nullable) GTLRDocs_Range *range;
+
+@end
+
+
+/**
+ *  Updates the
+ *  TableColumnProperties of columns
+ *  in a table.
+ */
+@interface GTLRDocs_UpdateTableColumnPropertiesRequest : GTLRObject
+
+/**
+ *  The list of zero-based column indices whose property should be updated. If
+ *  no indices are specified, all columns will be updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *columnIndices;
+
+/**
+ *  The fields that should be updated.
+ *  At least one field must be specified. The root `tableColumnProperties` is
+ *  implied and should not be specified. A single `"*"` can be used as
+ *  short-hand for listing every field.
+ *  For example to update the column width, set `fields` to `"width"`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/**
+ *  The table column properties to update.
+ *  If the value of `table_column_properties#width` is less than 5 points
+ *  (5/72 inch), a 400 bad request error is returned.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_TableColumnProperties *tableColumnProperties;
+
+/** The location where the table starts in the document. */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *tableStartLocation;
+
+@end
+
+
+/**
+ *  Updates the TableRowStyle of rows in a
+ *  table.
+ */
+@interface GTLRDocs_UpdateTableRowStyleRequest : GTLRObject
+
+/**
+ *  The fields that should be updated.
+ *  At least one field must be specified. The root `tableRowStyle` is implied
+ *  and should not be specified. A single `"*"` can be used as short-hand for
+ *  listing every field.
+ *  For example to update the minimum row height, set `fields` to
+ *  `"min_row_height"`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/**
+ *  The list of zero-based row indices whose style should be updated. If no
+ *  indices are specified, all rows will be updated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *rowIndices;
+
+/** The styles to be set on the rows. */
+@property(nonatomic, strong, nullable) GTLRDocs_TableRowStyle *tableRowStyle;
+
+/** The location where the table starts in the document. */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *tableStartLocation;
 
 @end
 

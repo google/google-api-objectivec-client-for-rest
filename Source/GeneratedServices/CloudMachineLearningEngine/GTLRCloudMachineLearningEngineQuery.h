@@ -259,9 +259,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional. Specifies the subset of jobs to retrieve.
  *  You can filter on the value of one or more attributes of the job object.
  *  For example, retrieve jobs with a job identifier that starts with 'census':
- *  <p><code>gcloud ml-engine jobs list --filter='jobId:census*'</code>
+ *  <p><code>gcloud ai-platform jobs list --filter='jobId:census*'</code>
  *  <p>List all failed jobs with names that start with 'rnn':
- *  <p><code>gcloud ml-engine jobs list --filter='jobId:rnn*
+ *  <p><code>gcloud ai-platform jobs list --filter='jobId:rnn*
  *  AND state:FAILED'</code>
  *  <p>For more examples, see the guide to
  *  <a href="/ml-engine/docs/tensorflow/monitor-training">monitoring jobs</a>.
@@ -492,9 +492,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The number of locations to retrieve per "page" of results. If
- *  there
- *  are more remaining results than this number, the response message will
- *  contain a valid value in the `next_page_token` field.
+ *  there are more remaining results than this number, the response message
+ *  will contain a valid value in the `next_page_token` field.
  *  The default value is 20, and the maximum page size is 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1294,7 +1293,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Performs prediction on the data in the request.
- *  Cloud ML Engine implements a custom `predict` verb on top of an HTTP POST
+ *  AI Platform implements a custom `predict` verb on top of an HTTP POST
  *  method. <p>For details of the request and response format, see the **guide
  *  to the [predict request format](/ml-engine/docs/v1/predict-request)**.
  *
@@ -1317,7 +1316,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleApiHttpBody.
  *
  *  Performs prediction on the data in the request.
- *  Cloud ML Engine implements a custom `predict` verb on top of an HTTP POST
+ *  AI Platform implements a custom `predict` verb on top of an HTTP POST
  *  method. <p>For details of the request and response format, see the **guide
  *  to the [predict request format](/ml-engine/docs/v1/predict-request)**.
  *

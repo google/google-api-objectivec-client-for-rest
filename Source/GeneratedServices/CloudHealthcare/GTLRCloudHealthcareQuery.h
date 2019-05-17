@@ -2053,6 +2053,48 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
+ *  Gets the FHIR [capability
+ *  statement](http://hl7.org/implement/standards/fhir/STU3/capabilitystatement.html)
+ *  for the store, which contains a description of functionality supported by
+ *  the server.
+ *  Implements the FHIR standard [capabilities
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#capabilities).
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of a `CapabilityStatement` resource.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.capabilities
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresCapabilities : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresCapabilitiesWithname:]
+
+/** Name of the FHIR store to retrieve the capabilities for. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Gets the FHIR [capability
+ *  statement](http://hl7.org/implement/standards/fhir/STU3/capabilitystatement.html)
+ *  for the store, which contains a description of functionality supported by
+ *  the server.
+ *  Implements the FHIR standard [capabilities
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#capabilities).
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of a `CapabilityStatement` resource.
+ *
+ *  @param name Name of the FHIR store to retrieve the capabilities for.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresCapabilities
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new FHIR store within the parent dataset.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.create
@@ -2117,36 +2159,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Executes all the requests in the given Bundle.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.executeBundle
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExecuteBundle : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresExecuteBundleWithObject:parent:]
-
-/** Name of the FHIR store in which this bundle will be executed. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  Executes all the requests in the given Bundle.
- *
- *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param parent Name of the FHIR store in which this bundle will be executed.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExecuteBundle
- */
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
  *  Export resources from the FHIR store to the specified destination.
  *  This method returns an Operation that can
  *  be used to track the status of the export by calling
@@ -2205,44 +2217,103 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Deletes FHIR resources matching a search query.
- *  Note: unless resource versioning is disabled by setting the
- *  disable_resource_versioning flag
- *  on the FHIR store, the deleted resources will be moved to a history
- *  repository that can still be retrieved through GetResourceVersion and
- *  related methods, unless they are removed by the DeleteResourceVersions
- *  method.
+ *  Gets the FHIR [capability
+ *  statement](http://hl7.org/implement/standards/fhir/STU3/capabilitystatement.html)
+ *  for the store, which contains a description of functionality supported by
+ *  the server.
+ *  Implements the FHIR standard [capabilities
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#capabilities).
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of a `CapabilityStatement` resource.
  *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalDeleteResource
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.capabilities
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDeleteResource : GTLRCloudHealthcareQuery
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCapabilities : GTLRCloudHealthcareQuery
 // Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirConditionalDeleteResourceWithparent:type:]
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirCapabilitiesWithname:]
+
+/** Name of the FHIR store to retrieve the capabilities for. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Gets the FHIR [capability
+ *  statement](http://hl7.org/implement/standards/fhir/STU3/capabilitystatement.html)
+ *  for the store, which contains a description of functionality supported by
+ *  the server.
+ *  Implements the FHIR standard [capabilities
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#capabilities).
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of a `CapabilityStatement` resource.
+ *
+ *  @param name Name of the FHIR store to retrieve the capabilities for.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCapabilities
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes FHIR resources that match a search query.
+ *  Implements the FHIR standard [conditional delete
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.13.1).
+ *  If multiple resources match, all of them will be deleted.
+ *  Search terms are provided as query parameters following the same pattern as
+ *  the search method.
+ *  Note: Unless resource versioning is disabled by setting the
+ *  disable_resource_versioning flag
+ *  on the FHIR store, the deleted resources will be moved to a history
+ *  repository that can still be retrieved through vread
+ *  and related methods, unless they are removed by the
+ *  purge method.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirConditionalDeleteWithparent:type:]
 
 /** The name of the FHIR store this resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** The type of the resource to update. */
+/**
+ *  The FHIR resource type to delete, such as Patient or Observation. For a
+ *  complete list, see the [FHIR Resource
+ *  Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRCloudHealthcare_Empty.
  *
- *  Deletes FHIR resources matching a search query.
- *  Note: unless resource versioning is disabled by setting the
+ *  Deletes FHIR resources that match a search query.
+ *  Implements the FHIR standard [conditional delete
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.13.1).
+ *  If multiple resources match, all of them will be deleted.
+ *  Search terms are provided as query parameters following the same pattern as
+ *  the search method.
+ *  Note: Unless resource versioning is disabled by setting the
  *  disable_resource_versioning flag
  *  on the FHIR store, the deleted resources will be moved to a history
- *  repository that can still be retrieved through GetResourceVersion and
- *  related methods, unless they are removed by the DeleteResourceVersions
- *  method.
+ *  repository that can still be retrieved through vread
+ *  and related methods, unless they are removed by the
+ *  purge method.
  *
  *  @param parent The name of the FHIR store this resource belongs to.
- *  @param type The type of the resource to update.
+ *  @param type The FHIR resource type to delete, such as Patient or
+ *    Observation. For a
+ *    complete list, see the [FHIR Resource
+ *    Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
  *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDeleteResource
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete
  */
 + (instancetype)queryWithParent:(NSString *)parent
                            type:(NSString *)type;
@@ -2250,35 +2321,72 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Updates parts of a resource if the resource exists based on the
- *  search criteria specified via query parameters.
+ *  If a resource is found based on the search criteria specified in the query
+ *  parameters, updates part of that resource by applying the operations
+ *  specified in a [JSON Patch](http://jsonpatch.com/) document.
+ *  Implements the FHIR standard [conditional patch
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#patch).
+ *  Search terms are provided as query parameters following the same pattern as
+ *  the search method.
+ *  If the search criteria identify more than one match, the request will
+ *  return a `412 Precondition Failed` error.
+ *  The request body must contain a JSON Patch document, and the request
+ *  headers must contain `Content-Type: application/json-patch+json`.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the updated resource, including the server-assigned version ID.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
  *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalPatchResource
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalPatch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatchResource : GTLRCloudHealthcareQuery
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch : GTLRCloudHealthcareQuery
 // Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirConditionalPatchResourceWithObject:parent:type:]
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirConditionalPatchWithObject:parent:type:]
 
 /** The name of the FHIR store this resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** The type of the resource to update. */
+/**
+ *  The FHIR resource type to update, such as Patient or Observation. For a
+ *  complete list, see the [FHIR Resource
+ *  Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
- *  Updates parts of a resource if the resource exists based on the
- *  search criteria specified via query parameters.
+ *  If a resource is found based on the search criteria specified in the query
+ *  parameters, updates part of that resource by applying the operations
+ *  specified in a [JSON Patch](http://jsonpatch.com/) document.
+ *  Implements the FHIR standard [conditional patch
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#patch).
+ *  Search terms are provided as query parameters following the same pattern as
+ *  the search method.
+ *  If the search criteria identify more than one match, the request will
+ *  return a `412 Precondition Failed` error.
+ *  The request body must contain a JSON Patch document, and the request
+ *  headers must contain `Content-Type: application/json-patch+json`.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the updated resource, including the server-assigned version ID.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent The name of the FHIR store this resource belongs to.
- *  @param type The type of the resource to update.
+ *  @param type The FHIR resource type to update, such as Patient or
+ *    Observation. For a
+ *    complete list, see the [FHIR Resource
+ *    Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
  *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatchResource
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
                          parent:(NSString *)parent
@@ -2287,35 +2395,86 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Updates the entire resource if the resource exists based on the
- *  search criteria specified via query parameters.
+ *  If a resource is found based on the search criteria specified in the query
+ *  parameters, updates the entire contents of that resource.
+ *  Implements the FHIR standard [conditional update
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#cond-update).
+ *  Search terms are provided as query parameters following the same pattern as
+ *  the search method.
+ *  If the search criteria identify more than one match, the request will
+ *  return a `412 Precondition Failed` error.
+ *  If the search criteria identify zero matches, and the supplied resource
+ *  body contains an `id`, and the FHIR store has
+ *  enable_update_create set, creates the
+ *  resource with the client-specified ID. If the search criteria identify zero
+ *  matches, and the supplied resource body does not contain an `id`, the
+ *  resource will be created with a server-assigned ID as per the
+ *  create method.
+ *  The request body must contain a JSON-encoded FHIR resource, and the request
+ *  headers must contain `Content-Type: application/fhir+json`.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the updated resource, including the server-assigned version ID.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
  *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalUpdateResource
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalUpdate
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdateResource : GTLRCloudHealthcareQuery
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate : GTLRCloudHealthcareQuery
 // Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirConditionalUpdateResourceWithObject:parent:type:]
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirConditionalUpdateWithObject:parent:type:]
 
 /** The name of the FHIR store this resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** The type of the resource to update. */
+/**
+ *  The FHIR resource type to update, such as Patient or Observation. For a
+ *  complete list, see the [FHIR Resource
+ *  Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ *  Must match the resource type in the provided content.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
- *  Updates the entire resource if the resource exists based on the
- *  search criteria specified via query parameters.
+ *  If a resource is found based on the search criteria specified in the query
+ *  parameters, updates the entire contents of that resource.
+ *  Implements the FHIR standard [conditional update
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#cond-update).
+ *  Search terms are provided as query parameters following the same pattern as
+ *  the search method.
+ *  If the search criteria identify more than one match, the request will
+ *  return a `412 Precondition Failed` error.
+ *  If the search criteria identify zero matches, and the supplied resource
+ *  body contains an `id`, and the FHIR store has
+ *  enable_update_create set, creates the
+ *  resource with the client-specified ID. If the search criteria identify zero
+ *  matches, and the supplied resource body does not contain an `id`, the
+ *  resource will be created with a server-assigned ID as per the
+ *  create method.
+ *  The request body must contain a JSON-encoded FHIR resource, and the request
+ *  headers must contain `Content-Type: application/fhir+json`.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the updated resource, including the server-assigned version ID.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent The name of the FHIR store this resource belongs to.
- *  @param type The type of the resource to update.
+ *  @param type The FHIR resource type to update, such as Patient or
+ *    Observation. For a
+ *    complete list, see the [FHIR Resource
+ *    Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ *    Must match the resource type in the provided content.
  *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdateResource
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
                          parent:(NSString *)parent
@@ -2325,32 +2484,75 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Creates a FHIR resource.
+ *  Implements the FHIR standard [create
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#create),
+ *  which creates a new resource with a server-assigned resource ID.
+ *  Also supports the FHIR standard [conditional create
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#ccreate),
+ *  specified by supplying an `If-None-Exist` header containing a FHIR search
+ *  query. If no resources match this search query, the server processes the
+ *  create operation as normal.
+ *  The request body must contain a JSON-encoded FHIR resource, and the request
+ *  headers must contain `Content-Type: application/fhir+json`.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the resource as it was created on the server, including the
+ *  server-assigned resource ID and version ID.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
  *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.createResource
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCreateResource : GTLRCloudHealthcareQuery
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCreate : GTLRCloudHealthcareQuery
 // Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirCreateResourceWithObject:parent:type:]
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirCreateWithObject:parent:type:]
 
 /** The name of the FHIR store this resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** The type of the resource to create. */
+/**
+ *  The FHIR resource type to create, such as Patient or Observation. For a
+ *  complete list, see the [FHIR Resource
+ *  Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ *  Must match the resource type in the provided content.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Creates a FHIR resource.
+ *  Implements the FHIR standard [create
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#create),
+ *  which creates a new resource with a server-assigned resource ID.
+ *  Also supports the FHIR standard [conditional create
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#ccreate),
+ *  specified by supplying an `If-None-Exist` header containing a FHIR search
+ *  query. If no resources match this search query, the server processes the
+ *  create operation as normal.
+ *  The request body must contain a JSON-encoded FHIR resource, and the request
+ *  headers must contain `Content-Type: application/fhir+json`.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the resource as it was created on the server, including the
+ *  server-assigned resource ID and version ID.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent The name of the FHIR store this resource belongs to.
- *  @param type The type of the resource to create.
+ *  @param type The FHIR resource type to create, such as Patient or
+ *    Observation. For a
+ *    complete list, see the [FHIR Resource
+ *    Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ *    Must match the resource type in the provided content.
  *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCreateResource
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
                          parent:(NSString *)parent
@@ -2360,12 +2562,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Deletes a FHIR resource.
- *  Note: unless resource versioning is disabled by setting the
+ *  Implements the FHIR standard [delete
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#delete).
+ *  Note: Unless resource versioning is disabled by setting the
  *  disable_resource_versioning flag
  *  on the FHIR store, the deleted resources will be moved to a history
- *  repository that can still be retrieved through GetResourceVersion and
- *  related methods, unless they are removed by the DeleteResourceVersions
- *  method.
+ *  repository that can still be retrieved through vread
+ *  and related methods, unless they are removed by the
+ *  purge method.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.delete
  *
@@ -2383,12 +2587,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Deletes a FHIR resource.
- *  Note: unless resource versioning is disabled by setting the
+ *  Implements the FHIR standard [delete
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#delete).
+ *  Note: Unless resource versioning is disabled by setting the
  *  disable_resource_versioning flag
  *  on the FHIR store, the deleted resources will be moved to a history
- *  repository that can still be retrieved through GetResourceVersion and
- *  related methods, unless they are removed by the DeleteResourceVersions
- *  method.
+ *  repository that can still be retrieved through vread
+ *  and related methods, unless they are removed by the
+ *  purge method.
  *
  *  @param name The name of the resource to delete.
  *
@@ -2399,322 +2605,106 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Deletes all the historical versions of a resource (excluding current
- *  version) from the FHIR store. To remove all versions of a resource, first
- *  delete the current version and call this method.
+ *  Executes all the requests in the given Bundle.
+ *  Implements the FHIR standard [batch/transaction
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#transaction).
+ *  Supports all interactions within a bundle, except search. This method
+ *  accepts Bundles of type `batch` and `transaction`, processing them
+ *  according to the [batch processing
+ *  rules](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.1)
+ *  and [transaction processing
+ *  rules](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.2).
+ *  The request body must contain a JSON-encoded FHIR `Bundle` resource, and
+ *  the request headers must contain `Content-Type: application/fhir+json`.
+ *  For a batch bundle or a successful transaction the response body will
+ *  contain a JSON-encoded representation of a `Bundle` resource of type
+ *  `batch-response` or `transaction-response` containing one entry for each
+ *  entry in the request, with the outcome of processing the entry. In the
+ *  case of an error for a transaction bundle, the response body will contain
+ *  a JSON-encoded `OperationOutcome` resource describing the reason for the
+ *  error. If the request cannot be mapped to a valid API method on a FHIR
+ *  store, a generic GCP error might be returned instead.
  *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.delete$purge
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirDeletePurge : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirDeletePurgeWithname:]
-
-/** The name of the resource to purge. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_Empty.
- *
- *  Deletes all the historical versions of a resource (excluding current
- *  version) from the FHIR store. To remove all versions of a resource, first
- *  delete the current version and call this method.
- *
- *  @param name The name of the resource to purge.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirDeletePurge
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets a FHIR resource.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.get
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.executeBundle
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirGet : GTLRCloudHealthcareQuery
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirExecuteBundle : GTLRCloudHealthcareQuery
 // Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirGetWithname:]
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirExecuteBundleWithObject:parent:]
 
-/** The name of the resource to retrieve. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  Gets a FHIR resource.
- *
- *  @param name The name of the resource to retrieve.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets the FHIR capability statement for the store, which contains a
- *  description of functionality supported by the server.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.getMetadata
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirGetMetadata : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirGetMetadataWithname:]
-
-/** Name of the FHIR store to retrieve the capabilities for. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  Gets the FHIR capability statement for the store, which contains a
- *  description of functionality supported by the server.
- *
- *  @param name Name of the FHIR store to retrieve the capabilities for.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirGetMetadata
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Updates part of an existing resource.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirPatchWithObject:name:]
-
-/** The name of the resource to update. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  Updates part of an existing resource.
- *
- *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param name The name of the resource to update.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatch
- */
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Gets all the resources in the patient compartment.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Patient.get$everything
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientGetEverything : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirPatientGetEverythingWithname:]
-
-/**
- *  The response includes records prior to the end date. If no end date is
- *  provided, all records subsequent to the start date are in scope.
- */
-@property(nonatomic, copy, nullable) NSString *end;
-
-/** Name of the patient for which the information is required. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The response includes records subsequent to the start date. If no start
- *  date is provided, all records prior to the end date are in scope.
- */
-@property(nonatomic, copy, nullable) NSString *start;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  Gets all the resources in the patient compartment.
- *
- *  @param name Name of the patient for which the information is required.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientGetEverything
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Searches resources in the given FHIR store.
- *  # Search Parameters
- *  The server's capability statement, retrieved through
- *  GetCapabilityStatement, indicates which search
- *  parameters are supported on each FHIR resource.
- *  # Search Modifiers
- *  Modifier | Supported
- *  ----------- | ---------
- *  `:missing` | Yes
- *  `:exact` | Yes
- *  `:contains` | Yes
- *  `:text` | Yes
- *  `:in` | Yes
- *  `:not-in` | Yes
- *  `:above` | Yes
- *  `:below` | Yes
- *  `:[type]` | Yes
- *  `:not` | Yes
- *  `:recurse` | No
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.searchResources
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearchResources : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirSearchResourcesWithparent:resourceType:]
-
-/** Name of the FHIR store to retrieve resources from. */
+/** Name of the FHIR store in which this bundle will be executed. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** The type of the resource to search. */
-@property(nonatomic, copy, nullable) NSString *resourceType;
-
 /**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
- *  Searches resources in the given FHIR store.
- *  # Search Parameters
- *  The server's capability statement, retrieved through
- *  GetCapabilityStatement, indicates which search
- *  parameters are supported on each FHIR resource.
- *  # Search Modifiers
- *  Modifier | Supported
- *  ----------- | ---------
- *  `:missing` | Yes
- *  `:exact` | Yes
- *  `:contains` | Yes
- *  `:text` | Yes
- *  `:in` | Yes
- *  `:not-in` | Yes
- *  `:above` | Yes
- *  `:below` | Yes
- *  `:[type]` | Yes
- *  `:not` | Yes
- *  `:recurse` | No
- *
- *  @param parent Name of the FHIR store to retrieve resources from.
- *  @param resourceType The type of the resource to search.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearchResources
- */
-+ (instancetype)queryWithParent:(NSString *)parent
-                   resourceType:(NSString *)resourceType;
-
-@end
-
-/**
- *  Updates the entire resource or creates a new resource with a client
- *  specified ID if the resource does not exist and the FHIR store has
- *  enable_update_create set.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirUpdate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirUpdateWithObject:name:]
-
-/** The name of the resource to update. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  Updates the entire resource or creates a new resource with a client
- *  specified ID if the resource does not exist and the FHIR store has
- *  enable_update_create set.
+ *  Executes all the requests in the given Bundle.
+ *  Implements the FHIR standard [batch/transaction
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#transaction).
+ *  Supports all interactions within a bundle, except search. This method
+ *  accepts Bundles of type `batch` and `transaction`, processing them
+ *  according to the [batch processing
+ *  rules](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.1)
+ *  and [transaction processing
+ *  rules](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.2).
+ *  The request body must contain a JSON-encoded FHIR `Bundle` resource, and
+ *  the request headers must contain `Content-Type: application/fhir+json`.
+ *  For a batch bundle or a successful transaction the response body will
+ *  contain a JSON-encoded representation of a `Bundle` resource of type
+ *  `batch-response` or `transaction-response` containing one entry for each
+ *  entry in the request, with the outcome of processing the entry. In the
+ *  case of an error for a transaction bundle, the response body will contain
+ *  a JSON-encoded `OperationOutcome` resource describing the reason for the
+ *  error. If the request cannot be mapped to a valid API method on a FHIR
+ *  store, a generic GCP error might be returned instead.
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param name The name of the resource to update.
+ *  @param parent Name of the FHIR store in which this bundle will be executed.
  *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirUpdate
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirExecuteBundle
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Gets a version (current or historical) of FHIR resource by version id.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir._history.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirXHistoryGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirXHistoryGetWithname:]
-
-/** The name of the resource version to retrieve. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  Gets a version (current or historical) of FHIR resource by version id.
- *
- *  @param name The name of the resource version to retrieve.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirXHistoryGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
+                         parent:(NSString *)parent;
 
 @end
 
 /**
  *  Lists all the versions of a resource (including the current version and
  *  deleted versions) from the FHIR store.
+ *  Implements the per-resource form of the FHIR standard [history
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#history).
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of a `Bundle` resource of type `history`, containing the version history
+ *  sorted from most recent to oldest versions.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
  *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir._history.list
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.history
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirXHistoryList : GTLRCloudHealthcareQuery
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirHistory : GTLRCloudHealthcareQuery
 // Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirXHistoryListWithname:]
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirHistoryWithname:]
 
 /**
  *  Only include resource versions that were current at some point during the
  *  time period specified in the date time value. The date parameter format is
  *  yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]
  *  Clients may specify any of the following:
- *  An entire year: `_at=2019`
- *  An entire month: `_at=2019-01`
- *  A specific day: `_at=2019-01-20`
- *  A specific second: `_at=2018-12-31T23:59:58Z`
+ *  * An entire year: `_at=2019`
+ *  * An entire month: `_at=2019-01`
+ *  * A specific day: `_at=2019-01-20`
+ *  * A specific second: `_at=2018-12-31T23:59:58Z`
  */
 @property(nonatomic, copy, nullable) NSString *at;
 
-/** The maximum number of search results on a page. */
+/** The maximum number of search results on a page. Defaults to 1000. */
 @property(nonatomic, assign) NSInteger count;
 
 /** The name of the resource to retrieve. */
@@ -2743,21 +2733,309 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  Lists all the versions of a resource (including the current version and
  *  deleted versions) from the FHIR store.
+ *  Implements the per-resource form of the FHIR standard [history
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#history).
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of a `Bundle` resource of type `history`, containing the version history
+ *  sorted from most recent to oldest versions.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
  *
  *  @param name The name of the resource to retrieve.
  *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirXHistoryList
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirHistory
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Searches resources in the given FHIR store.
+ *  Retrieves the N most recent `Observation` resources for a subject matching
+ *  search criteria specified as query parameters, grouped by
+ *  `Observation.code`, sorted from most recent to oldest.
+ *  Implements the FHIR extended operation
+ *  [Observation-lastn](http://hl7.org/implement/standards/fhir/STU3/observation-operations.html#lastn).
+ *  Search terms are provided as query parameters following the same pattern as
+ *  the search method. This operation accepts an additional
+ *  query parameter `max`, which specifies N, the maximum number of
+ *  Observations to return from each group, with a default of 1.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of a `Bundle` resource of type `searchset`, containing the results of the
+ *  operation.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Observation-lastn
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirObservationLastn : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirObservationLastnWithparent:]
+
+/** Name of the FHIR store to retrieve resources from. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Retrieves the N most recent `Observation` resources for a subject matching
+ *  search criteria specified as query parameters, grouped by
+ *  `Observation.code`, sorted from most recent to oldest.
+ *  Implements the FHIR extended operation
+ *  [Observation-lastn](http://hl7.org/implement/standards/fhir/STU3/observation-operations.html#lastn).
+ *  Search terms are provided as query parameters following the same pattern as
+ *  the search method. This operation accepts an additional
+ *  query parameter `max`, which specifies N, the maximum number of
+ *  Observations to return from each group, with a default of 1.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of a `Bundle` resource of type `searchset`, containing the results of the
+ *  operation.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
+ *
+ *  @param parent Name of the FHIR store to retrieve resources from.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirObservationLastn
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates part of an existing resource by applying the operations specified
+ *  in a [JSON Patch](http://jsonpatch.com/) document.
+ *  Implements the FHIR standard [patch
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#patch).
+ *  The request body must contain a JSON Patch document, and the request
+ *  headers must contain `Content-Type: application/json-patch+json`.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the updated resource, including the server-assigned version ID.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatch : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirPatchWithObject:name:]
+
+/** The name of the resource to update. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Updates part of an existing resource by applying the operations specified
+ *  in a [JSON Patch](http://jsonpatch.com/) document.
+ *  Implements the FHIR standard [patch
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#patch).
+ *  The request body must contain a JSON Patch document, and the request
+ *  headers must contain `Content-Type: application/json-patch+json`.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the updated resource, including the server-assigned version ID.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
+ *
+ *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
+ *  @param name The name of the resource to update.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves all the resources in the patient compartment for a `Patient`
+ *  resource.
+ *  Implements the FHIR extended operation
+ *  [Patient-everything](http://hl7.org/implement/standards/fhir/STU3/patient-operations.html#everything).
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of a `Bundle` resource of type `searchset`, containing the results of the
+ *  operation.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Patient-everything
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientEverything : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirPatientEverythingWithname:]
+
+/**
+ *  The response includes records prior to the end date. If no end date is
+ *  provided, all records subsequent to the start date are in scope.
+ */
+@property(nonatomic, copy, nullable) NSString *end;
+
+/** Name of the `Patient` resource for which the information is required. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The response includes records subsequent to the start date. If no start
+ *  date is provided, all records prior to the end date are in scope.
+ */
+@property(nonatomic, copy, nullable) NSString *start;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Retrieves all the resources in the patient compartment for a `Patient`
+ *  resource.
+ *  Implements the FHIR extended operation
+ *  [Patient-everything](http://hl7.org/implement/standards/fhir/STU3/patient-operations.html#everything).
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of a `Bundle` resource of type `searchset`, containing the results of the
+ *  operation.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
+ *
+ *  @param name Name of the `Patient` resource for which the information is
+ *    required.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientEverything
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the contents of a FHIR resource.
+ *  Implements the FHIR standard [read
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#read).
+ *  Also supports the FHIR standard [conditional read
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#cread)
+ *  specified by supplying an `If-Modified-Since` header with a date/time value
+ *  or an `If-None-Match` header with an ETag value.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the resource.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.read
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirRead : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirReadWithname:]
+
+/** The name of the resource to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Gets the contents of a FHIR resource.
+ *  Implements the FHIR standard [read
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#read).
+ *  Also supports the FHIR standard [conditional read
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#cread)
+ *  specified by supplying an `If-Modified-Since` header with a date/time value
+ *  or an `If-None-Match` header with an ETag value.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the resource.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
+ *
+ *  @param name The name of the resource to retrieve.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirRead
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes all the historical versions of a resource (excluding the current
+ *  version) from the FHIR store. To remove all versions of a resource, first
+ *  delete the current version and then call this method.
+ *  This is not a FHIR standard operation.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Resource-purge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirResourcePurge : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirResourcePurgeWithname:]
+
+/** The name of the resource to purge. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Empty.
+ *
+ *  Deletes all the historical versions of a resource (excluding the current
+ *  version) from the FHIR store. To remove all versions of a resource, first
+ *  delete the current version and then call this method.
+ *  This is not a FHIR standard operation.
+ *
+ *  @param name The name of the resource to purge.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirResourcePurge
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Searches for resources in the given FHIR store according to criteria
+ *  specified as query parameters.
+ *  Implements the FHIR standard [search
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#search)
+ *  using the search semantics described in the [FHIR Search
+ *  specification](http://hl7.org/implement/standards/fhir/STU3/search.html).
+ *  Supports three methods of search defined by the specification:
+ *  * `GET [base]?[parameters]` to search across all resources.
+ *  * `GET [base]/[type]?[parameters]` to search resources of a specified
+ *  type.
+ *  * `POST [base]/[type]/_search?[parameters]` as an alternate form having
+ *  the same semantics as the `GET` method.
+ *  The `GET` methods do not support compartment searches. The `POST` method
+ *  does not support `application/x-www-form-urlencoded` search parameters.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of a `Bundle` resource of type `searchset`, containing the results of the
+ *  search.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
  *  # Search Parameters
  *  The server's capability statement, retrieved through
- *  GetCapabilityStatement, indicates which search
- *  parameters are supported on each FHIR resource.
+ *  capabilities, indicates what search parameters
+ *  are supported on each FHIR resource. A list of all search parameters
+ *  defined by the specification can be found in the [FHIR Search Parameter
+ *  Registry](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html).
  *  # Search Modifiers
  *  Modifier | Supported
  *  ----------- | ---------
@@ -2773,14 +3051,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `:not` | Yes
  *  `:recurse` | No
  *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir._search
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.search
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirXSearch : GTLRCloudHealthcareQuery
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearch : GTLRCloudHealthcareQuery
 // Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirXSearchWithObject:parent:]
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirSearchWithObject:parent:]
 
 /** Name of the FHIR store to retrieve resources from. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2788,11 +3066,33 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
- *  Searches resources in the given FHIR store.
+ *  Searches for resources in the given FHIR store according to criteria
+ *  specified as query parameters.
+ *  Implements the FHIR standard [search
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#search)
+ *  using the search semantics described in the [FHIR Search
+ *  specification](http://hl7.org/implement/standards/fhir/STU3/search.html).
+ *  Supports three methods of search defined by the specification:
+ *  * `GET [base]?[parameters]` to search across all resources.
+ *  * `GET [base]/[type]?[parameters]` to search resources of a specified
+ *  type.
+ *  * `POST [base]/[type]/_search?[parameters]` as an alternate form having
+ *  the same semantics as the `GET` method.
+ *  The `GET` methods do not support compartment searches. The `POST` method
+ *  does not support `application/x-www-form-urlencoded` search parameters.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of a `Bundle` resource of type `searchset`, containing the results of the
+ *  search.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
  *  # Search Parameters
  *  The server's capability statement, retrieved through
- *  GetCapabilityStatement, indicates which search
- *  parameters are supported on each FHIR resource.
+ *  capabilities, indicates what search parameters
+ *  are supported on each FHIR resource. A list of all search parameters
+ *  defined by the specification can be found in the [FHIR Search Parameter
+ *  Registry](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html).
  *  # Search Modifiers
  *  Modifier | Supported
  *  ----------- | ---------
@@ -2812,10 +3112,118 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    in the query.
  *  @param parent Name of the FHIR store to retrieve resources from.
  *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirXSearch
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearch
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_SearchResourcesRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the entire contents of a resource.
+ *  Implements the FHIR standard [update
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#update).
+ *  If the specified resource does
+ *  not exist and the FHIR store has
+ *  enable_update_create set, creates the
+ *  resource with the client-specified ID.
+ *  The request body must contain a JSON-encoded FHIR resource, and the request
+ *  headers must contain `Content-Type: application/fhir+json`. The resource
+ *  must contain an `id` element having an identical value to the ID in the
+ *  REST path of the request.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the updated resource, including the server-assigned version ID.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirUpdate : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirUpdateWithObject:name:]
+
+/** The name of the resource to update. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Updates the entire contents of a resource.
+ *  Implements the FHIR standard [update
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#update).
+ *  If the specified resource does
+ *  not exist and the FHIR store has
+ *  enable_update_create set, creates the
+ *  resource with the client-specified ID.
+ *  The request body must contain a JSON-encoded FHIR resource, and the request
+ *  headers must contain `Content-Type: application/fhir+json`. The resource
+ *  must contain an `id` element having an identical value to the ID in the
+ *  REST path of the request.
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the updated resource, including the server-assigned version ID.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
+ *
+ *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
+ *  @param name The name of the resource to update.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the contents of a version (current or historical) of a FHIR resource
+ *  by version ID.
+ *  Implements the FHIR standard [vread
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#vread).
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the resource.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.vread
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirVread : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirVreadWithname:]
+
+/** The name of the resource version to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Gets the contents of a version (current or historical) of a FHIR resource
+ *  by version ID.
+ *  Implements the FHIR standard [vread
+ *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#vread).
+ *  On success, the response body will contain a JSON-encoded representation
+ *  of the resource.
+ *  Errors generated by the FHIR store will contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead.
+ *
+ *  @param name The name of the resource version to retrieve.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirVread
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2887,36 +3295,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Gets the FHIR capability statement for the store, which contains a
- *  description of functionality supported by the server.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.getMetadata
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetMetadata : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresGetMetadataWithname:]
-
-/** Name of the FHIR store to retrieve the capabilities for. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  Gets the FHIR capability statement for the store, which contains a
- *  description of functionality supported by the server.
- *
- *  @param name Name of the FHIR store to retrieve the capabilities for.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetMetadata
- */
-+ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

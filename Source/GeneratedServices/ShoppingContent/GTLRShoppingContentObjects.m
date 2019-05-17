@@ -2430,8 +2430,8 @@
          offerId, pattern, price, productTypes, promotionIds, salePrice,
          salePriceEffectiveDate, sellOnGoogleQuantity, shipping, shippingHeight,
          shippingLabel, shippingLength, shippingWeight, shippingWidth, sizes,
-         sizeSystem, sizeType, source, targetCountry, taxes, title,
-         unitPricingBaseMeasure, unitPricingMeasure;
+         sizeSystem, sizeType, source, targetCountry, taxCategory, taxes, title,
+         transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

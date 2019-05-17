@@ -7,7 +7,7 @@
 //   Enable cloud users to discover enterprise catalogs and products in their
 //   organizations.
 // Documentation:
-//   https://sites.google.com/corp/google.com/cloudprivatecatalog
+//   https://cloud.google.com/private-catalog/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"

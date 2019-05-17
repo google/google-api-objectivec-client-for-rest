@@ -1084,11 +1084,17 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 /** Scion campaign value to be propagated by iSDK to Scion at post-install. */
 @property(nonatomic, copy, nullable) NSString *utmCampaign;
 
+/** Scion content value to be propagated by iSDK to Scion at app-reopen. */
+@property(nonatomic, copy, nullable) NSString *utmContent;
+
 /** Scion medium value to be propagated by iSDK to Scion at post-install. */
 @property(nonatomic, copy, nullable) NSString *utmMedium;
 
 /** Scion source value to be propagated by iSDK to Scion at post-install. */
 @property(nonatomic, copy, nullable) NSString *utmSource;
+
+/** Scion term value to be propagated by iSDK to Scion at app-reopen. */
+@property(nonatomic, copy, nullable) NSString *utmTerm;
 
 @end
 
@@ -1150,11 +1156,17 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable
 /** Scion campaign value to be propagated by iSDK to Scion at app-reopen. */
 @property(nonatomic, copy, nullable) NSString *utmCampaign;
 
+/** Scion content value to be propagated by iSDK to Scion at app-reopen. */
+@property(nonatomic, copy, nullable) NSString *utmContent;
+
 /** Scion medium value to be propagated by iSDK to Scion at app-reopen. */
 @property(nonatomic, copy, nullable) NSString *utmMedium;
 
 /** Scion source value to be propagated by iSDK to Scion at app-reopen. */
 @property(nonatomic, copy, nullable) NSString *utmSource;
+
+/** Scion term value to be propagated by iSDK to Scion at app-reopen. */
+@property(nonatomic, copy, nullable) NSString *utmTerm;
 
 @end
 

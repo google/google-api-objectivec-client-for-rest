@@ -22,9 +22,12 @@
 @class GTLRCloudFilestore_FileShareConfig;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata;
@@ -223,7 +226,9 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  "foo": "bar"
  *  },
  *  "state": READY,
- *  "software_version": "cloud-sql-09-28-2018",
+ *  "software_versions": {
+ *  "software_update": "cloud-sql-09-28-2018",
+ *  },
  *  "maintenance_policy_names": {
  *  "UpdatePolicy":
  *  "projects/snapchat/locations/us-east1/maintenancePolicies/prod-update-policy",
@@ -234,7 +239,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  "projects/cloud-sql/locations/global/releases/cloud-sql-09-28-2018",
  *  "rollout":
  *  "projects/cloud-sql/locations/us-east1/rollouts/cloud-sql-09-28-2018-canary",
- *  }
+ *  },
  *  "projects/cloud-sql/locations/global/rolloutTypes/instance_restart": {
  *  "release":
  *  "projects/cloud-sql/locations/global/releases/cloud-sql-09-20-repair",
@@ -254,6 +259,24 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  "https://www.googleapis.com/compute/v1/projects/cloud-sql/zones/us-east1-b/instances/vm-1",
  *  }
  *  ],
+ *  "maintenance_schedules": {
+ *  "csa_rollout": {
+ *  "start_time": {
+ *  "seconds": 1526406431,
+ *  },
+ *  "end_time": {
+ *  "seconds": 1535406431,
+ *  },
+ *  },
+ *  "ncsa_rollout": {
+ *  "start_time": {
+ *  "seconds": 1526406431,
+ *  },
+ *  "end_time": {
+ *  "seconds": 1535406431,
+ *  },
+ *  }
+ *  }
  *  }
  *  ```
  */
@@ -274,9 +297,15 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
- *  //depot/google3/google/cloud/saasaccelerator/maintenancepolicy/api/v1/maintenance_policy_resources.proto
+ *  go/cloud-saas-mw-ug.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames *maintenancePolicyNames;
+
+/**
+ *  The MaintenanceSchedule contains the scheduling information of published
+ *  maintenance schedule.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules *maintenanceSchedules;
 
 /**
  *  Unique name of the resource. It uses the form:
@@ -371,7 +400,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
- *  //depot/google3/google/cloud/saasaccelerator/maintenancepolicy/api/v1/maintenance_policy_resources.proto
+ *  go/cloud-saas-mw-ug.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -379,6 +408,20 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *        fetch them all at once.
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames : GTLRObject
+@end
+
+
+/**
+ *  The MaintenanceSchedule contains the scheduling information of published
+ *  maintenance schedule.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules : GTLRObject
 @end
 
 
@@ -424,6 +467,48 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *        fetch them all at once.
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions : GTLRObject
+@end
+
+
+/**
+ *  Maintenance schedule which is exposed to customer and potentially end user,
+ *  indicating published upcoming future maintenance schedule
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule : GTLRObject
+
+/** The scheduled end time for the maintenance. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The scheduled start time for the maintenance. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Node information for custom per-node SLO implementations.
+ *  SSA does not support per-node SLO, but producers can populate per-node
+ *  information in SloMetadata for custom precomputations.
+ *  SSA Eligibility Exporter will emit per-node metric based on this
+ *  information.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata : GTLRObject
+
+/**
+ *  By default node is eligible if instance is eligible.
+ *  But individual node might be excluded from SLO by adding entry here.
+ *  For semantic see SloMetadata.exclusions.
+ *  If both instance and node level exclusions are present for time period,
+ *  the node level's reason will be reported by Eligibility Exporter.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
+
+/**
+ *  The id of the node.
+ *  This should be equal to SaasInstanceNode.node_id.
+ */
+@property(nonatomic, copy, nullable) NSString *nodeId;
+
 @end
 
 
@@ -557,6 +642,15 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  in the service SLO configuration.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
+
+/**
+ *  Optional: list of nodes.
+ *  Some producers need to use per-node metadata to calculate SLO.
+ *  This field allows such producers to publish per-node SLO meta data,
+ *  which will be consumed by SSA Eligibility Exporter and published in the
+ *  form of per node metric to Monarch.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata *> *nodes;
 
 /**
  *  Name of the SLO tier the Instance belongs to. This name will be expected to
@@ -823,8 +917,8 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  Output only.
  *  IPv4 addresses in the format
  *  {octet 1}.{octet 2}.{octet 3}.{octet 4} or IPv6 addresses in the format
- *  {block 1}:{block 2}:{block 3}:{block 4}:{block 5}:{block 6}:{block 7}:{block
- *  8}.
+ *  {block 1}:{block 2}:{block 3}:{block 4}:{block 5}:{block 6}:{block
+ *  7}:{block 8}.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddresses;
 
@@ -844,11 +938,11 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 /**
  *  A /29 CIDR block in one of the
  *  [internal IP address
- *  ranges](https://www.arin.net/knowledge/address_filters.html)
- *  that identifies the range of IP addresses reserved for this
- *  instance. For example, 10.0.0.0/29 or 192.168.0.0/29. The range you specify
- *  can't overlap with either existing subnets or assigned IP address ranges
- *  for other Cloud Filestore instances in the selected VPC network.
+ *  ranges](https://www.arin.net/knowledge/address_filters.html) that
+ *  identifies the range of IP addresses reserved for this instance. For
+ *  example, 10.0.0.0/29 or 192.168.0.0/29. The range you specify can't overlap
+ *  with either existing subnets or assigned IP address ranges for other Cloud
+ *  Filestore instances in the selected VPC network.
  */
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
 
@@ -884,7 +978,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

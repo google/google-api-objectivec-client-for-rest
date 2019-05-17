@@ -37,8 +37,8 @@
 //
 
 @implementation GTLRSQLAdmin_BackupConfiguration
-@dynamic binaryLogEnabled, enabled, kind, replicationLogArchivingEnabled,
-         startTime;
+@dynamic binaryLogEnabled, enabled, kind, location,
+         replicationLogArchivingEnabled, startTime;
 @end
 
 
@@ -49,7 +49,8 @@
 
 @implementation GTLRSQLAdmin_BackupRun
 @dynamic descriptionProperty, endTime, enqueuedTime, error, identifier,
-         instance, kind, selfLink, startTime, status, type, windowStartTime;
+         instance, kind, location, selfLink, startTime, status, type,
+         windowStartTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

@@ -48,6 +48,7 @@
 @class GTLRSpanner_QueryPlan;
 @class GTLRSpanner_ReadOnly;
 @class GTLRSpanner_ReadWrite;
+@class GTLRSpanner_ReplicaInfo;
 @class GTLRSpanner_ResultSet;
 @class GTLRSpanner_ResultSetMetadata;
 @class GTLRSpanner_ResultSetStats;
@@ -178,11 +179,54 @@ GTLR_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Relational;
 GTLR_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Scalar;
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_ReplicaInfo.type
+
+/**
+ *  Read-only replicas only support reads (not writes). Read-only replicas:
+ *  * Maintain a full copy of your data.
+ *  * Serve reads.
+ *  * Do not participate in voting to commit writes.
+ *  * Are not eligible to become a leader.
+ *
+ *  Value: "READ_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadOnly;
+/**
+ *  Read-write replicas support both reads and writes. These replicas:
+ *  * Maintain a full copy of your data.
+ *  * Serve reads.
+ *  * Can vote whether to commit a write.
+ *  * Participate in leadership election.
+ *  * Are eligible to become a leader.
+ *
+ *  Value: "READ_WRITE"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadWrite;
+/**
+ *  Not specified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified;
+/**
+ *  Witness replicas don’t support reads but do participate in voting to
+ *  commit writes. Witness replicas:
+ *  * Do not maintain a full copy of data.
+ *  * Do not serve reads.
+ *  * Vote whether to commit writes.
+ *  * Participate in leader election but are not eligible to become leader.
+ *
+ *  Value: "WITNESS"
+ */
+GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_Witness;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_Type.code
 
 /**
  *  Encoded as `list`, where the list elements are represented
- *  according to array_element_type.
+ *  according to
+ *  array_element_type.
  *
  *  Value: "ARRAY"
  */
@@ -268,8 +312,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @interface GTLRSpanner_Binding : GTLRObject
 
 /**
- *  Unimplemented. The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
+ *  The condition that is associated with this binding.
+ *  NOTE: An unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
  */
@@ -288,7 +332,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
  *  For example, `admins\@example.com`.
- *  * `domain:{domain}`: A Google Apps domain name that represents all the
+ *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
  *  users of that domain. For example, `google.com` or `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
@@ -464,7 +508,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  Required. The ID of the instance to create. Valid identifiers are of the
- *  form `a-z*[a-z0-9]` and must be between 6 and 30 characters in
+ *  form `a-z*[a-z0-9]` and must be between 2 and 64 characters in
  *  length.
  */
 @property(nonatomic, copy, nullable) NSString *instanceId;
@@ -565,7 +609,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  serially, such that the effects of statement i are visible to statement
  *  i+1. Each statement must be a DML statement. Execution will stop at the
  *  first failed statement; the remaining statements will not run.
- *  REQUIRES: statements_size() > 0.
+ *  REQUIRES: `statements_size()` > 0.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Statement *> *statements;
 
@@ -586,17 +630,17 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Clients can determine whether all DML statements have run successfully, or
  *  if
  *  a statement failed, using one of the following approaches:
- *  1. Check if 'status' field is OkStatus.
- *  2. Check if result_sets_size() equals the number of statements in
+ *  1. Check if `'status'` field is `OkStatus`.
+ *  2. Check if `result_sets_size()` equals the number of statements in
  *  ExecuteBatchDmlRequest.
  *  Example 1: A request with 5 DML statements, all executed successfully.
  *  Result: A response with 5 ResultSets, one for each statement in the same
- *  order, and an OK status.
+ *  order, and an `OkStatus`.
  *  Example 2: A request with 5 DML statements. The 3rd statement has a syntax
  *  error.
  *  Result: A response with 2 ResultSets, for the first 2 statements that
- *  run successfully, and a syntax error (INVALID_ARGUMENT) status. From
- *  result_set_size() client can determine that the 3rd statement has failed.
+ *  run successfully, and a syntax error (`INVALID_ARGUMENT`) status. From
+ *  `result_set_size()` client can determine that the 3rd statement has failed.
  */
 @interface GTLRSpanner_ExecuteBatchDmlResponse : GTLRObject
 
@@ -893,7 +937,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Required. A unique identifier for the instance, which cannot be changed
  *  after the instance is created. Values are of the form
  *  `projects/<project>/instances/a-z*[a-z0-9]`. The final
- *  segment of the name must be between 6 and 30 characters in length.
+ *  segment of the name must be between 2 and 64 characters in length.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -976,6 +1020,12 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  The geographic placement of nodes in this instance configuration and their
+ *  replication properties.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ReplicaInfo *> *replicas;
+
 @end
 
 
@@ -985,7 +1035,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  closed, indicating if the range includes rows with that key.
  *  Keys are represented by lists, where the ith value in the list
  *  corresponds to the ith component of the table or index primary key.
- *  Individual values are encoded as described here.
+ *  Individual values are encoded as described
+ *  here.
  *  For example, consider the following table definition:
  *  CREATE TABLE UserEvents (
  *  UserName STRING(MAX),
@@ -2058,6 +2109,57 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  GTLRSpanner_ReplicaInfo
+ */
+@interface GTLRSpanner_ReplicaInfo : GTLRObject
+
+/**
+ *  If true, this location is designated as the default leader location where
+ *  leader replicas are placed. See the [region types
+ *  documentation](https://cloud.google.com/spanner/docs/instances#region_types)
+ *  for more details.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultLeaderLocation;
+
+/** The location of the serving resources, e.g. "us-central1". */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  The type of replica.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_ReplicaInfo_Type_ReadOnly Read-only replicas only
+ *        support reads (not writes). Read-only replicas:
+ *        * Maintain a full copy of your data.
+ *        * Serve reads.
+ *        * Do not participate in voting to commit writes.
+ *        * Are not eligible to become a leader. (Value: "READ_ONLY")
+ *    @arg @c kGTLRSpanner_ReplicaInfo_Type_ReadWrite Read-write replicas
+ *        support both reads and writes. These replicas:
+ *        * Maintain a full copy of your data.
+ *        * Serve reads.
+ *        * Can vote whether to commit a write.
+ *        * Participate in leadership election.
+ *        * Are eligible to become a leader. (Value: "READ_WRITE")
+ *    @arg @c kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified Not specified.
+ *        (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_ReplicaInfo_Type_Witness Witness replicas don’t
+ *        support reads but do participate in voting to
+ *        commit writes. Witness replicas:
+ *        * Do not maintain a full copy of data.
+ *        * Do not serve reads.
+ *        * Vote whether to commit writes.
+ *        * Participate in leader election but are not eligible to become
+ *        leader. (Value: "WITNESS")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Results from Read or
  *  ExecuteSql.
  */
@@ -2379,15 +2481,13 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  The `Status` type defines a logical error model that is suitable for
- *  different
- *  programming environments, including REST APIs and RPC APIs. It is used by
- *  [gRPC](https://github.com/grpc). The error model is designed to be:
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
  *  - Simple to use and understand for most users
  *  - Flexible enough to meet unexpected needs
  *  # Overview
  *  The `Status` message contains three pieces of data: error code, error
- *  message,
- *  and error details. The error code should be an enum value of
+ *  message, and error details. The error code should be an enum value of
  *  google.rpc.Code, but it may accept additional error codes if needed. The
  *  error message should be a developer-facing English message that helps
  *  developers *understand* and *resolve* the error. If a localized user-facing
@@ -2839,7 +2939,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Likely values:
  *    @arg @c kGTLRSpanner_Type_Code_Array Encoded as `list`, where the list
  *        elements are represented
- *        according to array_element_type. (Value: "ARRAY")
+ *        according to
+ *        array_element_type. (Value: "ARRAY")
  *    @arg @c kGTLRSpanner_Type_Code_Bool Encoded as JSON `true` or `false`.
  *        (Value: "BOOL")
  *    @arg @c kGTLRSpanner_Type_Code_Bytes Encoded as a base64-encoded `string`,

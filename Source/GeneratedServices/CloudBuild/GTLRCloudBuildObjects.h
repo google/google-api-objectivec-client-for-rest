@@ -913,6 +913,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
 /** Substitutions data for Build resource. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_BuildTrigger_Substitutions *substitutions;
 
+/** Tags for annotation of a `BuildTrigger` */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
 /**
  *  Template describing the types of source changes to trigger a build.
  *  Branch and tag names in trigger templates are interpreted as regular
@@ -1166,7 +1169,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

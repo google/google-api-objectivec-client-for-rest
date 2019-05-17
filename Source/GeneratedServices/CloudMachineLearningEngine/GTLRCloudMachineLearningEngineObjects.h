@@ -93,6 +93,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Acce
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4;
 /**
+ *  Nvidia Tesla T4 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_T4"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaT4;
+/**
  *  Nvidia Tesla V100 GPU.
  *
  *  Value: "NVIDIA_TESLA_V100"
@@ -116,6 +122,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capa
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP100;
 /** Value: "NVIDIA_TESLA_P4" */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP4;
+/** Value: "NVIDIA_TESLA_T4" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaT4;
 /** Value: "NVIDIA_TESLA_V100" */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaV100;
 /** Value: "TPU_V2" */
@@ -615,7 +623,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  }
  *  service ResourceService {
  *  rpc GetResource(GetResourceRequest) returns (google.api.HttpBody);
- *  rpc UpdateResource(google.api.HttpBody) returns (google.protobuf.Empty);
+ *  rpc UpdateResource(google.api.HttpBody) returns
+ *  (google.protobuf.Empty);
  *  }
  *  Example with streaming methods:
  *  service CaldavService {
@@ -688,6 +697,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        Nvidia Tesla P100 GPU. (Value: "NVIDIA_TESLA_P100")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4
  *        Nvidia Tesla P4 GPU. (Value: "NVIDIA_TESLA_P4")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaT4
+ *        Nvidia Tesla T4 GPU. (Value: "NVIDIA_TESLA_T4")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100
  *        Nvidia Tesla V100 GPU. (Value: "NVIDIA_TESLA_V100")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2
@@ -750,19 +761,23 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput : GTLRObject
 
-/** Framework on which the built-in algorithm was trained on. */
+/** Framework on which the built-in algorithm was trained. */
 @property(nonatomic, copy, nullable) NSString *framework;
 
 /**
- *  Built-in algorithm's saved model path.
- *  Only set for non-hptuning succeeded jobs.
+ *  The Cloud Storage path to the `model/` directory where the training job
+ *  saves the trained model. Only set for successful jobs that don't use
+ *  hyperparameter tuning.
  */
 @property(nonatomic, copy, nullable) NSString *modelPath;
 
-/** Python version on which the built-in algorithm was trained on. */
+/** Python version on which the built-in algorithm was trained. */
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
 
-/** CMLE runtime version on which the built-in algorithm was trained on. */
+/**
+ *  AI Platform runtime version on which the built-in algorithm was
+ *  trained.
+ */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
 @end
@@ -847,8 +862,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric *> *allMetrics;
 
 /**
- *  Details related to built-in algorithms job.
- *  Only set this for built-in algorithms jobs and for trials that succeeded.
+ *  Details related to built-in algorithms jobs.
+ *  Only set for trials of built-in algorithms jobs that have succeeded.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput *builtInAlgorithmOutput;
 
@@ -913,7 +928,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Optional. The search algorithm specified for the hyperparameter
  *  tuning job.
- *  Uses the default CloudML Engine hyperparameter tuning
+ *  Uses the default AI Platform hyperparameter tuning
  *  algorithm if unspecified.
  *
  *  Likely values:
@@ -964,11 +979,11 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *hyperparameterMetricTag;
 
 /**
- *  Optional. How many failed trials that need to be seen before failing the
- *  hyperparameter tuning job. User can specify this field to override the
- *  default failing criteria for CloudML Engine hyperparameter tuning jobs.
- *  Defaults to zero, which means to let the service decide when a
- *  hyperparameter job should fail.
+ *  Optional. The number of failed trials that need to be seen before failing
+ *  the hyperparameter tuning job. You can specify this field to override the
+ *  default failing criteria for AI Platform hyperparameter tuning jobs.
+ *  Defaults to zero, which means the service decides when a hyperparameter
+ *  job should fail.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1011,7 +1026,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  Represents a training, prediction or explanation job.
+ *  Represents a training or prediction job.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job : GTLRObject
 
@@ -1306,13 +1321,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. If true, enables logging of stderr and stdout streams
- *  for online prediction in Stackdriver Logging. These can be more verbose
- *  than the standard access logs (see `online_prediction_logging`) and thus
- *  can incur higher cost. However, they are helpful for debugging. Note that
- *  since Stackdriver logs may incur a cost, particularly if the total QPS
- *  in your project is high, be sure to estimate your costs before enabling
- *  this flag.
+ *  Optional. If true, online prediction nodes send `stderr` and `stdout`
+ *  streams to Stackdriver Logging. These can be more verbose than the standard
+ *  access logs (see `onlinePredictionLogging`) and can incur higher cost.
+ *  However, they are helpful for debugging. Note that
+ *  [Stackdriver logs may incur a cost](/stackdriver/pricing), especially if
+ *  your project receives prediction requests at a high QPS. Estimate your
+ *  costs before enabling this option.
  *  Default is false.
  *
  *  Uses NSNumber of boolValue.
@@ -1323,8 +1338,9 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Optional. If true, online prediction access logs are sent to StackDriver
  *  Logging. These logs are like standard server access logs, containing
  *  information like timestamp and latency for each request. Note that
- *  Stackdriver logs may incur a cost, particular if the total QPS in your
- *  project is high.
+ *  [Stackdriver logs may incur a cost](/stackdriver/pricing), especially if
+ *  your project receives prediction requests at a high queries per second rate
+ *  (QPS). Estimate your costs before enabling this option.
  *  Default is false.
  *
  *  Uses NSNumber of boolValue.
@@ -1336,7 +1352,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Currently only one region per model is supported.
  *  Defaults to 'us-central1' if nothing is set.
  *  See the <a href="/ml-engine/docs/tensorflow/regions">available regions</a>
- *  for ML Engine services.
+ *  for AI Platform services.
  *  Note:
  *  * No matter where a model is deployed, it can always be accessed by
  *  users from anywhere, both for online and batch prediction.
@@ -1576,9 +1592,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *dataFormat;
 
 /**
- *  Required. The Google Cloud Storage location of the input data files.
- *  May contain wildcards. See <a
- *  href="https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames</a>
+ *  Required. The Cloud Storage location of the input data files. May contain
+ *  <a href="/storage/docs/gsutil/addlhelp/WildcardNames">wildcards</a>.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inputPaths;
 
@@ -1626,13 +1641,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Required. The Google Compute Engine region to run the prediction job in.
  *  See the <a href="/ml-engine/docs/tensorflow/regions">available regions</a>
- *  for ML Engine services.
+ *  for AI Platform services.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. The Cloud ML Engine runtime version to use for this batch
- *  prediction. If not set, Cloud ML Engine will pick the runtime version used
+ *  Optional. The AI Platform runtime version to use for this batch
+ *  prediction. If not set, AI Platform will pick the runtime version used
  *  during the CreateVersion request for this model version, or choose the
  *  latest stable version when model version information is not available
  *  such as when the model is specified by uri.
@@ -1906,7 +1921,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  training.](/ml-engine/docs/tensorflow/using-gpus#compute-engine-machine-types-with-gpu)
  *  Set `parameterServerConfig.imageUri` only if you build a custom image for
  *  your parameter server. If `parameterServerConfig.imageUri` has not been
- *  set, Cloud ML Engine uses the value of `masterConfig.imageUri`.
+ *  set, AI Platform uses the value of `masterConfig.imageUri`.
  *  Learn more about [configuring custom
  *  containers](/ml-engine/docs/distributed-training-containers).
  */
@@ -1930,7 +1945,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  The supported values are the same as those described in the entry for
  *  `master_type`.
  *  This value must be consistent with the category of machine type that
- *  `masterType` uses. In other words, both must be Cloud ML Engine machine
+ *  `masterType` uses. In other words, both must be AI Platform machine
  *  types or both must be Compute Engine machine types.
  *  This value must be present when `scaleTier` is set to `CUSTOM` and
  *  `parameter_server_count` is greater than zero.
@@ -1951,13 +1966,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Required. The Google Compute Engine region to run the training job in.
  *  See the <a href="/ml-engine/docs/tensorflow/regions">available regions</a>
- *  for ML Engine services.
+ *  for AI Platform services.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. The Cloud ML Engine runtime version to use for training. If not
- *  set, Cloud ML Engine uses the default stable version, 1.0. For more
+ *  Optional. The AI Platform runtime version to use for training. If not
+ *  set, AI Platform uses the default stable version, 1.0. For more
  *  information, see the
  *  <a href="/ml-engine/docs/runtime-version-list">runtime version list</a>
  *  and
@@ -2019,7 +2034,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  configurations for
  *  training.](/ml-engine/docs/tensorflow/using-gpus#compute-engine-machine-types-with-gpu)
  *  Set `workerConfig.imageUri` only if you build a custom image for your
- *  worker. If `workerConfig.imageUri` has not been set, Cloud ML Engine uses
+ *  worker. If `workerConfig.imageUri` has not been set, AI Platform uses
  *  the value of `masterConfig.imageUri`. Learn more about
  *  [configuring custom
  *  containers](/ml-engine/docs/distributed-training-containers).
@@ -2043,7 +2058,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  The supported values are the same as those described in the entry for
  *  `masterType`.
  *  This value must be consistent with the category of machine type that
- *  `masterType` uses. In other words, both must be Cloud ML Engine machine
+ *  `masterType` uses. In other words, both must be AI Platform machine
  *  types or both must be Compute Engine machine types.
  *  If you use `cloud_tpu` for this value, see special instructions for
  *  [configuring a custom TPU
@@ -2062,7 +2077,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput : GTLRObject
 
 /**
- *  Details related to built-in algorithms job.
+ *  Details related to built-in algorithms jobs.
  *  Only set for built-in algorithms jobs.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput *builtInAlgorithmOutput;
@@ -2111,7 +2126,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  prediction requests. A model can have multiple versions. You can get
  *  information about all of the versions of a given model by calling
  *  [projects.models.versions.list](/ml-engine/reference/rest/v1/projects.models.versions/list).
- *  Next ID: 30
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version : GTLRObject
 
@@ -2127,7 +2141,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Required. The Google Cloud Storage location of the trained model used to
+ *  Required. The Cloud Storage location of the trained model used to
  *  create the version. See the
  *  [guide to model
  *  deployment](/ml-engine/docs/tensorflow/deploying-models) for more
@@ -2166,12 +2180,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Optional. The machine learning framework Cloud ML Engine uses to train
+ *  Optional. The machine learning framework AI Platform uses to train
  *  this version of the model. Valid values are `TENSORFLOW`, `SCIKIT_LEARN`,
- *  `XGBOOST`. If you do not specify a framework, Cloud ML Engine
+ *  `XGBOOST`. If you do not specify a framework, AI Platform
  *  will analyze files in the deployment_uri to determine a framework. If you
  *  choose `SCIKIT_LEARN` or `XGBOOST`, you must also set the runtime version
  *  of the model to 1.4 or greater.
+ *  Do **not** specify a framework if you're deploying a [custom
+ *  prediction routine](/ml-engine/docs/tensorflow/custom-prediction-routines).
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified
@@ -2243,6 +2259,67 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Cloud Storage paths (`gs://…`) of packages for [custom
+ *  prediction routines](/ml-engine/docs/tensorflow/custom-prediction-routines)
+ *  or [scikit-learn pipelines with custom
+ *  code](/ml-engine/docs/scikit/exporting-for-prediction#custom-pipeline-code).
+ *  For a custom prediction routine, one of these packages must contain your
+ *  Predictor class (see
+ *  [`predictionClass`](#Version.FIELDS.prediction_class)). Additionally,
+ *  include any dependencies used by your Predictor or scikit-learn pipeline
+ *  uses that are not already included in your selected [runtime
+ *  version](/ml-engine/docs/tensorflow/runtime-version-list).
+ *  If you specify this field, you must also set
+ *  [`runtimeVersion`](#Version.FIELDS.runtime_version) to 1.4 or greater.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *packageUris;
+
+/**
+ *  Optional. The fully qualified name
+ *  (<var>module_name</var>.<var>class_name</var>) of a class that implements
+ *  the Predictor interface described in this reference field. The module
+ *  containing this class should be included in a package provided to the
+ *  [`packageUris` field](#Version.FIELDS.package_uris).
+ *  Specify this field if and only if you are deploying a [custom prediction
+ *  routine (beta)](/ml-engine/docs/tensorflow/custom-prediction-routines).
+ *  If you specify this field, you must set
+ *  [`runtimeVersion`](#Version.FIELDS.runtime_version) to 1.4 or greater.
+ *  The following code sample provides the Predictor interface:
+ *  ```py
+ *  class Predictor(object):
+ *  """Interface for constructing custom predictors."""
+ *  def predict(self, instances, **kwargs):
+ *  """Performs custom prediction.
+ *  Instances are the decoded values from the request. They have already
+ *  been deserialized from JSON.
+ *  Args:
+ *  instances: A list of prediction input instances.
+ *  **kwargs: A dictionary of keyword args provided as additional
+ *  fields on the predict request body.
+ *  Returns:
+ *  A list of outputs containing the prediction results. This list must
+ *  be JSON serializable.
+ *  """
+ *  raise NotImplementedError()
+ *  \@classmethod
+ *  def from_path(cls, model_dir):
+ *  """Creates an instance of Predictor using the given path.
+ *  Loading of the predictor should be done in this method.
+ *  Args:
+ *  model_dir: The local directory that contains the exported model
+ *  file along with any additional files uploaded when creating the
+ *  version resource.
+ *  Returns:
+ *  An instance implementing this Predictor class.
+ *  """
+ *  raise NotImplementedError()
+ *  ```
+ *  Learn more about [the Predictor interface and custom prediction
+ *  routines](/ml-engine/docs/tensorflow/custom-prediction-routines).
+ */
+@property(nonatomic, copy, nullable) NSString *predictionClass;
+
+/**
  *  Optional. The version of Python used in prediction. If not set, the default
  *  version is '2.7'. Python '3.5' is available when `runtime_version` is set
  *  to '1.4' and above. Python '2.7' works with all supported runtime versions.
@@ -2250,8 +2327,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
 
 /**
- *  Optional. The Cloud ML Engine runtime version to use for this deployment.
- *  If not set, Cloud ML Engine uses the default stable version, 1.0. For more
+ *  Optional. The AI Platform runtime version to use for this deployment.
+ *  If not set, AI Platform uses the default stable version, 1.0. For more
  *  information, see the
  *  [runtime version list](/ml-engine/docs/runtime-version-list) and
  *  [how to manage runtime versions](/ml-engine/docs/versioning).
@@ -2421,7 +2498,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: an unsatisfied condition will not allow user access via current
+ *  NOTE: An unsatisfied condition will not allow user access via current
  *  binding. Different bindings, including their conditions, are examined
  *  independently.
  */
@@ -2642,7 +2719,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

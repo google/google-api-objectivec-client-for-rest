@@ -292,6 +292,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DLP/*.{h,m}'
   end
+  s.subspec 'DataFusion' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/DataFusion/*.{h,m}'
+  end
   s.subspec 'DataTransfer' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DataTransfer/*.{h,m}'
@@ -359,6 +363,10 @@ Pod::Spec.new do |s|
   s.subspec 'FactCheckTools' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FactCheckTools/*.{h,m}'
+  end
+  s.subspec 'FirebaseCloudMessaging' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/FirebaseCloudMessaging/*.{h,m}'
   end
   s.subspec 'FirebaseDynamicLinks' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

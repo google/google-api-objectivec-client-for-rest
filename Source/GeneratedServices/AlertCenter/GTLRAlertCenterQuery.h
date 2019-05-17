@@ -242,7 +242,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  If not specified results may be returned in arbitrary order.
  *  You can sort the results in descending order based on the creation
  *  timestamp using `order_by="create_time desc"`.
- *  Currently, only sorting by `create_time desc` is supported.
+ *  Currently, supported sorting are `create_time asc`, `create_time desc`,
+ *  `update_time desc`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

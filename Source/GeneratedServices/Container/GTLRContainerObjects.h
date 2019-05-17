@@ -718,6 +718,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  "node_pool" object, since this configuration (along with the
  *  "node_config") will be used to create a "NodePool" object with an
  *  auto-generated name. Do not use this and a node_pool at the same time.
+ *  This field is deprecated, use node_pool.initial_node_count instead.
  *
  *  Uses NSNumber of intValue.
  */
@@ -808,21 +809,23 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /**
  *  Parameters used in creating the cluster's nodes.
- *  See `nodeConfig` for the description of its properties.
  *  For requests, this field should only be used in lieu of a
  *  "node_pool" object, since this configuration (along with the
  *  "initial_node_count") will be used to create a "NodePool" object with an
  *  auto-generated name. Do not use this and a node_pool at the same time.
  *  For responses, this field will be populated with the node configuration of
- *  the first node pool.
+ *  the first node pool. (For configuration of each node pool, see
+ *  `node_pool.config`)
  *  If unspecified, the defaults are used.
+ *  This field is deprecated, use node_pool.config instead.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig *nodeConfig;
 
 /**
  *  [Output only] The size of the address space on each node for hosting
  *  containers. This is provisioned from within the `container_ipv4_cidr`
- *  range.
+ *  range. This field will only be set when cluster is in route-based network
+ *  mode.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1184,25 +1187,25 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  */
 @interface GTLRContainer_GetOpenIDConfigResponse : GTLRObject
 
-/** NOLINT */
+/** Supported claims. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *claimsSupported;
 
-/** NOLINT */
+/** Supported grant types. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *grantTypes;
 
-/** NOLINT */
+/** supported ID Token signing Algorithms. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *idTokenSigningAlgValuesSupported;
 
-/** NOLINT */
+/** OIDC Issuer. */
 @property(nonatomic, copy, nullable) NSString *issuer;
 
-/** NOLINT */
+/** JSON Web Key uri. */
 @property(nonatomic, copy, nullable) NSString *jwksUri;
 
-/** NOLINT */
+/** Supported response types. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *responseTypesSupported;
 
-/** NOLINT */
+/** Supported subject types. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subjectTypesSupported;
 
 @end
@@ -1368,37 +1371,31 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  */
 @interface GTLRContainer_Jwk : GTLRObject
 
-/** NOLINT */
+/** Algorithm. */
 @property(nonatomic, copy, nullable) NSString *alg;
 
-/** NOLINT */
+/** Used for ECDSA keys. */
 @property(nonatomic, copy, nullable) NSString *crv;
 
-/** NOLINT */
+/** Used for RSA keys. */
 @property(nonatomic, copy, nullable) NSString *e;
 
-/** NOLINT */
+/** Key ID. */
 @property(nonatomic, copy, nullable) NSString *kid;
 
-/** NOLINT */
+/** Key Type. */
 @property(nonatomic, copy, nullable) NSString *kty;
 
-/**
- *  Fields for RSA keys.
- *  NOLINT
- */
+/** Used for RSA keys. */
 @property(nonatomic, copy, nullable) NSString *n;
 
-/** NOLINT */
+/** Permitted uses for the public keys. */
 @property(nonatomic, copy, nullable) NSString *use;
 
-/**
- *  Fields for ECDSA keys.
- *  NOLINT
- */
+/** Used for ECDSA keys. */
 @property(nonatomic, copy, nullable) NSString *x;
 
-/** NOLINT */
+/** Used for ECDSA keys. */
 @property(nonatomic, copy, nullable) NSString *y;
 
 @end
@@ -1597,7 +1594,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 @interface GTLRContainer_MasterAuthorizedNetworksConfig : GTLRObject
 
 /**
- *  cidr_blocks define up to 10 external networks that could access
+ *  cidr_blocks define up to 50 external networks that could access
  *  Kubernetes master through HTTPS.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_CidrBlock *> *cidrBlocks;
@@ -1975,6 +1972,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /** The name of the node pool. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  [Output only] The pod CIDR block size per node in this node pool.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *podIpv4CidrSize;
 
 /** [Output only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;

@@ -100,7 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name of the instance location using the form:
  *  `projects/{project_id}/locations/{location_id}`
- *  where `location_id` refers to a GCP region
+ *  where `location_id` refers to a GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -121,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The resource name of the instance location using the
  *    form:
  *    `projects/{project_id}/locations/{location_id}`
- *    where `location_id` refers to a GCP region
+ *    where `location_id` refers to a GCP region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesCreate
  */
@@ -146,7 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Redis instance resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
- *  where `location_id` refers to a GCP region
+ *  where `location_id` refers to a GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -158,7 +158,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Redis instance resource name using the form:
  *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
- *    where `location_id` refers to a GCP region
+ *    where `location_id` refers to a GCP region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesDelete
  */
@@ -167,8 +167,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Failover the master role to current replica node against a specific
- *  STANDARD tier redis instance.
+ *  Initiates a failover of the master node to current replica node for a
+ *  specific STANDARD tier Cloud Memorystore for Redis instance.
  *
  *  Method: redis.projects.locations.instances.failover
  *
@@ -182,21 +182,21 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Redis instance resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
- *  where `location_id` refers to a GCP region
+ *  where `location_id` refers to a GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRedis_Operation.
  *
- *  Failover the master role to current replica node against a specific
- *  STANDARD tier redis instance.
+ *  Initiates a failover of the master node to current replica node for a
+ *  specific STANDARD tier Cloud Memorystore for Redis instance.
  *
  *  @param object The @c GTLRCloudRedis_FailoverInstanceRequest to include in
  *    the query.
  *  @param name Required. Redis instance resource name using the form:
  *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
- *    where `location_id` refers to a GCP region
+ *    where `location_id` refers to a GCP region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesFailover
  */
@@ -220,7 +220,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Redis instance resource name using the form:
  *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
- *  where `location_id` refers to a GCP region
+ *  where `location_id` refers to a GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -231,7 +231,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Redis instance resource name using the form:
  *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
- *    where `location_id` refers to a GCP region
+ *    where `location_id` refers to a GCP region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesGet
  */
@@ -275,7 +275,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name of the instance location using the form:
  *  `projects/{project_id}/locations/{location_id}`
- *  where `location_id` refers to a GCP region
+ *  where `location_id` refers to a GCP region.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -292,7 +292,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The resource name of the instance location using the
  *    form:
  *    `projects/{project_id}/locations/{location_id}`
- *    where `location_id` refers to a GCP region
+ *    where `location_id` refers to a GCP region.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesList
  *

@@ -21,10 +21,6 @@
 @class GTLRWebmasters_ApiDataRow;
 @class GTLRWebmasters_ApiDimensionFilter;
 @class GTLRWebmasters_ApiDimensionFilterGroup;
-@class GTLRWebmasters_UrlCrawlErrorCount;
-@class GTLRWebmasters_UrlCrawlErrorCountsPerType;
-@class GTLRWebmasters_UrlCrawlErrorsSample;
-@class GTLRWebmasters_UrlSampleDetails;
 @class GTLRWebmasters_WmxSite;
 @class GTLRWebmasters_WmxSitemap;
 @class GTLRWebmasters_WmxSitemapContent;
@@ -217,114 +213,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  information, see Permissions in Search Console.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_WmxSite *> *siteEntry;
-
-@end
-
-
-/**
- *  An entry in a URL crawl errors time series.
- */
-@interface GTLRWebmasters_UrlCrawlErrorCount : GTLRObject
-
-/**
- *  The error count at the given timestamp.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *count;
-
-/**
- *  The date and time when the crawl attempt took place, in RFC 3339 format.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
-
-@end
-
-
-/**
- *  Number of errors per day for a specific error type (defined by platform and
- *  category).
- */
-@interface GTLRWebmasters_UrlCrawlErrorCountsPerType : GTLRObject
-
-/** The crawl error type. */
-@property(nonatomic, copy, nullable) NSString *category;
-
-/** The error count entries time series. */
-@property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_UrlCrawlErrorCount *> *entries;
-
-/**
- *  The general type of Googlebot that made the request (see list of Googlebot
- *  user-agents for the user-agents used).
- */
-@property(nonatomic, copy, nullable) NSString *platform;
-
-@end
-
-
-/**
- *  A time series of the number of URL crawl errors per error category and
- *  platform.
- */
-@interface GTLRWebmasters_UrlCrawlErrorsCountsQueryResponse : GTLRObject
-
-/**
- *  The time series of the number of URL crawl errors per error category and
- *  platform.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_UrlCrawlErrorCountsPerType *> *countPerTypes;
-
-@end
-
-
-/**
- *  Contains information about specific crawl errors.
- */
-@interface GTLRWebmasters_UrlCrawlErrorsSample : GTLRObject
-
-/** The time the error was first detected, in RFC 3339 format. */
-@property(nonatomic, strong, nullable) GTLRDateTime *firstDetected;
-
-/** The time when the URL was last crawled, in RFC 3339 format. */
-@property(nonatomic, strong, nullable) GTLRDateTime *lastCrawled;
-
-/** The URL of an error, relative to the site. */
-@property(nonatomic, copy, nullable) NSString *pageUrl;
-
-/**
- *  The HTTP response code, if any.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *responseCode;
-
-/** Additional details about the URL, set only when calling get(). */
-@property(nonatomic, strong, nullable) GTLRWebmasters_UrlSampleDetails *urlDetails;
-
-@end
-
-
-/**
- *  List of crawl error samples.
- */
-@interface GTLRWebmasters_UrlCrawlErrorsSamplesListResponse : GTLRObject
-
-/** Information about the sample URL and its crawl error. */
-@property(nonatomic, strong, nullable) NSArray<GTLRWebmasters_UrlCrawlErrorsSample *> *urlCrawlErrorSample;
-
-@end
-
-
-/**
- *  Additional details about the URL, set only when calling get().
- */
-@interface GTLRWebmasters_UrlSampleDetails : GTLRObject
-
-/** List of sitemaps pointing at this URL. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *containingSitemaps;
-
-/** A sample set of URLs linking to this URL. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *linkedFromUrls;
 
 @end
 

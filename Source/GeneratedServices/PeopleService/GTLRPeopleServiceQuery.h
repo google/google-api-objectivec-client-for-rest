@@ -40,6 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderFirstNameAscending;
 /** Value: "LAST_MODIFIED_ASCENDING" */
 GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastModifiedAscending;
+/** Value: "LAST_MODIFIED_DESCENDING" */
+GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastModifiedDescending;
 /** Value: "LAST_NAME_ASCENDING" */
 GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
@@ -395,6 +397,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Likely values:
  *    @arg @c kGTLRPeopleServiceSortOrderLastModifiedAscending Value
  *        "LAST_MODIFIED_ASCENDING"
+ *    @arg @c kGTLRPeopleServiceSortOrderLastModifiedDescending Value
+ *        "LAST_MODIFIED_DESCENDING"
  *    @arg @c kGTLRPeopleServiceSortOrderFirstNameAscending Value
  *        "FIRST_NAME_ASCENDING"
  *    @arg @c kGTLRPeopleServiceSortOrderLastNameAscending Value

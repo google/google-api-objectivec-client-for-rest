@@ -550,9 +550,9 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 /**
  *  Set to true to include access level information for users
  *  with
- *  <a href="https://support.google.com/vault/answer/6099459#metadata">indirect
- *  access</a>
- *  to files.
+ *  <a 
+ href="https://support.google.com/vault/answer/6099459#metadata">indirect
+ *  access</a> to files.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1164,7 +1164,8 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 /**
  *  The account id, as provided by
- *  <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>.
+ *  <a 
+ href="https://developers.google.com/admin-sdk/">Admin SDK</a>.
  */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
@@ -1307,8 +1308,7 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 /**
  *  The corpus-specific
  *  <a href="https://support.google.com/vault/answer/2474474">search
- *  operators</a>
- *  used to generate search results.
+ *  operators</a> used to generate search results.
  */
 @property(nonatomic, copy, nullable) NSString *terms;
 

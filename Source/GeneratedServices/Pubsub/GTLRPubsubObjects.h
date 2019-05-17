@@ -818,9 +818,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  operations on the subscription. If `expiration_policy` is not set, a
  *  *default policy* with `ttl` of 31 days will be used. The minimum allowed
  *  value for `expiration_policy.ttl` is 1 day.
- *  <b>BETA:</b> This feature is part of a beta release. This API might be
- *  changed in backward-incompatible ways and is not recommended for production
- *  use. It is not subject to any SLA or deprecation policy.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_ExpirationPolicy *expirationPolicy;
 

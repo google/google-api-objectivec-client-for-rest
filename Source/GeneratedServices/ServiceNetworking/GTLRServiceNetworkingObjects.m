@@ -63,6 +63,14 @@ NSString * const kGTLRServiceNetworking_LabelDescriptor_ValueType_String = @"STR
 NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
+// GTLRServiceNetworking_MetricDescriptor.launchStage
+NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Ga = @"GA";
+NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+
 // GTLRServiceNetworking_MetricDescriptor.metricKind
 NSString * const kGTLRServiceNetworking_MetricDescriptor_MetricKind_Cumulative = @"CUMULATIVE";
 NSString * const kGTLRServiceNetworking_MetricDescriptor_MetricKind_Delta = @"DELTA";
@@ -85,6 +93,14 @@ NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Dep
 NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+
+// GTLRServiceNetworking_MonitoredResourceDescriptor.launchStage
+NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Ga = @"GA";
+NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
 
 // GTLRServiceNetworking_Type.syntax
 NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
@@ -167,16 +183,6 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceNetworking_AuthorizationConfig
-//
-
-@implementation GTLRServiceNetworking_AuthorizationConfig
-@dynamic provider;
 @end
 
 
@@ -494,16 +500,6 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceNetworking_Experimental
-//
-
-@implementation GTLRServiceNetworking_Experimental
-@dynamic authorization;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceNetworking_Field
 //
 
@@ -717,8 +713,8 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceNetworking_MetricDescriptor
-@dynamic descriptionProperty, displayName, labels, metadata, metricKind, name,
-         type, unit, valueType;
+@dynamic descriptionProperty, displayName, labels, launchStage, metadata,
+         metricKind, name, type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -784,7 +780,7 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceNetworking_MonitoredResourceDescriptor
-@dynamic descriptionProperty, displayName, labels, name, type;
+@dynamic descriptionProperty, displayName, labels, launchStage, name, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1003,10 +999,10 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceNetworking_Service
 @dynamic apis, authentication, backend, billing, configVersion, context,
-         control, customError, documentation, endpoints, enums, experimental,
-         http, identifier, logging, logs, metrics, monitoredResources,
-         monitoring, name, producerProjectId, quota, sourceInfo,
-         systemParameters, systemTypes, title, types, usage;
+         control, customError, documentation, endpoints, enums, http,
+         identifier, logging, logs, metrics, monitoredResources, monitoring,
+         name, producerProjectId, quota, sourceInfo, systemParameters,
+         systemTypes, title, types, usage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

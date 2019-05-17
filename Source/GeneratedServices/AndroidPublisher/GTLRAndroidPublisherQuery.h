@@ -24,7 +24,9 @@
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_InAppProduct;
 @class GTLRAndroidPublisher_Listing;
+@class GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest;
 @class GTLRAndroidPublisher_ReviewsReplyRequest;
+@class GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest;
 @class GTLRAndroidPublisher_SubscriptionPurchasesDeferRequest;
 @class GTLRAndroidPublisher_Testers;
 @class GTLRAndroidPublisher_Track;
@@ -2104,6 +2106,87 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 @end
 
 /**
+ *  Uploads an APK to internal app sharing. If you are using the Google API
+ *  client libraries, please increase the timeout of the http request before
+ *  calling this endpoint (a timeout of 2 minutes is recommended). See:
+ *  https://developers.google.com/api-client-library/java/google-api-java-client/errors
+ *  for an example in java.
+ *
+ *  Method: androidpublisher.internalappsharingartifacts.uploadapk
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadapk : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForInternalappsharingartifactsUploadapkWithpackageName:]
+
+/** Unique identifier for the Android app; for example, "com.spiffygame". */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_InternalAppSharingArtifact.
+ *
+ *  Uploads an APK to internal app sharing. If you are using the Google API
+ *  client libraries, please increase the timeout of the http request before
+ *  calling this endpoint (a timeout of 2 minutes is recommended). See:
+ *  https://developers.google.com/api-client-library/java/google-api-java-client/errors
+ *  for an example in java.
+ *
+ *  @param packageName Unique identifier for the Android app; for example,
+ *    "com.spiffygame".
+ *  @param uploadParameters The media to include in this query. Maximum size
+ *    1GB. Accepted MIME types: application/octet-stream,
+ *    application/vnd.android.package-archive
+ *
+ *  @return GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadapk
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                    uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Uploads an app bundle to internal app sharing. If you are using the Google
+ *  API client libraries, please increase the timeout of the http request before
+ *  calling this endpoint (a timeout of 2 minutes is recommended). See:
+ *  https://developers.google.com/api-client-library/java/google-api-java-client/errors
+ *  for an example in java.
+ *
+ *  Method: androidpublisher.internalappsharingartifacts.uploadbundle
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadbundle : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForInternalappsharingartifactsUploadbundleWithpackageName:]
+
+/** Unique identifier for the Android app; for example, "com.spiffygame". */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_InternalAppSharingArtifact.
+ *
+ *  Uploads an app bundle to internal app sharing. If you are using the Google
+ *  API client libraries, please increase the timeout of the http request before
+ *  calling this endpoint (a timeout of 2 minutes is recommended). See:
+ *  https://developers.google.com/api-client-library/java/google-api-java-client/errors
+ *  for an example in java.
+ *
+ *  @param packageName Unique identifier for the Android app; for example,
+ *    "com.spiffygame".
+ *  @param uploadParameters The media to include in this query. Maximum size
+ *    2GB. Accepted MIME type: application/octet-stream
+ *
+ *  @return GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadbundle
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                    uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
  *  Refund a user's subscription or in-app purchase order.
  *
  *  Method: androidpublisher.orders.refund
@@ -2154,6 +2237,56 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 @end
 
 /**
+ *  Acknowledges a purchase of an inapp item.
+ *
+ *  Method: androidpublisher.purchases.products.acknowledge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_PurchasesProductsAcknowledge : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForPurchasesProductsAcknowledgeWithObject:packageName:productId:token:]
+
+/**
+ *  The package name of the application the inapp product was sold in (for
+ *  example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** The inapp product SKU (for example, 'com.some.thing.inapp1'). */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  The token provided to the user's device when the subscription was purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Acknowledges a purchase of an inapp item.
+ *
+ *  @param object The @c GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest
+ *    to include in the query.
+ *  @param packageName The package name of the application the inapp product was
+ *    sold in (for example, 'com.some.thing').
+ *  @param productId The inapp product SKU (for example,
+ *    'com.some.thing.inapp1').
+ *  @param token The token provided to the user's device when the subscription
+ *    was purchased.
+ *
+ *  @return GTLRAndroidPublisherQuery_PurchasesProductsAcknowledge
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+                          token:(NSString *)token;
+
+@end
+
+/**
  *  Checks the purchase and consumption status of an inapp item.
  *
  *  Method: androidpublisher.purchases.products.get
@@ -2197,6 +2330,57 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 + (instancetype)queryWithPackageName:(NSString *)packageName
                            productId:(NSString *)productId
                                token:(NSString *)token;
+
+@end
+
+/**
+ *  Acknowledges a subscription purchase.
+ *
+ *  Method: androidpublisher.purchases.subscriptions.acknowledge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsAcknowledge : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForPurchasesSubscriptionsAcknowledgeWithObject:packageName:subscriptionId:token:]
+
+/**
+ *  The package name of the application for which this subscription was
+ *  purchased (for example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** The purchased subscription ID (for example, 'monthly001'). */
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
+
+/**
+ *  The token provided to the user's device when the subscription was purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Acknowledges a subscription purchase.
+ *
+ *  @param object The @c
+ *    GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest to include in
+ *    the query.
+ *  @param packageName The package name of the application for which this
+ *    subscription was purchased (for example, 'com.some.thing').
+ *  @param subscriptionId The purchased subscription ID (for example,
+ *    'monthly001').
+ *  @param token The token provided to the user's device when the subscription
+ *    was purchased.
+ *
+ *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsAcknowledge
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest *)object
+                    packageName:(NSString *)packageName
+                 subscriptionId:(NSString *)subscriptionId
+                          token:(NSString *)token;
 
 @end
 

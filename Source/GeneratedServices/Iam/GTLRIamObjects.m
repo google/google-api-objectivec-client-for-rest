@@ -85,6 +85,16 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_AdminAuditData
+//
+
+@implementation GTLRIam_AdminAuditData
+@dynamic permissionDelta;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_AuditableService
 //
 
@@ -375,6 +385,25 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_PermissionDelta
+//
+
+@implementation GTLRIam_PermissionDelta
+@dynamic addedPermissions, removedPermissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addedPermissions" : [NSString class],
+    @"removedPermissions" : [NSString class]
+  };
+  return map;
 }
 
 @end

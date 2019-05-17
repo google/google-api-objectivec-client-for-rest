@@ -381,6 +381,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_InternalAppSharingArtifact
+//
+
+@implementation GTLRAndroidPublisher_InternalAppSharingArtifact
+@dynamic certificateFingerprint, downloadUrl, sha256;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Listing
 //
 
@@ -453,8 +463,18 @@
 //
 
 @implementation GTLRAndroidPublisher_ProductPurchase
-@dynamic consumptionState, developerPayload, kind, orderId, purchaseState,
-         purchaseTimeMillis, purchaseType;
+@dynamic acknowledgementState, consumptionState, developerPayload, kind,
+         orderId, purchaseState, purchaseTimeMillis, purchaseType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest
+//
+
+@implementation GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest
+@dynamic developerPayload;
 @end
 
 
@@ -594,6 +614,16 @@
          paymentState, priceAmountMicros, priceChange, priceCurrencyCode,
          profileId, profileName, purchaseType, startTimeMillis,
          userCancellationTimeMillis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest
+@dynamic developerPayload;
 @end
 
 

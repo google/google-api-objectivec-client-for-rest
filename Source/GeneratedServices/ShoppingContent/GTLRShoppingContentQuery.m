@@ -17,8 +17,6 @@
 // Constants
 
 // orderBy
-NSString * const kGTLRShoppingContentOrderByPlacedDateAsc      = @"placedDate asc";
-NSString * const kGTLRShoppingContentOrderByPlacedDateDesc     = @"placedDate desc";
 NSString * const kGTLRShoppingContentOrderByReturnCreationTimeAsc = @"returnCreationTimeAsc";
 NSString * const kGTLRShoppingContentOrderByReturnCreationTimeDesc = @"returnCreationTimeDesc";
 

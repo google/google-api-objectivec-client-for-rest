@@ -2786,7 +2786,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** Full name of the customer. */
 @property(nonatomic, copy, nullable) NSString *fullName;
 
-/** Customer's marketing preferences. */
+/**
+ *  Customer's marketing preferences. Contains the marketing opt-in information
+ *  that is current at the time that the merchant call. User preference
+ *  selections can change from one order to the next so preferences must be
+ *  checked with every order.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderCustomerMarketingRightsInfo *marketingRightsInfo;
 
 @end
@@ -2798,8 +2803,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_OrderCustomerMarketingRightsInfo : GTLRObject
 
 /**
- *  Last known user selection regarding marketing preferences. In certain cases
- *  this selection might not be known, so this field would be empty.
+ *  Last known customer selection regarding marketing preferences. In certain
+ *  cases this selection might not be known, so this field would be empty. If a
+ *  customer selected granted in their most recent order, they can be subscribed
+ *  to marketing emails. Customers who have chosen denied must not be
+ *  subscribed, or must be unsubscribed if already opted-in.
  */
 @property(nonatomic, copy, nullable) NSString *explicitMarketingPreference;
 
@@ -5114,7 +5122,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Price of the item. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
-/** Categories of the item (formatted as in products feed specification). */
+/** Categories of the item (formatted as in products data specification). */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *productTypes;
 
 /** The unique ID of a promotion. */
@@ -5124,7 +5132,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *salePrice;
 
 /**
- *  Date range during which the item is on sale (see products feed
+ *  Date range during which the item is on sale (see products data
  *  specification).
  */
 @property(nonatomic, copy, nullable) NSString *salePriceEffectiveDate;
@@ -5173,11 +5181,23 @@ NS_ASSUME_NONNULL_BEGIN
 /** The CLDR territory code for the item. */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
 
+/**
+ *  The tax category of the product, used to configure detailed tax nexus in
+ *  account-level tax settings.
+ */
+@property(nonatomic, copy, nullable) NSString *taxCategory;
+
 /** Tax information. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductTax *> *taxes;
 
 /** Title of the item. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  The transit time label of the product, used to group product in
+ *  account-level transit time tables.
+ */
+@property(nonatomic, copy, nullable) NSString *transitTimeLabel;
 
 /** The preference of the denominator of the unit price. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ProductUnitPricingBaseMeasure *unitPricingBaseMeasure;

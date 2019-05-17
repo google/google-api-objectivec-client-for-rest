@@ -26,7 +26,6 @@
 @class GTLRServiceManagement_AuditLogConfig;
 @class GTLRServiceManagement_Authentication;
 @class GTLRServiceManagement_AuthenticationRule;
-@class GTLRServiceManagement_AuthorizationConfig;
 @class GTLRServiceManagement_AuthProvider;
 @class GTLRServiceManagement_AuthRequirement;
 @class GTLRServiceManagement_Backend;
@@ -51,7 +50,6 @@
 @class GTLRServiceManagement_Endpoint;
 @class GTLRServiceManagement_Enum;
 @class GTLRServiceManagement_EnumValue;
-@class GTLRServiceManagement_Experimental;
 @class GTLRServiceManagement_Expr;
 @class GTLRServiceManagement_Field;
 @class GTLRServiceManagement_GenerateConfigReportRequest_NewConfig;
@@ -496,6 +494,67 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Method_Syntax_SyntaxProto2;
 GTLR_EXTERN NSString * const kGTLRServiceManagement_Method_Syntax_SyntaxProto3;
 
 // ----------------------------------------------------------------------------
+// GTLRServiceManagement_MetricDescriptor.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved
+ *  and we are in the process of verifying functionality. Alpha customers
+ *  need to apply for access, agree to applicable terms, and have their
+ *  projects whitelisted. Alpha releases don’t have to be feature complete,
+ *  no SLAs are provided, and there are no technical support obligations, but
+ *  they will be far enough along that customers can actually use them in
+ *  test environments or for limited-use tests -- just like they would in
+ *  normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any
+ *  customer to use. There are no SLA or technical support obligations in a
+ *  Beta release. Products will be complete from a feature perspective, but
+ *  may have some open outstanding issues. Beta releases are suitable for
+ *  limited production use cases.
+ *
+ *  Value: "BETA"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the “Deprecation Policy” section of our [Terms of
+ *  Service](https://cloud.google.com/terms/)
+ *  and the [Google Cloud Platform Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use
+ *  these features, you must sign up in advance and sign a Trusted Tester
+ *  agreement (which includes confidentiality provisions). These features may
+ *  be unstable, changed in backward-incompatible ways, and are not
+ *  guaranteed to be released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and
+ *  fully qualified for production use.
+ *
+ *  Value: "GA"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRServiceManagement_MetricDescriptor.metricKind
 
 /**
@@ -635,6 +694,67 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_Lau
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceManagement_MonitoredResourceDescriptor.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved
+ *  and we are in the process of verifying functionality. Alpha customers
+ *  need to apply for access, agree to applicable terms, and have their
+ *  projects whitelisted. Alpha releases don’t have to be feature complete,
+ *  no SLAs are provided, and there are no technical support obligations, but
+ *  they will be far enough along that customers can actually use them in
+ *  test environments or for limited-use tests -- just like they would in
+ *  normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any
+ *  customer to use. There are no SLA or technical support obligations in a
+ *  Beta release. Products will be complete from a feature perspective, but
+ *  may have some open outstanding issues. Beta releases are suitable for
+ *  limited production use cases.
+ *
+ *  Value: "BETA"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the “Deprecation Policy” section of our [Terms of
+ *  Service](https://cloud.google.com/terms/)
+ *  and the [Google Cloud Platform Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use
+ *  these features, you must sign up in advance and sign a Trusted Tester
+ *  agreement (which includes confidentiality provisions). These features may
+ *  be unstable, changed in backward-incompatible ways, and are not
+ *  guaranteed to be released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and
+ *  fully qualified for production use.
+ *
+ *  Value: "GA"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceManagement_Rollout.status
@@ -995,26 +1115,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  Refer to selector for syntax details.
  */
 @property(nonatomic, copy, nullable) NSString *selector;
-
-@end
-
-
-/**
- *  Configuration of authorization.
- *  This section determines the authorization provider, if unspecified, then no
- *  authorization check will be done.
- *  Example:
- *  experimental:
- *  authorization:
- *  provider: firebaserules.googleapis.com
- */
-@interface GTLRServiceManagement_AuthorizationConfig : GTLRObject
-
-/**
- *  The name of the authorization provider, such as
- *  firebaserules.googleapis.com.
- */
-@property(nonatomic, copy, nullable) NSString *provider;
 
 @end
 
@@ -1940,18 +2040,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Experimental service configuration. These configuration options can
- *  only be used by whitelisted users.
- */
-@interface GTLRServiceManagement_Experimental : GTLRObject
-
-/** Authorization configuration. */
-@property(nonatomic, strong, nullable) GTLRServiceManagement_AuthorizationConfig *authorization;
-
-@end
-
-
-/**
  *  Represents an expression text. Example:
  *  title: "User account presence"
  *  description: "Determines whether the request has a user account"
@@ -2097,6 +2185,21 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  types. Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
  */
 @property(nonatomic, copy, nullable) NSString *typeUrl;
+
+@end
+
+
+/**
+ *  Encapsulation of flow-specific error details for debugging.
+ *  Used as a details field on an error Status, not intended for external use.
+ */
+@interface GTLRServiceManagement_FlowErrorDetails : GTLRObject
+
+/** The type of exception (as a class name). */
+@property(nonatomic, copy, nullable) NSString *exceptionType;
+
+/** The step that failed. */
+@property(nonatomic, copy, nullable) NSString *flowStepId;
 
 @end
 
@@ -2859,6 +2962,54 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_LabelDescriptor *> *labels;
 
+/**
+ *  Optional. The launch stage of the metric definition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceManagement_MetricDescriptor_LaunchStage_Alpha Alpha is
+ *        a limited availability test for releases before they are cleared
+ *        for widespread use. By Alpha, all significant design issues are
+ *        resolved
+ *        and we are in the process of verifying functionality. Alpha customers
+ *        need to apply for access, agree to applicable terms, and have their
+ *        projects whitelisted. Alpha releases don’t have to be feature
+ *        complete,
+ *        no SLAs are provided, and there are no technical support obligations,
+ *        but
+ *        they will be far enough along that customers can actually use them in
+ *        test environments or for limited-use tests -- just like they would in
+ *        normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRServiceManagement_MetricDescriptor_LaunchStage_Beta Beta is
+ *        the point at which we are ready to open a release for any
+ *        customer to use. There are no SLA or technical support obligations in
+ *        a
+ *        Beta release. Products will be complete from a feature perspective,
+ *        but
+ *        may have some open outstanding issues. Beta releases are suitable for
+ *        limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRServiceManagement_MetricDescriptor_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more
+ *        information, see the “Deprecation Policy” section of our [Terms of
+ *        Service](https://cloud.google.com/terms/)
+ *        and the [Google Cloud Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRServiceManagement_MetricDescriptor_LaunchStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may
+ *        be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRServiceManagement_MetricDescriptor_LaunchStage_Ga GA features
+ *        are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRServiceManagement_MetricDescriptor_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
 /** Optional. Metadata which can be used to guide usage of the metric. */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_MetricDescriptorMetadata *metadata;
 
@@ -2994,6 +3145,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRDuration *ingestDelay;
 
 /**
+ *  Deprecated. Please use the MetricDescriptor.launch_stage instead.
  *  The launch stage of the metric definition.
  *
  *  Likely values:
@@ -3208,6 +3360,55 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_LabelDescriptor *> *labels;
 
 /**
+ *  Optional. The launch stage of the monitored resource definition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Alpha
+ *        Alpha is a limited availability test for releases before they are
+ *        cleared
+ *        for widespread use. By Alpha, all significant design issues are
+ *        resolved
+ *        and we are in the process of verifying functionality. Alpha customers
+ *        need to apply for access, agree to applicable terms, and have their
+ *        projects whitelisted. Alpha releases don’t have to be feature
+ *        complete,
+ *        no SLAs are provided, and there are no technical support obligations,
+ *        but
+ *        they will be far enough along that customers can actually use them in
+ *        test environments or for limited-use tests -- just like they would in
+ *        normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Beta
+ *        Beta is the point at which we are ready to open a release for any
+ *        customer to use. There are no SLA or technical support obligations in
+ *        a
+ *        Beta release. Products will be complete from a feature perspective,
+ *        but
+ *        may have some open outstanding issues. Beta releases are suitable for
+ *        limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more
+ *        information, see the “Deprecation Policy” section of our [Terms of
+ *        Service](https://cloud.google.com/terms/)
+ *        and the [Google Cloud Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may
+ *        be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Ga
+ *        GA features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
+/**
  *  Optional. The resource name of the monitored resource descriptor:
  *  `"projects/{project_id}/monitoredResourceDescriptors/{type}"` where
  *  {type} is the value of the `type` field in this object and
@@ -3369,7 +3570,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3936,9 +4137,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  - name: google.someapi.v1.SomeEnum
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Enum *> *enums;
-
-/** Experimental configuration. */
-@property(nonatomic, strong, nullable) GTLRServiceManagement_Experimental *experimental;
 
 /** HTTP configuration. */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Http *http;

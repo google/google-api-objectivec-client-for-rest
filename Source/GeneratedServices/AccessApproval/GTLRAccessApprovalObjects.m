@@ -46,7 +46,8 @@ NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified = @"TYPE_
 
 @implementation GTLRAccessApproval_ApprovalRequest
 @dynamic approve, dismiss, name, requestedExpiration, requestedLocations,
-         requestedReason, requestedResourceName, requestTime;
+         requestedReason, requestedResourceName, requestedResourceProperties,
+         requestTime;
 @end
 
 
@@ -108,6 +109,16 @@ NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified = @"TYPE_
   return @"approvalRequests";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessApproval_ResourceProperties
+//
+
+@implementation GTLRAccessApproval_ResourceProperties
+@dynamic excludesDescendants;
 @end
 
 

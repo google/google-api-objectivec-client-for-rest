@@ -72,6 +72,14 @@ NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_EarlyAccess =
 NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
 NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
 
+// GTLRLogging_MonitoredResourceDescriptor.launchStage
+NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Ga = @"GA";
+NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRLogging_BucketOptions
@@ -512,7 +520,7 @@ NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUn
 //
 
 @implementation GTLRLogging_MonitoredResourceDescriptor
-@dynamic descriptionProperty, displayName, labels, name, type;
+@dynamic descriptionProperty, displayName, labels, launchStage, name, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

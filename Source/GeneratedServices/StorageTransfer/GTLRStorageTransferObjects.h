@@ -206,7 +206,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unauthe
 /**
  *  The service is currently unavailable. This is most likely a
  *  transient condition, which can be corrected by retrying with
- *  a backoff.
+ *  a backoff. Note that it is not always safe to retry
+ *  non-idempotent operations.
  *  See the guidelines above for deciding between `FAILED_PRECONDITION`,
  *  `ABORTED`, and `UNAVAILABLE`.
  *  HTTP Mapping: 503 Service Unavailable
@@ -312,15 +313,12 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  */
 @interface GTLRStorageTransfer_AwsAccessKey : GTLRObject
 
-/**
- *  AWS access key ID.
- *  Required.
- */
+/** Required. AWS access key ID. */
 @property(nonatomic, copy, nullable) NSString *accessKeyId;
 
 /**
- *  AWS secret access key. This field is not returned in RPC responses.
- *  Required.
+ *  Required. AWS secret access key. This field is not returned in RPC
+ *  responses.
  */
 @property(nonatomic, copy, nullable) NSString *secretAccessKey;
 
@@ -334,18 +332,16 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @interface GTLRStorageTransfer_AwsS3Data : GTLRObject
 
 /**
- *  AWS access key used to sign the API requests to the AWS S3 bucket.
- *  Permissions on the bucket must be granted to the access ID of the
+ *  Required. AWS access key used to sign the API requests to the AWS S3
+ *  bucket. Permissions on the bucket must be granted to the access ID of the
  *  AWS access key.
- *  Required.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AwsAccessKey *awsAccessKey;
 
 /**
- *  S3 Bucket name (see
+ *  Required. S3 Bucket name (see
  *  [Creating a
  *  bucket](http://docs.aws.amazon.com/AmazonS3/latest/dev/create-bucket-get-location-example.html)).
- *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *bucketName;
 
@@ -417,9 +413,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, strong, nullable) NSArray<NSString *> *errorDetails;
 
 /**
- *  A URL that refers to the target (a data source, a data sink,
+ *  Required. A URL that refers to the target (a data source, a data sink,
  *  or an object) with which the error is associated.
- *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -535,7 +530,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unavailable The
  *        service is currently unavailable. This is most likely a
  *        transient condition, which can be corrected by retrying with
- *        a backoff.
+ *        a backoff. Note that it is not always safe to retry
+ *        non-idempotent operations.
  *        See the guidelines above for deciding between `FAILED_PRECONDITION`,
  *        `ABORTED`, and `UNAVAILABLE`.
  *        HTTP Mapping: 503 Service Unavailable (Value: "UNAVAILABLE")
@@ -554,8 +550,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, copy, nullable) NSString *errorCode;
 
 /**
- *  Count of this type of error.
- *  Required.
+ *  Required. Count of this type of error.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -579,10 +574,9 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @interface GTLRStorageTransfer_GcsData : GTLRObject
 
 /**
- *  Google Cloud Storage bucket name (see
+ *  Required. Google Cloud Storage bucket name (see
  *  [Bucket Name
  *  Requirements](https://cloud.google.com/storage/docs/naming#requirements)).
- *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *bucketName;
 
@@ -594,7 +588,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  */
 @interface GTLRStorageTransfer_GoogleServiceAccount : GTLRObject
 
-/** Required. */
+/** Email address of the service account. */
 @property(nonatomic, copy, nullable) NSString *accountEmail;
 
 @end
@@ -638,10 +632,9 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @interface GTLRStorageTransfer_HttpData : GTLRObject
 
 /**
- *  The URL that points to the file that stores the object list entries.
- *  This file must allow public access. Currently, only URLs with HTTP and
- *  HTTPS schemes are supported.
- *  Required.
+ *  Required. The URL that points to the file that stores the object list
+ *  entries. This file must allow public access. Currently, only URLs with
+ *  HTTP and HTTPS schemes are supported.
  */
 @property(nonatomic, copy, nullable) NSString *listUrl;
 
@@ -865,10 +858,9 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Date *scheduleEndDate;
 
 /**
- *  The first day the recurring transfer is scheduled to run. If
+ *  Required. The first day the recurring transfer is scheduled to run. If
  *  `scheduleStartDate` is in the past, the transfer will run for the first
  *  time on the following day.
- *  Required.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Date *scheduleStartDate;
 
@@ -1140,10 +1132,10 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  */
 @interface GTLRStorageTransfer_TransferJob : GTLRObject
 
-/** This field cannot be changed by user requests. */
+/** Output only. The time that the transfer job was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
-/** This field cannot be changed by user requests. */
+/** Output only. The time that the transfer job was deleted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deletionTime;
 
 /**
@@ -1154,7 +1146,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** This field cannot be changed by user requests. */
+/** Output only. The time that the transfer job was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastModificationTime;
 
 /**
@@ -1218,10 +1210,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 /** A globally unique ID assigned by the system. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  The ID of the Google Cloud Platform Project that owns the operation.
- *  Required.
- */
+/** The ID of the Google Cloud Platform Project that owns the operation. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Start time of this transfer execution. */
@@ -1249,10 +1238,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 /** The name of the transfer job that triggers this transfer operation. */
 @property(nonatomic, copy, nullable) NSString *transferJobName;
 
-/**
- *  Transfer specification.
- *  Required.
- */
+/** Transfer specification. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferSpec *transferSpec;
 
 @end
@@ -1332,17 +1318,16 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 @interface GTLRStorageTransfer_UpdateTransferJobRequest : GTLRObject
 
 /**
- *  The ID of the Google Cloud Platform Console project that owns the job.
- *  Required.
+ *  Required. The ID of the Google Cloud Platform Console project that owns the
+ *  job.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  The job to update. `transferJob` is expected to specify only three fields:
- *  `description`, `transferSpec`, and `status`. An UpdateTransferJobRequest
- *  that specifies other fields will be rejected with an error
- *  `INVALID_ARGUMENT`.
- *  Required.
+ *  Required. The job to update. `transferJob` is expected to specify only
+ *  three fields: `description`, `transferSpec`, and `status`. An
+ *  UpdateTransferJobRequest that specifies other fields will be rejected with
+ *  an error `INVALID_ARGUMENT`.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferJob *transferJob;
 

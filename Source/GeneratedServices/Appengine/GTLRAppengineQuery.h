@@ -1126,7 +1126,13 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Recreates the required App Engine features for the specified App Engine
  *  application, for example a Cloud Storage bucket or App Engine service
  *  account. Use this method if you receive an error message about a missing
- *  feature, for example, Error retrieving the App Engine service account.
+ *  feature, for example, Error retrieving the App Engine service account. If
+ *  you have deleted your App Engine service account, this will not be able to
+ *  recreate it. Instead, you should attempt to use the IAM undelete API if
+ *  possible at
+ *  https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts/undelete?apix_params=%7B"name"%3A"projects%2F-%2FserviceAccounts%2Funique_id"%2C"resource"%3A%7B%7D%7D
+ *  . If the deletion was recent, the numeric ID can be found in the Cloud
+ *  Console Activity Log.
  *
  *  Method: appengine.apps.repair
  *
@@ -1146,7 +1152,13 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Recreates the required App Engine features for the specified App Engine
  *  application, for example a Cloud Storage bucket or App Engine service
  *  account. Use this method if you receive an error message about a missing
- *  feature, for example, Error retrieving the App Engine service account.
+ *  feature, for example, Error retrieving the App Engine service account. If
+ *  you have deleted your App Engine service account, this will not be able to
+ *  recreate it. Instead, you should attempt to use the IAM undelete API if
+ *  possible at
+ *  https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts/undelete?apix_params=%7B"name"%3A"projects%2F-%2FserviceAccounts%2Funique_id"%2C"resource"%3A%7B%7D%7D
+ *  . If the deletion was recent, the numeric ID can be found in the Cloud
+ *  Console Activity Log.
  *
  *  @param object The @c GTLRAppengine_RepairApplicationRequest to include in
  *    the query.

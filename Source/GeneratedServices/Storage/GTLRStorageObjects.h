@@ -130,6 +130,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
+/** The type of the bucket location. */
+@property(nonatomic, copy, nullable) NSString *locationType;
+
 /**
  *  The bucket's logging configuration, which defines the destination bucket and
  *  optional name prefix for the current bucket's logs.
@@ -850,12 +853,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/**
- *  Key metadata.
- *
- *  Can be any valid JSON type.
- */
-@property(nonatomic, strong, nullable) id metadata;
+/** Key metadata. */
+@property(nonatomic, strong, nullable) GTLRStorage_HmacKeyMetadata *metadata;
 
 /** HMAC secret key material. */
 @property(nonatomic, copy, nullable) NSString *secret;
@@ -871,7 +870,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The ID of the HMAC Key. */
 @property(nonatomic, copy, nullable) NSString *accessId;
 
-/** HTTP 1.1 Entity tag for the access-control entry. */
+/** HTTP 1.1 Entity tag for the HMAC key. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
@@ -900,10 +899,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *state;
 
 /** The creation time of the HMAC key in RFC 3339 format. */
-@property(nonatomic, copy, nullable) NSString *timeCreated;
+@property(nonatomic, strong, nullable) GTLRDateTime *timeCreated;
 
 /** The last modification time of the HMAC key metadata in RFC 3339 format. */
-@property(nonatomic, copy, nullable) NSString *updated;
+@property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
 @end
 

@@ -828,8 +828,20 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  Disables a ServiceAccount.
- *  The API is currently in alpha phase.
+ *  DisableServiceAccount is currently in the alpha launch stage.
+ *  Disables a ServiceAccount,
+ *  which immediately prevents the service account from authenticating and
+ *  gaining access to APIs.
+ *  Disabled service accounts can be safely restored by using
+ *  EnableServiceAccount at any point. Deleted service accounts cannot be
+ *  restored using this method.
+ *  Disabling a service account that is bound to VMs, Apps, Functions, or
+ *  other jobs will cause those jobs to lose access to resources if they are
+ *  using the disabled service account.
+ *  To improve reliability of your services and avoid unexpected outages, it
+ *  is recommended to first disable a service account rather than delete it.
+ *  After disabling the service account, wait at least 24 hours to verify there
+ *  are no unintended consequences, and then delete the service account.
  *
  *  Method: iam.projects.serviceAccounts.disable
  *
@@ -852,8 +864,20 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_Empty.
  *
- *  Disables a ServiceAccount.
- *  The API is currently in alpha phase.
+ *  DisableServiceAccount is currently in the alpha launch stage.
+ *  Disables a ServiceAccount,
+ *  which immediately prevents the service account from authenticating and
+ *  gaining access to APIs.
+ *  Disabled service accounts can be safely restored by using
+ *  EnableServiceAccount at any point. Deleted service accounts cannot be
+ *  restored using this method.
+ *  Disabling a service account that is bound to VMs, Apps, Functions, or
+ *  other jobs will cause those jobs to lose access to resources if they are
+ *  using the disabled service account.
+ *  To improve reliability of your services and avoid unexpected outages, it
+ *  is recommended to first disable a service account rather than delete it.
+ *  After disabling the service account, wait at least 24 hours to verify there
+ *  are no unintended consequences, and then delete the service account.
  *
  *  @param object The @c GTLRIam_DisableServiceAccountRequest to include in the
  *    query.
@@ -872,8 +896,14 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  Enables a ServiceAccount.
- *  The API is currently in alpha phase.
+ *  EnableServiceAccount is currently in the alpha launch stage.
+ *  Restores a disabled ServiceAccount
+ *  that has been manually disabled by using DisableServiceAccount. Service
+ *  accounts that have been disabled by other means or for other reasons,
+ *  such as abuse, cannot be restored using this method.
+ *  EnableServiceAccount will have no effect on a service account that is
+ *  not disabled. Enabling an already enabled service account will have no
+ *  effect.
  *
  *  Method: iam.projects.serviceAccounts.enable
  *
@@ -895,8 +925,14 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_Empty.
  *
- *  Enables a ServiceAccount.
- *  The API is currently in alpha phase.
+ *  EnableServiceAccount is currently in the alpha launch stage.
+ *  Restores a disabled ServiceAccount
+ *  that has been manually disabled by using DisableServiceAccount. Service
+ *  accounts that have been disabled by other means or for other reasons,
+ *  such as abuse, cannot be restored using this method.
+ *  EnableServiceAccount will have no effect on a service account that is
+ *  not disabled. Enabling an already enabled service account will have no
+ *  effect.
  *
  *  @param object The @c GTLRIam_EnableServiceAccountRequest to include in the
  *    query.
@@ -1550,8 +1586,7 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  PatchServiceAccount instead.
  *  Updates a ServiceAccount.
  *  Currently, only the following fields are updatable:
- *  `display_name` .
- *  The `etag` is mandatory.
+ *  `display_name` and `description`.
  *
  *  Method: iam.projects.serviceAccounts.update
  *
@@ -1580,8 +1615,7 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  PatchServiceAccount instead.
  *  Updates a ServiceAccount.
  *  Currently, only the following fields are updatable:
- *  `display_name` .
- *  The `etag` is mandatory.
+ *  `display_name` and `description`.
  *
  *  @param object The @c GTLRIam_ServiceAccount to include in the query.
  *  @param name The resource name of the service account in the following

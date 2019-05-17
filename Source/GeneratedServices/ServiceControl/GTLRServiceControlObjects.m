@@ -57,6 +57,7 @@ NSString * const kGTLRServiceControl_ConsumerInfo_Type_ConsumerTypeUnspecified =
 NSString * const kGTLRServiceControl_ConsumerInfo_Type_Folder  = @"FOLDER";
 NSString * const kGTLRServiceControl_ConsumerInfo_Type_Organization = @"ORGANIZATION";
 NSString * const kGTLRServiceControl_ConsumerInfo_Type_Project = @"PROJECT";
+NSString * const kGTLRServiceControl_ConsumerInfo_Type_ServiceSpecific = @"SERVICE_SPECIFIC";
 
 // GTLRServiceControl_LogEntry.severity
 NSString * const kGTLRServiceControl_LogEntry_Severity_Alert   = @"ALERT";
@@ -362,7 +363,8 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_CheckResponse
-@dynamic checkErrors, checkInfo, operationId, quotaInfo, serviceConfigId;
+@dynamic checkErrors, checkInfo, operationId, quotaInfo, serviceConfigId,
+         serviceRolloutId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -806,7 +808,7 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_ReportResponse
-@dynamic reportErrors, reportInfos, serviceConfigId;
+@dynamic reportErrors, reportInfos, serviceConfigId, serviceRolloutId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
