@@ -25,6 +25,7 @@
 @class GTLRPubsub_Expr;
 @class GTLRPubsub_Message;
 @class GTLRPubsub_Message_Attributes;
+@class GTLRPubsub_MessageStoragePolicy;
 @class GTLRPubsub_OidcToken;
 @class GTLRPubsub_Policy;
 @class GTLRPubsub_PushConfig;
@@ -380,6 +381,24 @@ NS_ASSUME_NONNULL_BEGIN
  *        fetch them all at once.
  */
 @interface GTLRPubsub_Message_Attributes : GTLRObject
+@end
+
+
+/**
+ *  GTLRPubsub_MessageStoragePolicy
+ */
+@interface GTLRPubsub_MessageStoragePolicy : GTLRObject
+
+/**
+ *  The list of GCP region IDs where messages that are published to the topic
+ *  may be persisted in storage. Messages published by publishers running in
+ *  non-allowed GCP regions (or running outside of GCP altogether) will be
+ *  routed for storage in one of the allowed regions. An empty list indicates a
+ *  misconfiguration at the project or organization level, which will result in
+ *  all Publish operations failing.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedPersistenceRegions;
+
 @end
 
 
@@ -927,10 +946,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_Topic : GTLRObject
 
 /**
+ *  The resource name of the Cloud KMS CryptoKey to be used to protect access
+ *  to messages published on this topic.
+ *  The expected format is `projects/ * /locations/ * /keyRings/ * /cryptoKeys/
+ *  *`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
  *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
  *  managing labels</a>.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Topic_Labels *labels;
+
+/**
+ *  Policy constraining how messages published to the topic may be stored. It
+ *  is determined when the topic is created based on the policy configured at
+ *  the project level. It must not be set by the caller in the request to
+ *  CreateTopic or to UpdateTopic. This field will be populated in the
+ *  responses for GetTopic, CreateTopic, and UpdateTopic: if not present in the
+ *  response, then no constraints are in effect.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_MessageStoragePolicy *messageStoragePolicy;
 
 /**
  *  The name of the topic. It must have the format

@@ -24,19 +24,13 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRCloudVideoIntelligence_GoogleLongrunningCancelOperationRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
++ (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/operations/{+name}:cancel";
   GTLRCloudVideoIntelligenceQuery_OperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRCloudVideoIntelligence_GoogleProtobufEmpty class];
   query.loggingName = @"videointelligence.operations.cancel";
@@ -83,18 +77,140 @@
 
 @end
 
-@implementation GTLRCloudVideoIntelligenceQuery_OperationsList
+@implementation GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/operations/{+name}:cancel";
+  GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudVideoIntelligence_GoogleProtobufEmpty class];
+  query.loggingName = @"videointelligence.operations.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/operations/{+name}";
+  GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudVideoIntelligence_GoogleProtobufEmpty class];
+  query.loggingName = @"videointelligence.operations.projects.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/operations/{+name}";
+  GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudVideoIntelligence_GoogleLongrunningOperation class];
+  query.loggingName = @"videointelligence.operations.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudVideoIntelligence_GoogleLongrunningCancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudVideoIntelligence_GoogleProtobufEmpty class];
+  query.loggingName = @"videointelligence.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudVideoIntelligence_GoogleProtobufEmpty class];
+  query.loggingName = @"videointelligence.projects.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudVideoIntelligence_GoogleLongrunningOperation class];
+  query.loggingName = @"videointelligence.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsList
 
 @dynamic filter, name, pageSize, pageToken;
 
-+ (instancetype)query {
-  NSString *pathURITemplate = @"v1/operations";
-  GTLRCloudVideoIntelligenceQuery_OperationsList *query =
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/operations";
+  GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
-                       pathParameterNames:nil];
+                       pathParameterNames:pathParams];
+  query.name = name;
   query.expectedObjectClass = [GTLRCloudVideoIntelligence_GoogleLongrunningListOperationsResponse class];
-  query.loggingName = @"videointelligence.operations.list";
+  query.loggingName = @"videointelligence.projects.locations.operations.list";
   return query;
 }
 

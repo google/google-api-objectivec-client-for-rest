@@ -126,6 +126,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_BigQueryDestination
+//
+
+@implementation GTLRContainer_BigQueryDestination
+@dynamic datasetId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_CancelOperationRequest
 //
 
@@ -174,8 +184,8 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
          maintenancePolicy, masterAuth, masterAuthorizedNetworksConfig,
          monitoringService, name, network, networkConfig, networkPolicy,
          nodeConfig, nodeIpv4CidrSize, nodePools, privateClusterConfig,
-         resourceLabels, selfLink, servicesIpv4Cidr, status, statusMessage,
-         subnetwork, tpuIpv4CidrBlock, zoneProperty;
+         resourceLabels, resourceUsageExportConfig, selfLink, servicesIpv4Cidr,
+         status, statusMessage, subnetwork, tpuIpv4CidrBlock, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -219,9 +229,10 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_ClusterUpdate
 @dynamic desiredAddonsConfig, desiredImageType, desiredLocations,
-         desiredMasterAuthorizedNetworksConfig, desiredMasterVersion,
-         desiredMonitoringService, desiredNodePoolAutoscaling,
-         desiredNodePoolId, desiredNodeVersion;
+         desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
+         desiredMasterVersion, desiredMonitoringService,
+         desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
+         desiredResourceUsageExportConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -245,6 +256,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
   return @{ @"zoneProperty" : @"zone" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ConsumptionMeteringConfig
+//
+
+@implementation GTLRContainer_ConsumptionMeteringConfig
+@dynamic enabled;
 @end
 
 
@@ -715,6 +736,17 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 @implementation GTLRContainer_PrivateClusterConfig
 @dynamic enablePrivateEndpoint, enablePrivateNodes, masterIpv4CidrBlock,
          privateEndpoint, publicEndpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ResourceUsageExportConfig
+//
+
+@implementation GTLRContainer_ResourceUsageExportConfig
+@dynamic bigqueryDestination, consumptionMeteringConfig,
+         enableNetworkEgressMetering;
 @end
 
 

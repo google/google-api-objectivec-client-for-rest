@@ -14,10 +14,22 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDialogflow_GoogleCloudDialogflowV2Agent.apiVersion
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionUnspecified = @"API_VERSION_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV1 = @"API_VERSION_V1";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV2 = @"API_VERSION_V2";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV2Beta1 = @"API_VERSION_V2_BETA_1";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2Agent.matchMode
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeHybrid = @"MATCH_MODE_HYBRID";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeMlOnly = @"MATCH_MODE_ML_ONLY";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeUnspecified = @"MATCH_MODE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2Agent.tier
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierEnterprise = @"TIER_ENTERPRISE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierEnterprisePlus = @"TIER_ENTERPRISE_PLUS";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierStandard = @"TIER_STANDARD";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierUnspecified = @"TIER_UNSPECIFIED";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest.intentView
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewFull = @"INTENT_VIEW_FULL";
@@ -162,9 +174,9 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2Agent
-@dynamic avatarUri, classificationThreshold, defaultLanguageCode,
+@dynamic apiVersion, avatarUri, classificationThreshold, defaultLanguageCode,
          descriptionProperty, displayName, enableLogging, matchMode, parent,
-         supportedLanguageCodes, timeZone;
+         supportedLanguageCodes, tier, timeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

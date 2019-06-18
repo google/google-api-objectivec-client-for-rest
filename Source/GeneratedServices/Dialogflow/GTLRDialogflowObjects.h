@@ -134,6 +134,34 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2Agent.apiVersion
+
+/**
+ *  Not specified.
+ *
+ *  Value: "API_VERSION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionUnspecified;
+/**
+ *  Legacy V1 API.
+ *
+ *  Value: "API_VERSION_V1"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV1;
+/**
+ *  V2 API.
+ *
+ *  Value: "API_VERSION_V2"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV2;
+/**
+ *  V2beta1 API.
+ *
+ *  Value: "API_VERSION_V2_BETA_1"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV2Beta1;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2Agent.matchMode
 
 /**
@@ -156,6 +184,34 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchM
  *  Value: "MATCH_MODE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2Agent.tier
+
+/**
+ *  Enterprise tier (Essentials).
+ *
+ *  Value: "TIER_ENTERPRISE"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierEnterprise;
+/**
+ *  Enterprise tier (Plus).
+ *
+ *  Value: "TIER_ENTERPRISE_PLUS"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierEnterprisePlus;
+/**
+ *  Standard tier.
+ *
+ *  Value: "TIER_STANDARD"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierStandard;
+/**
+ *  Not specified. This value should never be used.
+ *
+ *  Value: "TIER_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest.intentView
@@ -932,6 +988,24 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @interface GTLRDialogflow_GoogleCloudDialogflowV2Agent : GTLRObject
 
 /**
+ *  Optional. API version displayed in Dialogflow console. If not specified,
+ *  V2 API is assumed. Clients are free to query different service endpoints
+ *  for different API versions. However, bots connectors and webhook calls will
+ *  follow the specified API version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionUnspecified
+ *        Not specified. (Value: "API_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV1
+ *        Legacy V1 API. (Value: "API_VERSION_V1")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV2
+ *        V2 API. (Value: "API_VERSION_V2")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV2Beta1
+ *        V2beta1 API. (Value: "API_VERSION_V2_BETA_1")
+ */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
  *  Optional. The URI of the agent's avatar.
  *  Avatars are used throughout the Dialogflow console and in the self-hosted
  *  [Web
@@ -1008,6 +1082,22 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  `default_language_code`).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedLanguageCodes;
+
+/**
+ *  Optional. The agent tier. If not specified, TIER_STANDARD is assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierEnterprise
+ *        Enterprise tier (Essentials). (Value: "TIER_ENTERPRISE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierEnterprisePlus
+ *        Enterprise tier (Plus). (Value: "TIER_ENTERPRISE_PLUS")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierStandard
+ *        Standard tier. (Value: "TIER_STANDARD")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierUnspecified
+ *        Not specified. This value should never be used. (Value:
+ *        "TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tier;
 
 /**
  *  Required. The time zone of this agent from the
@@ -2584,7 +2674,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  - If natural language speech audio was provided as input, `query_text`
  *  contains the speech recognition result. If speech recognizer produced
  *  multiple alternatives, a particular one is picked.
- *  - If an event was provided as input, `query_text` is not set.
+ *  - If automatic spell correction is enabled, `query_text` will contain the
+ *  corrected user input.
  */
 @property(nonatomic, copy, nullable) NSString *queryText;
 
@@ -3295,10 +3386,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, copy, nullable) NSString *modelVariant;
 
 /**
- *  Optional. The collection of phrase hints which are used to boost accuracy
- *  of speech recognition.
- *  Refer to
- *  [Cloud Speech API
+ *  Optional. A list of strings containing words and phrases that the speech
+ *  recognizer should recognize with higher likelihood.
+ *  See [the Cloud Speech
  *  documentation](https://cloud.google.com/speech-to-text/docs/basics#phrase-hints)
  *  for more details.
  */
@@ -4494,7 +4584,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  - If natural language speech audio was provided as input, `query_text`
  *  contains the speech recognition result. If speech recognizer produced
  *  multiple alternatives, a particular one is picked.
- *  - If an event was provided as input, `query_text` is not set.
+ *  - If automatic spell correction is enabled, `query_text` will contain the
+ *  corrected user input.
  */
 @property(nonatomic, copy, nullable) NSString *queryText;
 
@@ -5087,45 +5178,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
- *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
- *  - Simple to use and understand for most users
- *  - Flexible enough to meet unexpected needs
- *  # Overview
- *  The `Status` message contains three pieces of data: error code, error
- *  message, and error details. The error code should be an enum value of
- *  google.rpc.Code, but it may accept additional error codes if needed. The
- *  error message should be a developer-facing English message that helps
- *  developers *understand* and *resolve* the error. If a localized user-facing
- *  error message is needed, put the localized message in the error details or
- *  localize it in the client. The optional error details may contain arbitrary
- *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` that can be used for common error conditions.
- *  # Language mapping
- *  The `Status` message is the logical representation of the error model, but
- *  it
- *  is not necessarily the actual wire format. When the `Status` message is
- *  exposed in different client libraries and different wire protocols, it can
- *  be
- *  mapped differently. For example, it will likely be mapped to some exceptions
- *  in Java, but more likely mapped to some error codes in C.
- *  # Other uses
- *  The error model and the `Status` message can be used in a variety of
- *  environments, either with or without APIs, to provide a
- *  consistent developer experience across different environments.
- *  Example uses of this error model include:
- *  - Partial errors. If a service needs to return partial errors to the client,
- *  it may embed the `Status` in the normal response to indicate the partial
- *  errors.
- *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting.
- *  - Batch operations. If a client uses batch request and batch response, the
- *  `Status` message should be used directly inside batch response, one for
- *  each error sub-response.
- *  - Asynchronous operations. If an API call embeds asynchronous operation
- *  results in its response, the status of those operations should be
- *  represented directly using the `Status` message.
- *  - Logging. If some API errors are stored in logs, the message `Status` could
- *  be used directly after any stripping needed for security/privacy reasons.
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details.
+ *  You can find out more about this error model and how to work with it in the
+ *  [API Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRDialogflow_GoogleRpcStatus : GTLRObject
 

@@ -46,6 +46,7 @@
 @class GTLRVault_OrgUnitInfo;
 @class GTLRVault_Query;
 @class GTLRVault_SavedQuery;
+@class GTLRVault_SharedDriveInfo;
 @class GTLRVault_Status;
 @class GTLRVault_Status_Details_Item;
 @class GTLRVault_TeamDriveInfo;
@@ -330,6 +331,57 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_DataScope_HeldData;
 GTLR_EXTERN NSString * const kGTLRVault_Query_DataScope_UnprocessedData;
 
 // ----------------------------------------------------------------------------
+// GTLRVault_Query.method
+
+/**
+ *  Will search all accounts provided in account_info.
+ *
+ *  Value: "ACCOUNT"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_Query_Method_Account;
+/**
+ *  Will search for all accounts in the organization.
+ *  No need to set account_info or org_unit_info.
+ *
+ *  Value: "ENTIRE_ORG"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_Query_Method_EntireOrg;
+/**
+ *  Will search all accounts in the OU specified in org_unit_info.
+ *
+ *  Value: "ORG_UNIT"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_Query_Method_OrgUnit;
+/**
+ *  Will search in the Room specified in
+ *  hangout_chats_info. (read-only)
+ *
+ *  Value: "ROOM"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_Query_Method_Room;
+/**
+ *  A search method must be specified. If a request does not specify a
+ *  search method, it will be rejected.
+ *
+ *  Value: "SEARCH_METHOD_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_Query_Method_SearchMethodUnspecified;
+/**
+ *  Will search for all accounts in the shared drive specified in
+ *  shared_drive_info.
+ *
+ *  Value: "SHARED_DRIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_Query_Method_SharedDrive;
+/**
+ *  Will search for all accounts in the Team Drive specified in
+ *  team_drive_info.
+ *
+ *  Value: "TEAM_DRIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_Query_Method_TeamDrive;
+
+// ----------------------------------------------------------------------------
 // GTLRVault_Query.searchMethod
 
 /**
@@ -365,6 +417,13 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Room;
  *  Value: "SEARCH_METHOD_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SearchMethodUnspecified;
+/**
+ *  Will search for all accounts in the shared drive specified in
+ *  shared_drive_info.
+ *
+ *  Value: "SHARED_DRIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SharedDrive;
 /**
  *  Will search for all accounts in the Team Drive specified in
  *  team_drive_info.
@@ -565,6 +624,13 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  *  Drive search advanced options
  */
 @interface GTLRVault_DriveOptions : GTLRObject
+
+/**
+ *  Set to true to include shared drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeSharedDrives;
 
 /**
  *  Set to true to include Team Drive.
@@ -815,6 +881,13 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  *  Query options for Drive holds.
  */
 @interface GTLRVault_HeldDriveQuery : GTLRObject
+
+/**
+ *  If true, include files in shared drives in the hold.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeSharedDriveFiles;
 
 /**
  *  If true, include files in Team Drives in the hold.
@@ -1264,6 +1337,35 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @property(nonatomic, strong, nullable) GTLRVault_MailOptions *mailOptions;
 
 /**
+ *  The search method to use. This field is similar to the search_method field
+ *  but is introduced to support shared drives. It supports all
+ *  search method types. In case the search_method is TEAM_DRIVE the response
+ *  of this field will be SHARED_DRIVE only.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVault_Query_Method_Account Will search all accounts provided
+ *        in account_info. (Value: "ACCOUNT")
+ *    @arg @c kGTLRVault_Query_Method_EntireOrg Will search for all accounts in
+ *        the organization.
+ *        No need to set account_info or org_unit_info. (Value: "ENTIRE_ORG")
+ *    @arg @c kGTLRVault_Query_Method_OrgUnit Will search all accounts in the OU
+ *        specified in org_unit_info. (Value: "ORG_UNIT")
+ *    @arg @c kGTLRVault_Query_Method_Room Will search in the Room specified in
+ *        hangout_chats_info. (read-only) (Value: "ROOM")
+ *    @arg @c kGTLRVault_Query_Method_SearchMethodUnspecified A search method
+ *        must be specified. If a request does not specify a
+ *        search method, it will be rejected. (Value:
+ *        "SEARCH_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRVault_Query_Method_SharedDrive Will search for all accounts
+ *        in the shared drive specified in
+ *        shared_drive_info. (Value: "SHARED_DRIVE")
+ *    @arg @c kGTLRVault_Query_Method_TeamDrive Will search for all accounts in
+ *        the Team Drive specified in
+ *        team_drive_info. (Value: "TEAM_DRIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *method;
+
+/**
  *  When 'ORG_UNIT' is chosen as as search method, org_unit_info needs
  *  to be specified.
  */
@@ -1287,11 +1389,20 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  *        method must be specified. If a request does not specify a
  *        search method, it will be rejected. (Value:
  *        "SEARCH_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRVault_Query_SearchMethod_SharedDrive Will search for all
+ *        accounts in the shared drive specified in
+ *        shared_drive_info. (Value: "SHARED_DRIVE")
  *    @arg @c kGTLRVault_Query_SearchMethod_TeamDrive Will search for all
  *        accounts in the Team Drive specified in
  *        team_drive_info. (Value: "TEAM_DRIVE")
  */
 @property(nonatomic, copy, nullable) NSString *searchMethod;
+
+/**
+ *  When 'SHARED_DRIVE' is chosen as search method, shared_drive_info needs
+ *  to be specified.
+ */
+@property(nonatomic, strong, nullable) GTLRVault_SharedDriveInfo *sharedDriveInfo;
 
 /**
  *  The start time range for the search query. These timestamps are in GMT and
@@ -1407,6 +1518,21 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 /** A unique identifier for the saved query. */
 @property(nonatomic, copy, nullable) NSString *savedQueryId;
+
+@end
+
+
+/**
+ *  Shared drives to search
+ */
+@interface GTLRVault_SharedDriveInfo : GTLRObject
+
+/**
+ *  List of Shared drive ids, as provided by
+ *  <a 
+ href="https://developers.google.com/drive">Drive API</a>.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sharedDriveIds;
 
 @end
 

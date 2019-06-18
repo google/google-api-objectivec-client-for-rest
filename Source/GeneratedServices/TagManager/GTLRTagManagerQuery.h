@@ -22,6 +22,7 @@
 @class GTLRTagManager_Container;
 @class GTLRTagManager_ContainerVersion;
 @class GTLRTagManager_CreateContainerVersionRequestVersionOptions;
+@class GTLRTagManager_CustomTemplate;
 @class GTLRTagManager_Entity;
 @class GTLRTagManager_Environment;
 @class GTLRTagManager_Folder;
@@ -207,10 +208,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeLanguage;
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeNewHistoryFragment;
 /** Value: "newHistoryState" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeNewHistoryState;
+/** Value: "newHistoryUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeNewHistoryUrl;
 /** Value: "oldHistoryFragment" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeOldHistoryFragment;
 /** Value: "oldHistoryState" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeOldHistoryState;
+/** Value: "oldHistoryUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeOldHistoryUrl;
 /** Value: "osVersion" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeOsVersion;
 /** Value: "pageHostname" */
@@ -1116,8 +1121,10 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeLanguage Value "language"
  *    @arg @c kGTLRTagManagerTypeNewHistoryFragment Value "newHistoryFragment"
  *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryUrl Value "newHistoryUrl"
  *    @arg @c kGTLRTagManagerTypeOldHistoryFragment Value "oldHistoryFragment"
  *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryUrl Value "oldHistoryUrl"
  *    @arg @c kGTLRTagManagerTypeOsVersion Value "osVersion"
  *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
  *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
@@ -1291,8 +1298,10 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeLanguage Value "language"
  *    @arg @c kGTLRTagManagerTypeNewHistoryFragment Value "newHistoryFragment"
  *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryUrl Value "newHistoryUrl"
  *    @arg @c kGTLRTagManagerTypeOldHistoryFragment Value "oldHistoryFragment"
  *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryUrl Value "oldHistoryUrl"
  *    @arg @c kGTLRTagManagerTypeOsVersion Value "osVersion"
  *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
  *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
@@ -1507,8 +1516,10 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeLanguage Value "language"
  *    @arg @c kGTLRTagManagerTypeNewHistoryFragment Value "newHistoryFragment"
  *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryUrl Value "newHistoryUrl"
  *    @arg @c kGTLRTagManagerTypeOldHistoryFragment Value "oldHistoryFragment"
  *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryUrl Value "oldHistoryUrl"
  *    @arg @c kGTLRTagManagerTypeOsVersion Value "osVersion"
  *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
  *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
@@ -2384,6 +2395,224 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsUpdate
  */
 + (instancetype)queryWithObject:(GTLRTagManager_Tag *)object
+                           path:(NSString *)path;
+
+@end
+
+/**
+ *  Creates a GTM Custom Template.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.templates.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesCreate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesCreateWithObject:parent:]
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_CustomTemplate.
+ *
+ *  Creates a GTM Custom Template.
+ *
+ *  @param object The @c GTLRTagManager_CustomTemplate to include in the query.
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesCreate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_CustomTemplate *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a GTM Template.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.templates.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesDelete : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesDeleteWithpath:]
+
+/**
+ *  GTM Custom Template's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a GTM Template.
+ *
+ *  @param path GTM Custom Template's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesDelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets a GTM Template.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.templates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesGet : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesGetWithpath:]
+
+/**
+ *  GTM Custom Template's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_CustomTemplate.
+ *
+ *  Gets a GTM Template.
+ *
+ *  @param path GTM Custom Template's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesGet
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Lists all GTM Templates of a GTM container workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.templates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesList : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesListWithparent:]
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ListTemplatesResponse.
+ *
+ *  Lists all GTM Templates of a GTM container workspace.
+ *
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Reverts changes to a GTM Template in a GTM Workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.templates.revert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesRevert : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesRevertWithpath:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the template
+ *  in storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Custom Template's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_RevertTemplateResponse.
+ *
+ *  Reverts changes to a GTM Template in a GTM Workspace.
+ *
+ *  @param path GTM Custom Template's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesRevert
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Updates a GTM Template.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.templates.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesUpdate : GTLRTagManagerQuery
+// Previous library name was
+//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesUpdateWithObject:path:]
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the templates
+ *  in storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Custom Template's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_CustomTemplate.
+ *
+ *  Updates a GTM Template.
+ *
+ *  @param object The @c GTLRTagManager_CustomTemplate to include in the query.
+ *  @param path GTM Custom Template's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_CustomTemplate *)object
                            path:(NSString *)path;
 
 @end

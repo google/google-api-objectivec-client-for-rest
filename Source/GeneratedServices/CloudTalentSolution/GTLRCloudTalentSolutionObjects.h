@@ -1836,7 +1836,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
 /**
  *  Optional.
  *  Compensation type.
- *  Default is CompensationUnit.OTHER_COMPENSATION_TYPE.
+ *  Default is CompensationUnit.COMPENSATION_TYPE_UNSPECIFIED.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_Base Base
@@ -1867,7 +1867,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
 /**
  *  Optional.
  *  Frequency of the specified amount.
- *  Default is CompensationUnit.OTHER_COMPENSATION_UNIT.
+ *  Default is CompensationUnit.COMPENSATION_UNIT_UNSPECIFIED.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_CompensationUnitUnspecified
@@ -1900,7 +1900,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
 
 /**
  *  Optional.
- *  Whether to include jobs whose compensation range is unspecified.
+ *  If set to true, jobs with unspecified compensation range fields are
+ *  included.
  *
  *  Uses NSNumber of boolValue.
  */

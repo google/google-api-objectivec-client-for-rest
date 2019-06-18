@@ -40,8 +40,10 @@ NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_TextRedactio
 
 // GTLRCloudHealthcare_ImportResourcesRequest.contentStructure
 NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Bundle = @"BUNDLE";
+NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_BundlePretty = @"BUNDLE_PRETTY";
 NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ContentStructureUnspecified = @"CONTENT_STRUCTURE_UNSPECIFIED";
 NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Resource = @"RESOURCE";
+NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ResourcePretty = @"RESOURCE_PRETTY";
 
 // GTLRCloudHealthcare_SchemaConfig.schemaType
 NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics = @"ANALYTICS";
@@ -388,7 +390,15 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 @implementation GTLRCloudHealthcare_FhirStore
 @dynamic disableReferentialIntegrity, disableResourceVersioning,
          enableHistoryImport, enableUpdateCreate, labels, name,
-         notificationConfig;
+         notificationConfig, streamConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"streamConfigs" : [GTLRCloudHealthcare_StreamConfig class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1237,6 +1247,24 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_StreamConfig
+//
+
+@implementation GTLRCloudHealthcare_StreamConfig
+@dynamic bigqueryDestination, resourceTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceTypes" : [NSString class]
+  };
+  return map;
 }
 
 @end

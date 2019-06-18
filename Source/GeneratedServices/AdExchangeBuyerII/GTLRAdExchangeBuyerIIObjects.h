@@ -22,6 +22,7 @@
 
 @class GTLRAdExchangeBuyerII_AbsoluteDateRange;
 @class GTLRAdExchangeBuyerII_AdSize;
+@class GTLRAdExchangeBuyerII_AdTechnologyProviders;
 @class GTLRAdExchangeBuyerII_AppContext;
 @class GTLRAdExchangeBuyerII_AuctionContext;
 @class GTLRAdExchangeBuyerII_BidMetricsRow;
@@ -2146,6 +2147,44 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 
 /**
+ *  Detected ad technology provider information.
+ */
+@interface GTLRAdExchangeBuyerII_AdTechnologyProviders : GTLRObject
+
+/**
+ *  The detected ad technology provider IDs for this creative.
+ *  See https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for
+ *  mapping of provider ID to provided name, a privacy policy URL, and a list
+ *  of domains which can be attributed to the provider.
+ *  If the creative contains provider IDs that are outside of those listed in
+ *  the `BidRequest.adslot.consented_providers_settings.consented_providers`
+ *  field on the (Google bid
+ *  protocol)[https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto]
+ *  and the
+ *  `BidRequest.user.ext.consented_providers_settings.consented_providers`
+ *  field on the (OpenRTB
+ *  protocol)[https://developers.google.com/authorized-buyers/rtb/downloads/openrtb-adx-proto],
+ *  and a bid is submitted with that creative for an impression that will
+ *  serve to an EEA user, the bid will be filtered before the auction.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *detectedProviderIds;
+
+/**
+ *  Whether the creative contains an unidentified ad technology provider.
+ *  If true for a given creative, any bid submitted with that creative for an
+ *  impression that will serve to an EEA user will be filtered before the
+ *  auction.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasUnidentifiedProvider;
+
+@end
+
+
+/**
  *  Output only. The app type the restriction applies to for mobile device.
  */
 @interface GTLRAdExchangeBuyerII_AppContext : GTLRObject
@@ -2617,6 +2656,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 /** The link to AdChoices destination page. */
 @property(nonatomic, copy, nullable) NSString *adChoicesDestinationUrl;
+
+/** Output only. The detected ad technology providers. */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_AdTechnologyProviders *adTechnologyProviders;
 
 /** The name of the company being advertised in the creative. */
 @property(nonatomic, copy, nullable) NSString *advertiserName;

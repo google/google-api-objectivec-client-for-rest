@@ -593,10 +593,11 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput
-@dynamic args, hyperparameters, jobDir, masterConfig, masterType, packageUris,
-         parameterServerConfig, parameterServerCount, parameterServerType,
-         pythonModule, pythonVersion, region, runtimeVersion, scaleTier,
-         workerConfig, workerCount, workerType;
+@dynamic args, hyperparameters, jobDir, masterConfig, masterType,
+         maxRunningTime, packageUris, parameterServerConfig,
+         parameterServerCount, parameterServerType, pythonModule, pythonVersion,
+         region, runtimeVersion, scaleTier, workerConfig, workerCount,
+         workerType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -616,7 +617,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput
 @dynamic builtInAlgorithmOutput, completedTrialCount, consumedMLUnits,
-         isBuiltInAlgorithmJob, isHyperparameterTuningJob, trials;
+         hyperparameterMetricTag, isBuiltInAlgorithmJob,
+         isHyperparameterTuningJob, trials;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -637,7 +639,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 @dynamic autoScaling, createTime, deploymentUri, descriptionProperty,
          errorMessage, ETag, framework, isDefault, labels, lastUseTime,
          machineType, manualScaling, name, packageUris, predictionClass,
-         pythonVersion, runtimeVersion, state;
+         pythonVersion, runtimeVersion, serviceAccount, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

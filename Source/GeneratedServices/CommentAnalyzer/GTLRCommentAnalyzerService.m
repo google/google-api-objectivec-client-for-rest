@@ -11,7 +11,7 @@
 //   over time. Users can set the "doNotStore" flag to ensure that all submitted
 //   comments are automatically deleted after scores are returned.
 // Documentation:
-//   https://conversationai.github.io/
+//   https://github.com/conversationai/perspectiveapi/blob/master/README.md
 
 #import "GTLRCommentAnalyzer.h"
 

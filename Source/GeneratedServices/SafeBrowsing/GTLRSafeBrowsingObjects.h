@@ -202,6 +202,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_CsdD
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_CsdWhitelist;
 /**
+ *  Safe list to ship hashes of known safe URL expressions.
+ *
+ *  Value: "HIGH_CONFIDENCE_ALLOWLIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_HighConfidenceAllowlist;
+/**
  *  Malicious binary threat type.
  *
  *  Value: "MALICIOUS_BINARY"
@@ -432,6 +438,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Csd
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_CsdWhitelist;
 /**
+ *  Safe list to ship hashes of known safe URL expressions.
+ *
+ *  Value: "HIGH_CONFIDENCE_ALLOWLIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_HighConfidenceAllowlist;
+/**
  *  Malicious binary threat type.
  *
  *  Value: "MALICIOUS_BINARY"
@@ -614,6 +626,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_CsdDownloadW
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_CsdWhitelist;
 /**
+ *  Safe list to ship hashes of known safe URL expressions.
+ *
+ *  Value: "HIGH_CONFIDENCE_ALLOWLIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_HighConfidenceAllowlist;
+/**
  *  Malicious binary threat type.
  *
  *  Value: "MALICIOUS_BINARY"
@@ -730,6 +748,8 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ClientInci
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_CsdDownloadWhitelist;
 /** Value: "CSD_WHITELIST" */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_CsdWhitelist;
+/** Value: "HIGH_CONFIDENCE_ALLOWLIST" */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_HighConfidenceAllowlist;
 /** Value: "MALICIOUS_BINARY" */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_MaliciousBinary;
 /** Value: "MALWARE" */
@@ -895,6 +915,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_C
  *  Value: "CSD_WHITELIST"
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_CsdWhitelist;
+/**
+ *  Safe list to ship hashes of known safe URL expressions.
+ *
+ *  Value: "HIGH_CONFIDENCE_ALLOWLIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_HighConfidenceAllowlist;
 /**
  *  Malicious binary threat type.
  *
@@ -1101,6 +1127,12 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_CsdDownloa
  *  Value: "CSD_WHITELIST"
  */
 GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_CsdWhitelist;
+/**
+ *  Safe list to ship hashes of known safe URL expressions.
+ *
+ *  Value: "HIGH_CONFIDENCE_ALLOWLIST"
+ */
+GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_HighConfidenceAllowlist;
 /**
  *  Malicious binary threat type.
  *
@@ -1501,6 +1533,9 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        "CSD_DOWNLOAD_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_CsdWhitelist Client
  *        side detection whitelist threat type. (Value: "CSD_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_HighConfidenceAllowlist
+ *        Safe list to ship hashes of known safe URL expressions. (Value:
+ *        "HIGH_CONFIDENCE_ALLOWLIST")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_MaliciousBinary
  *        Malicious binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Malware Malware
@@ -1650,6 +1685,9 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        "CSD_DOWNLOAD_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_CsdWhitelist
  *        Client side detection whitelist threat type. (Value: "CSD_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_HighConfidenceAllowlist
+ *        Safe list to ship hashes of known safe URL expressions. (Value:
+ *        "HIGH_CONFIDENCE_ALLOWLIST")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_MaliciousBinary
  *        Malicious binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Malware Malware
@@ -1944,6 +1982,9 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        "CSD_DOWNLOAD_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_CsdWhitelist Client side
  *        detection whitelist threat type. (Value: "CSD_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_HighConfidenceAllowlist
+ *        Safe list to ship hashes of known safe URL expressions. (Value:
+ *        "HIGH_CONFIDENCE_ALLOWLIST")
  *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_MaliciousBinary Malicious
  *        binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_Malware Malware threat
@@ -2072,6 +2113,9 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        "CSD_DOWNLOAD_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_CsdWhitelist
  *        Client side detection whitelist threat type. (Value: "CSD_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_HighConfidenceAllowlist
+ *        Safe list to ship hashes of known safe URL expressions. (Value:
+ *        "HIGH_CONFIDENCE_ALLOWLIST")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_MaliciousBinary
  *        Malicious binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Malware Malware
@@ -2186,6 +2230,9 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTyp
  *        "CSD_DOWNLOAD_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_CsdWhitelist Client side
  *        detection whitelist threat type. (Value: "CSD_WHITELIST")
+ *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_HighConfidenceAllowlist
+ *        Safe list to ship hashes of known safe URL expressions. (Value:
+ *        "HIGH_CONFIDENCE_ALLOWLIST")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_MaliciousBinary Malicious
  *        binary threat type. (Value: "MALICIOUS_BINARY")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_Malware Malware threat

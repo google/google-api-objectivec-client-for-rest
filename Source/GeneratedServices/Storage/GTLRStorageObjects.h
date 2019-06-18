@@ -822,12 +822,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  The kind of item this is. For storage, this is always storage#expr. This
- *  field is ignored on input.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
  *  An optional string indicating the location of the expression for error
  *  reporting, e.g. a file name and a position in the file.
  */

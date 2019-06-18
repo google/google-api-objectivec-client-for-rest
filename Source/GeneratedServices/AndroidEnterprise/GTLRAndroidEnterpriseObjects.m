@@ -182,6 +182,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_AppState
+//
+
+@implementation GTLRAndroidEnterprise_AppState
+@dynamic keyedAppState, packageName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keyedAppState" : [GTLRAndroidEnterprise_KeyedAppState class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_AppUpdateEvent
 //
 
@@ -272,7 +290,35 @@
 //
 
 @implementation GTLRAndroidEnterprise_Device
-@dynamic androidId, kind, managementType, policy;
+@dynamic androidId, kind, managementType, policy, report;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_DeviceReport
+//
+
+@implementation GTLRAndroidEnterprise_DeviceReport
+@dynamic appState, lastUpdatedTimestampMillis;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"appState" : [GTLRAndroidEnterprise_AppState class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_DeviceReportUpdateEvent
+//
+
+@implementation GTLRAndroidEnterprise_DeviceReportUpdateEvent
+@dynamic deviceId, report, userId;
 @end
 
 
@@ -479,6 +525,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_KeyedAppState
+//
+
+@implementation GTLRAndroidEnterprise_KeyedAppState
+@dynamic data, key, message, severity, stateTimestampMillis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_LocalizedText
 //
 
@@ -660,10 +716,10 @@
 //
 
 @implementation GTLRAndroidEnterprise_Notification
-@dynamic appRestrictionsSchemaChangeEvent, appUpdateEvent, enterpriseId,
-         installFailureEvent, newDeviceEvent, newPermissionsEvent,
-         notificationType, productApprovalEvent, productAvailabilityChangeEvent,
-         timestampMillis;
+@dynamic appRestrictionsSchemaChangeEvent, appUpdateEvent,
+         deviceReportUpdateEvent, enterpriseId, installFailureEvent,
+         newDeviceEvent, newPermissionsEvent, notificationType,
+         productApprovalEvent, productAvailabilityChangeEvent, timestampMillis;
 @end
 
 
@@ -716,8 +772,8 @@
 //
 
 @implementation GTLRAndroidEnterprise_Policy
-@dynamic autoUpdatePolicy, maintenanceWindow, productAvailabilityPolicy,
-         productPolicy;
+@dynamic autoUpdatePolicy, deviceReportPolicy, maintenanceWindow,
+         productAvailabilityPolicy, productPolicy;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -204,7 +204,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_AchievementDefinitionsList : GTLRGamesQuery
 // Previous library name was
@@ -248,7 +247,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_AchievementsIncrement : GTLRGamesQuery
 // Previous library name was
@@ -291,7 +289,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_AchievementsList : GTLRGamesQuery
 // Previous library name was
@@ -361,7 +358,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_AchievementsReveal : GTLRGamesQuery
 // Previous library name was
@@ -394,7 +390,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_AchievementsSetStepsAtLeast : GTLRGamesQuery
 // Previous library name was
@@ -431,7 +426,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_AchievementsUnlock : GTLRGamesQuery
 // Previous library name was
@@ -463,7 +457,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_AchievementsUpdateMultiple : GTLRGamesQuery
 // Previous library name was
@@ -495,7 +488,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_ApplicationsGet : GTLRGamesQuery
 // Previous library name was
@@ -544,7 +536,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_ApplicationsPlayed : GTLRGamesQuery
 // Previous library name was
@@ -574,7 +565,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_ApplicationsVerify : GTLRGamesQuery
 // Previous library name was
@@ -606,7 +596,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_EventsListByPlayer : GTLRGamesQuery
 // Previous library name was
@@ -650,7 +639,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_EventsListDefinitions : GTLRGamesQuery
 // Previous library name was
@@ -694,7 +682,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_EventsRecord : GTLRGamesQuery
 // Previous library name was
@@ -724,7 +711,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_LeaderboardsGet : GTLRGamesQuery
 // Previous library name was
@@ -756,7 +742,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_LeaderboardsList : GTLRGamesQuery
 // Previous library name was
@@ -799,7 +784,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_MetagameGetMetagameConfig : GTLRGamesQuery
 // Previous library name was
@@ -824,7 +808,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_MetagameListCategoriesByPlayer : GTLRGamesQuery
 // Previous library name was
@@ -894,7 +877,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_PlayersGet : GTLRGamesQuery
 // Previous library name was
@@ -931,7 +913,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_PlayersList : GTLRGamesQuery
 // Previous library name was
@@ -1008,7 +989,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_PushtokensRemove : GTLRGamesQuery
 // Previous library name was
@@ -1036,7 +1016,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_PushtokensUpdate : GTLRGamesQuery
 // Previous library name was
@@ -1065,7 +1044,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_QuestMilestonesClaim : GTLRGamesQuery
 // Previous library name was
@@ -1112,7 +1090,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_QuestsAccept : GTLRGamesQuery
 // Previous library name was
@@ -1145,7 +1122,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_QuestsList : GTLRGamesQuery
 // Previous library name was
@@ -1199,7 +1175,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_RevisionsCheck : GTLRGamesQuery
 // Previous library name was
@@ -1240,7 +1215,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_RoomsCreate : GTLRGamesQuery
 // Previous library name was
@@ -1271,7 +1245,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_RoomsDecline : GTLRGamesQuery
 // Previous library name was
@@ -1305,7 +1278,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_RoomsDismiss : GTLRGamesQuery
 // Previous library name was
@@ -1336,7 +1308,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_RoomsGet : GTLRGamesQuery
 // Previous library name was
@@ -1369,7 +1340,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_RoomsJoin : GTLRGamesQuery
 // Previous library name was
@@ -1405,7 +1375,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_RoomsLeave : GTLRGamesQuery
 // Previous library name was
@@ -1440,7 +1409,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_RoomsList : GTLRGamesQuery
 // Previous library name was
@@ -1485,7 +1453,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_RoomsReportStatus : GTLRGamesQuery
 // Previous library name was
@@ -1525,7 +1492,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_ScoresGet : GTLRGamesQuery
 // Previous library name was
@@ -1631,7 +1597,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_ScoresList : GTLRGamesQuery
 // Previous library name was
@@ -1725,7 +1690,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_ScoresListWindow : GTLRGamesQuery
 // Previous library name was
@@ -1833,7 +1797,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_ScoresSubmit : GTLRGamesQuery
 // Previous library name was
@@ -1889,7 +1852,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_ScoresSubmitMultiple : GTLRGamesQuery
 // Previous library name was
@@ -1920,7 +1882,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
  *    @c kGTLRAuthScopeGamesDriveAppdata
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_SnapshotsGet : GTLRGamesQuery
 // Previous library name was
@@ -1954,7 +1915,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
  *    @c kGTLRAuthScopeGamesDriveAppdata
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_SnapshotsList : GTLRGamesQuery
 // Previous library name was
@@ -2007,7 +1967,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesCancel : GTLRGamesQuery
 // Previous library name was
@@ -2037,7 +1996,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesCreate : GTLRGamesQuery
 // Previous library name was
@@ -2067,7 +2025,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesDecline : GTLRGamesQuery
 // Previous library name was
@@ -2100,7 +2057,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesDismiss : GTLRGamesQuery
 // Previous library name was
@@ -2133,7 +2089,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesFinish : GTLRGamesQuery
 // Previous library name was
@@ -2170,7 +2125,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesGet : GTLRGamesQuery
 // Previous library name was
@@ -2205,7 +2159,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesJoin : GTLRGamesQuery
 // Previous library name was
@@ -2238,7 +2191,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesLeave : GTLRGamesQuery
 // Previous library name was
@@ -2272,7 +2224,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesLeaveTurn : GTLRGamesQuery
 // Previous library name was
@@ -2318,7 +2269,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesList : GTLRGamesQuery
 // Previous library name was
@@ -2381,7 +2331,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesRematch : GTLRGamesQuery
 // Previous library name was
@@ -2426,7 +2375,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesSync : GTLRGamesQuery
 // Previous library name was
@@ -2489,7 +2437,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesPlusMe
  */
 @interface GTLRGamesQuery_TurnBasedMatchesTakeTurn : GTLRGamesQuery
 // Previous library name was

@@ -24,7 +24,8 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal = @"N
 //
 
 @implementation GTLRFirebaseCloudMessaging_AndroidConfig
-@dynamic collapseKey, data, notification, priority, restrictedPackageName, ttl;
+@dynamic collapseKey, data, fcmOptions, notification, priority,
+         restrictedPackageName, ttl;
 @end
 
 
@@ -39,6 +40,16 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal = @"N
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseCloudMessaging_AndroidFcmOptions
+//
+
+@implementation GTLRFirebaseCloudMessaging_AndroidFcmOptions
+@dynamic analyticsLabel;
 @end
 
 
@@ -68,7 +79,7 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal = @"N
 //
 
 @implementation GTLRFirebaseCloudMessaging_ApnsConfig
-@dynamic headers, payload;
+@dynamic fcmOptions, headers, payload;
 @end
 
 
@@ -102,12 +113,32 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal = @"N
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseCloudMessaging_ApnsFcmOptions
+//
+
+@implementation GTLRFirebaseCloudMessaging_ApnsFcmOptions
+@dynamic analyticsLabel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseCloudMessaging_FcmOptions
+//
+
+@implementation GTLRFirebaseCloudMessaging_FcmOptions
+@dynamic analyticsLabel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseCloudMessaging_Message
 //
 
 @implementation GTLRFirebaseCloudMessaging_Message
-@dynamic android, apns, condition, data, name, notification, token, topic,
-         webpush;
+@dynamic android, apns, condition, data, fcmOptions, name, notification, token,
+         topic, webpush;
 @end
 
 

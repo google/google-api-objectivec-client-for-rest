@@ -341,7 +341,7 @@ NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUn
 //
 
 @implementation GTLRAlertCenter_MaliciousEntity
-@dynamic fromHeader;
+@dynamic displayName, fromHeader;
 @end
 
 

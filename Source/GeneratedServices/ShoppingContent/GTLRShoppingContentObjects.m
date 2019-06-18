@@ -1531,7 +1531,7 @@
 //
 
 @implementation GTLRShoppingContent_OrderLineItem
-@dynamic annotations, cancellations, identifier, price, product,
+@dynamic adjustments, annotations, cancellations, identifier, price, product,
          quantityCanceled, quantityDelivered, quantityOrdered, quantityPending,
          quantityReturned, quantityShipped, returnInfo, returns,
          shippingDetails, tax;
@@ -1542,6 +1542,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"adjustments" : [GTLRShoppingContent_OrderLineItemAdjustment class],
     @"annotations" : [GTLRShoppingContent_OrderMerchantProvidedAnnotation class],
     @"cancellations" : [GTLRShoppingContent_OrderCancellation class],
     @"returns" : [GTLRShoppingContent_OrderReturn class]
@@ -1549,6 +1550,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderLineItemAdjustment
+//
+
+@implementation GTLRShoppingContent_OrderLineItemAdjustment
+@dynamic priceAdjustment, taxAdjustment, type;
 @end
 
 
@@ -3144,11 +3155,12 @@
 //
 
 @implementation GTLRShoppingContent_TestOrderLineItemProduct
-@dynamic brand, condition, contentLanguage, gtin, imageLink, itemGroupId, mpn,
-         offerId, price, targetCountry, title, variantAttributes;
+@dynamic brand, condition, contentLanguage, fees, gtin, imageLink, itemGroupId,
+         mpn, offerId, price, targetCountry, title, variantAttributes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"fees" : [GTLRShoppingContent_OrderLineItemProductFee class],
     @"variantAttributes" : [GTLRShoppingContent_OrderLineItemProductVariantAttribute class]
   };
   return map;

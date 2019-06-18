@@ -21,10 +21,13 @@
 
 @class GTLRFirebaseCloudMessaging_AndroidConfig;
 @class GTLRFirebaseCloudMessaging_AndroidConfig_Data;
+@class GTLRFirebaseCloudMessaging_AndroidFcmOptions;
 @class GTLRFirebaseCloudMessaging_AndroidNotification;
 @class GTLRFirebaseCloudMessaging_ApnsConfig;
 @class GTLRFirebaseCloudMessaging_ApnsConfig_Headers;
 @class GTLRFirebaseCloudMessaging_ApnsConfig_Payload;
+@class GTLRFirebaseCloudMessaging_ApnsFcmOptions;
+@class GTLRFirebaseCloudMessaging_FcmOptions;
 @class GTLRFirebaseCloudMessaging_Message;
 @class GTLRFirebaseCloudMessaging_Message_Data;
 @class GTLRFirebaseCloudMessaging_Notification;
@@ -91,6 +94,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_AndroidConfig_Data *data;
 
+/** Options for features provided by the FCM SDK for Android. */
+@property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_AndroidFcmOptions *fcmOptions;
+
 /** Notification to send to android devices. */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_AndroidNotification *notification;
 
@@ -156,6 +162,17 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
  *        fetch them all at once.
  */
 @interface GTLRFirebaseCloudMessaging_AndroidConfig_Data : GTLRObject
+@end
+
+
+/**
+ *  Options for features provided by the FCM SDK for Android.
+ */
+@interface GTLRFirebaseCloudMessaging_AndroidFcmOptions : GTLRObject
+
+/** Label that the message's analytics data will be associated with. */
+@property(nonatomic, copy, nullable) NSString *analyticsLabel;
+
 @end
 
 
@@ -259,6 +276,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
  */
 @interface GTLRFirebaseCloudMessaging_ApnsConfig : GTLRObject
 
+/** Options for features provided by the FCM SDK for iOS. */
+@property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_ApnsFcmOptions *fcmOptions;
+
 /**
  *  HTTP request headers defined in Apple Push Notification Service. Refer to
  *  [APNs request headers](https://goo.gl/C6Yhia) for
@@ -307,6 +327,28 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
 
 
 /**
+ *  Options for features provided by the FCM SDK for iOS.
+ */
+@interface GTLRFirebaseCloudMessaging_ApnsFcmOptions : GTLRObject
+
+/** Label that the message's analytics data will be associated with. */
+@property(nonatomic, copy, nullable) NSString *analyticsLabel;
+
+@end
+
+
+/**
+ *  Platform independent options for features provided by the FCM SDKs.
+ */
+@interface GTLRFirebaseCloudMessaging_FcmOptions : GTLRObject
+
+/** Label that the message's analytics data will be associated with. */
+@property(nonatomic, copy, nullable) NSString *analyticsLabel;
+
+@end
+
+
+/**
  *  Message to send by Firebase Cloud Messaging Service.
  */
 @interface GTLRFirebaseCloudMessaging_Message : GTLRObject
@@ -331,6 +373,12 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
 
 /** Input only. Arbitrary key/value payload. */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_Message_Data *data;
+
+/**
+ *  Input only. Template for FCM SDK feature options to use across all
+ *  platforms.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_FcmOptions *fcmOptions;
 
 /**
  *  Output Only. The identifier of the message sent, in the format of

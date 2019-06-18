@@ -898,6 +898,41 @@
 
 @end
 
+@implementation GTLRComputeQuery_DisksAddResourcePolicies
+
+@dynamic disk, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_DisksAddResourcePoliciesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                           disk:(NSString *)disk {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"disk", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{disk}/addResourcePolicies";
+  GTLRComputeQuery_DisksAddResourcePolicies *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.disk = disk;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.disks.addResourcePolicies";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_DisksAggregatedList
 
 @dynamic filter, maxResults, orderBy, pageToken, project;
@@ -1094,6 +1129,41 @@
   query.zoneProperty = zoneProperty;
   query.expectedObjectClass = [GTLRCompute_DiskList class];
   query.loggingName = @"compute.disks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_DisksRemoveResourcePolicies
+
+@dynamic disk, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_DisksRemoveResourcePoliciesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                           disk:(NSString *)disk {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"disk", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{disk}/removeResourcePolicies";
+  GTLRComputeQuery_DisksRemoveResourcePolicies *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.disk = disk;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.disks.removeResourcePolicies";
   return query;
 }
 
@@ -3501,6 +3571,35 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRCompute_Instance class];
   query.loggingName = @"compute.instances.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstancesGetGuestAttributes
+
+@dynamic instance, project, queryPath, variableKey, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/getGuestAttributes";
+  GTLRComputeQuery_InstancesGetGuestAttributes *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRCompute_GuestAttributes class];
+  query.loggingName = @"compute.instances.getGuestAttributes";
   return query;
 }
 
@@ -7083,6 +7182,37 @@
 
 @end
 
+@implementation GTLRComputeQuery_RegionDisksAddResourcePolicies
+
+@dynamic disk, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionDisksAddResourcePoliciesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                           disk:(NSString *)disk {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"disk", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{disk}/addResourcePolicies";
+  GTLRComputeQuery_RegionDisksAddResourcePolicies *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.disk = disk;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionDisks.addResourcePolicies";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionDisksCreateSnapshot
 
 @dynamic disk, project, region, requestId;
@@ -7211,6 +7341,37 @@
   query.region = region;
   query.expectedObjectClass = [GTLRCompute_DiskList class];
   query.loggingName = @"compute.regionDisks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionDisksRemoveResourcePolicies
+
+@dynamic disk, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionDisksRemoveResourcePoliciesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                           disk:(NSString *)disk {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"disk", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{disk}/removeResourcePolicies";
+  GTLRComputeQuery_RegionDisksRemoveResourcePolicies *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.disk = disk;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionDisks.removeResourcePolicies";
   return query;
 }
 
@@ -7921,6 +8082,158 @@
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_RegionList class];
   query.loggingName = @"compute.regions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ResourcePoliciesAggregatedList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/aggregated/resourcePolicies";
+  GTLRComputeQuery_ResourcePoliciesAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_ResourcePolicyAggregatedList class];
+  query.loggingName = @"compute.resourcePolicies.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ResourcePoliciesDelete
+
+@dynamic project, region, requestId, resourcePolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  resourcePolicy:(NSString *)resourcePolicy {
+  NSArray *pathParams = @[
+    @"project", @"region", @"resourcePolicy"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies/{resourcePolicy}";
+  GTLRComputeQuery_ResourcePoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.resourcePolicy = resourcePolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.resourcePolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ResourcePoliciesGet
+
+@dynamic project, region, resourcePolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  resourcePolicy:(NSString *)resourcePolicy {
+  NSArray *pathParams = @[
+    @"project", @"region", @"resourcePolicy"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies/{resourcePolicy}";
+  GTLRComputeQuery_ResourcePoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.resourcePolicy = resourcePolicy;
+  query.expectedObjectClass = [GTLRCompute_ResourcePolicy class];
+  query.loggingName = @"compute.resourcePolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ResourcePoliciesInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_ResourcePolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies";
+  GTLRComputeQuery_ResourcePoliciesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.resourcePolicies.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ResourcePoliciesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies";
+  GTLRComputeQuery_ResourcePoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_ResourcePolicyList class];
+  query.loggingName = @"compute.resourcePolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ResourcePoliciesTestIamPermissions
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies/{resource}/testIamPermissions";
+  GTLRComputeQuery_ResourcePoliciesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.resourcePolicies.testIamPermissions";
   return query;
 }
 

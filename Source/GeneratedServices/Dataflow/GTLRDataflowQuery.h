@@ -1365,6 +1365,47 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
+ *  Lists snapshots.
+ *
+ *  Method: dataflow.projects.locations.jobs.snapshots.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsSnapshotsList : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsJobsSnapshotsListWithprojectId:location:jobId:]
+
+/** If specified, list snapshots created from this job. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The location to list snapshots in. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The project ID to list snapshots for. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_ListSnapshotsResponse.
+ *
+ *  Lists snapshots.
+ *
+ *  @param projectId The project ID to list snapshots for.
+ *  @param location The location to list snapshots in.
+ *  @param jobId If specified, list snapshots created from this job.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsSnapshotsList
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                             jobId:(NSString *)jobId;
+
+@end
+
+/**
  *  Updates the state of an existing Cloud Dataflow job.
  *  To update the state of an existing job, we recommend using
  *  `projects.locations.jobs.update` with a [regional endpoint]
@@ -1622,6 +1663,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @interface GTLRDataflowQuery_ProjectsLocationsSnapshotsList : GTLRDataflowQuery
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsLocationsSnapshotsListWithprojectId:location:]
+
+/** If specified, list snapshots created from this job. */
+@property(nonatomic, copy, nullable) NSString *jobId;
 
 /** The location to list snapshots in. */
 @property(nonatomic, copy, nullable) NSString *location;
@@ -1968,6 +2012,9 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @interface GTLRDataflowQuery_ProjectsSnapshotsList : GTLRDataflowQuery
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsSnapshotsListWithprojectId:]
+
+/** If specified, list snapshots created from this job. */
+@property(nonatomic, copy, nullable) NSString *jobId;
 
 /** The location to list snapshots in. */
 @property(nonatomic, copy, nullable) NSString *location;

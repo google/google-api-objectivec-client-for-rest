@@ -39,6 +39,7 @@
 @class GTLRBigquery_ExplainQueryStep;
 @class GTLRBigquery_ExternalDataConfiguration;
 @class GTLRBigquery_GoogleSheetsOptions;
+@class GTLRBigquery_HivePartitioningOptions;
 @class GTLRBigquery_Job;
 @class GTLRBigquery_JobConfiguration;
 @class GTLRBigquery_JobConfiguration_Labels;
@@ -1119,13 +1120,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBigquery_GoogleSheetsOptions *googleSheetsOptions;
 
 /**
- *  [Optional, Experimental] If hive partitioning is enabled, which mode to use.
- *  Two modes are supported: - AUTO: automatically infer partition key name(s)
- *  and type(s). - STRINGS: automatic infer partition key name(s). All types are
- *  strings. Not all storage formats support hive partitioning -- requesting
- *  hive partitioning on an unsupported format will lead to an error.
+ *  [Optional, Trusted Tester] If hive partitioning is enabled, which mode to
+ *  use. Two modes are supported: - AUTO: automatically infer partition key
+ *  name(s) and type(s). - STRINGS: automatic infer partition key name(s). All
+ *  types are strings. Not all storage formats support hive partitioning --
+ *  requesting hive partitioning on an unsupported format will lead to an error.
+ *  Note: this setting is in the process of being deprecated in favor of
+ *  hivePartitioningOptions.
  */
 @property(nonatomic, copy, nullable) NSString *hivePartitioningMode;
+
+/**
+ *  [Optional, Trusted Tester] Options to configure hive partitioning support.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_HivePartitioningOptions *hivePartitioningOptions;
 
 /**
  *  [Optional] Indicates if BigQuery should allow extra values that are not
@@ -1314,6 +1322,38 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skipLeadingRows;
+
+@end
+
+
+/**
+ *  GTLRBigquery_HivePartitioningOptions
+ */
+@interface GTLRBigquery_HivePartitioningOptions : GTLRObject
+
+/**
+ *  [Optional, Trusted Tester] When set, what mode of hive partitioning to use
+ *  when reading data. Two modes are supported. (1) AUTO: automatically infer
+ *  partition key name(s) and type(s). (2) STRINGS: automatically infer
+ *  partition key name(s). All types are interpreted as strings. Not all storage
+ *  formats support hive partitioning. Requesting hive partitioning on an
+ *  unsupported format will lead to an error. Currently supported types include:
+ *  AVRO, CSV, JSON, ORC and Parquet.
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  [Optional, Trusted Tester] When hive partition detection is requested, a
+ *  common prefix for all source uris should be supplied. The prefix must end
+ *  immediately before the partition key encoding begins. For example, consider
+ *  files following this data layout.
+ *  gs://bucket/path_to_table/dt=2019-01-01/country=BR/id=7/file.avro
+ *  gs://bucket/path_to_table/dt=2018-12-31/country=CA/id=3/file.avro When hive
+ *  partitioning is requested with either AUTO or STRINGS detection, the common
+ *  prefix can be either of gs://bucket/path_to_table or
+ *  gs://bucket/path_to_table/ (trailing slash does not matter).
+ */
+@property(nonatomic, copy, nullable) NSString *sourceUriPrefix;
 
 @end
 
@@ -1585,13 +1625,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *fieldDelimiter;
 
 /**
- *  [Optional, Experimental] If hive partitioning is enabled, which mode to use.
- *  Two modes are supported: - AUTO: automatically infer partition key name(s)
- *  and type(s). - STRINGS: automatic infer partition key name(s). All types are
- *  strings. Not all storage formats support hive partitioning -- requesting
- *  hive partitioning on an unsupported format will lead to an error.
+ *  [Optional, Trusted Tester] If hive partitioning is enabled, which mode to
+ *  use. Two modes are supported: - AUTO: automatically infer partition key
+ *  name(s) and type(s). - STRINGS: automatic infer partition key name(s). All
+ *  types are strings. Not all storage formats support hive partitioning --
+ *  requesting hive partitioning on an unsupported format will lead to an error.
  */
 @property(nonatomic, copy, nullable) NSString *hivePartitioningMode;
+
+/**
+ *  [Optional, Trusted Tester] Options to configure hive partitioning support.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_HivePartitioningOptions *hivePartitioningOptions;
 
 /**
  *  [Optional] Indicates if BigQuery should allow extra values that are not

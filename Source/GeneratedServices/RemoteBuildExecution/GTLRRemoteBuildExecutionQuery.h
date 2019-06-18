@@ -44,6 +44,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieve a cached execution result.
+ *  Implementations SHOULD ensure that any blobs referenced from the
+ *  ContentAddressableStorage
+ *  are available at the time of returning the
+ *  ActionResult and will be
+ *  for some period of time afterwards. The TTLs of the referenced blobs SHOULD
+ *  be increased
+ *  if necessary and applicable.
  *  Errors:
  *  * `NOT_FOUND`: The requested `ActionResult` is not in the cache.
  *
@@ -65,6 +72,25 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *hashProperty;
 
 /**
+ *  A hint to the server to inline the contents of the listed output files.
+ *  Each path needs to exactly match one path in `output_files` in the
+ *  Command message.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *inlineOutputFiles;
+
+/**
+ *  A hint to the server to request inlining stderr in the
+ *  ActionResult message.
+ */
+@property(nonatomic, assign) BOOL inlineStderr;
+
+/**
+ *  A hint to the server to request inlining stdout in the
+ *  ActionResult message.
+ */
+@property(nonatomic, assign) BOOL inlineStdout;
+
+/**
  *  The instance of the execution system to operate against. A server may
  *  support multiple instances of the execution system (with their own workers,
  *  storage, caches, etc.). The server MAY require use of this field to select
@@ -81,6 +107,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ActionResult.
  *
  *  Retrieve a cached execution result.
+ *  Implementations SHOULD ensure that any blobs referenced from the
+ *  ContentAddressableStorage
+ *  are available at the time of returning the
+ *  ActionResult and will be
+ *  for some period of time afterwards. The TTLs of the referenced blobs SHOULD
+ *  be increased
+ *  if necessary and applicable.
  *  Errors:
  *  * `NOT_FOUND`: The requested `ActionResult` is not in the cache.
  *
@@ -710,7 +743,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GetCapabilities returns the server capabilities configuration.
+ *  GetCapabilities returns the server capabilities configuration of the
+ *  remote endpoint.
+ *  Only the capabilities of the services supported by the endpoint will
+ *  be returned:
+ *  * Execution + CAS + Action Cache endpoints should return both
+ *  CacheCapabilities and ExecutionCapabilities.
+ *  * Execution only endpoints should return ExecutionCapabilities.
+ *  * CAS + Action Cache only endpoints should return CacheCapabilities.
  *
  *  Method: remotebuildexecution.getCapabilities
  *
@@ -734,7 +774,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ServerCapabilities.
  *
- *  GetCapabilities returns the server capabilities configuration.
+ *  GetCapabilities returns the server capabilities configuration of the
+ *  remote endpoint.
+ *  Only the capabilities of the services supported by the endpoint will
+ *  be returned:
+ *  * Execution + CAS + Action Cache endpoints should return both
+ *  CacheCapabilities and ExecutionCapabilities.
+ *  * Execution only endpoints should return ExecutionCapabilities.
+ *  * CAS + Action Cache only endpoints should return CacheCapabilities.
  *
  *  @param instanceName The instance of the execution system to operate against.
  *    A server may

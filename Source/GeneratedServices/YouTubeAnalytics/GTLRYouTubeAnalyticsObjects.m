@@ -15,6 +15,7 @@
 
 // GTLRYouTubeAnalytics_ErrorProto.locationType
 NSString * const kGTLRYouTubeAnalytics_ErrorProto_LocationType_Other = @"OTHER";
+NSString * const kGTLRYouTubeAnalytics_ErrorProto_LocationType_Parameter = @"PARAMETER";
 NSString * const kGTLRYouTubeAnalytics_ErrorProto_LocationType_Path = @"PATH";
 
 // GTLRYouTubeAnalytics_Errors.code

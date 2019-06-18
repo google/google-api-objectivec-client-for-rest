@@ -1098,6 +1098,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidPublisher_SubscriptionPurchase : GTLRObject
 
 /**
+ *  The acknowledgement state of the subscription product. Possible values are:
+ *  - Yet to be acknowledged
+ *  - Acknowledged
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *acknowledgementState;
+
+/**
  *  Whether the subscription will automatically be renewed when it reaches its
  *  current expiry time.
  *
@@ -1233,8 +1242,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *priceCurrencyCode;
 
 /**
- *  The profile id of the user when the subscription was purchased. Only present
- *  for purchases made with 'Subscribe with Google'.
+ *  The Google profile id of the user when the subscription was purchased. Only
+ *  present for purchases made with 'Subscribe with Google'.
  */
 @property(nonatomic, copy, nullable) NSString *profileId;
 
@@ -1314,7 +1323,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidPublisher_Testers : GTLRObject
 
+/**
+ *  A list of all Google Groups, as email addresses, that define testers for
+ *  this track.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *googleGroups;
+
+/**
+ *  A list of all Google+ Communities, as URLs, that define testers for this
+ *  track.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *googlePlusCommunities;
 
 @end

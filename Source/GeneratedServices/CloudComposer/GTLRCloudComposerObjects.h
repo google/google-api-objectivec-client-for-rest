@@ -407,8 +407,8 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  *  Optional. The Compute Engine [zone](/compute/docs/regions-zones) in which
  *  to deploy the VMs used to run the Apache Airflow software, specified as a
  *  [relative resource
- *  name](/apis/design/resource_names#relative_resource_name).
- *  For example: "projects/{projectId}/zones/{zoneId}".
+ *  name](/apis/design/resource_names#relative_resource_name). For example:
+ *  "projects/{projectId}/zones/{zoneId}".
  *  This `location` must belong to the enclosing environment's project and
  *  location. If both this field and `nodeConfig.machineType` are specified,
  *  `nodeConfig.machineType` must belong to this `location`; if both are
@@ -425,8 +425,7 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  *  [machine type](/compute/docs/machine-types) used for cluster instances,
  *  specified as a
  *  [relative resource
- *  name](/apis/design/resource_names#relative_resource_name).
- *  For example:
+ *  name](/apis/design/resource_names#relative_resource_name). For example:
  *  "projects/{projectId}/zones/{zoneId}/machineTypes/{machineTypeId}".
  *  The `machineType` must belong to the enclosing environment's project and
  *  location. If both this field and `nodeConfig.location` are specified,
@@ -445,8 +444,8 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  *  Optional. The Compute Engine network to be used for machine
  *  communications, specified as a
  *  [relative resource
- *  name](/apis/design/resource_names#relative_resource_name).
- *  For example: "projects/{projectId}/global/networks/{networkId}".
+ *  name](/apis/design/resource_names#relative_resource_name). For example:
+ *  "projects/{projectId}/global/networks/{networkId}".
  *  [Shared VPC](/vpc/docs/shared-vpc) is not currently supported. The
  *  network must belong to the environment's project. If unspecified, the
  *  "default" network ID in the environment's project is used. If a
@@ -473,8 +472,7 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  *  Optional. The Compute Engine subnetwork to be used for machine
  *  communications, specified as a
  *  [relative resource
- *  name](/apis/design/resource_names#relative_resource_name).
- *  For example:
+ *  name](/apis/design/resource_names#relative_resource_name). For example:
  *  "projects/{projectId}/regions/{regionId}/subnetworks/{subnetworkId}"
  *  If a subnetwork is provided, `nodeConfig.network` must also be provided,
  *  and the subnetwork must belong to the enclosing environment's project and
@@ -522,7 +520,7 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -653,15 +651,15 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
 
 /**
  *  Optional. Apache Airflow configuration properties to override.
- *  Property keys contain the section and property names, separated by a hyphen,
- *  for example "core-dags_are_paused_at_creation". Section names must not
- *  contain hyphens ("-"), opening square brackets ("["), or closing square
- *  brackets ("]"). The property name must not be empty and must not contain
- *  an equals sign ("=") or semicolon (";"). Section and property names must
- *  not contain a period ("."). Apache Airflow configuration property names
- *  must be written in [snake_case](https://en.wikipedia.org/wiki/Snake_case).
- *  Property values can contain any character, and can be written in any
- *  lower/upper case format.
+ *  Property keys contain the section and property names, separated by a
+ *  hyphen, for example "core-dags_are_paused_at_creation". Section names must
+ *  not contain hyphens ("-"), opening square brackets ("["), or closing
+ *  square brackets ("]"). The property name must not be empty and must not
+ *  contain an equals sign ("=") or semicolon (";"). Section and property names
+ *  must not contain a period ("."). Apache Airflow configuration property
+ *  names must be written in
+ *  [snake_case](https://en.wikipedia.org/wiki/Snake_case). Property values can
+ *  contain any character, and can be written in any lower/upper case format.
  *  Certain Apache Airflow configuration property values are
  *  [blacklisted](/composer/docs/how-to/managing/setting-airflow-configurations#airflow_configuration_blacklists),
  *  and cannot be overridden.
@@ -737,15 +735,15 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
 
 /**
  *  Optional. Apache Airflow configuration properties to override.
- *  Property keys contain the section and property names, separated by a hyphen,
- *  for example "core-dags_are_paused_at_creation". Section names must not
- *  contain hyphens ("-"), opening square brackets ("["), or closing square
- *  brackets ("]"). The property name must not be empty and must not contain
- *  an equals sign ("=") or semicolon (";"). Section and property names must
- *  not contain a period ("."). Apache Airflow configuration property names
- *  must be written in [snake_case](https://en.wikipedia.org/wiki/Snake_case).
- *  Property values can contain any character, and can be written in any
- *  lower/upper case format.
+ *  Property keys contain the section and property names, separated by a
+ *  hyphen, for example "core-dags_are_paused_at_creation". Section names must
+ *  not contain hyphens ("-"), opening square brackets ("["), or closing
+ *  square brackets ("]"). The property name must not be empty and must not
+ *  contain an equals sign ("=") or semicolon (";"). Section and property names
+ *  must not contain a period ("."). Apache Airflow configuration property
+ *  names must be written in
+ *  [snake_case](https://en.wikipedia.org/wiki/Snake_case). Property values can
+ *  contain any character, and can be written in any lower/upper case format.
  *  Certain Apache Airflow configuration property values are
  *  [blacklisted](/composer/docs/how-to/managing/setting-airflow-configurations#airflow_configuration_blacklists),
  *  and cannot be overridden.

@@ -52,6 +52,7 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedBoundingPoly;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedVertex;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingConfig;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentAnnotation;
@@ -93,12 +94,14 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationResults;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1WordInfo;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1DetectedAttribute;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelSegment;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LogoRecognitionAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedBoundingBox;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedBoundingPoly;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedVertex;
@@ -110,6 +113,8 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextSegment;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TimestampedObject;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Track;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationResults;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment;
@@ -201,6 +206,52 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Value: "VERY_UNLIKELY"
  */
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress.feature
+
+/**
+ *  Explicit content detection.
+ *
+ *  Value: "EXPLICIT_CONTENT_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ExplicitContentDetection;
+/**
+ *  Unspecified.
+ *
+ *  Value: "FEATURE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_FeatureUnspecified;
+/**
+ *  Label detection. Detect objects, such as dog or flower.
+ *
+ *  Value: "LABEL_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_LabelDetection;
+/**
+ *  Object detection and tracking.
+ *
+ *  Value: "OBJECT_TRACKING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ObjectTracking;
+/**
+ *  Shot change detection.
+ *
+ *  Value: "SHOT_CHANGE_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ShotChangeDetection;
+/**
+ *  Speech transcription.
+ *
+ *  Value: "SPEECH_TRANSCRIPTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_SpeechTranscription;
+/**
+ *  OCR text detection and tracking.
+ *
+ *  Value: "TEXT_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_TextDetection;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame.pornographyLikelihood
@@ -311,6 +362,52 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress.feature
+
+/**
+ *  Explicit content detection.
+ *
+ *  Value: "EXPLICIT_CONTENT_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ExplicitContentDetection;
+/**
+ *  Unspecified.
+ *
+ *  Value: "FEATURE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_FeatureUnspecified;
+/**
+ *  Label detection. Detect objects, such as dog or flower.
+ *
+ *  Value: "LABEL_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_LabelDetection;
+/**
+ *  Object detection and tracking.
+ *
+ *  Value: "OBJECT_TRACKING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ObjectTracking;
+/**
+ *  Shot change detection.
+ *
+ *  Value: "SHOT_CHANGE_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ShotChangeDetection;
+/**
+ *  Speech transcription.
+ *
+ *  Value: "SPEECH_TRANSCRIPTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_SpeechTranscription;
+/**
+ *  OCR text detection and tracking.
+ *
+ *  Value: "TEXT_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_TextDetection;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame.pornographyLikelihood
 
 /**
@@ -351,6 +448,52 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress.feature
+
+/**
+ *  Explicit content detection.
+ *
+ *  Value: "EXPLICIT_CONTENT_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ExplicitContentDetection;
+/**
+ *  Unspecified.
+ *
+ *  Value: "FEATURE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_FeatureUnspecified;
+/**
+ *  Label detection. Detect objects, such as dog or flower.
+ *
+ *  Value: "LABEL_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_LabelDetection;
+/**
+ *  Object detection and tracking.
+ *
+ *  Value: "OBJECT_TRACKING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ObjectTracking;
+/**
+ *  Shot change detection.
+ *
+ *  Value: "SHOT_CHANGE_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ShotChangeDetection;
+/**
+ *  Speech transcription.
+ *
+ *  Value: "SPEECH_TRANSCRIPTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_SpeechTranscription;
+/**
+ *  OCR text detection and tracking.
+ *
+ *  Value: "TEXT_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_TextDetection;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame.pornographyLikelihood
 
 /**
@@ -389,6 +532,104 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Value: "VERY_UNLIKELY"
  */
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress.feature
+
+/**
+ *  Explicit content detection.
+ *
+ *  Value: "EXPLICIT_CONTENT_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ExplicitContentDetection;
+/**
+ *  Unspecified.
+ *
+ *  Value: "FEATURE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_FeatureUnspecified;
+/**
+ *  Label detection. Detect objects, such as dog or flower.
+ *
+ *  Value: "LABEL_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_LabelDetection;
+/**
+ *  Logo detection, tracking, and recognition.
+ *
+ *  Value: "LOGO_RECOGNITION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_LogoRecognition;
+/**
+ *  Object detection and tracking.
+ *
+ *  Value: "OBJECT_TRACKING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ObjectTracking;
+/**
+ *  Shot change detection.
+ *
+ *  Value: "SHOT_CHANGE_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ShotChangeDetection;
+/**
+ *  Speech transcription.
+ *
+ *  Value: "SPEECH_TRANSCRIPTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_SpeechTranscription;
+/**
+ *  OCR text detection and tracking.
+ *
+ *  Value: "TEXT_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_TextDetection;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress.feature
+
+/**
+ *  Explicit content detection.
+ *
+ *  Value: "EXPLICIT_CONTENT_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ExplicitContentDetection;
+/**
+ *  Unspecified.
+ *
+ *  Value: "FEATURE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_FeatureUnspecified;
+/**
+ *  Label detection. Detect objects, such as dog or flower.
+ *
+ *  Value: "LABEL_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_LabelDetection;
+/**
+ *  Object detection and tracking.
+ *
+ *  Value: "OBJECT_TRACKING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ObjectTracking;
+/**
+ *  Shot change detection.
+ *
+ *  Value: "SHOT_CHANGE_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ShotChangeDetection;
+/**
+ *  Speech transcription.
+ *
+ *  Value: "SPEECH_TRANSCRIPTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_SpeechTranscription;
+/**
+ *  OCR text detection and tracking.
+ *
+ *  Value: "TEXT_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_TextDetection;
 
 /**
  *  Video annotation progress. Included in the `metadata`
@@ -891,6 +1132,29 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress : GTLRObject
 
 /**
+ *  Specifies which feature is being tracked if the request contains more than
+ *  one features.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ExplicitContentDetection
+ *        Explicit content detection. (Value: "EXPLICIT_CONTENT_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_FeatureUnspecified
+ *        Unspecified. (Value: "FEATURE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_LabelDetection
+ *        Label detection. Detect objects, such as dog or flower. (Value:
+ *        "LABEL_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ObjectTracking
+ *        Object detection and tracking. (Value: "OBJECT_TRACKING")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ShotChangeDetection
+ *        Shot change detection. (Value: "SHOT_CHANGE_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_SpeechTranscription
+ *        Speech transcription. (Value: "SPEECH_TRANSCRIPTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_TextDetection
+ *        OCR text detection and tracking. (Value: "TEXT_DETECTION")
+ */
+@property(nonatomic, copy, nullable) NSString *feature;
+
+/**
  *  Video file location in
  *  [Google Cloud Storage](https://cloud.google.com/storage/).
  */
@@ -903,6 +1167,12 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *progressPercent;
+
+/**
+ *  Specifies which segment is being tracked if the request contains more than
+ *  one segments.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment *segment;
 
 /** Time when the request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -1390,6 +1660,21 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  Config for OBJECT_TRACKING.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingConfig : GTLRObject
+
+/**
+ *  Model to use for object tracking.
+ *  Supported values: "builtin/stable" (the default if unset) and
+ *  "builtin/latest".
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
  *  Video frame level annotations for object detection and tracking. This field
  *  stores per frame location, time offset, and confidence.
  */
@@ -1826,6 +2111,29 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress : GTLRObject
 
 /**
+ *  Specifies which feature is being tracked if the request contains more than
+ *  one features.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ExplicitContentDetection
+ *        Explicit content detection. (Value: "EXPLICIT_CONTENT_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_FeatureUnspecified
+ *        Unspecified. (Value: "FEATURE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_LabelDetection
+ *        Label detection. Detect objects, such as dog or flower. (Value:
+ *        "LABEL_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ObjectTracking
+ *        Object detection and tracking. (Value: "OBJECT_TRACKING")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ShotChangeDetection
+ *        Shot change detection. (Value: "SHOT_CHANGE_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_SpeechTranscription
+ *        Speech transcription. (Value: "SPEECH_TRANSCRIPTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_TextDetection
+ *        OCR text detection and tracking. (Value: "TEXT_DETECTION")
+ */
+@property(nonatomic, copy, nullable) NSString *feature;
+
+/**
  *  Video file location in
  *  [Google Cloud Storage](https://cloud.google.com/storage/).
  */
@@ -1838,6 +2146,12 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *progressPercent;
+
+/**
+ *  Specifies which segment is being tracked if the request contains more than
+ *  one segments.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoSegment *segment;
 
 /** Time when the request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -2396,6 +2710,29 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress : GTLRObject
 
 /**
+ *  Specifies which feature is being tracked if the request contains more than
+ *  one features.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ExplicitContentDetection
+ *        Explicit content detection. (Value: "EXPLICIT_CONTENT_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_FeatureUnspecified
+ *        Unspecified. (Value: "FEATURE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_LabelDetection
+ *        Label detection. Detect objects, such as dog or flower. (Value:
+ *        "LABEL_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ObjectTracking
+ *        Object detection and tracking. (Value: "OBJECT_TRACKING")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ShotChangeDetection
+ *        Shot change detection. (Value: "SHOT_CHANGE_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_SpeechTranscription
+ *        Speech transcription. (Value: "SPEECH_TRANSCRIPTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_TextDetection
+ *        OCR text detection and tracking. (Value: "TEXT_DETECTION")
+ */
+@property(nonatomic, copy, nullable) NSString *feature;
+
+/**
  *  Video file location in
  *  [Google Cloud Storage](https://cloud.google.com/storage/).
  */
@@ -2408,6 +2745,12 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *progressPercent;
+
+/**
+ *  Specifies which segment is being tracked if the request contains more than
+ *  one segments.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment *segment;
 
 /** Time when the request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -2573,6 +2916,33 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  A generic detected attribute represented by name in string format.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1DetectedAttribute : GTLRObject
+
+/**
+ *  Detected attribute confidence. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  The name of the attribute, i.e. glasses, dark_glasses, mouth_open etc.
+ *  A full list of supported type names will be provided in the document.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Text value of the detection result. For example, the value for "HairColor"
+ *  can be "black", "blonde", etc.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Detected entity from video analysis.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity : GTLRObject
@@ -2703,6 +3073,32 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** Video segment where a label was detected. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment *segment;
+
+@end
+
+
+/**
+ *  Annotation corresponding to one detected, tracked and recognized logo class.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LogoRecognitionAnnotation : GTLRObject
+
+/**
+ *  Entity category information to specify the logo class that all the logo
+ *  tracks within this LogoRecognitionAnnotation are recognized as.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity *entity;
+
+/**
+ *  All video segments where the recognized logo appears. There might be
+ *  multiple instances of the same logo class appearing in one VideoSegment.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment *> *segments;
+
+/**
+ *  All logo tracks where the recognized logo appears. Each track corresponds
+ *  to one logo instance appearing in consecutive frames.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Track *> *tracks;
 
 @end
 
@@ -3009,9 +3405,81 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  For tracking related features, such as LOGO_RECOGNITION, FACE_DETECTION,
+ *  CELEBRITY_RECOGNITION, PERSON_DETECTION.
+ *  An object at time_offset with attributes, and located with
+ *  normalized_bounding_box.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TimestampedObject : GTLRObject
+
+/** Optional. The attributes of the object in the bounding box. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1DetectedAttribute *> *attributes;
+
+/** Normalized Bounding box in a frame, where the object is located. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedBoundingBox *normalizedBoundingBox;
+
+/**
+ *  Time-offset, relative to the beginning of the video,
+ *  corresponding to the video frame for this object.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  A track of an object instance.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Track : GTLRObject
+
+/** Optional. Attributes in the track level. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1DetectedAttribute *> *attributes;
+
+/**
+ *  Optional. The confidence score of the tracked object.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Video segment of a track. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment *segment;
+
+/** The object with timestamp and attributes per frame in the track. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TimestampedObject *> *timestampedObjects;
+
+@end
+
+
+/**
  *  Annotation progress for a single video.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress : GTLRObject
+
+/**
+ *  Specifies which feature is being tracked if the request contains more than
+ *  one features.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ExplicitContentDetection
+ *        Explicit content detection. (Value: "EXPLICIT_CONTENT_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_FeatureUnspecified
+ *        Unspecified. (Value: "FEATURE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_LabelDetection
+ *        Label detection. Detect objects, such as dog or flower. (Value:
+ *        "LABEL_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_LogoRecognition
+ *        Logo detection, tracking, and recognition. (Value: "LOGO_RECOGNITION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ObjectTracking
+ *        Object detection and tracking. (Value: "OBJECT_TRACKING")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ShotChangeDetection
+ *        Shot change detection. (Value: "SHOT_CHANGE_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_SpeechTranscription
+ *        Speech transcription. (Value: "SPEECH_TRANSCRIPTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_TextDetection
+ *        OCR text detection and tracking. (Value: "TEXT_DETECTION")
+ */
+@property(nonatomic, copy, nullable) NSString *feature;
 
 /**
  *  Video file location in
@@ -3026,6 +3494,12 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *progressPercent;
+
+/**
+ *  Specifies which segment is being tracked if the request contains more than
+ *  one segments.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment *segment;
 
 /** Time when the request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -3061,6 +3535,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  [Google Cloud Storage](https://cloud.google.com/storage/).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
+
+/**
+ *  Annotations for list of logos detected, tracked and recognized in video.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LogoRecognitionAnnotation *> *logoRecognitionAnnotations;
 
 /** Annotations for list of objects detected and tracked in video. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingAnnotation *> *objectAnnotations;
@@ -3371,6 +3850,13 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languageHints;
 
+/**
+ *  Model to use for text detection.
+ *  Supported values: "builtin/stable" (the default if unset) and
+ *  "builtin/latest".
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
 @end
 
 
@@ -3418,6 +3904,29 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress : GTLRObject
 
 /**
+ *  Specifies which feature is being tracked if the request contains more than
+ *  one features.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ExplicitContentDetection
+ *        Explicit content detection. (Value: "EXPLICIT_CONTENT_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_FeatureUnspecified
+ *        Unspecified. (Value: "FEATURE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_LabelDetection
+ *        Label detection. Detect objects, such as dog or flower. (Value:
+ *        "LABEL_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ObjectTracking
+ *        Object detection and tracking. (Value: "OBJECT_TRACKING")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ShotChangeDetection
+ *        Shot change detection. (Value: "SHOT_CHANGE_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_SpeechTranscription
+ *        Speech transcription. (Value: "SPEECH_TRANSCRIPTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_TextDetection
+ *        OCR text detection and tracking. (Value: "TEXT_DETECTION")
+ */
+@property(nonatomic, copy, nullable) NSString *feature;
+
+/**
  *  Video file location in
  *  [Google Cloud Storage](https://cloud.google.com/storage/).
  */
@@ -3430,6 +3939,12 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *progressPercent;
+
+/**
+ *  Specifies which segment is being tracked if the request contains more than
+ *  one segments.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment *segment;
 
 /** Time when the request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -3507,6 +4022,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** Config for LABEL_DETECTION. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig *labelDetectionConfig;
+
+/** Config for OBJECT_TRACKING. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingConfig *objectTrackingConfig;
 
 /**
  *  Video segments to annotate. The segments may overlap and are not required
@@ -3658,7 +4176,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3727,45 +4245,10 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
- *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
- *  - Simple to use and understand for most users
- *  - Flexible enough to meet unexpected needs
- *  # Overview
- *  The `Status` message contains three pieces of data: error code, error
- *  message, and error details. The error code should be an enum value of
- *  google.rpc.Code, but it may accept additional error codes if needed. The
- *  error message should be a developer-facing English message that helps
- *  developers *understand* and *resolve* the error. If a localized user-facing
- *  error message is needed, put the localized message in the error details or
- *  localize it in the client. The optional error details may contain arbitrary
- *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` that can be used for common error conditions.
- *  # Language mapping
- *  The `Status` message is the logical representation of the error model, but
- *  it
- *  is not necessarily the actual wire format. When the `Status` message is
- *  exposed in different client libraries and different wire protocols, it can
- *  be
- *  mapped differently. For example, it will likely be mapped to some exceptions
- *  in Java, but more likely mapped to some error codes in C.
- *  # Other uses
- *  The error model and the `Status` message can be used in a variety of
- *  environments, either with or without APIs, to provide a
- *  consistent developer experience across different environments.
- *  Example uses of this error model include:
- *  - Partial errors. If a service needs to return partial errors to the client,
- *  it may embed the `Status` in the normal response to indicate the partial
- *  errors.
- *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting.
- *  - Batch operations. If a client uses batch request and batch response, the
- *  `Status` message should be used directly inside batch response, one for
- *  each error sub-response.
- *  - Asynchronous operations. If an API call embeds asynchronous operation
- *  results in its response, the status of those operations should be
- *  represented directly using the `Status` message.
- *  - Logging. If some API errors are stored in logs, the message `Status` could
- *  be used directly after any stripping needed for security/privacy reasons.
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details.
+ *  You can find out more about this error model and how to work with it in the
+ *  [API Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudVideoIntelligence_GoogleRpcStatus : GTLRObject
 

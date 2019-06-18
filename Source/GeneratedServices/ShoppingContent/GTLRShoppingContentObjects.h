@@ -91,6 +91,7 @@
 @class GTLRShoppingContent_OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceRefundOption;
 @class GTLRShoppingContent_OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceReturnOption;
 @class GTLRShoppingContent_OrderLineItem;
+@class GTLRShoppingContent_OrderLineItemAdjustment;
 @class GTLRShoppingContent_OrderLineItemProduct;
 @class GTLRShoppingContent_OrderLineItemProductFee;
 @class GTLRShoppingContent_OrderLineItemProductVariantAttribute;
@@ -2624,7 +2625,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The details of the customer who placed the order. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderCustomer *customer;
 
-/** The details for the delivery. */
+/** Delivery details for shipments. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderDeliveryDetails *deliveryDetails;
 
 /**
@@ -2979,6 +2980,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrderLineItem : GTLRObject
 
+/** Price and tax adjustments applied on the line item. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderLineItemAdjustment *> *adjustments;
+
 /** Annotations that are attached to the line item. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderMerchantProvidedAnnotation *> *annotations;
 
@@ -3061,6 +3065,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  and each have a cost tax of $2, the total tax amount will be $4.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *tax;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderLineItemAdjustment
+ */
+@interface GTLRShoppingContent_OrderLineItemAdjustment : GTLRObject
+
+/** Adjustment for total price of the line item. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *priceAdjustment;
+
+/** Adjustment for total tax of the line item. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxAdjustment;
+
+/** Type of this adjustment. */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3861,9 +3882,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "lasership"
  *  - "mpx"
  *  - "uds"
+ *  - "efw"
  *  Acceptable values for FR are:
  *  - "colissimo"
  *  - "chronopost"
+ *  - "gls"
+ *  - "dpd"
+ *  - "bpost"
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
@@ -6356,6 +6381,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The two-letter ISO 639-1 language code for the item. */
 @property(nonatomic, copy, nullable) NSString *contentLanguage;
+
+/** Fees for the item. Optional. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderLineItemProductFee *> *fees;
 
 /** Global Trade Item Number (GTIN) of the item. Optional. */
 @property(nonatomic, copy, nullable) NSString *gtin;

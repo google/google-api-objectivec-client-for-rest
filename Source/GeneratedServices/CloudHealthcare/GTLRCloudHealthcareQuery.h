@@ -592,6 +592,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `Operation.response` which contains a Dataset or
  *  `Operation.error`. The metadata
  *  field type is OperationMetadata.
+ *  A Google Cloud Platform project can contain up to 500 datasets across all
+ *  regions.
  *
  *  Method: healthcare.projects.locations.datasets.create
  *
@@ -622,6 +624,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `Operation.response` which contains a Dataset or
  *  `Operation.error`. The metadata
  *  field type is OperationMetadata.
+ *  A Google Cloud Platform project can contain up to 500 datasets across all
+ *  regions.
  *
  *  @param object The @c GTLRCloudHealthcare_Dataset to include in the query.
  *  @param parent The name of the project in which the dataset should be created
@@ -790,7 +794,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  SearchForInstances returns a list of matching instances. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.searchForInstances
  *
@@ -802,9 +806,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebSearchForInstancesWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `instances`).
+ *  The path of the SearchForInstancesRequest DICOMweb request (e.g.,
+ *  `instances` or `series/{series_uid}/instances` or
+ *  `studies/{study_uid}/instances`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -818,14 +822,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  SearchForInstances returns a list of matching instances. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
- *    `instances`).
+ *  @param dicomWebPath The path of the SearchForInstancesRequest DICOMweb
+ *    request (e.g.,
+ *    `instances` or `series/{series_uid}/instances` or
+ *    `studies/{study_uid}/instances`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebSearchForInstances
  */
@@ -836,7 +840,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  SearchForSeries returns a list of matching series. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.searchForSeries
  *
@@ -848,9 +852,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebSearchForSeriesWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `series`).
+ *  The path of the SearchForSeries DICOMweb request(e.g., `series` or
+ *  `studies/{study_uid}/series`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -864,14 +867,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  SearchForSeries returns a list of matching series. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
- *    `series`).
+ *  @param dicomWebPath The path of the SearchForSeries DICOMweb request(e.g.,
+ *    `series` or
+ *    `studies/{study_uid}/series`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebSearchForSeries
  */
@@ -882,7 +884,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  SearchForStudies returns a list of matching studies. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.searchForStudies
  *
@@ -893,11 +895,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 // Previous library name was
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebSearchForStudiesWithparent:dicomWebPath:]
 
-/**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `studies`).
- */
+/** The path of the SearchForStudies DICOMweb request (e.g., `studies`). */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
@@ -910,13 +908,11 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  SearchForStudies returns a list of matching studies. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
+ *  @param dicomWebPath The path of the SearchForStudies DICOMweb request (e.g.,
  *    `studies`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebSearchForStudies
@@ -929,7 +925,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  StoreInstances stores DICOM instances associated with study instance unique
  *  identifiers (SUID). See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.6.1.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.storeInstances
  *
@@ -941,8 +937,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStoreInstancesWithObject:parent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g., `studies/{study_id}`).
+ *  The path of the StoreInstances DICOMweb request (e.g.,
+ *  `studies/[{study_id}]`). Note that the `study_uid` is optional.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -957,14 +953,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  StoreInstances stores DICOM instances associated with study instance unique
  *  identifiers (SUID). See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.6.1.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5.
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g., `studies/{study_id}`).
+ *  @param dicomWebPath The path of the StoreInstances DICOMweb request (e.g.,
+ *    `studies/[{study_id}]`). Note that the `study_uid` is optional.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStoreInstances
  */
@@ -987,10 +982,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 // Previous library name was
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesDeleteWithparent:dicomWebPath:]
 
-/**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g., `studies/{study_id}`).
- */
+/** The path of the DeleteStudy request (e.g., `studies/{study_id}`). */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
 /**
@@ -1007,9 +999,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g., `studies/{study_id}`).
+ *  @param dicomWebPath The path of the DeleteStudy request (e.g.,
+ *    `studies/{study_id}`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesDelete
  */
@@ -1021,7 +1012,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  RetrieveStudyMetadata returns instance associated with the given study
  *  presented as metadata with the bulk data removed. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.6.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.metadata
  *
@@ -1033,8 +1024,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesMetadataWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g., `studies/{study_id}/metadata`.
+ *  The path of the RetrieveStudyMetadata DICOMweb request (e.g.,
+ *  `studies/{study_id}/metadata`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1049,13 +1040,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  RetrieveStudyMetadata returns instance associated with the given study
  *  presented as metadata with the bulk data removed. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.6.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g., `studies/{study_id}/metadata`.
+ *  @param dicomWebPath The path of the RetrieveStudyMetadata DICOMweb request
+ *    (e.g.,
+ *    `studies/{study_id}/metadata`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesMetadata
  */
@@ -1066,7 +1057,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  RetrieveStudy returns all instances within the given study. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.1.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.retrieveStudy
  *
@@ -1078,8 +1069,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesRetrieveStudyWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g., `studies/{study_id}`).
+ *  The path of the RetrieveStudy DICOMweb request (e.g.,
+ *  `studies/{study_id}`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1093,13 +1084,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  RetrieveStudy returns all instances within the given study. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.1.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g., `studies/{study_id}`).
+ *  @param dicomWebPath The path of the RetrieveStudy DICOMweb request (e.g.,
+ *    `studies/{study_id}`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesRetrieveStudy
  */
@@ -1110,7 +1100,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  SearchForInstances returns a list of matching instances. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.searchForInstances
  *
@@ -1122,9 +1112,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSearchForInstancesWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `instances`).
+ *  The path of the SearchForInstancesRequest DICOMweb request (e.g.,
+ *  `instances` or `series/{series_uid}/instances` or
+ *  `studies/{study_uid}/instances`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1138,14 +1128,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  SearchForInstances returns a list of matching instances. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
- *    `instances`).
+ *  @param dicomWebPath The path of the SearchForInstancesRequest DICOMweb
+ *    request (e.g.,
+ *    `instances` or `series/{series_uid}/instances` or
+ *    `studies/{study_uid}/instances`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSearchForInstances
  */
@@ -1156,7 +1146,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  SearchForSeries returns a list of matching series. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.searchForSeries
  *
@@ -1168,9 +1158,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSearchForSeriesWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `series`).
+ *  The path of the SearchForSeries DICOMweb request(e.g., `series` or
+ *  `studies/{study_uid}/series`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1184,14 +1173,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  SearchForSeries returns a list of matching series. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
- *    `series`).
+ *  @param dicomWebPath The path of the SearchForSeries DICOMweb request(e.g.,
+ *    `series` or
+ *    `studies/{study_uid}/series`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSearchForSeries
  */
@@ -1215,8 +1203,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesDeleteWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g., `studies/{study_id}/series/{series_id}`).
+ *  The path of the DeleteSeries request (e.g.,
+ *  `studies/{study_id}/series/{series_id}`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1235,9 +1223,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g., `studies/{study_id}/series/{series_id}`).
+ *  @param dicomWebPath The path of the DeleteSeries request (e.g.,
+ *    `studies/{study_id}/series/{series_id}`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesDelete
  */
@@ -1261,8 +1248,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesDeleteWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
+ *  The path of the DeleteInstance request (e.g.,
  *  `studies/{study_id}/series/{series_id}/instances/{instance_id}`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
@@ -1282,9 +1268,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
+ *  @param dicomWebPath The path of the DeleteInstance request (e.g.,
  *    `studies/{study_id}/series/{series_id}/instances/{instance_id}`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesDelete
@@ -1298,7 +1282,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  RetrieveRenderedFrames returns instances associated with the given study,
  *  series, SOP Instance UID and frame numbers in an acceptable Rendered Media
  *  Type. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.8.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.instances.frames.rendered
  *
@@ -1310,9 +1294,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesFramesRenderedWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `studies/{study_id}/series/{series_id}/instance/{instance_id}/frames/{frame_list}/rendered`).
+ *  The path of the RetrieveRenderedFrames DICOMweb request (e.g.,
+ *  `studies/{study_id}/series/{series_id}/instances/{instance_id}/frames/{frame_list}/rendered`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1328,14 +1311,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  RetrieveRenderedFrames returns instances associated with the given study,
  *  series, SOP Instance UID and frame numbers in an acceptable Rendered Media
  *  Type. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.8.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
- *    `studies/{study_id}/series/{series_id}/instance/{instance_id}/frames/{frame_list}/rendered`).
+ *  @param dicomWebPath The path of the RetrieveRenderedFrames DICOMweb request
+ *    (e.g.,
+ *    `studies/{study_id}/series/{series_id}/instances/{instance_id}/frames/{frame_list}/rendered`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesFramesRendered
  */
@@ -1347,7 +1329,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  RetrieveFrames returns instances associated with the given study, series,
  *  SOP Instance UID and frame numbers. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.4.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.instances.frames.retrieveFrames
  *
@@ -1359,9 +1341,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesFramesRetrieveFramesWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `studies/{study_id}/series/{series_id}/instance/{instance_id}/frames/{frame_list}`).
+ *  The path of the RetrieveFrames DICOMweb request (e.g.,
+ *  `studies/{study_id}/series/{series_id}/instances/{instance_id}/frames/{frame_list}`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1376,14 +1357,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  RetrieveFrames returns instances associated with the given study, series,
  *  SOP Instance UID and frame numbers. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.4.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
- *    `studies/{study_id}/series/{series_id}/instance/{instance_id}/frames/{frame_list}`).
+ *  @param dicomWebPath The path of the RetrieveFrames DICOMweb request (e.g.,
+ *    `studies/{study_id}/series/{series_id}/instances/{instance_id}/frames/{frame_list}`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesFramesRetrieveFrames
  */
@@ -1396,7 +1375,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  RetrieveInstanceMetadata returns instance associated with the given study,
  *  series, and SOP Instance UID presented as metadata with the bulk data
  *  removed. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.6.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.instances.metadata
  *
@@ -1408,8 +1387,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesMetadataWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
+ *  The path of the RetrieveInstanceMetadata DICOMweb request (e.g.,
  *  `studies/{study_id}/series/{series_id}/instances/{instance_id}/metadata`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
@@ -1426,13 +1404,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  RetrieveInstanceMetadata returns instance associated with the given study,
  *  series, and SOP Instance UID presented as metadata with the bulk data
  *  removed. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.6.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
+ *  @param dicomWebPath The path of the RetrieveInstanceMetadata DICOMweb
+ *    request (e.g.,
  *    `studies/{study_id}/series/{series_id}/instances/{instance_id}/metadata`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesMetadata
@@ -1445,7 +1422,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  RetrieveRenderedInstance returns instance associated with the given study,
  *  series, and SOP Instance UID in an acceptable Rendered Media Type. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.8.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.instances.rendered
  *
@@ -1457,9 +1434,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesRenderedWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `studies/{study_id}/series/{series_id}/instance/{instance_id}/rendered`).
+ *  The path of the RetrieveRenderedInstance DICOMweb request (e.g.,
+ *  `studies/{study_id}/series/{series_id}/instances/{instance_id}/rendered`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1474,14 +1450,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  RetrieveRenderedInstance returns instance associated with the given study,
  *  series, and SOP Instance UID in an acceptable Rendered Media Type. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.8.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
- *    `studies/{study_id}/series/{series_id}/instance/{instance_id}/rendered`).
+ *  @param dicomWebPath The path of the RetrieveRenderedInstance DICOMweb
+ *    request (e.g.,
+ *    `studies/{study_id}/series/{series_id}/instances/{instance_id}/rendered`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesRendered
  */
@@ -1493,7 +1468,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  RetrieveInstance returns instance associated with the given study, series,
  *  and SOP Instance UID. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.3.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.instances.retrieveInstance
  *
@@ -1505,9 +1480,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesRetrieveInstanceWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `studies/{study_id}/series/{series_id}/instance/{instance_id}`).
+ *  The path of the RetrieveInstance DICOMweb request (e.g.,
+ *  `studies/{study_id}/series/{series_id}/instances/{instance_id}`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1522,14 +1496,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  RetrieveInstance returns instance associated with the given study, series,
  *  and SOP Instance UID. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.3.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
- *    `studies/{study_id}/series/{series_id}/instance/{instance_id}`).
+ *  @param dicomWebPath The path of the RetrieveInstance DICOMweb request (e.g.,
+ *    `studies/{study_id}/series/{series_id}/instances/{instance_id}`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesRetrieveInstance
  */
@@ -1541,7 +1513,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  RetrieveSeriesMetadata returns instance associated with the given study and
  *  series, presented as metadata with the bulk data removed. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.6.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.metadata
  *
@@ -1553,8 +1525,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesMetadataWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g., `studies/{study_id}/series/{series_id}/metadata`.
+ *  The path of the RetrieveSeriesMetadata DICOMweb request (e.g.,
+ *  `studies/{study_id}/series/{series_id}/metadata`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1569,13 +1541,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  RetrieveSeriesMetadata returns instance associated with the given study and
  *  series, presented as metadata with the bulk data removed. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.6.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g., `studies/{study_id}/series/{series_id}/metadata`.
+ *  @param dicomWebPath The path of the RetrieveSeriesMetadata DICOMweb request
+ *    (e.g.,
+ *    `studies/{study_id}/series/{series_id}/metadata`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesMetadata
  */
@@ -1586,7 +1558,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  RetrieveSeries returns all instances within the given study and series. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.2.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.retrieveSeries
  *
@@ -1598,8 +1570,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesRetrieveSeriesWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g., `studies/{study_id}/series/{series_id}`).
+ *  The path of the RetrieveSeries DICOMweb request (e.g.,
+ *  `studies/{study_id}/series/{series_id}`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1613,13 +1585,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  RetrieveSeries returns all instances within the given study and series. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.5.2.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g., `studies/{study_id}/series/{series_id}`).
+ *  @param dicomWebPath The path of the RetrieveSeries DICOMweb request (e.g.,
+ *    `studies/{study_id}/series/{series_id}`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesRetrieveSeries
  */
@@ -1630,7 +1601,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  SearchForInstances returns a list of matching instances. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.searchForInstances
  *
@@ -1642,9 +1613,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesSearchForInstancesWithparent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g.,
- *  `instances`).
+ *  The path of the SearchForInstancesRequest DICOMweb request (e.g.,
+ *  `instances` or `series/{series_uid}/instances` or
+ *  `studies/{study_uid}/instances`).
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1658,14 +1629,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  SearchForInstances returns a list of matching instances. See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.7
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6.
  *
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g.,
- *    `instances`).
+ *  @param dicomWebPath The path of the SearchForInstancesRequest DICOMweb
+ *    request (e.g.,
+ *    `instances` or `series/{series_uid}/instances` or
+ *    `studies/{study_uid}/instances`).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesSearchForInstances
  */
@@ -1677,7 +1648,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  StoreInstances stores DICOM instances associated with study instance unique
  *  identifiers (SUID). See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.6.1.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.storeInstances
  *
@@ -1689,8 +1660,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDicomWebStudiesStoreInstancesWithObject:parent:dicomWebPath:]
 
 /**
- *  The path of the DICOMweb request, as specified in the STOW-RS, WADO-RS, or
- *  QIDO-RS standard (e.g., `studies/{study_id}`).
+ *  The path of the StoreInstances DICOMweb request (e.g.,
+ *  `studies/[{study_id}]`). Note that the `study_uid` is optional.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -1705,14 +1676,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  StoreInstances stores DICOM instances associated with study instance unique
  *  identifiers (SUID). See
- *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_6.6.1.
+ *  http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5.
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent The name of the DICOM store that is being accessed (e.g.,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`).
- *  @param dicomWebPath The path of the DICOMweb request, as specified in the
- *    STOW-RS, WADO-RS, or
- *    QIDO-RS standard (e.g., `studies/{study_id}`).
+ *  @param dicomWebPath The path of the StoreInstances DICOMweb request (e.g.,
+ *    `studies/[{study_id}]`). Note that the `study_uid` is optional.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesStoreInstances
  */
@@ -3030,26 +3000,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
- *  # Search Parameters
  *  The server's capability statement, retrieved through
  *  capabilities, indicates what search parameters
  *  are supported on each FHIR resource. A list of all search parameters
  *  defined by the specification can be found in the [FHIR Search Parameter
  *  Registry](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html).
- *  # Search Modifiers
- *  Modifier | Supported
- *  ----------- | ---------
- *  `:missing` | Yes
- *  `:exact` | Yes
- *  `:contains` | Yes
- *  `:text` | Yes
- *  `:in` | Yes
- *  `:not-in` | Yes
- *  `:above` | Yes
- *  `:below` | Yes
- *  `:[type]` | Yes
- *  `:not` | Yes
- *  `:recurse` | No
+ *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
+ *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `:recurse`.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.search
  *
@@ -3087,26 +3044,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
- *  # Search Parameters
  *  The server's capability statement, retrieved through
  *  capabilities, indicates what search parameters
  *  are supported on each FHIR resource. A list of all search parameters
  *  defined by the specification can be found in the [FHIR Search Parameter
  *  Registry](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html).
- *  # Search Modifiers
- *  Modifier | Supported
- *  ----------- | ---------
- *  `:missing` | Yes
- *  `:exact` | Yes
- *  `:contains` | Yes
- *  `:text` | Yes
- *  `:in` | Yes
- *  `:not-in` | Yes
- *  `:above` | Yes
- *  `:below` | Yes
- *  `:[type]` | Yes
- *  `:not` | Yes
- *  `:recurse` | No
+ *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
+ *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `:recurse`.
  *
  *  @param object The @c GTLRCloudHealthcare_SearchResourcesRequest to include
  *    in the query.

@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudVideoIntelligenceQuery_OperationsCancel : GTLRCloudVideoIntelligenceQuery
 // Previous library name was
-//   +[GTLQueryCloudVideoIntelligence queryForOperationsCancelWithObject:name:]
+//   +[GTLQueryCloudVideoIntelligence queryForOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -78,15 +78,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  an Operation.error value with a google.rpc.Status.code of 1,
  *  corresponding to `Code.CANCELLED`.
  *
- *  @param object The @c
- *    GTLRCloudVideoIntelligence_GoogleLongrunningCancelOperationRequest to
- *    include in the query.
  *  @param name The name of the operation resource to be cancelled.
  *
  *  @return GTLRCloudVideoIntelligenceQuery_OperationsCancel
  */
-+ (instancetype)queryWithObject:(GTLRCloudVideoIntelligence_GoogleLongrunningCancelOperationRequest *)object
-                           name:(NSString *)name;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -157,6 +153,234 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  Method: videointelligence.operations.projects.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
+ */
+@interface GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsCancel : GTLRCloudVideoIntelligenceQuery
+// Previous library name was
+//   +[GTLQueryCloudVideoIntelligence queryForOperationsProjectsLocationsOperationsCancelWithname:]
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudVideoIntelligence_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: videointelligence.operations.projects.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
+ */
+@interface GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsDelete : GTLRCloudVideoIntelligenceQuery
+// Previous library name was
+//   +[GTLQueryCloudVideoIntelligence queryForOperationsProjectsLocationsOperationsDeleteWithname:]
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudVideoIntelligence_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: videointelligence.operations.projects.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
+ */
+@interface GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsGet : GTLRCloudVideoIntelligenceQuery
+// Previous library name was
+//   +[GTLQueryCloudVideoIntelligence queryForOperationsProjectsLocationsOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudVideoIntelligence_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  Method: videointelligence.projects.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
+ */
+@interface GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsCancel : GTLRCloudVideoIntelligenceQuery
+// Previous library name was
+//   +[GTLQueryCloudVideoIntelligence queryForProjectsLocationsOperationsCancelWithObject:name:]
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudVideoIntelligence_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  @param object The @c
+ *    GTLRCloudVideoIntelligence_GoogleLongrunningCancelOperationRequest to
+ *    include in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudVideoIntelligence_GoogleLongrunningCancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: videointelligence.projects.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
+ */
+@interface GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsDelete : GTLRCloudVideoIntelligenceQuery
+// Previous library name was
+//   +[GTLQueryCloudVideoIntelligence queryForProjectsLocationsOperationsDeleteWithname:]
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudVideoIntelligence_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: videointelligence.projects.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
+ */
+@interface GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsGet : GTLRCloudVideoIntelligenceQuery
+// Previous library name was
+//   +[GTLQueryCloudVideoIntelligence queryForProjectsLocationsOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudVideoIntelligence_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists operations that match the specified filter in the request. If the
  *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *  NOTE: the `name` binding allows API services to override the binding
@@ -167,14 +391,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  collection id, however overriding users must ensure the name binding
  *  is the parent resource, without the operations collection id.
  *
- *  Method: videointelligence.operations.list
+ *  Method: videointelligence.projects.locations.operations.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
  */
-@interface GTLRCloudVideoIntelligenceQuery_OperationsList : GTLRCloudVideoIntelligenceQuery
+@interface GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsList : GTLRCloudVideoIntelligenceQuery
 // Previous library name was
-//   +[GTLQueryCloudVideoIntelligence queryForOperationsList]
+//   +[GTLQueryCloudVideoIntelligence queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -202,13 +426,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  collection id, however overriding users must ensure the name binding
  *  is the parent resource, without the operations collection id.
  *
- *  @return GTLRCloudVideoIntelligenceQuery_OperationsList
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)query;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

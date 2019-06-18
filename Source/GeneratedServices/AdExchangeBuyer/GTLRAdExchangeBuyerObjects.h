@@ -26,6 +26,7 @@
 @class GTLRAdExchangeBuyer_Buyer;
 @class GTLRAdExchangeBuyer_ContactInformation;
 @class GTLRAdExchangeBuyer_Creative;
+@class GTLRAdExchangeBuyer_Creative_AdTechnologyProviders;
 @class GTLRAdExchangeBuyer_Creative_Corrections_Item;
 @class GTLRAdExchangeBuyer_Creative_Corrections_Item_Contexts_Item;
 @class GTLRAdExchangeBuyer_Creative_FilteringReasons;
@@ -441,6 +442,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *adChoicesDestinationUrl;
 
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_Creative_AdTechnologyProviders *adTechnologyProviders;
+
 /**
  *  Detected advertiser id, if any. Read-only. This field should not be set in
  *  requests.
@@ -640,6 +643,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRAdExchangeBuyer_Creative_AdTechnologyProviders
+ */
+@interface GTLRAdExchangeBuyer_Creative_AdTechnologyProviders : GTLRObject
+
+/**
+ *  detectedProviderIds
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *detectedProviderIds;
+
+/**
+ *  hasUnidentifiedProvider
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasUnidentifiedProvider;
+
+@end
+
+
+/**
  *  GTLRAdExchangeBuyer_Creative_Corrections_Item
  */
 @interface GTLRAdExchangeBuyer_Creative_Corrections_Item : GTLRObject
@@ -718,9 +743,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *starRating;
-
-/** The URL to the app store to purchase/download the promoted app. */
-@property(nonatomic, copy, nullable) NSString *store;
 
 /**
  *  The URL of the XML VAST for a native ad. Note this is a separate field from

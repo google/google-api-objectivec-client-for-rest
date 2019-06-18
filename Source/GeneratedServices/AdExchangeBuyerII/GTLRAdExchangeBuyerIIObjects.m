@@ -493,6 +493,24 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAdExchangeBuyerII_AdTechnologyProviders
+//
+
+@implementation GTLRAdExchangeBuyerII_AdTechnologyProviders
+@dynamic detectedProviderIds, hasUnidentifiedProvider;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectedProviderIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAdExchangeBuyerII_AppContext
 //
 
@@ -657,13 +675,13 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 //
 
 @implementation GTLRAdExchangeBuyerII_Creative
-@dynamic accountId, adChoicesDestinationUrl, advertiserName, agencyId,
-         apiUpdateTime, attributes, clickThroughUrls, corrections, creativeId,
-         dealsStatus, declaredClickThroughUrls, detectedAdvertiserIds,
-         detectedDomains, detectedLanguages, detectedProductCategories,
-         detectedSensitiveCategories, html, impressionTrackingUrls, native,
-         openAuctionStatus, restrictedCategories, servingRestrictions,
-         vendorIds, version, video;
+@dynamic accountId, adChoicesDestinationUrl, adTechnologyProviders,
+         advertiserName, agencyId, apiUpdateTime, attributes, clickThroughUrls,
+         corrections, creativeId, dealsStatus, declaredClickThroughUrls,
+         detectedAdvertiserIds, detectedDomains, detectedLanguages,
+         detectedProductCategories, detectedSensitiveCategories, html,
+         impressionTrackingUrls, native, openAuctionStatus,
+         restrictedCategories, servingRestrictions, vendorIds, version, video;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
