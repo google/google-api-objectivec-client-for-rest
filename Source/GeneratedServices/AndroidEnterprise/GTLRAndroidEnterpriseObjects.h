@@ -28,17 +28,21 @@
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue;
 @class GTLRAndroidEnterprise_ApprovalUrlInfo;
+@class GTLRAndroidEnterprise_AppState;
 @class GTLRAndroidEnterprise_AppUpdateEvent;
 @class GTLRAndroidEnterprise_AppVersion;
 @class GTLRAndroidEnterprise_AutoInstallConstraint;
 @class GTLRAndroidEnterprise_AutoInstallPolicy;
 @class GTLRAndroidEnterprise_ConfigurationVariables;
 @class GTLRAndroidEnterprise_Device;
+@class GTLRAndroidEnterprise_DeviceReport;
+@class GTLRAndroidEnterprise_DeviceReportUpdateEvent;
 @class GTLRAndroidEnterprise_Enterprise;
 @class GTLRAndroidEnterprise_Entitlement;
 @class GTLRAndroidEnterprise_GroupLicense;
 @class GTLRAndroidEnterprise_Install;
 @class GTLRAndroidEnterprise_InstallFailureEvent;
+@class GTLRAndroidEnterprise_KeyedAppState;
 @class GTLRAndroidEnterprise_LocalizedText;
 @class GTLRAndroidEnterprise_MaintenanceWindow;
 @class GTLRAndroidEnterprise_ManagedConfiguration;
@@ -374,6 +378,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  List of states set by the app.
+ */
+@interface GTLRAndroidEnterprise_AppState : GTLRObject
+
+/** List of keyed app states. This field will always be present. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_KeyedAppState *> *keyedAppState;
+
+/** The package name of the app. This field will always be present. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@end
+
+
+/**
  *  An event generated when a new version of an app is uploaded to Google Play.
  *  Notifications are sent for new public versions only: alpha, beta, or canary
  *  versions do not generate this event. To fetch up-to-date version history for
@@ -562,6 +580,52 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The policy enforced on the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_Policy *policy;
+
+/** The device report updated with the latest app states. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_DeviceReport *report;
+
+@end
+
+
+/**
+ *  Device report updated with the latest app states for managed apps on the
+ *  device.
+ */
+@interface GTLRAndroidEnterprise_DeviceReport : GTLRObject
+
+/**
+ *  List of app states set by managed apps on the device. App states are defined
+ *  by the app's developers. This field will always be present.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AppState *> *appState;
+
+/**
+ *  The timestamp of the last report update in milliseconds since epoch. This
+ *  field will always be present.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastUpdatedTimestampMillis;
+
+@end
+
+
+/**
+ *  An event generated when an updated device report is available.
+ */
+@interface GTLRAndroidEnterprise_DeviceReportUpdateEvent : GTLRObject
+
+/** The Android ID of the device. This field will always be present. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/**
+ *  The device report updated with the latest app states. This field will always
+ *  be present.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_DeviceReport *report;
+
+/** The ID of the user. This field will always be present. */
+@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 
@@ -988,6 +1052,47 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Represents a keyed app state containing a key, timestamp, severity level,
+ *  optional description, and optional data.
+ */
+@interface GTLRAndroidEnterprise_KeyedAppState : GTLRObject
+
+/**
+ *  Additional field intended for machine-readable data. For example, a number
+ *  or JSON object. To prevent XSS, we recommend removing any HTML from the data
+ *  before displaying it.
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Key indicating what the app is providing a state for. The content of the key
+ *  is set by the app's developer. To prevent XSS, we recommend removing any
+ *  HTML from the key before displaying it. This field will always be present.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Free-form, human-readable message describing the app state. For example, an
+ *  error message. To prevent XSS, we recommend removing any HTML from the
+ *  message before displaying it.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Severity of the app state. This field will always be present. */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/**
+ *  Timestamp of when the app set the state in milliseconds since epoch. This
+ *  field will always be present.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stateTimestampMillis;
+
+@end
+
+
+/**
  *  A localized string with its locale.
  */
 @interface GTLRAndroidEnterprise_LocalizedText : GTLRObject
@@ -1274,6 +1379,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Notifications about app updates. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AppUpdateEvent *appUpdateEvent;
 
+/** Notifications about device report updates. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_DeviceReportUpdateEvent *deviceReportUpdateEvent;
+
 /**
  *  The ID of the enterprise for which the notification is sent. This will
  *  always be present.
@@ -1410,6 +1518,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  updates only when the device is connected to wifi.
  */
 @property(nonatomic, copy, nullable) NSString *autoUpdatePolicy;
+
+/**
+ *  Whether the device reports app states to the EMM. The default value is
+ *  "deviceReportDisabled".
+ */
+@property(nonatomic, copy, nullable) NSString *deviceReportPolicy;
 
 /**
  *  The maintenance window defining when apps running in the foreground should

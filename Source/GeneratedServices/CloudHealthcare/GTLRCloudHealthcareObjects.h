@@ -79,6 +79,7 @@
 @class GTLRCloudHealthcare_Source;
 @class GTLRCloudHealthcare_Status;
 @class GTLRCloudHealthcare_Status_Details_Item;
+@class GTLRCloudHealthcare_StreamConfig;
 @class GTLRCloudHealthcare_TagFilterList;
 @class GTLRCloudHealthcare_TextConfig;
 @class GTLRCloudHealthcare_Vertex;
@@ -221,20 +222,34 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_
 // GTLRCloudHealthcare_ImportResourcesRequest.contentStructure
 
 /**
- *  Each line is a bundle, which contains one or more resources. Set the
- *  bundle type to `history` to import resource versions.
+ *  The source file contains one or more lines of newline-delimited JSON
+ *  (ndjson). Each line is a bundle, which contains one or more resources.
+ *  Set the bundle type to `history` to import resource versions.
  *
  *  Value: "BUNDLE"
  */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Bundle;
+/**
+ *  The entire file is one JSON bundle. The JSON can span multiple lines.
+ *
+ *  Value: "BUNDLE_PRETTY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_BundlePretty;
 /** Value: "CONTENT_STRUCTURE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ContentStructureUnspecified;
 /**
- *  Each line is a single resource.
+ *  The source file contains one or more lines of newline-delimited JSON
+ *  (ndjson). Each line is a single resource.
  *
  *  Value: "RESOURCE"
  */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Resource;
+/**
+ *  The entire file is one JSON resource. The JSON can span multiple lines.
+ *
+ *  Value: "RESOURCE_PRETTY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ResourcePretty;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_SchemaConfig.schemaType
@@ -848,7 +863,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /**
  *  The BigQuery output destination.
- *  For now, only exporting to a dataset in the current project is supported
+ *  You can only export to a BigQuery dataset that's in the same project as
+ *  the DICOM store you're exporting from.
  *  The BigQuery location requires two IAM roles:
  *  `roles/bigquery.dataEditor` and `roles/bigquery.jobUser`.
  */
@@ -1031,6 +1047,23 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  e.g. "action":"CreateResource".
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig;
+
+/**
+ *  A list of streaming configs that configure the destinations of streaming
+ *  export for every resource mutation in this FHIR store. Each store is
+ *  allowed to have up to 10 streaming configs.
+ *  After a new config is added, the next resource mutation will be streamed to
+ *  the new location in addition to the existing ones.
+ *  When a location is removed from the list, the server will simply stop
+ *  streaming to that location. Before adding a new config, you must add the
+ *  required
+ *  [`bigquery.dataEditor`](https://cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor)
+ *  role to your project's **Cloud Healthcare Service Agent**
+ *  [service account](https://cloud.google.com/iam/docs/service-accounts).
+ *  Some lag (typically on the order of dozens of seconds) is expected before
+ *  the results show up in the streaming destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_StreamConfig *> *streamConfigs;
 
 @end
 
@@ -1587,18 +1620,26 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 @interface GTLRCloudHealthcare_ImportResourcesRequest : GTLRObject
 
 /**
- *  The content structure in the source location. The default is
- *  BUNDLE.
+ *  The content structure in the source location. If not specified, the server
+ *  treats the input source files as BUNDLE.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Bundle
- *        Each line is a bundle, which contains one or more resources. Set the
- *        bundle type to `history` to import resource versions. (Value:
+ *        The source file contains one or more lines of newline-delimited JSON
+ *        (ndjson). Each line is a bundle, which contains one or more resources.
+ *        Set the bundle type to `history` to import resource versions. (Value:
  *        "BUNDLE")
+ *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_BundlePretty
+ *        The entire file is one JSON bundle. The JSON can span multiple lines.
+ *        (Value: "BUNDLE_PRETTY")
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ContentStructureUnspecified
  *        Value "CONTENT_STRUCTURE_UNSPECIFIED"
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Resource
- *        Each line is a single resource. (Value: "RESOURCE")
+ *        The source file contains one or more lines of newline-delimited JSON
+ *        (ndjson). Each line is a single resource. (Value: "RESOURCE")
+ *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ResourcePretty
+ *        The entire file is one JSON resource. The JSON can span multiple
+ *        lines. (Value: "RESOURCE_PRETTY")
  */
 @property(nonatomic, copy, nullable) NSString *contentStructure;
 
@@ -1615,12 +1656,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Cloud Storage source data location and import configuration.
  *  The Cloud Storage location requires the `roles/storage.objectViewer`
  *  Cloud IAM role.
- *  Each Cloud Storage object should be a text file that contains newline
- *  delimited JSON structures conforming to FHIR standard.
- *  To improve performance, use multiple Cloud Storage objects where each
- *  object contains a subset of all of the newline-delimited JSON structures.
- *  You can select all of the objects using the uri as the
- *  prefix. The maximum number of objects is 1,000.
+ *  Each Cloud Storage object should be a text file that contains the format
+ *  specified in ContentStructu.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2FhirRestGcsSource *gcsSource;
 
@@ -1985,7 +2022,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  */
 @interface GTLRCloudHealthcare_Message : GTLRObject
 
-/** The datetime when the message was created. Set by the server. */
+/**
+ *  Output only. The datetime when the message was created. Set by the server.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -2019,7 +2058,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The parsed version of the raw message data. */
+/** Output only. The parsed version of the raw message data. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ParsedData *parsedData;
 
 /**
@@ -2208,7 +2247,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /**
  *  Byte(s) to be used as the segment terminator. If this is unset, '\\r' will
- *  be used as segment terminator.
+ *  be used as the segment terminator, matching the HL7 version 2
+ *  specification.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2368,8 +2408,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
- *  Configuration for the FHIR BigQuery schema. Determines how the server
- *  generates the schema.
+ *  Configuration for the FHIR BigQuery and Cloud Storage schema. Determines
+ *  how the server generates the schema.
  */
 @interface GTLRCloudHealthcare_SchemaConfig : GTLRObject
 
@@ -2544,45 +2584,10 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
- *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
- *  - Simple to use and understand for most users
- *  - Flexible enough to meet unexpected needs
- *  # Overview
- *  The `Status` message contains three pieces of data: error code, error
- *  message, and error details. The error code should be an enum value of
- *  google.rpc.Code, but it may accept additional error codes if needed. The
- *  error message should be a developer-facing English message that helps
- *  developers *understand* and *resolve* the error. If a localized user-facing
- *  error message is needed, put the localized message in the error details or
- *  localize it in the client. The optional error details may contain arbitrary
- *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` that can be used for common error conditions.
- *  # Language mapping
- *  The `Status` message is the logical representation of the error model, but
- *  it
- *  is not necessarily the actual wire format. When the `Status` message is
- *  exposed in different client libraries and different wire protocols, it can
- *  be
- *  mapped differently. For example, it will likely be mapped to some exceptions
- *  in Java, but more likely mapped to some error codes in C.
- *  # Other uses
- *  The error model and the `Status` message can be used in a variety of
- *  environments, either with or without APIs, to provide a
- *  consistent developer experience across different environments.
- *  Example uses of this error model include:
- *  - Partial errors. If a service needs to return partial errors to the client,
- *  it may embed the `Status` in the normal response to indicate the partial
- *  errors.
- *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting.
- *  - Batch operations. If a client uses batch request and batch response, the
- *  `Status` message should be used directly inside batch response, one for
- *  each error sub-response.
- *  - Asynchronous operations. If an API call embeds asynchronous operation
- *  results in its response, the status of those operations should be
- *  represented directly using the `Status` message.
- *  - Logging. If some API errors are stored in logs, the message `Status` could
- *  be used directly after any stripping needed for security/privacy reasons.
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details.
+ *  You can find out more about this error model and how to work with it in the
+ *  [API Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudHealthcare_Status : GTLRObject
 
@@ -2618,6 +2623,35 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudHealthcare_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  This structure contains configuration for streaming FHIR export.
+ */
+@interface GTLRCloudHealthcare_StreamConfig : GTLRObject
+
+/**
+ *  The destination BigQuery structure that contains both the dataset
+ *  location and corresponding schema config.
+ *  The output will be organized in one table per resource type.
+ *  The server will inspect and potentially create new tables (if they
+ *  don't exist) in the given BigQuery dataset.
+ *  Results will be appended to the corresponding BigQuery tables.
+ *  The views of the latest snapshot will also be automatically created in
+ *  the dataset.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2FhirBigQueryDestination *bigqueryDestination;
+
+/**
+ *  Supply a FHIR resource type (such as "Patient" or "Observation").
+ *  See https://www.hl7.org/fhir/valueset-resource-types.html for a list of
+ *  all FHIR resource types.
+ *  The server will treat an empty list as an intent to stream all the
+ *  supported resource types in this FHIR store.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
+
 @end
 
 

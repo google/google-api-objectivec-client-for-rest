@@ -2133,7 +2133,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /** The top margin of the embedded object. */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginTop;
 
-/** The size of the embedded object. */
+/** The visible size of the image after cropping. */
 @property(nonatomic, strong, nullable) GTLRDocs_Size *size;
 
 /**
@@ -2545,10 +2545,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  */
 @property(nonatomic, strong, nullable) NSNumber *contrast;
 
-/**
- *  The crop properties of the image.
- *  After cropping, the image will be stretched to fit in its container.
- */
+/** The crop properties of the image. */
 @property(nonatomic, strong, nullable) GTLRDocs_CropProperties *cropProperties;
 
 /**
@@ -5070,12 +5067,10 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /**
  *  A border around a table cell.
- *  Table cell borders cannot be transparent. To hide a table cell border, make
- *  its width 0.
  */
 @interface GTLRDocs_TableCellBorder : GTLRObject
 
-/** The color of the border. This color cannot be transparent. */
+/** The color of the border. */
 @property(nonatomic, strong, nullable) GTLRDocs_OptionalColor *color;
 
 /**

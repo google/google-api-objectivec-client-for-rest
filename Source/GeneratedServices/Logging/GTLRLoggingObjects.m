@@ -4,7 +4,10 @@
 // API:
 //   Stackdriver Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Logging configuration.
+//   Writes log entries and manages your Stackdriver Logging configuration. The
+//   table entries below are presented in alphabetical order, not in order of
+//   common use. For explanations of the concepts found in the table entries,
+//   read the Stackdriver Logging documentation.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
@@ -48,6 +51,14 @@ NSString * const kGTLRLogging_LogMetric_Version_V2 = @"V2";
 NSString * const kGTLRLogging_LogSink_OutputVersionFormat_V1   = @"V1";
 NSString * const kGTLRLogging_LogSink_OutputVersionFormat_V2   = @"V2";
 NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecified = @"VERSION_FORMAT_UNSPECIFIED";
+
+// GTLRLogging_MetricDescriptor.launchStage
+NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Ga  = @"GA";
+NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
 
 // GTLRLogging_MetricDescriptor.metricKind
 NSString * const kGTLRLogging_MetricDescriptor_MetricKind_Cumulative = @"CUMULATIVE";
@@ -463,8 +474,8 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 //
 
 @implementation GTLRLogging_MetricDescriptor
-@dynamic descriptionProperty, displayName, labels, metadata, metricKind, name,
-         type, unit, valueType;
+@dynamic descriptionProperty, displayName, labels, launchStage, metadata,
+         metricKind, name, type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

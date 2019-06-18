@@ -1409,7 +1409,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 @end
 
 /**
- *  Returns a filters to which the user has access.
+ *  Returns filters to which the user has access.
  *
  *  Method: analytics.management.filters.get
  *
@@ -1430,7 +1430,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 /**
  *  Fetches a @c GTLRAnalytics_Filter.
  *
- *  Returns a filters to which the user has access.
+ *  Returns filters to which the user has access.
  *
  *  @param accountId Account ID to retrieve filters for.
  *  @param filterId Filter ID to retrieve filters for.

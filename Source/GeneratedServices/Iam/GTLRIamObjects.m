@@ -78,6 +78,11 @@ NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa1024 = @"KEY_A
 NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa2048 = @"KEY_ALG_RSA_2048";
 NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgUnspecified = @"KEY_ALG_UNSPECIFIED";
 
+// GTLRIam_ServiceAccountKey.keyOrigin
+NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_GoogleProvided = @"GOOGLE_PROVIDED";
+NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_OriginUnspecified = @"ORIGIN_UNSPECIFIED";
+NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_UserProvided = @"USER_PROVIDED";
+
 // GTLRIam_ServiceAccountKey.privateKeyType
 NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeGoogleCredentialsFile = @"TYPE_GOOGLE_CREDENTIALS_FILE";
 NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypePkcs12File = @"TYPE_PKCS12_FILE";
@@ -595,8 +600,8 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_ServiceAccountKey
-@dynamic keyAlgorithm, name, privateKeyData, privateKeyType, publicKeyData,
-         validAfterTime, validBeforeTime;
+@dynamic keyAlgorithm, keyOrigin, name, privateKeyData, privateKeyType,
+         publicKeyData, validAfterTime, validBeforeTime;
 @end
 
 

@@ -233,6 +233,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_MessageStoragePolicy
+//
+
+@implementation GTLRPubsub_MessageStoragePolicy
+@dynamic allowedPersistenceRegions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedPersistenceRegions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_ModifyAckDeadlineRequest
 //
 
@@ -509,7 +527,7 @@
 //
 
 @implementation GTLRPubsub_Topic
-@dynamic labels, name;
+@dynamic kmsKeyName, labels, messageStoragePolicy, name;
 @end
 
 

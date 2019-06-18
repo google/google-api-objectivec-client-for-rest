@@ -20,10 +20,18 @@
 
 @implementation GTLRRemoteBuildExecutionQuery_ActionResultsGet
 
-@dynamic hashProperty, instanceName, sizeBytes;
+@dynamic hashProperty, inlineOutputFiles, inlineStderr, inlineStdout,
+         instanceName, sizeBytes;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"hashProperty" : @"hash" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inlineOutputFiles" : [NSString class]
+  };
+  return map;
 }
 
 + (instancetype)queryWithInstanceName:(NSString *)instanceName

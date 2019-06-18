@@ -6,7 +6,10 @@
 // Description:
 //   Manages your Stackdriver Monitoring data and configurations. Most projects
 //   must be associated with a Stackdriver account, with a few exceptions as
-//   noted on the individual method pages.
+//   noted on the individual method pages. The table entries below are presented
+//   in alphabetical order, not in order of common use. For explanations of the
+//   concepts found in the table entries, read the Stackdriver Monitoring
+//   documentation.
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
 
@@ -1665,7 +1668,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  filter must specify a single metric type, and can additionally specify
  *  metric labels and other information. For example:
  *  metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
- *  metric.label.instance_name = "my-instance-name"
+ *  metric.labels.instance_name = "my-instance-name"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

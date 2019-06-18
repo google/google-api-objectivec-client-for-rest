@@ -234,10 +234,14 @@ GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_Language;
 GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_NewHistoryFragment;
 /** Value: "newHistoryState" */
 GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_NewHistoryState;
+/** Value: "newHistoryUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_NewHistoryUrl;
 /** Value: "oldHistoryFragment" */
 GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_OldHistoryFragment;
 /** Value: "oldHistoryState" */
 GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_OldHistoryState;
+/** Value: "oldHistoryUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_OldHistoryUrl;
 /** Value: "osVersion" */
 GTLR_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_OsVersion;
 /** Value: "pageHostname" */
@@ -380,6 +384,8 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Parameter_Type_List;
 GTLR_EXTERN NSString * const kGTLRTagManager_Parameter_Type_Map;
 /** Value: "template" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Parameter_Type_Template;
+/** Value: "triggerReference" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Parameter_Type_TriggerReference;
 /** Value: "typeUnspecified" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Parameter_Type_TypeUnspecified;
 
@@ -456,6 +462,8 @@ GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Pageview;
 GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_ScrollDepth;
 /** Value: "timer" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Timer;
+/** Value: "triggerGroup" */
+GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_TriggerGroup;
 /** Value: "windowLoaded" */
 GTLR_EXTERN NSString * const kGTLRTagManager_Trigger_Type_WindowLoaded;
 /** Value: "youTubeVideo" */
@@ -698,10 +706,14 @@ GTLR_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionT
  *        "newHistoryFragment"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_NewHistoryState Value
  *        "newHistoryState"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_NewHistoryUrl Value
+ *        "newHistoryUrl"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_OldHistoryFragment Value
  *        "oldHistoryFragment"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_OldHistoryState Value
  *        "oldHistoryState"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_OldHistoryUrl Value
+ *        "oldHistoryUrl"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_OsVersion Value "osVersion"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_PageHostname Value
  *        "pageHostname"
@@ -1431,6 +1443,32 @@ GTLR_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionT
 
 
 /**
+ *  GTLRTagManager_ListTemplatesResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "templateProperty" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRTagManager_ListTemplatesResponse : GTLRCollectionObject
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  All GTM Custom Templates of a GTM Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ *
+ *  Remapped to 'templateProperty' to avoid language reserved word 'template'.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_CustomTemplate *> *templateProperty;
+
+@end
+
+
+/**
  *  List triggers response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1599,6 +1637,8 @@ GTLR_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionT
  *  - map: A map of parameters should be specified
  *  - template: The value represents any text; this can include variable
  *  references (even variable references that might return non-string types)
+ *  - trigger_reference: The value represents a trigger, represented as the
+ *  trigger id
  *
  *  Likely values:
  *    @arg @c kGTLRTagManager_Parameter_Type_Boolean Value "boolean"
@@ -1606,6 +1646,8 @@ GTLR_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionT
  *    @arg @c kGTLRTagManager_Parameter_Type_List Value "list"
  *    @arg @c kGTLRTagManager_Parameter_Type_Map Value "map"
  *    @arg @c kGTLRTagManager_Parameter_Type_Template Value "template"
+ *    @arg @c kGTLRTagManager_Parameter_Type_TriggerReference Value
+ *        "triggerReference"
  *    @arg @c kGTLRTagManager_Parameter_Type_TypeUnspecified Value
  *        "typeUnspecified"
  */
@@ -1703,6 +1745,23 @@ GTLR_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionT
  *  deleted in the latest container version.
  */
 @property(nonatomic, strong, nullable) GTLRTagManager_Tag *tag;
+
+@end
+
+
+/**
+ *  The result of reverting a template in a workspace.
+ */
+@interface GTLRTagManager_RevertTemplateResponse : GTLRObject
+
+/**
+ *  Template as it appears in the latest container version since the last
+ *  workspace synchronization operation. If no template is present, that means
+ *  the template was deleted in the latest container version.
+ *
+ *  Remapped to 'templateProperty' to avoid language reserved word 'template'.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_CustomTemplate *templateProperty;
 
 @end
 
@@ -2201,6 +2260,7 @@ GTLR_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionT
  *    @arg @c kGTLRTagManager_Trigger_Type_Pageview Value "pageview"
  *    @arg @c kGTLRTagManager_Trigger_Type_ScrollDepth Value "scrollDepth"
  *    @arg @c kGTLRTagManager_Trigger_Type_Timer Value "timer"
+ *    @arg @c kGTLRTagManager_Trigger_Type_TriggerGroup Value "triggerGroup"
  *    @arg @c kGTLRTagManager_Trigger_Type_WindowLoaded Value "windowLoaded"
  *    @arg @c kGTLRTagManager_Trigger_Type_YouTubeVideo Value "youTubeVideo"
  */

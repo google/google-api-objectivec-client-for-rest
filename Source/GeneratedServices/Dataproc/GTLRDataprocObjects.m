@@ -171,7 +171,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_ClusterConfig
 @dynamic configBucket, encryptionConfig, gceClusterConfig,
          initializationActions, masterConfig, secondaryWorkerConfig,
-         softwareConfig, workerConfig;
+         securityConfig, softwareConfig, workerConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -628,6 +628,20 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_KerberosConfig
+//
+
+@implementation GTLRDataproc_KerberosConfig
+@dynamic crossRealmTrustAdminServer, crossRealmTrustKdc, crossRealmTrustRealm,
+         crossRealmTrustSharedPasswordUri, enableKerberos, kdcDbKeyUri,
+         keyPasswordUri, keystorePasswordUri, keystoreUri, kmsKeyUri,
+         rootPrincipalPasswordUri, tgtLifetimeHours, truststorePasswordUri,
+         truststoreUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_ListClustersResponse
 //
 
@@ -1002,6 +1016,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SecurityConfig
+//
+
+@implementation GTLRDataproc_SecurityConfig
+@dynamic kerberosConfig;
 @end
 
 

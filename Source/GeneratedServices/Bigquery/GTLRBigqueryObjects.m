@@ -351,8 +351,8 @@
 
 @implementation GTLRBigquery_ExternalDataConfiguration
 @dynamic autodetect, bigtableOptions, compression, csvOptions,
-         googleSheetsOptions, hivePartitioningMode, ignoreUnknownValues,
-         maxBadRecords, schema, sourceFormat, sourceUris;
+         googleSheetsOptions, hivePartitioningMode, hivePartitioningOptions,
+         ignoreUnknownValues, maxBadRecords, schema, sourceFormat, sourceUris;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -406,6 +406,16 @@
 
 @implementation GTLRBigquery_GoogleSheetsOptions
 @dynamic range, skipLeadingRows;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_HivePartitioningOptions
+//
+
+@implementation GTLRBigquery_HivePartitioningOptions
+@dynamic mode, sourceUriPrefix;
 @end
 
 
@@ -498,10 +508,11 @@
 @dynamic allowJaggedRows, allowQuotedNewlines, autodetect, clustering,
          createDisposition, destinationEncryptionConfiguration,
          destinationTable, destinationTableProperties, encoding, fieldDelimiter,
-         hivePartitioningMode, ignoreUnknownValues, maxBadRecords, nullMarker,
-         projectionFields, quote, rangePartitioning, schema, schemaInline,
-         schemaInlineFormat, schemaUpdateOptions, skipLeadingRows, sourceFormat,
-         sourceUris, timePartitioning, useAvroLogicalTypes, writeDisposition;
+         hivePartitioningMode, hivePartitioningOptions, ignoreUnknownValues,
+         maxBadRecords, nullMarker, projectionFields, quote, rangePartitioning,
+         schema, schemaInline, schemaInlineFormat, schemaUpdateOptions,
+         skipLeadingRows, sourceFormat, sourceUris, timePartitioning,
+         useAvroLogicalTypes, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

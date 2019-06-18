@@ -4,7 +4,10 @@
 // API:
 //   Stackdriver Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Logging configuration.
+//   Writes log entries and manages your Stackdriver Logging configuration. The
+//   table entries below are presented in alphabetical order, not in order of
+//   common use. For explanations of the concepts found in the table entries,
+//   read the Stackdriver Logging documentation.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
@@ -234,6 +237,66 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_V2;
  *  Value: "VERSION_FORMAT_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_MetricDescriptor.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the “Deprecation Policy” section of our Terms of Service
+ *  (https://cloud.google.com/terms/) and the Google Cloud Platform Subject to
+ *  the Deprecation Policy (https://cloud.google.com/terms/deprecation)
+ *  documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_MetricDescriptor.metricKind
@@ -1010,7 +1073,10 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 
 /**
  *  The log entry payload, represented as a protocol buffer. Some Google Cloud
- *  Platform services use this field for their log entry payloads.
+ *  Platform services use this field for their log entry payloads.The following
+ *  protocol buffer types are supported; user-defined types are not
+ *  supported:"type.googleapis.com/google.cloud.audit.AuditLog"
+ *  "type.googleapis.com/google.appengine.logging.v1.RequestLog"
  */
 @property(nonatomic, strong, nullable) GTLRLogging_LogEntry_ProtoPayload *protoPayload;
 
@@ -1018,10 +1084,9 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 @property(nonatomic, strong, nullable) GTLRDateTime *receiveTimestamp;
 
 /**
- *  Required. The primary monitored resource associated with this log
- *  entry.Example: a log entry that reports a database error would be associated
- *  with the monitored resource designating the particular database that
- *  reported the error.
+ *  Required. The monitored resource that produced this log entry.Example: a log
+ *  entry that reports a database error would be associated with the monitored
+ *  resource designating the particular database that reported the error.
  */
 @property(nonatomic, strong, nullable) GTLRLogging_MonitoredResource *resource;
 
@@ -1134,7 +1199,10 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 
 /**
  *  The log entry payload, represented as a protocol buffer. Some Google Cloud
- *  Platform services use this field for their log entry payloads.
+ *  Platform services use this field for their log entry payloads.The following
+ *  protocol buffer types are supported; user-defined types are not
+ *  supported:"type.googleapis.com/google.cloud.audit.AuditLog"
+ *  "type.googleapis.com/google.appengine.logging.v1.RequestLog"
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1587,6 +1655,47 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_LabelDescriptor *> *labels;
 
+/**
+ *  Optional. The launch stage of the metric definition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_MetricDescriptor_LaunchStage_Alpha Alpha is a limited
+ *        availability test for releases before they are cleared for widespread
+ *        use. By Alpha, all significant design issues are resolved and we are
+ *        in the process of verifying functionality. Alpha customers need to
+ *        apply for access, agree to applicable terms, and have their projects
+ *        whitelisted. Alpha releases don’t have to be feature complete, no SLAs
+ *        are provided, and there are no technical support obligations, but they
+ *        will be far enough along that customers can actually use them in test
+ *        environments or for limited-use tests -- just like they would in
+ *        normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRLogging_MetricDescriptor_LaunchStage_Beta Beta is the point
+ *        at which we are ready to open a release for any customer to use. There
+ *        are no SLA or technical support obligations in a Beta release.
+ *        Products will be complete from a feature perspective, but may have
+ *        some open outstanding issues. Beta releases are suitable for limited
+ *        production use cases. (Value: "BETA")
+ *    @arg @c kGTLRLogging_MetricDescriptor_LaunchStage_Deprecated Deprecated
+ *        features are scheduled to be shut down and removed. For more
+ *        information, see the “Deprecation Policy” section of our Terms of
+ *        Service (https://cloud.google.com/terms/) and the Google Cloud
+ *        Platform Subject to the Deprecation Policy
+ *        (https://cloud.google.com/terms/deprecation) documentation. (Value:
+ *        "DEPRECATED")
+ *    @arg @c kGTLRLogging_MetricDescriptor_LaunchStage_EarlyAccess Early Access
+ *        features are limited to a closed group of testers. To use these
+ *        features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRLogging_MetricDescriptor_LaunchStage_Ga GA features are open
+ *        to all developers and are considered stable and fully qualified for
+ *        production use. (Value: "GA")
+ *    @arg @c kGTLRLogging_MetricDescriptor_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
 /** Optional. Metadata which can be used to guide usage of the metric. */
 @property(nonatomic, strong, nullable) GTLRLogging_MetricDescriptorMetadata *metadata;
 
@@ -1715,7 +1824,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 @property(nonatomic, strong, nullable) GTLRDuration *ingestDelay;
 
 /**
- *  The launch stage of the metric definition.
+ *  Deprecated. Please use the MetricDescriptor.launch_stage instead. The launch
+ *  stage of the metric definition.
  *
  *  Likely values:
  *    @arg @c kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Alpha Alpha is a

@@ -11,7 +11,7 @@
 //   over time. Users can set the "doNotStore" flag to ensure that all submitted
 //   comments are automatically deleted after scores are returned.
 // Documentation:
-//   https://conversationai.github.io/
+//   https://github.com/conversationai/perspectiveapi/blob/master/README.md
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -265,16 +265,19 @@ GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_TextEntry_Type_TextTypeUnspeci
 @property(nonatomic, copy, nullable) NSString *clientToken;
 
 /**
- *  Contains the language as detected from the text content. If no language
- *  was specified in the request, the first (the most likely) language is used
- *  to select an appropriate model. Sorted in order of likelihood.
+ *  Contains the languages detected from the text content, sorted in order of
+ *  likelihood.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedLanguages;
 
 /**
- *  The language(s) requested by the client, as specified in the request. If
- *  the request did not specify any language, this will be empty and the
- *  detected_languages field will be populated.
+ *  The language(s) used by CommentAnalyzer service to choose which Model to
+ *  use when analyzing the comment. Might better be called
+ *  "effective_languages". The logic used to make the choice is as follows:
+ *  if Request.languages.empty()
+ *  effective_languages = detected_languages
+ *  else
+ *  effective_languages = Request.languages
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languages;
 

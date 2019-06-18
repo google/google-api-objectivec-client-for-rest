@@ -785,3 +785,41 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified = @"VIEW_UNSPECIFIED";
 }
 
 @end
+
+@implementation GTLRBigtableAdminQuery_ProjectsLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Location class];
+  query.loggingName = @"bigtableadmin.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsLocationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/locations";
+  GTLRBigtableAdminQuery_ProjectsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_ListLocationsResponse class];
+  query.loggingName = @"bigtableadmin.projects.locations.list";
+  return query;
+}
+
+@end

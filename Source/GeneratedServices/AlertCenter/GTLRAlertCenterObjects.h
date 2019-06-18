@@ -644,6 +644,9 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
  */
 @interface GTLRAlertCenter_MaliciousEntity : GTLRObject
 
+/** The header from display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
 /** The sender email address. */
 @property(nonatomic, copy, nullable) NSString *fromHeader;
 

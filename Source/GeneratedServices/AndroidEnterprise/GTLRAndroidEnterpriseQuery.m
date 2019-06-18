@@ -33,6 +33,30 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 @end
 
+@implementation GTLRAndroidEnterpriseQuery_DevicesForceReportUpload
+
+@dynamic deviceId, enterpriseId, userId;
+
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+                             deviceId:(NSString *)deviceId {
+  NSArray *pathParams = @[
+    @"deviceId", @"enterpriseId", @"userId"
+  ];
+  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/forceReportUpload";
+  GTLRAndroidEnterpriseQuery_DevicesForceReportUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.enterpriseId = enterpriseId;
+  query.userId = userId;
+  query.deviceId = deviceId;
+  query.loggingName = @"androidenterprise.devices.forceReportUpload";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidEnterpriseQuery_DevicesGet
 
 @dynamic deviceId, enterpriseId, userId;

@@ -329,6 +329,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBidRequests
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBillableCostAdvertiser = @"METRIC_BILLABLE_COST_ADVERTISER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBillableCostPartner = @"METRIC_BILLABLE_COST_PARTNER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBillableCostUsd = @"METRIC_BILLABLE_COST_USD";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBillableImpressions = @"METRIC_BILLABLE_IMPRESSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricClicks = @"METRIC_CLICKS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricClickToPostClickConversionRate = @"METRIC_CLICK_TO_POST_CLICK_CONVERSION_RATE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCmPostClickRevenue = @"METRIC_CM_POST_CLICK_REVENUE";

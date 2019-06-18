@@ -674,6 +674,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_Metri
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBillableCostPartner;
 /** Value: "METRIC_BILLABLE_COST_USD" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBillableCostUsd;
+/** Value: "METRIC_BILLABLE_IMPRESSIONS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBillableImpressions;
 /** Value: "METRIC_CLICKS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricClicks;
 /** Value: "METRIC_CLICK_TO_POST_CLICK_CONVERSION_RATE" */

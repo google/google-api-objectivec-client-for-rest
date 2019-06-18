@@ -89,6 +89,7 @@ NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 // GTLRToolResults_TestCase.status
 NSString * const kGTLRToolResults_TestCase_Status_Error   = @"error";
 NSString * const kGTLRToolResults_TestCase_Status_Failed  = @"failed";
+NSString * const kGTLRToolResults_TestCase_Status_Flaky   = @"flaky";
 NSString * const kGTLRToolResults_TestCase_Status_Passed  = @"passed";
 NSString * const kGTLRToolResults_TestCase_Status_Skipped = @"skipped";
 
@@ -863,7 +864,8 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 //
 
 @implementation GTLRToolResults_TestSuiteOverview
-@dynamic errorCount, failureCount, name, skippedCount, totalCount, xmlSource;
+@dynamic elapsedTime, errorCount, failureCount, name, skippedCount, totalCount,
+         xmlSource;
 @end
 
 

@@ -632,7 +632,7 @@
 //
 
 @implementation GTLRSQLAdmin_RestoreBackupContext
-@dynamic backupRunId, instanceId, kind;
+@dynamic backupRunId, instanceId, kind, project;
 @end
 
 

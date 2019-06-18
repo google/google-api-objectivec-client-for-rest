@@ -42,12 +42,6 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeGames;
  *  Value "https://www.googleapis.com/auth/drive.appdata"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeGamesDriveAppdata;
-/**
- *  Authorization scope: Associate you with your personal info on Google
- *
- *  Value "https://www.googleapis.com/auth/plus.me"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGamesPlusMe;
 
 // ----------------------------------------------------------------------------
 //   GTLRGamesService

@@ -101,8 +101,10 @@ NSString * const kGTLRTagManager_BuiltInVariable_Type_HtmlId   = @"htmlId";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_Language = @"language";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_NewHistoryFragment = @"newHistoryFragment";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_NewHistoryState = @"newHistoryState";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_NewHistoryUrl = @"newHistoryUrl";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_OldHistoryFragment = @"oldHistoryFragment";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_OldHistoryState = @"oldHistoryState";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_OldHistoryUrl = @"oldHistoryUrl";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_OsVersion = @"osVersion";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_PageHostname = @"pageHostname";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_PagePath = @"pagePath";
@@ -174,6 +176,7 @@ NSString * const kGTLRTagManager_Parameter_Type_Integer        = @"integer";
 NSString * const kGTLRTagManager_Parameter_Type_List           = @"list";
 NSString * const kGTLRTagManager_Parameter_Type_Map            = @"map";
 NSString * const kGTLRTagManager_Parameter_Type_Template       = @"template";
+NSString * const kGTLRTagManager_Parameter_Type_TriggerReference = @"triggerReference";
 NSString * const kGTLRTagManager_Parameter_Type_TypeUnspecified = @"typeUnspecified";
 
 // GTLRTagManager_Tag.tagFiringOption
@@ -212,6 +215,7 @@ NSString * const kGTLRTagManager_Trigger_Type_LinkClick        = @"linkClick";
 NSString * const kGTLRTagManager_Trigger_Type_Pageview         = @"pageview";
 NSString * const kGTLRTagManager_Trigger_Type_ScrollDepth      = @"scrollDepth";
 NSString * const kGTLRTagManager_Trigger_Type_Timer            = @"timer";
+NSString * const kGTLRTagManager_Trigger_Type_TriggerGroup     = @"triggerGroup";
 NSString * const kGTLRTagManager_Trigger_Type_WindowLoaded     = @"windowLoaded";
 NSString * const kGTLRTagManager_Trigger_Type_YouTubeVideo     = @"youTubeVideo";
 
@@ -626,6 +630,32 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTagManager_ListTemplatesResponse
+//
+
+@implementation GTLRTagManager_ListTemplatesResponse
+@dynamic nextPageToken, templateProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"templateProperty" : @"template" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"template" : [GTLRTagManager_CustomTemplate class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"templateProperty";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTagManager_ListTriggersResponse
 //
 
@@ -814,6 +844,21 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 @implementation GTLRTagManager_RevertTagResponse
 @dynamic tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_RevertTemplateResponse
+//
+
+@implementation GTLRTagManager_RevertTemplateResponse
+@dynamic templateProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"templateProperty" : @"template" };
+}
+
 @end
 
 

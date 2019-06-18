@@ -1142,8 +1142,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *timeToRetire;
 
 /**
- *  The type of this IP address. A PRIMARY address is an address that can accept
- *  incoming connections. An OUTGOING address is the source address of
+ *  The type of this IP address. A PRIMARY address is a public address that can
+ *  accept incoming connections. A PRIVATE address is a private address that can
+ *  accept incoming connections. An OUTGOING address is the source address of
  *  connections originating from the instance, if supported.
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -1476,6 +1477,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** This is always sql#restoreBackupContext. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** The full project ID of the source instance. */
+@property(nonatomic, copy, nullable) NSString *project;
 
 @end
 

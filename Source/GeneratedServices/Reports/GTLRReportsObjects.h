@@ -23,8 +23,11 @@
 @class GTLRReports_Activity_Actor;
 @class GTLRReports_Activity_Events_Item;
 @class GTLRReports_Activity_Events_Item_Parameters_Item;
+@class GTLRReports_Activity_Events_Item_Parameters_Item_MessageValue;
+@class GTLRReports_Activity_Events_Item_Parameters_Item_MultiMessageValue_Item;
 @class GTLRReports_Activity_Id;
 @class GTLRReports_Channel_Params;
+@class GTLRReports_NestedParameter;
 @class GTLRReports_UsageReport;
 @class GTLRReports_UsageReport_Entity;
 @class GTLRReports_UsageReport_Parameters_Item;
@@ -182,12 +185,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *intValue;
 
+/** Nested value of the parameter. */
+@property(nonatomic, strong, nullable) GTLRReports_Activity_Events_Item_Parameters_Item_MessageValue *messageValue;
+
 /**
  *  Multi-int value of the parameter.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *multiIntValue;
+
+/** Nested values of the parameter. */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_Activity_Events_Item_Parameters_Item_MultiMessageValue_Item *> *multiMessageValue;
 
 /** Multi-string value of the parameter. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *multiValue;
@@ -197,6 +206,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** String value of the parameter. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Nested value of the parameter.
+ */
+@interface GTLRReports_Activity_Events_Item_Parameters_Item_MessageValue : GTLRObject
+
+/** Looping to get parameter values. */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_NestedParameter *> *parameter;
+
+@end
+
+
+/**
+ *  GTLRReports_Activity_Events_Item_Parameters_Item_MultiMessageValue_Item
+ */
+@interface GTLRReports_Activity_Events_Item_Parameters_Item_MultiMessageValue_Item : GTLRObject
+
+/** Parameter value. */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_NestedParameter *> *parameter;
 
 @end
 
@@ -270,6 +301,51 @@ NS_ASSUME_NONNULL_BEGIN
  *        fetch them all at once.
  */
 @interface GTLRReports_Channel_Params : GTLRObject
+@end
+
+
+/**
+ *  JSON template for a parameter used in various reports.
+ */
+@interface GTLRReports_NestedParameter : GTLRObject
+
+/**
+ *  Boolean value of the parameter.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  Integral value of the parameter.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *intValue;
+
+/**
+ *  Multiple boolean values of the parameter.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *multiBoolValue;
+
+/**
+ *  Multiple integral values of the parameter.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *multiIntValue;
+
+/** Multiple string values of the parameter. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *multiValue;
+
+/** The name of the parameter. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** String value of the parameter. */
+@property(nonatomic, copy, nullable) NSString *value;
+
 @end
 
 

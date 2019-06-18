@@ -22,11 +22,13 @@
 @class GTLRContainer_AcceleratorConfig;
 @class GTLRContainer_AddonsConfig;
 @class GTLRContainer_AutoUpgradeOptions;
+@class GTLRContainer_BigQueryDestination;
 @class GTLRContainer_CidrBlock;
 @class GTLRContainer_ClientCertificateConfig;
 @class GTLRContainer_Cluster;
 @class GTLRContainer_Cluster_ResourceLabels;
 @class GTLRContainer_ClusterUpdate;
+@class GTLRContainer_ConsumptionMeteringConfig;
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpLoadBalancing;
@@ -51,6 +53,7 @@
 @class GTLRContainer_NodeTaint;
 @class GTLRContainer_Operation;
 @class GTLRContainer_PrivateClusterConfig;
+@class GTLRContainer_ResourceUsageExportConfig;
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
 @class GTLRContainer_StatusCondition;
 @class GTLRContainer_UsableSubnetwork;
@@ -499,7 +502,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  */
 @property(nonatomic, strong, nullable) GTLRContainer_HttpLoadBalancing *httpLoadBalancing;
 
-/** Configuration for the Kubernetes Dashboard. */
+/**
+ *  Configuration for the Kubernetes Dashboard.
+ *  This addon is deprecated, and will be disabled in 1.15. It is recommended
+ *  to use the Cloud Console to manage and monitor your Kubernetes clusters,
+ *  workloads and applications. For more information, see:
+ *  https://cloud.google.com/kubernetes-engine/docs/concepts/dashboards
+ */
 @property(nonatomic, strong, nullable) GTLRContainer_KubernetesDashboard *kubernetesDashboard;
 
 /**
@@ -532,6 +541,17 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@end
+
+
+/**
+ *  Parameters for using BigQuery as the destination of resource usage export.
+ */
+@interface GTLRContainer_BigQueryDestination : GTLRObject
+
+/** The ID of a BigQuery Dataset. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
 
 @end
 
@@ -754,6 +774,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 /**
  *  The logging service the cluster should use to write logs.
  *  Currently available options:
+ *  * "logging.googleapis.com/kubernetes" - the Google Cloud Logging
+ *  service with Kubernetes-native resource model in Stackdriver
  *  * `logging.googleapis.com` - the Google Cloud Logging service.
  *  * `none` - no logs will be exported from the cluster.
  *  * if left as an empty string,`logging.googleapis.com` will be used.
@@ -846,6 +868,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  Google Compute Engine resources.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_Cluster_ResourceLabels *resourceLabels;
+
+/**
+ *  Configuration for exporting resource usages. Resource usage export is
+ *  disabled when this config is unspecified.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *resourceUsageExportConfig;
 
 /** [Output only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -960,6 +988,16 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 @property(nonatomic, strong, nullable) NSArray<NSString *> *desiredLocations;
 
 /**
+ *  The logging service the cluster should use to write logs.
+ *  Currently available options:
+ *  * "logging.googleapis.com/kubernetes" - the Google Cloud Logging
+ *  service with Kubernetes-native resource model in Stackdriver
+ *  * "logging.googleapis.com" - the Google Cloud Logging service
+ *  * "none" - no logs will be exported from the cluster
+ */
+@property(nonatomic, copy, nullable) NSString *desiredLoggingService;
+
+/**
  *  The desired configuration options for master authorized networks feature.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *desiredMasterAuthorizedNetworksConfig;
@@ -979,6 +1017,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 /**
  *  The monitoring service the cluster should use to write metrics.
  *  Currently available options:
+ *  * "monitoring.googleapis.com/kubernetes" - the Google Cloud Monitoring
+ *  service with Kubernetes-native resource model in Stackdriver
  *  * "monitoring.googleapis.com" - the Google Cloud Monitoring service
  *  * "none" - no metrics will be exported from the cluster
  */
@@ -1012,6 +1052,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  - "-": picks the Kubernetes master version
  */
 @property(nonatomic, copy, nullable) NSString *desiredNodeVersion;
+
+/** The desired configuration for exporting resource usage. */
+@property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *desiredResourceUsageExportConfig;
 
 @end
 
@@ -1049,6 +1092,23 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  Parameters for controlling consumption metering.
+ */
+@interface GTLRContainer_ConsumptionMeteringConfig : GTLRObject
+
+/**
+ *  Whether to enable consumption metering for this cluster. If enabled, a
+ *  second BigQuery table will be created to hold resource consumption
+ *  records.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -1147,7 +1207,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 /**
  *  Time within the maintenance window to start the maintenance operations.
  *  Time format should be in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
- *  format "HH:MM”, where HH : [00-23] and MM : [00-59] GMT.
+ *  format "HH:MM", where HH : [00-23] and MM : [00-59] GMT.
  */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
@@ -1774,6 +1834,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  "kube-env"
  *  "startup-script"
  *  "user-data"
+ *  "disable-address-manager"
+ *  "windows-startup-script-ps1"
+ *  "common-psm1"
+ *  "k8s-node-setup-psm1"
+ *  "install-ssh-psm1"
+ *  "user-profile-psm1"
+ *  "serial-port-logging-enable"
  *  Values are free-form strings, and only have meaning as interpreted by
  *  the image running in the instance. The only restriction placed on them is
  *  that each value's size must be less than or equal to 32 KB.
@@ -1877,6 +1944,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  "kube-env"
  *  "startup-script"
  *  "user-data"
+ *  "disable-address-manager"
+ *  "windows-startup-script-ps1"
+ *  "common-psm1"
+ *  "k8s-node-setup-psm1"
+ *  "install-ssh-psm1"
+ *  "user-profile-psm1"
+ *  "serial-port-logging-enable"
  *  Values are free-form strings, and only have meaning as interpreted by
  *  the image running in the instance. The only restriction placed on them is
  *  that each value's size must be less than or equal to 32 KB.
@@ -2240,6 +2314,28 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /** Output only. The external IP address of this cluster's master endpoint. */
 @property(nonatomic, copy, nullable) NSString *publicEndpoint;
+
+@end
+
+
+/**
+ *  Configuration for exporting cluster resource usages.
+ */
+@interface GTLRContainer_ResourceUsageExportConfig : GTLRObject
+
+/** Configuration to use BigQuery as usage export destination. */
+@property(nonatomic, strong, nullable) GTLRContainer_BigQueryDestination *bigqueryDestination;
+
+/** Configuration to enable resource consumption metering. */
+@property(nonatomic, strong, nullable) GTLRContainer_ConsumptionMeteringConfig *consumptionMeteringConfig;
+
+/**
+ *  Whether to enable network egress metering for this cluster. If enabled, a
+ *  daemonset will be created in the cluster to meter network egress traffic.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableNetworkEgressMetering;
 
 @end
 
@@ -2673,6 +2769,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 /**
  *  The monitoring service the cluster should use to write metrics.
  *  Currently available options:
+ *  * "monitoring.googleapis.com/kubernetes" - the Google Cloud Monitoring
+ *  service with Kubernetes-native resource model in Stackdriver
  *  * "monitoring.googleapis.com" - the Google Cloud Monitoring service
  *  * "none" - no metrics will be exported from the cluster
  */

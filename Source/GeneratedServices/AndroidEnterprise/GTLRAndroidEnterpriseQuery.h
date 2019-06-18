@@ -76,6 +76,49 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
+ *  Uploads a report containing any changes in app states on the device since
+ *  the last report was generated. You can call this method up to 3 times every
+ *  24 hours for a given device.
+ *
+ *  Method: androidenterprise.devices.forceReportUpload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidEnterprise
+ */
+@interface GTLRAndroidEnterpriseQuery_DevicesForceReportUpload : GTLRAndroidEnterpriseQuery
+// Previous library name was
+//   +[GTLQueryAndroidEnterprise queryForDevicesForceReportUploadWithenterpriseId:userId:deviceId:]
+
+/** The ID of the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** The ID of the enterprise. */
+@property(nonatomic, copy, nullable) NSString *enterpriseId;
+
+/** The ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Uploads a report containing any changes in app states on the device since
+ *  the last report was generated. You can call this method up to 3 times every
+ *  24 hours for a given device.
+ *
+ *  @param enterpriseId The ID of the enterprise.
+ *  @param userId The ID of the user.
+ *  @param deviceId The ID of the device.
+ *
+ *  @return GTLRAndroidEnterpriseQuery_DevicesForceReportUpload
+ */
++ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
+                               userId:(NSString *)userId
+                             deviceId:(NSString *)deviceId;
+
+@end
+
+/**
  *  Retrieves the details of a device.
  *
  *  Method: androidenterprise.devices.get

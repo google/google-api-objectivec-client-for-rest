@@ -22,6 +22,7 @@ NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_Limi
 NSString * const kGTLRCloudRedis_Instance_State_Creating       = @"CREATING";
 NSString * const kGTLRCloudRedis_Instance_State_Deleting       = @"DELETING";
 NSString * const kGTLRCloudRedis_Instance_State_FailingOver    = @"FAILING_OVER";
+NSString * const kGTLRCloudRedis_Instance_State_Importing      = @"IMPORTING";
 NSString * const kGTLRCloudRedis_Instance_State_Maintenance    = @"MAINTENANCE";
 NSString * const kGTLRCloudRedis_Instance_State_Ready          = @"READY";
 NSString * const kGTLRCloudRedis_Instance_State_Repairing      = @"REPAIRING";
@@ -44,11 +45,41 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_ExportInstanceRequest
+//
+
+@implementation GTLRCloudRedis_ExportInstanceRequest
+@dynamic outputConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_FailoverInstanceRequest
 //
 
 @implementation GTLRCloudRedis_FailoverInstanceRequest
 @dynamic dataProtectionMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GcsDestination
+//
+
+@implementation GTLRCloudRedis_GcsDestination
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GcsSource
+//
+
+@implementation GTLRCloudRedis_GcsSource
+@dynamic uri;
 @end
 
 
@@ -98,14 +129,34 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_ImportInstanceRequest
+//
+
+@implementation GTLRCloudRedis_ImportInstanceRequest
+@dynamic inputConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_InputConfig
+//
+
+@implementation GTLRCloudRedis_InputConfig
+@dynamic gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_Instance
 //
 
 @implementation GTLRCloudRedis_Instance
 @dynamic alternativeLocationId, authorizedNetwork, createTime,
          currentLocationId, displayName, host, labels, locationId, memorySizeGb,
-         name, port, redisConfigs, redisVersion, reservedIpRange, state,
-         statusMessage, tier;
+         name, persistenceIamIdentity, port, redisConfigs, redisVersion,
+         reservedIpRange, state, statusMessage, tier;
 @end
 
 
@@ -277,6 +328,16 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_OutputConfig
+//
+
+@implementation GTLRCloudRedis_OutputConfig
+@dynamic gcsDestination;
 @end
 
 

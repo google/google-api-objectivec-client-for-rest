@@ -363,7 +363,7 @@
 //
 
 @implementation GTLRStorage_Expr
-@dynamic descriptionProperty, expression, kind, location, title;
+@dynamic descriptionProperty, expression, location, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

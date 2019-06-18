@@ -18,6 +18,7 @@ NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapab
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha1 = @"SHA1";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha256 = @"SHA256";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Unknown = @"UNKNOWN";
+NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Vso = @"VSO";
 
 // GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities.symlinkAbsolutePathStrategy
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Allowed = @"ALLOWED";
@@ -36,6 +37,29 @@ NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionC
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha1 = @"SHA1";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha256 = @"SHA256";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Unknown = @"UNKNOWN";
+NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Vso = @"VSO";
+
+// GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus.code
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Aborted = @"ABORTED";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_CleanupError = @"CLEANUP_ERROR";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageExistError = @"DOCKER_IMAGE_EXIST_ERROR";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageNotFound = @"DOCKER_IMAGE_NOT_FOUND";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImagePermissionDenied = @"DOCKER_IMAGE_PERMISSION_DENIED";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImagePullError = @"DOCKER_IMAGE_PULL_ERROR";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerLoginError = @"DOCKER_LOGIN_ERROR";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnavailable = @"DOCKER_UNAVAILABLE";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DownloadInputsError = @"DOWNLOAD_INPUTS_ERROR";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DuplicateInputs = @"DUPLICATE_INPUTS";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Internal = @"INTERNAL";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_InvalidArgument = @"INVALID_ARGUMENT";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_NotFound = @"NOT_FOUND";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Ok = @"OK";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Unknown = @"UNKNOWN";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_UploadOutputsError = @"UPLOAD_OUTPUTS_ERROR";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotFound = @"WORKING_DIR_NOT_FOUND";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotInBaseDir = @"WORKING_DIR_NOT_IN_BASE_DIR";
 
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance.state
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Creating = @"CREATING";
@@ -478,7 +502,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputFile
-@dynamic digest, isExecutable, path;
+@dynamic contents, digest, isExecutable, path;
 @end
 
 
@@ -658,6 +682,16 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus
+//
+
+@implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus
+@dynamic code, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaCreateInstanceRequest
 //
 
@@ -760,7 +794,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaListWorkerPoolsRequest
-@dynamic parent;
+@dynamic filter, parent;
 @end
 
 
@@ -798,7 +832,21 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig
-@dynamic diskSizeGb, diskType, machineType, minCpuPlatform, reserved;
+@dynamic diskSizeGb, diskType, labels, machineType, minCpuPlatform, reserved;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig_Labels
+//
+
+@implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

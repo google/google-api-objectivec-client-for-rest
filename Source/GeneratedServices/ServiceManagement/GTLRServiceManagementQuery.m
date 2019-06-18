@@ -425,7 +425,7 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 
 @implementation GTLRServiceManagementQuery_ServicesRolloutsCreate
 
-@dynamic serviceName;
+@dynamic baseRolloutId, serviceName;
 
 + (instancetype)queryWithObject:(GTLRServiceManagement_Rollout *)object
                     serviceName:(NSString *)serviceName {

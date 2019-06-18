@@ -29,6 +29,8 @@
 @class GTLRCompute_DeprecationStatus;
 @class GTLRCompute_Disk;
 @class GTLRCompute_DiskMoveRequest;
+@class GTLRCompute_DisksAddResourcePoliciesRequest;
+@class GTLRCompute_DisksRemoveResourcePoliciesRequest;
 @class GTLRCompute_DisksResizeRequest;
 @class GTLRCompute_Firewall;
 @class GTLRCompute_ForwardingRule;
@@ -80,6 +82,8 @@
 @class GTLRCompute_ProjectsEnableXpnResourceRequest;
 @class GTLRCompute_ProjectsListXpnHostsRequest;
 @class GTLRCompute_ProjectsSetDefaultNetworkTierRequest;
+@class GTLRCompute_RegionDisksAddResourcePoliciesRequest;
+@class GTLRCompute_RegionDisksRemoveResourcePoliciesRequest;
 @class GTLRCompute_RegionDisksResizeRequest;
 @class GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest;
 @class GTLRCompute_RegionInstanceGroupManagersDeleteInstancesRequest;
@@ -91,6 +95,7 @@
 @class GTLRCompute_RegionSetLabelsRequest;
 @class GTLRCompute_RegionSetPolicyRequest;
 @class GTLRCompute_ResourceGroupReference;
+@class GTLRCompute_ResourcePolicy;
 @class GTLRCompute_Route;
 @class GTLRCompute_Router;
 @class GTLRCompute_Scheduling;
@@ -541,8 +546,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an address resource in the specified project using the data included
- *  in the request.
+ *  Creates an address resource in the specified project by using the data
+ *  included in the request.
  *
  *  Method: compute.addresses.insert
  *
@@ -577,8 +582,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Creates an address resource in the specified project using the data included
- *  in the request.
+ *  Creates an address resource in the specified project by using the data
+ *  included in the request.
  *
  *  @param object The @c GTLRCompute_Address to include in the query.
  *  @param project Project ID for this request.
@@ -2193,6 +2198,68 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Adds existing resource policies to a disk. You can only add one policy which
+ *  will be applied to this disk for scheduling snapshot creation.
+ *
+ *  Method: compute.disks.addResourcePolicies
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_DisksAddResourcePolicies : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForDisksAddResourcePoliciesWithObject:project:zoneProperty:disk:]
+
+/** The disk name for this request. */
+@property(nonatomic, copy, nullable) NSString *disk;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Adds existing resource policies to a disk. You can only add one policy which
+ *  will be applied to this disk for scheduling snapshot creation.
+ *
+ *  @param object The @c GTLRCompute_DisksAddResourcePoliciesRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param disk The disk name for this request.
+ *
+ *  @return GTLRComputeQuery_DisksAddResourcePolicies
+ */
++ (instancetype)queryWithObject:(GTLRCompute_DisksAddResourcePoliciesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                           disk:(NSString *)disk;
+
+@end
+
+/**
  *  Retrieves an aggregated list of persistent disks.
  *
  *  Method: compute.disks.aggregatedList
@@ -2287,6 +2354,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** Name of the persistent disk to snapshot. */
 @property(nonatomic, copy, nullable) NSString *disk;
 
+/**
+ *  [Input Only] Specifies to create an application consistent snapshot by
+ *  informing the OS to prepare for the snapshot process. Currently only
+ *  supported on Windows instances using the Volume Shadow Copy Service (VSS).
+ */
 @property(nonatomic, assign) BOOL guestFlush;
 
 /** Project ID for this request. */
@@ -2641,6 +2713,66 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Removes resource policies from a disk.
+ *
+ *  Method: compute.disks.removeResourcePolicies
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_DisksRemoveResourcePolicies : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForDisksRemoveResourcePoliciesWithObject:project:zoneProperty:disk:]
+
+/** The disk name for this request. */
+@property(nonatomic, copy, nullable) NSString *disk;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Removes resource policies from a disk.
+ *
+ *  @param object The @c GTLRCompute_DisksRemoveResourcePoliciesRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param disk The disk name for this request.
+ *
+ *  @return GTLRComputeQuery_DisksRemoveResourcePolicies
+ */
++ (instancetype)queryWithObject:(GTLRCompute_DisksRemoveResourcePoliciesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                           disk:(NSString *)disk;
 
 @end
 
@@ -3858,8 +3990,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an address resource in the specified project using the data included
- *  in the request.
+ *  Creates an address resource in the specified project by using the data
+ *  included in the request.
  *
  *  Method: compute.globalAddresses.insert
  *
@@ -3891,8 +4023,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Creates an address resource in the specified project using the data included
- *  in the request.
+ *  Creates an address resource in the specified project by using the data
+ *  included in the request.
  *
  *  @param object The @c GTLRCompute_Address to include in the query.
  *  @param project Project ID for this request.
@@ -8037,6 +8169,56 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param instance Name of the instance resource to return.
  *
  *  @return GTLRComputeQuery_InstancesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Returns the specified guest attributes entry.
+ *
+ *  Method: compute.instances.getGuestAttributes
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstancesGetGuestAttributes : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesGetGuestAttributesWithproject:zoneProperty:instance:]
+
+/** Name of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Specifies the guest attributes path to be queried. */
+@property(nonatomic, copy, nullable) NSString *queryPath;
+
+/** Specifies the key for the guest attributes entry. */
+@property(nonatomic, copy, nullable) NSString *variableKey;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_GuestAttributes.
+ *
+ *  Returns the specified guest attributes entry.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstancesGetGuestAttributes
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -14025,8 +14207,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Disable a serivce resource (a.k.a service project) associated with this host
- *  project.
+ *  Disable a service resource (also known as service project) associated with
+ *  this host project.
  *
  *  Method: compute.projects.disableXpnResource
  *
@@ -14058,8 +14240,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Disable a serivce resource (a.k.a service project) associated with this host
- *  project.
+ *  Disable a service resource (also known as service project) associated with
+ *  this host project.
  *
  *  @param object The @c GTLRCompute_ProjectsDisableXpnResourceRequest to
  *    include in the query.
@@ -15649,6 +15831,64 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Adds existing resource policies to a regional disk. You can only add one
+ *  policy which will be applied to this disk for scheduling snapshot creation.
+ *
+ *  Method: compute.regionDisks.addResourcePolicies
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionDisksAddResourcePolicies : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionDisksAddResourcePoliciesWithObject:project:region:disk:]
+
+/** The disk name for this request. */
+@property(nonatomic, copy, nullable) NSString *disk;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Adds existing resource policies to a regional disk. You can only add one
+ *  policy which will be applied to this disk for scheduling snapshot creation.
+ *
+ *  @param object The @c GTLRCompute_RegionDisksAddResourcePoliciesRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param disk The disk name for this request.
+ *
+ *  @return GTLRComputeQuery_RegionDisksAddResourcePolicies
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionDisksAddResourcePoliciesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                           disk:(NSString *)disk;
+
+@end
+
+/**
  *  Creates a snapshot of this regional disk.
  *
  *  Method: compute.regionDisks.createSnapshot
@@ -15944,6 +16184,62 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
+
+@end
+
+/**
+ *  Removes resource policies from a regional disk.
+ *
+ *  Method: compute.regionDisks.removeResourcePolicies
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionDisksRemoveResourcePolicies : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionDisksRemoveResourcePoliciesWithObject:project:region:disk:]
+
+/** The disk name for this request. */
+@property(nonatomic, copy, nullable) NSString *disk;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Removes resource policies from a regional disk.
+ *
+ *  @param object The @c GTLRCompute_RegionDisksRemoveResourcePoliciesRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param disk The disk name for this request.
+ *
+ *  @return GTLRComputeQuery_RegionDisksRemoveResourcePolicies
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionDisksRemoveResourcePoliciesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                           disk:(NSString *)disk;
 
 @end
 
@@ -17645,6 +17941,361 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Retrieves an aggregated list of resource policies.
+ *
+ *  Method: compute.resourcePolicies.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ResourcePoliciesAggregatedList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForResourcePoliciesAggregatedListWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_ResourcePolicyAggregatedList.
+ *
+ *  Retrieves an aggregated list of resource policies.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_ResourcePoliciesAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified resource policy.
+ *
+ *  Method: compute.resourcePolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ResourcePoliciesDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForResourcePoliciesDeleteWithproject:region:resourcePolicy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the resource policy to delete. */
+@property(nonatomic, copy, nullable) NSString *resourcePolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified resource policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param resourcePolicy Name of the resource policy to delete.
+ *
+ *  @return GTLRComputeQuery_ResourcePoliciesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  resourcePolicy:(NSString *)resourcePolicy;
+
+@end
+
+/**
+ *  Retrieves all information of the specified resource policy.
+ *
+ *  Method: compute.resourcePolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ResourcePoliciesGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForResourcePoliciesGetWithproject:region:resourcePolicy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name of the resource policy to retrieve. */
+@property(nonatomic, copy, nullable) NSString *resourcePolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_ResourcePolicy.
+ *
+ *  Retrieves all information of the specified resource policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param resourcePolicy Name of the resource policy to retrieve.
+ *
+ *  @return GTLRComputeQuery_ResourcePoliciesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                  resourcePolicy:(NSString *)resourcePolicy;
+
+@end
+
+/**
+ *  Creates a new resource policy.
+ *
+ *  Method: compute.resourcePolicies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ResourcePoliciesInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForResourcePoliciesInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a new resource policy.
+ *
+ *  @param object The @c GTLRCompute_ResourcePolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_ResourcePoliciesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ResourcePolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  A list all the resource policies that have been configured for the specified
+ *  project in specified region.
+ *
+ *  Method: compute.resourcePolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ResourcePoliciesList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForResourcePoliciesListWithproject:region:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_ResourcePolicyList.
+ *
+ *  A list all the resource policies that have been configured for the specified
+ *  project in specified region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_ResourcePoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.resourcePolicies.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ResourcePoliciesTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForResourcePoliciesTestIamPermissionsWithObject:project:region:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_ResourcePoliciesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
 
 @end
 

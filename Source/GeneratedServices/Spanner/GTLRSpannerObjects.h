@@ -209,7 +209,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadWrite;
  */
 GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified;
 /**
- *  Witness replicas don’t support reads but do participate in voting to
+ *  Witness replicas don't support reads but do participate in voting to
  *  commit writes. Witness replicas:
  *  * Do not maintain a full copy of data.
  *  * Do not serve reads.
@@ -1376,7 +1376,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2145,7 +2145,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        * Are eligible to become a leader. (Value: "READ_WRITE")
  *    @arg @c kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified Not specified.
  *        (Value: "TYPE_UNSPECIFIED")
- *    @arg @c kGTLRSpanner_ReplicaInfo_Type_Witness Witness replicas don’t
+ *    @arg @c kGTLRSpanner_ReplicaInfo_Type_Witness Witness replicas don't
  *        support reads but do participate in voting to
  *        commit writes. Witness replicas:
  *        * Do not maintain a full copy of data.

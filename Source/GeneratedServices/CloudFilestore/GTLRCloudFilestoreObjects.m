@@ -177,7 +177,7 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 //
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule
-@dynamic endTime, startTime;
+@dynamic canReschedule, endTime, startTime;
 @end
 
 
@@ -235,7 +235,7 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 //
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
-@dynamic exclusionDuration, exclusionStartTime, reason, sloName;
+@dynamic exclusionDuration, exclusionStartTime, reason, sliName;
 @end
 
 

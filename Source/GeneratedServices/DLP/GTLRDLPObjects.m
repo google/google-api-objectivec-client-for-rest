@@ -21,6 +21,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_SampleM
 NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_Top = @"TOP";
 
 // GTLRDLP_GooglePrivacyDlpV2ByteContentItem.type
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Avro = @"AVRO";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_BytesTypeUnspecified = @"BYTES_TYPE_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Image = @"IMAGE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp = @"IMAGE_BMP";
@@ -38,6 +39,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgno
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_Whitespace = @"WHITESPACE";
 
 // GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.fileTypes
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Avro = @"AVRO";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_BinaryFile = @"BINARY_FILE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified = @"FILE_TYPE_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Image = @"IMAGE";
@@ -94,7 +96,6 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Failed = @"FAILED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_JobStateUnspecified = @"JOB_STATE_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Pending = @"PENDING";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running = @"RUNNING";
-NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_WaitingForTpCreation = @"WAITING_FOR_TP_CREATION";
 
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.type
 NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_DlpJobTypeUnspecified = @"DLP_JOB_TYPE_UNSPECIFIED";
@@ -1493,6 +1494,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryStats
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryStats
+@dynamic approxNumPhrases;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2LDiversityConfig
 //
 
@@ -2204,11 +2215,21 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeStats
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeStats
+@dynamic largeCustomDictionary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion
-@dynamic config, createTime, errors, state;
+@dynamic config, createTime, errors, state, stats;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

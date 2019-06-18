@@ -364,6 +364,28 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa20
 GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRIam_ServiceAccountKey.keyOrigin
+
+/**
+ *  Key is provided by Google.
+ *
+ *  Value: "GOOGLE_PROVIDED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_GoogleProvided;
+/**
+ *  Unspecified key origin.
+ *
+ *  Value: "ORIGIN_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_OriginUnspecified;
+/**
+ *  Key is provided by user.
+ *
+ *  Value: "USER_PROVIDED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_UserProvided;
+
+// ----------------------------------------------------------------------------
 // GTLRIam_ServiceAccountKey.privateKeyType
 
 /**
@@ -1545,6 +1567,19 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *        unspecified key algorithm. (Value: "KEY_ALG_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *keyAlgorithm;
+
+/**
+ *  The key origin.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIam_ServiceAccountKey_KeyOrigin_GoogleProvided Key is
+ *        provided by Google. (Value: "GOOGLE_PROVIDED")
+ *    @arg @c kGTLRIam_ServiceAccountKey_KeyOrigin_OriginUnspecified Unspecified
+ *        key origin. (Value: "ORIGIN_UNSPECIFIED")
+ *    @arg @c kGTLRIam_ServiceAccountKey_KeyOrigin_UserProvided Key is provided
+ *        by user. (Value: "USER_PROVIDED")
+ */
+@property(nonatomic, copy, nullable) NSString *keyOrigin;
 
 /**
  *  The resource name of the service account key in the following format

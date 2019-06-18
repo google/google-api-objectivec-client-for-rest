@@ -359,69 +359,6 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 
 @end
 
-@implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsBindDeviceToGateway
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudIot_BindDeviceToGatewayRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}:bindDeviceToGateway";
-  GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsBindDeviceToGateway *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudIot_BindDeviceToGatewayResponse class];
-  query.loggingName = @"cloudiot.projects.locations.registries.groups.bindDeviceToGateway";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesConfigVersionsList
-
-@dynamic name, numVersions;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/configVersions";
-  GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesConfigVersionsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudIot_ListDeviceConfigVersionsResponse class];
-  query.loggingName = @"cloudiot.projects.locations.registries.groups.devices.configVersions.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesGet
-
-@dynamic fieldMask, name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudIot_Device class];
-  query.loggingName = @"cloudiot.projects.locations.registries.groups.devices.get";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesList
 
 @dynamic deviceIds, deviceNumIds, fieldMask,
@@ -456,100 +393,6 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudIot_ListDevicesResponse class];
   query.loggingName = @"cloudiot.projects.locations.registries.groups.devices.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesModifyCloudToDeviceConfig
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudIot_ModifyCloudToDeviceConfigRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:modifyCloudToDeviceConfig";
-  GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesModifyCloudToDeviceConfig *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudIot_DeviceConfig class];
-  query.loggingName = @"cloudiot.projects.locations.registries.groups.devices.modifyCloudToDeviceConfig";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRCloudIot_Device *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudIot_Device class];
-  query.loggingName = @"cloudiot.projects.locations.registries.groups.devices.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesSendCommandToDevice
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudIot_SendCommandToDeviceRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:sendCommandToDevice";
-  GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesSendCommandToDevice *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudIot_SendCommandToDeviceResponse class];
-  query.loggingName = @"cloudiot.projects.locations.registries.groups.devices.sendCommandToDevice";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesStatesList
-
-@dynamic name, numStates;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/states";
-  GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesStatesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudIot_ListDeviceStatesResponse class];
-  query.loggingName = @"cloudiot.projects.locations.registries.groups.devices.states.list";
   return query;
 }
 
@@ -625,31 +468,6 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudIot_TestIamPermissionsResponse class];
   query.loggingName = @"cloudiot.projects.locations.registries.groups.testIamPermissions";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsUnbindDeviceFromGateway
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudIot_UnbindDeviceFromGatewayRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}:unbindDeviceFromGateway";
-  GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsUnbindDeviceFromGateway *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudIot_UnbindDeviceFromGatewayResponse class];
-  query.loggingName = @"cloudiot.projects.locations.registries.groups.unbindDeviceFromGateway";
   return query;
 }
 

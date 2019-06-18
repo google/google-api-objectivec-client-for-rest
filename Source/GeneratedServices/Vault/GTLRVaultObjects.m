@@ -71,12 +71,22 @@ NSString * const kGTLRVault_Query_DataScope_DataScopeUnspecified = @"DATA_SCOPE_
 NSString * const kGTLRVault_Query_DataScope_HeldData           = @"HELD_DATA";
 NSString * const kGTLRVault_Query_DataScope_UnprocessedData    = @"UNPROCESSED_DATA";
 
+// GTLRVault_Query.method
+NSString * const kGTLRVault_Query_Method_Account               = @"ACCOUNT";
+NSString * const kGTLRVault_Query_Method_EntireOrg             = @"ENTIRE_ORG";
+NSString * const kGTLRVault_Query_Method_OrgUnit               = @"ORG_UNIT";
+NSString * const kGTLRVault_Query_Method_Room                  = @"ROOM";
+NSString * const kGTLRVault_Query_Method_SearchMethodUnspecified = @"SEARCH_METHOD_UNSPECIFIED";
+NSString * const kGTLRVault_Query_Method_SharedDrive           = @"SHARED_DRIVE";
+NSString * const kGTLRVault_Query_Method_TeamDrive             = @"TEAM_DRIVE";
+
 // GTLRVault_Query.searchMethod
 NSString * const kGTLRVault_Query_SearchMethod_Account         = @"ACCOUNT";
 NSString * const kGTLRVault_Query_SearchMethod_EntireOrg       = @"ENTIRE_ORG";
 NSString * const kGTLRVault_Query_SearchMethod_OrgUnit         = @"ORG_UNIT";
 NSString * const kGTLRVault_Query_SearchMethod_Room            = @"ROOM";
 NSString * const kGTLRVault_Query_SearchMethod_SearchMethodUnspecified = @"SEARCH_METHOD_UNSPECIFIED";
+NSString * const kGTLRVault_Query_SearchMethod_SharedDrive     = @"SHARED_DRIVE";
 NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 // ----------------------------------------------------------------------------
@@ -227,7 +237,7 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 //
 
 @implementation GTLRVault_DriveOptions
-@dynamic includeTeamDrives, versionDate;
+@dynamic includeSharedDrives, includeTeamDrives, versionDate;
 @end
 
 
@@ -340,7 +350,7 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 //
 
 @implementation GTLRVault_HeldDriveQuery
-@dynamic includeTeamDriveFiles;
+@dynamic includeSharedDriveFiles, includeTeamDriveFiles;
 @end
 
 
@@ -577,8 +587,9 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 @implementation GTLRVault_Query
 @dynamic accountInfo, corpus, dataScope, driveOptions, endTime,
-         hangoutsChatInfo, hangoutsChatOptions, mailOptions, orgUnitInfo,
-         searchMethod, startTime, teamDriveInfo, terms, timeZone;
+         hangoutsChatInfo, hangoutsChatOptions, mailOptions, method,
+         orgUnitInfo, searchMethod, sharedDriveInfo, startTime, teamDriveInfo,
+         terms, timeZone;
 @end
 
 
@@ -654,6 +665,24 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 @implementation GTLRVault_SavedQuery
 @dynamic createTime, displayName, matterId, query, savedQueryId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_SharedDriveInfo
+//
+
+@implementation GTLRVault_SharedDriveInfo
+@dynamic sharedDriveIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sharedDriveIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

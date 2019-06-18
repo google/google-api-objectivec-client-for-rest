@@ -459,6 +459,28 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_ListLocationsResponse
+//
+
+@implementation GTLRBigtableAdmin_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRBigtableAdmin_Location class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_ListOperationsResponse
 //
 
@@ -496,6 +518,44 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 + (NSString *)collectionItemsKey {
   return @"tables";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_Location
+//
+
+@implementation GTLRBigtableAdmin_Location
+@dynamic displayName, labels, locationId, metadata, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_Location_Labels
+//
+
+@implementation GTLRBigtableAdmin_Location_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_Location_Metadata
+//
+
+@implementation GTLRBigtableAdmin_Location_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

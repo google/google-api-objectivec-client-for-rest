@@ -249,14 +249,14 @@
 //
 
 @implementation GTLRAdExchangeBuyer_Creative
-@dynamic accountId, adChoicesDestinationUrl, advertiserId, advertiserName,
-         agencyId, apiUploadTimestamp, attribute, buyerCreativeId,
-         clickThroughUrl, corrections, creativeStatusIdentityType, dealsStatus,
-         detectedDomains, filteringReasons, height, HTMLSnippet,
-         impressionTrackingUrl, kind, languages, nativeAd, openAuctionStatus,
-         productCategories, restrictedCategories, sensitiveCategories,
-         servingRestrictions, vendorType, version, videoURL, videoVastXML,
-         width;
+@dynamic accountId, adChoicesDestinationUrl, adTechnologyProviders,
+         advertiserId, advertiserName, agencyId, apiUploadTimestamp, attribute,
+         buyerCreativeId, clickThroughUrl, corrections,
+         creativeStatusIdentityType, dealsStatus, detectedDomains,
+         filteringReasons, height, HTMLSnippet, impressionTrackingUrl, kind,
+         languages, nativeAd, openAuctionStatus, productCategories,
+         restrictedCategories, sensitiveCategories, servingRestrictions,
+         vendorType, version, videoURL, videoVastXML, width;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -272,6 +272,24 @@
     @"sensitiveCategories" : [NSNumber class],
     @"servingRestrictions" : [GTLRAdExchangeBuyer_Creative_ServingRestrictions_Item class],
     @"vendorType" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyer_Creative_AdTechnologyProviders
+//
+
+@implementation GTLRAdExchangeBuyer_Creative_AdTechnologyProviders
+@dynamic detectedProviderIds, hasUnidentifiedProvider;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectedProviderIds" : [NSNumber class]
   };
   return map;
 }
@@ -324,7 +342,7 @@
 @implementation GTLRAdExchangeBuyer_Creative_NativeAd
 @dynamic advertiser, appIcon, body, callToAction, clickLinkUrl,
          clickTrackingUrl, headline, image, impressionTrackingUrl, logo, price,
-         starRating, store, videoURL;
+         starRating, videoURL;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
