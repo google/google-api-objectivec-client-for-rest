@@ -1386,6 +1386,14 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_DocumentationRule *> *rules;
 
 /**
+ *  Specifies the service root url if the default one (the service name
+ *  from the yaml file) is not suitable. This can be seen in any fully
+ *  specified service urls as well as sections that show a base that other
+ *  urls are relative to.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceRootUrl;
+
+/**
  *  A short summary of what the service does. Can only be provided by
  *  plain text.
  */

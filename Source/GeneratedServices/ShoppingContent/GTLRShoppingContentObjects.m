@@ -537,6 +537,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_BusinessDayConfig
+//
+
+@implementation GTLRShoppingContent_BusinessDayConfig
+@dynamic businessDays;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"businessDays" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_CarrierRate
 //
 
@@ -890,9 +908,9 @@
 //
 
 @implementation GTLRShoppingContent_DeliveryTime
-@dynamic cutoffTime, holidayCutoffs, maxHandlingTimeInDays,
-         maxTransitTimeInDays, minHandlingTimeInDays, minTransitTimeInDays,
-         transitTimeTable;
+@dynamic cutoffTime, handlingBusinessDayConfig, holidayCutoffs,
+         maxHandlingTimeInDays, maxTransitTimeInDays, minHandlingTimeInDays,
+         minTransitTimeInDays, transitBusinessDayConfig, transitTimeTable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2506,7 +2524,7 @@
 //
 
 @implementation GTLRShoppingContent_ProductsCustomBatchRequestEntry
-@dynamic batchId, merchantId, method, product, productId;
+@dynamic batchId, feedId, merchantId, method, product, productId;
 @end
 
 

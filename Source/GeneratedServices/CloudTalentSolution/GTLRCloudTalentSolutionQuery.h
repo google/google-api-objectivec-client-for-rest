@@ -145,8 +145,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsCompaniesCreateWithObject:parent:]
 
 /**
- *  Required.
- *  Resource name of the project under which the company is created.
+ *  Required. Resource name of the project under which the company is created.
  *  The format is "projects/{project_id}", for example,
  *  "projects/api-test-project".
  */
@@ -159,8 +158,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *
  *  @param object The @c GTLRCloudTalentSolution_CreateCompanyRequest to include
  *    in the query.
- *  @param parent Required.
- *    Resource name of the project under which the company is created.
+ *  @param parent Required. Resource name of the project under which the company
+ *    is created.
  *    The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
@@ -186,8 +185,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsCompaniesDeleteWithname:]
 
 /**
- *  Required.
- *  The resource name of the company to be deleted.
+ *  Required. The resource name of the company to be deleted.
  *  The format is "projects/{project_id}/companies/{company_id}", for example,
  *  "projects/api-test-project/companies/foo".
  */
@@ -199,8 +197,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  Deletes specified company.
  *  Prerequisite: The company has no jobs associated with it.
  *
- *  @param name Required.
- *    The resource name of the company to be deleted.
+ *  @param name Required. The resource name of the company to be deleted.
  *    The format is "projects/{project_id}/companies/{company_id}", for example,
  *    "projects/api-test-project/companies/foo".
  *
@@ -224,8 +221,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsCompaniesGetWithname:]
 
 /**
- *  Required.
- *  The resource name of the company to be retrieved.
+ *  Required. The resource name of the company to be retrieved.
  *  The format is "projects/{project_id}/companies/{company_id}", for example,
  *  "projects/api-test-project/companies/foo".
  */
@@ -236,8 +232,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *
  *  Retrieves specified company.
  *
- *  @param name Required.
- *    The resource name of the company to be retrieved.
+ *  @param name Required. The resource name of the company to be retrieved.
  *    The format is "projects/{project_id}/companies/{company_id}", for example,
  *    "projects/api-test-project/companies/foo".
  *
@@ -261,29 +256,23 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsCompaniesListWithparent:]
 
 /**
- *  Optional.
- *  The maximum number of companies to be returned, at most 100.
+ *  Optional. The maximum number of companies to be returned, at most 100.
  *  Default is 100 if a non-positive number is provided.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/**
- *  Optional.
- *  The starting indicator from which to return results.
- */
+/** Optional. The starting indicator from which to return results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required.
- *  Resource name of the project under which the company is created.
+ *  Required. Resource name of the project under which the company is created.
  *  The format is "projects/{project_id}", for example,
  *  "projects/api-test-project".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional.
- *  Set to true if the companies requested must have open jobs.
+ *  Optional. Set to true if the companies requested must have open jobs.
  *  Defaults to false.
  *  If true, at most page_size of companies are fetched, among which
  *  only those with open jobs are returned.
@@ -295,8 +284,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *
  *  Lists all companies associated with the service account.
  *
- *  @param parent Required.
- *    Resource name of the project under which the company is created.
+ *  @param parent Required. Resource name of the project under which the company
+ *    is created.
  *    The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
@@ -371,8 +360,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsCompleteWithname:]
 
 /**
- *  Optional.
- *  If provided, restricts completion to specified company.
+ *  Optional. If provided, restricts completion to specified company.
  *  The format is "projects/{project_id}/companies/{company_id}", for example,
  *  "projects/api-test-project/companies/foo".
  */
@@ -398,8 +386,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Optional.
- *  The list of languages of the query. This is
+ *  Optional. The list of languages of the query. This is
  *  the BCP-47 language code, such as "en-US" or "sr-Latn".
  *  For more information, see
  *  [Tags for Identifying Languages](https://tools.ietf.org/html/bcp47).
@@ -416,30 +403,27 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languageCodes;
 
 /**
- *  Required.
- *  Resource name of project the completion is performed within.
+ *  Required. Resource name of project the completion is performed within.
  *  The format is "projects/{project_id}", for example,
  *  "projects/api-test-project".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required.
- *  Completion result count.
+ *  Required. Completion result count.
  *  The maximum allowed page size is 10.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Required.
- *  The query used to generate suggestions.
+ *  Required. The query used to generate suggestions.
  *  The maximum number of allowed characters is 255.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  Optional.
- *  The scope of the completion. The defaults is CompletionScope.PUBLIC.
+ *  Optional. The scope of the completion. The defaults is
+ *  CompletionScope.PUBLIC.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolutionScopeCompletionScopeUnspecified Value
@@ -450,8 +434,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @property(nonatomic, copy, nullable) NSString *scope;
 
 /**
- *  Optional.
- *  The completion topic. The default is CompletionType.COMBINED.
+ *  Optional. The completion topic. The default is CompletionType.COMBINED.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolutionTypeCompletionTypeUnspecified Value
@@ -468,8 +451,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  Completes the specified prefix with keyword suggestions.
  *  Intended for use by a job search auto-complete search box.
  *
- *  @param name Required.
- *    Resource name of project the completion is performed within.
+ *  @param name Required. Resource name of project the completion is performed
+ *    within.
  *    The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
@@ -493,8 +476,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsBatchDeleteWithObject:parent:]
 
 /**
- *  Required.
- *  The resource name of the project under which the job is created.
+ *  Required. The resource name of the project under which the job is created.
  *  The format is "projects/{project_id}", for example,
  *  "projects/api-test-project".
  */
@@ -507,8 +489,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *
  *  @param object The @c GTLRCloudTalentSolution_BatchDeleteJobsRequest to
  *    include in the query.
- *  @param parent Required.
- *    The resource name of the project under which the job is created.
+ *  @param parent Required. The resource name of the project under which the job
+ *    is created.
  *    The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
@@ -535,8 +517,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsCreateWithObject:parent:]
 
 /**
- *  Required.
- *  The resource name of the project under which the job is created.
+ *  Required. The resource name of the project under which the job is created.
  *  The format is "projects/{project_id}", for example,
  *  "projects/api-test-project".
  */
@@ -551,8 +532,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *
  *  @param object The @c GTLRCloudTalentSolution_CreateJobRequest to include in
  *    the query.
- *  @param parent Required.
- *    The resource name of the project under which the job is created.
+ *  @param parent Required. The resource name of the project under which the job
+ *    is created.
  *    The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
@@ -579,8 +560,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsDeleteWithname:]
 
 /**
- *  Required.
- *  The resource name of the job to be deleted.
+ *  Required. The resource name of the job to be deleted.
  *  The format is "projects/{project_id}/jobs/{job_id}",
  *  for example, "projects/api-test-project/jobs/1234".
  */
@@ -593,8 +573,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  Typically, the job becomes unsearchable within 10 seconds, but it may take
  *  up to 5 minutes.
  *
- *  @param name Required.
- *    The resource name of the job to be deleted.
+ *  @param name Required. The resource name of the job to be deleted.
  *    The format is "projects/{project_id}/jobs/{job_id}",
  *    for example, "projects/api-test-project/jobs/1234".
  *
@@ -619,8 +598,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsGetWithname:]
 
 /**
- *  Required.
- *  The resource name of the job to retrieve.
+ *  Required. The resource name of the job to retrieve.
  *  The format is "projects/{project_id}/jobs/{job_id}",
  *  for example, "projects/api-test-project/jobs/1234".
  */
@@ -632,8 +610,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  Retrieves the specified job, whose status is OPEN or recently EXPIRED
  *  within the last 90 days.
  *
- *  @param name Required.
- *    The resource name of the job to retrieve.
+ *  @param name Required. The resource name of the job to retrieve.
  *    The format is "projects/{project_id}/jobs/{job_id}",
  *    for example, "projects/api-test-project/jobs/1234".
  *
@@ -657,8 +634,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsListWithparent:]
 
 /**
- *  Required.
- *  The filter string specifies the jobs to be enumerated.
+ *  Required. The filter string specifies the jobs to be enumerated.
  *  Supported operator: =, AND
  *  The fields eligible for filtering are:
  *  * `companyName` (Required)
@@ -671,8 +647,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional.
- *  The desired job attributes returned for jobs in the
+ *  Optional. The desired job attributes returned for jobs in the
  *  search response. Defaults to JobView.JOB_VIEW_FULL if no value is
  *  specified.
  *
@@ -689,23 +664,18 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @property(nonatomic, copy, nullable) NSString *jobView;
 
 /**
- *  Optional.
- *  The maximum number of jobs to be returned per page of results.
+ *  Optional. The maximum number of jobs to be returned per page of results.
  *  If job_view is set to JobView.JOB_VIEW_ID_ONLY, the maximum allowed
  *  page size is 1000. Otherwise, the maximum allowed page size is 100.
  *  Default is 100 if empty or a number < 1 is specified.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/**
- *  Optional.
- *  The starting point of a query result.
- */
+/** Optional. The starting point of a query result. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required.
- *  The resource name of the project under which the job is created.
+ *  Required. The resource name of the project under which the job is created.
  *  The format is "projects/{project_id}", for example,
  *  "projects/api-test-project".
  */
@@ -716,8 +686,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *
  *  Lists jobs by filter.
  *
- *  @param parent Required.
- *    The resource name of the project under which the job is created.
+ *  @param parent Required. The resource name of the project under which the job
+ *    is created.
  *    The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
@@ -799,8 +769,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsSearchWithObject:parent:]
 
 /**
- *  Required.
- *  The resource name of the project to search within.
+ *  Required. The resource name of the project to search within.
  *  The format is "projects/{project_id}", for example,
  *  "projects/api-test-project".
  */
@@ -816,8 +785,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *
  *  @param object The @c GTLRCloudTalentSolution_SearchJobsRequest to include in
  *    the query.
- *  @param parent Required.
- *    The resource name of the project to search within.
+ *  @param parent Required. The resource name of the project to search within.
  *    The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
@@ -849,8 +817,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsSearchForAlertWithObject:parent:]
 
 /**
- *  Required.
- *  The resource name of the project to search within.
+ *  Required. The resource name of the project to search within.
  *  The format is "projects/{project_id}", for example,
  *  "projects/api-test-project".
  */
@@ -870,8 +837,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *
  *  @param object The @c GTLRCloudTalentSolution_SearchJobsRequest to include in
  *    the query.
- *  @param parent Required.
- *    The resource name of the project to search within.
+ *  @param parent Required. The resource name of the project to search within.
  *    The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *

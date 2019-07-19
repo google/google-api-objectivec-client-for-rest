@@ -55,7 +55,9 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Destroyed = @"DESTROYED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_DestroyScheduled = @"DESTROY_SCHEDULED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Disabled = @"DISABLED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled  = @"ENABLED";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_ImportFailed = @"IMPORT_FAILED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_PendingGeneration = @"PENDING_GENERATION";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_PendingImport = @"PENDING_IMPORT";
 
 // GTLRCloudKMS_CryptoKeyVersionTemplate.algorithm
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
@@ -79,6 +81,40 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Hsm = @"HSM";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Software = @"SOFTWARE";
+
+// GTLRCloudKMS_ImportCryptoKeyVersionRequest.algorithm
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP384Sha384 = @"EC_SIGN_P384_SHA384";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_GoogleSymmetricEncryption = @"GOOGLE_SYMMETRIC_ENCRYPTION";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha256 = @"RSA_DECRYPT_OAEP_2048_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha256 = @"RSA_DECRYPT_OAEP_3072_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha256 = @"RSA_DECRYPT_OAEP_4096_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha512 = @"RSA_DECRYPT_OAEP_4096_SHA512";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs12048Sha256 = @"RSA_SIGN_PKCS1_2048_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs13072Sha256 = @"RSA_SIGN_PKCS1_3072_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs14096Sha256 = @"RSA_SIGN_PKCS1_4096_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs14096Sha512 = @"RSA_SIGN_PKCS1_4096_SHA512";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss2048Sha256 = @"RSA_SIGN_PSS_2048_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss3072Sha256 = @"RSA_SIGN_PSS_3072_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha256 = @"RSA_SIGN_PSS_4096_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha512 = @"RSA_SIGN_PSS_4096_SHA512";
+
+// GTLRCloudKMS_ImportJob.importMethod
+NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_ImportMethodUnspecified = @"IMPORT_METHOD_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep3072Sha1Aes256 = @"RSA_OAEP_3072_SHA1_AES_256";
+NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep4096Sha1Aes256 = @"RSA_OAEP_4096_SHA1_AES_256";
+
+// GTLRCloudKMS_ImportJob.protectionLevel
+NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_Hsm   = @"HSM";
+NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_Software = @"SOFTWARE";
+
+// GTLRCloudKMS_ImportJob.state
+NSString * const kGTLRCloudKMS_ImportJob_State_Active          = @"ACTIVE";
+NSString * const kGTLRCloudKMS_ImportJob_State_Expired         = @"EXPIRED";
+NSString * const kGTLRCloudKMS_ImportJob_State_ImportJobStateUnspecified = @"IMPORT_JOB_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_ImportJob_State_PendingGeneration = @"PENDING_GENERATION";
 
 // GTLRCloudKMS_KeyOperationAttestation.format
 NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_AttestationFormatUnspecified = @"ATTESTATION_FORMAT_UNSPECIFIED";
@@ -229,7 +265,8 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 
 @implementation GTLRCloudKMS_CryptoKeyVersion
 @dynamic algorithm, attestation, createTime, destroyEventTime, destroyTime,
-         generateTime, name, protectionLevel, state;
+         generateTime, importFailureReason, importJob, importTime, name,
+         protectionLevel, state;
 @end
 
 
@@ -319,6 +356,27 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_ImportCryptoKeyVersionRequest
+//
+
+@implementation GTLRCloudKMS_ImportCryptoKeyVersionRequest
+@dynamic algorithm, importJob, rsaAesWrappedKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_ImportJob
+//
+
+@implementation GTLRCloudKMS_ImportJob
+@dynamic attestation, createTime, expireEventTime, expireTime, generateTime,
+         importMethod, name, protectionLevel, publicKey, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_KeyOperationAttestation
 //
 
@@ -376,6 +434,28 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 
 + (NSString *)collectionItemsKey {
   return @"cryptoKeyVersions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_ListImportJobsResponse
+//
+
+@implementation GTLRCloudKMS_ListImportJobsResponse
+@dynamic importJobs, nextPageToken, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"importJobs" : [GTLRCloudKMS_ImportJob class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"importJobs";
 }
 
 @end
@@ -568,4 +648,14 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 
 @implementation GTLRCloudKMS_UpdateCryptoKeyPrimaryVersionRequest
 @dynamic cryptoKeyVersionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_WrappingPublicKey
+//
+
+@implementation GTLRCloudKMS_WrappingPublicKey
+@dynamic pem;
 @end

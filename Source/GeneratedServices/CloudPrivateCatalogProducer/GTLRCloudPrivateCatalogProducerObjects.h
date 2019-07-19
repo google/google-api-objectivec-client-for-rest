@@ -729,7 +729,7 @@ GTLR_EXTERN NSString * const kGTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLo
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -741,7 +741,7 @@ GTLR_EXTERN NSString * const kGTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLo
  *  ]
  *  },
  *  {
- *  "service": "fooservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com"
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -749,16 +749,16 @@ GTLR_EXTERN NSString * const kGTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLo
  *  {
  *  "log_type": "DATA_WRITE",
  *  "exempted_members": [
- *  "user:bar\@gmail.com"
+ *  "user:aliya\@example.com"
  *  ]
  *  }
  *  ]
  *  }
  *  ]
  *  }
- *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
- *  bar\@gmail.com from DATA_WRITE logging.
+ *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts jose\@example.com from DATA_READ logging, and
+ *  aliya\@example.com from DATA_WRITE logging.
  */
 @interface GTLRCloudPrivateCatalogProducer_GoogleIamV1AuditConfig : GTLRObject
 
@@ -783,7 +783,7 @@ GTLR_EXTERN NSString * const kGTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLo
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -792,7 +792,7 @@ GTLR_EXTERN NSString * const kGTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLo
  *  ]
  *  }
  *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  foo\@gmail.com from DATA_READ logging.
+ *  jose\@example.com from DATA_READ logging.
  */
 @interface GTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLogConfig : GTLRObject
 
@@ -802,6 +802,15 @@ GTLR_EXTERN NSString * const kGTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLo
  *  Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  Specifies whether principals can be exempted for the same LogType in
+ *  lower-level resource policies. If true, any lower-level exemptions will
+ *  be ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
 
 /**
  *  The log type that this config enables.
@@ -842,7 +851,7 @@ GTLR_EXTERN NSString * const kGTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLo
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -922,7 +931,7 @@ GTLR_EXTERN NSString * const kGTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLo
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

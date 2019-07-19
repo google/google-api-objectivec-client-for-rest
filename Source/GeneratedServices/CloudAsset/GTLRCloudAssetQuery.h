@@ -37,6 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeContentTypeUnspecified;
 /** Value: "IAM_POLICY" */
 GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeIamPolicy;
+/** Value: "ORG_POLICY" */
+GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeOrgPolicy;
 /** Value: "RESOURCE" */
 GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 
@@ -125,6 +127,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *        "CONTENT_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRCloudAssetContentTypeResource Value "RESOURCE"
  *    @arg @c kGTLRCloudAssetContentTypeIamPolicy Value "IAM_POLICY"
+ *    @arg @c kGTLRCloudAssetContentTypeOrgPolicy Value "ORG_POLICY"
  */
 @property(nonatomic, copy, nullable) NSString *contentType;
 

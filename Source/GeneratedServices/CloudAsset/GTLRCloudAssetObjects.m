@@ -22,7 +22,13 @@ NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_LogTypeUnspecified = @"L
 // GTLRCloudAsset_ExportAssetsRequest.contentType
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_ContentTypeUnspecified = @"CONTENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_IamPolicy = @"IAM_POLICY";
+NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_OrgPolicy = @"ORG_POLICY";
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource = @"RESOURCE";
+
+// GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy.allValues
+NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Allow = @"ALLOW";
+NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_AllValuesUnspecified = @"ALL_VALUES_UNSPECIFIED";
+NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Deny = @"DENY";
 
 // ----------------------------------------------------------------------------
 //
@@ -30,7 +36,15 @@ NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource = @"RE
 //
 
 @implementation GTLRCloudAsset_Asset
-@dynamic assetType, iamPolicy, name, resource;
+@dynamic assetType, iamPolicy, name, orgPolicy, resource;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"orgPolicy" : [GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -58,7 +72,7 @@ NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource = @"RE
 //
 
 @implementation GTLRCloudAsset_AuditLogConfig
-@dynamic exemptedMembers, logType;
+@dynamic exemptedMembers, ignoreChildExemptions, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -146,6 +160,61 @@ NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource = @"RE
 
 @implementation GTLRCloudAsset_GcsDestination
 @dynamic uri, uriPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudOrgpolicyV1BooleanPolicy
+//
+
+@implementation GTLRCloudAsset_GoogleCloudOrgpolicyV1BooleanPolicy
+@dynamic enforced;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy
+//
+
+@implementation GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy
+@dynamic allowedValues, allValues, deniedValues, inheritFromParent,
+         suggestedValue;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedValues" : [NSString class],
+    @"deniedValues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy
+//
+
+@implementation GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy
+@dynamic booleanPolicy, constraint, ETag, listPolicy, restoreDefault,
+         updateTime, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudOrgpolicyV1RestoreDefault
+//
+
+@implementation GTLRCloudAsset_GoogleCloudOrgpolicyV1RestoreDefault
 @end
 
 

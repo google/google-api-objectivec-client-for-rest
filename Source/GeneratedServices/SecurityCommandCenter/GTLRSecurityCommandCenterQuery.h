@@ -122,8 +122,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDuration *compareDuration;
 
 /**
- *  Optional.
- *  A field mask to specify the ListAssetsResult fields to be listed in the
+ *  Optional. A field mask to specify the ListAssetsResult fields to be listed
+ *  in the
  *  response.
  *  An empty field mask will list all fields.
  *
@@ -701,8 +701,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDuration *compareDuration;
 
 /**
- *  Optional.
- *  A field mask to specify the Finding fields to be listed in the response.
+ *  Optional. A field mask to specify the Finding fields to be listed in the
+ *  response.
  *  An empty field mask will list all fields.
  *
  *  String format is a comma-separated list of fields.

@@ -290,11 +290,7 @@ GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  */
 @property(nonatomic, strong, nullable) NSNumber *endTimeMillis;
 
-/**
- *  DO NOT POPULATE THIS FIELD. As data quality standards are deprecated,
- *  filling it in will result in no data sources being returned. It will be
- *  removed in a future version entirely.
- */
+/** DO NOT POPULATE THIS FIELD. It is ignored. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *filteredDataQualityStandard;
 
 /**

@@ -1909,6 +1909,59 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
+ *  De-identifies potentially sensitive info from a ContentItem.
+ *  This method has limits on input size and output size.
+ *  See https://cloud.google.com/dlp/docs/deidentify-sensitive-data to
+ *  learn more.
+ *  When no InfoTypes or CustomInfoTypes are specified in this request, the
+ *  system will automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
+ *
+ *  Method: dlp.projects.locations.content.deidentify
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsContentDeidentify : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsLocationsContentDeidentifyWithObject:parent:location:]
+
+/**
+ *  The geographic location to process de-identification. Reserved for future
+ *  extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The parent resource name, for example projects/my-project-id. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyContentResponse.
+ *
+ *  De-identifies potentially sensitive info from a ContentItem.
+ *  This method has limits on input size and output size.
+ *  See https://cloud.google.com/dlp/docs/deidentify-sensitive-data to
+ *  learn more.
+ *  When no InfoTypes or CustomInfoTypes are specified in this request, the
+ *  system will automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest to
+ *    include in the query.
+ *  @param parent The parent resource name, for example projects/my-project-id.
+ *  @param location The geographic location to process de-identification.
+ *    Reserved for future
+ *    extensions.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsContentDeidentify
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest *)object
+                         parent:(NSString *)parent
+                       location:(NSString *)location;
+
+@end
+
+/**
  *  Creates a pre-built stored infoType to be used for inspection.
  *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
  *  learn more.

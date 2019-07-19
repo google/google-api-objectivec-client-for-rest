@@ -92,25 +92,6 @@
 
 @end
 
-@implementation GTLRSpeechQuery_ProjectsOperationsManualRecognitionTasksGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRSpeechQuery_ProjectsOperationsManualRecognitionTasksGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRSpeech_Operation class];
-  query.loggingName = @"speech.projects.operations.manualRecognitionTasks.get";
-  return query;
-}
-
-@end
-
 @implementation GTLRSpeechQuery_SpeechLongrunningrecognize
 
 + (instancetype)queryWithObject:(GTLRSpeech_LongRunningRecognizeRequest *)object {

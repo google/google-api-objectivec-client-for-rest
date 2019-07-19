@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeBigqueryInsertdata            = @"https://www.goo
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
+    self.rootURLString = @"https://bigquery.googleapis.com/";
     self.servicePath = @"bigquery/v2/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";

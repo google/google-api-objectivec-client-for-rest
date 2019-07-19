@@ -45,40 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
- *
- *  Method: ml.operations.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
- */
-@interface GTLRCloudMachineLearningEngineQuery_OperationsDelete : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForOperationsDeleteWithname:]
-
-/** The name of the operation resource to be deleted. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleProtobufEmpty.
- *
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
- *
- *  @param name The name of the operation resource to be deleted.
- *
- *  @return GTLRCloudMachineLearningEngineQuery_OperationsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Get the service account information associated with your project. You need
  *  this information in order to grant the service account permissions for
  *  the Google Cloud Storage location where you put your model training code
@@ -217,6 +183,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsJobsGetIamPolicy : GTLRCloudMachineLearningEngineQuery
 // Previous library name was
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsGetIamPolicyWithresource:]
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
@@ -647,6 +621,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsGetIamPolicy : GTLRCloudMachineLearningEngineQuery
 // Previous library name was
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsGetIamPolicyWithresource:]
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.

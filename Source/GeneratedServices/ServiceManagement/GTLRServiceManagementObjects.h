@@ -54,6 +54,7 @@
 @class GTLRServiceManagement_Field;
 @class GTLRServiceManagement_GenerateConfigReportRequest_NewConfig;
 @class GTLRServiceManagement_GenerateConfigReportRequest_OldConfig;
+@class GTLRServiceManagement_GetPolicyOptions;
 @class GTLRServiceManagement_Http;
 @class GTLRServiceManagement_HttpRule;
 @class GTLRServiceManagement_LabelDescriptor;
@@ -1041,6 +1042,15 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
+ *  Specifies whether principals can be exempted for the same LogType in
+ *  lower-level resource policies. If true, any lower-level exemptions will
+ *  be ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
+
+/**
  *  The log type that this config enables.
  *
  *  Likely values:
@@ -1873,6 +1883,14 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_DocumentationRule *> *rules;
 
 /**
+ *  Specifies the service root url if the default one (the service name
+ *  from the yaml file) is not suitable. This can be seen in any fully
+ *  specified service urls as well as sections that show a base that other
+ *  urls are relative to.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceRootUrl;
+
+/**
  *  A short summary of what the service does. Can only be provided by
  *  plain text.
  */
@@ -2297,6 +2315,31 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  Request message for `GetIamPolicy` method.
  */
 @interface GTLRServiceManagement_GetIamPolicyRequest : GTLRObject
+
+/**
+ *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
+ *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceManagement_GetPolicyOptions *options;
+
+@end
+
+
+/**
+ *  Encapsulates settings provided to GetIamPolicy.
+ */
+@interface GTLRServiceManagement_GetPolicyOptions : GTLRObject
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedPolicyVersion;
+
 @end
 
 
@@ -3333,7 +3376,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  generally
  *  provide a `list` method that returns the monitored resource descriptors used
  *  by the API.
- *  Next ID: 10
  */
 @interface GTLRServiceManagement_MonitoredResourceDescriptor : GTLRObject
 

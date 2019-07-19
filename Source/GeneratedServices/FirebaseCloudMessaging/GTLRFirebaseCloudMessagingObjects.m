@@ -60,7 +60,7 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal = @"N
 
 @implementation GTLRFirebaseCloudMessaging_AndroidNotification
 @dynamic body, bodyLocArgs, bodyLocKey, channelId, clickAction, color, icon,
-         sound, tag, title, titleLocArgs, titleLocKey;
+         image, sound, tag, title, titleLocArgs, titleLocKey;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -117,7 +117,7 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal = @"N
 //
 
 @implementation GTLRFirebaseCloudMessaging_ApnsFcmOptions
-@dynamic analyticsLabel;
+@dynamic analyticsLabel, image;
 @end
 
 
@@ -162,7 +162,7 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal = @"N
 //
 
 @implementation GTLRFirebaseCloudMessaging_Notification
-@dynamic body, title;
+@dynamic body, image, title;
 @end
 
 

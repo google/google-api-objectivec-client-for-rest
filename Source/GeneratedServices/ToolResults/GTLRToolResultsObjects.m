@@ -110,6 +110,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_Anr           = @"anr";
 NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks = @"availableDeepLinks";
 NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator = @"compatibleWithOrchestrator";
 NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution = @"completeRoboScriptExecution";
+NSString * const kGTLRToolResults_TestIssue_Type_CrashDialogError = @"crashDialogError";
 NSString * const kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen = @"encounteredLoginScreen";
 NSString * const kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen = @"encounteredNonAndroidUiWidgetScreen";
 NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall = @"failedToInstall";
@@ -354,7 +355,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 //
 
 @implementation GTLRToolResults_InconclusiveDetail
-@dynamic abortedByUser, infrastructureFailure;
+@dynamic abortedByUser, hasErrorLogs, infrastructureFailure;
 @end
 
 

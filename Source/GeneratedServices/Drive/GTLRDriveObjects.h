@@ -372,7 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies this as a notification channel used to watch for changes to a
- *  resource. Value: the fixed string "api#channel".
+ *  resource, which is "api#channel".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 

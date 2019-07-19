@@ -405,7 +405,7 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceNetworking_Documentation
-@dynamic documentationRootUrl, overview, pages, rules, summary;
+@dynamic documentationRootUrl, overview, pages, rules, serviceRootUrl, summary;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

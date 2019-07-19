@@ -2235,7 +2235,6 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  AND is implicit, e.g. "a = b x = y" is equivalent to "a = b AND x = y".
  *  Example filter:
  *  configuration.labels.key1 = * AND (state = RUNNING OR state = UPDATING)
- *  This field is currently ignored in all requests.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2311,7 +2310,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  lowercase letters, numeric characters, underscores and dashes.
  *  International letters are permitted. Keys must start with a letter but
  *  values are optional.
- *  This field is currently ignored in all requests.
+ *  There can not be more than 64 labels per resource.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig_Labels *labels;
 
@@ -2348,7 +2347,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  lowercase letters, numeric characters, underscores and dashes.
  *  International letters are permitted. Keys must start with a letter but
  *  values are optional.
- *  This field is currently ignored in all requests.
+ *  There can not be more than 64 labels per resource.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

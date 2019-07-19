@@ -1419,7 +1419,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  */
 @interface GTLRCloudNaturalLanguage_AnalyzeEntitiesRequest : GTLRObject
 
-/** Input document. */
+/** Required. Input document. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
 
 /**
@@ -1477,7 +1477,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  */
 @interface GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest : GTLRObject
 
-/** Input document. */
+/** Required. Input document. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
 
 /**
@@ -1537,7 +1537,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  */
 @interface GTLRCloudNaturalLanguage_AnalyzeSentimentRequest : GTLRObject
 
-/** Input document. */
+/** Required. Input document. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
 
 /**
@@ -1598,7 +1598,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  */
 @interface GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest : GTLRObject
 
-/** Input document. */
+/** Required. Input document. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
 
 /**
@@ -1660,7 +1660,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  */
 @interface GTLRCloudNaturalLanguage_AnnotateTextRequest : GTLRObject
 
-/** Input document. */
+/** Required. Input document. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
 
 /**
@@ -1692,7 +1692,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  */
 @property(nonatomic, copy, nullable) NSString *encodingType;
 
-/** The enabled features. */
+/** Required. The enabled features. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Features *features;
 
 @end
@@ -1769,7 +1769,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceU
  */
 @interface GTLRCloudNaturalLanguage_ClassifyTextRequest : GTLRObject
 
-/** Input document. */
+/** Required. Input document. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
 
 @end

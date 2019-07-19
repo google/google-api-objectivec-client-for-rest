@@ -391,6 +391,17 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_IntroductoryPriceInfo
+//
+
+@implementation GTLRAndroidPublisher_IntroductoryPriceInfo
+@dynamic introductoryPriceAmountMicros, introductoryPriceCurrencyCode,
+         introductoryPriceCycles, introductoryPricePeriod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Listing
 //
 
@@ -610,9 +621,9 @@
 @implementation GTLRAndroidPublisher_SubscriptionPurchase
 @dynamic acknowledgementState, autoRenewing, autoResumeTimeMillis, cancelReason,
          cancelSurveyResult, countryCode, developerPayload, emailAddress,
-         expiryTimeMillis, familyName, givenName, kind, linkedPurchaseToken,
-         orderId, paymentState, priceAmountMicros, priceChange,
-         priceCurrencyCode, profileId, profileName, purchaseType,
+         expiryTimeMillis, familyName, givenName, introductoryPriceInfo, kind,
+         linkedPurchaseToken, orderId, paymentState, priceAmountMicros,
+         priceChange, priceCurrencyCode, profileId, profileName, purchaseType,
          startTimeMillis, userCancellationTimeMillis;
 @end
 

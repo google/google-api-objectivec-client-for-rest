@@ -26,6 +26,8 @@
 @class GTLRCloudKMS_DecryptRequest;
 @class GTLRCloudKMS_DestroyCryptoKeyVersionRequest;
 @class GTLRCloudKMS_EncryptRequest;
+@class GTLRCloudKMS_ImportCryptoKeyVersionRequest;
+@class GTLRCloudKMS_ImportJob;
 @class GTLRCloudKMS_KeyRing;
 @class GTLRCloudKMS_RestoreCryptoKeyVersionRequest;
 @class GTLRCloudKMS_SetIamPolicyRequest;
@@ -170,6 +172,15 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  CryptoKeys.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  If set to true, the request will create a CryptoKey without any
+ *  CryptoKeyVersions. You must manually call
+ *  CreateCryptoKeyVersion or
+ *  ImportCryptoKeyVersion
+ *  before you can use this CryptoKey.
+ */
+@property(nonatomic, assign) BOOL skipInitialVersionCreation;
 
 /**
  *  Fetches a @c GTLRCloudKMS_CryptoKey.
@@ -427,6 +438,48 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Imports a new CryptoKeyVersion into an existing CryptoKey using the
+ *  wrapped key material provided in the request.
+ *  The version ID will be assigned the next sequential id within the
+ *  CryptoKey.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImport : GTLRCloudKMSQuery
+// Previous library name was
+//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImportWithObject:parent:]
+
+/**
+ *  Required. The name of the CryptoKey to
+ *  be imported into.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_CryptoKeyVersion.
+ *
+ *  Imports a new CryptoKeyVersion into an existing CryptoKey using the
+ *  wrapped key material provided in the request.
+ *  The version ID will be assigned the next sequential id within the
+ *  CryptoKey.
+ *
+ *  @param object The @c GTLRCloudKMS_ImportCryptoKeyVersionRequest to include
+ *    in the query.
+ *  @param parent Required. The name of the CryptoKey to
+ *    be imported into.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImport
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_ImportCryptoKeyVersionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists CryptoKeyVersions.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.list
@@ -438,6 +491,19 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsList : GTLRCloudKMSQuery
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsListWithparent:]
+
+/**
+ *  Optional. Only include resources that match the filter in the response
+ *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify how the results should be sorted. If not specified, the
+ *  results will be sorted in the default order
+ *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional limit on the number of CryptoKeyVersions to
@@ -714,6 +780,14 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysGetIamPolicyWithresource:]
 
 /**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
  *  REQUIRED: The resource for which the policy is being requested.
  *  See the operation documentation for the appropriate value for this field.
  */
@@ -748,6 +822,19 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysList : GTLRCloudKMSQuery
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysListWithparent:]
+
+/**
+ *  Optional. Only include resources that match the filter in the response
+ *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify how the results should be sorted. If not specified, the
+ *  results will be sorted in the default order
+ *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional limit on the number of CryptoKeys to include in the
@@ -1005,6 +1092,14 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsGetIamPolicyWithresource:]
 
 /**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
  *  REQUIRED: The resource for which the policy is being requested.
  *  See the operation documentation for the appropriate value for this field.
  */
@@ -1028,6 +1123,78 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Create a new ImportJob within a KeyRing.
+ *  ImportJob.import_method is required.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.importJobs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsCreate : GTLRCloudKMSQuery
+// Previous library name was
+//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsCreateWithObject:parent:]
+
+/**
+ *  Required. It must be unique within a KeyRing and match the regular
+ *  expression `[a-zA-Z0-9_-]{1,63}`
+ */
+@property(nonatomic, copy, nullable) NSString *importJobId;
+
+/**
+ *  Required. The name of the KeyRing associated with the
+ *  ImportJobs.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ImportJob.
+ *
+ *  Create a new ImportJob within a KeyRing.
+ *  ImportJob.import_method is required.
+ *
+ *  @param object The @c GTLRCloudKMS_ImportJob to include in the query.
+ *  @param parent Required. The name of the KeyRing associated with the
+ *    ImportJobs.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_ImportJob *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns metadata for a given ImportJob.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.importJobs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGet : GTLRCloudKMSQuery
+// Previous library name was
+//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsGetWithname:]
+
+/** The name of the ImportJob to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ImportJob.
+ *
+ *  Returns metadata for a given ImportJob.
+ *
+ *  @param name The name of the ImportJob to get.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource.
  *  Returns an empty policy if the resource exists and does not have a policy
  *  set.
@@ -1041,6 +1208,14 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGetIamPolicy : GTLRCloudKMSQuery
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsGetIamPolicyWithresource:]
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
@@ -1062,6 +1237,71 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists ImportJobs.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.importJobs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsList : GTLRCloudKMSQuery
+// Previous library name was
+//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsListWithparent:]
+
+/**
+ *  Optional. Only include resources that match the filter in the response
+ *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify how the results should be sorted. If not specified, the
+ *  results will be sorted in the default order
+ *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional limit on the number of ImportJobs to include in the
+ *  response. Further ImportJobs can subsequently be obtained by
+ *  including the ListImportJobsResponse.next_page_token in a subsequent
+ *  request. If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional pagination token, returned earlier via
+ *  ListImportJobsResponse.next_page_token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the KeyRing to list, in the format
+ *  `projects/ * /locations/ * /keyRings/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ListImportJobsResponse.
+ *
+ *  Lists ImportJobs.
+ *
+ *  @param parent Required. The resource name of the KeyRing to list, in the
+ *    format
+ *    `projects/ * /locations/ * /keyRings/ *`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1163,6 +1403,19 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsList : GTLRCloudKMSQuery
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsListWithparent:]
+
+/**
+ *  Optional. Only include resources that match the filter in the response
+ *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify how the results should be sorted. If not specified, the
+ *  results will be sorted in the default order
+ *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional limit on the number of KeyRings to include in the

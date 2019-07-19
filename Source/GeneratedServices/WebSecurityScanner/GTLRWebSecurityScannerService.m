@@ -2,22 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Web Security Scanner API (websecurityscanner/v1alpha)
+//   Web Security Scanner API (websecurityscanner/v1)
 // Description:
 //   Scans your Compute and App Engine apps for common web vulnerabilities.
 // Documentation:
 //   https://cloud.google.com/security-scanner/
 
 #import "GTLRWebSecurityScanner.h"
-
-// ----------------------------------------------------------------------------
-// Authorization scope
-
-NSString * const kGTLRAuthScopeWebSecurityScannerCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
-
-// ----------------------------------------------------------------------------
-//   GTLRWebSecurityScannerService
-//
 
 @implementation GTLRWebSecurityScannerService
 

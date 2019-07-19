@@ -24,6 +24,7 @@
 @class GTLRStorage_Bucket_Encryption;
 @class GTLRStorage_Bucket_IamConfiguration;
 @class GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly;
+@class GTLRStorage_Bucket_IamConfiguration_UniformBucketLevelAccess;
 @class GTLRStorage_Bucket_Labels;
 @class GTLRStorage_Bucket_Lifecycle;
 @class GTLRStorage_Bucket_Lifecycle_Rule_Item;
@@ -277,6 +278,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The bucket's Bucket Policy Only configuration. */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly *bucketPolicyOnly;
 
+/** The bucket's uniform bucket-level access configuration. */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_IamConfiguration_UniformBucketLevelAccess *uniformBucketLevelAccess;
+
 @end
 
 
@@ -423,17 +427,40 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly : GTLRObject
 
 /**
- *  If set, access checks only use bucket-level IAM policies or above.
+ *  If set, access is controlled only by bucket-level or above IAM policies.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  The deadline time for changing iamConfiguration.bucketPolicyOnly.enabled
+ *  The deadline for changing iamConfiguration.bucketPolicyOnly.enabled from
+ *  true to false in RFC 3339 format. iamConfiguration.bucketPolicyOnly.enabled
+ *  may be changed from true to false until the locked time, after which the
+ *  field is immutable.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lockedTime;
+
+@end
+
+
+/**
+ *  The bucket's uniform bucket-level access configuration.
+ */
+@interface GTLRStorage_Bucket_IamConfiguration_UniformBucketLevelAccess : GTLRObject
+
+/**
+ *  If set, access is controlled only by bucket-level or above IAM policies.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The deadline for changing iamConfiguration.uniformBucketLevelAccess.enabled
  *  from true to false in RFC 3339 format.
- *  iamConfiguration.bucketPolicyOnly.enabled may be changed from true to false
- *  until the locked time, after which the field is immutable.
+ *  iamConfiguration.uniformBucketLevelAccess.enabled may be changed from true
+ *  to false until the locked time, after which the field is immutable.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lockedTime;
 
@@ -693,7 +720,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies this as a notification channel used to watch for changes to a
- *  resource. Value: the fixed string "api#channel".
+ *  resource, which is "api#channel".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 

@@ -84,7 +84,11 @@
 
 @implementation GTLRBinaryAuthorizationQuery_ProjectsAttestorsGetIamPolicy
 
-@dynamic resource;
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
@@ -216,7 +220,11 @@
 
 @implementation GTLRBinaryAuthorizationQuery_ProjectsPolicyGetIamPolicy
 
-@dynamic resource;
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];

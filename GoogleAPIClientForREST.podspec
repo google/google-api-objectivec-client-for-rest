@@ -376,6 +376,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FirebaseHosting/*.{h,m}'
   end
+  s.subspec 'FirebaseManagement' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/FirebaseManagement/*.{h,m}'
+  end
   s.subspec 'FirebaseRules' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FirebaseRules/*.{h,m}'

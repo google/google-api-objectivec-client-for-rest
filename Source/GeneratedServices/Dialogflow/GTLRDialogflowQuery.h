@@ -7,7 +7,7 @@
 //   Builds conversational interfaces (for example, chatbots, and voice-powered
 //   apps and devices).
 // Documentation:
-//   https://cloud.google.com/dialogflow-enterprise/
+//   https://cloud.google.com/dialogflow/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -209,7 +209,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Optional. The language of entity synonyms defined in `entity_type`. If not
  *  specified, the agent's default language is used.
  *  [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -412,7 +412,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Optional. The language to retrieve entity synonyms for. If not specified,
  *  the agent's default language is used.
  *  [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -455,7 +455,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Optional. The language to list entity synonyms for. If not specified,
  *  the agent's default language is used.
  *  [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -513,7 +513,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Optional. The language of entity synonyms defined in `entity_type`. If not
  *  specified, the agent's default language is used.
  *  [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -746,7 +746,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Optional. The language of training phrases, parameters and rich messages
  *  defined in `intent`. If not specified, the agent's default language is
  *  used. [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -838,7 +838,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Optional. The language to retrieve training phrases, parameters and rich
  *  messages for. If not specified, the agent's default language is used.
  *  [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -891,7 +891,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Optional. The language to list training phrases, parameters and rich
  *  messages for. If not specified, the agent's default language is used.
  *  [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -959,7 +959,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Optional. The language of training phrases, parameters and rich messages
  *  defined in `intent`. If not specified, the agent's default language is
  *  used. [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -1736,6 +1736,64 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param name The name of the operation resource.
  *
  *  @return GTLRDialogflowQuery_ProjectsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *  NOTE: the `name` binding allows API services to override the binding
+ *  to use different resource name schemes, such as `users/ * /operations`. To
+ *  override the binding, API services can add a binding such as
+ *  `"/v1/{name=users/ *}/operations"` to their service configuration.
+ *  For backwards compatibility, the default name includes the operations
+ *  collection id, however overriding users must ensure the name binding
+ *  is the parent resource, without the operations collection id.
+ *
+ *  Method: dialogflow.projects.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsOperationsList : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsOperationsListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *  NOTE: the `name` binding allows API services to override the binding
+ *  to use different resource name schemes, such as `users/ * /operations`. To
+ *  override the binding, API services can add a binding such as
+ *  `"/v1/{name=users/ *}/operations"` to their service configuration.
+ *  For backwards compatibility, the default name includes the operations
+ *  collection id, however overriding users must ensure the name binding
+ *  is the parent resource, without the operations collection id.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
 

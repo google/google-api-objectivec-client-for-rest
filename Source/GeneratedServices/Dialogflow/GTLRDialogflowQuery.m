@@ -7,7 +7,7 @@
 //   Builds conversational interfaces (for example, chatbots, and voice-powered
 //   apps and devices).
 // Documentation:
-//   https://cloud.google.com/dialogflow-enterprise/
+//   https://cloud.google.com/dialogflow/
 
 #import "GTLRDialogflowQuery.h"
 
@@ -873,6 +873,25 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
   query.name = name;
   query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/operations";
+  GTLRDialogflowQuery_ProjectsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningListOperationsResponse class];
+  query.loggingName = @"dialogflow.projects.operations.list";
   return query;
 }
 

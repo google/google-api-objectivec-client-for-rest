@@ -18,25 +18,6 @@
 
 @end
 
-@implementation GTLRCloudMachineLearningEngineQuery_OperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudMachineLearningEngineQuery_OperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleProtobufEmpty class];
-  query.loggingName = @"ml.operations.delete";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudMachineLearningEngineQuery_ProjectsGetConfig
 
 @dynamic name;
@@ -127,7 +108,11 @@
 
 @implementation GTLRCloudMachineLearningEngineQuery_ProjectsJobsGetIamPolicy
 
-@dynamic resource;
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
@@ -341,7 +326,11 @@
 
 @implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsGetIamPolicy
 
-@dynamic resource;
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];

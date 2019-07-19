@@ -28,7 +28,6 @@
 @class GTLRCloudBuild_BuildTrigger;
 @class GTLRCloudBuild_BuildTrigger_Substitutions;
 @class GTLRCloudBuild_BuiltImage;
-@class GTLRCloudBuild_CheckSuiteFilter;
 @class GTLRCloudBuild_FileHashes;
 @class GTLRCloudBuild_GitHubEventsConfig;
 @class GTLRCloudBuild_Hash;
@@ -974,14 +973,6 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
 
 
 /**
- *  A CheckSuiteFilter is a filter that indicates that we should build on all
- *  check suite events.
- */
-@interface GTLRCloudBuild_CheckSuiteFilter : GTLRObject
-@end
-
-
-/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -1014,22 +1005,23 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
 @interface GTLRCloudBuild_GitHubEventsConfig : GTLRObject
 
 /**
- *  Output only. Indicates that a build was generated from a check suite
- *  event.
- */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_CheckSuiteFilter *checkSuite;
-
-/**
- *  The installationID that emmits the GitHub event.
+ *  The installationID that emits the GitHub event.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *installationId;
 
-/** Name of the repository. */
+/**
+ *  Name of the repository. For example: The name for
+ *  https://github.com/googlecloudplatform/cloud-builders is "cloud-builders".
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Owner of the repository. */
+/**
+ *  Owner of the repository. For example: The owner for
+ *  https://github.com/googlecloudplatform/cloud-builders is
+ *  "googlecloudplatform".
+ */
 @property(nonatomic, copy, nullable) NSString *owner;
 
 /** filter to match changes in pull requests. */

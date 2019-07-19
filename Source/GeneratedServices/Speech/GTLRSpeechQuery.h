@@ -215,38 +215,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  Method: speech.projects.operations.manualRecognitionTasks.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeSpeechCloudPlatform
- */
-@interface GTLRSpeechQuery_ProjectsOperationsManualRecognitionTasksGet : GTLRSpeechQuery
-// Previous library name was
-//   +[GTLQuerySpeech queryForProjectsOperationsManualRecognitionTasksGetWithname:]
-
-/** The name of the operation resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRSpeech_Operation.
- *
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  @param name The name of the operation resource.
- *
- *  @return GTLRSpeechQuery_ProjectsOperationsManualRecognitionTasksGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Performs asynchronous speech recognition: receive results via the
  *  google.longrunning.Operations interface. Returns either an
  *  `Operation.error` or an `Operation.response` which contains

@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -129,7 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

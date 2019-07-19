@@ -367,7 +367,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  the resource does not exist. Returns an empty policy if the resource exists
  *  but does not have a policy set.
  *  Authorization requires the Google IAM permission
- *  `healthcare.AnnotationStores.getIamPolicy` on the specified resource
+ *  `healthcare.AnnotationStores.getIamPolicy` on the specified
+ *  resource
  *
  *  Method: healthcare.projects.locations.datasets.annotationStores.getIamPolicy
  *
@@ -391,7 +392,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  the resource does not exist. Returns an empty policy if the resource exists
  *  but does not have a policy set.
  *  Authorization requires the Google IAM permission
- *  `healthcare.AnnotationStores.getIamPolicy` on the specified resource
+ *  `healthcare.AnnotationStores.getIamPolicy` on the specified
+ *  resource
  *
  *  @param object The @c GTLRCloudHealthcare_GetIamPolicyRequest to include in
  *    the query.
@@ -505,7 +507,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Sets the access control policy for a resource. Replaces any existing
  *  policy.
  *  Authorization requires the Google IAM permission
- *  'healthcare.annotationStores.setIamPolicy' on the specified resource
+ *  `healthcare.annotationStores.setIamPolicy` on the specified
+ *  resource
  *
  *  Method: healthcare.projects.locations.datasets.annotationStores.setIamPolicy
  *
@@ -529,7 +532,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Sets the access control policy for a resource. Replaces any existing
  *  policy.
  *  Authorization requires the Google IAM permission
- *  'healthcare.annotationStores.setIamPolicy' on the specified resource
+ *  `healthcare.annotationStores.setIamPolicy` on the specified
+ *  resource
  *
  *  @param object The @c GTLRCloudHealthcare_SetIamPolicyRequest to include in
  *    the query.
@@ -1777,6 +1781,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresGetIamPolicyWithresource:]
 
 /**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
  *  REQUIRED: The resource for which the policy is being requested.
  *  See the operation documentation for the appropriate value for this field.
  */
@@ -3007,6 +3019,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Registry](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html).
  *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
  *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `:recurse`.
+ *  Supported search result parameters: `_sort`, `_count`, `_include`,
+ *  `_revinclude`, `_summary=text`, `_summary=data`, and `_elements`.
+ *  The maximum number of search results returned defaults to 100, which can
+ *  be overridden by the `_count` parameter up to a maximum limit of 1000. If
+ *  there are additional results, the returned `Bundle` will contain
+ *  pagination links.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.search
  *
@@ -3051,6 +3069,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Registry](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html).
  *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
  *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `:recurse`.
+ *  Supported search result parameters: `_sort`, `_count`, `_include`,
+ *  `_revinclude`, `_summary=text`, `_summary=data`, and `_elements`.
+ *  The maximum number of search results returned defaults to 100, which can
+ *  be overridden by the `_count` parameter up to a maximum limit of 1000. If
+ *  there are additional results, the returned `Bundle` will contain
+ *  pagination links.
  *
  *  @param object The @c GTLRCloudHealthcare_SearchResourcesRequest to include
  *    in the query.
@@ -3204,8 +3228,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  FHIR store. Returns NOT_FOUND error if the resource does not exist. Returns
  *  an empty policy if the resource exists but does not have a policy set.
  *  Authorization requires the Google IAM permission
- *  'healthcare.fhirStores.getIamPolicy' for a FHIR store or
- *  'healthcare.securityLabels.getIamPolicy' for a security label
+ *  `healthcare.fhirStores.getIamPolicy` for a FHIR store or
+ *  `healthcare.securityLabels.getIamPolicy` for a security label
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.getIamPolicy
  *
@@ -3215,6 +3239,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetIamPolicy : GTLRCloudHealthcareQuery
 // Previous library name was
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresGetIamPolicyWithresource:]
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
@@ -3229,8 +3261,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  FHIR store. Returns NOT_FOUND error if the resource does not exist. Returns
  *  an empty policy if the resource exists but does not have a policy set.
  *  Authorization requires the Google IAM permission
- *  'healthcare.fhirStores.getIamPolicy' for a FHIR store or
- *  'healthcare.securityLabels.getIamPolicy' for a security label
+ *  `healthcare.fhirStores.getIamPolicy` for a FHIR store or
+ *  `healthcare.securityLabels.getIamPolicy` for a security label
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested.
@@ -3424,8 +3456,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  FHIR store. Returns NOT_FOUND error if the resource does not exist. Returns
  *  an empty policy if the resource exists but does not have a policy set.
  *  Authorization requires the Google IAM permission
- *  'healthcare.fhirStores.getIamPolicy' for a FHIR store or
- *  'healthcare.securityLabels.getIamPolicy' for a security label
+ *  `healthcare.fhirStores.getIamPolicy` for a FHIR store or
+ *  `healthcare.securityLabels.getIamPolicy` for a security label
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.securityLabels.getIamPolicy
  *
@@ -3435,6 +3467,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSecurityLabelsGetIamPolicy : GTLRCloudHealthcareQuery
 // Previous library name was
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresSecurityLabelsGetIamPolicyWithresource:]
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
@@ -3449,8 +3489,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  FHIR store. Returns NOT_FOUND error if the resource does not exist. Returns
  *  an empty policy if the resource exists but does not have a policy set.
  *  Authorization requires the Google IAM permission
- *  'healthcare.fhirStores.getIamPolicy' for a FHIR store or
- *  'healthcare.securityLabels.getIamPolicy' for a security label
+ *  `healthcare.fhirStores.getIamPolicy` for a FHIR store or
+ *  `healthcare.securityLabels.getIamPolicy` for a security label
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested.
@@ -3466,8 +3506,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Sets the access control policy for a FHIR store or security label within a
  *  FHIR store. Replaces any existing policy.
  *  Authorization requires the Google IAM permission
- *  'healthcare.fhirStores.setIamPolicy' for a FHIR store or
- *  'healthcare.securityLabels.setIamPolicy' for a security label
+ *  `healthcare.fhirStores.setIamPolicy` for a FHIR store or
+ *  `healthcare.securityLabels.setIamPolicy` for a security label
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.securityLabels.setIamPolicy
  *
@@ -3490,8 +3530,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Sets the access control policy for a FHIR store or security label within a
  *  FHIR store. Replaces any existing policy.
  *  Authorization requires the Google IAM permission
- *  'healthcare.fhirStores.setIamPolicy' for a FHIR store or
- *  'healthcare.securityLabels.setIamPolicy' for a security label
+ *  `healthcare.fhirStores.setIamPolicy` for a FHIR store or
+ *  `healthcare.securityLabels.setIamPolicy` for a security label
  *
  *  @param object The @c GTLRCloudHealthcare_SetIamPolicyRequest to include in
  *    the query.
@@ -3510,8 +3550,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Sets the access control policy for a FHIR store or security label within a
  *  FHIR store. Replaces any existing policy.
  *  Authorization requires the Google IAM permission
- *  'healthcare.fhirStores.setIamPolicy' for a FHIR store or
- *  'healthcare.securityLabels.setIamPolicy' for a security label
+ *  `healthcare.fhirStores.setIamPolicy` for a FHIR store or
+ *  `healthcare.securityLabels.setIamPolicy` for a security label
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.setIamPolicy
  *
@@ -3534,8 +3574,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Sets the access control policy for a FHIR store or security label within a
  *  FHIR store. Replaces any existing policy.
  *  Authorization requires the Google IAM permission
- *  'healthcare.fhirStores.setIamPolicy' for a FHIR store or
- *  'healthcare.securityLabels.setIamPolicy' for a security label
+ *  `healthcare.fhirStores.setIamPolicy` for a FHIR store or
+ *  `healthcare.securityLabels.setIamPolicy` for a security label
  *
  *  @param object The @c GTLRCloudHealthcare_SetIamPolicyRequest to include in
  *    the query.
@@ -3637,6 +3677,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsGetIamPolicy : GTLRCloudHealthcareQuery
 // Previous library name was
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsGetIamPolicyWithresource:]
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
@@ -3768,6 +3816,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGetIamPolicy : GTLRCloudHealthcareQuery
 // Previous library name was
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresGetIamPolicyWithresource:]
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.

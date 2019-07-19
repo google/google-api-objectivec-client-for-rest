@@ -24,6 +24,10 @@
 @class GTLRCloudAsset_Binding;
 @class GTLRCloudAsset_Expr;
 @class GTLRCloudAsset_GcsDestination;
+@class GTLRCloudAsset_GoogleCloudOrgpolicyV1BooleanPolicy;
+@class GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy;
+@class GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy;
+@class GTLRCloudAsset_GoogleCloudOrgpolicyV1RestoreDefault;
 @class GTLRCloudAsset_Operation_Metadata;
 @class GTLRCloudAsset_Operation_Response;
 @class GTLRCloudAsset_OutputConfig;
@@ -89,11 +93,39 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Con
  */
 GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_IamPolicy;
 /**
+ *  The Cloud Organization Policy set on an asset.
+ *
+ *  Value: "ORG_POLICY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_OrgPolicy;
+/**
  *  Resource metadata.
  *
  *  Value: "RESOURCE"
  */
 GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy.allValues
+
+/**
+ *  A policy with this set allows all values.
+ *
+ *  Value: "ALLOW"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Allow;
+/**
+ *  Indicates that allowed_values or denied_values must be set.
+ *
+ *  Value: "ALL_VALUES_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_AllValuesUnspecified;
+/**
+ *  A policy with this set denies all values.
+ *
+ *  Value: "DENY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Deny;
 
 /**
  *  Cloud asset. This includes all Google Cloud Platform resources,
@@ -119,6 +151,13 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Representation of the Cloud Organization Policy set on an asset. For each
+ *  asset, there could be multiple Organization policies with different
+ *  constraints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy *> *orgPolicy;
+
 /** Representation of the resource. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Resource *resource;
 
@@ -143,7 +182,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -155,7 +194,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  *  ]
  *  },
  *  {
- *  "service": "fooservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com"
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -163,16 +202,16 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  *  {
  *  "log_type": "DATA_WRITE",
  *  "exempted_members": [
- *  "user:bar\@gmail.com"
+ *  "user:aliya\@example.com"
  *  ]
  *  }
  *  ]
  *  }
  *  ]
  *  }
- *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
- *  bar\@gmail.com from DATA_WRITE logging.
+ *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts jose\@example.com from DATA_READ logging, and
+ *  aliya\@example.com from DATA_WRITE logging.
  */
 @interface GTLRCloudAsset_AuditConfig : GTLRObject
 
@@ -197,7 +236,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -206,7 +245,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  *  ]
  *  }
  *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  foo\@gmail.com from DATA_READ logging.
+ *  jose\@example.com from DATA_READ logging.
  */
 @interface GTLRCloudAsset_AuditLogConfig : GTLRObject
 
@@ -216,6 +255,15 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  *  Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  Specifies whether principals can be exempted for the same LogType in
+ *  lower-level resource policies. If true, any lower-level exemptions will
+ *  be ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
 
 /**
  *  The log type that this config enables.
@@ -267,7 +315,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -309,6 +357,8 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  *        Unspecified content type. (Value: "CONTENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_IamPolicy The
  *        actual IAM policy set on a resource. (Value: "IAM_POLICY")
+ *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_OrgPolicy The
+ *        Cloud Organization Policy set on an asset. (Value: "ORG_POLICY")
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource Resource
  *        metadata. (Value: "RESOURCE")
  */
@@ -403,6 +453,291 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
 
 
 /**
+ *  Used in `policy_type` to specify how `boolean_policy` will behave at this
+ *  resource.
+ */
+@interface GTLRCloudAsset_GoogleCloudOrgpolicyV1BooleanPolicy : GTLRObject
+
+/**
+ *  If `true`, then the `Policy` is enforced. If `false`, then any
+ *  configuration is acceptable.
+ *  Suppose you have a `Constraint`
+ *  `constraints/compute.disableSerialPortAccess` with `constraint_default`
+ *  set to `ALLOW`. A `Policy` for that `Constraint` exhibits the following
+ *  behavior:
+ *  - If the `Policy` at this resource has enforced set to `false`, serial
+ *  port connection attempts will be allowed.
+ *  - If the `Policy` at this resource has enforced set to `true`, serial
+ *  port connection attempts will be refused.
+ *  - If the `Policy` at this resource is `RestoreDefault`, serial port
+ *  connection attempts will be allowed.
+ *  - If no `Policy` is set at this resource or anywhere higher in the
+ *  resource hierarchy, serial port connection attempts will be allowed.
+ *  - If no `Policy` is set at this resource, but one exists higher in the
+ *  resource hierarchy, the behavior is as if the`Policy` were set at
+ *  this resource.
+ *  The following examples demonstrate the different possible layerings:
+ *  Example 1 (nearest `Constraint` wins):
+ *  `organizations/foo` has a `Policy` with:
+ *  {enforced: false}
+ *  `projects/bar` has no `Policy` set.
+ *  The constraint at `projects/bar` and `organizations/foo` will not be
+ *  enforced.
+ *  Example 2 (enforcement gets replaced):
+ *  `organizations/foo` has a `Policy` with:
+ *  {enforced: false}
+ *  `projects/bar` has a `Policy` with:
+ *  {enforced: true}
+ *  The constraint at `organizations/foo` is not enforced.
+ *  The constraint at `projects/bar` is enforced.
+ *  Example 3 (RestoreDefault):
+ *  `organizations/foo` has a `Policy` with:
+ *  {enforced: true}
+ *  `projects/bar` has a `Policy` with:
+ *  {RestoreDefault: {}}
+ *  The constraint at `organizations/foo` is enforced.
+ *  The constraint at `projects/bar` is not enforced, because
+ *  `constraint_default` for the `Constraint` is `ALLOW`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforced;
+
+@end
+
+
+/**
+ *  Used in `policy_type` to specify how `list_policy` behaves at this
+ *  resource.
+ *  `ListPolicy` can define specific values and subtrees of Cloud Resource
+ *  Manager resource hierarchy (`Organizations`, `Folders`, `Projects`) that
+ *  are allowed or denied by setting the `allowed_values` and `denied_values`
+ *  fields. This is achieved by using the `under:` and optional `is:` prefixes.
+ *  The `under:` prefix is used to denote resource subtree values.
+ *  The `is:` prefix is used to denote specific values, and is required only
+ *  if the value contains a ":". Values prefixed with "is:" are treated the
+ *  same as values with no prefix.
+ *  Ancestry subtrees must be in one of the following formats:
+ *  - “projects/<project-id>”, e.g. “projects/tokyo-rain-123”
+ *  - “folders/<folder-id>”, e.g. “folders/1234”
+ *  - “organizations/<organization-id>”, e.g. “organizations/1234”
+ *  The `supports_under` field of the associated `Constraint` defines whether
+ *  ancestry prefixes can be used. You can set `allowed_values` and
+ *  `denied_values` in the same `Policy` if `all_values` is
+ *  `ALL_VALUES_UNSPECIFIED`. `ALLOW` or `DENY` are used to allow or deny all
+ *  values. If `all_values` is set to either `ALLOW` or `DENY`,
+ *  `allowed_values` and `denied_values` must be unset.
+ */
+@interface GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy : GTLRObject
+
+/**
+ *  List of values allowed at this resource. Can only be set if `all_values`
+ *  is set to `ALL_VALUES_UNSPECIFIED`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedValues;
+
+/**
+ *  The policy all_values state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Allow A
+ *        policy with this set allows all values. (Value: "ALLOW")
+ *    @arg @c kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_AllValuesUnspecified
+ *        Indicates that allowed_values or denied_values must be set. (Value:
+ *        "ALL_VALUES_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Deny A
+ *        policy with this set denies all values. (Value: "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *allValues;
+
+/**
+ *  List of values denied at this resource. Can only be set if `all_values`
+ *  is set to `ALL_VALUES_UNSPECIFIED`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deniedValues;
+
+/**
+ *  Determines the inheritance behavior for this `Policy`.
+ *  By default, a `ListPolicy` set at a resource supercedes any `Policy` set
+ *  anywhere up the resource hierarchy. However, if `inherit_from_parent` is
+ *  set to `true`, then the values from the effective `Policy` of the parent
+ *  resource are inherited, meaning the values set in this `Policy` are
+ *  added to the values inherited up the hierarchy.
+ *  Setting `Policy` hierarchies that inherit both allowed values and denied
+ *  values isn't recommended in most circumstances to keep the configuration
+ *  simple and understandable. However, it is possible to set a `Policy` with
+ *  `allowed_values` set that inherits a `Policy` with `denied_values` set.
+ *  In this case, the values that are allowed must be in `allowed_values` and
+ *  not present in `denied_values`.
+ *  For example, suppose you have a `Constraint`
+ *  `constraints/serviceuser.services`, which has a `constraint_type` of
+ *  `list_constraint`, and with `constraint_default` set to `ALLOW`.
+ *  Suppose that at the Organization level, a `Policy` is applied that
+ *  restricts the allowed API activations to {`E1`, `E2`}. Then, if a
+ *  `Policy` is applied to a project below the Organization that has
+ *  `inherit_from_parent` set to `false` and field all_values set to DENY,
+ *  then an attempt to activate any API will be denied.
+ *  The following examples demonstrate different possible layerings for
+ *  `projects/bar` parented by `organizations/foo`:
+ *  Example 1 (no inherited values):
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: “E1” allowed_values:”E2”}
+ *  `projects/bar` has `inherit_from_parent` `false` and values:
+ *  {allowed_values: "E3" allowed_values: "E4"}
+ *  The accepted values at `organizations/foo` are `E1`, `E2`.
+ *  The accepted values at `projects/bar` are `E3`, and `E4`.
+ *  Example 2 (inherited values):
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: “E1” allowed_values:”E2”}
+ *  `projects/bar` has a `Policy` with values:
+ *  {value: “E3” value: ”E4” inherit_from_parent: true}
+ *  The accepted values at `organizations/foo` are `E1`, `E2`.
+ *  The accepted values at `projects/bar` are `E1`, `E2`, `E3`, and `E4`.
+ *  Example 3 (inheriting both allowed and denied values):
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: "E1" allowed_values: "E2"}
+ *  `projects/bar` has a `Policy` with:
+ *  {denied_values: "E1"}
+ *  The accepted values at `organizations/foo` are `E1`, `E2`.
+ *  The value accepted at `projects/bar` is `E2`.
+ *  Example 4 (RestoreDefault):
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: “E1” allowed_values:”E2”}
+ *  `projects/bar` has a `Policy` with values:
+ *  {RestoreDefault: {}}
+ *  The accepted values at `organizations/foo` are `E1`, `E2`.
+ *  The accepted values at `projects/bar` are either all or none depending on
+ *  the value of `constraint_default` (if `ALLOW`, all; if
+ *  `DENY`, none).
+ *  Example 5 (no policy inherits parent policy):
+ *  `organizations/foo` has no `Policy` set.
+ *  `projects/bar` has no `Policy` set.
+ *  The accepted values at both levels are either all or none depending on
+ *  the value of `constraint_default` (if `ALLOW`, all; if
+ *  `DENY`, none).
+ *  Example 6 (ListConstraint allowing all):
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: “E1” allowed_values: ”E2”}
+ *  `projects/bar` has a `Policy` with:
+ *  {all: ALLOW}
+ *  The accepted values at `organizations/foo` are `E1`, E2`.
+ *  Any value is accepted at `projects/bar`.
+ *  Example 7 (ListConstraint allowing none):
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: “E1” allowed_values: ”E2”}
+ *  `projects/bar` has a `Policy` with:
+ *  {all: DENY}
+ *  The accepted values at `organizations/foo` are `E1`, E2`.
+ *  No value is accepted at `projects/bar`.
+ *  Example 10 (allowed and denied subtrees of Resource Manager hierarchy):
+ *  Given the following resource hierarchy
+ *  O1->{F1, F2}; F1->{P1}; F2->{P2, P3},
+ *  `organizations/foo` has a `Policy` with values:
+ *  {allowed_values: "under:organizations/O1"}
+ *  `projects/bar` has a `Policy` with:
+ *  {allowed_values: "under:projects/P3"}
+ *  {denied_values: "under:folders/F2"}
+ *  The accepted values at `organizations/foo` are `organizations/O1`,
+ *  `folders/F1`, `folders/F2`, `projects/P1`, `projects/P2`,
+ *  `projects/P3`.
+ *  The accepted values at `projects/bar` are `organizations/O1`,
+ *  `folders/F1`, `projects/P1`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inheritFromParent;
+
+/**
+ *  Optional. The Google Cloud Console will try to default to a configuration
+ *  that matches the value specified in this `Policy`. If `suggested_value`
+ *  is not set, it will inherit the value specified higher in the hierarchy,
+ *  unless `inherit_from_parent` is `false`.
+ */
+@property(nonatomic, copy, nullable) NSString *suggestedValue;
+
+@end
+
+
+/**
+ *  Defines a Cloud Organization `Policy` which is used to specify `Constraints`
+ *  for configurations of Cloud Platform resources.
+ */
+@interface GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy : GTLRObject
+
+/** For boolean `Constraints`, whether to enforce the `Constraint` or not. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudOrgpolicyV1BooleanPolicy *booleanPolicy;
+
+/**
+ *  The name of the `Constraint` the `Policy` is configuring, for example,
+ *  `constraints/serviceuser.services`.
+ *  Immutable after creation.
+ */
+@property(nonatomic, copy, nullable) NSString *constraint;
+
+/**
+ *  An opaque tag indicating the current version of the `Policy`, used for
+ *  concurrency control.
+ *  When the `Policy` is returned from either a `GetPolicy` or a
+ *  `ListOrgPolicy` request, this `etag` indicates the version of the current
+ *  `Policy` to use when executing a read-modify-write loop.
+ *  When the `Policy` is returned from a `GetEffectivePolicy` request, the
+ *  `etag` will be unset.
+ *  When the `Policy` is used in a `SetOrgPolicy` method, use the `etag` value
+ *  that was returned from a `GetOrgPolicy` request as part of a
+ *  read-modify-write loop for concurrency control. Not setting the `etag`in a
+ *  `SetOrgPolicy` request will result in an unconditional write of the
+ *  `Policy`.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** List of values either allowed or disallowed. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy *listPolicy;
+
+/**
+ *  Restores the default behavior of the constraint; independent of
+ *  `Constraint` type.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudOrgpolicyV1RestoreDefault *restoreDefault;
+
+/**
+ *  The time stamp the `Policy` was previously updated. This is set by the
+ *  server, not specified by the caller, and represents the last time a call to
+ *  `SetOrgPolicy` was made for that `Policy`. Any value set by the client will
+ *  be ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Version of the `Policy`. Default version is 0;
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Ignores policies set above this resource and restores the
+ *  `constraint_default` enforcement behavior of the specific `Constraint` at
+ *  this resource.
+ *  Suppose that `constraint_default` is set to `ALLOW` for the
+ *  `Constraint` `constraints/serviceuser.services`. Suppose that organization
+ *  foo.com sets a `Policy` at their Organization resource node that restricts
+ *  the allowed service activations to deny all service activations. They
+ *  could then set a `Policy` with the `policy_type` `restore_default` on
+ *  several experimental projects, restoring the `constraint_default`
+ *  enforcement of the `Constraint` for only those projects, allowing those
+ *  projects to have all services activated.
+ */
+@interface GTLRCloudAsset_GoogleCloudOrgpolicyV1RestoreDefault : GTLRObject
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -431,7 +766,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
 /**
  *  The server-assigned name, which is only unique within the same service that
  *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should have the format of `operations/some/unique/name`.
+ *  `name` should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -556,7 +891,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -644,45 +979,10 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
 /**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
- *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
- *  - Simple to use and understand for most users
- *  - Flexible enough to meet unexpected needs
- *  # Overview
- *  The `Status` message contains three pieces of data: error code, error
- *  message, and error details. The error code should be an enum value of
- *  google.rpc.Code, but it may accept additional error codes if needed. The
- *  error message should be a developer-facing English message that helps
- *  developers *understand* and *resolve* the error. If a localized user-facing
- *  error message is needed, put the localized message in the error details or
- *  localize it in the client. The optional error details may contain arbitrary
- *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` that can be used for common error conditions.
- *  # Language mapping
- *  The `Status` message is the logical representation of the error model, but
- *  it
- *  is not necessarily the actual wire format. When the `Status` message is
- *  exposed in different client libraries and different wire protocols, it can
- *  be
- *  mapped differently. For example, it will likely be mapped to some exceptions
- *  in Java, but more likely mapped to some error codes in C.
- *  # Other uses
- *  The error model and the `Status` message can be used in a variety of
- *  environments, either with or without APIs, to provide a
- *  consistent developer experience across different environments.
- *  Example uses of this error model include:
- *  - Partial errors. If a service needs to return partial errors to the client,
- *  it may embed the `Status` in the normal response to indicate the partial
- *  errors.
- *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting.
- *  - Batch operations. If a client uses batch request and batch response, the
- *  `Status` message should be used directly inside batch response, one for
- *  each error sub-response.
- *  - Asynchronous operations. If an API call embeds asynchronous operation
- *  results in its response, the status of those operations should be
- *  represented directly using the `Status` message.
- *  - Logging. If some API errors are stored in logs, the message `Status` could
- *  be used directly after any stripping needed for security/privacy reasons.
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details.
+ *  You can find out more about this error model and how to work with it in the
+ *  [API Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudAsset_Status : GTLRObject
 

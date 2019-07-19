@@ -241,6 +241,17 @@ NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFo
 //
 
 @implementation GTLRCloudIot_GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIot_GetPolicyOptions
+//
+
+@implementation GTLRCloudIot_GetPolicyOptions
+@dynamic requestedPolicyVersion;
 @end
 
 

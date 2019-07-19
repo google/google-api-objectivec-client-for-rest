@@ -86,6 +86,7 @@ NSString * const kGTLRDfareportingObjectTypeObjectEventTag     = @"OBJECT_EVENT_
 NSString * const kGTLRDfareportingObjectTypeObjectFloodlightActivityGroup = @"OBJECT_FLOODLIGHT_ACTIVITY_GROUP";
 NSString * const kGTLRDfareportingObjectTypeObjectFloodlightActvity = @"OBJECT_FLOODLIGHT_ACTVITY";
 NSString * const kGTLRDfareportingObjectTypeObjectFloodlightConfiguration = @"OBJECT_FLOODLIGHT_CONFIGURATION";
+NSString * const kGTLRDfareportingObjectTypeObjectFloodlightDv360Link = @"OBJECT_FLOODLIGHT_DV360_LINK";
 NSString * const kGTLRDfareportingObjectTypeObjectInstreamCreative = @"OBJECT_INSTREAM_CREATIVE";
 NSString * const kGTLRDfareportingObjectTypeObjectLandingPage  = @"OBJECT_LANDING_PAGE";
 NSString * const kGTLRDfareportingObjectTypeObjectMediaOrder   = @"OBJECT_MEDIA_ORDER";

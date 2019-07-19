@@ -88,7 +88,7 @@
 //
 
 @implementation GTLRStorage_Bucket_IamConfiguration
-@dynamic bucketPolicyOnly;
+@dynamic bucketPolicyOnly, uniformBucketLevelAccess;
 @end
 
 
@@ -180,6 +180,16 @@
 //
 
 @implementation GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly
+@dynamic enabled, lockedTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_IamConfiguration_UniformBucketLevelAccess
+//
+
+@implementation GTLRStorage_Bucket_IamConfiguration_UniformBucketLevelAccess
 @dynamic enabled, lockedTime;
 @end
 

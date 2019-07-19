@@ -249,8 +249,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesPatchWithObject:name:]
 
 /**
- *  Output only.
- *  The resource name of the instance, in the format
+ *  Output only. The resource name of the instance, in the format
  *  projects/{project_id}/locations/{location_id}/instances/{instance_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -271,8 +270,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the settings of a specific instance.
  *
  *  @param object The @c GTLRCloudFilestore_Instance to include in the query.
- *  @param name Output only.
- *    The resource name of the instance, in the format
+ *  @param name Output only. The resource name of the instance, in the format
  *    projects/{project_id}/locations/{location_id}/instances/{instance_id}.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPatch

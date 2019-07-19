@@ -7,7 +7,7 @@
 //   Cloud Search provides cloud-based search capabilities over G Suite data.
 //   The Cloud Search API allows indexing of non-G Suite data into Cloud Search.
 // Documentation:
-//   https://gsuite.google.com/products/cloud-search/
+//   https://developers.google.com/cloud-search/docs/guides/
 
 #import "GTLRCloudSearchObjects.h"
 

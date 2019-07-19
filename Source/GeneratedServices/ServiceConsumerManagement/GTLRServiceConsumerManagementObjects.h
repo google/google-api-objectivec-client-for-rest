@@ -1418,6 +1418,14 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_DocumentationRule *> *rules;
 
 /**
+ *  Specifies the service root url if the default one (the service name
+ *  from the yaml file) is not suitable. This can be seen in any fully
+ *  specified service urls as well as sections that show a base that other
+ *  urls are relative to.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceRootUrl;
+
+/**
  *  A short summary of what the service does. Can only be provided by
  *  plain text.
  */
@@ -4106,10 +4114,7 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 /** The email address of the service account. */
 @property(nonatomic, copy, nullable) NSString *email;
 
-/**
- *  The IAM resource name of the service account in the following format:
- *  projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}.
- */
+/** Deprecated. See b/136209818. */
 @property(nonatomic, copy, nullable) NSString *iamAccountName;
 
 /**

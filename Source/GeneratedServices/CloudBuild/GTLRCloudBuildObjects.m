@@ -314,15 +314,6 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_CheckSuiteFilter
-//
-
-@implementation GTLRCloudBuild_CheckSuiteFilter
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudBuild_Empty
 //
 
@@ -354,7 +345,7 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_GitHubEventsConfig
-@dynamic checkSuite, installationId, name, owner, pullRequest, push;
+@dynamic installationId, name, owner, pullRequest, push;
 @end
 
 

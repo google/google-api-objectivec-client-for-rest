@@ -28,12 +28,14 @@
 @class GTLRCloudKMS_CryptoKeyVersionTemplate;
 @class GTLRCloudKMS_Digest;
 @class GTLRCloudKMS_Expr;
+@class GTLRCloudKMS_ImportJob;
 @class GTLRCloudKMS_KeyOperationAttestation;
 @class GTLRCloudKMS_KeyRing;
 @class GTLRCloudKMS_Location;
 @class GTLRCloudKMS_Location_Labels;
 @class GTLRCloudKMS_Location_Metadata;
 @class GTLRCloudKMS_Policy;
+@class GTLRCloudKMS_WrappingPublicKey;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -268,6 +270,15 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Disabled;
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
 /**
+ *  This version was not imported successfully. It may not be used, enabled,
+ *  disabled, or destroyed. The submitted key material has been discarded.
+ *  Additional details can be found in
+ *  CryptoKeyVersion.import_failure_reason.
+ *
+ *  Value: "IMPORT_FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_ImportFailed;
+/**
  *  This version is still being generated. It may not be used, enabled,
  *  disabled, or destroyed yet. Cloud KMS will automatically mark this
  *  version ENABLED as soon as the version is ready.
@@ -275,6 +286,14 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_Enabled;
  *  Value: "PENDING_GENERATION"
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_PendingGeneration;
+/**
+ *  This version is still being imported. It may not be used, enabled,
+ *  disabled, or destroyed yet. Cloud KMS will automatically mark this
+ *  version ENABLED as soon as the version is ready.
+ *
+ *  Value: "PENDING_IMPORT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_PendingImport;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKeyVersionTemplate.algorithm
@@ -397,6 +416,193 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLe
  *  Value: "SOFTWARE"
  */
 GTLR_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_ImportCryptoKeyVersionRequest.algorithm
+
+/**
+ *  Not specified.
+ *
+ *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
+/**
+ *  ECDSA on the NIST P-256 curve with a SHA256 digest.
+ *
+ *  Value: "EC_SIGN_P256_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP256Sha256;
+/**
+ *  ECDSA on the NIST P-384 curve with a SHA384 digest.
+ *
+ *  Value: "EC_SIGN_P384_SHA384"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP384Sha384;
+/**
+ *  Creates symmetric encryption keys.
+ *
+ *  Value: "GOOGLE_SYMMETRIC_ENCRYPTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_GoogleSymmetricEncryption;
+/**
+ *  RSAES-OAEP 2048 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha256;
+/**
+ *  RSAES-OAEP 3072 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_2048_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs12048Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 3072 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_3072_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs13072Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_4096_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs14096Sha256;
+/**
+ *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PKCS1_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs14096Sha512;
+/**
+ *  RSASSA-PSS 2048 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_2048_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss2048Sha256;
+/**
+ *  RSASSA-PSS 3072 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_3072_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss3072Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_4096_SHA256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_4096_SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha512;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_ImportJob.importMethod
+
+/**
+ *  Not specified.
+ *
+ *  Value: "IMPORT_METHOD_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_ImportMethodUnspecified;
+/**
+ *  This ImportMethod represents the CKM_RSA_AES_KEY_WRAP key wrapping
+ *  scheme defined in the PKCS #11 standard. In summary, this involves
+ *  wrapping the raw key with an ephemeral AES key, and wrapping the
+ *  ephemeral AES key with a 3072 bit RSA key. For more details, see
+ *  [RSA AES key wrap
+ *  mechanism](http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/cos01/pkcs11-curr-v2.40-cos01.html#_Toc408226908).
+ *
+ *  Value: "RSA_OAEP_3072_SHA1_AES_256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep3072Sha1Aes256;
+/**
+ *  This ImportMethod represents the CKM_RSA_AES_KEY_WRAP key wrapping
+ *  scheme defined in the PKCS #11 standard. In summary, this involves
+ *  wrapping the raw key with an ephemeral AES key, and wrapping the
+ *  ephemeral AES key with a 4096 bit RSA key. For more details, see
+ *  [RSA AES key wrap
+ *  mechanism](http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/cos01/pkcs11-curr-v2.40-cos01.html#_Toc408226908).
+ *
+ *  Value: "RSA_OAEP_4096_SHA1_AES_256"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep4096Sha1Aes256;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_ImportJob.protectionLevel
+
+/**
+ *  Crypto operations are performed in a Hardware Security Module.
+ *
+ *  Value: "HSM"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_Hsm;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_ProtectionLevelUnspecified;
+/**
+ *  Crypto operations are performed in software.
+ *
+ *  Value: "SOFTWARE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_ImportJob.state
+
+/**
+ *  This job may be used in
+ *  CreateCryptoKey and
+ *  CreateCryptoKeyVersion
+ *  requests.
+ *
+ *  Value: "ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportJob_State_Active;
+/**
+ *  This job can no longer be used and may not leave this state once entered.
+ *
+ *  Value: "EXPIRED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportJob_State_Expired;
+/**
+ *  Not specified.
+ *
+ *  Value: "IMPORT_JOB_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportJob_State_ImportJobStateUnspecified;
+/**
+ *  The wrapping key for this job is still being generated. It may not be
+ *  used. Cloud KMS will automatically mark this job as
+ *  ACTIVE as soon as the wrapping key is generated.
+ *
+ *  Value: "PENDING_GENERATION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudKMS_ImportJob_State_PendingGeneration;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_KeyOperationAttestation.format
@@ -808,7 +1014,8 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
 
 /**
  *  next_rotation_time will be advanced by this period when the service
- *  automatically rotates a key. Must be at least one day.
+ *  automatically rotates a key. Must be at least 24 hours and at most
+ *  876,000 hours.
  *  If rotation_period is set, next_rotation_time must also be set.
  *  Keys with purpose
  *  ENCRYPT_DECRYPT support
@@ -940,6 +1147,26 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
 @property(nonatomic, strong, nullable) GTLRDateTime *generateTime;
 
 /**
+ *  Output only. The root cause of an import failure. Only present if
+ *  state is
+ *  IMPORT_FAILED.
+ */
+@property(nonatomic, copy, nullable) NSString *importFailureReason;
+
+/**
+ *  Output only. The name of the ImportJob used to import this
+ *  CryptoKeyVersion. Only present if the underlying key material was
+ *  imported.
+ */
+@property(nonatomic, copy, nullable) NSString *importJob;
+
+/**
+ *  Output only. The time at which this CryptoKeyVersion's key material
+ *  was imported.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *importTime;
+
+/**
  *  Output only. The resource name for this CryptoKeyVersion in the format
  *  `projects/ * /locations/ * /keyRings/ * /cryptoKeys/ * /cryptoKeyVersions/
  *  *`.
@@ -980,11 +1207,21 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *        "DISABLED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_Enabled This version may be
  *        used for cryptographic operations. (Value: "ENABLED")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_ImportFailed This version was
+ *        not imported successfully. It may not be used, enabled,
+ *        disabled, or destroyed. The submitted key material has been discarded.
+ *        Additional details can be found in
+ *        CryptoKeyVersion.import_failure_reason. (Value: "IMPORT_FAILED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_PendingGeneration This
  *        version is still being generated. It may not be used, enabled,
  *        disabled, or destroyed yet. Cloud KMS will automatically mark this
  *        version ENABLED as soon as the version is ready. (Value:
  *        "PENDING_GENERATION")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_PendingImport This version is
+ *        still being imported. It may not be used, enabled,
+ *        disabled, or destroyed yet. Cloud KMS will automatically mark this
+ *        version ENABLED as soon as the version is ready. (Value:
+ *        "PENDING_IMPORT")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1252,6 +1489,235 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
 
 
 /**
+ *  Request message for KeyManagementService.ImportCryptoKeyVersion.
+ */
+@interface GTLRCloudKMS_ImportCryptoKeyVersionRequest : GTLRObject
+
+/**
+ *  Required. The algorithm of
+ *  the key being imported. This does not need to match the
+ *  version_template of the CryptoKey this
+ *  version imports into.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified
+ *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP256Sha256
+ *        ECDSA on the NIST P-256 curve with a SHA256 digest. (Value:
+ *        "EC_SIGN_P256_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP384Sha384
+ *        ECDSA on the NIST P-384 curve with a SHA384 digest. (Value:
+ *        "EC_SIGN_P384_SHA384")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_GoogleSymmetricEncryption
+ *        Creates symmetric encryption keys. (Value:
+ *        "GOOGLE_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha256
+ *        RSAES-OAEP 2048 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha256
+ *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha256
+ *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha512
+ *        RSAES-OAEP 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs12048Sha256
+ *        RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs13072Sha256
+ *        RSASSA-PKCS1-v1_5 with a 3072 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs14096Sha256
+ *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest. (Value:
+ *        "RSA_SIGN_PKCS1_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs14096Sha512
+ *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest. (Value:
+ *        "RSA_SIGN_PKCS1_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss2048Sha256
+ *        RSASSA-PSS 2048 bit key with a SHA256 digest. (Value:
+ *        "RSA_SIGN_PSS_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss3072Sha256
+ *        RSASSA-PSS 3072 bit key with a SHA256 digest. (Value:
+ *        "RSA_SIGN_PSS_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha256
+ *        RSASSA-PSS 4096 bit key with a SHA256 digest. (Value:
+ *        "RSA_SIGN_PSS_4096_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha512
+ *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_SIGN_PSS_4096_SHA512")
+ */
+@property(nonatomic, copy, nullable) NSString *algorithm;
+
+/**
+ *  Required. The name of the ImportJob that was used to
+ *  wrap this key material.
+ */
+@property(nonatomic, copy, nullable) NSString *importJob;
+
+/**
+ *  Wrapped key material produced with
+ *  RSA_OAEP_3072_SHA1_AES_256
+ *  or
+ *  RSA_OAEP_4096_SHA1_AES_256.
+ *  This field contains the concatenation of two wrapped keys:
+ *  <ol>
+ *  <li>An ephemeral AES-256 wrapping key wrapped with the
+ *  public_key using RSAES-OAEP with SHA-1,
+ *  MGF1 with SHA-1, and an empty label.
+ *  </li>
+ *  <li>The key to be imported, wrapped with the ephemeral AES-256 key
+ *  using AES-KWP (RFC 5649).
+ *  </li>
+ *  </ol>
+ *  This format is the same as the format produced by PKCS#11 mechanism
+ *  CKM_RSA_AES_KEY_WRAP.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *rsaAesWrappedKey;
+
+@end
+
+
+/**
+ *  An ImportJob can be used to create CryptoKeys and
+ *  CryptoKeyVersions using pre-existing key material,
+ *  generated outside of Cloud KMS.
+ *  When an ImportJob is created, Cloud KMS will generate a "wrapping key",
+ *  which is a public/private key pair. You use the wrapping key to encrypt
+ *  (also
+ *  known as wrap) the pre-existing key material to protect it during the import
+ *  process. The nature of the wrapping key depends on the choice of
+ *  import_method. When the wrapping key generation
+ *  is complete, the state will be set to
+ *  ACTIVE and the public_key
+ *  can be fetched. The fetched public key can then be used to wrap your
+ *  pre-existing key material.
+ *  Once the key material is wrapped, it can be imported into a new
+ *  CryptoKeyVersion in an existing CryptoKey by calling
+ *  ImportCryptoKeyVersion.
+ *  Multiple CryptoKeyVersions can be imported with a single
+ *  ImportJob. Cloud KMS uses the private key portion of the wrapping key to
+ *  unwrap the key material. Only Cloud KMS has access to the private key.
+ *  An ImportJob expires 3 days after it is created. Once expired, Cloud KMS
+ *  will no longer be able to import or unwrap any key material that was wrapped
+ *  with the ImportJob's public key.
+ *  For more information, see
+ *  [Importing a key](https://cloud.google.com/kms/docs/importing-a-key).
+ */
+@interface GTLRCloudKMS_ImportJob : GTLRObject
+
+/**
+ *  Output only. Statement that was generated and signed by the key creator
+ *  (for example, an HSM) at key creation time. Use this statement to verify
+ *  attributes of the key as stored on the HSM, independently of Google.
+ *  Only present if the chosen ImportMethod is one with a protection
+ *  level of HSM.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_KeyOperationAttestation *attestation;
+
+/** Output only. The time at which this ImportJob was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The time this ImportJob expired. Only present if
+ *  state is EXPIRED.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireEventTime;
+
+/**
+ *  Output only. The time at which this ImportJob is scheduled for
+ *  expiration and can no longer be used to import key material.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/** Output only. The time this ImportJob's key material was generated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *generateTime;
+
+/**
+ *  Required and immutable. The wrapping method to be used for incoming
+ *  key material.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_ImportJob_ImportMethod_ImportMethodUnspecified Not
+ *        specified. (Value: "IMPORT_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep3072Sha1Aes256 This
+ *        ImportMethod represents the CKM_RSA_AES_KEY_WRAP key wrapping
+ *        scheme defined in the PKCS #11 standard. In summary, this involves
+ *        wrapping the raw key with an ephemeral AES key, and wrapping the
+ *        ephemeral AES key with a 3072 bit RSA key. For more details, see
+ *        [RSA AES key wrap
+ *        mechanism](http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/cos01/pkcs11-curr-v2.40-cos01.html#_Toc408226908).
+ *        (Value: "RSA_OAEP_3072_SHA1_AES_256")
+ *    @arg @c kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep4096Sha1Aes256 This
+ *        ImportMethod represents the CKM_RSA_AES_KEY_WRAP key wrapping
+ *        scheme defined in the PKCS #11 standard. In summary, this involves
+ *        wrapping the raw key with an ephemeral AES key, and wrapping the
+ *        ephemeral AES key with a 4096 bit RSA key. For more details, see
+ *        [RSA AES key wrap
+ *        mechanism](http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/cos01/pkcs11-curr-v2.40-cos01.html#_Toc408226908).
+ *        (Value: "RSA_OAEP_4096_SHA1_AES_256")
+ */
+@property(nonatomic, copy, nullable) NSString *importMethod;
+
+/**
+ *  Output only. The resource name for this ImportJob in the format
+ *  `projects/ * /locations/ * /keyRings/ * /importJobs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required and immutable. The protection level of the ImportJob. This
+ *  must match the
+ *  protection_level of the
+ *  version_template on the CryptoKey you
+ *  attempt to import into.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_ImportJob_ProtectionLevel_Hsm Crypto operations are
+ *        performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_ImportJob_ProtectionLevel_ProtectionLevelUnspecified
+ *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_ImportJob_ProtectionLevel_Software Crypto operations
+ *        are performed in software. (Value: "SOFTWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+/**
+ *  Output only. The public key with which to wrap key material prior to
+ *  import. Only returned if state is
+ *  ACTIVE.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_WrappingPublicKey *publicKey;
+
+/**
+ *  Output only. The current state of the ImportJob, indicating if it can
+ *  be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_ImportJob_State_Active This job may be used in
+ *        CreateCryptoKey and
+ *        CreateCryptoKeyVersion
+ *        requests. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudKMS_ImportJob_State_Expired This job can no longer be
+ *        used and may not leave this state once entered. (Value: "EXPIRED")
+ *    @arg @c kGTLRCloudKMS_ImportJob_State_ImportJobStateUnspecified Not
+ *        specified. (Value: "IMPORT_JOB_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_ImportJob_State_PendingGeneration The wrapping key
+ *        for this job is still being generated. It may not be
+ *        used. Cloud KMS will automatically mark this job as
+ *        ACTIVE as soon as the wrapping key is generated. (Value:
+ *        "PENDING_GENERATION")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Contains an HSM-generated attestation about a key operation. For more
  *  information, see [Verifying attestations]
  *  (https://cloud.google.com/kms/docs/attest-key).
@@ -1365,6 +1831,40 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
 /**
  *  The total number of CryptoKeyVersions that matched the
  *  query.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response message for KeyManagementService.ListImportJobs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "importJobs" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudKMS_ListImportJobsResponse : GTLRCollectionObject
+
+/**
+ *  The list of ImportJobs.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_ImportJob *> *importJobs;
+
+/**
+ *  A token to retrieve next page of results. Pass this value in
+ *  ListImportJobsRequest.page_token to retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The total number of ImportJobs that matched the query.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1725,6 +2225,24 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
 
 /** The id of the child CryptoKeyVersion to use as primary. */
 @property(nonatomic, copy, nullable) NSString *cryptoKeyVersionId;
+
+@end
+
+
+/**
+ *  The public key component of the wrapping key. For details of the type of
+ *  key this public key corresponds to, see the ImportMethod.
+ */
+@interface GTLRCloudKMS_WrappingPublicKey : GTLRObject
+
+/**
+ *  The public key, encoded in PEM format. For more information, see the [RFC
+ *  7468](https://tools.ietf.org/html/rfc7468) sections for [General
+ *  Considerations](https://tools.ietf.org/html/rfc7468#section-2) and
+ *  [Textual Encoding of Subject Public Key Info]
+ *  (https://tools.ietf.org/html/rfc7468#section-13).
+ */
+@property(nonatomic, copy, nullable) NSString *pem;
 
 @end
 

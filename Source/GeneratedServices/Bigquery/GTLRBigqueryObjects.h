@@ -507,6 +507,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** [Required] A reference that identifies the dataset. */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *datasetReference;
 
+@property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *defaultEncryptionConfiguration;
+
 /**
  *  [Optional] The default partition expiration for all partitioned tables in
  *  the dataset, in milliseconds. Once this property is set, all newly-created
@@ -2176,6 +2178,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** [Output-only] Quotas which delayed this job's start time. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *quotaDeferments;
 
+/**
+ *  [Output-only] Name of the primary reservation assigned to this job. Note
+ *  that this could be different than reservations reported in the reservation
+ *  usage field if parent reservations were used to execute this job.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationId;
+
 /** [Output-only] Job resource usage breakdown by reservation. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_JobStatistics_ReservationUsage_Item *> *reservationUsage;
 
@@ -2301,6 +2310,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** [Output-only] Describes execution plan for the query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ExplainQueryStage *> *queryPlan;
+
+/**
+ *  [Output-only] Referenced routines (persistent user-defined functions and
+ *  stored procedures) for the job.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_RoutineReference *> *referencedRoutines;
 
 /**
  *  [Output-only] Referenced tables for the job. Queries that reference more

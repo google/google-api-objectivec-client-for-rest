@@ -1574,8 +1574,8 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
          deleteNamedRange, deleteParagraphBullets, deletePositionedObject,
          deleteTableColumn, deleteTableRow, insertInlineImage, insertPageBreak,
          insertTable, insertTableColumn, insertTableRow, insertText,
-         replaceAllText, updateParagraphStyle, updateTableColumnProperties,
-         updateTableRowStyle, updateTextStyle;
+         replaceAllText, updateParagraphStyle, updateTableCellStyle,
+         updateTableColumnProperties, updateTableRowStyle, updateTextStyle;
 @end
 
 
@@ -1961,6 +1961,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_TableRange
+//
+
+@implementation GTLRDocs_TableRange
+@dynamic columnSpan, rowSpan, tableCellLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_TableRow
 //
 
@@ -2107,6 +2117,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_UpdateParagraphStyleRequest
 @dynamic fields, paragraphStyle, range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_UpdateTableCellStyleRequest
+//
+
+@implementation GTLRDocs_UpdateTableCellStyleRequest
+@dynamic fields, tableCellStyle, tableRange, tableStartLocation;
 @end
 
 

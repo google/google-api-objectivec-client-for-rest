@@ -84,6 +84,7 @@ NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventoryDeliv
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventoryFormat = @"FILTER_INVENTORY_FORMAT";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventoryRateType = @"FILTER_INVENTORY_RATE_TYPE";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventorySource = @"FILTER_INVENTORY_SOURCE";
+NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventorySourceExternalId = @"FILTER_INVENTORY_SOURCE_EXTERNAL_ID";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventorySourceType = @"FILTER_INVENTORY_SOURCE_TYPE";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterKeyword = @"FILTER_KEYWORD";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItem = @"FILTER_LINE_ITEM";
@@ -214,6 +215,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventoryD
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventoryFormat = @"FILTER_INVENTORY_FORMAT";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventoryRateType = @"FILTER_INVENTORY_RATE_TYPE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventorySource = @"FILTER_INVENTORY_SOURCE";
+NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventorySourceExternalId = @"FILTER_INVENTORY_SOURCE_EXTERNAL_ID";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventorySourceType = @"FILTER_INVENTORY_SOURCE_TYPE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterKeyword = @"FILTER_KEYWORD";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLineItem = @"FILTER_LINE_ITEM";
@@ -539,7 +541,6 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRichMediaVi
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRichMediaVideoThirdQuartileCompletes = @"METRIC_RICH_MEDIA_VIDEO_THIRD_QUARTILE_COMPLETES";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTeaTrueviewImpressions = @"METRIC_TEA_TRUEVIEW_IMPRESSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTeaTrueviewUniqueCookies = @"METRIC_TEA_TRUEVIEW_UNIQUE_COOKIES";
-NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTeaTrueviewUniquePeople = @"METRIC_TEA_TRUEVIEW_UNIQUE_PEOPLE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalConversions = @"METRIC_TOTAL_CONVERSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostAdvertiser = @"METRIC_TOTAL_MEDIA_COST_ADVERTISER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostEcpaAdvertiser = @"METRIC_TOTAL_MEDIA_COST_ECPA_ADVERTISER";

@@ -4471,7 +4471,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  The current version of the app.<p>Note that the version can automatically
+ *  The current version of the app.Note that the version can automatically
  *  increase during the lifetime of the web app, while Google does internal
  *  housekeeping to keep the web app up-to-date.
  *
@@ -4518,7 +4518,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  Permissions available to an admin in the embedded UI. An admin must have all
- *  of these permissions in order to view the UI.
+ *  of these permissions in order to view the UI. This field is deprecated.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 

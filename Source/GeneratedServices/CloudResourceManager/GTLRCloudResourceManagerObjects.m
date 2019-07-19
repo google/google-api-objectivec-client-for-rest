@@ -147,6 +147,17 @@ NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_R
 //
 
 @implementation GTLRCloudResourceManager_GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_GetPolicyOptions
+//
+
+@implementation GTLRCloudResourceManager_GetPolicyOptions
+@dynamic requestedPolicyVersion;
 @end
 
 
