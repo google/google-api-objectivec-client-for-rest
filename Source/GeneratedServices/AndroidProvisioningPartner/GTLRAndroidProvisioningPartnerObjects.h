@@ -369,7 +369,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
 @interface GTLRAndroidProvisioningPartner_Company : GTLRObject
 
 /**
- *  Input only. Optional. Email address of customer's users in the admin role.
+ *  Optional. Input only. Email address of customer's users in the admin role.
  *  Each email address must be associated with a Google Account.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *adminEmails;

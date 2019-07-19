@@ -240,6 +240,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSnapshotsGetIamPolicyWithresource:]
 
 /**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
  *  REQUIRED: The resource for which the policy is being requested.
  *  See the operation documentation for the appropriate value for this field.
  */
@@ -644,6 +652,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsubQuery_ProjectsSubscriptionsGetIamPolicy : GTLRPubsubQuery
 // Previous library name was
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsGetIamPolicyWithresource:]
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
@@ -1153,6 +1169,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsubQuery_ProjectsTopicsGetIamPolicy : GTLRPubsubQuery
 // Previous library name was
 //   +[GTLQueryPubsub queryForProjectsTopicsGetIamPolicyWithresource:]
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.

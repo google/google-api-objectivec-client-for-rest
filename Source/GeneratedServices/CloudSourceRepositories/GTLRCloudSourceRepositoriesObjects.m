@@ -297,6 +297,16 @@ NSString * const kGTLRCloudSourceRepositories_PubsubConfig_MessageFormat_Protobu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSourceRepositories_SyncRepoMetadata
+//
+
+@implementation GTLRCloudSourceRepositories_SyncRepoMetadata
+@dynamic name, startTime, statusMessage, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSourceRepositories_SyncRepoRequest
 //
 

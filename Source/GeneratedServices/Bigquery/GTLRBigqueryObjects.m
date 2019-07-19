@@ -131,9 +131,10 @@
 //
 
 @implementation GTLRBigquery_Dataset
-@dynamic access, creationTime, datasetReference, defaultPartitionExpirationMs,
-         defaultTableExpirationMs, descriptionProperty, ETag, friendlyName,
-         identifier, kind, labels, lastModifiedTime, location, selfLink;
+@dynamic access, creationTime, datasetReference, defaultEncryptionConfiguration,
+         defaultPartitionExpirationMs, defaultTableExpirationMs,
+         descriptionProperty, ETag, friendlyName, identifier, kind, labels,
+         lastModifiedTime, location, selfLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -647,8 +648,12 @@
 
 @implementation GTLRBigquery_JobStatistics
 @dynamic completionRatio, creationTime, endTime, extract, load, numChildJobs,
-         parentJobId, query, quotaDeferments, reservationUsage, startTime,
-         totalBytesProcessed, totalSlotMs;
+         parentJobId, query, quotaDeferments, reservationId, reservationUsage,
+         startTime, totalBytesProcessed, totalSlotMs;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"reservationId" : @"reservation_id" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -680,14 +685,15 @@
 @dynamic billingTier, cacheHit, ddlOperationPerformed, ddlTargetRoutine,
          ddlTargetTable, estimatedBytesProcessed, modelTraining,
          modelTrainingCurrentIteration, modelTrainingExpectedTotalIteration,
-         numDmlAffectedRows, queryPlan, referencedTables, reservationUsage,
-         schema, statementType, timeline, totalBytesBilled, totalBytesProcessed,
-         totalBytesProcessedAccuracy, totalPartitionsProcessed, totalSlotMs,
-         undeclaredQueryParameters;
+         numDmlAffectedRows, queryPlan, referencedRoutines, referencedTables,
+         reservationUsage, schema, statementType, timeline, totalBytesBilled,
+         totalBytesProcessed, totalBytesProcessedAccuracy,
+         totalPartitionsProcessed, totalSlotMs, undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"queryPlan" : [GTLRBigquery_ExplainQueryStage class],
+    @"referencedRoutines" : [GTLRBigquery_RoutineReference class],
     @"referencedTables" : [GTLRBigquery_TableReference class],
     @"reservationUsage" : [GTLRBigquery_JobStatistics2_ReservationUsage_Item class],
     @"timeline" : [GTLRBigquery_QueryTimelineSample class],

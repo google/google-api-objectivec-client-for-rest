@@ -142,6 +142,61 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capa
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput.state
+
+/**
+ *  The job has been cancelled.
+ *  `error_message` should describe the reason for the cancellation.
+ *
+ *  Value: "CANCELLED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelled;
+/**
+ *  The job is being cancelled.
+ *  `error_message` should describe the reason for the cancellation.
+ *
+ *  Value: "CANCELLING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelling;
+/**
+ *  The job failed.
+ *  `error_message` should contain the details of the failure.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Failed;
+/**
+ *  The service is preparing to run the job.
+ *
+ *  Value: "PREPARING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Preparing;
+/**
+ *  The job has been just created and processing has not yet begun.
+ *
+ *  Value: "QUEUED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Queued;
+/**
+ *  The job is in progress.
+ *
+ *  Value: "RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Running;
+/**
+ *  The job state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_StateUnspecified;
+/**
+ *  The job completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.algorithm
 
 /**
@@ -867,6 +922,9 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput *builtInAlgorithmOutput;
 
+/** Output only. End time for the trial. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
 /** The final objective metric seen for this trial. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric *finalMetric;
 
@@ -879,6 +937,39 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isTrialStoppedEarly;
+
+/** Output only. Start time for the trial. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The detailed state of the trial.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelled
+ *        The job has been cancelled.
+ *        `error_message` should describe the reason for the cancellation.
+ *        (Value: "CANCELLED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelling
+ *        The job is being cancelled.
+ *        `error_message` should describe the reason for the cancellation.
+ *        (Value: "CANCELLING")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Failed
+ *        The job failed.
+ *        `error_message` should contain the details of the failure. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Preparing
+ *        The service is preparing to run the job. (Value: "PREPARING")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Queued
+ *        The job has been just created and processing has not yet begun.
+ *        (Value: "QUEUED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Running
+ *        The job is in progress. (Value: "RUNNING")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_StateUnspecified
+ *        The job state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Succeeded
+ *        The job completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 /** The trial id for these results. */
 @property(nonatomic, copy, nullable) NSString *trialId;
@@ -1746,6 +1837,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @property(nonatomic, copy, nullable) NSString *imageUri;
 
+/**
+ *  TensorFlow version used in the custom container. This field is required if
+ *  the replica is a TPU worker that uses a custom container. Otherwise, do not
+ *  specify this field.
+ */
+@property(nonatomic, copy, nullable) NSString *tpuTfVersion;
+
 @end
 
 
@@ -2264,7 +2362,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ManualScaling *manualScaling;
 
 /**
- *  Required.The name specified for the version when it was created.
+ *  Required. The name specified for the version when it was created.
  *  The version name must be unique within the model it is created in.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2413,7 +2511,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -2425,7 +2523,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  ]
  *  },
  *  {
- *  "service": "fooservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com"
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -2433,16 +2531,16 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  {
  *  "log_type": "DATA_WRITE",
  *  "exempted_members": [
- *  "user:bar\@gmail.com"
+ *  "user:aliya\@example.com"
  *  ]
  *  }
  *  ]
  *  }
  *  ]
  *  }
- *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
- *  bar\@gmail.com from DATA_WRITE logging.
+ *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts jose\@example.com from DATA_READ logging, and
+ *  aliya\@example.com from DATA_WRITE logging.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1AuditConfig : GTLRObject
 
@@ -2467,7 +2565,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -2476,7 +2574,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  ]
  *  }
  *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  foo\@gmail.com from DATA_READ logging.
+ *  jose\@example.com from DATA_READ logging.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig : GTLRObject
 
@@ -2526,7 +2624,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -2606,7 +2704,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

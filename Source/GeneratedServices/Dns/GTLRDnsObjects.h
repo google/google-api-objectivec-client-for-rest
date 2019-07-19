@@ -551,7 +551,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 /**
  *  Specifies parameters that will be used for generating initial DnsKeys for
- *  this ManagedZone. Output only while state is not OFF.
+ *  this ManagedZone. Can only be changed while state is OFF.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_DnsKeySpec *> *defaultKeySpecs;
 
@@ -563,7 +563,7 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 /**
  *  Specifies the mechanism used to provide authenticated denial-of-existence
- *  responses. Output only while state is not OFF.
+ *  responses. Can only be changed while state is OFF.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec Value "nsec"

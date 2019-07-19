@@ -41,6 +41,7 @@
 @class GTLRCloudHealthcare_FhirStore_Labels;
 @class GTLRCloudHealthcare_FieldMetadata;
 @class GTLRCloudHealthcare_Finding;
+@class GTLRCloudHealthcare_GetPolicyOptions;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2DicomBigQueryDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2DicomGcsDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1alpha2DicomGcsSource;
@@ -80,8 +81,11 @@
 @class GTLRCloudHealthcare_Status;
 @class GTLRCloudHealthcare_Status_Details_Item;
 @class GTLRCloudHealthcare_StreamConfig;
+@class GTLRCloudHealthcare_SubscriptionConfig;
+@class GTLRCloudHealthcare_SubscriptionRestHookEndpoint;
 @class GTLRCloudHealthcare_TagFilterList;
 @class GTLRCloudHealthcare_TextConfig;
+@class GTLRCloudHealthcare_ValidationConfig;
 @class GTLRCloudHealthcare_Vertex;
 
 // Generated comments include content from the discovery document; avoid them
@@ -127,7 +131,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_LogType
 
 /**
  *  Remove tags based on DICOM Standard's Attribute Confidentiality Basic
- *  Profile (DICOM Standard Edition 2018e).
+ *  Profile (DICOM Standard Edition 2018e)
+ *  http://dicom.nema.org/medical/dicom/2018e/output/chtml/part15/chapter_E.html.
  *
  *  Value: "ATTRIBUTE_CONFIDENTIALITY_BASIC_PROFILE"
  */
@@ -295,7 +300,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /** Annotations for resource, e.g., classification tags. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ResourceAnnotation *resourceAnnotation;
 
-/** Annotations for sentitive texts, e.g., range of such texts. */
+/** Annotations for sensitive texts, e.g., range of such texts. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_SensitiveTextAnnotation *textAnnotation;
 
 @end
@@ -378,7 +383,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -390,7 +395,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  ]
  *  },
  *  {
- *  "service": "fooservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com"
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -398,16 +403,16 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  {
  *  "log_type": "DATA_WRITE",
  *  "exempted_members": [
- *  "user:bar\@gmail.com"
+ *  "user:aliya\@example.com"
  *  ]
  *  }
  *  ]
  *  }
  *  ]
  *  }
- *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
- *  bar\@gmail.com from DATA_WRITE logging.
+ *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts jose\@example.com from DATA_READ logging, and
+ *  aliya\@example.com from DATA_WRITE logging.
  */
 @interface GTLRCloudHealthcare_AuditConfig : GTLRObject
 
@@ -432,7 +437,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -441,7 +446,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  ]
  *  }
  *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  foo\@gmail.com from DATA_READ logging.
+ *  jose\@example.com from DATA_READ logging.
  */
 @interface GTLRCloudHealthcare_AuditLogConfig : GTLRObject
 
@@ -451,6 +456,15 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  Specifies whether principals can be exempted for the same LogType in
+ *  lower-level resource policies. If true, any lower-level exemptions will
+ *  be ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
 
 /**
  *  The log type that this config enables.
@@ -491,7 +505,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -741,8 +755,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_DicomConfig_FilterProfile_AttributeConfidentialityBasicProfile
  *        Remove tags based on DICOM Standard's Attribute Confidentiality Basic
- *        Profile (DICOM Standard Edition 2018e). (Value:
- *        "ATTRIBUTE_CONFIDENTIALITY_BASIC_PROFILE")
+ *        Profile (DICOM Standard Edition 2018e)
+ *        http://dicom.nema.org/medical/dicom/2018e/output/chtml/part15/chapter_E.html.
+ *        (Value: "ATTRIBUTE_CONFIDENTIALITY_BASIC_PROFILE")
  *    @arg @c kGTLRCloudHealthcare_DicomConfig_FilterProfile_DeidentifyTagContents
  *        Inspects within tag contents and replaces sensitive text. The process
  *        can be configured using the TextConfig.
@@ -1065,6 +1080,18 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_StreamConfig *> *streamConfigs;
 
+/**
+ *  Configuration of FHIR Subscription:
+ *  https://www.hl7.org/fhir/subscription.html.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_SubscriptionConfig *subscriptionConfig;
+
+/**
+ *  Configuration for how incoming FHIR resources will be validated against
+ *  configured profiles.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_ValidationConfig *validationConfig;
+
 @end
 
 
@@ -1159,6 +1186,31 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Request message for `GetIamPolicy` method.
  */
 @interface GTLRCloudHealthcare_GetIamPolicyRequest : GTLRObject
+
+/**
+ *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
+ *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GetPolicyOptions *options;
+
+@end
+
+
+/**
+ *  Encapsulates settings provided to GetIamPolicy.
+ */
+@interface GTLRCloudHealthcare_GetPolicyOptions : GTLRObject
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedPolicyVersion;
+
 @end
 
 
@@ -2333,7 +2385,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2656,6 +2708,53 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
+ *  Configuration of FHIR Subscription:
+ *  https://www.hl7.org/fhir/subscription.html.
+ */
+@interface GTLRCloudHealthcare_SubscriptionConfig : GTLRObject
+
+/**
+ *  REST hook endpoints that are allowed to receive subscription notifications.
+ *  The create or update operation on a FHIR Subscription resource will fail if
+ *  the FHIR Subscription resource contains a REST hook endpoint that is not in
+ *  this list.
+ *  A subscription notification push will fail if the FHIR Subscription
+ *  resource contains a REST hook endpoint that is not in this list.
+ *  The REST hook endpoint in a subscription resource will be compared with the
+ *  endpoints in this list by exact matching.
+ *  Users must verify their ownership of the domain of an endpoint before
+ *  adding it to this list. To verify domain ownership, go to
+ *  https://search.google.com/search-console/welcome.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_SubscriptionRestHookEndpoint *> *allowedRestHookEndpoints;
+
+@end
+
+
+/**
+ *  REST hook endpoint of FHIR Subscription.
+ */
+@interface GTLRCloudHealthcare_SubscriptionRestHookEndpoint : GTLRObject
+
+/**
+ *  Whether this endpoint is allowed to receive full resource payloads. If set
+ *  to false, the subscription notificiation sending to this endpoint with full
+ *  resource payload will be blocked.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowResourcePayload;
+
+/**
+ *  Address of the REST hook endpoint. It must be a valid HTTPS URL with TLS
+ *  certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+@end
+
+
+/**
  *  List of tags to be filtered.
  */
 @interface GTLRCloudHealthcare_TagFilterList : GTLRObject
@@ -2715,6 +2814,35 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /** The transformations to apply to the detected data. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_InfoTypeTransformation *> *transformations;
+
+@end
+
+
+/**
+ *  This structure contains the configuration for FHIR profiles and validation.
+ */
+@interface GTLRCloudHealthcare_ValidationConfig : GTLRObject
+
+/**
+ *  Whether profile validation should be disabled for this FHIR store. Set
+ *  this to true to disable checking incoming resources for conformance
+ *  against StructureDefinitions in this FHIR store.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableProfileValidation;
+
+/**
+ *  A list of ImplementationGuide IDs in this FHIR store that will be used to
+ *  configure which profiles are used for validation. For example, to enable
+ *  an implementation guide with ID 1 set `enabled_implementation_guides` to
+ *  `["1"]`. If `enabled_implementation_guides` is empty or omitted then
+ *  incoming resources will only be required to conform to the base FHIR
+ *  profiles. Otherwise, a resource must conform to at least one profile
+ *  listed in the `global` property of one of the enabled
+ *  ImplementationGuides.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledImplementationGuides;
 
 @end
 

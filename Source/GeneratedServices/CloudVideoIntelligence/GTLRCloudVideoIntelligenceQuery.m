@@ -20,63 +20,6 @@
 
 @end
 
-@implementation GTLRCloudVideoIntelligenceQuery_OperationsCancel
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/operations/{+name}:cancel";
-  GTLRCloudVideoIntelligenceQuery_OperationsCancel *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudVideoIntelligence_GoogleProtobufEmpty class];
-  query.loggingName = @"videointelligence.operations.cancel";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudVideoIntelligenceQuery_OperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/operations/{+name}";
-  GTLRCloudVideoIntelligenceQuery_OperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudVideoIntelligence_GoogleProtobufEmpty class];
-  query.loggingName = @"videointelligence.operations.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudVideoIntelligenceQuery_OperationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/operations/{+name}";
-  GTLRCloudVideoIntelligenceQuery_OperationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudVideoIntelligence_GoogleLongrunningOperation class];
-  query.loggingName = @"videointelligence.operations.get";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsCancel
 
 @dynamic name;

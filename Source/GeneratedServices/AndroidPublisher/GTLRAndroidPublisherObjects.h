@@ -34,6 +34,7 @@
 @class GTLRAndroidPublisher_InAppProduct_Listings;
 @class GTLRAndroidPublisher_InAppProduct_Prices;
 @class GTLRAndroidPublisher_InAppProductListing;
+@class GTLRAndroidPublisher_IntroductoryPriceInfo;
 @class GTLRAndroidPublisher_Listing;
 @class GTLRAndroidPublisher_LocalizedText;
 @class GTLRAndroidPublisher_MonthDay;
@@ -691,6 +692,45 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Contains the introductory price information for a subscription.
+ */
+@interface GTLRAndroidPublisher_IntroductoryPriceInfo : GTLRObject
+
+/**
+ *  Introductory price of the subscription, not including tax. The currency is
+ *  the same as price_currency_code. Price is expressed in micro-units, where
+ *  1,000,000 micro-units represents one unit of the currency. For example, if
+ *  the subscription price is €1.99, price_amount_micros is 1990000.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *introductoryPriceAmountMicros;
+
+/**
+ *  ISO 4217 currency code for the introductory subscription price. For example,
+ *  if the price is specified in British pounds sterling, price_currency_code is
+ *  "GBP".
+ */
+@property(nonatomic, copy, nullable) NSString *introductoryPriceCurrencyCode;
+
+/**
+ *  The number of billing period to offer introductory pricing.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *introductoryPriceCycles;
+
+/**
+ *  Introductory price period, specified in ISO 8601 format. Common values are
+ *  (but not limited to) "P1W" (one week), "P1M" (one month), "P3M" (three
+ *  months), "P6M" (six months), and "P1Y" (one year).
+ */
+@property(nonatomic, copy, nullable) NSString *introductoryPricePeriod;
+
+@end
+
+
+/**
  *  GTLRAndroidPublisher_Listing
  */
 @interface GTLRAndroidPublisher_Listing : GTLRObject
@@ -859,6 +899,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The purchase state of the order. Possible values are:
  *  - Purchased
  *  - Canceled
+ *  - Pending
  *
  *  Uses NSNumber of intValue.
  */
@@ -1178,6 +1219,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  for purchases made with 'Subscribe with Google'.
  */
 @property(nonatomic, copy, nullable) NSString *givenName;
+
+/**
+ *  Introductory price information of the subscription. This is only present
+ *  when the subscription was purchased with an introductory price.
+ *  This field does not indicate the subscription is currently in introductory
+ *  price period.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_IntroductoryPriceInfo *introductoryPriceInfo;
 
 /**
  *  This kind represents a subscriptionPurchase object in the androidpublisher

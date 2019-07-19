@@ -37,6 +37,16 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_Training = @"TRAINING";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput.state
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Failed = @"FAILED";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Preparing = @"PREPARING";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Queued = @"QUEUED";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Running = @"RUNNING";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Succeeded = @"SUCCEEDED";
+
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.algorithm
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_AlgorithmUnspecified = @"ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_GridSearch = @"GRID_SEARCH";
@@ -238,8 +248,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput
-@dynamic allMetrics, builtInAlgorithmOutput, finalMetric, hyperparameters,
-         isTrialStoppedEarly, trialId;
+@dynamic allMetrics, builtInAlgorithmOutput, endTime, finalMetric,
+         hyperparameters, isTrialStoppedEarly, startTime, state, trialId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -574,7 +584,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig
-@dynamic acceleratorConfig, imageUri;
+@dynamic acceleratorConfig, imageUri, tpuTfVersion;
 @end
 
 

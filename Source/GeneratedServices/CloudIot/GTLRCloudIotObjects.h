@@ -29,6 +29,7 @@
 @class GTLRCloudIot_EventNotificationConfig;
 @class GTLRCloudIot_Expr;
 @class GTLRCloudIot_GatewayConfig;
+@class GTLRCloudIot_GetPolicyOptions;
 @class GTLRCloudIot_HttpConfig;
 @class GTLRCloudIot_MqttConfig;
 @class GTLRCloudIot_Policy;
@@ -334,7 +335,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -845,6 +846,31 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
  *  Request message for `GetIamPolicy` method.
  */
 @interface GTLRCloudIot_GetIamPolicyRequest : GTLRObject
+
+/**
+ *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
+ *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIot_GetPolicyOptions *options;
+
+@end
+
+
+/**
+ *  Encapsulates settings provided to GetIamPolicy.
+ */
+@interface GTLRCloudIot_GetPolicyOptions : GTLRObject
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedPolicyVersion;
+
 @end
 
 
@@ -1063,7 +1089,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

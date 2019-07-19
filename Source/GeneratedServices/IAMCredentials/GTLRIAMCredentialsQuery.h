@@ -20,7 +20,6 @@
 #endif
 
 @class GTLRIAMCredentials_GenerateAccessTokenRequest;
-@class GTLRIAMCredentials_GenerateIdentityBindingAccessTokenRequest;
 @class GTLRIAMCredentials_GenerateIdTokenRequest;
 @class GTLRIAMCredentials_SignBlobRequest;
 @class GTLRIAMCredentials_SignJwtRequest;
@@ -78,42 +77,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateAccessToken
  */
 + (instancetype)queryWithObject:(GTLRIAMCredentials_GenerateAccessTokenRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateIdentityBindingAccessToken
- *
- *  Method: iamcredentials.projects.serviceAccounts.generateIdentityBindingAccessToken
- */
-@interface GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateIdentityBindingAccessToken : GTLRIAMCredentialsQuery
-// Previous library name was
-//   +[GTLQueryIAMCredentials queryForProjectsServiceAccountsGenerateIdentityBindingAccessTokenWithObject:name:]
-
-/**
- *  The resource name of the service account for which the credentials
- *  are requested, in the following format:
- *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
- *  character is required; replacing it with a project ID is invalid.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRIAMCredentials_GenerateIdentityBindingAccessTokenResponse.
- *
- *  @param object The @c
- *    GTLRIAMCredentials_GenerateIdentityBindingAccessTokenRequest to include in
- *    the query.
- *  @param name The resource name of the service account for which the
- *    credentials
- *    are requested, in the following format:
- *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
- *    character is required; replacing it with a project ID is invalid.
- *
- *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateIdentityBindingAccessToken
- */
-+ (instancetype)queryWithObject:(GTLRIAMCredentials_GenerateIdentityBindingAccessTokenRequest *)object
                            name:(NSString *)name;
 
 @end

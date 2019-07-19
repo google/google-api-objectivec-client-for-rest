@@ -271,6 +271,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator;
 /** Value: "completeRoboScriptExecution" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution;
+/** Value: "crashDialogError" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CrashDialogError;
 /** Value: "encounteredLoginScreen" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen;
 /** Value: "encounteredNonAndroidUiWidgetScreen" */
@@ -1025,6 +1027,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *abortedByUser;
+
+/**
+ *  If results are being provided to the user in certain cases of infrastructure
+ *  failures
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasErrorLogs;
 
 /**
  *  If the test runner could not determine success or failure because the test
@@ -2055,6 +2065,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
  *        "compatibleWithOrchestrator"
  *    @arg @c kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution Value
  *        "completeRoboScriptExecution"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_CrashDialogError Value
+ *        "crashDialogError"
  *    @arg @c kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen Value
  *        "encounteredLoginScreen"
  *    @arg @c kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen

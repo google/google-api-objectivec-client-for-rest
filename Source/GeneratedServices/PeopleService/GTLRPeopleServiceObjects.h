@@ -657,6 +657,20 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
+ *  The response for deleteing a contact's photo.
+ */
+@interface GTLRPeopleService_DeleteContactPhotoResponse : GTLRObject
+
+/**
+ *  The updated person, if person_fields is set in the
+ *  DeleteContactPhotoRequest; otherwise this will be unset.
+ */
+@property(nonatomic, strong, nullable) GTLRPeopleService_Person *person;
+
+@end
+
+
+/**
  *  A read-only G Suite Domain membership.
  */
 @interface GTLRPeopleService_DomainMembership : GTLRObject
@@ -1794,6 +1808,76 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /** The contact group to update. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_ContactGroup *contactGroup;
+
+@end
+
+
+/**
+ *  A request to update an existing contact's photo.
+ *  All requests must have a valid photo format: JPEG or PNG.
+ */
+@interface GTLRPeopleService_UpdateContactPhotoRequest : GTLRObject
+
+/**
+ *  **Optional.** Not specifying any fields will skip the post mutate read.
+ *  A field mask to restrict which fields on the person are
+ *  returned. Multiple fields can be specified by separating them with commas.
+ *  Valid values are:
+ *  * addresses
+ *  * ageRanges
+ *  * biographies
+ *  * birthdays
+ *  * braggingRights
+ *  * coverPhotos
+ *  * emailAddresses
+ *  * events
+ *  * genders
+ *  * imClients
+ *  * interests
+ *  * locales
+ *  * memberships
+ *  * metadata
+ *  * names
+ *  * nicknames
+ *  * occupations
+ *  * organizations
+ *  * phoneNumbers
+ *  * photos
+ *  * relations
+ *  * relationshipInterests
+ *  * relationshipStatuses
+ *  * residences
+ *  * sipAddresses
+ *  * skills
+ *  * taglines
+ *  * urls
+ *  * userDefined
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *personFields;
+
+/**
+ *  Raw photo bytes
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *photoBytes;
+
+@end
+
+
+/**
+ *  The response for updating a contact's photo.
+ */
+@interface GTLRPeopleService_UpdateContactPhotoResponse : GTLRObject
+
+/**
+ *  The updated person, if person_fields is set in the
+ *  UpdateContactPhotoRequest; otherwise this will be unset.
+ */
+@property(nonatomic, strong, nullable) GTLRPeopleService_Person *person;
 
 @end
 

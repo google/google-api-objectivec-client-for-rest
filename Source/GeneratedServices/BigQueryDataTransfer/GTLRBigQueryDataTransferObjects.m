@@ -112,9 +112,9 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 //
 
 @implementation GTLRBigQueryDataTransfer_DataSourceParameter
-@dynamic allowedValues, descriptionProperty, displayName, fields, immutable,
-         maxValue, minValue, paramId, recurse, repeated, required, type,
-         validationDescription, validationHelpUrl, validationRegex;
+@dynamic allowedValues, deprecated, descriptionProperty, displayName, fields,
+         immutable, maxValue, minValue, paramId, recurse, repeated, required,
+         type, validationDescription, validationHelpUrl, validationRegex;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

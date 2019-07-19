@@ -184,6 +184,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterIn
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventoryRateType;
 /** Value: "FILTER_INVENTORY_SOURCE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventorySource;
+/** Value: "FILTER_INVENTORY_SOURCE_EXTERNAL_ID" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventorySourceExternalId;
 /** Value: "FILTER_INVENTORY_SOURCE_TYPE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventorySourceType;
 /** Value: "FILTER_KEYWORD" */
@@ -444,6 +446,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventoryRateType;
 /** Value: "FILTER_INVENTORY_SOURCE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventorySource;
+/** Value: "FILTER_INVENTORY_SOURCE_EXTERNAL_ID" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventorySourceExternalId;
 /** Value: "FILTER_INVENTORY_SOURCE_TYPE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInventorySourceType;
 /** Value: "FILTER_KEYWORD" */
@@ -1094,8 +1098,6 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_Metri
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTeaTrueviewImpressions;
 /** Value: "METRIC_TEA_TRUEVIEW_UNIQUE_COOKIES" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTeaTrueviewUniqueCookies;
-/** Value: "METRIC_TEA_TRUEVIEW_UNIQUE_PEOPLE" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTeaTrueviewUniquePeople;
 /** Value: "METRIC_TOTAL_CONVERSIONS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalConversions;
 /** Value: "METRIC_TOTAL_MEDIA_COST_ADVERTISER" */
@@ -1727,6 +1729,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "FILTER_INVENTORY_RATE_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventorySource
  *        Value "FILTER_INVENTORY_SOURCE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventorySourceExternalId
+ *        Value "FILTER_INVENTORY_SOURCE_EXTERNAL_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInventorySourceType
  *        Value "FILTER_INVENTORY_SOURCE_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterKeyword Value

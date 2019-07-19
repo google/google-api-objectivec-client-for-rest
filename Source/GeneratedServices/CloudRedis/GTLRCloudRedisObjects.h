@@ -420,8 +420,13 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  *  Optional. Redis configuration parameters, according to
  *  http://redis.io/topics/config. Currently, the only supported parameters
  *  are:
+ *  Redis 3.2 and above:
  *  * maxmemory-policy
  *  * notify-keyspace-events
+ *  Redis 4.0 and above:
+ *  * activedefrag
+ *  * lfu-log-factor
+ *  * lfu-decay-time
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Instance_RedisConfigs *redisConfigs;
 
@@ -429,7 +434,9 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  *  Optional. The version of Redis software.
  *  If not provided, latest supported version will be used. Updating the
  *  version will perform an upgrade/downgrade to the new version. Currently,
- *  the supported values are `REDIS_3_2` for Redis 3.2.
+ *  the supported values are:
+ *  * `REDIS_4_0` for Redis 4.0 compatibility (default)
+ *  * `REDIS_3_2` for Redis 3.2 compatibility
  */
 @property(nonatomic, copy, nullable) NSString *redisVersion;
 
@@ -506,8 +513,13 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  *  Optional. Redis configuration parameters, according to
  *  http://redis.io/topics/config. Currently, the only supported parameters
  *  are:
+ *  Redis 3.2 and above:
  *  * maxmemory-policy
  *  * notify-keyspace-events
+ *  Redis 4.0 and above:
+ *  * activedefrag
+ *  * lfu-log-factor
+ *  * lfu-decay-time
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

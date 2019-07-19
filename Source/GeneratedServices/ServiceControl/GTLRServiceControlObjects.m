@@ -392,14 +392,47 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_Distribution
-@dynamic bucketCounts, count, explicitBuckets, exponentialBuckets,
+@dynamic bucketCounts, count, exemplars, explicitBuckets, exponentialBuckets,
          linearBuckets, maximum, mean, minimum, sumOfSquaredDeviation;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"bucketCounts" : [NSNumber class]
+    @"bucketCounts" : [NSNumber class],
+    @"exemplars" : [GTLRServiceControl_Exemplar class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_Exemplar
+//
+
+@implementation GTLRServiceControl_Exemplar
+@dynamic attachments, timestamp, value;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachments" : [GTLRServiceControl_Exemplar_Attachments_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_Exemplar_Attachments_Item
+//
+
+@implementation GTLRServiceControl_Exemplar_Attachments_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

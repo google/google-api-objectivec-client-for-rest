@@ -43,6 +43,7 @@
 @class GTLRShoppingContent_AccountUser;
 @class GTLRShoppingContent_AccountYouTubeChannelLink;
 @class GTLRShoppingContent_Amount;
+@class GTLRShoppingContent_BusinessDayConfig;
 @class GTLRShoppingContent_CarrierRate;
 @class GTLRShoppingContent_CarriersCarrier;
 @class GTLRShoppingContent_CustomAttribute;
@@ -1167,6 +1168,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_BusinessDayConfig
+ */
+@interface GTLRShoppingContent_BusinessDayConfig : GTLRObject
+
+/** Regular business days. May not be empty. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *businessDays;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_CarrierRate
  */
 @interface GTLRShoppingContent_CarrierRate : GTLRObject
@@ -1840,6 +1852,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_CutoffTime *cutoffTime;
 
 /**
+ *  The business days during which orders can be handled. If not provided,
+ *  Monday to Friday business days will be assumed.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_BusinessDayConfig *handlingBusinessDayConfig;
+
+/**
  *  Holiday cutoff definitions. If configured, they specify order cutoff times
  *  for holiday-specific shipping.
  */
@@ -1873,7 +1891,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Minimum number of business days that is spent in transit. 0 means same day
- *  delivery, 1 means next day delivery. Either {min,max}transitTimeInDays or
+ *  delivery, 1 means next day delivery. Either {min,max}TransitTimeInDays or
  *  transitTimeTable must be set, but not both.
  *
  *  Uses NSNumber of unsignedIntValue.
@@ -1881,8 +1899,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *minTransitTimeInDays;
 
 /**
+ *  The business days during which orders can be in-transit. If not provided,
+ *  Monday to Friday business days will be assumed.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_BusinessDayConfig *transitBusinessDayConfig;
+
+/**
  *  Transit time table, number of business days spent in transit based on row
- *  and column dimensions. Either {min,max}transitTimeInDays or transitTimeTable
+ *  and column dimensions. Either {min,max}TransitTimeInDays or transitTimeTable
  *  can be set, but not both.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_TransitTable *transitTimeTable;
@@ -5272,6 +5296,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
+
+/**
+ *  The Content API feed id.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *feedId;
 
 /**
  *  The ID of the managing account.

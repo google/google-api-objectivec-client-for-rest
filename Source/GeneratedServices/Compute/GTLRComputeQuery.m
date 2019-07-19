@@ -8087,6 +8087,277 @@
 
 @end
 
+@implementation GTLRComputeQuery_ReservationsAggregatedList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/aggregated/reservations";
+  GTLRComputeQuery_ReservationsAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_ReservationAggregatedList class];
+  query.loggingName = @"compute.reservations.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ReservationsDelete
+
+@dynamic project, requestId, reservation, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                     reservation:(NSString *)reservation {
+  NSArray *pathParams = @[
+    @"project", @"reservation", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations/{reservation}";
+  GTLRComputeQuery_ReservationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.reservation = reservation;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.reservations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ReservationsGet
+
+@dynamic project, reservation, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                     reservation:(NSString *)reservation {
+  NSArray *pathParams = @[
+    @"project", @"reservation", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations/{reservation}";
+  GTLRComputeQuery_ReservationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.reservation = reservation;
+  query.expectedObjectClass = [GTLRCompute_Reservation class];
+  query.loggingName = @"compute.reservations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ReservationsGetIamPolicy
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations/{resource}/getIamPolicy";
+  GTLRComputeQuery_ReservationsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.reservations.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ReservationsInsert
+
+@dynamic project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_Reservation *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations";
+  GTLRComputeQuery_ReservationsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.reservations.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ReservationsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty {
+  NSArray *pathParams = @[
+    @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations";
+  GTLRComputeQuery_ReservationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.expectedObjectClass = [GTLRCompute_ReservationList class];
+  query.loggingName = @"compute.reservations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ReservationsResize
+
+@dynamic project, requestId, reservation, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_ReservationsResizeRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                    reservation:(NSString *)reservation {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"reservation", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations/{reservation}/resize";
+  GTLRComputeQuery_ReservationsResize *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.reservation = reservation;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.reservations.resize";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ReservationsSetIamPolicy
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_ZoneSetPolicyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations/{resource}/setIamPolicy";
+  GTLRComputeQuery_ReservationsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.reservations.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ReservationsTestIamPermissions
+
+@dynamic project, resource, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations/{resource}/testIamPermissions";
+  GTLRComputeQuery_ReservationsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.reservations.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ResourcePoliciesAggregatedList
 
 @dynamic filter, maxResults, orderBy, pageToken, project;
@@ -8156,6 +8427,31 @@
 
 @end
 
+@implementation GTLRComputeQuery_ResourcePoliciesGetIamPolicy
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies/{resource}/getIamPolicy";
+  GTLRComputeQuery_ResourcePoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.resourcePolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ResourcePoliciesInsert
 
 @dynamic project, region, requestId;
@@ -8203,6 +8499,37 @@
   query.region = region;
   query.expectedObjectClass = [GTLRCompute_ResourcePolicyList class];
   query.loggingName = @"compute.resourcePolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ResourcePoliciesSetIamPolicy
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies/{resource}/setIamPolicy";
+  GTLRComputeQuery_ResourcePoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.resourcePolicies.setIamPolicy";
   return query;
 }
 

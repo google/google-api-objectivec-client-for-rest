@@ -80,7 +80,7 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCreate
 
-@dynamic cryptoKeyId, parent;
+@dynamic cryptoKeyId, parent, skipInitialVersionCreation;
 
 + (instancetype)queryWithObject:(GTLRCloudKMS_CryptoKey *)object
                          parent:(NSString *)parent {
@@ -241,9 +241,34 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImport
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_ImportCryptoKeyVersionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/cryptoKeyVersions:import";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudKMS_CryptoKeyVersion class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.import";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsList
 
-@dynamic pageSize, pageToken, parent, view;
+@dynamic filter, orderBy, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -381,7 +406,11 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGetIamPolicy
 
-@dynamic resource;
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
@@ -400,7 +429,7 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysList
 
-@dynamic pageSize, pageToken, parent, versionView;
+@dynamic filter, orderBy, pageSize, pageToken, parent, versionView;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -538,7 +567,11 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGetIamPolicy
 
-@dynamic resource;
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
@@ -555,9 +588,57 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsCreate
+
+@dynamic importJobId, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_ImportJob *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/importJobs";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudKMS_ImportJob class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.importJobs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_ImportJob class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.importJobs.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGetIamPolicy
 
-@dynamic resource;
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
@@ -569,6 +650,25 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudKMS_Policy class];
   query.loggingName = @"cloudkms.projects.locations.keyRings.importJobs.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/importJobs";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudKMS_ListImportJobsResponse class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.importJobs.list";
   return query;
 }
 
@@ -626,7 +726,7 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

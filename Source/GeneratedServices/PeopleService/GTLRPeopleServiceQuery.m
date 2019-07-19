@@ -245,6 +245,25 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 @end
 
+@implementation GTLRPeopleServiceQuery_PeopleDeleteContactPhoto
+
+@dynamic personFields, resourceName;
+
++ (instancetype)queryWithResourceName:(NSString *)resourceName {
+  NSArray *pathParams = @[ @"resourceName" ];
+  NSString *pathURITemplate = @"v1/{+resourceName}:deleteContactPhoto";
+  GTLRPeopleServiceQuery_PeopleDeleteContactPhoto *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.resourceName = resourceName;
+  query.expectedObjectClass = [GTLRPeopleService_DeleteContactPhotoResponse class];
+  query.loggingName = @"people.people.deleteContactPhoto";
+  return query;
+}
+
+@end
+
 @implementation GTLRPeopleServiceQuery_PeopleGet
 
 @dynamic personFields, requestMaskIncludeField, resourceName;
@@ -316,6 +335,31 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
   query.resourceName = resourceName;
   query.expectedObjectClass = [GTLRPeopleService_Person class];
   query.loggingName = @"people.people.updateContact";
+  return query;
+}
+
+@end
+
+@implementation GTLRPeopleServiceQuery_PeopleUpdateContactPhoto
+
+@dynamic resourceName;
+
++ (instancetype)queryWithObject:(GTLRPeopleService_UpdateContactPhotoRequest *)object
+                   resourceName:(NSString *)resourceName {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resourceName" ];
+  NSString *pathURITemplate = @"v1/{+resourceName}:updateContactPhoto";
+  GTLRPeopleServiceQuery_PeopleUpdateContactPhoto *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resourceName = resourceName;
+  query.expectedObjectClass = [GTLRPeopleService_UpdateContactPhotoResponse class];
+  query.loggingName = @"people.people.updateContactPhoto";
   return query;
 }
 

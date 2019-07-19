@@ -390,12 +390,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_MessageStoragePolicy : GTLRObject
 
 /**
- *  The list of GCP region IDs where messages that are published to the topic
+ *  A list of IDs of GCP regions where messages that are published to the topic
  *  may be persisted in storage. Messages published by publishers running in
  *  non-allowed GCP regions (or running outside of GCP altogether) will be
- *  routed for storage in one of the allowed regions. An empty list indicates a
- *  misconfiguration at the project or organization level, which will result in
- *  all Publish operations failing.
+ *  routed for storage in one of the allowed regions. An empty list means that
+ *  no regions are allowed, and is not a valid configuration.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedPersistenceRegions;
 
@@ -960,12 +959,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPubsub_Topic_Labels *labels;
 
 /**
- *  Policy constraining how messages published to the topic may be stored. It
- *  is determined when the topic is created based on the policy configured at
- *  the project level. It must not be set by the caller in the request to
- *  CreateTopic or to UpdateTopic. This field will be populated in the
- *  responses for GetTopic, CreateTopic, and UpdateTopic: if not present in the
- *  response, then no constraints are in effect.
+ *  Policy constraining the set of Google Cloud Platform regions where messages
+ *  published to the topic may be stored. If not present, then no constraints
+ *  are in effect.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_MessageStoragePolicy *messageStoragePolicy;
 

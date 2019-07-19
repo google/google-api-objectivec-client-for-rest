@@ -1166,7 +1166,8 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Generates a set of file IDs which can be provided in create requests.
+ *  Generates a set of file IDs which can be provided in create or copy
+ *  requests.
  *
  *  Method: drive.files.generateIds
  *
@@ -1198,7 +1199,8 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_GeneratedIds.
  *
- *  Generates a set of file IDs which can be provided in create requests.
+ *  Generates a set of file IDs which can be provided in create or copy
+ *  requests.
  *
  *  @return GTLRDriveQuery_FilesGenerateIds
  */

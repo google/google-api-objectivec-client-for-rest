@@ -2388,10 +2388,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @property(nonatomic, copy, nullable) NSString *placedDateStart;
 
 /**
- *  Obtains orders that match any of the specified statuses. Multiple values can
- *  be specified with comma separation. Additionally, please note that active is
- *  a shortcut for pendingShipment and partiallyShipped, and completed is a
- *  shortcut for shipped, partiallyDelivered, delivered, partiallyReturned,
+ *  Obtains orders that match any of the specified statuses. Please note that
+ *  active is a shortcut for pendingShipment and partiallyShipped, and completed
+ *  is a shortcut for shipped, partiallyDelivered, delivered, partiallyReturned,
  *  returned, and canceled.
  *
  *  Likely values:
@@ -3004,6 +3003,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForProductsDeleteWithmerchantId:productId:]
 
+/** The Content API Supplemental Feed ID. */
+@property(nonatomic, assign) unsigned long long feedId;
+
 /**
  *  The ID of the account that contains the product. This account cannot be a
  *  multi-client account.
@@ -3080,6 +3082,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @interface GTLRShoppingContentQuery_ProductsInsert : GTLRShoppingContentQuery
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForProductsInsertWithObject:merchantId:]
+
+/** The Content API Supplemental Feed ID. */
+@property(nonatomic, assign) unsigned long long feedId;
 
 /**
  *  The ID of the account that contains the product. This account cannot be a

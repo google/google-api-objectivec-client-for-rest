@@ -923,6 +923,35 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @end
 
+@implementation GTLRDLPQuery_ProjectsLocationsContentDeidentify
+
+@dynamic location, parent;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest *)object
+                         parent:(NSString *)parent
+                       location:(NSString *)location {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"location", @"parent"
+  ];
+  NSString *pathURITemplate = @"v2/{+parent}/locations/{location}/content:deidentify";
+  GTLRDLPQuery_ProjectsLocationsContentDeidentify *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.location = location;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DeidentifyContentResponse class];
+  query.loggingName = @"dlp.projects.locations.content.deidentify";
+  return query;
+}
+
+@end
+
 @implementation GTLRDLPQuery_ProjectsStoredInfoTypesCreate
 
 @dynamic parent;

@@ -4854,8 +4854,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 /**
  *  The alphanumeric encrypted user ID. When set, encryptionInfo should also be
  *  specified. This field is mutually exclusive with
- *  encryptedUserIdCandidates[], mobileDeviceId and gclid. This or
- *  encryptedUserIdCandidates[] or mobileDeviceId or gclid is a required field.
+ *  encryptedUserIdCandidates[], matchId, mobileDeviceId and gclid. This or
+ *  encryptedUserIdCandidates[] or matchId or mobileDeviceId or gclid is a
+ *  required field.
  */
 @property(nonatomic, copy, nullable) NSString *encryptedUserId;
 
@@ -4866,8 +4867,8 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  NO_COOKIE_MATCH_FOUND error. When set, encryptionInfo should also be
  *  specified. This field may only be used when calling batchinsert; it is not
  *  supported by batchupdate. This field is mutually exclusive with
- *  encryptedUserId, mobileDeviceId and gclid. This or encryptedUserId or
- *  mobileDeviceId or gclid is a required field.
+ *  encryptedUserId, matchId, mobileDeviceId and gclid. This or encryptedUserId
+ *  or matchId or mobileDeviceId or gclid is a required field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *encryptedUserIdCandidates;
 
@@ -4887,8 +4888,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /**
  *  The Google click ID. This field is mutually exclusive with encryptedUserId,
- *  encryptedUserIdCandidates[] and mobileDeviceId. This or encryptedUserId or
- *  encryptedUserIdCandidates[] or mobileDeviceId is a required field.
+ *  encryptedUserIdCandidates[], matchId and mobileDeviceId. This or
+ *  encryptedUserId or encryptedUserIdCandidates[] or matchId or mobileDeviceId
+ *  is a required field.
  */
 @property(nonatomic, copy, nullable) NSString *gclid;
 
@@ -4907,9 +4909,19 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, strong, nullable) NSNumber *limitAdTracking;
 
 /**
+ *  The match ID field. A match ID is your own first-party identifier that has
+ *  been synced with Google using the match ID feature in Floodlight. This field
+ *  is mutually exclusive with encryptedUserId,
+ *  encryptedUserIdCandidates[],mobileDeviceId and gclid. This or
+ *  encryptedUserId or encryptedUserIdCandidates[] or mobileDeviceId or gclid is
+ *  a required field.
+ */
+@property(nonatomic, copy, nullable) NSString *matchId;
+
+/**
  *  The mobile device ID. This field is mutually exclusive with encryptedUserId,
- *  encryptedUserIdCandidates[] and gclid. This or encryptedUserId or
- *  encryptedUserIdCandidates[] or gclid is a required field.
+ *  encryptedUserIdCandidates[], matchId and gclid. This or encryptedUserId or
+ *  encryptedUserIdCandidates[] or matchId or gclid is a required field.
  */
 @property(nonatomic, copy, nullable) NSString *mobileDeviceId;
 

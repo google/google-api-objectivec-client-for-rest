@@ -421,6 +421,17 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_GetPolicyOptions
+//
+
+@implementation GTLRDataproc_GetPolicyOptions
+@dynamic requestedPolicyVersion;
 @end
 
 

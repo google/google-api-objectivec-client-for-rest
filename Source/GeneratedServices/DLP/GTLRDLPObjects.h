@@ -120,6 +120,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2PrimitiveTransformation;
 @class GTLRDLP_GooglePrivacyDlpV2PrivacyMetric;
 @class GTLRDLP_GooglePrivacyDlpV2Proximity;
+@class GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog;
 @class GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToPubSub;
 @class GTLRDLP_GooglePrivacyDlpV2QuasiId;
@@ -891,6 +892,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  completion/failure.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2JobNotificationEmails *jobNotificationEmails;
+
+/** Publish findings to Cloud Datahub. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog *publishFindingsToCloudDataCatalog;
 
 /** Publish summary to Cloud Security Command Center (Alpha). */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc *publishSummaryToCscc;
@@ -2204,6 +2208,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /** The item to de-identify. Will be treated as text. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ContentItem *item;
+
+/**
+ *  The geographic location to process de-identification. Reserved for future
+ *  extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 @end
 
@@ -4213,6 +4223,22 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) NSNumber *windowBefore;
 
+@end
+
+
+/**
+ *  Publish findings of a DlpJob to Cloud Data Catalog. Labels summarizing the
+ *  results of the DlpJob will be applied to the entry for the resource scanned
+ *  in Cloud Data Catalog. Any labels previously written by another DlpJob will
+ *  be deleted. InfoType naming patterns are strictly enforced when using this
+ *  feature. Note that the findings will be persisted in Cloud Data Catalog
+ *  storage and are governed by Data Catalog service-specific policy, see
+ *  https://cloud.google.com/terms/service-terms
+ *  Only a single instance of this action can be specified and only allowed if
+ *  all resources being scanned are BigQuery tables.
+ *  Compatible with: Inspect
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog : GTLRObject
 @end
 
 

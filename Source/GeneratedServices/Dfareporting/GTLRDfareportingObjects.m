@@ -1990,7 +1990,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 @implementation GTLRDfareporting_Conversion
 @dynamic childDirectedTreatment, customVariables, encryptedUserId,
          encryptedUserIdCandidates, floodlightActivityId,
-         floodlightConfigurationId, gclid, kind, limitAdTracking,
+         floodlightConfigurationId, gclid, kind, limitAdTracking, matchId,
          mobileDeviceId, nonPersonalizedAd, ordinal, quantity, timestampMicros,
          treatmentForUnderage, value;
 

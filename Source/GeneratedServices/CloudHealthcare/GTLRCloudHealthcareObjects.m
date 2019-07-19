@@ -119,7 +119,7 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_AuditLogConfig
-@dynamic exemptedMembers, logType;
+@dynamic exemptedMembers, ignoreChildExemptions, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -390,7 +390,8 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 @implementation GTLRCloudHealthcare_FhirStore
 @dynamic disableReferentialIntegrity, disableResourceVersioning,
          enableHistoryImport, enableUpdateCreate, labels, name,
-         notificationConfig, streamConfigs;
+         notificationConfig, streamConfigs, subscriptionConfig,
+         validationConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -450,6 +451,17 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_GetPolicyOptions
+//
+
+@implementation GTLRCloudHealthcare_GetPolicyOptions
+@dynamic requestedPolicyVersion;
 @end
 
 
@@ -1272,6 +1284,34 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_SubscriptionConfig
+//
+
+@implementation GTLRCloudHealthcare_SubscriptionConfig
+@dynamic allowedRestHookEndpoints;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedRestHookEndpoints" : [GTLRCloudHealthcare_SubscriptionRestHookEndpoint class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_SubscriptionRestHookEndpoint
+//
+
+@implementation GTLRCloudHealthcare_SubscriptionRestHookEndpoint
+@dynamic allowResourcePayload, endpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_TagFilterList
 //
 
@@ -1335,6 +1375,24 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"transformations" : [GTLRCloudHealthcare_InfoTypeTransformation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ValidationConfig
+//
+
+@implementation GTLRCloudHealthcare_ValidationConfig
+@dynamic disableProfileValidation, enabledImplementationGuides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enabledImplementationGuides" : [NSString class]
   };
   return map;
 }

@@ -161,7 +161,11 @@
 
 @implementation GTLRCloudPrivateCatalogProducerQuery_CatalogsGetIamPolicy
 
-@dynamic resource;
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];

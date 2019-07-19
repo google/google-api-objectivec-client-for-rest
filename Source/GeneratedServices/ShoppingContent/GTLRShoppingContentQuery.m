@@ -1751,7 +1751,7 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @implementation GTLRShoppingContentQuery_ProductsDelete
 
-@dynamic merchantId, productId;
+@dynamic feedId, merchantId, productId;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                           productId:(NSString *)productId {
@@ -1796,7 +1796,7 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @implementation GTLRShoppingContentQuery_ProductsInsert
 
-@dynamic merchantId;
+@dynamic feedId, merchantId;
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_Product *)object
                      merchantId:(unsigned long long)merchantId {

@@ -43,6 +43,7 @@
 @class GTLRContainerAnalysis_Expr;
 @class GTLRContainerAnalysis_FileHashes;
 @class GTLRContainerAnalysis_Fingerprint;
+@class GTLRContainerAnalysis_GetPolicyOptions;
 @class GTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1AliasContext;
 @class GTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1CloudRepoSourceContext;
 @class GTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1GerritSourceContext;
@@ -1372,10 +1373,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  */
 @property(nonatomic, strong, nullable) NSNumber *isObsolete;
 
-/**
- *  Deprecated, do not use. Use fixed_location instead.
- *  The max version of the package in which the vulnerability exists.
- */
+/** The max version of the package in which the vulnerability exists. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *maxAffectedVersion;
 
 /** The min version of the package in which the vulnerability exists. */
@@ -1636,6 +1634,31 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  Request message for `GetIamPolicy` method.
  */
 @interface GTLRContainerAnalysis_GetIamPolicyRequest : GTLRObject
+
+/**
+ *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
+ *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GetPolicyOptions *options;
+
+@end
+
+
+/**
+ *  Encapsulates settings provided to GetIamPolicy.
+ */
+@interface GTLRContainerAnalysis_GetPolicyOptions : GTLRObject
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedPolicyVersion;
+
 @end
 
 

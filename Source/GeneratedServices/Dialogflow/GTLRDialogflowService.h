@@ -7,7 +7,7 @@
 //   Builds conversational interfaces (for example, chatbots, and voice-powered
 //   apps and devices).
 // Documentation:
-//   https://cloud.google.com/dialogflow-enterprise/
+//   https://cloud.google.com/dialogflow/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

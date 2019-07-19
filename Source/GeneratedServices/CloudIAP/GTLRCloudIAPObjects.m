@@ -49,6 +49,17 @@
 //
 
 @implementation GTLRCloudIAP_GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_GetPolicyOptions
+//
+
+@implementation GTLRCloudIAP_GetPolicyOptions
+@dynamic requestedPolicyVersion;
 @end
 
 

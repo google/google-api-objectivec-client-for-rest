@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Web Security Scanner API (websecurityscanner/v1alpha)
+//   Web Security Scanner API (websecurityscanner/v1)
 // Description:
 //   Scans your Compute and App Engine apps for common web vulnerabilities.
 // Documentation:

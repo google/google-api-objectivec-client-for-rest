@@ -170,7 +170,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
  */
 @interface GTLRFirebaseCloudMessaging_AndroidFcmOptions : GTLRObject
 
-/** Label that the message's analytics data will be associated with. */
+/** Label associated with the message's analytics data. */
 @property(nonatomic, copy, nullable) NSString *analyticsLabel;
 
 @end
@@ -230,6 +230,13 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
  *  specified in your app manifest.
  */
 @property(nonatomic, copy, nullable) NSString *icon;
+
+/**
+ *  Contains the URL of an image that is going to be displayed in a
+ *  notification. If present, it will override
+ *  google.firebase.fcm.v1.Notification.image.
+ */
+@property(nonatomic, copy, nullable) NSString *image;
 
 /**
  *  The sound to play when the device receives the notification.
@@ -331,8 +338,15 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
  */
 @interface GTLRFirebaseCloudMessaging_ApnsFcmOptions : GTLRObject
 
-/** Label that the message's analytics data will be associated with. */
+/** Label associated with the message's analytics data. */
 @property(nonatomic, copy, nullable) NSString *analyticsLabel;
+
+/**
+ *  Contains the URL of an image that is going to be displayed in a
+ *  notification. If present, it will override
+ *  google.firebase.fcm.v1.Notification.image.
+ */
+@property(nonatomic, copy, nullable) NSString *image;
 
 @end
 
@@ -342,7 +356,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
  */
 @interface GTLRFirebaseCloudMessaging_FcmOptions : GTLRObject
 
-/** Label that the message's analytics data will be associated with. */
+/** Label associated with the message's analytics data. */
 @property(nonatomic, copy, nullable) NSString *analyticsLabel;
 
 @end
@@ -426,6 +440,18 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
 
 /** The notification's body text. */
 @property(nonatomic, copy, nullable) NSString *body;
+
+/**
+ *  Contains the URL of an image that is going to be downloaded on the device
+ *  and displayed in a notification.
+ *  JPEG, PNG, BMP have full support across platforms. Animated GIF and video
+ *  only work on iOS. WebP and HEIF have varying levels of support across
+ *  platforms and platform versions.
+ *  Android has 1MB image size limit.
+ *  Quota usage and implications/costs for hosting image on Firebase Storage:
+ *  https://firebase.google.com/pricing
+ */
+@property(nonatomic, copy, nullable) NSString *image;
 
 /** The notification's title. */
 @property(nonatomic, copy, nullable) NSString *title;

@@ -206,6 +206,8 @@ GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectFloodlightActivity
 GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectFloodlightActvity;
 /** Value: "OBJECT_FLOODLIGHT_CONFIGURATION" */
 GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectFloodlightConfiguration;
+/** Value: "OBJECT_FLOODLIGHT_DV360_LINK" */
+GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectFloodlightDv360Link;
 /** Value: "OBJECT_INSTREAM_CREATIVE" */
 GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectInstreamCreative;
 /** Value: "OBJECT_LANDING_PAGE" */
@@ -2693,6 +2695,8 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *        "OBJECT_FLOODLIGHT_ACTVITY"
  *    @arg @c kGTLRDfareportingObjectTypeObjectFloodlightConfiguration Value
  *        "OBJECT_FLOODLIGHT_CONFIGURATION"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectFloodlightDv360Link Value
+ *        "OBJECT_FLOODLIGHT_DV360_LINK"
  *    @arg @c kGTLRDfareportingObjectTypeObjectInstreamCreative Value
  *        "OBJECT_INSTREAM_CREATIVE"
  *    @arg @c kGTLRDfareportingObjectTypeObjectLandingPage Value

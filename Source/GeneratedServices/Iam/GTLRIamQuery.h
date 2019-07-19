@@ -195,9 +195,24 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 //   +[GTLQueryIam queryForOrganizationsRolesCreateWithObject:parent:]
 
 /**
- *  The resource name of the parent resource in one of the following formats:
- *  `organizations/{ORGANIZATION_ID}`
- *  `projects/{PROJECT_ID}`
+ *  The `parent` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `parent` value format is described below:
+ *  * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create):
+ *  `projects/{PROJECT_ID}`. This method creates project-level
+ *  [custom roles](/iam/docs/understanding-custom-roles).
+ *  Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
+ *  *
+ *  [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create):
+ *  `organizations/{ORGANIZATION_ID}`. This method creates organization-level
+ *  [custom roles](/iam/docs/understanding-custom-roles). Example request
+ *  URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -207,10 +222,26 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  Creates a new Role.
  *
  *  @param object The @c GTLRIam_CreateRoleRequest to include in the query.
- *  @param parent The resource name of the parent resource in one of the
- *    following formats:
- *    `organizations/{ORGANIZATION_ID}`
- *    `projects/{PROJECT_ID}`
+ *  @param parent The `parent` parameter's value depends on the target resource
+ *    for the
+ *    request, namely
+ *    [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `parent` value format is described below:
+ *    *
+ *    [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create):
+ *    `projects/{PROJECT_ID}`. This method creates project-level
+ *    [custom roles](/iam/docs/understanding-custom-roles).
+ *    Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
+ *    *
+ *    [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create):
+ *    `organizations/{ORGANIZATION_ID}`. This method creates organization-level
+ *    [custom roles](/iam/docs/understanding-custom-roles). Example request
+ *    URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_OrganizationsRolesCreate
  */
@@ -246,9 +277,24 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The resource name of the role in one of the following formats:
- *  `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *  `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  The `name` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `name` value format is described below:
+ *  * [`projects.roles.delete()`](/iam/reference/rest/v1/projects.roles/delete):
+ *  `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method deletes only
+ *  [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *  created at the project level. Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  *
+ *  [`organizations.roles.delete()`](/iam/reference/rest/v1/organizations.roles/delete):
+ *  `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *  deletes only [custom roles](/iam/docs/understanding-custom-roles) that
+ *  have been created at the organization level. Example request URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -263,9 +309,26 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  within 7 days. After 7 days the Role is deleted and all Bindings associated
  *  with the role are removed.
  *
- *  @param name The resource name of the role in one of the following formats:
- *    `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *    `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  @param name The `name` parameter's value depends on the target resource for
+ *    the
+ *    request, namely
+ *    [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `name` value format is described below:
+ *    *
+ *    [`projects.roles.delete()`](/iam/reference/rest/v1/projects.roles/delete):
+ *    `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method deletes only
+ *    [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *    created at the project level. Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    *
+ *    [`organizations.roles.delete()`](/iam/reference/rest/v1/organizations.roles/delete):
+ *    `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *    deletes only [custom roles](/iam/docs/understanding-custom-roles) that
+ *    have been created at the organization level. Example request URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_OrganizationsRolesDelete
  */
@@ -286,10 +349,30 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 //   +[GTLQueryIam queryForOrganizationsRolesGetWithname:]
 
 /**
- *  The resource name of the role in one of the following formats:
- *  `roles/{ROLE_NAME}`
- *  `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *  `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  The `name` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`roles`](/iam/reference/rest/v1/roles),
+ *  [`projects`](/iam/reference/rest/v1/projects.roles), or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `name` value format is described below:
+ *  * [`roles.get()`](/iam/reference/rest/v1/roles/get): `roles/{ROLE_NAME}`.
+ *  This method returns results from all
+ *  [predefined roles](/iam/docs/understanding-roles#predefined_roles) in
+ *  Cloud IAM. Example request URL:
+ *  `https://iam.googleapis.com/v1/roles/{ROLE_NAME}`
+ *  * [`projects.roles.get()`](/iam/reference/rest/v1/projects.roles/get):
+ *  `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only
+ *  [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *  created at the project level. Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  *
+ *  [`organizations.roles.get()`](/iam/reference/rest/v1/organizations.roles/get):
+ *  `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *  returns only [custom roles](/iam/docs/understanding-custom-roles) that
+ *  have been created at the organization level. Example request URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -298,10 +381,31 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  Gets a Role definition.
  *
- *  @param name The resource name of the role in one of the following formats:
- *    `roles/{ROLE_NAME}`
- *    `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *    `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  @param name The `name` parameter's value depends on the target resource for
+ *    the
+ *    request, namely
+ *    [`roles`](/iam/reference/rest/v1/roles),
+ *    [`projects`](/iam/reference/rest/v1/projects.roles), or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `name` value format is described below:
+ *    * [`roles.get()`](/iam/reference/rest/v1/roles/get): `roles/{ROLE_NAME}`.
+ *    This method returns results from all
+ *    [predefined roles](/iam/docs/understanding-roles#predefined_roles) in
+ *    Cloud IAM. Example request URL:
+ *    `https://iam.googleapis.com/v1/roles/{ROLE_NAME}`
+ *    * [`projects.roles.get()`](/iam/reference/rest/v1/projects.roles/get):
+ *    `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only
+ *    [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *    created at the project level. Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    *
+ *    [`organizations.roles.get()`](/iam/reference/rest/v1/organizations.roles/get):
+ *    `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *    returns only [custom roles](/iam/docs/understanding-custom-roles) that
+ *    have been created at the organization level. Example request URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_OrganizationsRolesGet
  */
@@ -328,10 +432,30 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The resource name of the parent resource in one of the following formats:
- *  `` (empty string) -- this refers to curated roles.
- *  `organizations/{ORGANIZATION_ID}`
- *  `projects/{PROJECT_ID}`
+ *  The `parent` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`roles`](/iam/reference/rest/v1/roles),
+ *  [`projects`](/iam/reference/rest/v1/projects.roles), or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `parent` value format is described below:
+ *  * [`roles.list()`](/iam/reference/rest/v1/roles/list): An empty string.
+ *  This method doesn't require a resource; it simply returns all
+ *  [predefined roles](/iam/docs/understanding-roles#predefined_roles) in
+ *  Cloud IAM. Example request URL:
+ *  `https://iam.googleapis.com/v1/roles`
+ *  * [`projects.roles.list()`](/iam/reference/rest/v1/projects.roles/list):
+ *  `projects/{PROJECT_ID}`. This method lists all project-level
+ *  [custom roles](/iam/docs/understanding-custom-roles).
+ *  Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
+ *  *
+ *  [`organizations.roles.list()`](/iam/reference/rest/v1/organizations.roles/list):
+ *  `organizations/{ORGANIZATION_ID}`. This method lists all
+ *  organization-level [custom roles](/iam/docs/understanding-custom-roles).
+ *  Example request URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -355,11 +479,31 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  Lists the Roles defined on a resource.
  *
- *  @param parent The resource name of the parent resource in one of the
- *    following formats:
- *    `` (empty string) -- this refers to curated roles.
- *    `organizations/{ORGANIZATION_ID}`
- *    `projects/{PROJECT_ID}`
+ *  @param parent The `parent` parameter's value depends on the target resource
+ *    for the
+ *    request, namely
+ *    [`roles`](/iam/reference/rest/v1/roles),
+ *    [`projects`](/iam/reference/rest/v1/projects.roles), or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `parent` value format is described below:
+ *    * [`roles.list()`](/iam/reference/rest/v1/roles/list): An empty string.
+ *    This method doesn't require a resource; it simply returns all
+ *    [predefined roles](/iam/docs/understanding-roles#predefined_roles) in
+ *    Cloud IAM. Example request URL:
+ *    `https://iam.googleapis.com/v1/roles`
+ *    * [`projects.roles.list()`](/iam/reference/rest/v1/projects.roles/list):
+ *    `projects/{PROJECT_ID}`. This method lists all project-level
+ *    [custom roles](/iam/docs/understanding-custom-roles).
+ *    Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
+ *    *
+ *    [`organizations.roles.list()`](/iam/reference/rest/v1/organizations.roles/list):
+ *    `organizations/{ORGANIZATION_ID}`. This method lists all
+ *    organization-level [custom roles](/iam/docs/understanding-custom-roles).
+ *    Example request URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_OrganizationsRolesList
  *
@@ -384,10 +528,24 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 //   +[GTLQueryIam queryForOrganizationsRolesPatchWithObject:name:]
 
 /**
- *  The resource name of the role in one of the following formats:
- *  `roles/{ROLE_NAME}`
- *  `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *  `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  The `name` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `name` value format is described below:
+ *  * [`projects.roles.patch()`](/iam/reference/rest/v1/projects.roles/patch):
+ *  `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only
+ *  [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *  created at the project level. Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  *
+ *  [`organizations.roles.patch()`](/iam/reference/rest/v1/organizations.roles/patch):
+ *  `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *  updates only [custom roles](/iam/docs/understanding-custom-roles) that
+ *  have been created at the organization level. Example request URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -404,10 +562,25 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  Updates a Role definition.
  *
  *  @param object The @c GTLRIam_Role to include in the query.
- *  @param name The resource name of the role in one of the following formats:
- *    `roles/{ROLE_NAME}`
- *    `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *    `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  @param name The `name` parameter's value depends on the target resource for
+ *    the
+ *    request, namely
+ *    [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `name` value format is described below:
+ *    * [`projects.roles.patch()`](/iam/reference/rest/v1/projects.roles/patch):
+ *    `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only
+ *    [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *    created at the project level. Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    *
+ *    [`organizations.roles.patch()`](/iam/reference/rest/v1/organizations.roles/patch):
+ *    `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *    updates only [custom roles](/iam/docs/understanding-custom-roles) that
+ *    have been created at the organization level. Example request URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_OrganizationsRolesPatch
  */
@@ -429,9 +602,25 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 //   +[GTLQueryIam queryForOrganizationsRolesUndeleteWithObject:name:]
 
 /**
- *  The resource name of the role in one of the following formats:
- *  `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *  `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  The `name` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `name` value format is described below:
+ *  *
+ *  [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete):
+ *  `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
+ *  only [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *  created at the project level. Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  *
+ *  [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+ *  `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *  undeletes only [custom roles](/iam/docs/understanding-custom-roles) that
+ *  have been created at the organization level. Example request URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -441,9 +630,26 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  Undelete a Role, bringing it back in its previous state.
  *
  *  @param object The @c GTLRIam_UndeleteRoleRequest to include in the query.
- *  @param name The resource name of the role in one of the following formats:
- *    `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *    `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  @param name The `name` parameter's value depends on the target resource for
+ *    the
+ *    request, namely
+ *    [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `name` value format is described below:
+ *    *
+ *    [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete):
+ *    `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
+ *    only [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *    created at the project level. Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    *
+ *    [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+ *    `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *    undeletes only [custom roles](/iam/docs/understanding-custom-roles) that
+ *    have been created at the organization level. Example request URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_OrganizationsRolesUndelete
  */
@@ -493,9 +699,24 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 //   +[GTLQueryIam queryForProjectsRolesCreateWithObject:parent:]
 
 /**
- *  The resource name of the parent resource in one of the following formats:
- *  `organizations/{ORGANIZATION_ID}`
- *  `projects/{PROJECT_ID}`
+ *  The `parent` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `parent` value format is described below:
+ *  * [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create):
+ *  `projects/{PROJECT_ID}`. This method creates project-level
+ *  [custom roles](/iam/docs/understanding-custom-roles).
+ *  Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
+ *  *
+ *  [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create):
+ *  `organizations/{ORGANIZATION_ID}`. This method creates organization-level
+ *  [custom roles](/iam/docs/understanding-custom-roles). Example request
+ *  URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -505,10 +726,26 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  Creates a new Role.
  *
  *  @param object The @c GTLRIam_CreateRoleRequest to include in the query.
- *  @param parent The resource name of the parent resource in one of the
- *    following formats:
- *    `organizations/{ORGANIZATION_ID}`
- *    `projects/{PROJECT_ID}`
+ *  @param parent The `parent` parameter's value depends on the target resource
+ *    for the
+ *    request, namely
+ *    [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `parent` value format is described below:
+ *    *
+ *    [`projects.roles.create()`](/iam/reference/rest/v1/projects.roles/create):
+ *    `projects/{PROJECT_ID}`. This method creates project-level
+ *    [custom roles](/iam/docs/understanding-custom-roles).
+ *    Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
+ *    *
+ *    [`organizations.roles.create()`](/iam/reference/rest/v1/organizations.roles/create):
+ *    `organizations/{ORGANIZATION_ID}`. This method creates organization-level
+ *    [custom roles](/iam/docs/understanding-custom-roles). Example request
+ *    URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_ProjectsRolesCreate
  */
@@ -544,9 +781,24 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The resource name of the role in one of the following formats:
- *  `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *  `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  The `name` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `name` value format is described below:
+ *  * [`projects.roles.delete()`](/iam/reference/rest/v1/projects.roles/delete):
+ *  `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method deletes only
+ *  [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *  created at the project level. Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  *
+ *  [`organizations.roles.delete()`](/iam/reference/rest/v1/organizations.roles/delete):
+ *  `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *  deletes only [custom roles](/iam/docs/understanding-custom-roles) that
+ *  have been created at the organization level. Example request URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -561,9 +813,26 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  within 7 days. After 7 days the Role is deleted and all Bindings associated
  *  with the role are removed.
  *
- *  @param name The resource name of the role in one of the following formats:
- *    `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *    `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  @param name The `name` parameter's value depends on the target resource for
+ *    the
+ *    request, namely
+ *    [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `name` value format is described below:
+ *    *
+ *    [`projects.roles.delete()`](/iam/reference/rest/v1/projects.roles/delete):
+ *    `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method deletes only
+ *    [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *    created at the project level. Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    *
+ *    [`organizations.roles.delete()`](/iam/reference/rest/v1/organizations.roles/delete):
+ *    `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *    deletes only [custom roles](/iam/docs/understanding-custom-roles) that
+ *    have been created at the organization level. Example request URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_ProjectsRolesDelete
  */
@@ -584,10 +853,30 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 //   +[GTLQueryIam queryForProjectsRolesGetWithname:]
 
 /**
- *  The resource name of the role in one of the following formats:
- *  `roles/{ROLE_NAME}`
- *  `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *  `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  The `name` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`roles`](/iam/reference/rest/v1/roles),
+ *  [`projects`](/iam/reference/rest/v1/projects.roles), or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `name` value format is described below:
+ *  * [`roles.get()`](/iam/reference/rest/v1/roles/get): `roles/{ROLE_NAME}`.
+ *  This method returns results from all
+ *  [predefined roles](/iam/docs/understanding-roles#predefined_roles) in
+ *  Cloud IAM. Example request URL:
+ *  `https://iam.googleapis.com/v1/roles/{ROLE_NAME}`
+ *  * [`projects.roles.get()`](/iam/reference/rest/v1/projects.roles/get):
+ *  `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only
+ *  [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *  created at the project level. Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  *
+ *  [`organizations.roles.get()`](/iam/reference/rest/v1/organizations.roles/get):
+ *  `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *  returns only [custom roles](/iam/docs/understanding-custom-roles) that
+ *  have been created at the organization level. Example request URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -596,10 +885,31 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  Gets a Role definition.
  *
- *  @param name The resource name of the role in one of the following formats:
- *    `roles/{ROLE_NAME}`
- *    `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *    `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  @param name The `name` parameter's value depends on the target resource for
+ *    the
+ *    request, namely
+ *    [`roles`](/iam/reference/rest/v1/roles),
+ *    [`projects`](/iam/reference/rest/v1/projects.roles), or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `name` value format is described below:
+ *    * [`roles.get()`](/iam/reference/rest/v1/roles/get): `roles/{ROLE_NAME}`.
+ *    This method returns results from all
+ *    [predefined roles](/iam/docs/understanding-roles#predefined_roles) in
+ *    Cloud IAM. Example request URL:
+ *    `https://iam.googleapis.com/v1/roles/{ROLE_NAME}`
+ *    * [`projects.roles.get()`](/iam/reference/rest/v1/projects.roles/get):
+ *    `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only
+ *    [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *    created at the project level. Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    *
+ *    [`organizations.roles.get()`](/iam/reference/rest/v1/organizations.roles/get):
+ *    `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *    returns only [custom roles](/iam/docs/understanding-custom-roles) that
+ *    have been created at the organization level. Example request URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_ProjectsRolesGet
  */
@@ -626,10 +936,30 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The resource name of the parent resource in one of the following formats:
- *  `` (empty string) -- this refers to curated roles.
- *  `organizations/{ORGANIZATION_ID}`
- *  `projects/{PROJECT_ID}`
+ *  The `parent` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`roles`](/iam/reference/rest/v1/roles),
+ *  [`projects`](/iam/reference/rest/v1/projects.roles), or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `parent` value format is described below:
+ *  * [`roles.list()`](/iam/reference/rest/v1/roles/list): An empty string.
+ *  This method doesn't require a resource; it simply returns all
+ *  [predefined roles](/iam/docs/understanding-roles#predefined_roles) in
+ *  Cloud IAM. Example request URL:
+ *  `https://iam.googleapis.com/v1/roles`
+ *  * [`projects.roles.list()`](/iam/reference/rest/v1/projects.roles/list):
+ *  `projects/{PROJECT_ID}`. This method lists all project-level
+ *  [custom roles](/iam/docs/understanding-custom-roles).
+ *  Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
+ *  *
+ *  [`organizations.roles.list()`](/iam/reference/rest/v1/organizations.roles/list):
+ *  `organizations/{ORGANIZATION_ID}`. This method lists all
+ *  organization-level [custom roles](/iam/docs/understanding-custom-roles).
+ *  Example request URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -653,11 +983,31 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  Lists the Roles defined on a resource.
  *
- *  @param parent The resource name of the parent resource in one of the
- *    following formats:
- *    `` (empty string) -- this refers to curated roles.
- *    `organizations/{ORGANIZATION_ID}`
- *    `projects/{PROJECT_ID}`
+ *  @param parent The `parent` parameter's value depends on the target resource
+ *    for the
+ *    request, namely
+ *    [`roles`](/iam/reference/rest/v1/roles),
+ *    [`projects`](/iam/reference/rest/v1/projects.roles), or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `parent` value format is described below:
+ *    * [`roles.list()`](/iam/reference/rest/v1/roles/list): An empty string.
+ *    This method doesn't require a resource; it simply returns all
+ *    [predefined roles](/iam/docs/understanding-roles#predefined_roles) in
+ *    Cloud IAM. Example request URL:
+ *    `https://iam.googleapis.com/v1/roles`
+ *    * [`projects.roles.list()`](/iam/reference/rest/v1/projects.roles/list):
+ *    `projects/{PROJECT_ID}`. This method lists all project-level
+ *    [custom roles](/iam/docs/understanding-custom-roles).
+ *    Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
+ *    *
+ *    [`organizations.roles.list()`](/iam/reference/rest/v1/organizations.roles/list):
+ *    `organizations/{ORGANIZATION_ID}`. This method lists all
+ *    organization-level [custom roles](/iam/docs/understanding-custom-roles).
+ *    Example request URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_ProjectsRolesList
  *
@@ -682,10 +1032,24 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 //   +[GTLQueryIam queryForProjectsRolesPatchWithObject:name:]
 
 /**
- *  The resource name of the role in one of the following formats:
- *  `roles/{ROLE_NAME}`
- *  `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *  `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  The `name` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `name` value format is described below:
+ *  * [`projects.roles.patch()`](/iam/reference/rest/v1/projects.roles/patch):
+ *  `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only
+ *  [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *  created at the project level. Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  *
+ *  [`organizations.roles.patch()`](/iam/reference/rest/v1/organizations.roles/patch):
+ *  `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *  updates only [custom roles](/iam/docs/understanding-custom-roles) that
+ *  have been created at the organization level. Example request URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -702,10 +1066,25 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  Updates a Role definition.
  *
  *  @param object The @c GTLRIam_Role to include in the query.
- *  @param name The resource name of the role in one of the following formats:
- *    `roles/{ROLE_NAME}`
- *    `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *    `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  @param name The `name` parameter's value depends on the target resource for
+ *    the
+ *    request, namely
+ *    [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `name` value format is described below:
+ *    * [`projects.roles.patch()`](/iam/reference/rest/v1/projects.roles/patch):
+ *    `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only
+ *    [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *    created at the project level. Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    *
+ *    [`organizations.roles.patch()`](/iam/reference/rest/v1/organizations.roles/patch):
+ *    `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *    updates only [custom roles](/iam/docs/understanding-custom-roles) that
+ *    have been created at the organization level. Example request URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_ProjectsRolesPatch
  */
@@ -727,9 +1106,25 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 //   +[GTLQueryIam queryForProjectsRolesUndeleteWithObject:name:]
 
 /**
- *  The resource name of the role in one of the following formats:
- *  `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *  `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  The `name` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `name` value format is described below:
+ *  *
+ *  [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete):
+ *  `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
+ *  only [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *  created at the project level. Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  *
+ *  [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+ *  `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *  undeletes only [custom roles](/iam/docs/understanding-custom-roles) that
+ *  have been created at the organization level. Example request URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -739,9 +1134,26 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  Undelete a Role, bringing it back in its previous state.
  *
  *  @param object The @c GTLRIam_UndeleteRoleRequest to include in the query.
- *  @param name The resource name of the role in one of the following formats:
- *    `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *    `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  @param name The `name` parameter's value depends on the target resource for
+ *    the
+ *    request, namely
+ *    [`projects`](/iam/reference/rest/v1/projects.roles) or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `name` value format is described below:
+ *    *
+ *    [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete):
+ *    `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
+ *    only [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *    created at the project level. Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    *
+ *    [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+ *    `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *    undeletes only [custom roles](/iam/docs/understanding-custom-roles) that
+ *    have been created at the organization level. Example request URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_ProjectsRolesUndelete
  */
@@ -1011,6 +1423,14 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @interface GTLRIamQuery_ProjectsServiceAccountsGetIamPolicy : GTLRIamQuery
 // Previous library name was
 //   +[GTLQueryIam queryForProjectsServiceAccountsGetIamPolicyWithresource:]
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
  *  REQUIRED: The resource for which the policy is being requested.
@@ -1647,10 +2067,30 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 //   +[GTLQueryIam queryForRolesGetWithname:]
 
 /**
- *  The resource name of the role in one of the following formats:
- *  `roles/{ROLE_NAME}`
- *  `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *  `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  The `name` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`roles`](/iam/reference/rest/v1/roles),
+ *  [`projects`](/iam/reference/rest/v1/projects.roles), or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `name` value format is described below:
+ *  * [`roles.get()`](/iam/reference/rest/v1/roles/get): `roles/{ROLE_NAME}`.
+ *  This method returns results from all
+ *  [predefined roles](/iam/docs/understanding-roles#predefined_roles) in
+ *  Cloud IAM. Example request URL:
+ *  `https://iam.googleapis.com/v1/roles/{ROLE_NAME}`
+ *  * [`projects.roles.get()`](/iam/reference/rest/v1/projects.roles/get):
+ *  `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only
+ *  [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *  created at the project level. Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  *
+ *  [`organizations.roles.get()`](/iam/reference/rest/v1/organizations.roles/get):
+ *  `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *  returns only [custom roles](/iam/docs/understanding-custom-roles) that
+ *  have been created at the organization level. Example request URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1659,10 +2099,31 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  Gets a Role definition.
  *
- *  @param name The resource name of the role in one of the following formats:
- *    `roles/{ROLE_NAME}`
- *    `organizations/{ORGANIZATION_ID}/roles/{ROLE_NAME}`
- *    `projects/{PROJECT_ID}/roles/{ROLE_NAME}`
+ *  @param name The `name` parameter's value depends on the target resource for
+ *    the
+ *    request, namely
+ *    [`roles`](/iam/reference/rest/v1/roles),
+ *    [`projects`](/iam/reference/rest/v1/projects.roles), or
+ *    [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *    resource type's `name` value format is described below:
+ *    * [`roles.get()`](/iam/reference/rest/v1/roles/get): `roles/{ROLE_NAME}`.
+ *    This method returns results from all
+ *    [predefined roles](/iam/docs/understanding-roles#predefined_roles) in
+ *    Cloud IAM. Example request URL:
+ *    `https://iam.googleapis.com/v1/roles/{ROLE_NAME}`
+ *    * [`projects.roles.get()`](/iam/reference/rest/v1/projects.roles/get):
+ *    `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method returns only
+ *    [custom roles](/iam/docs/understanding-custom-roles) that have been
+ *    created at the project level. Example request URL:
+ *    `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    *
+ *    [`organizations.roles.get()`](/iam/reference/rest/v1/organizations.roles/get):
+ *    `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
+ *    returns only [custom roles](/iam/docs/understanding-custom-roles) that
+ *    have been created at the organization level. Example request URL:
+ *    `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
+ *    Note: Wildcard (*) values are invalid; you must specify a complete project
+ *    ID or organization ID.
  *
  *  @return GTLRIamQuery_RolesGet
  */
@@ -1689,10 +2150,30 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The resource name of the parent resource in one of the following formats:
- *  `` (empty string) -- this refers to curated roles.
- *  `organizations/{ORGANIZATION_ID}`
- *  `projects/{PROJECT_ID}`
+ *  The `parent` parameter's value depends on the target resource for the
+ *  request, namely
+ *  [`roles`](/iam/reference/rest/v1/roles),
+ *  [`projects`](/iam/reference/rest/v1/projects.roles), or
+ *  [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
+ *  resource type's `parent` value format is described below:
+ *  * [`roles.list()`](/iam/reference/rest/v1/roles/list): An empty string.
+ *  This method doesn't require a resource; it simply returns all
+ *  [predefined roles](/iam/docs/understanding-roles#predefined_roles) in
+ *  Cloud IAM. Example request URL:
+ *  `https://iam.googleapis.com/v1/roles`
+ *  * [`projects.roles.list()`](/iam/reference/rest/v1/projects.roles/list):
+ *  `projects/{PROJECT_ID}`. This method lists all project-level
+ *  [custom roles](/iam/docs/understanding-custom-roles).
+ *  Example request URL:
+ *  `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles`
+ *  *
+ *  [`organizations.roles.list()`](/iam/reference/rest/v1/organizations.roles/list):
+ *  `organizations/{ORGANIZATION_ID}`. This method lists all
+ *  organization-level [custom roles](/iam/docs/understanding-custom-roles).
+ *  Example request URL:
+ *  `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles`
+ *  Note: Wildcard (*) values are invalid; you must specify a complete project
+ *  ID or organization ID.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 

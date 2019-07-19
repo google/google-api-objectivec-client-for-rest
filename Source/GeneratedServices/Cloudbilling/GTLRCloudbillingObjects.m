@@ -65,7 +65,7 @@ NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified = @
 //
 
 @implementation GTLRCloudbilling_AuditLogConfig
-@dynamic exemptedMembers, logType;
+@dynamic exemptedMembers, ignoreChildExemptions, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

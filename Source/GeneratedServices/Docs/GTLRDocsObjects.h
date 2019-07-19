@@ -152,6 +152,7 @@
 @class GTLRDocs_TableCellStyleSuggestionState;
 @class GTLRDocs_TableColumnProperties;
 @class GTLRDocs_TableOfContents;
+@class GTLRDocs_TableRange;
 @class GTLRDocs_TableRow;
 @class GTLRDocs_TableRow_SuggestedTableRowStyleChanges;
 @class GTLRDocs_TableRowStyle;
@@ -163,6 +164,7 @@
 @class GTLRDocs_TextStyle;
 @class GTLRDocs_TextStyleSuggestionState;
 @class GTLRDocs_UpdateParagraphStyleRequest;
+@class GTLRDocs_UpdateTableCellStyleRequest;
 @class GTLRDocs_UpdateTableColumnPropertiesRequest;
 @class GTLRDocs_UpdateTableRowStyleRequest;
 @class GTLRDocs_UpdateTextStyleRequest;
@@ -1662,44 +1664,46 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  */
 @interface GTLRDocs_Document : GTLRObject
 
-/** The main body of the document. */
+/** Output only. The main body of the document. */
 @property(nonatomic, strong, nullable) GTLRDocs_Body *body;
 
-/** The ID of the document. */
+/** Output only. The ID of the document. */
 @property(nonatomic, copy, nullable) NSString *documentId;
 
-/** The style of the document. */
+/** Output only. The style of the document. */
 @property(nonatomic, strong, nullable) GTLRDocs_DocumentStyle *documentStyle;
 
-/** The footers in the document, keyed by footer ID. */
+/** Output only. The footers in the document, keyed by footer ID. */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_Footers *footers;
 
-/** The footnotes in the document, keyed by footnote ID. */
+/** Output only. The footnotes in the document, keyed by footnote ID. */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_Footnotes *footnotes;
 
-/** The headers in the document, keyed by header ID. */
+/** Output only. The headers in the document, keyed by header ID. */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_Headers *headers;
 
-/** The inline objects in the document, keyed by object ID. */
+/** Output only. The inline objects in the document, keyed by object ID. */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_InlineObjects *inlineObjects;
 
-/** The lists in the document, keyed by list ID. */
+/** Output only. The lists in the document, keyed by list ID. */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_Lists *lists;
 
-/** The named ranges in the document, keyed by name. */
+/** Output only. The named ranges in the document, keyed by name. */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_NamedRanges *namedRanges;
 
-/** The named styles of the document. */
+/** Output only. The named styles of the document. */
 @property(nonatomic, strong, nullable) GTLRDocs_NamedStyles *namedStyles;
 
-/** The positioned objects in the document, keyed by object ID. */
+/**
+ *  Output only. The positioned objects in the document, keyed by object ID.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_PositionedObjects *positionedObjects;
 
 /**
- *  The revision ID of the document. Can be used in update requests to specify
- *  which revision of a document to apply updates to and how the request should
- *  behave if the document has been edited since that revision. Only populated
- *  if the user has edit access to the document.
+ *  Output only. The revision ID of the document. Can be used in update
+ *  requests to specify which revision of a document to apply updates to and
+ *  how the request should behave if the document has been edited since that
+ *  revision. Only populated if the user has edit access to the document.
  *  The format of the revision ID may change over time, so it should be treated
  *  opaquely. A returned revision ID is only guaranteed to be valid for 24
  *  hours after it has been returned and cannot be shared across users. If the
@@ -1711,18 +1715,19 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
 /**
- *  The suggested changes to the style of the document, keyed by suggestion ID.
+ *  Output only. The suggested changes to the style of the document, keyed by
+ *  suggestion ID.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_SuggestedDocumentStyleChanges *suggestedDocumentStyleChanges;
 
 /**
- *  The suggested changes to the named styles of the document, keyed by
- *  suggestion ID.
+ *  Output only. The suggested changes to the named styles of the document,
+ *  keyed by suggestion ID.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Document_SuggestedNamedStylesChanges *suggestedNamedStylesChanges;
 
 /**
- *  The suggestions view mode applied to the document.
+ *  Output only. The suggestions view mode applied to the document.
  *  Note: When editing a document, changes must be based on a document with
  *  SUGGESTIONS_INLINE.
  *
@@ -1763,7 +1768,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
- *  The footers in the document, keyed by footer ID.
+ *  Output only. The footers in the document, keyed by footer ID.
  *
  *  @note This class is documented as having more properties of GTLRDocs_Footer.
  *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
@@ -1775,7 +1780,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
- *  The footnotes in the document, keyed by footnote ID.
+ *  Output only. The footnotes in the document, keyed by footnote ID.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_Footnote. Use @c -additionalJSONKeys and @c
@@ -1787,7 +1792,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
- *  The headers in the document, keyed by header ID.
+ *  Output only. The headers in the document, keyed by header ID.
  *
  *  @note This class is documented as having more properties of GTLRDocs_Header.
  *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
@@ -1799,7 +1804,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
- *  The inline objects in the document, keyed by object ID.
+ *  Output only. The inline objects in the document, keyed by object ID.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_InlineObject. Use @c -additionalJSONKeys and @c
@@ -1811,7 +1816,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
- *  The lists in the document, keyed by list ID.
+ *  Output only. The lists in the document, keyed by list ID.
  *
  *  @note This class is documented as having more properties of GTLRDocs_List.
  *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
@@ -1823,7 +1828,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
- *  The named ranges in the document, keyed by name.
+ *  Output only. The named ranges in the document, keyed by name.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_NamedRanges. Use @c -additionalJSONKeys and @c
@@ -1835,7 +1840,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
- *  The positioned objects in the document, keyed by object ID.
+ *  Output only. The positioned objects in the document, keyed by object ID.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_PositionedObject. Use @c -additionalJSONKeys and @c
@@ -1847,7 +1852,8 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
- *  The suggested changes to the style of the document, keyed by suggestion ID.
+ *  Output only. The suggested changes to the style of the document, keyed by
+ *  suggestion ID.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_SuggestedDocumentStyle. Use @c -additionalJSONKeys and @c
@@ -1859,8 +1865,8 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
- *  The suggested changes to the named styles of the document, keyed by
- *  suggestion ID.
+ *  Output only. The suggested changes to the named styles of the document,
+ *  keyed by suggestion ID.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDocs_SuggestedNamedStyles. Use @c -additionalJSONKeys and @c
@@ -4423,6 +4429,9 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /** Updates the paragraph style at the specified range. */
 @property(nonatomic, strong, nullable) GTLRDocs_UpdateParagraphStyleRequest *updateParagraphStyle;
 
+/** Updates the style of table cells. */
+@property(nonatomic, strong, nullable) GTLRDocs_UpdateTableCellStyleRequest *updateTableCellStyle;
+
 /** Updates the properties of columns in a table. */
 @property(nonatomic, strong, nullable) GTLRDocs_UpdateTableColumnPropertiesRequest *updateTableColumnProperties;
 
@@ -5352,6 +5361,40 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
+ *  A table range represents a reference to a subset of a table.
+ *  It's important to note that the cells specified by a table range do not
+ *  necessarily form a rectangle. For example, let's say we have a 3 x 3 table
+ *  where all the cells of the last row are merged together. The table looks
+ *  like this:
+ *  [ ]
+ *  A table range with table cell location = (table_start_location, row = 0,
+ *  column = 0), row span = 3 and column span = 2 specifies the following cells:
+ *  x x
+ *  [ x x x ]
+ */
+@interface GTLRDocs_TableRange : GTLRObject
+
+/**
+ *  The column span of the table range.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *columnSpan;
+
+/**
+ *  The row span of the table range.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowSpan;
+
+/** The cell location where the table range starts. */
+@property(nonatomic, strong, nullable) GTLRDocs_TableCellLocation *tableCellLocation;
+
+@end
+
+
+/**
  *  The contents and style of a row in a Table.
  */
 @interface GTLRDocs_TableRow : GTLRObject
@@ -5771,6 +5814,55 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /** The range overlapping the paragraphs to style. */
 @property(nonatomic, strong, nullable) GTLRDocs_Range *range;
+
+@end
+
+
+/**
+ *  Updates the style of a range of table cells.
+ */
+@interface GTLRDocs_UpdateTableCellStyleRequest : GTLRObject
+
+/**
+ *  The fields that should be updated.
+ *  At least one field must be specified. The root `tableCellStyle` is implied
+ *  and should not be specified. A single `"*"` can be used as short-hand for
+ *  listing every field.
+ *  For example to update the table cell background color, set `fields` to
+ *  `"backgroundColor"`.
+ *  To reset a property to its default value, include its field name in the
+ *  field mask but leave the field itself unset.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/**
+ *  The style to set on the table cells.
+ *  When updating borders, if a cell shares a border with an adjacent cell, the
+ *  corresponding border property of the adjacent cell is updated as well.
+ *  Borders that are merged and invisible are not updated.
+ *  Since updating a border shared by adjacent cells in the same request can
+ *  cause conflicting border updates, border updates are applied in the
+ *  following order:
+ *  - `border_right`
+ *  - `border_left`
+ *  - `border_bottom`
+ *  - `border_top`
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_TableCellStyle *tableCellStyle;
+
+/**
+ *  The table range representing the subset of the table to which the updates
+ *  are applied.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_TableRange *tableRange;
+
+/**
+ *  The location where the table starts in the document. When specified, the
+ *  updates are applied to all the cells in the table.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *tableStartLocation;
 
 @end
 

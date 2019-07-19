@@ -225,6 +225,16 @@ NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPeopleService_DeleteContactPhotoResponse
+//
+
+@implementation GTLRPeopleService_DeleteContactPhotoResponse
+@dynamic person;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPeopleService_DomainMembership
 //
 
@@ -721,6 +731,26 @@ NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified = @"SOURCE
 
 @implementation GTLRPeopleService_UpdateContactGroupRequest
 @dynamic contactGroup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPeopleService_UpdateContactPhotoRequest
+//
+
+@implementation GTLRPeopleService_UpdateContactPhotoRequest
+@dynamic personFields, photoBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPeopleService_UpdateContactPhotoResponse
+//
+
+@implementation GTLRPeopleService_UpdateContactPhotoResponse
+@dynamic person;
 @end
 
 

@@ -1028,11 +1028,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechRecognitionAlternative : GTLRObject
 
 /**
- *  The confidence estimate between 0.0 and 1.0. A higher number
+ *  Output only. The confidence estimate between 0.0 and 1.0. A higher number
  *  indicates an estimated greater likelihood that the recognized words are
- *  correct. This field is typically provided only for the top hypothesis, and
- *  only for `is_final=true` results. Clients should not rely on the
- *  `confidence` field as it is not guaranteed to be accurate or consistent.
+ *  correct. This field is set only for the top alternative.
+ *  This field is not guaranteed to be accurate and users should not rely on it
+ *  to be always provided.
  *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
  *
  *  Uses NSNumber of floatValue.
@@ -1042,7 +1042,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Transcript text representing the words that the user spoke. */
 @property(nonatomic, copy, nullable) NSString *transcript;
 
-/** A list of word-specific information for each recognized word. */
+/**
+ *  Output only. A list of word-specific information for each recognized word.
+ *  Note: When `enable_speaker_diarization` is true, you will see all the words
+ *  from the beginning of the audio.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2WordInfo *> *words;
 
 @end
@@ -1212,8 +1216,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Annotations for list of objects detected and tracked in video. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ObjectTrackingAnnotation *> *objectAnnotations;
 
+/** Video segment on which the annotation is run. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment *segment;
+
 /**
- *  Label annotations on video level or user specified segment level.
+ *  Topical label annotations on video level or user specified segment level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation *> *segmentLabelAnnotations;
@@ -1222,7 +1229,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment *> *shotAnnotations;
 
 /**
- *  Label annotations on shot level.
+ *  Topical label annotations on shot level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation *> *shotLabelAnnotations;
@@ -2007,11 +2014,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1SpeechRecognitionAlternative : GTLRObject
 
 /**
- *  The confidence estimate between 0.0 and 1.0. A higher number
+ *  Output only. The confidence estimate between 0.0 and 1.0. A higher number
  *  indicates an estimated greater likelihood that the recognized words are
- *  correct. This field is typically provided only for the top hypothesis, and
- *  only for `is_final=true` results. Clients should not rely on the
- *  `confidence` field as it is not guaranteed to be accurate or consistent.
+ *  correct. This field is set only for the top alternative.
+ *  This field is not guaranteed to be accurate and users should not rely on it
+ *  to be always provided.
  *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
  *
  *  Uses NSNumber of floatValue.
@@ -2021,7 +2028,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Transcript text representing the words that the user spoke. */
 @property(nonatomic, copy, nullable) NSString *transcript;
 
-/** A list of word-specific information for each recognized word. */
+/**
+ *  Output only. A list of word-specific information for each recognized word.
+ *  Note: When `enable_speaker_diarization` is true, you will see all the words
+ *  from the beginning of the audio.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1WordInfo *> *words;
 
 @end
@@ -2191,8 +2202,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Annotations for list of objects detected and tracked in video. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ObjectTrackingAnnotation *> *objectAnnotations;
 
+/** Video segment on which the annotation is run. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoSegment *segment;
+
 /**
- *  Label annotations on video level or user specified segment level.
+ *  Topical label annotations on video level or user specified segment level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation *> *segmentLabelAnnotations;
@@ -2201,7 +2215,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoSegment *> *shotAnnotations;
 
 /**
- *  Label annotations on shot level.
+ *  Topical label annotations on shot level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation *> *shotLabelAnnotations;
@@ -2606,11 +2620,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechRecognitionAlternative : GTLRObject
 
 /**
- *  The confidence estimate between 0.0 and 1.0. A higher number
+ *  Output only. The confidence estimate between 0.0 and 1.0. A higher number
  *  indicates an estimated greater likelihood that the recognized words are
- *  correct. This field is typically provided only for the top hypothesis, and
- *  only for `is_final=true` results. Clients should not rely on the
- *  `confidence` field as it is not guaranteed to be accurate or consistent.
+ *  correct. This field is set only for the top alternative.
+ *  This field is not guaranteed to be accurate and users should not rely on it
+ *  to be always provided.
  *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
  *
  *  Uses NSNumber of floatValue.
@@ -2620,7 +2634,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Transcript text representing the words that the user spoke. */
 @property(nonatomic, copy, nullable) NSString *transcript;
 
-/** A list of word-specific information for each recognized word. */
+/**
+ *  Output only. A list of word-specific information for each recognized word.
+ *  Note: When `enable_speaker_diarization` is true, you will see all the words
+ *  from the beginning of the audio.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1WordInfo *> *words;
 
 @end
@@ -2790,8 +2808,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Annotations for list of objects detected and tracked in video. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ObjectTrackingAnnotation *> *objectAnnotations;
 
+/** Video segment on which the annotation is run. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment *segment;
+
 /**
- *  Label annotations on video level or user specified segment level.
+ *  Topical label annotations on video level or user specified segment level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation *> *segmentLabelAnnotations;
@@ -2800,7 +2821,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment *> *shotAnnotations;
 
 /**
- *  Label annotations on shot level.
+ *  Topical label annotations on shot level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation *> *shotLabelAnnotations;
@@ -3258,11 +3279,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechRecognitionAlternative : GTLRObject
 
 /**
- *  The confidence estimate between 0.0 and 1.0. A higher number
+ *  Output only. The confidence estimate between 0.0 and 1.0. A higher number
  *  indicates an estimated greater likelihood that the recognized words are
- *  correct. This field is typically provided only for the top hypothesis, and
- *  only for `is_final=true` results. Clients should not rely on the
- *  `confidence` field as it is not guaranteed to be accurate or consistent.
+ *  correct. This field is set only for the top alternative.
+ *  This field is not guaranteed to be accurate and users should not rely on it
+ *  to be always provided.
  *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
  *
  *  Uses NSNumber of floatValue.
@@ -3272,7 +3293,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Transcript text representing the words that the user spoke. */
 @property(nonatomic, copy, nullable) NSString *transcript;
 
-/** A list of word-specific information for each recognized word. */
+/**
+ *  Output only. A list of word-specific information for each recognized word.
+ *  Note: When `enable_speaker_diarization` is true, you will see all the words
+ *  from the beginning of the audio.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1WordInfo *> *words;
 
 @end
@@ -3544,8 +3569,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Annotations for list of objects detected and tracked in video. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingAnnotation *> *objectAnnotations;
 
+/** Video segment on which the annotation is run. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment *segment;
+
 /**
- *  Label annotations on video level or user specified segment level.
+ *  Topical label annotations on video level or user specified segment level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation *> *segmentLabelAnnotations;
@@ -3554,7 +3582,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment *> *shotAnnotations;
 
 /**
- *  Label annotations on shot level.
+ *  Topical label annotations on shot level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation *> *shotLabelAnnotations;
@@ -3684,11 +3712,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechRecognitionAlternative : GTLRObject
 
 /**
- *  The confidence estimate between 0.0 and 1.0. A higher number
+ *  Output only. The confidence estimate between 0.0 and 1.0. A higher number
  *  indicates an estimated greater likelihood that the recognized words are
- *  correct. This field is typically provided only for the top hypothesis, and
- *  only for `is_final=true` results. Clients should not rely on the
- *  `confidence` field as it is not guaranteed to be accurate or consistent.
+ *  correct. This field is set only for the top alternative.
+ *  This field is not guaranteed to be accurate and users should not rely on it
+ *  to be always provided.
  *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
  *
  *  Uses NSNumber of floatValue.
@@ -3698,7 +3726,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Transcript text representing the words that the user spoke. */
 @property(nonatomic, copy, nullable) NSString *transcript;
 
-/** A list of word-specific information for each recognized word. */
+/**
+ *  Output only. A list of word-specific information for each recognized word.
+ *  Note: When `enable_speaker_diarization` is true, you will see all the words
+ *  from the beginning of the audio.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1WordInfo *> *words;
 
 @end
@@ -3984,8 +4016,11 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Annotations for list of objects detected and tracked in video. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingAnnotation *> *objectAnnotations;
 
+/** Video segment on which the annotation is run. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment *segment;
+
 /**
- *  Label annotations on video level or user specified segment level.
+ *  Topical label annotations on video level or user specified segment level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation *> *segmentLabelAnnotations;
@@ -3994,7 +4029,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment *> *shotAnnotations;
 
 /**
- *  Label annotations on shot level.
+ *  Topical label annotations on shot level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation *> *shotLabelAnnotations;

@@ -22,6 +22,7 @@
 @class GTLRPeopleService_ModifyContactGroupMembersRequest;
 @class GTLRPeopleService_Person;
 @class GTLRPeopleService_UpdateContactGroupRequest;
+@class GTLRPeopleService_UpdateContactPhotoRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -491,6 +492,74 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @end
 
 /**
+ *  Delete a contact's photo.
+ *
+ *  Method: people.people.deleteContactPhoto
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePeopleServiceContacts
+ */
+@interface GTLRPeopleServiceQuery_PeopleDeleteContactPhoto : GTLRPeopleServiceQuery
+// Previous library name was
+//   +[GTLQueryPeopleService queryForPeopleDeleteContactPhotoWithresourceName:]
+
+/**
+ *  **Optional.** Not specifying any fields will skip the post mutate read.
+ *  A field mask to restrict which fields on the person are
+ *  returned. Multiple fields can be specified by separating them with commas.
+ *  Valid values are:
+ *  * addresses
+ *  * ageRanges
+ *  * biographies
+ *  * birthdays
+ *  * braggingRights
+ *  * coverPhotos
+ *  * emailAddresses
+ *  * events
+ *  * genders
+ *  * imClients
+ *  * interests
+ *  * locales
+ *  * memberships
+ *  * metadata
+ *  * names
+ *  * nicknames
+ *  * occupations
+ *  * organizations
+ *  * phoneNumbers
+ *  * photos
+ *  * relations
+ *  * relationshipInterests
+ *  * relationshipStatuses
+ *  * residences
+ *  * sipAddresses
+ *  * skills
+ *  * taglines
+ *  * urls
+ *  * userDefined
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *personFields;
+
+/** The resource name of the contact whose photo will be deleted. */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Fetches a @c GTLRPeopleService_DeleteContactPhotoResponse.
+ *
+ *  Delete a contact's photo.
+ *
+ *  @param resourceName The resource name of the contact whose photo will be
+ *    deleted.
+ *
+ *  @return GTLRPeopleServiceQuery_PeopleDeleteContactPhoto
+ */
++ (instancetype)queryWithResourceName:(NSString *)resourceName;
+
+@end
+
+/**
  *  Provides information about a person by specifying a resource name. Use
  *  `people/me` to indicate the authenticated user.
  *  <br>
@@ -772,6 +841,37 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  @return GTLRPeopleServiceQuery_PeopleUpdateContact
  */
 + (instancetype)queryWithObject:(GTLRPeopleService_Person *)object
+                   resourceName:(NSString *)resourceName;
+
+@end
+
+/**
+ *  Update a contact's photo.
+ *
+ *  Method: people.people.updateContactPhoto
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePeopleServiceContacts
+ */
+@interface GTLRPeopleServiceQuery_PeopleUpdateContactPhoto : GTLRPeopleServiceQuery
+// Previous library name was
+//   +[GTLQueryPeopleService queryForPeopleUpdateContactPhotoWithObject:resourceName:]
+
+/** Person resource name */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Fetches a @c GTLRPeopleService_UpdateContactPhotoResponse.
+ *
+ *  Update a contact's photo.
+ *
+ *  @param object The @c GTLRPeopleService_UpdateContactPhotoRequest to include
+ *    in the query.
+ *  @param resourceName Person resource name
+ *
+ *  @return GTLRPeopleServiceQuery_PeopleUpdateContactPhoto
+ */
++ (instancetype)queryWithObject:(GTLRPeopleService_UpdateContactPhotoRequest *)object
                    resourceName:(NSString *)resourceName;
 
 @end

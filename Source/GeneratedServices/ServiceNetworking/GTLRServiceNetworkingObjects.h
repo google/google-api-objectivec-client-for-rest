@@ -1116,8 +1116,8 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Output only.
- *  The name of the VPC Network Peering connection that was created by the
+ *  Output only. The name of the VPC Network Peering connection that was created
+ *  by the
  *  service producer.
  */
 @property(nonatomic, copy, nullable) NSString *peering;
@@ -1135,8 +1135,8 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reservedPeeringRanges;
 
 /**
- *  Output only.
- *  The name of the peering service that's associated with this connection, in
+ *  Output only. The name of the peering service that's associated with this
+ *  connection, in
  *  the following format: `services/{service name}`.
  */
 @property(nonatomic, copy, nullable) NSString *service;
@@ -1379,6 +1379,14 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
  *  **NOTE:** All service configuration rules follow "last one wins" order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_DocumentationRule *> *rules;
+
+/**
+ *  Specifies the service root url if the default one (the service name
+ *  from the yaml file) is not suitable. This can be seen in any fully
+ *  specified service urls as well as sections that show a base that other
+ *  urls are relative to.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceRootUrl;
 
 /**
  *  A short summary of what the service does. Can only be provided by

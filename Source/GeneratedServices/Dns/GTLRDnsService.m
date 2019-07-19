@@ -28,7 +28,7 @@ NSString * const kGTLRAuthScopeDnsNdevClouddnsReadwrite = @"https://www.googleap
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
+    self.rootURLString = @"https://dns.googleapis.com/";
     self.servicePath = @"dns/v1/projects/";
     self.batchPath = @"batch/dns/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];

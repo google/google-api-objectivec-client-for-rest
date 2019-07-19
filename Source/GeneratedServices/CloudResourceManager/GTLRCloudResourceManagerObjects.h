@@ -24,6 +24,7 @@
 @class GTLRCloudResourceManager_Binding;
 @class GTLRCloudResourceManager_Expr;
 @class GTLRCloudResourceManager_Folder;
+@class GTLRCloudResourceManager_GetPolicyOptions;
 @class GTLRCloudResourceManager_Operation_Metadata;
 @class GTLRCloudResourceManager_Operation_Response;
 @class GTLRCloudResourceManager_Policy;
@@ -196,7 +197,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -208,7 +209,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  ]
  *  },
  *  {
- *  "service": "fooservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com"
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -216,16 +217,16 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  {
  *  "log_type": "DATA_WRITE",
  *  "exempted_members": [
- *  "user:bar\@gmail.com"
+ *  "user:aliya\@example.com"
  *  ]
  *  }
  *  ]
  *  }
  *  ]
  *  }
- *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
- *  bar\@gmail.com from DATA_WRITE logging.
+ *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts jose\@example.com from DATA_READ logging, and
+ *  aliya\@example.com from DATA_WRITE logging.
  */
 @interface GTLRCloudResourceManager_AuditConfig : GTLRObject
 
@@ -250,7 +251,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -259,7 +260,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  ]
  *  }
  *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  foo\@gmail.com from DATA_READ logging.
+ *  jose\@example.com from DATA_READ logging.
  */
 @interface GTLRCloudResourceManager_AuditLogConfig : GTLRObject
 
@@ -309,7 +310,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -508,6 +509,31 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  Request message for `GetIamPolicy` method.
  */
 @interface GTLRCloudResourceManager_GetIamPolicyRequest : GTLRObject
+
+/**
+ *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
+ *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_GetPolicyOptions *options;
+
+@end
+
+
+/**
+ *  Encapsulates settings provided to GetIamPolicy.
+ */
+@interface GTLRCloudResourceManager_GetPolicyOptions : GTLRObject
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedPolicyVersion;
+
 @end
 
 
@@ -698,7 +724,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -775,14 +801,16 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  The displayName field in a query expression should use escaped quotes
  *  for values that include whitespace to prevent unexpected behavior.
  *  Some example queries are:
- *  |Query | Description|
- *  |----- | -----------|
- *  |displayName=Test* | Folders whose display name starts with "Test".|
- *  |lifecycleState=ACTIVE | Folders whose lifecycleState is ACTIVE.|
- *  |parent=folders/123 | Folders whose parent is "folders/123".|
- *  |parent=folders/123 AND lifecycleState=ACTIVE | Active folders whose parent
- *  is "folders/123".| |displayName=\\\\"Test String\\\\"|Folders whose display
- *  name includes both "Test" and "String".|
+ *  * Query `displayName=Test*` returns Folder resources whose display name
+ *  starts with "Test".
+ *  * Query `lifecycleState=ACTIVE` returns Folder resources with
+ *  `lifecycleState` set to `ACTIVE`.
+ *  * Query `parent=folders/123` returns Folder resources that have
+ *  `folders/123` as a parent resource.
+ *  * Query `parent=folders/123 AND lifecycleState=ACTIVE` returns active
+ *  Folder resources that have `folders/123` as a parent resource.
+ *  * Query `displayName=\\\\"Test String\\\\"` returns Folder resources with
+ *  display names that include both "Test" and "String".
  */
 @property(nonatomic, copy, nullable) NSString *query;
 

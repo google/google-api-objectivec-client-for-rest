@@ -37,6 +37,7 @@
 @class GTLRDataproc_Expr;
 @class GTLRDataproc_GceClusterConfig;
 @class GTLRDataproc_GceClusterConfig_Metadata;
+@class GTLRDataproc_GetPolicyOptions;
 @class GTLRDataproc_HadoopJob;
 @class GTLRDataproc_HadoopJob_Properties;
 @class GTLRDataproc_HiveJob;
@@ -1122,6 +1123,30 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  Request message for GetIamPolicy method.
  */
 @interface GTLRDataproc_GetIamPolicyRequest : GTLRObject
+
+/**
+ *  OPTIONAL: A GetPolicyOptions object for specifying options to GetIamPolicy.
+ *  This field is only used by Cloud IAM.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_GetPolicyOptions *options;
+
+@end
+
+
+/**
+ *  Encapsulates settings provided to GetIamPolicy.
+ */
+@interface GTLRDataproc_GetPolicyOptions : GTLRObject
+
+/**
+ *  Optional. The policy format version to be returned. Acceptable values are 0
+ *  and 1. If the value is 0, or the field is omitted, policy format version 1
+ *  will be returned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedPolicyVersion;
+
 @end
 
 

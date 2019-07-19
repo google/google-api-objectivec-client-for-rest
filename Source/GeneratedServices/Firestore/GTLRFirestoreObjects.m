@@ -63,7 +63,6 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_Op
 
 // GTLRFirestore_GoogleFirestoreAdminV1Index.queryScope
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_Collection = @"COLLECTION";
-NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionGroup = @"COLLECTION_GROUP";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_QueryScopeUnspecified = @"QUERY_SCOPE_UNSPECIFIED";
 
 // GTLRFirestore_GoogleFirestoreAdminV1Index.state

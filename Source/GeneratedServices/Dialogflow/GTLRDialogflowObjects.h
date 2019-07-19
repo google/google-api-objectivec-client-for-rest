@@ -7,7 +7,7 @@
 //   Builds conversational interfaces (for example, chatbots, and voice-powered
 //   apps and devices).
 // Documentation:
-//   https://cloud.google.com/dialogflow-enterprise/
+//   https://cloud.google.com/dialogflow/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -20,12 +20,15 @@
 #endif
 
 @class GTLRDialogflow_GoogleCloudDialogflowV2Agent;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedConversationDataset;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleSuggestionModelMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1InputDataset;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentFollowupIntentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage;
@@ -42,6 +45,17 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageListSelect;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageListSelectItem;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageQuickReplies;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContent;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedAction;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionDial;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionOpenUri;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionShareLocation;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedReply;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmText;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSelectItemInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSimpleResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSimpleResponses;
@@ -117,6 +131,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2TextInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams;
 @class GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload;
+@class GTLRDialogflow_GoogleLongrunningOperation;
 @class GTLRDialogflow_GoogleLongrunningOperation_Metadata;
 @class GTLRDialogflow_GoogleLongrunningOperation_Response;
 @class GTLRDialogflow_GoogleRpcStatus;
@@ -228,6 +243,58 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateI
  *  Value: "INTENT_VIEW_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel.state
+
+/**
+ *  Model is creating.
+ *
+ *  Value: "CREATING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Creating;
+/**
+ *  Model is deleting.
+ *
+ *  Value: "DELETING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deleting;
+/**
+ *  Model is deployed and ready to use.
+ *
+ *  Value: "DEPLOYED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deployed;
+/**
+ *  Model is deploying.
+ *
+ *  Value: "DEPLOYING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deploying;
+/**
+ *  Model is in error state. Not ready to deploy and use.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Failed;
+/**
+ *  Should not be used, an un-set enum has this value by default.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_StateUnspecified;
+/**
+ *  Model is not deployed but ready to deploy.
+ *
+ *  Value: "UNDEPLOYED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Undeployed;
+/**
+ *  Model is undeploying.
+ *
+ *  Value: "UNDEPLOYING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Undeploying;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType.autoExpansionMode
@@ -451,6 +518,101 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Viber;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia.height
+
+/**
+ *  Not specified.
+ *
+ *  Value: "HEIGHT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_HeightUnspecified;
+/**
+ *  168 DP.
+ *
+ *  Value: "MEDIUM"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Medium;
+/**
+ *  112 DP.
+ *
+ *  Value: "SHORT"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Short;
+/**
+ *  264 DP. Not available for rich card carousels when the card width
+ *  is set to small.
+ *
+ *  Value: "TALL"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Tall;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard.cardWidth
+
+/**
+ *  Not specified.
+ *
+ *  Value: "CARD_WIDTH_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard_CardWidth_CardWidthUnspecified;
+/**
+ *  232 DP.
+ *
+ *  Value: "MEDIUM"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard_CardWidth_Medium;
+/**
+ *  120 DP. Note that tall media cannot be used.
+ *
+ *  Value: "SMALL"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard_CardWidth_Small;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard.cardOrientation
+
+/**
+ *  Not specified.
+ *
+ *  Value: "CARD_ORIENTATION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_CardOrientation_CardOrientationUnspecified;
+/**
+ *  Horizontal layout.
+ *
+ *  Value: "HORIZONTAL"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_CardOrientation_Horizontal;
+/**
+ *  Vertical layout.
+ *
+ *  Value: "VERTICAL"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_CardOrientation_Vertical;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard.thumbnailImageAlignment
+
+/**
+ *  Thumbnail preview is left-aligned.
+ *
+ *  Value: "LEFT"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_Left;
+/**
+ *  Thumbnail preview is right-aligned.
+ *
+ *  Value: "RIGHT"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_Right;
+/**
+ *  Not specified.
+ *
+ *  Value: "THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_ThumbnailImageAlignmentUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase.type
 
 /**
@@ -660,7 +822,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioCo
  *  Use the best available variant of the Speech
  *  model that the caller is eligible for.
  *  Please see the [Dialogflow
- *  docs](https://cloud.google.com/dialogflow-enterprise/docs/data-logging) for
+ *  docs](https://cloud.google.com/dialogflow/docs/data-logging) for
  *  how to make your project eligible for enhanced models.
  *
  *  Value: "USE_BEST_AVAILABLE"
@@ -676,7 +838,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioCo
  *  describes which models have enhanced variants.
  *  * If the API caller isn't eligible for enhanced models, Dialogflow returns
  *  an error. Please see the [Dialogflow
- *  docs](https://cloud.google.com/dialogflow-enterprise/docs/data-logging)
+ *  docs](https://cloud.google.com/dialogflow/docs/data-logging)
  *  for how to make your project eligible.
  *
  *  Value: "USE_ENHANCED"
@@ -1009,7 +1171,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Optional. The URI of the agent's avatar.
  *  Avatars are used throughout the Dialogflow console and in the self-hosted
  *  [Web
- *  Demo](https://cloud.google.com/dialogflow-enterprise/docs/integrations/web-demo)
+ *  Demo](https://cloud.google.com/dialogflow/docs/integrations/web-demo)
  *  integration.
  */
 @property(nonatomic, copy, nullable) NSString *avatarUri;
@@ -1030,7 +1192,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  Required. The default language of the agent as a language tag. See
  *  [Language
- *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
  *  for a list of the currently supported language codes. This field cannot be
  *  set by the `Update` method.
  */
@@ -1121,7 +1283,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Optional. The language of entity synonyms defined in `entities`. If not
  *  specified, the agent's default language is used.
  *  [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -1146,7 +1308,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Optional. The language of entity synonyms defined in `entities`. If not
  *  specified, the agent's default language is used.
  *  [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -1195,7 +1357,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Optional. The language of entity synonyms defined in `entities`. If not
  *  specified, the agent's default language is used.
  *  [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -1231,7 +1393,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Optional. The language of entity synonyms defined in `entity_types`. If not
  *  specified, the agent's default language is used.
  *  [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -1289,7 +1451,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Optional. The language of training phrases, parameters and rich messages
  *  defined in `intents`. If not specified, the agent's default language is
  *  used. [Many
- *  languages](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
  */
@@ -1312,6 +1474,79 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /** The collection of updated or created intents. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Intent *> *intents;
+
+@end
+
+
+/**
+ *  Represents an annotated conversation dataset.
+ *  ConversationDataset can have multiple AnnotatedConversationDataset, each of
+ *  them represents one result from one annotation task.
+ *  AnnotatedConversationDataset can only be generated from annotation task,
+ *  which will be triggered by LabelConversation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedConversationDataset : GTLRObject
+
+/**
+ *  Output only. Number of examples that have annotations in the annotated
+ *  conversation dataset.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completedExampleCount;
+
+/** Output only. Creation time of this annotated conversation dataset. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The description of the annotated conversation dataset.
+ *  Maximum of 10000 bytes.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The display name of the annotated conversation dataset.
+ *  It's specified when user starts an annotation task. Maximum of 64 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Number of examples in the annotated conversation dataset.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exampleCount;
+
+/**
+ *  Output only. AnnotatedConversationDataset resource name. Format:
+ *  `projects/<Project ID>/conversationDatasets/<Conversation Dataset
+ *  ID>/annotatedConversationDatasets/<Annotated Conversation Dataset ID>`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Question type name that identifies a labeling task.
+ *  A question is a single task that a worker answers. A question type is set
+ *  of related questions. Each question belongs to a particular question type.
+ *  It can be used in CrowdCompute UI to filter and manage labeling tasks.
+ */
+@property(nonatomic, copy, nullable) NSString *questionTypeName;
+
+@end
+
+
+/**
+ *  Metadata for article suggestion models.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleSuggestionModelMetadata : GTLRObject
+
+/**
+ *  Optional. Type of the article suggestion model. The available values are:
+ *  * `article-suggestion-gbt-1` - (default) Article Suggestion Gbt model.
+ */
+@property(nonatomic, copy, nullable) NSString *modelType;
 
 @end
 
@@ -1369,7 +1604,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  Optional. The collection of parameters associated with this context.
  *  Refer to [this
- *  doc](https://cloud.google.com/dialogflow-enterprise/docs/intents-actions-parameters)
+ *  doc](https://cloud.google.com/dialogflow/docs/intents-actions-parameters)
  *  for syntax.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters *parameters;
@@ -1380,7 +1615,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  Optional. The collection of parameters associated with this context.
  *  Refer to [this
- *  doc](https://cloud.google.com/dialogflow-enterprise/docs/intents-actions-parameters)
+ *  doc](https://cloud.google.com/dialogflow/docs/intents-actions-parameters)
  *  for syntax.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -1389,6 +1624,58 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters : GTLRObject
+@end
+
+
+/**
+ *  Represents a conversation model.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel : GTLRObject
+
+/** Metadata for article suggestion models. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleSuggestionModelMetadata *articleSuggestionModelMetadata;
+
+/** Output only. Creation time of this model. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. Datasets used to create model. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1InputDataset *> *datasets;
+
+/** Required. The display name of the model. At most 64 bytes long. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. ConversationModel resource name. Format:
+ *  `projects/<Project ID>/conversationModels/<Conversation Model ID>`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. State of the model. A model can only serve prediction requests
+ *  after it gets deployed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Creating
+ *        Model is creating. (Value: "CREATING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deleting
+ *        Model is deleting. (Value: "DELETING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deployed
+ *        Model is deployed and ready to use. (Value: "DEPLOYED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deploying
+ *        Model is deploying. (Value: "DEPLOYING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Failed
+ *        Model is in error state. Not ready to deploy and use. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_StateUnspecified
+ *        Should not be used, an un-set enum has this value by default. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Undeployed
+ *        Model is not deployed but ready to deploy. (Value: "UNDEPLOYED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Undeploying
+ *        Model is undeploying. (Value: "UNDEPLOYING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -1493,7 +1780,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Required. The language of this query. See [Language
- *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
  *  for a list of the currently supported language codes. Note that queries in
  *  the same session do not necessarily need to specify the same language.
  */
@@ -1550,6 +1837,23 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  only if `agent_uri` is specified in `ExportAgentRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
+
+@end
+
+
+/**
+ *  InputDataset used to create model or do evaluation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1InputDataset : GTLRObject
+
+/**
+ *  Required. ConversationDataset resource name. Format:
+ *  `projects/<Project ID>/conversationDatasets/<Conversation Dataset ID>`
+ *  or
+ *  `projects/<Project ID>/conversationDatasets/<Conversation Dataset
+ *  ID>/annotatedConversationDatasets/<Annotated Conversation Dataset ID>`
+ */
+@property(nonatomic, copy, nullable) NSString *dataset;
 
 @end
 
@@ -1869,6 +2173,19 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /** Displays quick replies. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageQuickReplies *quickReplies;
 
+/** Rich Business Messaging (RBM) carousel rich card response. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard *rbmCarouselRichCard;
+
+/** Standalone Rich Business Messaging (RBM) rich card response. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard *rbmStandaloneRichCard;
+
+/**
+ *  Rich Business Messaging (RBM) text response.
+ *  RBM allows businesses to send enriched and branded versions of SMS. See
+ *  https://jibe.google.com/business-messaging.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmText *rbmText;
+
 /** Returns a voice or text-only response for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSimpleResponses *simpleResponses;
 
@@ -2128,6 +2445,287 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
+ *  Rich Business Messaging (RBM) Card content
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContent : GTLRObject
+
+/**
+ *  Optional. Description of the card (at most 2000 bytes).
+ *  At least one of the title, description or media must be set.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. However at least one of the title, description or media must
+ *  be set. Media (image, GIF or a video) to include in the card.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia *media;
+
+/** Optional. List of suggestions to include in the card. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestion *> *suggestions;
+
+/**
+ *  Optional. Title of the card (at most 200 bytes).
+ *  At least one of the title, description or media must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Rich Business Messaging (RBM) Media displayed in Cards
+ *  The following media-types are currently supported:
+ *  ## Image Types
+ *  image/jpeg
+ *  image/jpg'
+ *  image/gif
+ *  image/png
+ *  ## Video Types
+ *  video/h263
+ *  video/m4v
+ *  video/mp4
+ *  video/mpeg
+ *  video/mpeg4
+ *  video/webm
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia : GTLRObject
+
+/**
+ *  Required. Publicly reachable URI of the file. The RBM platform
+ *  determines the MIME type of the file from the content-type field in
+ *  the HTTP headers when the platform fetches the file. The content-type
+ *  field must be present and accurate in the HTTP response from the URL.
+ */
+@property(nonatomic, copy, nullable) NSString *fileUri;
+
+/**
+ *  Required for cards with vertical orientation. The height of the media
+ *  within a rich card with a vertical layout. (https://goo.gl/NeFCjz).
+ *  For a standalone card with horizontal layout, height is not
+ *  customizable, and this field is ignored.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_HeightUnspecified
+ *        Not specified. (Value: "HEIGHT_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Medium
+ *        168 DP. (Value: "MEDIUM")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Short
+ *        112 DP. (Value: "SHORT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Tall
+ *        264 DP. Not available for rich card carousels when the card width
+ *        is set to small. (Value: "TALL")
+ */
+@property(nonatomic, copy, nullable) NSString *height;
+
+/**
+ *  Optional. Publicly reachable URI of the thumbnail.If you don't
+ *  provide a thumbnail URI, the RBM platform displays a blank
+ *  placeholder thumbnail until the user's device downloads the file.
+ *  Depending on the user's setting, the file may not download
+ *  automatically and may require the user to tap a download button.
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnailUri;
+
+@end
+
+
+/**
+ *  Carousel Rich Business Messaging (RBM) rich card.
+ *  Rich cards allow you to respond to users with more vivid content, e.g.
+ *  with media and suggestions.
+ *  For more details about RBM rich cards, please see:
+ *  https://developers.google.com/rcs-business-messaging/rbm/guides/build/send-messages#rich-cards.
+ *  If you want to show a single card with more control over the layout,
+ *  please use RbmStandaloneCard instead.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard : GTLRObject
+
+/**
+ *  Required. The cards in the carousel. A carousel must have at least
+ *  2 cards and at most 10.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContent *> *cardContents;
+
+/**
+ *  Required. The width of the cards in the carousel.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard_CardWidth_CardWidthUnspecified
+ *        Not specified. (Value: "CARD_WIDTH_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard_CardWidth_Medium
+ *        232 DP. (Value: "MEDIUM")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard_CardWidth_Small
+ *        120 DP. Note that tall media cannot be used. (Value: "SMALL")
+ */
+@property(nonatomic, copy, nullable) NSString *cardWidth;
+
+@end
+
+
+/**
+ *  Standalone Rich Business Messaging (RBM) rich card.
+ *  Rich cards allow you to respond to users with more vivid content, e.g.
+ *  with media and suggestions.
+ *  For more details about RBM rich cards, please see:
+ *  https://developers.google.com/rcs-business-messaging/rbm/guides/build/send-messages#rich-cards.
+ *  You can group multiple rich cards into one using RbmCarouselCard but
+ *  carousel cards will give you less control over the card layout.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard : GTLRObject
+
+/** Required. Card content. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContent *cardContent;
+
+/**
+ *  Required. Orientation of the card.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_CardOrientation_CardOrientationUnspecified
+ *        Not specified. (Value: "CARD_ORIENTATION_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_CardOrientation_Horizontal
+ *        Horizontal layout. (Value: "HORIZONTAL")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_CardOrientation_Vertical
+ *        Vertical layout. (Value: "VERTICAL")
+ */
+@property(nonatomic, copy, nullable) NSString *cardOrientation;
+
+/**
+ *  Required if orientation is horizontal.
+ *  Image preview alignment for standalone cards with horizontal layout.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_Left
+ *        Thumbnail preview is left-aligned. (Value: "LEFT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_Right
+ *        Thumbnail preview is right-aligned. (Value: "RIGHT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_ThumbnailImageAlignmentUnspecified
+ *        Not specified. (Value: "THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnailImageAlignment;
+
+@end
+
+
+/**
+ *  Rich Business Messaging (RBM) suggested client-side action that the user
+ *  can choose from the card.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedAction : GTLRObject
+
+/** Suggested client side action: Dial a phone number */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionDial *dial;
+
+/** Suggested client side action: Open a URI on device */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionOpenUri *openUrl;
+
+/**
+ *  Opaque payload that the Dialogflow receives in a user event
+ *  when the user taps the suggested action. This data will be also
+ *  forwarded to webhook to allow performing custom business logic.
+ */
+@property(nonatomic, copy, nullable) NSString *postbackData;
+
+/** Suggested client side action: Share user location */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionShareLocation *shareLocation;
+
+/** Text to display alongside the action. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Opens the user's default dialer app with the specified phone number
+ *  but does not dial automatically (https://goo.gl/ergbB2).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionDial : GTLRObject
+
+/**
+ *  Required. The phone number to fill in the default dialer app.
+ *  This field should be in [E.164](https://en.wikipedia.org/wiki/E.164)
+ *  format. An example of a correctly formatted phone number:
+ *  +15556767888.
+ */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+@end
+
+
+/**
+ *  Opens the user's default web browser app to the specified uri
+ *  (https://goo.gl/6GLJD2). If the user has an app installed that is
+ *  registered as the default handler for the URL, then this app will be
+ *  opened instead, and its icon will be used in the suggested action UI.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionOpenUri : GTLRObject
+
+/** Required. The uri to open on the user device */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Opens the device's location chooser so the user can pick a location
+ *  to send back to the agent (https://goo.gl/GXotJW).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionShareLocation : GTLRObject
+@end
+
+
+/**
+ *  Rich Business Messaging (RBM) suggested reply that the user can click
+ *  instead of typing in their own response.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedReply : GTLRObject
+
+/**
+ *  Opaque payload that the Dialogflow receives in a user event
+ *  when the user taps the suggested reply. This data will be also
+ *  forwarded to webhook to allow performing custom business logic.
+ */
+@property(nonatomic, copy, nullable) NSString *postbackData;
+
+/** Suggested reply text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Rich Business Messaging (RBM) suggestion. Suggestions allow user to
+ *  easily select/click a predefined response or perform an action (like
+ *  opening a web uri).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestion : GTLRObject
+
+/** Predefined client side actions that user can choose */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedAction *action;
+
+/** Predefined replies for user to select instead of typing */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedReply *reply;
+
+@end
+
+
+/**
+ *  Rich Business Messaging (RBM) text response with suggestions.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmText : GTLRObject
+
+/** Optional. One or more suggestions to show to the user. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestion *> *rbmSuggestion;
+
+/** Required. Text sent and displayed to the user. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
  *  Additional info about the select item for when it is triggered in a
  *  dialog.
  */
@@ -2325,7 +2923,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Optional. The collection of prompts that the agent can present to the
- *  user in order to collect value for the parameter.
+ *  user in order to collect a value for the parameter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *prompts;
 
@@ -2531,6 +3129,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
+ *  The response for
+ *  ConversationDatasets.LabelConversation
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1LabelConversationResponse : GTLRObject
+
+/** New annotated conversation dataset created by the labeling task. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedConversationDataset *annotatedConversationDataset;
+
+@end
+
+
+/**
  *  Represents the contents of the original request that was passed to
  *  the `[Streaming]DetectIntent` call.
  */
@@ -2635,6 +3245,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  The intent detection confidence. Values range from 0.0
  *  (completely uncertain) to 1.0 (completely certain).
+ *  This value is for informational purpose only and is only used to
+ *  help match the best intent within the classification threshold.
+ *  This value may change for the same end-user expression at any time due to a
+ *  model retraining or change in implementation.
  *  If there are `multiple knowledge_answers` messages, this value is set to
  *  the greatest `knowledgeAnswers.match_confidence` value in the list.
  *
@@ -2651,7 +3265,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  The language that was triggered during intent detection.
  *  See [Language
- *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
  *  for a list of the currently supported language codes.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -2846,6 +3460,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  Optional. Makes the platform immediately invoke another `DetectIntent` call
  *  internally with the specified event as input.
+ *  When this field is set, Dialogflow ignores the `fulfillment_text`,
+ *  `fulfillment_messages`, and `payload` fields.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput *followupEventInput;
 
@@ -2960,7 +3576,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  Optional. The collection of parameters associated with this context.
  *  Refer to [this
- *  doc](https://cloud.google.com/dialogflow-enterprise/docs/intents-actions-parameters)
+ *  doc](https://cloud.google.com/dialogflow/docs/intents-actions-parameters)
  *  for syntax.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters *parameters;
@@ -2971,7 +3587,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  Optional. The collection of parameters associated with this context.
  *  Refer to [this
- *  doc](https://cloud.google.com/dialogflow-enterprise/docs/intents-actions-parameters)
+ *  doc](https://cloud.google.com/dialogflow/docs/intents-actions-parameters)
  *  for syntax.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -3171,7 +3787,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Required. The language of this query. See [Language
- *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
  *  for a list of the currently supported language codes. Note that queries in
  *  the same session do not necessarily need to specify the same language.
  */
@@ -3342,7 +3958,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  Required. The language of the supplied audio. Dialogflow does not do
  *  translations. See [Language
- *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
  *  for a list of the currently supported language codes. Note that queries in
  *  the same session do not necessarily need to specify the same language.
  */
@@ -3359,8 +3975,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *        Use the best available variant of the Speech
  *        model that the caller is eligible for.
  *        Please see the [Dialogflow
- *        docs](https://cloud.google.com/dialogflow-enterprise/docs/data-logging)
- *        for
+ *        docs](https://cloud.google.com/dialogflow/docs/data-logging) for
  *        how to make your project eligible for enhanced models. (Value:
  *        "USE_BEST_AVAILABLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseEnhanced
@@ -3374,7 +3989,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *        * If the API caller isn't eligible for enhanced models, Dialogflow
  *        returns
  *        an error. Please see the [Dialogflow
- *        docs](https://cloud.google.com/dialogflow-enterprise/docs/data-logging)
+ *        docs](https://cloud.google.com/dialogflow/docs/data-logging)
  *        for how to make your project eligible. (Value: "USE_ENHANCED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseStandard
  *        Use standard model variant even if an enhanced model is available. See
@@ -3404,6 +4019,22 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sampleRateHertz;
+
+/**
+ *  Optional. If `false` (default), recognition does not cease until the
+ *  client closes the stream.
+ *  If `true`, the recognizer will detect a single spoken utterance in input
+ *  audio. Recognition ceases when it detects the audio's voice has
+ *  stopped or paused. In this case, once a detected intent is received, the
+ *  client should close the stream and start a new request with a new stream as
+ *  needed.
+ *  Note: This setting is relevant only for streaming methods.
+ *  Note: When specified, InputAudioConfig.single_utterance takes precedence
+ *  over StreamingDetectIntentRequest.single_utterance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *singleUtterance;
 
 @end
 
@@ -4092,7 +4723,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Optional. The collection of prompts that the agent can present to the
- *  user in order to collect value for the parameter.
+ *  user in order to collect a value for the parameter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *prompts;
 
@@ -4551,6 +5182,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  The intent detection confidence. Values range from 0.0
  *  (completely uncertain) to 1.0 (completely certain).
+ *  This value is for informational purpose only and is only used to
+ *  help match the best intent within the classification threshold.
+ *  This value may change for the same end-user expression at any time due to a
+ *  model retraining or change in implementation.
  *  If there are `multiple knowledge_answers` messages, this value is set to
  *  the greatest `knowledgeAnswers.match_confidence` value in the list.
  *
@@ -4561,7 +5196,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  The language that was triggered during intent detection.
  *  See [Language
- *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
  *  for a list of the currently supported language codes.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -4891,7 +5526,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Required. The language of this conversational query. See [Language
- *  Support](https://cloud.google.com/dialogflow-enterprise/docs/reference/language)
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
  *  for a list of the currently supported language codes. Note that queries in
  *  the same session do not necessarily need to specify the same language.
  */
@@ -4992,6 +5627,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  Optional. Makes the platform immediately invoke another `DetectIntent` call
  *  internally with the specified event as input.
+ *  When this field is set, Dialogflow ignores the `fulfillment_text`,
+ *  `fulfillment_messages`, and `payload` fields.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2EventInput *followupEventInput;
 
@@ -5077,6 +5714,30 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload : GTLRObject
+@end
+
+
+/**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDialogflow_GoogleLongrunningListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleLongrunningOperation *> *operations;
+
 @end
 
 

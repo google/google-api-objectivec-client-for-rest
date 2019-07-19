@@ -461,6 +461,14 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedValues;
 
 /**
+ *  If true, it should not be used in new transfers, and it should not be
+ *  visible to users.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deprecated;
+
+/**
  *  Parameter description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1119,8 +1127,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferRun_Params *params;
 
 /**
- *  For batch transfer runs, specifies the date and time that
- *  data should be ingested.
+ *  For batch transfer runs, specifies the date and time of the data should be
+ *  ingested.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *runTime;
 

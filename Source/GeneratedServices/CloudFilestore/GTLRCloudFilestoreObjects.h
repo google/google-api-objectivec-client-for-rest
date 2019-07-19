@@ -512,6 +512,9 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
 
+/** The location of the node, if different from instance location. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /**
  *  The id of the node.
  *  This should be equal to SaasInstanceNode.node_id.
@@ -676,10 +679,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  */
 @interface GTLRCloudFilestore_Instance : GTLRObject
 
-/**
- *  Output only.
- *  The time when the instance was created.
- */
+/** Output only. The time when the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -705,8 +705,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_Instance_Labels *labels;
 
 /**
- *  Output only.
- *  The resource name of the instance, in the format
+ *  Output only. The resource name of the instance, in the format
  *  projects/{project_id}/locations/{location_id}/instances/{instance_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -718,8 +717,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_NetworkConfig *> *networks;
 
 /**
- *  Output only.
- *  The instance state.
+ *  Output only. The instance state.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudFilestore_Instance_State_Creating The instance is being
@@ -741,8 +739,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Output only.
- *  Additional information about the instance state, if available.
+ *  Output only. Additional information about the instance state, if available.
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
@@ -923,8 +920,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 @interface GTLRCloudFilestore_NetworkConfig : GTLRObject
 
 /**
- *  Output only.
- *  IPv4 addresses in the format
+ *  Output only. IPv4 addresses in the format
  *  {octet 1}.{octet 2}.{octet 3}.{octet 4} or IPv6 addresses in the format
  *  {block 1}:{block 2}:{block 3}:{block 4}:{block 5}:{block 6}:{block
  *  7}:{block 8}.

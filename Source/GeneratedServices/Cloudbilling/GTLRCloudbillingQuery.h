@@ -139,6 +139,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudbilling queryForBillingAccountsGetIamPolicyWithresource:]
 
 /**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
  *  REQUIRED: The resource for which the policy is being requested.
  *  See the operation documentation for the appropriate value for this field.
  */

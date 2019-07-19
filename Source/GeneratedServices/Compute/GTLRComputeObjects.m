@@ -195,6 +195,10 @@ NSString * const kGTLRCompute_AddressList_Warning_Code_SingleInstancePropertyTem
 NSString * const kGTLRCompute_AddressList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_AddressList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk.interface
+NSString * const kGTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk_Interface_Nvme = @"NVME";
+NSString * const kGTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk_Interface_Scsi = @"SCSI";
+
 // GTLRCompute_AttachedDisk.interface
 NSString * const kGTLRCompute_AttachedDisk_Interface_Nvme = @"NVME";
 NSString * const kGTLRCompute_AttachedDisk_Interface_Scsi = @"SCSI";
@@ -1579,6 +1583,7 @@ NSString * const kGTLRCompute_InterconnectOutageNotification_Source_NsrcGoogle =
 // GTLRCompute_InterconnectOutageNotification.state
 NSString * const kGTLRCompute_InterconnectOutageNotification_State_Active = @"ACTIVE";
 NSString * const kGTLRCompute_InterconnectOutageNotification_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRCompute_InterconnectOutageNotification_State_Completed = @"COMPLETED";
 NSString * const kGTLRCompute_InterconnectOutageNotification_State_NsActive = @"NS_ACTIVE";
 NSString * const kGTLRCompute_InterconnectOutageNotification_State_NsCanceled = @"NS_CANCELED";
 
@@ -2252,6 +2257,13 @@ NSString * const kGTLRCompute_Quota_Metric_BackendBuckets      = @"BACKEND_BUCKE
 NSString * const kGTLRCompute_Quota_Metric_BackendServices     = @"BACKEND_SERVICES";
 NSString * const kGTLRCompute_Quota_Metric_C2Cpus              = @"C2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_Commitments         = @"COMMITMENTS";
+NSString * const kGTLRCompute_Quota_Metric_CommittedCpus       = @"COMMITTED_CPUS";
+NSString * const kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb = @"COMMITTED_LOCAL_SSD_TOTAL_GB";
+NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaK80Gpus = @"COMMITTED_NVIDIA_K80_GPUS";
+NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaP100Gpus = @"COMMITTED_NVIDIA_P100_GPUS";
+NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaP4Gpus = @"COMMITTED_NVIDIA_P4_GPUS";
+NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaT4Gpus = @"COMMITTED_NVIDIA_T4_GPUS";
+NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaV100Gpus = @"COMMITTED_NVIDIA_V100_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_Cpus                = @"CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CpusAllRegions      = @"CPUS_ALL_REGIONS";
 NSString * const kGTLRCompute_Quota_Metric_DisksTotalGb        = @"DISKS_TOTAL_GB";
@@ -2297,6 +2309,7 @@ NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4VwsGpus = @"PREEMP
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus = @"PREEMPTIBLE_NVIDIA_V100_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers = @"REGIONAL_AUTOSCALERS";
 NSString * const kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers = @"REGIONAL_INSTANCE_GROUP_MANAGERS";
+NSString * const kGTLRCompute_Quota_Metric_Reservations        = @"RESERVATIONS";
 NSString * const kGTLRCompute_Quota_Metric_ResourcePolicies    = @"RESOURCE_POLICIES";
 NSString * const kGTLRCompute_Quota_Metric_Routers             = @"ROUTERS";
 NSString * const kGTLRCompute_Quota_Metric_Routes              = @"ROUTES";
@@ -2476,7 +2489,97 @@ NSString * const kGTLRCompute_RegionList_Warning_Code_SingleInstancePropertyTemp
 NSString * const kGTLRCompute_RegionList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_RegionList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_Reservation.status
+NSString * const kGTLRCompute_Reservation_Status_Creating = @"CREATING";
+NSString * const kGTLRCompute_Reservation_Status_Deleting = @"DELETING";
+NSString * const kGTLRCompute_Reservation_Status_Invalid  = @"INVALID";
+NSString * const kGTLRCompute_Reservation_Status_Ready    = @"READY";
+NSString * const kGTLRCompute_Reservation_Status_Updating = @"UPDATING";
+
+// GTLRCompute_ReservationAffinity.consumeReservationType
+NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_AnyReservation = @"ANY_RESERVATION";
+NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_NoReservation = @"NO_RESERVATION";
+NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_SpecificReservation = @"SPECIFIC_RESERVATION";
+NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_ReservationAggregatedList_Warning.code
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_ReservationList_Warning.code
+NSString * const kGTLRCompute_ReservationList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_ReservationsScopedList_Warning.code
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
 // GTLRCompute_ResourceCommitment.type
+NSString * const kGTLRCompute_ResourceCommitment_Type_Accelerator = @"ACCELERATOR";
+NSString * const kGTLRCompute_ResourceCommitment_Type_LocalSsd = @"LOCAL_SSD";
 NSString * const kGTLRCompute_ResourceCommitment_Type_Memory   = @"MEMORY";
 NSString * const kGTLRCompute_ResourceCommitment_Type_Unspecified = @"UNSPECIFIED";
 NSString * const kGTLRCompute_ResourceCommitment_Type_Vcpu     = @"VCPU";
@@ -3467,6 +3570,7 @@ NSString * const kGTLRCompute_VpnTunnel_Status_NetworkError    = @"NETWORK_ERROR
 NSString * const kGTLRCompute_VpnTunnel_Status_NoIncomingPackets = @"NO_INCOMING_PACKETS";
 NSString * const kGTLRCompute_VpnTunnel_Status_Provisioning    = @"PROVISIONING";
 NSString * const kGTLRCompute_VpnTunnel_Status_Rejected        = @"REJECTED";
+NSString * const kGTLRCompute_VpnTunnel_Status_Stopped         = @"STOPPED";
 NSString * const kGTLRCompute_VpnTunnel_Status_WaitingForFullConfig = @"WAITING_FOR_FULL_CONFIG";
 
 // GTLRCompute_VpnTunnelAggregatedList_Warning.code
@@ -3985,6 +4089,45 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_AliasIpRange
 @dynamic ipCidrRange, subnetworkRangeName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk
+//
+
+@implementation GTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk
+@dynamic diskSizeGb, interface;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AllocationSpecificSKUAllocationReservedInstanceProperties
+//
+
+@implementation GTLRCompute_AllocationSpecificSKUAllocationReservedInstanceProperties
+@dynamic guestAccelerators, localSsds, machineType, minCpuPlatform;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"guestAccelerators" : [GTLRCompute_AcceleratorConfig class],
+    @"localSsds" : [GTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AllocationSpecificSKUReservation
+//
+
+@implementation GTLRCompute_AllocationSpecificSKUReservation
+@dynamic count, instanceProperties, inUseCount;
 @end
 
 
@@ -4735,8 +4878,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_Commitment
 @dynamic creationTimestamp, descriptionProperty, endTimestamp, identifier, kind,
-         name, plan, region, resources, selfLink, startTimestamp, status,
-         statusMessage;
+         name, plan, region, reservations, resources, selfLink, startTimestamp,
+         status, statusMessage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4748,6 +4891,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"reservations" : [GTLRCompute_Reservation class],
     @"resources" : [GTLRCompute_ResourceCommitment class]
   };
   return map;
@@ -6309,9 +6453,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @dynamic canIpForward, cpuPlatform, creationTimestamp, deletionProtection,
          descriptionProperty, disks, guestAccelerators, hostname, identifier,
          kind, labelFingerprint, labels, machineType, metadata, minCpuPlatform,
-         name, networkInterfaces, scheduling, selfLink, serviceAccounts,
-         shieldedInstanceConfig, shieldedInstanceIntegrityPolicy,
-         startRestricted, status, statusMessage, tags, zoneProperty;
+         name, networkInterfaces, reservationAffinity, scheduling, selfLink,
+         serviceAccounts, shieldedInstanceConfig,
+         shieldedInstanceIntegrityPolicy, startRestricted, status,
+         statusMessage, tags, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -7157,8 +7302,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_InstanceProperties
 @dynamic canIpForward, descriptionProperty, disks, guestAccelerators, labels,
-         machineType, metadata, minCpuPlatform, networkInterfaces, scheduling,
-         serviceAccounts, shieldedInstanceConfig, tags;
+         machineType, metadata, minCpuPlatform, networkInterfaces,
+         reservationAffinity, scheduling, serviceAccounts,
+         shieldedInstanceConfig, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -10435,11 +10581,214 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_Reservation
+//
+
+@implementation GTLRCompute_Reservation
+@dynamic commitment, creationTimestamp, descriptionProperty, identifier, kind,
+         name, selfLink, specificReservation, specificReservationRequired,
+         status, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationAffinity
+//
+
+@implementation GTLRCompute_ReservationAffinity
+@dynamic consumeReservationType, key, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationAggregatedList
+//
+
+@implementation GTLRCompute_ReservationAggregatedList
+@dynamic identifier, items, kind, nextPageToken, selfLink, warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationAggregatedList_Items
+//
+
+@implementation GTLRCompute_ReservationAggregatedList_Items
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_ReservationsScopedList class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationAggregatedList_Warning
+//
+
+@implementation GTLRCompute_ReservationAggregatedList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_ReservationAggregatedList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationAggregatedList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_ReservationAggregatedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationList
+//
+
+@implementation GTLRCompute_ReservationList
+@dynamic identifier, items, kind, nextPageToken, selfLink, warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_Reservation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationList_Warning
+//
+
+@implementation GTLRCompute_ReservationList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_ReservationList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_ReservationList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationsResizeRequest
+//
+
+@implementation GTLRCompute_ReservationsResizeRequest
+@dynamic specificSkuCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationsScopedList
+//
+
+@implementation GTLRCompute_ReservationsScopedList
+@dynamic reservations, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reservations" : [GTLRCompute_Reservation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationsScopedList_Warning
+//
+
+@implementation GTLRCompute_ReservationsScopedList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_ReservationsScopedList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationsScopedList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_ReservationsScopedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_ResourceCommitment
 //
 
 @implementation GTLRCompute_ResourceCommitment
-@dynamic amount, type;
+@dynamic acceleratorType, amount, type;
 @end
 
 

@@ -543,6 +543,17 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspe
 //
 
 @implementation GTLRContainerAnalysis_GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GetPolicyOptions
+//
+
+@implementation GTLRContainerAnalysis_GetPolicyOptions
+@dynamic requestedPolicyVersion;
 @end
 
 

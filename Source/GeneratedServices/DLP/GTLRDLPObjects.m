@@ -197,7 +197,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2Action
-@dynamic jobNotificationEmails, publishSummaryToCscc, pubSub, saveFindings;
+@dynamic jobNotificationEmails, publishFindingsToCloudDataCatalog,
+         publishSummaryToCscc, pubSub, saveFindings;
 @end
 
 
@@ -711,7 +712,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest
 @dynamic deidentifyConfig, deidentifyTemplateName, inspectConfig,
-         inspectTemplateName, item;
+         inspectTemplateName, item, location;
 @end
 
 
@@ -1834,6 +1835,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2Proximity
 @dynamic windowAfter, windowBefore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog
 @end
 
 

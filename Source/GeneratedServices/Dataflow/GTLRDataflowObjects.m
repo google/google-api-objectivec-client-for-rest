@@ -775,6 +775,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_HotKeyDetection
+//
+
+@implementation GTLRDataflow_HotKeyDetection
+@dynamic hotKeyAge, systemName, userStepName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_InstructionInput
 //
 
@@ -1027,7 +1037,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_LaunchTemplateParameters
-@dynamic environment, jobName, parameters;
+@dynamic environment, jobName, parameters, transformNameMapping, update;
 @end
 
 
@@ -1037,6 +1047,20 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_LaunchTemplateParameters_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_LaunchTemplateParameters_TransformNameMapping
+//
+
+@implementation GTLRDataflow_LaunchTemplateParameters_TransformNameMapping
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1591,8 +1615,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_RuntimeEnvironment
 @dynamic additionalExperiments, additionalUserLabels, bypassTempDirValidation,
-         machineType, maxWorkers, network, numWorkers, serviceAccountEmail,
-         subnetwork, tempLocation, zoneProperty;
+         kmsKeyName, machineType, maxWorkers, network, numWorkers,
+         serviceAccountEmail, subnetwork, tempLocation, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -2666,9 +2690,9 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_WorkItemServiceState
-@dynamic harnessData, leaseExpireTime, metricShortId, nextReportIndex,
-         reportStatusInterval, splitRequest, suggestedStopPoint,
-         suggestedStopPosition;
+@dynamic harnessData, hotKeyDetection, leaseExpireTime, metricShortId,
+         nextReportIndex, reportStatusInterval, splitRequest,
+         suggestedStopPoint, suggestedStopPosition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -590,15 +590,18 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
- *  The request for ExecuteBatchDml
+ *  The request for ExecuteBatchDml.
  */
 @interface GTLRSpanner_ExecuteBatchDmlRequest : GTLRObject
 
 /**
- *  A per-transaction sequence number used to identify this request. This is
- *  used in the same space as the seqno in
- *  ExecuteSqlRequest. See more details
- *  in ExecuteSqlRequest.
+ *  A per-transaction sequence number used to identify this request. This field
+ *  makes each request idempotent such that if the request is received multiple
+ *  times, at most one will succeed.
+ *  The sequence number must be monotonically increasing within the
+ *  transaction. If a request arrives for the first time with an out-of-order
+ *  sequence number, the transaction may be aborted. Replays of previously
+ *  handled requests will yield the same response as the first execution.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -606,17 +609,18 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  The list of statements to execute in this batch. Statements are executed
- *  serially, such that the effects of statement i are visible to statement
- *  i+1. Each statement must be a DML statement. Execution will stop at the
- *  first failed statement; the remaining statements will not run.
- *  REQUIRES: `statements_size()` > 0.
+ *  serially, such that the effects of statement `i` are visible to statement
+ *  `i+1`. Each statement must be a DML statement. Execution stops at the
+ *  first failed statement; the remaining statements are not executed.
+ *  Callers must provide at least one statement.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Statement *> *statements;
 
 /**
- *  The transaction to use. A ReadWrite transaction is required. Single-use
- *  transactions are not supported (to avoid replay). The caller must either
- *  supply an existing transaction ID or begin a new transaction.
+ *  The transaction to use. Must be a read-write transaction.
+ *  To protect against replays, single-use transactions are not supported. The
+ *  caller must either supply an existing transaction ID or begin a new
+ *  transaction.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_TransactionSelector *transaction;
 
@@ -625,37 +629,38 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  The response for ExecuteBatchDml. Contains a list
- *  of ResultSet, one for each DML statement that has successfully executed.
- *  If a statement fails, the error is returned as part of the response payload.
- *  Clients can determine whether all DML statements have run successfully, or
- *  if
- *  a statement failed, using one of the following approaches:
- *  1. Check if `'status'` field is `OkStatus`.
- *  2. Check if `result_sets_size()` equals the number of statements in
- *  ExecuteBatchDmlRequest.
- *  Example 1: A request with 5 DML statements, all executed successfully.
- *  Result: A response with 5 ResultSets, one for each statement in the same
- *  order, and an `OkStatus`.
- *  Example 2: A request with 5 DML statements. The 3rd statement has a syntax
- *  error.
- *  Result: A response with 2 ResultSets, for the first 2 statements that
- *  run successfully, and a syntax error (`INVALID_ARGUMENT`) status. From
- *  `result_set_size()` client can determine that the 3rd statement has failed.
+ *  of ResultSet messages, one for each DML statement that has successfully
+ *  executed, in the same order as the statements in the request. If a statement
+ *  fails, the status in the response body identifies the cause of the failure.
+ *  To check for DML statements that failed, use the following approach:
+ *  1. Check the status in the response message. The google.rpc.Code enum
+ *  value `OK` indicates that all statements were executed successfully.
+ *  2. If the status was not `OK`, check the number of result sets in the
+ *  response. If the response contains `N` ResultSet messages, then
+ *  statement `N+1` in the request failed.
+ *  Example 1:
+ *  * Request: 5 DML statements, all executed successfully.
+ *  * Response: 5 ResultSet messages, with the status `OK`.
+ *  Example 2:
+ *  * Request: 5 DML statements. The third statement has a syntax error.
+ *  * Response: 2 ResultSet messages, and a syntax error (`INVALID_ARGUMENT`)
+ *  status. The number of ResultSet messages indicates that the third
+ *  statement failed, and the fourth and fifth statements were not executed.
  */
 @interface GTLRSpanner_ExecuteBatchDmlResponse : GTLRObject
 
 /**
- *  ResultSets, one for each statement in the request that ran successfully, in
- *  the same order as the statements in the request. Each ResultSet will
- *  not contain any rows. The ResultSetStats in each ResultSet will
- *  contain the number of rows modified by the statement.
- *  Only the first ResultSet in the response contains a valid
+ *  One ResultSet for each statement in the request that ran successfully,
+ *  in the same order as the statements in the request. Each ResultSet does
+ *  not contain any rows. The ResultSetStats in each ResultSet contain
+ *  the number of rows modified by the statement.
+ *  Only the first ResultSet in the response contains valid
  *  ResultSetMetadata.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ResultSet *> *resultSets;
 
 /**
- *  If all DML statements are executed successfully, status will be OK.
+ *  If all DML statements are executed successfully, the status is `OK`.
  *  Otherwise, the error status of the first failed statement.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_Status *status;
@@ -670,17 +675,14 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @interface GTLRSpanner_ExecuteSqlRequest : GTLRObject
 
 /**
- *  The SQL string can contain parameter placeholders. A parameter
- *  placeholder consists of `'\@'` followed by the parameter
- *  name. Parameter names consist of any combination of letters,
- *  numbers, and underscores.
+ *  Parameter names and values that bind to placeholders in the SQL string.
+ *  A parameter placeholder consists of the `\@` character followed by the
+ *  parameter name (for example, `\@firstName`). Parameter names can contain
+ *  letters, numbers, and underscores.
  *  Parameters can appear anywhere that a literal value is expected. The same
  *  parameter name can be used more than once, for example:
  *  `"WHERE id > \@msg_id AND id < \@msg_id + 100"`
- *  It is an error to execute an SQL statement with unbound parameters.
- *  Parameter values are specified using `params`, which is a JSON
- *  object whose keys are parameter names, and whose values are the
- *  corresponding parameter values.
+ *  It is an error to execute a SQL statement with unbound parameters.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_ExecuteSqlRequest_Params *params;
 
@@ -737,7 +739,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, copy, nullable) NSString *resumeToken;
 
 /**
- *  A per-transaction sequence number used to identify this request. This
+ *  A per-transaction sequence number used to identify this request. This field
  *  makes each request idempotent such that if the request is received multiple
  *  times, at most one will succeed.
  *  The sequence number must be monotonically increasing within the
@@ -754,15 +756,13 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, copy, nullable) NSString *sql;
 
 /**
- *  The transaction to use. If none is provided, the default is a
- *  temporary read-only transaction with strong concurrency.
  *  The transaction to use.
  *  For queries, if none is provided, the default is a temporary read-only
  *  transaction with strong concurrency.
- *  Standard DML statements require a ReadWrite transaction. Single-use
- *  transactions are not supported (to avoid replay). The caller must
- *  either supply an existing transaction ID or begin a new transaction.
- *  Partitioned DML requires an existing PartitionedDml transaction ID.
+ *  Standard DML statements require a read-write transaction. To protect
+ *  against replays, single-use transactions are not supported. The caller
+ *  must either supply an existing transaction ID or begin a new transaction.
+ *  Partitioned DML requires an existing Partitioned DML transaction ID.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_TransactionSelector *transaction;
 
@@ -770,17 +770,14 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
- *  The SQL string can contain parameter placeholders. A parameter
- *  placeholder consists of `'\@'` followed by the parameter
- *  name. Parameter names consist of any combination of letters,
- *  numbers, and underscores.
+ *  Parameter names and values that bind to placeholders in the SQL string.
+ *  A parameter placeholder consists of the `\@` character followed by the
+ *  parameter name (for example, `\@firstName`). Parameter names can contain
+ *  letters, numbers, and underscores.
  *  Parameters can appear anywhere that a literal value is expected. The same
  *  parameter name can be used more than once, for example:
  *  `"WHERE id > \@msg_id AND id < \@msg_id + 100"`
- *  It is an error to execute an SQL statement with unbound parameters.
- *  Parameter values are specified using `params`, which is a JSON
- *  object whose keys are parameter names, and whose values are the
- *  corresponding parameter values.
+ *  It is an error to execute a SQL statement with unbound parameters.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1606,17 +1603,14 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @interface GTLRSpanner_PartitionQueryRequest : GTLRObject
 
 /**
- *  The SQL query string can contain parameter placeholders. A parameter
- *  placeholder consists of `'\@'` followed by the parameter
- *  name. Parameter names consist of any combination of letters,
- *  numbers, and underscores.
+ *  Parameter names and values that bind to placeholders in the SQL string.
+ *  A parameter placeholder consists of the `\@` character followed by the
+ *  parameter name (for example, `\@firstName`). Parameter names can contain
+ *  letters, numbers, and underscores.
  *  Parameters can appear anywhere that a literal value is expected. The same
  *  parameter name can be used more than once, for example:
  *  `"WHERE id > \@msg_id AND id < \@msg_id + 100"`
- *  It is an error to execute an SQL query with unbound parameters.
- *  Parameter values are specified using `params`, which is a JSON
- *  object whose keys are parameter names, and whose values are the
- *  corresponding parameter values.
+ *  It is an error to execute a SQL statement with unbound parameters.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_PartitionQueryRequest_Params *params;
 
@@ -1657,17 +1651,14 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
- *  The SQL query string can contain parameter placeholders. A parameter
- *  placeholder consists of `'\@'` followed by the parameter
- *  name. Parameter names consist of any combination of letters,
- *  numbers, and underscores.
+ *  Parameter names and values that bind to placeholders in the SQL string.
+ *  A parameter placeholder consists of the `\@` character followed by the
+ *  parameter name (for example, `\@firstName`). Parameter names can contain
+ *  letters, numbers, and underscores.
  *  Parameters can appear anywhere that a literal value is expected. The same
  *  parameter name can be used more than once, for example:
  *  `"WHERE id > \@msg_id AND id < \@msg_id + 100"`
- *  It is an error to execute an SQL query with unbound parameters.
- *  Parameter values are specified using `params`, which is a JSON
- *  object whose keys are parameter names, and whose values are the
- *  corresponding parameter values.
+ *  It is an error to execute a SQL statement with unbound parameters.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2408,17 +2399,14 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @interface GTLRSpanner_Statement : GTLRObject
 
 /**
- *  The DML string can contain parameter placeholders. A parameter
- *  placeholder consists of `'\@'` followed by the parameter
- *  name. Parameter names consist of any combination of letters,
- *  numbers, and underscores.
+ *  Parameter names and values that bind to placeholders in the DML string.
+ *  A parameter placeholder consists of the `\@` character followed by the
+ *  parameter name (for example, `\@firstName`). Parameter names can contain
+ *  letters, numbers, and underscores.
  *  Parameters can appear anywhere that a literal value is expected. The
  *  same parameter name can be used more than once, for example:
  *  `"WHERE id > \@msg_id AND id < \@msg_id + 100"`
- *  It is an error to execute an SQL statement with unbound parameters.
- *  Parameter values are specified using `params`, which is a JSON
- *  object whose keys are parameter names, and whose values are the
- *  corresponding parameter values.
+ *  It is an error to execute a SQL statement with unbound parameters.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_Statement_Params *params;
 
@@ -2440,17 +2428,14 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
- *  The DML string can contain parameter placeholders. A parameter
- *  placeholder consists of `'\@'` followed by the parameter
- *  name. Parameter names consist of any combination of letters,
- *  numbers, and underscores.
+ *  Parameter names and values that bind to placeholders in the DML string.
+ *  A parameter placeholder consists of the `\@` character followed by the
+ *  parameter name (for example, `\@firstName`). Parameter names can contain
+ *  letters, numbers, and underscores.
  *  Parameters can appear anywhere that a literal value is expected. The
  *  same parameter name can be used more than once, for example:
  *  `"WHERE id > \@msg_id AND id < \@msg_id + 100"`
- *  It is an error to execute an SQL statement with unbound parameters.
- *  Parameter values are specified using `params`, which is a JSON
- *  object whose keys are parameter names, and whose values are the
- *  corresponding parameter values.
+ *  It is an error to execute a SQL statement with unbound parameters.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2482,45 +2467,10 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 /**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
- *  used by [gRPC](https://github.com/grpc). The error model is designed to be:
- *  - Simple to use and understand for most users
- *  - Flexible enough to meet unexpected needs
- *  # Overview
- *  The `Status` message contains three pieces of data: error code, error
- *  message, and error details. The error code should be an enum value of
- *  google.rpc.Code, but it may accept additional error codes if needed. The
- *  error message should be a developer-facing English message that helps
- *  developers *understand* and *resolve* the error. If a localized user-facing
- *  error message is needed, put the localized message in the error details or
- *  localize it in the client. The optional error details may contain arbitrary
- *  information about the error. There is a predefined set of error detail types
- *  in the package `google.rpc` that can be used for common error conditions.
- *  # Language mapping
- *  The `Status` message is the logical representation of the error model, but
- *  it
- *  is not necessarily the actual wire format. When the `Status` message is
- *  exposed in different client libraries and different wire protocols, it can
- *  be
- *  mapped differently. For example, it will likely be mapped to some exceptions
- *  in Java, but more likely mapped to some error codes in C.
- *  # Other uses
- *  The error model and the `Status` message can be used in a variety of
- *  environments, either with or without APIs, to provide a
- *  consistent developer experience across different environments.
- *  Example uses of this error model include:
- *  - Partial errors. If a service needs to return partial errors to the client,
- *  it may embed the `Status` in the normal response to indicate the partial
- *  errors.
- *  - Workflow errors. A typical workflow has multiple steps. Each step may
- *  have a `Status` message for error reporting.
- *  - Batch operations. If a client uses batch request and batch response, the
- *  `Status` message should be used directly inside batch response, one for
- *  each error sub-response.
- *  - Asynchronous operations. If an API call embeds asynchronous operation
- *  results in its response, the status of those operations should be
- *  represented directly using the `Status` message.
- *  - Logging. If some API errors are stored in logs, the message `Status` could
- *  be used directly after any stripping needed for security/privacy reasons.
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details.
+ *  You can find out more about this error model and how to work with it in the
+ *  [API Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRSpanner_Status : GTLRObject
 
