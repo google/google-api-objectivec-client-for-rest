@@ -31,6 +31,10 @@
                              @"i8WaxanFuMaHxpbGpca0x4PHksehx7A=";
   NSString *testEncodedWeb = @"ARAfLj1MW2p5wojCl8KmwrXDhMOTw6LDscSAxI_EnsStxLzF"
                              @"i8WaxanFuMaHxpbGpca0x4PHksehx7A=";
+  NSString *testEncodedWebNoPadding =
+      [testEncodedWeb stringByTrimmingCharactersInSet:
+         [NSCharacterSet characterSetWithCharactersInString:@"="]];
+  XCTAssertNotEqualObjects(testEncodedWeb, testEncodedWebNoPadding);
 
   // Encoding
   NSData *data = nil;
@@ -58,7 +62,7 @@
   data = GTLRDecodeBase64(str);
   XCTAssertNil(data, @"nil string");
 
-  str = @"kjh"; // not valid base64
+  str = @"kjh"; // not valid base64 (not padded correctly)
   data = GTLRDecodeBase64(str);
   XCTAssertNil(data, @"invalid string");
 
@@ -75,5 +79,11 @@
   data = GTLRDecodeWebSafeBase64(str);
   expectedData = [testStr dataUsingEncoding:NSUTF8StringEncoding];
   XCTAssertEqualObjects(data, expectedData, @"test string ws");
+
+  str = testEncodedWebNoPadding;
+  data = GTLRDecodeWebSafeBase64(str);
+  expectedData = [testStr dataUsingEncoding:NSUTF8StringEncoding];
+  XCTAssertEqualObjects(data, expectedData);
 }
+
 @end
