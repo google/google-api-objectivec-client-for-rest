@@ -219,6 +219,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Enable multiple services on a project. The operation is atomic: if enabling
  *  any service fails, then the entire batch fails, and no state changes occur.
+ *  To enable a single service, use the `EnableService` method instead.
  *
  *  Method: serviceusage.services.batchEnable
  *
@@ -243,6 +244,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Enable multiple services on a project. The operation is atomic: if enabling
  *  any service fails, then the entire batch fails, and no state changes occur.
+ *  To enable a single service, use the `EnableService` method instead.
  *
  *  @param object The @c GTLRServiceUsage_BatchEnableServicesRequest to include
  *    in the query.

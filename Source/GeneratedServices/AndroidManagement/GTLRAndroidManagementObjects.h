@@ -58,8 +58,10 @@
 @class GTLRAndroidManagement_Policy;
 @class GTLRAndroidManagement_Policy_OpenNetworkConfiguration;
 @class GTLRAndroidManagement_PolicyEnforcementRule;
+@class GTLRAndroidManagement_PostureDetail;
 @class GTLRAndroidManagement_PowerManagementEvent;
 @class GTLRAndroidManagement_ProxyInfo;
+@class GTLRAndroidManagement_SecurityPosture;
 @class GTLRAndroidManagement_SetupAction;
 @class GTLRAndroidManagement_SigninDetail;
 @class GTLRAndroidManagement_SoftwareInfo;
@@ -218,6 +220,17 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallTyp
  *  Value: "INSTALL_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified;
+/**
+ *  The app is automatically installed in kiosk mode: it's set as the preferred
+ *  home intent and whitelisted for lock task mode. Device setup won't complete
+ *  until the app is installed. After installation, users won't be able to
+ *  remove the app. You can only set this installType for one app per policy.
+ *  When this is present in the policy, status bar will be automatically
+ *  disabled.
+ *
+ *  Value: "KIOSK"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Kiosk;
 /**
  *  The app is automatically installed and can be removed by the user.
  *
@@ -1192,6 +1205,30 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Us
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Wireless;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PostureDetail.securityRisk
+
+/**
+ *  SafetyNet detects that the device uses a compromised OS (basicIntegrity
+ *  check fails).
+ *
+ *  Value: "COMPROMISED_OS"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_CompromisedOs;
+/**
+ *  Unspecified. Cannot determine the risk detail.
+ *
+ *  Value: "SECURITY_RISK_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_SecurityRiskUnspecified;
+/**
+ *  SafetyNet detects that the device uses an unknown OS (basicIntegrity check
+ *  passes while ctsProfileMatch fails).
+ *
+ *  Value: "UNKNOWN_OS"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_UnknownOs;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PowerManagementEvent.eventType
 
 /**
@@ -1242,6 +1279,39 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventTy
  *  Value: "SHUTDOWN"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_Shutdown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_SecurityPosture.devicePosture
+
+/**
+ *  The device is at risk (both SafetyNet's ctsProfileMatch check and
+ *  basicIntegrity check pass).
+ *
+ *  Value: "AT_RISK"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_AtRisk;
+/**
+ *  Unspecified. It is unable to determine the correct device posture because of
+ *  insufficient data (for example, in the case of SafetyNet outage, there is no
+ *  SafetyNet result). There is no posture detail for this posture value.
+ *
+ *  Value: "POSTURE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PostureUnspecified;
+/**
+ *  The device is potentially compromised (either SafetyNet's ctsProfileMatch
+ *  check or basicIntegrity check fails).
+ *
+ *  Value: "POTENTIALLY_COMPROMISED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PotentiallyCompromised;
+/**
+ *  The device is in the most secure state (both SafetyNet's ctsProfileMatch
+ *  check and basicIntegrity check pass).
+ *
+ *  Value: "SECURE"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_Secure;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_SystemUpdate.type
@@ -1489,6 +1559,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified
  *        Unspecified. Defaults to AVAILABLE. (Value:
  *        "INSTALL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_Kiosk The app
+ *        is automatically installed in kiosk mode: it's set as the preferred
+ *        home intent and whitelisted for lock task mode. Device setup won't
+ *        complete until the app is installed. After installation, users won't
+ *        be able to remove the app. You can only set this installType for one
+ *        app per policy. When this is present in the policy, status bar will be
+ *        automatically disabled. (Value: "KIOSK")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled
  *        The app is automatically installed and can be removed by the user.
  *        (Value: "PREINSTALLED")
@@ -1500,7 +1577,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, copy, nullable) NSString *installType;
 
 /**
- *  Whether the app is allowed to lock itself in full-screen mode.
+ *  Whether the app is allowed to lock itself in full-screen mode. DEPRECATED.
+ *  Use InstallType KIOSK or kioskCustomLauncherEnabled to to configure a
+ *  dedicated device.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2009,6 +2088,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  The names are in chronological order.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *previousDeviceNames;
+
+/** Device's security posture value that reflects how secure the device is. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_SecurityPosture *securityPosture;
 
 /**
  *  Detailed information about the device software. This information is only
@@ -3325,7 +3407,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 /**
  *  A default activity for handling intents that match a particular intent
- *  filter.
+ *  filter. Note: To set up a kiosk, use InstallType to KIOSK rather than use
+ *  persistent preferred activities.
  */
 @interface GTLRAndroidManagement_PersistentPreferredActivity : GTLRObject
 
@@ -3607,9 +3690,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /**
  *  Whether the kiosk custom launcher is enabled. This replaces the home screen
  *  with a launcher that locks down the device to the apps installed via the
- *  applications setting. The apps appear on a single page in alphabetical
- *  order. It is recommended to also use status_bar_disabled to block access to
- *  device settings.
+ *  applications setting. Apps appear on a single page in alphabetical order.
+ *  The status bar is disabled when this is set.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3861,6 +3943,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 /**
  *  Whether the status bar is disabled. This disables notifications, quick
  *  settings, and other screen overlays that allow escape from full-screen mode.
+ *  DEPRECATED. To disable the status bar on a kiosk device, use InstallType
+ *  KIOSK or kioskCustomLauncherEnabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3993,6 +4077,34 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 
 /**
+ *  Detail that provides further information if the device is not in the most
+ *  secure state.
+ */
+@interface GTLRAndroidManagement_PostureDetail : GTLRObject
+
+/** Corresponding pieces of advice to mitigate the security risk. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_UserFacingMessage *> *advice;
+
+/**
+ *  The risk that makes the device not in the most secure state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_CompromisedOs
+ *        SafetyNet detects that the device uses a compromised OS
+ *        (basicIntegrity check fails). (Value: "COMPROMISED_OS")
+ *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_SecurityRiskUnspecified
+ *        Unspecified. Cannot determine the risk detail. (Value:
+ *        "SECURITY_RISK_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_UnknownOs
+ *        SafetyNet detects that the device uses an unknown OS (basicIntegrity
+ *        check passes while ctsProfileMatch fails). (Value: "UNKNOWN_OS")
+ */
+@property(nonatomic, copy, nullable) NSString *securityRisk;
+
+@end
+
+
+/**
  *  A power management event.
  */
 @interface GTLRAndroidManagement_PowerManagementEvent : GTLRObject
@@ -4059,6 +4171,42 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
+
+@end
+
+
+/**
+ *  . Device's security posture value that reflects how secure the device is.
+ */
+@interface GTLRAndroidManagement_SecurityPosture : GTLRObject
+
+/**
+ *  Device's security posture value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_SecurityPosture_DevicePosture_AtRisk The
+ *        device is at risk (both SafetyNet's ctsProfileMatch check and
+ *        basicIntegrity check pass). (Value: "AT_RISK")
+ *    @arg @c kGTLRAndroidManagement_SecurityPosture_DevicePosture_PostureUnspecified
+ *        Unspecified. It is unable to determine the correct device posture
+ *        because of insufficient data (for example, in the case of SafetyNet
+ *        outage, there is no SafetyNet result). There is no posture detail for
+ *        this posture value. (Value: "POSTURE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_SecurityPosture_DevicePosture_PotentiallyCompromised
+ *        The device is potentially compromised (either SafetyNet's
+ *        ctsProfileMatch check or basicIntegrity check fails). (Value:
+ *        "POTENTIALLY_COMPROMISED")
+ *    @arg @c kGTLRAndroidManagement_SecurityPosture_DevicePosture_Secure The
+ *        device is in the most secure state (both SafetyNet's ctsProfileMatch
+ *        check and basicIntegrity check pass). (Value: "SECURE")
+ */
+@property(nonatomic, copy, nullable) NSString *devicePosture;
+
+/**
+ *  Details that provide further information if the device is not in the most
+ *  secure state.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PostureDetail *> *postureDetails;
 
 @end
 
@@ -4298,6 +4446,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *softwareInfoEnabled;
+
+/**
+ *  Whether system properties reporting is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *systemPropertiesEnabled;
 
 @end
 

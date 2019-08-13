@@ -558,8 +558,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /**
  *  Error samples.
- *  No more than 100 error log entries may be recorded for a given
- *  error code for a single task.
+ *  At most 5 error log entries will be recorded for a given
+ *  error code for a single transfer operation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorageTransfer_ErrorLogEntry *> *errorLogEntries;
 

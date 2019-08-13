@@ -461,6 +461,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a tenancy unit with no tenant resources.
+ *  If tenancy unit already exists, it will be returned,
+ *  however, in this case, returned TenancyUnit does not have tenant_resources
+ *  field set and ListTenancyUnit has to be used to get a complete
+ *  TenancyUnit with all fields populated.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.create
  *
@@ -485,6 +489,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceConsumerManagement_TenancyUnit.
  *
  *  Creates a tenancy unit with no tenant resources.
+ *  If tenancy unit already exists, it will be returned,
+ *  however, in this case, returned TenancyUnit does not have tenant_resources
+ *  field set and ListTenancyUnit has to be used to get a complete
+ *  TenancyUnit with all fields populated.
  *
  *  @param object The @c GTLRServiceConsumerManagement_CreateTenancyUnitRequest
  *    to include in the query.

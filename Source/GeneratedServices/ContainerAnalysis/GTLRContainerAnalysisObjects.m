@@ -53,6 +53,7 @@ NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_ImageBasis = @"IM
 NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_KindUnspecified = @"KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_PackageManager = @"PACKAGE_MANAGER";
 NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_PackageVulnerability = @"PACKAGE_VULNERABILITY";
+NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Upgrade = @"UPGRADE";
 
 // GTLRContainerAnalysis_Distribution.architecture
 NSString * const kGTLRContainerAnalysis_Distribution_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
@@ -98,6 +99,7 @@ NSString * const kGTLRContainerAnalysis_Note_Kind_ImageBasis   = @"IMAGE_BASIS";
 NSString * const kGTLRContainerAnalysis_Note_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_Note_Kind_PackageManager = @"PACKAGE_MANAGER";
 NSString * const kGTLRContainerAnalysis_Note_Kind_PackageVulnerability = @"PACKAGE_VULNERABILITY";
+NSString * const kGTLRContainerAnalysis_Note_Kind_Upgrade      = @"UPGRADE";
 
 // GTLRContainerAnalysis_Occurrence.kind
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_AttestationAuthority = @"ATTESTATION_AUTHORITY";
@@ -108,6 +110,7 @@ NSString * const kGTLRContainerAnalysis_Occurrence_Kind_ImageBasis = @"IMAGE_BAS
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_PackageManager = @"PACKAGE_MANAGER";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_PackageVulnerability = @"PACKAGE_VULNERABILITY";
+NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Upgrade = @"UPGRADE";
 
 // GTLRContainerAnalysis_PgpSignedAttestation.contentType
 NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_ContentTypeUnspecified = @"CONTENT_TYPE_UNSPECIFIED";
@@ -226,7 +229,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspe
 //
 
 @implementation GTLRContainerAnalysis_AuditLogConfig
-@dynamic exemptedMembers, logType;
+@dynamic exemptedMembers, ignoreChildExemptions, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -820,7 +823,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspe
 @implementation GTLRContainerAnalysis_Note
 @dynamic attestationAuthority, baseImage, buildType, createTime, deployable,
          discovery, expirationTime, kind, longDescription, name, package,
-         relatedUrl, shortDescription, updateTime, vulnerabilityType;
+         relatedUrl, shortDescription, updateTime, upgrade, vulnerabilityType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -846,7 +849,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspe
 @implementation GTLRContainerAnalysis_Occurrence
 @dynamic attestation, buildDetails, createTime, deployment, derivedImage,
          discovered, installation, kind, name, noteName, remediation, resource,
-         resourceUrl, updateTime, vulnerabilityDetails;
+         resourceUrl, updateTime, upgrade, vulnerabilityDetails;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -1139,6 +1142,52 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspe
 
 @implementation GTLRContainerAnalysis_UpdateOperationRequest
 @dynamic operation, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_UpgradeDistribution
+//
+
+@implementation GTLRContainerAnalysis_UpgradeDistribution
+@dynamic classification, cpeUri, cve, severity;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cve" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_UpgradeNote
+//
+
+@implementation GTLRContainerAnalysis_UpgradeNote
+@dynamic distributions, package, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"distributions" : [GTLRContainerAnalysis_UpgradeDistribution class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_UpgradeOccurrence
+//
+
+@implementation GTLRContainerAnalysis_UpgradeOccurrence
+@dynamic distribution, package, parsedVersion;
 @end
 
 

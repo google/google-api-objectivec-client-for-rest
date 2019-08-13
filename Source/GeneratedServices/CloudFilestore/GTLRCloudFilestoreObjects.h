@@ -276,11 +276,21 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  "seconds": 1535406431,
  *  },
  *  }
- *  }
+ *  },
+ *  "consumer_defined_name": "my-sql-instance1",
  *  }
  *  ```
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance : GTLRObject
+
+/**
+ *  consumer_defined_name is the name that is set by the consumer. On the other
+ *  hand Name field represents system-assigned id of an instance so consumers
+ *  are not necessarily aware of it.
+ *  consumer_defined_name is used for notification/UI purposes for consumer to
+ *  recognize their instances.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerDefinedName;
 
 /** Output only. Timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;

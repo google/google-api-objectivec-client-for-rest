@@ -81,6 +81,31 @@
 
 @end
 
+@implementation GTLRFirebaseManagementQuery_ProjectsAddGoogleAnalytics
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_AddGoogleAnalyticsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}:addGoogleAnalytics";
+  GTLRFirebaseManagementQuery_ProjectsAddGoogleAnalytics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseManagement_Operation class];
+  query.loggingName = @"firebase.projects.addGoogleAnalytics";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseManagementQuery_ProjectsAndroidAppsCreate
 
 @dynamic parent;
@@ -333,6 +358,25 @@
 
 @end
 
+@implementation GTLRFirebaseManagementQuery_ProjectsGetAnalyticsDetails
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRFirebaseManagementQuery_ProjectsGetAnalyticsDetails *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseManagement_AnalyticsDetails class];
+  query.loggingName = @"firebase.projects.getAnalyticsDetails";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseManagementQuery_ProjectsIosAppsCreate
 
 @dynamic parent;
@@ -477,6 +521,31 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseManagement_FirebaseProject class];
   query.loggingName = @"firebase.projects.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseManagementQuery_ProjectsRemoveAnalytics
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_RemoveAnalyticsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}:removeAnalytics";
+  GTLRFirebaseManagementQuery_ProjectsRemoveAnalytics *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseManagement_Empty class];
+  query.loggingName = @"firebase.projects.removeAnalytics";
   return query;
 }
 

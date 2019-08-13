@@ -73,9 +73,10 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 //
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance
-@dynamic createTime, labels, maintenancePolicyNames, maintenanceSchedules, name,
-         producerMetadata, provisionedResources, rolloutMetadata, sloMetadata,
-         softwareVersions, state, tenantProjectId, updateTime;
+@dynamic consumerDefinedName, createTime, labels, maintenancePolicyNames,
+         maintenanceSchedules, name, producerMetadata, provisionedResources,
+         rolloutMetadata, sloMetadata, softwareVersions, state, tenantProjectId,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

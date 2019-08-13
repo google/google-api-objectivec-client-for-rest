@@ -1328,9 +1328,10 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}'.
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
  *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
- *  the account.
+ *  the account. The `ACCOUNT` value can be the `email` address or the
+ *  `unique_id` of the service account.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1350,9 +1351,10 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *    query.
  *  @param name The resource name of the service account in the following
  *    format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}'.
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
  *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
- *    the account.
+ *    the account. The `ACCOUNT` value can be the `email` address or the
+ *    `unique_id` of the service account.
  *
  *  @return GTLRIamQuery_ProjectsServiceAccountsEnable
  */
@@ -1426,7 +1428,7 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0 and 1.
+ *  Acceptable values are 0, 1, and 3.
  *  If the value is 0, or the field is omitted, policy format version 1 will be
  *  returned.
  */
@@ -1973,7 +1975,7 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  The resource name of the service account in the following format:
- *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}'.
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}`.
  *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
  *  the account.
  */
@@ -1990,7 +1992,7 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *    query.
  *  @param name The resource name of the service account in the following
  *    format:
- *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}'.
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}`.
  *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
  *    the account.
  *

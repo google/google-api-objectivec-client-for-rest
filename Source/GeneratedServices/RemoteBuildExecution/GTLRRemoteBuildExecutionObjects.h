@@ -45,6 +45,7 @@
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2SymlinkNode;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ToolDetails;
 @class GTLRRemoteBuildExecution_BuildBazelSemverSemVer;
+@class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAcceleratorConfig;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig_Labels;
@@ -2019,6 +2020,27 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 
 
 /**
+ *  AcceleratorConfig defines the accelerator cards to attach to the VM.
+ */
+@interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAcceleratorConfig : GTLRObject
+
+/**
+ *  The number of the guest accelerator cards exposed to this VM.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *acceleratorCount;
+
+/**
+ *  The type of accelerator to attach to this VM, e.g. "nvidia-tesla-k80" for
+ *  nVidia Tesla K80.
+ */
+@property(nonatomic, copy, nullable) NSString *acceleratorType;
+
+@end
+
+
+/**
  *  The request used for `CreateInstance`.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaCreateInstanceRequest : GTLRObject
@@ -2223,18 +2245,26 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaListWorkerPoolsRequest : GTLRObject
 
 /**
- *  Optional. A filter to constrain the pools returned. Filters have the form:
- *  <field> <operator> <value> [[AND|OR] <field> <operator> <value>]...
- *  <field> is the path for a field or map key in the Pool proto message.
- *  e.g. "configuration.disk_size_gb" or "configuration.labels.key".
- *  <operator> can be one of "<", "<=", ">=", ">", "=", "!=", ":".
- *  ":" is a HAS operation for strings and repeated primitive fields.
- *  <value> is the value to test, case-insensitive for strings. "*" stands for
- *  any value and can be used to test for key presence.
- *  Parenthesis determine AND/OR precedence. In space separated restrictions,
- *  AND is implicit, e.g. "a = b x = y" is equivalent to "a = b AND x = y".
- *  Example filter:
- *  configuration.labels.key1 = * AND (state = RUNNING OR state = UPDATING)
+ *  Optional. A filter expression that filters resources listed in
+ *  the response. The expression must specify the field name, a comparison
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. String values are
+ *  case-insensitive.
+ *  The comparison operator must be either `:`, `=`, `!=`, `>`, `>=`, `<=` or
+ *  `<`.
+ *  The `:` operator can be used with string fields to match substrings.
+ *  For non-string fields it is equivalent to the `=` operator.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  You can also filter on nested fields.
+ *  To filter on multiple expressions, you can separate expression using
+ *  `AND` and `OR` operators, using parentheses to specify precedence. If
+ *  neither operator is specified, `AND` is assumed.
+ *  Examples:
+ *  Include only pools with more than 100 reserved workers:
+ *  `(worker_count > 100) (worker_config.reserved = true)`
+ *  Include only pools with a certain label or machines of the n1-standard
+ *  family:
+ *  `worker_config.labels.key1 : * OR worker_config.machine_type: n1-standard`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2288,6 +2318,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig : GTLRObject
 
+/** The accelerator card attached to each VM. */
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAcceleratorConfig *accelerator;
+
 /**
  *  Required. Size of the disk attached to the worker, in GB.
  *  See https://cloud.google.com/compute/docs/disks/
@@ -2308,8 +2341,8 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  Labels associated with the workers.
  *  Label keys and values can be no longer than 63 characters, can only contain
  *  lowercase letters, numeric characters, underscores and dashes.
- *  International letters are permitted. Keys must start with a letter but
- *  values are optional.
+ *  International letters are permitted. Label keys must start with a letter.
+ *  Label values are optional.
  *  There can not be more than 64 labels per resource.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig_Labels *labels;
@@ -2345,8 +2378,8 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  Labels associated with the workers.
  *  Label keys and values can be no longer than 63 characters, can only contain
  *  lowercase letters, numeric characters, underscores and dashes.
- *  International letters are permitted. Keys must start with a letter but
- *  values are optional.
+ *  International letters are permitted. Label keys must start with a letter.
+ *  Label values are optional.
  *  There can not be more than 64 labels per resource.
  *
  *  @note This class is documented as having more properties of NSString. Use @c

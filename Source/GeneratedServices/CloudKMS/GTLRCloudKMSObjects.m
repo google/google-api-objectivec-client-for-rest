@@ -175,7 +175,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_AsymmetricSignResponse
-@dynamic signature;
+@dynamic name, signature;
 @end
 
 
@@ -582,7 +582,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_PublicKey
-@dynamic algorithm, pem;
+@dynamic algorithm, name, pem;
 @end
 
 

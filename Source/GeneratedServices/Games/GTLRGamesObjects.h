@@ -2210,8 +2210,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The player's current profile visibility. This field is visible to both 1P
- *  and 3P APIs.
+ *  profileVisible
  *
  *  Uses NSNumber of boolValue.
  */

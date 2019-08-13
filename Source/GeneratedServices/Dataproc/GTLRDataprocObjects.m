@@ -170,8 +170,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_ClusterConfig
 @dynamic configBucket, encryptionConfig, gceClusterConfig,
-         initializationActions, masterConfig, secondaryWorkerConfig,
-         securityConfig, softwareConfig, workerConfig;
+         initializationActions, lifecycleConfig, masterConfig,
+         secondaryWorkerConfig, securityConfig, softwareConfig, workerConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -648,6 +648,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
          keyPasswordUri, keystorePasswordUri, keystoreUri, kmsKeyUri,
          rootPrincipalPasswordUri, tgtLifetimeHours, truststorePasswordUri,
          truststoreUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_LifecycleConfig
+//
+
+@implementation GTLRDataproc_LifecycleConfig
+@dynamic autoDeleteTime, autoDeleteTtl, idleDeleteTtl, idleStartTime;
 @end
 
 

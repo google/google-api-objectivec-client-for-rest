@@ -241,6 +241,12 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Unar
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Output only. Host to which clients can connect to initiate HTTPS or WSS
+ *  connections with the environment.
+ */
+@property(nonatomic, copy, nullable) NSString *webHost;
+
 @end
 
 

@@ -519,7 +519,7 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 
 @implementation GTLRServiceControl_LogEntry
 @dynamic httpRequest, insertId, labels, name, operation, protoPayload, severity,
-         structPayload, textPayload, timestamp, trace;
+         sourceLocation, structPayload, textPayload, timestamp, trace;
 @end
 
 
@@ -577,6 +577,16 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_LogEntrySourceLocation
+//
+
+@implementation GTLRServiceControl_LogEntrySourceLocation
+@dynamic file, function, line;
 @end
 
 
@@ -689,7 +699,7 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_Peer
-@dynamic ip, labels, port, principal, regionCode, service;
+@dynamic ip, labels, port, principal, regionCode;
 @end
 
 
@@ -860,8 +870,8 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_Request
-@dynamic auth, fragment, headers, host, identifier, method, path, protocol,
-         query, reason, scheme, size, time;
+@dynamic auth, headers, host, identifier, method, path, protocol, query, reason,
+         scheme, size, time;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

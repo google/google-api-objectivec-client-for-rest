@@ -10,6 +10,15 @@
 
 #import "GTLRWebSecurityScanner.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopeWebSecurityScannerCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+
+// ----------------------------------------------------------------------------
+//   GTLRWebSecurityScannerService
+//
+
 @implementation GTLRWebSecurityScannerService
 
 - (instancetype)init {

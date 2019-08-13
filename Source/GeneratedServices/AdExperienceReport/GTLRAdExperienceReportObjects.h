@@ -149,7 +149,11 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_Regi
 /** The last time that the site changed status. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastChangeTime;
 
-/** The assigned regions for the site and platform. */
+/**
+ *  The assigned regions for the site and platform.
+ *  No longer populated, because there is no longer any semantic difference
+ *  between sites in different regions.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *region;
 
 /** A link that leads to a full ad experience report. */

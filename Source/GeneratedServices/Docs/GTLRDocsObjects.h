@@ -163,6 +163,7 @@
 @class GTLRDocs_TextRun_SuggestedTextStyleChanges;
 @class GTLRDocs_TextStyle;
 @class GTLRDocs_TextStyleSuggestionState;
+@class GTLRDocs_UpdateDocumentStyleRequest;
 @class GTLRDocs_UpdateParagraphStyleRequest;
 @class GTLRDocs_UpdateTableCellStyleRequest;
 @class GTLRDocs_UpdateTableColumnPropertiesRequest;
@@ -1882,13 +1883,22 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  */
 @interface GTLRDocs_DocumentStyle : GTLRObject
 
-/** The background of the document. */
+/**
+ *  The background of the document. Documents cannot have a transparent
+ *  background color.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Background *background;
 
-/** The ID of the default footer. If not set, there is no default footer. */
+/**
+ *  The ID of the default footer. If not set, there is no default footer.
+ *  This property is read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *defaultFooterId;
 
-/** The ID of the default header. If not set, there is no default header. */
+/**
+ *  The ID of the default header. If not set, there is no default header.
+ *  This property is read-only.
+ */
 @property(nonatomic, copy, nullable) NSString *defaultHeaderId;
 
 /**
@@ -1896,6 +1906,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *  use_even_page_header_footer determines
  *  whether to use the default_footer_id or this value for the
  *  footer on even pages. If not set, there is no even page footer.
+ *  This property is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *evenPageFooterId;
 
@@ -1904,6 +1915,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *  use_even_page_header_footer determines
  *  whether to use the default_header_id or this value for the
  *  header on even pages. If not set, there is no even page header.
+ *  This property is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *evenPageHeaderId;
 
@@ -1913,6 +1925,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *  use_first_page_header_footer determines
  *  whether to use the default_footer_id or this value for the
  *  footer on the first page. If not set, there is no first page footer.
+ *  This property is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *firstPageFooterId;
 
@@ -1922,19 +1935,38 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *  The value of use_first_page_header_footer determines
  *  whether to use the default_header_id or this value for the
  *  header on the first page. If not set, there is no first page header.
+ *  This property is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *firstPageHeaderId;
 
-/** The bottom page margin. */
+/**
+ *  The bottom page margin.
+ *  Updating the bottom page margin on the document style clears the bottom
+ *  page margin on all section styles.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginBottom;
 
-/** The left page margin. */
+/**
+ *  The left page margin.
+ *  Updating the left page margin on the document style clears the left page
+ *  margin on all section styles. It may also cause columns to resize in all
+ *  sections.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginLeft;
 
-/** The right page margin. */
+/**
+ *  The right page margin.
+ *  Updating the right page margin on the document style clears the right page
+ *  margin on all section styles. It may also cause columns to resize in all
+ *  sections.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginRight;
 
-/** The top page margin. */
+/**
+ *  The top page margin.
+ *  Updating the top page margin on the document style clears the top page
+ *  margin on all section styles.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginTop;
 
 /**
@@ -1950,6 +1982,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /**
  *  Indicates whether to use the even page header / footer IDs for the even
  *  pages.
+ *  This property is read-only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1958,6 +1991,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /**
  *  Indicates whether to use the first page header / footer IDs for the first
  *  page.
+ *  This property is read-only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3874,7 +3908,8 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /**
  *  The heading ID of the paragraph. If empty, then this paragraph is not a
- *  heading. This property is read-only.
+ *  heading.
+ *  This property is read-only.
  */
 @property(nonatomic, copy, nullable) NSString *headingId;
 
@@ -3988,7 +4023,8 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /**
  *  A list of the tab stops for this paragraph. The list of tab stops is not
- *  inherited. This property is read-only.
+ *  inherited.
+ *  This property is read-only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocs_TabStop *> *tabStops;
 
@@ -4425,6 +4461,9 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /** Replaces all instances of the specified text. */
 @property(nonatomic, strong, nullable) GTLRDocs_ReplaceAllTextRequest *replaceAllText;
+
+/** Updates the style of the document. */
+@property(nonatomic, strong, nullable) GTLRDocs_UpdateDocumentStyleRequest *updateDocumentStyle;
 
 /** Updates the paragraph style at the specified range. */
 @property(nonatomic, strong, nullable) GTLRDocs_UpdateParagraphStyleRequest *updateParagraphStyle;
@@ -5154,7 +5193,8 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 @property(nonatomic, strong, nullable) GTLRDocs_TableCellBorder *borderTop;
 
 /**
- *  The column span of the cell. This property is read-only.
+ *  The column span of the cell.
+ *  This property is read-only.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5197,7 +5237,8 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *paddingTop;
 
 /**
- *  The row span of the cell. This property is read-only.
+ *  The row span of the cell.
+ *  This property is read-only.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5787,6 +5828,33 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
+ *  Updates the DocumentStyle.
+ */
+@interface GTLRDocs_UpdateDocumentStyleRequest : GTLRObject
+
+/**
+ *  The styles to set on the document.
+ *  Certain document style changes may cause other changes in order to mirror
+ *  the behavior of the Docs editor. See the documentation of DocumentStyle for
+ *  more information.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_DocumentStyle *documentStyle;
+
+/**
+ *  The fields that should be updated.
+ *  At least one field must be specified. The root `document_style` is
+ *  implied and should not be specified. A single `"*"` can be used as
+ *  short-hand for listing every field.
+ *  For example to update the background, set `fields` to `"background"`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+
+/**
  *  Update the styling of all paragraphs that overlap with the given range.
  */
 @interface GTLRDocs_UpdateParagraphStyleRequest : GTLRObject
@@ -5964,6 +6032,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *  The range may be extended to include adjacent newlines.
  *  If the range fully contains a paragraph belonging to a list, the
  *  paragraph's bullet is also updated with the matching text style.
+ *  Ranges cannot be inserted inside a relative UpdateTextStyleRequest.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Range *range;
 

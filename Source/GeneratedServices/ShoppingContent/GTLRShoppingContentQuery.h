@@ -2279,8 +2279,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 @end
 
 /**
- *  Notifies that item return and refund was handled directly by merchant
- *  outside of Google payments processing (e.g. cash refund done in store).
+ *  Deprecated. Notifies that item return and refund was handled directly by
+ *  merchant outside of Google payments processing (e.g. cash refund done in
+ *  store).
  *  Note: We recommend calling the returnrefundlineitem method to refund
  *  in-store returns. We will issue the refund directly to the customer. This
  *  helps to prevent possible differences arising between merchant and Google
@@ -2309,8 +2310,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersInStoreRefundLineItemResponse.
  *
- *  Notifies that item return and refund was handled directly by merchant
- *  outside of Google payments processing (e.g. cash refund done in store).
+ *  Deprecated. Notifies that item return and refund was handled directly by
+ *  merchant outside of Google payments processing (e.g. cash refund done in
+ *  store).
  *  Note: We recommend calling the returnrefundlineitem method to refund
  *  in-store returns. We will issue the refund directly to the customer. This
  *  helps to prevent possible differences arising between merchant and Google

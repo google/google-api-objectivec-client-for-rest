@@ -220,7 +220,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
  *  * Mobile device management
  *  * Gmail phishing
  *  * Domain wide takeout
- *  * Government attack warning
+ *  * State sponsored attack
  *  * Google identity
  */
 @property(nonatomic, copy, nullable) NSString *source;

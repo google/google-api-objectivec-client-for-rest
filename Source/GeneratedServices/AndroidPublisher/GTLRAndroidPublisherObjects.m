@@ -251,7 +251,7 @@
 //
 
 @implementation GTLRAndroidPublisher_Image
-@dynamic identifier, sha1, url;
+@dynamic identifier, sha1, sha256, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

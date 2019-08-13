@@ -191,6 +191,12 @@ NSString * const kGTLRSheets_CellFormat_WrapStrategy_OverflowCell = @"OVERFLOW_C
 NSString * const kGTLRSheets_CellFormat_WrapStrategy_Wrap      = @"WRAP";
 NSString * const kGTLRSheets_CellFormat_WrapStrategy_WrapStrategyUnspecified = @"WRAP_STRATEGY_UNSPECIFIED";
 
+// GTLRSheets_ChartAxisViewWindowOptions.viewWindowMode
+NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_DefaultViewWindowMode = @"DEFAULT_VIEW_WINDOW_MODE";
+NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_Explicit = @"EXPLICIT";
+NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_Pretty = @"PRETTY";
+NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_ViewWindowModeUnsupported = @"VIEW_WINDOW_MODE_UNSUPPORTED";
+
 // GTLRSheets_ChartSpec.hiddenDimensionStrategy
 NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_ChartHiddenDimensionStrategyUnspecified = @"CHART_HIDDEN_DIMENSION_STRATEGY_UNSPECIFIED";
 NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_ShowAll = @"SHOW_ALL";
@@ -696,7 +702,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_BasicChartAxis
-@dynamic format, position, title, titleTextPosition;
+@dynamic format, position, title, titleTextPosition, viewWindowOptions;
 @end
 
 
@@ -1155,6 +1161,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_ChartAxisViewWindowOptions
+//
+
+@implementation GTLRSheets_ChartAxisViewWindowOptions
+@dynamic viewWindowMax, viewWindowMin, viewWindowMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_ChartData
 //
 
@@ -1452,6 +1468,34 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_DeleteDimensionRequest
 @dynamic range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_DeleteDuplicatesRequest
+//
+
+@implementation GTLRSheets_DeleteDuplicatesRequest
+@dynamic comparisonColumns, range;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"comparisonColumns" : [GTLRSheets_DimensionRange class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_DeleteDuplicatesResponse
+//
+
+@implementation GTLRSheets_DeleteDuplicatesResponse
+@dynamic duplicatesRemovedCount;
 @end
 
 
@@ -2259,13 +2303,14 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
          appendDimension, autoFill, autoResizeDimensions, clearBasicFilter,
          copyPaste, createDeveloperMetadata, cutPaste, deleteBanding,
          deleteConditionalFormatRule, deleteDeveloperMetadata, deleteDimension,
-         deleteDimensionGroup, deleteEmbeddedObject, deleteFilterView,
-         deleteNamedRange, deleteProtectedRange, deleteRange, deleteSheet,
-         duplicateFilterView, duplicateSheet, findReplace, insertDimension,
-         insertRange, mergeCells, moveDimension, pasteData, randomizeRange,
-         repeatCell, setBasicFilter, setDataValidation, sortRange,
-         textToColumns, unmergeCells, updateBanding, updateBorders, updateCells,
-         updateChartSpec, updateConditionalFormatRule, updateDeveloperMetadata,
+         deleteDimensionGroup, deleteDuplicates, deleteEmbeddedObject,
+         deleteFilterView, deleteNamedRange, deleteProtectedRange, deleteRange,
+         deleteSheet, duplicateFilterView, duplicateSheet, findReplace,
+         insertDimension, insertRange, mergeCells, moveDimension, pasteData,
+         randomizeRange, repeatCell, setBasicFilter, setDataValidation,
+         sortRange, textToColumns, trimWhitespace, unmergeCells, updateBanding,
+         updateBorders, updateCells, updateChartSpec,
+         updateConditionalFormatRule, updateDeveloperMetadata,
          updateDimensionGroup, updateDimensionProperties,
          updateEmbeddedObjectPosition, updateFilterView, updateNamedRange,
          updateProtectedRange, updateSheetProperties,
@@ -2282,7 +2327,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 @dynamic addBanding, addChart, addDimensionGroup, addFilterView, addNamedRange,
          addProtectedRange, addSheet, createDeveloperMetadata,
          deleteConditionalFormatRule, deleteDeveloperMetadata,
-         deleteDimensionGroup, duplicateFilterView, duplicateSheet, findReplace,
+         deleteDimensionGroup, deleteDuplicates, duplicateFilterView,
+         duplicateSheet, findReplace, trimWhitespace,
          updateConditionalFormatRule, updateDeveloperMetadata,
          updateEmbeddedObjectPosition;
 @end
@@ -2541,6 +2587,26 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 @implementation GTLRSheets_TreemapChartSpec
 @dynamic colorData, colorScale, headerColor, hideTooltips, hintedLevels, labels,
          levels, maxValue, minValue, parentLabels, sizeData, textFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_TrimWhitespaceRequest
+//
+
+@implementation GTLRSheets_TrimWhitespaceRequest
+@dynamic range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_TrimWhitespaceResponse
+//
+
+@implementation GTLRSheets_TrimWhitespaceResponse
+@dynamic cellsChangedCount;
 @end
 
 

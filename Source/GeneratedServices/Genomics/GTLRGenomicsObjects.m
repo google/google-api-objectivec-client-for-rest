@@ -396,7 +396,7 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 //
 
 @implementation GTLRGenomics_WorkerAssignedEvent
-@dynamic instance, zoneProperty;
+@dynamic instance, machineType, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

@@ -127,7 +127,7 @@
 
 @implementation GTLRAccessApprovalQuery_FoldersUpdateAccessApprovalSettings
 
-@dynamic name;
+@dynamic name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRAccessApproval_Settings *)object
                            name:(NSString *)name {
@@ -259,7 +259,7 @@
 
 @implementation GTLRAccessApprovalQuery_OrganizationsUpdateAccessApprovalSettings
 
-@dynamic name;
+@dynamic name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRAccessApproval_Settings *)object
                            name:(NSString *)name {
@@ -391,7 +391,7 @@
 
 @implementation GTLRAccessApprovalQuery_ProjectsUpdateAccessApprovalSettings
 
-@dynamic name;
+@dynamic name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRAccessApproval_Settings *)object
                            name:(NSString *)name {

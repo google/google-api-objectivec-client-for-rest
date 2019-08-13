@@ -1370,7 +1370,7 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_TextConfig
-@dynamic experimentalConfig, transformations;
+@dynamic transformations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

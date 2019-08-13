@@ -3333,7 +3333,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  Unique resource name for the triggeredJob, assigned by the service when the
  *  triggeredJob is created, for example
- *  `projects/dlp-test-project/triggeredJobs/53234423`.
+ *  `projects/dlp-test-project/jobTriggers/53234423`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

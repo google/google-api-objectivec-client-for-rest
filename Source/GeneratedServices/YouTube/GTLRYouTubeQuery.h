@@ -5510,7 +5510,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    does not contain mutable values, that part will still be included in the
  *    API response.
  *  @param uploadParameters The media to include in this query. Maximum size
- *    64GB. Accepted MIME types: application/octet-stream, video/ *
+ *    128GB. Accepted MIME types: application/octet-stream, video/ *
  *
  *  @return GTLRYouTubeQuery_VideosInsert
  */

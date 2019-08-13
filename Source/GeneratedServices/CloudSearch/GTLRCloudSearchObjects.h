@@ -4569,15 +4569,6 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 @interface GTLRCloudSearch_SourceCrowdingConfig : GTLRObject
 
 /**
- *  Use a field to control results crowding. For example, if you want to
- *  control overly similar results from Gmail topics, use `thread_id`.
- *  For similar pages from Google Sites, you can use `webspace_id`.
- *  When matching query results contain the same field value in
- *  `GenericMetadata`, crowding limits are set on those records.
- */
-@property(nonatomic, copy, nullable) NSString *field;
-
-/**
  *  Maximum number of results allowed from a source.
  *  No limits will be set on results if this value is less than or equal to 0.
  *
@@ -4592,14 +4583,6 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numSuggestions;
-
-/**
- *  Control results by content source. This option limits the total number
- *  of results from a given source and ignores field-based crowding control.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *source;
 
 @end
 

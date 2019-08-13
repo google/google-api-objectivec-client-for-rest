@@ -25,6 +25,7 @@ NSString * const kGTLRContainerAnalysisKindImageBasis          = @"IMAGE_BASIS";
 NSString * const kGTLRContainerAnalysisKindKindUnspecified     = @"KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysisKindPackageManager      = @"PACKAGE_MANAGER";
 NSString * const kGTLRContainerAnalysisKindPackageVulnerability = @"PACKAGE_VULNERABILITY";
+NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 
 // ----------------------------------------------------------------------------
 // Query Classes

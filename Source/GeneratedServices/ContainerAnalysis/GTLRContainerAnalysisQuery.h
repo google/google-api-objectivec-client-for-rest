@@ -57,6 +57,8 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindKindUnspecified;
 GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindPackageManager;
 /** Value: "PACKAGE_VULNERABILITY" */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindPackageVulnerability;
+/** Value: "UPGRADE" */
+GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -740,6 +742,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindPackageVulnerability;
  *    @arg @c kGTLRContainerAnalysisKindDiscovery Value "DISCOVERY"
  *    @arg @c kGTLRContainerAnalysisKindAttestationAuthority Value
  *        "ATTESTATION_AUTHORITY"
+ *    @arg @c kGTLRContainerAnalysisKindUpgrade Value "UPGRADE"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 

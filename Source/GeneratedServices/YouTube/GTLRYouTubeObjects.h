@@ -301,6 +301,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash;
 GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Hls;
 /** Value: "rtmp" */
 GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp;
+/** Value: "webrtc" */
+GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Webrtc;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CdnSettings.resolution
@@ -401,8 +403,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Private;
 GTLR_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Public;
 /** Value: "unlisted" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Unlisted;
-/** Value: "unlisted_new" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_UnlistedNew;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CommentSnippet.moderationStatus
@@ -1769,6 +1769,30 @@ GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayo
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_TopBottom;
 
 // ----------------------------------------------------------------------------
+// GTLRYouTube_LiveBroadcastSnippet.broadcastType
+
+/** Value: "fludd" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Fludd;
+/** Value: "fluddArchive" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_FluddArchive;
+/** Value: "gplusHoa" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_GplusHoa;
+/** Value: "lcrEncoder" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_LcrEncoder;
+/** Value: "mobile" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Mobile;
+/** Value: "persistent" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Persistent;
+/** Value: "premiere" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Premiere;
+/** Value: "unspecified" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Unspecified;
+/** Value: "webcam" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Webcam;
+/** Value: "ytHoa" */
+GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_YtHoa;
+
+// ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastStatus.lifeCycleStatus
 
 /** Value: "complete" */
@@ -1807,8 +1831,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Priv
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Public;
 /** Value: "unlisted" */
 GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Unlisted;
-/** Value: "unlisted_new" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_UnlistedNew;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastStatus.recordingStatus
@@ -1991,8 +2013,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Priva
 GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Public;
 /** Value: "unlisted" */
 GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Unlisted;
-/** Value: "unlisted_new" */
-GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_UnlistedNew;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_PlaylistStatus.privacyStatus
@@ -2003,8 +2023,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Private;
 GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Public;
 /** Value: "unlisted" */
 GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Unlisted;
-/** Value: "unlisted_new" */
-GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_UnlistedNew;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_PromotedItemId.type
@@ -2181,8 +2199,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_Private;
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_Public;
 /** Value: "unlisted" */
 GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_Unlisted;
-/** Value: "unlisted_new" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_UnlistedNew;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoStatus.rejectionReason
@@ -3036,6 +3052,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Dash Value "dash"
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Hls Value "hls"
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Rtmp Value "rtmp"
+ *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Webrtc Value "webrtc"
  */
 @property(nonatomic, copy, nullable) NSString *ingestionType;
 
@@ -3853,8 +3870,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ChannelStatus_PrivacyStatus_Private Value "private"
  *    @arg @c kGTLRYouTube_ChannelStatus_PrivacyStatus_Public Value "public"
  *    @arg @c kGTLRYouTube_ChannelStatus_PrivacyStatus_Unlisted Value "unlisted"
- *    @arg @c kGTLRYouTube_ChannelStatus_PrivacyStatus_UnlistedNew Value
- *        "unlisted_new"
  */
 @property(nonatomic, copy, nullable) NSString *privacyStatus;
 
@@ -6166,6 +6181,33 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, strong, nullable) GTLRDateTime *actualStartTime;
 
 /**
+ *  broadcastType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Fludd Value
+ *        "fludd"
+ *    @arg @c kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_FluddArchive Value
+ *        "fluddArchive"
+ *    @arg @c kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_GplusHoa Value
+ *        "gplusHoa"
+ *    @arg @c kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_LcrEncoder Value
+ *        "lcrEncoder"
+ *    @arg @c kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Mobile Value
+ *        "mobile"
+ *    @arg @c kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Persistent Value
+ *        "persistent"
+ *    @arg @c kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Premiere Value
+ *        "premiere"
+ *    @arg @c kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Unspecified Value
+ *        "unspecified"
+ *    @arg @c kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Webcam Value
+ *        "webcam"
+ *    @arg @c kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_YtHoa Value
+ *        "ytHoa"
+ */
+@property(nonatomic, copy, nullable) NSString *broadcastType;
+
+/**
  *  The ID that YouTube uses to uniquely identify the channel that is publishing
  *  the broadcast.
  */
@@ -6315,8 +6357,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "public"
  *    @arg @c kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Unlisted Value
  *        "unlisted"
- *    @arg @c kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_UnlistedNew Value
- *        "unlisted_new"
  */
 @property(nonatomic, copy, nullable) NSString *privacyStatus;
 
@@ -7751,8 +7791,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "public"
  *    @arg @c kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Unlisted Value
  *        "unlisted"
- *    @arg @c kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_UnlistedNew Value
- *        "unlisted_new"
  */
 @property(nonatomic, copy, nullable) NSString *privacyStatus;
 
@@ -7902,8 +7940,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_PlaylistStatus_PrivacyStatus_Public Value "public"
  *    @arg @c kGTLRYouTube_PlaylistStatus_PrivacyStatus_Unlisted Value
  *        "unlisted"
- *    @arg @c kGTLRYouTube_PlaylistStatus_PrivacyStatus_UnlistedNew Value
- *        "unlisted_new"
  */
 @property(nonatomic, copy, nullable) NSString *privacyStatus;
 
@@ -9985,8 +10021,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_VideoStatus_PrivacyStatus_Private Value "private"
  *    @arg @c kGTLRYouTube_VideoStatus_PrivacyStatus_Public Value "public"
  *    @arg @c kGTLRYouTube_VideoStatus_PrivacyStatus_Unlisted Value "unlisted"
- *    @arg @c kGTLRYouTube_VideoStatus_PrivacyStatus_UnlistedNew Value
- *        "unlisted_new"
  */
 @property(nonatomic, copy, nullable) NSString *privacyStatus;
 

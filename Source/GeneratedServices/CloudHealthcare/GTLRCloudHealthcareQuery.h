@@ -1815,7 +1815,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Imports data into the DICOM store by copying it from the specified source.
  *  For errors, the Operation will be populated with error details (in the form
  *  of ImportDicomDataErrorDetails in error.details), which will hold
- *  finer-grained error information.
+ *  finer-grained error information. Errors are also logged to Stackdriver
+ *  (see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging)).
  *  The metadata field type is
  *  OperationMetadata.
  *
@@ -1840,7 +1841,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Imports data into the DICOM store by copying it from the specified source.
  *  For errors, the Operation will be populated with error details (in the form
  *  of ImportDicomDataErrorDetails in error.details), which will hold
- *  finer-grained error information.
+ *  finer-grained error information. Errors are also logged to Stackdriver
+ *  (see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging)).
  *  The metadata field type is
  *  OperationMetadata.
  *
@@ -3025,6 +3027,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  be overridden by the `_count` parameter up to a maximum limit of 1000. If
  *  there are additional results, the returned `Bundle` will contain
  *  pagination links.
+ *  Resources with a total size larger than 5MB or a field count larger than
+ *  50,000 might not be fully searchable as the server might trim its generated
+ *  search index in those cases.
+ *  Note: FHIR resources are indexed asynchronously, so there might be a slight
+ *  delay between the time a resource is created or changes and when the change
+ *  is reflected in search results.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.search
  *
@@ -3075,6 +3083,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  be overridden by the `_count` parameter up to a maximum limit of 1000. If
  *  there are additional results, the returned `Bundle` will contain
  *  pagination links.
+ *  Resources with a total size larger than 5MB or a field count larger than
+ *  50,000 might not be fully searchable as the server might trim its generated
+ *  search index in those cases.
+ *  Note: FHIR resources are indexed asynchronously, so there might be a slight
+ *  delay between the time a resource is created or changes and when the change
+ *  is reflected in search results.
  *
  *  @param object The @c GTLRCloudHealthcare_SearchResourcesRequest to include
  *    in the query.
@@ -3224,12 +3238,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Gets the access control policy for a FHIR store or security label within a
- *  FHIR store. Returns NOT_FOUND error if the resource does not exist. Returns
- *  an empty policy if the resource exists but does not have a policy set.
- *  Authorization requires the Google IAM permission
- *  `healthcare.fhirStores.getIamPolicy` for a FHIR store or
- *  `healthcare.securityLabels.getIamPolicy` for a security label
+ *  Gets the access control policy for a resource.
+ *  Returns an empty policy if the resource exists and does not have a policy
+ *  set.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.getIamPolicy
  *
@@ -3257,12 +3268,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_Policy.
  *
- *  Gets the access control policy for a FHIR store or security label within a
- *  FHIR store. Returns NOT_FOUND error if the resource does not exist. Returns
- *  an empty policy if the resource exists but does not have a policy set.
- *  Authorization requires the Google IAM permission
- *  `healthcare.fhirStores.getIamPolicy` for a FHIR store or
- *  `healthcare.securityLabels.getIamPolicy` for a security label
+ *  Gets the access control policy for a resource.
+ *  Returns an empty policy if the resource exists and does not have a policy
+ *  set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested.
@@ -3276,19 +3284,66 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Import resources to the FHIR store by loading data from the specified
- *  sources. Each resource must have a client-supplied ID, which is retained
- *  by the server.
- *  The import operation is idempotent. Upon retry, the most recent data
- *  (matching the client-supplied ID) is overwritten, without creating a new
- *  resource version. If partial failures occur during the import, successful
- *  changes are not rolled back.
- *  If history imports are enabled
- *  (enable_history_import is set in the
- *  FHIR store's configuration), you can import historical versions of a
- *  resource by supplying a bundle of type `history`. The historical versions
- *  in the bundle must have `lastUpdated` timestamps. If a current or
- *  historical version with the supplied resource ID already exists, the
- *  bundle is rejected.
+ *  sources. This method is optimized to load large quantities of data using
+ *  import semantics that ignore some FHIR store configuration options and are
+ *  not suitable for all use cases. It is primarily intended to load data into
+ *  an empty FHIR store that is not being used by other clients. In cases
+ *  where this method is not appropriate, consider using ExecuteBundle to
+ *  load data.
+ *  Every resource in the input must contain a client-supplied ID, and will be
+ *  stored using that ID regardless of the
+ *  enable_update_create setting on the FHIR
+ *  store.
+ *  The import process does not enforce referential integrity, regardless of
+ *  the
+ *  disable_referential_integrity
+ *  setting on the FHIR store. This allows the import of resources with
+ *  arbitrary interdependencies without considering grouping or ordering, but
+ *  if the input data contains invalid references or if some resources fail to
+ *  be imported, the FHIR store might be left in a state that violates
+ *  referential integrity.
+ *  If a resource with the specified ID already exists, the most recent
+ *  version of the resource is overwritten without creating a new historical
+ *  version, regardless of the
+ *  disable_resource_versioning
+ *  setting on the FHIR store. If transient failures occur during the import,
+ *  it is possible that successfully imported resources will be overwritten
+ *  more than once.
+ *  The import operation is idempotent unless the input data contains multiple
+ *  valid resources with the same ID but different contents. In that case,
+ *  after the import completes, the store will contain exactly one resource
+ *  with that ID but there is no ordering guarantee on which version of the
+ *  contents it will have. The operation result counters do not count
+ *  duplicate IDs as an error and will count one success for each resource in
+ *  the input, which might result in a success count larger than the number
+ *  of resources in the FHIR store. This often occurs when importing data
+ *  organized in bundles produced by Patient-everything
+ *  where each bundle contains its own copy of a resource such as Practitioner
+ *  that might be referred to by many patients.
+ *  If some resources fail to import, for example due to parsing errors,
+ *  successfully imported resources are not rolled back.
+ *  The location and format of the input data is specified by the parameters
+ *  below. Note that if no format is specified, this method assumes the
+ *  `BUNDLE` format. When using the `BUNDLE` format this method ignores the
+ *  `Bundle.type` field, except for the special case of `history`, and does
+ *  not apply any of the bundle processing semantics for batch or transaction
+ *  bundles. Unlike in ExecuteBundle, transaction bundles are not executed
+ *  as a single transaction and bundle-internal references are not rewritten.
+ *  The bundle is treated as a collection of resources to be written as
+ *  provided in `Bundle.entry.resource`, ignoring `Bundle.entry.request`. As
+ *  an example, this allows the import of `searchset` bundles produced by a
+ *  FHIR search or
+ *  Patient-everything operation.
+ *  If history imports are enabled by setting
+ *  enable_history_import in the FHIR
+ *  store's configuration, this method can import historical versions
+ *  of a resource by supplying a bundle of type `history` and using the
+ *  `BUNDLE` format. The historical versions in the bundle must have
+ *  `lastUpdated` timestamps, and the resulting resource history on the server
+ *  will appear as if the versions had been created at those timestamps. If a
+ *  current or historical version with the supplied resource ID already
+ *  exists, the bundle is rejected to avoid creating an inconsistent sequence
+ *  of resource versions.
  *  This method returns an Operation that can
  *  be used to track the status of the import by calling
  *  GetOperation.
@@ -3320,19 +3375,66 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_Operation.
  *
  *  Import resources to the FHIR store by loading data from the specified
- *  sources. Each resource must have a client-supplied ID, which is retained
- *  by the server.
- *  The import operation is idempotent. Upon retry, the most recent data
- *  (matching the client-supplied ID) is overwritten, without creating a new
- *  resource version. If partial failures occur during the import, successful
- *  changes are not rolled back.
- *  If history imports are enabled
- *  (enable_history_import is set in the
- *  FHIR store's configuration), you can import historical versions of a
- *  resource by supplying a bundle of type `history`. The historical versions
- *  in the bundle must have `lastUpdated` timestamps. If a current or
- *  historical version with the supplied resource ID already exists, the
- *  bundle is rejected.
+ *  sources. This method is optimized to load large quantities of data using
+ *  import semantics that ignore some FHIR store configuration options and are
+ *  not suitable for all use cases. It is primarily intended to load data into
+ *  an empty FHIR store that is not being used by other clients. In cases
+ *  where this method is not appropriate, consider using ExecuteBundle to
+ *  load data.
+ *  Every resource in the input must contain a client-supplied ID, and will be
+ *  stored using that ID regardless of the
+ *  enable_update_create setting on the FHIR
+ *  store.
+ *  The import process does not enforce referential integrity, regardless of
+ *  the
+ *  disable_referential_integrity
+ *  setting on the FHIR store. This allows the import of resources with
+ *  arbitrary interdependencies without considering grouping or ordering, but
+ *  if the input data contains invalid references or if some resources fail to
+ *  be imported, the FHIR store might be left in a state that violates
+ *  referential integrity.
+ *  If a resource with the specified ID already exists, the most recent
+ *  version of the resource is overwritten without creating a new historical
+ *  version, regardless of the
+ *  disable_resource_versioning
+ *  setting on the FHIR store. If transient failures occur during the import,
+ *  it is possible that successfully imported resources will be overwritten
+ *  more than once.
+ *  The import operation is idempotent unless the input data contains multiple
+ *  valid resources with the same ID but different contents. In that case,
+ *  after the import completes, the store will contain exactly one resource
+ *  with that ID but there is no ordering guarantee on which version of the
+ *  contents it will have. The operation result counters do not count
+ *  duplicate IDs as an error and will count one success for each resource in
+ *  the input, which might result in a success count larger than the number
+ *  of resources in the FHIR store. This often occurs when importing data
+ *  organized in bundles produced by Patient-everything
+ *  where each bundle contains its own copy of a resource such as Practitioner
+ *  that might be referred to by many patients.
+ *  If some resources fail to import, for example due to parsing errors,
+ *  successfully imported resources are not rolled back.
+ *  The location and format of the input data is specified by the parameters
+ *  below. Note that if no format is specified, this method assumes the
+ *  `BUNDLE` format. When using the `BUNDLE` format this method ignores the
+ *  `Bundle.type` field, except for the special case of `history`, and does
+ *  not apply any of the bundle processing semantics for batch or transaction
+ *  bundles. Unlike in ExecuteBundle, transaction bundles are not executed
+ *  as a single transaction and bundle-internal references are not rewritten.
+ *  The bundle is treated as a collection of resources to be written as
+ *  provided in `Bundle.entry.resource`, ignoring `Bundle.entry.request`. As
+ *  an example, this allows the import of `searchset` bundles produced by a
+ *  FHIR search or
+ *  Patient-everything operation.
+ *  If history imports are enabled by setting
+ *  enable_history_import in the FHIR
+ *  store's configuration, this method can import historical versions
+ *  of a resource by supplying a bundle of type `history` and using the
+ *  `BUNDLE` format. The historical versions in the bundle must have
+ *  `lastUpdated` timestamps, and the resulting resource history on the server
+ *  will appear as if the versions had been created at those timestamps. If a
+ *  current or historical version with the supplied resource ID already
+ *  exists, the bundle is rejected to avoid creating an inconsistent sequence
+ *  of resource versions.
  *  This method returns an Operation that can
  *  be used to track the status of the import by calling
  *  GetOperation.
@@ -3452,106 +3554,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Gets the access control policy for a FHIR store or security label within a
- *  FHIR store. Returns NOT_FOUND error if the resource does not exist. Returns
- *  an empty policy if the resource exists but does not have a policy set.
- *  Authorization requires the Google IAM permission
- *  `healthcare.fhirStores.getIamPolicy` for a FHIR store or
- *  `healthcare.securityLabels.getIamPolicy` for a security label
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.securityLabels.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSecurityLabelsGetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresSecurityLabelsGetIamPolicyWithresource:]
-
-/**
- *  Optional. The policy format version to be returned.
- *  Acceptable values are 0 and 1.
- *  If the value is 0, or the field is omitted, policy format version 1 will be
- *  returned.
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_Policy.
- *
- *  Gets the access control policy for a FHIR store or security label within a
- *  FHIR store. Returns NOT_FOUND error if the resource does not exist. Returns
- *  an empty policy if the resource exists but does not have a policy set.
- *  Authorization requires the Google IAM permission
- *  `healthcare.fhirStores.getIamPolicy` for a FHIR store or
- *  `healthcare.securityLabels.getIamPolicy` for a security label
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSecurityLabelsGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Sets the access control policy for a FHIR store or security label within a
- *  FHIR store. Replaces any existing policy.
- *  Authorization requires the Google IAM permission
- *  `healthcare.fhirStores.setIamPolicy` for a FHIR store or
- *  `healthcare.securityLabels.setIamPolicy` for a security label
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.securityLabels.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSecurityLabelsSetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresSecurityLabelsSetIamPolicyWithObject:resource:]
-
-/**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_Policy.
- *
- *  Sets the access control policy for a FHIR store or security label within a
- *  FHIR store. Replaces any existing policy.
- *  Authorization requires the Google IAM permission
- *  `healthcare.fhirStores.setIamPolicy` for a FHIR store or
- *  `healthcare.securityLabels.setIamPolicy` for a security label
- *
- *  @param object The @c GTLRCloudHealthcare_SetIamPolicyRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSecurityLabelsSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Sets the access control policy for a FHIR store or security label within a
- *  FHIR store. Replaces any existing policy.
- *  Authorization requires the Google IAM permission
- *  `healthcare.fhirStores.setIamPolicy` for a FHIR store or
- *  `healthcare.securityLabels.setIamPolicy` for a security label
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.setIamPolicy
  *
@@ -3571,11 +3575,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_Policy.
  *
- *  Sets the access control policy for a FHIR store or security label within a
- *  FHIR store. Replaces any existing policy.
- *  Authorization requires the Google IAM permission
- *  `healthcare.fhirStores.setIamPolicy` for a FHIR store or
- *  `healthcare.securityLabels.setIamPolicy` for a security label
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
  *
  *  @param object The @c GTLRCloudHealthcare_SetIamPolicyRequest to include in
  *    the query.
@@ -3591,10 +3592,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not
- *  a NOT_FOUND error.
- *  There is no permission required to make this API call.
+ *  Returns permissions that a caller has on the specified resource.
+ *  If the resource does not exist, this will return an empty set of
+ *  permissions, not a NOT_FOUND error.
+ *  Note: This operation is designed to be used for building permission-aware
+ *  UIs and command-line tools, not for authorization checking. This operation
+ *  may "fail open" without warning.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.testIamPermissions
  *
@@ -3614,10 +3617,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not
- *  a NOT_FOUND error.
- *  There is no permission required to make this API call.
+ *  Returns permissions that a caller has on the specified resource.
+ *  If the resource does not exist, this will return an empty set of
+ *  permissions, not a NOT_FOUND error.
+ *  Note: This operation is designed to be used for building permission-aware
+ *  UIs and command-line tools, not for authorization checking. This operation
+ *  may "fail open" without warning.
  *
  *  @param object The @c GTLRCloudHealthcare_TestIamPermissionsRequest to
  *    include in the query.
@@ -4049,6 +4054,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Lists all the messages in the given HL7v2 store with support for filtering.
+ *  Note: HL7v2 messages are indexed asynchronously, so there might be a slight
+ *  delay between the time a message is created and when it can be found
+ *  through a filter.
  *
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.list
  *
@@ -4068,7 +4076,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  * `send_date` or `sendDate`, the YYYY-MM-DD date the message was sent in
  *  the dataset's time_zone, from the MSH-7 segment; for example
  *  `send_date < "2017-01-02"`
- *  * `send_time`, the timestamp of when the message was sent, using the
+ *  * `send_time`, the timestamp when the message was sent, using the
  *  RFC3339 time format for comparisons, from the MSH-7 segment; for example
  *  `send_time < "2017-01-02T00:00:00-05:00"`
  *  * `send_facility`, the care center that the message came from, from the
@@ -4127,6 +4135,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_ListMessagesResponse.
  *
  *  Lists all the messages in the given HL7v2 store with support for filtering.
+ *  Note: HL7v2 messages are indexed asynchronously, so there might be a slight
+ *  delay between the time a message is created and when it can be found
+ *  through a filter.
  *
  *  @param parent Name of the HL7v2 store to retrieve messages from.
  *

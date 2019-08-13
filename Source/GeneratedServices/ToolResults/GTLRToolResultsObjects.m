@@ -801,8 +801,8 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 //
 
 @implementation GTLRToolResults_TestCase
-@dynamic endTime, skippedMessage, stackTraces, startTime, status, testCaseId,
-         testCaseReference, toolOutputs;
+@dynamic elapsedTime, endTime, skippedMessage, stackTraces, startTime, status,
+         testCaseId, testCaseReference, toolOutputs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

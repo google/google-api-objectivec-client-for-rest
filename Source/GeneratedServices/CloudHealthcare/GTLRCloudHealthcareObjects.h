@@ -240,7 +240,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_Content
  *  Value: "BUNDLE_PRETTY"
  */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_BundlePretty;
-/** Value: "CONTENT_STRUCTURE_UNSPECIFIED" */
+/**
+ *  If the content structure is not specified, the default value `BUNDLE`
+ *  will be used.
+ *
+ *  Value: "CONTENT_STRUCTURE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ContentStructureUnspecified;
 /**
  *  The source file contains one or more lines of newline-delimited JSON
@@ -1685,7 +1690,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *        The entire file is one JSON bundle. The JSON can span multiple lines.
  *        (Value: "BUNDLE_PRETTY")
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ContentStructureUnspecified
- *        Value "CONTENT_STRUCTURE_UNSPECIFIED"
+ *        If the content structure is not specified, the default value `BUNDLE`
+ *        will be used. (Value: "CONTENT_STRUCTURE_UNSPECIFIED")
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Resource
  *        The source file contains one or more lines of newline-delimited JSON
  *        (ndjson). Each line is a single resource. (Value: "RESOURCE")
@@ -2805,12 +2811,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  GTLRCloudHealthcare_TextConfig
  */
 @interface GTLRCloudHealthcare_TextConfig : GTLRObject
-
-/**
- *  Experimental de-identification config to use. For internal use only.
- *  If not specified, it is ignored and standard DLP is used.
- */
-@property(nonatomic, copy, nullable) NSString *experimentalConfig;
 
 /** The transformations to apply to the detected data. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_InfoTypeTransformation *> *transformations;

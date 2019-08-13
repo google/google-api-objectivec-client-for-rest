@@ -38,11 +38,54 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseManagement_AddGoogleAnalyticsRequest
+//
+
+@implementation GTLRFirebaseManagement_AddGoogleAnalyticsRequest
+@dynamic analyticsAccountId, analyticsPropertyId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseManagement_AdminSdkConfig
 //
 
 @implementation GTLRFirebaseManagement_AdminSdkConfig
 @dynamic databaseURL, locationId, projectId, storageBucket;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseManagement_AnalyticsDetails
+//
+
+@implementation GTLRFirebaseManagement_AnalyticsDetails
+@dynamic analyticsProperty, streamMappings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"streamMappings" : [GTLRFirebaseManagement_StreamMapping class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseManagement_AnalyticsProperty
+//
+
+@implementation GTLRFirebaseManagement_AnalyticsProperty
+@dynamic displayName, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -354,6 +397,16 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseManagement_RemoveAnalyticsRequest
+//
+
+@implementation GTLRFirebaseManagement_RemoveAnalyticsRequest
+@dynamic analyticsPropertyId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseManagement_SearchFirebaseAppsResponse
 //
 
@@ -423,6 +476,16 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 
 @implementation GTLRFirebaseManagement_StatusProto
 @dynamic canonicalCode, code, message, messageSet, payload, space;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseManagement_StreamMapping
+//
+
+@implementation GTLRFirebaseManagement_StreamMapping
+@dynamic app, streamId;
 @end
 
 
