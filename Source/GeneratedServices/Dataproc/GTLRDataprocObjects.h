@@ -52,6 +52,7 @@
 @class GTLRDataproc_JobScheduling;
 @class GTLRDataproc_JobStatus;
 @class GTLRDataproc_KerberosConfig;
+@class GTLRDataproc_LifecycleConfig;
 @class GTLRDataproc_LoggingConfig;
 @class GTLRDataproc_LoggingConfig_DriverLogLevels;
 @class GTLRDataproc_ManagedCluster;
@@ -504,7 +505,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  allAuthenticatedUsers: A special identifier that represents anyone who is
  *  authenticated with a Google account or a service account.
  *  user:{emailid}: An email address that represents a specific Google account.
- *  For example, alice\@gmail.com .
+ *  For example, alice\@example.com .
  *  serviceAccount:{emailid}: An email address that represents a service
  *  account. For example, my-other-app\@appspot.gserviceaccount.com.
  *  group:{emailid}: An email address that represents a Google group. For
@@ -640,6 +641,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  fi
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_NodeInitializationAction *> *initializationActions;
+
+/** Optional. Lifecycle setting for the cluster. */
+@property(nonatomic, strong, nullable) GTLRDataproc_LifecycleConfig *lifecycleConfig;
 
 /**
  *  Optional. The Compute Engine config settings for the master instance in a
@@ -1307,9 +1311,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @interface GTLRDataproc_InstanceGroupConfig : GTLRObject
 
 /**
- *  Optional. The Compute Engine accelerator configuration for these
- *  instances.Beta Feature: This feature is still under development. It may be
- *  changed before final release.
+ *  Optional. The Compute Engine accelerator configuration for these instances.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_AcceleratorConfig *> *accelerators;
 
@@ -1736,6 +1738,38 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  certificate.
  */
 @property(nonatomic, copy, nullable) NSString *truststoreUri;
+
+@end
+
+
+/**
+ *  Specifies the cluster auto-delete schedule configuration.
+ */
+@interface GTLRDataproc_LifecycleConfig : GTLRObject
+
+/** Optional. The time when cluster will be auto-deleted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *autoDeleteTime;
+
+/**
+ *  Optional. The lifetime duration of cluster. The cluster will be auto-deleted
+ *  at the end of this period. Valid range: 10m, 14d.Example: "1d", to delete
+ *  the cluster 1 day after its creation..
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *autoDeleteTtl;
+
+/**
+ *  Optional. The duration to keep the cluster alive while idling. Passing this
+ *  threshold will cause the cluster to be deleted. Valid range: 10m,
+ *  14d.Example: "10m", the minimum value, to delete the cluster when it has had
+ *  no jobs running for 10 minutes.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *idleDeleteTtl;
+
+/**
+ *  Output only. The time when cluster became idle (most recent job finished)
+ *  and became eligible for deletion due to idleness.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *idleStartTime;
 
 @end
 
@@ -2254,7 +2288,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  returned in the response to getIamPolicy, and systems are expected to put
  *  that etag in the request to setIamPolicy to ensure that their change will be
  *  applied to the same version of the policy.If no etag is provided in the call
- *  to setIamPolicy, then the existing policy is overwritten blindly.
+ *  to setIamPolicy, then the existing policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

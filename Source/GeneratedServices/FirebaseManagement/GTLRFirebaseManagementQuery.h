@@ -21,10 +21,12 @@
 #endif
 
 @class GTLRFirebaseManagement_AddFirebaseRequest;
+@class GTLRFirebaseManagement_AddGoogleAnalyticsRequest;
 @class GTLRFirebaseManagement_AndroidApp;
 @class GTLRFirebaseManagement_FinalizeDefaultLocationRequest;
 @class GTLRFirebaseManagement_FirebaseProject;
 @class GTLRFirebaseManagement_IosApp;
+@class GTLRFirebaseManagement_RemoveAnalyticsRequest;
 @class GTLRFirebaseManagement_ShaCertificate;
 @class GTLRFirebaseManagement_WebApp;
 
@@ -176,8 +178,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  <br>This method does not modify any billing account information on the
  *  underlying GCP `Project`.
  *  <br>
- *  <br>All fields listed in the [request body](#request-body) are required.
- *  <br>
  *  <br>To call `AddFirebase`, a member must be an Editor or Owner for the
  *  existing GCP `Project`. Service accounts cannot call `AddFirebase`.
  *
@@ -228,8 +228,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  <br>This method does not modify any billing account information on the
  *  underlying GCP `Project`.
  *  <br>
- *  <br>All fields listed in the [request body](#request-body) are required.
- *  <br>
  *  <br>To call `AddFirebase`, a member must be an Editor or Owner for the
  *  existing GCP `Project`. Service accounts cannot call `AddFirebase`.
  *
@@ -247,6 +245,139 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRFirebaseManagement_AddFirebaseRequest *)object
                         project:(NSString *)project;
+
+@end
+
+/**
+ *  Links a FirebaseProject with an existing
+ *  [Google Analytics account](http://www.google.com/analytics/).
+ *  <br>
+ *  <br>Using this call, you can either:
+ *  <ul>
+ *  <li>Provision a new Google Analytics property and associate the new
+ *  property with your `FirebaseProject`.</li>
+ *  <li>Associate an existing Google Analytics property with your
+ *  `FirebaseProject`.</li>
+ *  </ul>
+ *  <br>
+ *  Note that when you call `AddGoogleAnalytics`:
+ *  <ul>
+ *  <li>Any Firebase Apps already in your `FirebaseProject` are
+ *  automatically provisioned as new <em>data streams</em> in the Google
+ *  Analytics property.</li>
+ *  <li>Any <em>data streams</em> already in the Google Analytics property are
+ *  automatically associated with their corresponding Firebase Apps (only
+ *  applies when an app's `packageName` or `bundleId` match those for an
+ *  existing data stream).</li>
+ *  </ul>
+ *  Learn more about the hierarchy and structure of Google Analytics
+ *  accounts in the
+ *  [Analytics
+ *  documentation](https://support.google.com/analytics/answer/9303323).
+ *  <br>
+ *  <br>The result of this call is an [`Operation`](../../v1beta1/operations).
+ *  Poll the `Operation` to track the provisioning process by calling
+ *  GetOperation until
+ *  [`done`](../../v1beta1/operations#Operation.FIELDS.done) is `true`. When
+ *  `done` is `true`, the `Operation` has either succeeded or failed. If the
+ *  `Operation` succeeded, its
+ *  [`response`](../../v1beta1/operations#Operation.FIELDS.response) is set to
+ *  an AnalyticsDetails; if the `Operation` failed, its
+ *  [`error`](../../v1beta1/operations#Operation.FIELDS.error) is set to a
+ *  google.rpc.Status.
+ *  <br>
+ *  <br>To call `AddGoogleAnalytics`, a member must be an Owner for
+ *  the existing `FirebaseProject` and have the
+ *  [`Edit` permission](https://support.google.com/analytics/answer/2884495)
+ *  for the Google Analytics account.
+ *  <br>
+ *  <br>If a `FirebaseProject` already has Google Analytics enabled, and you
+ *  call `AddGoogleAnalytics` using an `analyticsPropertyId` that's different
+ *  from the currently associated property, then the call will fail. Analytics
+ *  may have already been enabled in the Firebase console or by specifying
+ *  `timeZone` and `regionCode` in the call to
+ *  [`AddFirebase`](../../v1beta1/projects/addFirebase).
+ *
+ *  Method: firebase.projects.addGoogleAnalytics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
+ */
+@interface GTLRFirebaseManagementQuery_ProjectsAddGoogleAnalytics : GTLRFirebaseManagementQuery
+// Previous library name was
+//   +[GTLQueryFirebaseManagement queryForProjectsAddGoogleAnalyticsWithObject:parent:]
+
+/**
+ *  The parent `FirebaseProject` to link to an existing Google Analytics
+ *  account, in the format:
+ *  <br><code>projects/<var>projectId</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseManagement_Operation.
+ *
+ *  Links a FirebaseProject with an existing
+ *  [Google Analytics account](http://www.google.com/analytics/).
+ *  <br>
+ *  <br>Using this call, you can either:
+ *  <ul>
+ *  <li>Provision a new Google Analytics property and associate the new
+ *  property with your `FirebaseProject`.</li>
+ *  <li>Associate an existing Google Analytics property with your
+ *  `FirebaseProject`.</li>
+ *  </ul>
+ *  <br>
+ *  Note that when you call `AddGoogleAnalytics`:
+ *  <ul>
+ *  <li>Any Firebase Apps already in your `FirebaseProject` are
+ *  automatically provisioned as new <em>data streams</em> in the Google
+ *  Analytics property.</li>
+ *  <li>Any <em>data streams</em> already in the Google Analytics property are
+ *  automatically associated with their corresponding Firebase Apps (only
+ *  applies when an app's `packageName` or `bundleId` match those for an
+ *  existing data stream).</li>
+ *  </ul>
+ *  Learn more about the hierarchy and structure of Google Analytics
+ *  accounts in the
+ *  [Analytics
+ *  documentation](https://support.google.com/analytics/answer/9303323).
+ *  <br>
+ *  <br>The result of this call is an [`Operation`](../../v1beta1/operations).
+ *  Poll the `Operation` to track the provisioning process by calling
+ *  GetOperation until
+ *  [`done`](../../v1beta1/operations#Operation.FIELDS.done) is `true`. When
+ *  `done` is `true`, the `Operation` has either succeeded or failed. If the
+ *  `Operation` succeeded, its
+ *  [`response`](../../v1beta1/operations#Operation.FIELDS.response) is set to
+ *  an AnalyticsDetails; if the `Operation` failed, its
+ *  [`error`](../../v1beta1/operations#Operation.FIELDS.error) is set to a
+ *  google.rpc.Status.
+ *  <br>
+ *  <br>To call `AddGoogleAnalytics`, a member must be an Owner for
+ *  the existing `FirebaseProject` and have the
+ *  [`Edit` permission](https://support.google.com/analytics/answer/2884495)
+ *  for the Google Analytics account.
+ *  <br>
+ *  <br>If a `FirebaseProject` already has Google Analytics enabled, and you
+ *  call `AddGoogleAnalytics` using an `analyticsPropertyId` that's different
+ *  from the currently associated property, then the call will fail. Analytics
+ *  may have already been enabled in the Firebase console or by specifying
+ *  `timeZone` and `regionCode` in the call to
+ *  [`AddFirebase`](../../v1beta1/projects/addFirebase).
+ *
+ *  @param object The @c GTLRFirebaseManagement_AddGoogleAnalyticsRequest to
+ *    include in the query.
+ *  @param parent The parent `FirebaseProject` to link to an existing Google
+ *    Analytics
+ *    account, in the format:
+ *    <br><code>projects/<var>projectId</var></code>
+ *
+ *  @return GTLRFirebaseManagementQuery_ProjectsAddGoogleAnalytics
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_AddGoogleAnalyticsRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -902,6 +1033,49 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the Google Analytics details currently associated with a
+ *  FirebaseProject.
+ *  <br>
+ *  <br>If the `FirebaseProject` is not yet linked to Google Analytics, then
+ *  the response to `GetAnalyticsDetails` is NOT_FOUND.
+ *
+ *  Method: firebase.projects.getAnalyticsDetails
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseManagementReadonly
+ */
+@interface GTLRFirebaseManagementQuery_ProjectsGetAnalyticsDetails : GTLRFirebaseManagementQuery
+// Previous library name was
+//   +[GTLQueryFirebaseManagement queryForProjectsGetAnalyticsDetailsWithname:]
+
+/**
+ *  The fully qualified resource name, in the format:
+ *  <br><code>projects/<var>projectId</var>/analyticsDetails</code>
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseManagement_AnalyticsDetails.
+ *
+ *  Gets the Google Analytics details currently associated with a
+ *  FirebaseProject.
+ *  <br>
+ *  <br>If the `FirebaseProject` is not yet linked to Google Analytics, then
+ *  the response to `GetAnalyticsDetails` is NOT_FOUND.
+ *
+ *  @param name The fully qualified resource name, in the format:
+ *    <br><code>projects/<var>projectId</var>/analyticsDetails</code>
+ *
+ *  @return GTLRFirebaseManagementQuery_ProjectsGetAnalyticsDetails
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Requests that a new IosApp be created.
  *  <br>
  *  <br>The result of this call is an `Operation` which can be used to track
@@ -1255,6 +1429,70 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRFirebaseManagement_FirebaseProject *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Unlinks the specified `FirebaseProject` from its Google Analytics account.
+ *  <br>
+ *  <br>This call removes the association of the specified `FirebaseProject`
+ *  with its current Google Analytics property. However, this call does not
+ *  delete the Google Analytics resources, such as the Google Analytics
+ *  property or any data streams.
+ *  <br>
+ *  <br>These resources may be re-associated later to the `FirebaseProject` by
+ *  calling
+ *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics) and
+ *  specifying the same `analyticsPropertyId`.
+ *  <br>
+ *  <br>To call `RemoveAnalytics`, a member must be an Owner for
+ *  the `FirebaseProject`.
+ *
+ *  Method: firebase.projects.removeAnalytics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
+ */
+@interface GTLRFirebaseManagementQuery_ProjectsRemoveAnalytics : GTLRFirebaseManagementQuery
+// Previous library name was
+//   +[GTLQueryFirebaseManagement queryForProjectsRemoveAnalyticsWithObject:parent:]
+
+/**
+ *  The parent `FirebaseProject` to unlink from its Google Analytics account,
+ *  in the format:
+ *  <br><code>projects/<var>projectId</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseManagement_Empty.
+ *
+ *  Unlinks the specified `FirebaseProject` from its Google Analytics account.
+ *  <br>
+ *  <br>This call removes the association of the specified `FirebaseProject`
+ *  with its current Google Analytics property. However, this call does not
+ *  delete the Google Analytics resources, such as the Google Analytics
+ *  property or any data streams.
+ *  <br>
+ *  <br>These resources may be re-associated later to the `FirebaseProject` by
+ *  calling
+ *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics) and
+ *  specifying the same `analyticsPropertyId`.
+ *  <br>
+ *  <br>To call `RemoveAnalytics`, a member must be an Owner for
+ *  the `FirebaseProject`.
+ *
+ *  @param object The @c GTLRFirebaseManagement_RemoveAnalyticsRequest to
+ *    include in the query.
+ *  @param parent The parent `FirebaseProject` to unlink from its Google
+ *    Analytics account,
+ *    in the format:
+ *    <br><code>projects/<var>projectId</var></code>
+ *
+ *  @return GTLRFirebaseManagementQuery_ProjectsRemoveAnalytics
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseManagement_RemoveAnalyticsRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

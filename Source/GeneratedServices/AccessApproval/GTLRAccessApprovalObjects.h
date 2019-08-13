@@ -23,6 +23,7 @@
 @class GTLRAccessApproval_ApprovalRequest;
 @class GTLRAccessApproval_ApproveDecision;
 @class GTLRAccessApproval_DismissDecision;
+@class GTLRAccessApproval_EnrolledService;
 @class GTLRAccessApproval_ResourceProperties;
 
 // Generated comments include content from the discovery document; avoid them
@@ -75,6 +76,22 @@ GTLR_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiat
  *  Value: "TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAccessApproval_EnrolledService.enrollmentLevel
+
+/**
+ *  Service is enrolled in Access Approval for all requests
+ *
+ *  Value: "BLOCK_ALL"
+ */
+GTLR_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_BlockAll;
+/**
+ *  Default value for proto, shouldn't be used.
+ *
+ *  Value: "ENROLLMENT_LEVEL_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentLevelUnspecified;
 
 /**
  *  Home office and physical location of the principal.
@@ -263,6 +280,45 @@ GTLR_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecifi
 
 
 /**
+ *  Represents the enrollment of a cloud resource into a specific service.
+ */
+@interface GTLRAccessApproval_EnrolledService : GTLRObject
+
+/**
+ *  The product for which Access Approval will be enrolled. Allowed values are
+ *  listed below (case-sensitive):
+ *  <ol>
+ *  <li>all</li>
+ *  <li>appengine.googleapis.com</li>
+ *  <li>bigquery.googleapis.com</li>
+ *  <li>bigtable.googleapis.com</li>
+ *  <li>cloudkms.googleapis.com</li>
+ *  <li>compute.googleapis.com</li>
+ *  <li>dataflow.googleapis.com</li>
+ *  <li>iam.googleapis.com</li>
+ *  <li>pubsub.googleapis.com</li>
+ *  <li>storage.googleapis.com</li>
+ *  <ol>
+ */
+@property(nonatomic, copy, nullable) NSString *cloudProduct;
+
+/**
+ *  The enrollment level of the service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessApproval_EnrolledService_EnrollmentLevel_BlockAll
+ *        Service is enrolled in Access Approval for all requests (Value:
+ *        "BLOCK_ALL")
+ *    @arg @c kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentLevelUnspecified
+ *        Default value for proto, shouldn't be used. (Value:
+ *        "ENROLLMENT_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *enrollmentLevel;
+
+@end
+
+
+/**
  *  Response to listing of ApprovalRequest objects.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -308,6 +364,18 @@ GTLR_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecifi
  *  Settings on a Project/Folder/Organization related to Access Approval.
  */
 @interface GTLRAccessApproval_Settings : GTLRObject
+
+/**
+ *  A list of Google Cloud Services for which the given resource has Access
+ *  Approval enrolled. Access requests for the resource given by name against
+ *  any of these services contained here will be required to have explicit
+ *  approval. If name refers to an organization, enrollment can be done for
+ *  individual services. If name refers to a folder or project, enrollment can
+ *  only be done on an all or nothing basis.
+ *  If a cloud_product is repeated in this list, the first entry will be
+ *  honored and all following entries will be discarded.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessApproval_EnrolledService *> *enrolledServices;
 
 /**
  *  The resource name of the settings. Format is one of:

@@ -70,9 +70,10 @@ NSString * const kGTLRYouTube_CdnSettings_FrameRate_X30fps   = @"30fps";
 NSString * const kGTLRYouTube_CdnSettings_FrameRate_X60fps   = @"60fps";
 
 // GTLRYouTube_CdnSettings.ingestionType
-NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash = @"dash";
-NSString * const kGTLRYouTube_CdnSettings_IngestionType_Hls  = @"hls";
-NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp = @"rtmp";
+NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash   = @"dash";
+NSString * const kGTLRYouTube_CdnSettings_IngestionType_Hls    = @"hls";
+NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp   = @"rtmp";
+NSString * const kGTLRYouTube_CdnSettings_IngestionType_Webrtc = @"webrtc";
 
 // GTLRYouTube_CdnSettings.resolution
 NSString * const kGTLRYouTube_CdnSettings_Resolution_Variable = @"variable";
@@ -123,7 +124,6 @@ NSString * const kGTLRYouTube_ChannelStatus_LongUploadsStatus_LongUploadsUnspeci
 NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Private = @"private";
 NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Public = @"public";
 NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Unlisted = @"unlisted";
-NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_UnlistedNew = @"unlisted_new";
 
 // GTLRYouTube_CommentSnippet.moderationStatus
 NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_HeldForReview = @"heldForReview";
@@ -807,6 +807,18 @@ NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_LeftRight
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_Mono = @"mono";
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_TopBottom = @"top_bottom";
 
+// GTLRYouTube_LiveBroadcastSnippet.broadcastType
+NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Fludd = @"fludd";
+NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_FluddArchive = @"fluddArchive";
+NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_GplusHoa = @"gplusHoa";
+NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_LcrEncoder = @"lcrEncoder";
+NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Mobile = @"mobile";
+NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Persistent = @"persistent";
+NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Premiere = @"premiere";
+NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Unspecified = @"unspecified";
+NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Webcam = @"webcam";
+NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_YtHoa = @"ytHoa";
+
 // GTLRYouTube_LiveBroadcastStatus.lifeCycleStatus
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Complete = @"complete";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Created = @"created";
@@ -826,7 +838,6 @@ NSString * const kGTLRYouTube_LiveBroadcastStatus_LiveBroadcastPriority_Normal =
 NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Private = @"private";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Public = @"public";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Unlisted = @"unlisted";
-NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_UnlistedNew = @"unlisted_new";
 
 // GTLRYouTube_LiveBroadcastStatus.recordingStatus
 NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_NotRecording = @"notRecording";
@@ -918,13 +929,11 @@ NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Ready = @"ready";
 NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Private = @"private";
 NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Public = @"public";
 NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Unlisted = @"unlisted";
-NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_UnlistedNew = @"unlisted_new";
 
 // GTLRYouTube_PlaylistStatus.privacyStatus
 NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Private = @"private";
 NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Public = @"public";
 NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Unlisted = @"unlisted";
-NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_UnlistedNew = @"unlisted_new";
 
 // GTLRYouTube_PromotedItemId.type
 NSString * const kGTLRYouTube_PromotedItemId_Type_RecentUpload = @"recentUpload";
@@ -1013,7 +1022,6 @@ NSString * const kGTLRYouTube_VideoStatus_License_Youtube      = @"youtube";
 NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_Private = @"private";
 NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_Public = @"public";
 NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_Unlisted = @"unlisted";
-NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_UnlistedNew = @"unlisted_new";
 
 // GTLRYouTube_VideoStatus.rejectionReason
 NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Claim = @"claim";
@@ -2193,9 +2201,9 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_LiveBroadcastSnippet
-@dynamic actualEndTime, actualStartTime, channelId, descriptionProperty,
-         isDefaultBroadcast, liveChatId, publishedAt, scheduledEndTime,
-         scheduledStartTime, thumbnails, title;
+@dynamic actualEndTime, actualStartTime, broadcastType, channelId,
+         descriptionProperty, isDefaultBroadcast, liveChatId, publishedAt,
+         scheduledEndTime, scheduledStartTime, thumbnails, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

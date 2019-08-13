@@ -1430,7 +1430,17 @@
 //
 
 @implementation GTLRShoppingContent_OrderCustomer
-@dynamic fullName, marketingRightsInfo;
+@dynamic fullName, invoiceReceivingEmail, loyaltyInfo, marketingRightsInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderCustomerLoyaltyInfo
+//
+
+@implementation GTLRShoppingContent_OrderCustomerLoyaltyInfo
+@dynamic loyaltyNumber, name;
 @end
 
 
@@ -1994,8 +2004,8 @@
 //
 
 @implementation GTLRShoppingContent_OrderShipment
-@dynamic carrier, creationDate, deliveryDate, identifier, lineItems, status,
-         trackingId;
+@dynamic carrier, creationDate, deliveryDate, identifier, lineItems,
+         shipmentGroupId, status, trackingId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

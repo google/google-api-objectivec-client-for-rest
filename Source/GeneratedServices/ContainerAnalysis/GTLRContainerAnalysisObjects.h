@@ -75,6 +75,9 @@
 @class GTLRContainerAnalysis_Status;
 @class GTLRContainerAnalysis_Status_Details_Item;
 @class GTLRContainerAnalysis_StorageSource;
+@class GTLRContainerAnalysis_UpgradeDistribution;
+@class GTLRContainerAnalysis_UpgradeNote;
+@class GTLRContainerAnalysis_UpgradeOccurrence;
 @class GTLRContainerAnalysis_Version;
 @class GTLRContainerAnalysis_VulnerabilityDetails;
 @class GTLRContainerAnalysis_VulnerabilityLocation;
@@ -282,6 +285,12 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Packa
  *  Value: "PACKAGE_VULNERABILITY"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_PackageVulnerability;
+/**
+ *  This represents an available software upgrade.
+ *
+ *  Value: "UPGRADE"
+ */
+GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Upgrade;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Distribution.architecture
@@ -513,6 +522,12 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_PackageManager;
  *  Value: "PACKAGE_VULNERABILITY"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_PackageVulnerability;
+/**
+ *  This represents an available software upgrade.
+ *
+ *  Value: "UPGRADE"
+ */
+GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Upgrade;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Occurrence.kind
@@ -565,6 +580,12 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_PackageManag
  *  Value: "PACKAGE_VULNERABILITY"
  */
 GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_PackageVulnerability;
+/**
+ *  This represents an available software upgrade.
+ *
+ *  Value: "UPGRADE"
+ */
+GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Upgrade;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_PgpSignedAttestation.contentType
@@ -882,7 +903,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -894,7 +915,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  ]
  *  },
  *  {
- *  "service": "fooservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com"
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -902,16 +923,16 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  {
  *  "log_type": "DATA_WRITE",
  *  "exempted_members": [
- *  "user:bar\@gmail.com"
+ *  "user:aliya\@example.com"
  *  ]
  *  }
  *  ]
  *  }
  *  ]
  *  }
- *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
- *  bar\@gmail.com from DATA_WRITE logging.
+ *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts jose\@example.com from DATA_READ logging, and
+ *  aliya\@example.com from DATA_WRITE logging.
  */
 @interface GTLRContainerAnalysis_AuditConfig : GTLRObject
 
@@ -936,7 +957,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -945,7 +966,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  ]
  *  }
  *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  foo\@gmail.com from DATA_READ logging.
+ *  jose\@example.com from DATA_READ logging.
  */
 @interface GTLRContainerAnalysis_AuditLogConfig : GTLRObject
 
@@ -955,6 +976,15 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  Specifies whether principals can be exempted for the same LogType in
+ *  lower-level resource policies. If true, any lower-level exemptions will
+ *  be ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
 
 /**
  *  The log type that this config enables.
@@ -1016,7 +1046,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -1485,6 +1515,8 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_PackageVulnerability
  *        The note and occurrence represent a package vulnerability. (Value:
  *        "PACKAGE_VULNERABILITY")
+ *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Upgrade This
+ *        represents an available software upgrade. (Value: "UPGRADE")
  */
 @property(nonatomic, copy, nullable) NSString *analysisKind;
 
@@ -1651,7 +1683,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0 and 1.
+ *  Acceptable values are 0, 1, and 3.
  *  If the value is 0, or the field is omitted, policy format version 1 will be
  *  returned.
  *
@@ -1750,10 +1782,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1GitSourceContext : GTLRObject
 
-/**
- *  Required.
- *  Git commit hash.
- */
+/** Required. Git commit hash. */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
 /** Git repository URL. */
@@ -2122,6 +2151,8 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_PackageVulnerability The note and
  *        occurrence represent a package vulnerability. (Value:
  *        "PACKAGE_VULNERABILITY")
+ *    @arg @c kGTLRContainerAnalysis_Note_Kind_Upgrade This represents an
+ *        available software upgrade. (Value: "UPGRADE")
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2130,7 +2161,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
 
 /**
  *  The name of the note in the form
- *  "providers/{provider_id}/notes/{NOTE_ID}"
+ *  "projects/{provider_project_id}/notes/{NOTE_ID}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2148,6 +2179,9 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  a filter in list requests.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** A note describing an upgrade. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_UpgradeNote *upgrade;
 
 /** A package vulnerability type of note. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityType *vulnerabilityType;
@@ -2209,6 +2243,8 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_PackageVulnerability The
  *        note and occurrence represent a package vulnerability. (Value:
  *        "PACKAGE_VULNERABILITY")
+ *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Upgrade This represents an
+ *        available software upgrade. (Value: "UPGRADE")
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2240,6 +2276,9 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
 
 /** Output only. The time this `Occurrence` was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Describes an upgrade. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_UpgradeOccurrence *upgrade;
 
 /** Details of a security vulnerability note. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityDetails *vulnerabilityDetails;
@@ -2484,7 +2523,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2832,6 +2871,79 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  The Upgrade Distribution represents metadata about the Upgrade for each
+ *  operating system (CPE). Some distributions have additional metadata around
+ *  updates, classifying them into various categories and severities.
+ */
+@interface GTLRContainerAnalysis_UpgradeDistribution : GTLRObject
+
+/**
+ *  The operating system classification of this Upgrade, as specified by the
+ *  upstream operating system upgrade feed.
+ */
+@property(nonatomic, copy, nullable) NSString *classification;
+
+/**
+ *  Required - The specific operating system this metadata applies to. See
+ *  https://cpe.mitre.org/specification/.
+ */
+@property(nonatomic, copy, nullable) NSString *cpeUri;
+
+/** The cve that would be resolved by this upgrade. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cve;
+
+/** The severity as specified by the upstream operating system. */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
+ *  An Upgrade Note represents a potential upgrade of a package to a given
+ *  version. For each package version combination (i.e. bash 4.0, bash 4.1,
+ *  bash 4.1.2), there will be a Upgrade Note.
+ */
+@interface GTLRContainerAnalysis_UpgradeNote : GTLRObject
+
+/** Metadata about the upgrade for each specific operating system. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_UpgradeDistribution *> *distributions;
+
+/** Required - The package this Upgrade is for. */
+@property(nonatomic, copy, nullable) NSString *package;
+
+/** Required - The version of the package in machine + human readable form. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *version;
+
+@end
+
+
+/**
+ *  An Upgrade Occurrence represents that a specific resource_url could install
+ *  a
+ *  specific upgrade. This presence is supplied via local sources (i.e. it is
+ *  present in the mirror and the running system has noticed its availability).
+ */
+@interface GTLRContainerAnalysis_UpgradeOccurrence : GTLRObject
+
+/**
+ *  Metadata about the upgrade for available for the specific operating system
+ *  for the resource_url. This allows efficient filtering, as well as
+ *  making it easier to use the occurrence.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_UpgradeDistribution *distribution;
+
+/** Required - The package this Upgrade is for. */
+@property(nonatomic, copy, nullable) NSString *package;
+
+/**
+ *  Required - The version of the package in a machine + human readable form.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *parsedVersion;
 
 @end
 

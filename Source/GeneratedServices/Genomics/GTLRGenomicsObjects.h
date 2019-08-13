@@ -879,6 +879,9 @@ GTLR_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
 /** The worker's instance name. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
+/** The machine type that was assigned for the worker. */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
 /**
  *  The zone the worker is running in.
  *

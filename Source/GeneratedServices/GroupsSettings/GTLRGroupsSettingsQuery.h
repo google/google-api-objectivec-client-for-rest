@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryGroupsSettings queryForGroupsGetWithgroupUniqueId:]
 
-/** The resource ID */
+/** The group's email address. */
 @property(nonatomic, copy, nullable) NSString *groupUniqueId;
 
 /**
@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets one resource by id.
  *
- *  @param groupUniqueId The resource ID
+ *  @param groupUniqueId The group's email address.
  *
  *  @return GTLRGroupsSettingsQuery_GroupsGet
  */
@@ -77,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryGroupsSettings queryForGroupsPatchWithObject:groupUniqueId:]
 
-/** The resource ID */
+/** The group's email address. */
 @property(nonatomic, copy, nullable) NSString *groupUniqueId;
 
 /**
@@ -86,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates an existing resource. This method supports patch semantics.
  *
  *  @param object The @c GTLRGroupsSettings_Groups to include in the query.
- *  @param groupUniqueId The resource ID
+ *  @param groupUniqueId The group's email address.
  *
  *  @return GTLRGroupsSettingsQuery_GroupsPatch
  */
@@ -107,7 +107,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryGroupsSettings queryForGroupsUpdateWithObject:groupUniqueId:]
 
-/** The resource ID */
+/** The group's email address. */
 @property(nonatomic, copy, nullable) NSString *groupUniqueId;
 
 /**
@@ -116,7 +116,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates an existing resource.
  *
  *  @param object The @c GTLRGroupsSettings_Groups to include in the query.
- *  @param groupUniqueId The resource ID
+ *  @param groupUniqueId The group's email address.
  *
  *  @return GTLRGroupsSettingsQuery_GroupsUpdate
  */

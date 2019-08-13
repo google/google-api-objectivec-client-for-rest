@@ -1574,8 +1574,9 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
          deleteNamedRange, deleteParagraphBullets, deletePositionedObject,
          deleteTableColumn, deleteTableRow, insertInlineImage, insertPageBreak,
          insertTable, insertTableColumn, insertTableRow, insertText,
-         replaceAllText, updateParagraphStyle, updateTableCellStyle,
-         updateTableColumnProperties, updateTableRowStyle, updateTextStyle;
+         replaceAllText, updateDocumentStyle, updateParagraphStyle,
+         updateTableCellStyle, updateTableColumnProperties, updateTableRowStyle,
+         updateTextStyle;
 @end
 
 
@@ -2107,6 +2108,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
          fontSizeSuggested, foregroundColorSuggested, italicSuggested,
          linkSuggested, smallCapsSuggested, strikethroughSuggested,
          underlineSuggested, weightedFontFamilySuggested;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_UpdateDocumentStyleRequest
+//
+
+@implementation GTLRDocs_UpdateDocumentStyleRequest
+@dynamic documentStyle, fields;
 @end
 
 

@@ -56,6 +56,7 @@
 @class GTLRSheets_CandlestickSeries;
 @class GTLRSheets_CellData;
 @class GTLRSheets_CellFormat;
+@class GTLRSheets_ChartAxisViewWindowOptions;
 @class GTLRSheets_ChartData;
 @class GTLRSheets_ChartSourceRange;
 @class GTLRSheets_ChartSpec;
@@ -79,6 +80,8 @@
 @class GTLRSheets_DeleteDimensionGroupRequest;
 @class GTLRSheets_DeleteDimensionGroupResponse;
 @class GTLRSheets_DeleteDimensionRequest;
+@class GTLRSheets_DeleteDuplicatesRequest;
+@class GTLRSheets_DeleteDuplicatesResponse;
 @class GTLRSheets_DeleteEmbeddedObjectRequest;
 @class GTLRSheets_DeleteFilterViewRequest;
 @class GTLRSheets_DeleteNamedRangeRequest;
@@ -161,6 +164,8 @@
 @class GTLRSheets_TextToColumnsRequest;
 @class GTLRSheets_TreemapChartColorScale;
 @class GTLRSheets_TreemapChartSpec;
+@class GTLRSheets_TrimWhitespaceRequest;
+@class GTLRSheets_TrimWhitespaceResponse;
 @class GTLRSheets_UnmergeCellsRequest;
 @class GTLRSheets_UpdateBandingRequest;
 @class GTLRSheets_UpdateBordersRequest;
@@ -1245,6 +1250,39 @@ GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_Wrap;
  *  Value: "WRAP_STRATEGY_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_WrapStrategyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_ChartAxisViewWindowOptions.viewWindowMode
+
+/**
+ *  The default view window mode used in the Sheets editor for this chart
+ *  type. In most cases, if set, the default mode is equivalent to
+ *  `PRETTY`.
+ *
+ *  Value: "DEFAULT_VIEW_WINDOW_MODE"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_DefaultViewWindowMode;
+/**
+ *  Follows the min and max exactly if specified. If a value is unspecified,
+ *  it will fall back to the `PRETTY` value.
+ *
+ *  Value: "EXPLICIT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_Explicit;
+/**
+ *  Chooses a min and max that make the chart look good. Both min and max are
+ *  ignored in this mode.
+ *
+ *  Value: "PRETTY"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_Pretty;
+/**
+ *  Do not use. Represents that the currently set mode is not supported by
+ *  the API.
+ *
+ *  Value: "VIEW_WINDOW_MODE_UNSUPPORTED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_ViewWindowModeUnsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ChartSpec.hiddenDimensionStrategy
@@ -3038,6 +3076,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /** The axis title text position. */
 @property(nonatomic, strong, nullable) GTLRSheets_TextPosition *titleTextPosition;
 
+/** The view window options for this axis. */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartAxisViewWindowOptions *viewWindowOptions;
+
 @end
 
 
@@ -4501,6 +4542,53 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 
 /**
+ *  The options that define a "view window" for a chart (such as the visible
+ *  values in an axis).
+ */
+@interface GTLRSheets_ChartAxisViewWindowOptions : GTLRObject
+
+/**
+ *  The maximum numeric value to be shown in this view window. If unset, will
+ *  automatically determine a maximum value that looks good for the data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *viewWindowMax;
+
+/**
+ *  The minimum numeric value to be shown in this view window. If unset, will
+ *  automatically determine a minimum value that looks good for the data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *viewWindowMin;
+
+/**
+ *  The view window's mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_DefaultViewWindowMode
+ *        The default view window mode used in the Sheets editor for this chart
+ *        type. In most cases, if set, the default mode is equivalent to
+ *        `PRETTY`. (Value: "DEFAULT_VIEW_WINDOW_MODE")
+ *    @arg @c kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_Explicit
+ *        Follows the min and max exactly if specified. If a value is
+ *        unspecified,
+ *        it will fall back to the `PRETTY` value. (Value: "EXPLICIT")
+ *    @arg @c kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_Pretty
+ *        Chooses a min and max that make the chart look good. Both min and max
+ *        are
+ *        ignored in this mode. (Value: "PRETTY")
+ *    @arg @c kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_ViewWindowModeUnsupported
+ *        Do not use. Represents that the currently set mode is not supported by
+ *        the API. (Value: "VIEW_WINDOW_MODE_UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *viewWindowMode;
+
+@end
+
+
+/**
  *  The data included in a domain or series.
  */
 @interface GTLRSheets_ChartData : GTLRObject
@@ -5297,6 +5385,45 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The dimensions to delete from the sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *range;
+
+@end
+
+
+/**
+ *  Removes rows within this range containing duplicate values in the specified
+ *  columns. Rows with identical values but different letter cases, formatting,
+ *  or formulas are considered to be duplicates.
+ *  This request also removes duplicate rows hidden from view (for example, due
+ *  to a filter). When removing duplicates, the first instance of each duplicate
+ *  row scanning from the top downwards is kept in the resulting range. Content
+ *  outside of the specified range isn't removed, and rows considered duplicates
+ *  do not have to be adjacent to each other in the range.
+ */
+@interface GTLRSheets_DeleteDuplicatesRequest : GTLRObject
+
+/**
+ *  The columns in the range to analyze for duplicate values. If no columns are
+ *  selected then all columns are analyzed for duplicates.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_DimensionRange *> *comparisonColumns;
+
+/** The range to remove duplicates rows from. */
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
+
+@end
+
+
+/**
+ *  The result of removing duplicates in a range.
+ */
+@interface GTLRSheets_DeleteDuplicatesResponse : GTLRObject
+
+/**
+ *  The number of duplicate rows removed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *duplicatesRemovedCount;
 
 @end
 
@@ -7682,6 +7809,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /** Deletes a group over the specified range. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteDimensionGroupRequest *deleteDimensionGroup;
 
+/**
+ *  Removes rows containing duplicate values in specified columns of a cell
+ *  range.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteDuplicatesRequest *deleteDuplicates;
+
 /** Deletes an embedded object (e.g, chart, image) in a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteEmbeddedObjectRequest *deleteEmbeddedObject;
 
@@ -7741,6 +7874,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** Converts a column of text into many columns of text. */
 @property(nonatomic, strong, nullable) GTLRSheets_TextToColumnsRequest *textToColumns;
+
+/** Trims cells of whitespace (such as spaces, tabs, or new lines). */
+@property(nonatomic, strong, nullable) GTLRSheets_TrimWhitespaceRequest *trimWhitespace;
 
 /** Unmerges merged cells. */
 @property(nonatomic, strong, nullable) GTLRSheets_UnmergeCellsRequest *unmergeCells;
@@ -7828,6 +7964,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /** A reply from deleting a dimension group. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteDimensionGroupResponse *deleteDimensionGroup;
 
+/** A reply from removing rows containing duplicate values. */
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteDuplicatesResponse *deleteDuplicates;
+
 /** A reply from duplicating a filter view. */
 @property(nonatomic, strong, nullable) GTLRSheets_DuplicateFilterViewResponse *duplicateFilterView;
 
@@ -7836,6 +7975,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** A reply from doing a find/replace. */
 @property(nonatomic, strong, nullable) GTLRSheets_FindReplaceResponse *findReplace;
+
+/** A reply from trimming whitespace. */
+@property(nonatomic, strong, nullable) GTLRSheets_TrimWhitespaceResponse *trimWhitespace;
 
 /** A reply from updating a conditional format rule. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateConditionalFormatRuleResponse *updateConditionalFormatRule;
@@ -8523,6 +8665,39 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The text format for all labels on the chart. */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
+
+@end
+
+
+/**
+ *  Trims the whitespace (such as spaces, tabs, or new lines) in every cell in
+ *  the specified range. This request removes all whitespace from the start and
+ *  end of each cell's text, and reduces any sub-sequence of remaining
+ *  whitespace
+ *  characters to a single space. If the resulting trimmed text starts with a
+ *  '+'
+ *  or '=' character, the text remains as a string value and is not interpreted
+ *  as a formula.
+ */
+@interface GTLRSheets_TrimWhitespaceRequest : GTLRObject
+
+/** The range whose cells to trim. */
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
+
+@end
+
+
+/**
+ *  The result of trimming whitespace in cells.
+ */
+@interface GTLRSheets_TrimWhitespaceResponse : GTLRObject
+
+/**
+ *  The number of cells that were trimmed of whitespace.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cellsChangedCount;
 
 @end
 

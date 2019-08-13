@@ -505,6 +505,18 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_Disappr
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_NotChecked;
 /**
+ *  Placeholder for transition to v1beta1. Currently not used.
+ *
+ *  Value: "PENDING_REVIEW"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_PendingReview;
+/**
+ *  Placeholder for transition to v1beta1. Currently not used.
+ *
+ *  Value: "STATUS_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_StatusTypeUnspecified;
+/**
  *  The status is unknown.
  *
  *  Value: "STATUS_UNSPECIFIED"
@@ -539,6 +551,18 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_D
  *  Value: "NOT_CHECKED"
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_NotChecked;
+/**
+ *  Placeholder for transition to v1beta1. Currently not used.
+ *
+ *  Value: "PENDING_REVIEW"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_PendingReview;
+/**
+ *  Placeholder for transition to v1beta1. Currently not used.
+ *
+ *  Value: "STATUS_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_StatusTypeUnspecified;
 /**
  *  The status is unknown.
  *
@@ -2716,6 +2740,12 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  *        creative has been disapproved. (Value: "DISAPPROVED")
  *    @arg @c kGTLRAdExchangeBuyerII_Creative_DealsStatus_NotChecked The
  *        creative has not been checked. (Value: "NOT_CHECKED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Creative_DealsStatus_PendingReview
+ *        Placeholder for transition to v1beta1. Currently not used. (Value:
+ *        "PENDING_REVIEW")
+ *    @arg @c kGTLRAdExchangeBuyerII_Creative_DealsStatus_StatusTypeUnspecified
+ *        Placeholder for transition to v1beta1. Currently not used. (Value:
+ *        "STATUS_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAdExchangeBuyerII_Creative_DealsStatus_StatusUnspecified The
  *        status is unknown. (Value: "STATUS_UNSPECIFIED")
  */
@@ -2790,6 +2820,12 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  *        creative has been disapproved. (Value: "DISAPPROVED")
  *    @arg @c kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_NotChecked The
  *        creative has not been checked. (Value: "NOT_CHECKED")
+ *    @arg @c kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_PendingReview
+ *        Placeholder for transition to v1beta1. Currently not used. (Value:
+ *        "PENDING_REVIEW")
+ *    @arg @c kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_StatusTypeUnspecified
+ *        Placeholder for transition to v1beta1. Currently not used. (Value:
+ *        "STATUS_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_StatusUnspecified
  *        The status is unknown. (Value: "STATUS_UNSPECIFIED")
  */

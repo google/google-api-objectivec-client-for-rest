@@ -25,6 +25,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeWebSecurityScannerCloudPlatform;
+
+// ----------------------------------------------------------------------------
+//   GTLRWebSecurityScannerService
+//
+
 /**
  *  Service for executing Web Security Scanner API queries.
  *

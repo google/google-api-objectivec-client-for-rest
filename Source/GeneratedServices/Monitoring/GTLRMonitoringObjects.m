@@ -68,6 +68,13 @@ NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Derive = @"DERIVE"
 NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Gauge = @"GAUGE";
 NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_UnspecifiedDataSourceType = @"UNSPECIFIED_DATA_SOURCE_TYPE";
 
+// GTLRMonitoring_ContentMatcher.matcher
+NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContainsString = @"CONTAINS_STRING";
+NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified = @"CONTENT_MATCHER_OPTION_UNSPECIFIED";
+NSString * const kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex = @"MATCHES_REGEX";
+NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString = @"NOT_CONTAINS_STRING";
+NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRegex = @"NOT_MATCHES_REGEX";
+
 // GTLRMonitoring_Field.cardinality
 NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityOptional = @"CARDINALITY_OPTIONAL";
 NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityRepeated = @"CARDINALITY_REPEATED";
@@ -226,7 +233,8 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 @implementation GTLRMonitoring_AlertPolicy
 @dynamic combiner, conditions, creationRecord, displayName, documentation,
-         enabled, mutationRecord, name, notificationChannels, userLabels;
+         enabled, mutationRecord, name, notificationChannels, userLabels,
+         validity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -360,7 +368,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_ContentMatcher
-@dynamic content;
+@dynamic content, matcher;
 @end
 
 
@@ -602,7 +610,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_HttpCheck
-@dynamic authInfo, headers, maskHeaders, path, port, useSsl;
+@dynamic authInfo, headers, maskHeaders, path, port, useSsl, validateSsl;
 @end
 
 

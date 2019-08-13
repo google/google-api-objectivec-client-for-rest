@@ -45,6 +45,7 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Available 
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Blocked = @"BLOCKED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled = @"FORCE_INSTALLED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified = @"INSTALL_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Kiosk = @"KIOSK";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled = @"PREINSTALLED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_RequiredForSetup = @"REQUIRED_FOR_SETUP";
 
@@ -254,6 +255,11 @@ NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_BatteryPlugged
 NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Usb = @"USB";
 NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Wireless = @"WIRELESS";
 
+// GTLRAndroidManagement_PostureDetail.securityRisk
+NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_CompromisedOs = @"COMPROMISED_OS";
+NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_SecurityRiskUnspecified = @"SECURITY_RISK_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_UnknownOs = @"UNKNOWN_OS";
+
 // GTLRAndroidManagement_PowerManagementEvent.eventType
 NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_BatteryLevelCollected = @"BATTERY_LEVEL_COLLECTED";
 NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_BatteryLow = @"BATTERY_LOW";
@@ -263,6 +269,12 @@ NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerConn
 NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerDisconnected = @"POWER_DISCONNECTED";
 NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerManagementEventTypeUnspecified = @"POWER_MANAGEMENT_EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_Shutdown = @"SHUTDOWN";
+
+// GTLRAndroidManagement_SecurityPosture.devicePosture
+NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_AtRisk = @"AT_RISK";
+NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PostureUnspecified = @"POSTURE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PotentiallyCompromised = @"POTENTIALLY_COMPROMISED";
+NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_Secure = @"SECURE";
 
 // GTLRAndroidManagement_SystemUpdate.type
 NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Automatic = @"AUTOMATIC";
@@ -489,8 +501,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          hardwareStatusSamples, lastPolicyComplianceReportTime,
          lastPolicySyncTime, lastStatusReportTime, managementMode, memoryEvents,
          memoryInfo, name, networkInfo, nonComplianceDetails, policyCompliant,
-         policyName, powerManagementEvents, previousDeviceNames, softwareInfo,
-         state, systemProperties, user, userName;
+         policyName, powerManagementEvents, previousDeviceNames,
+         securityPosture, softwareInfo, state, systemProperties, user, userName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1047,6 +1059,24 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_PostureDetail
+//
+
+@implementation GTLRAndroidManagement_PostureDetail
+@dynamic advice, securityRisk;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"advice" : [GTLRAndroidManagement_UserFacingMessage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_PowerManagementEvent
 //
 
@@ -1066,6 +1096,24 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"excludedHosts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_SecurityPosture
+//
+
+@implementation GTLRAndroidManagement_SecurityPosture
+@dynamic devicePosture, postureDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"postureDetails" : [GTLRAndroidManagement_PostureDetail class]
   };
   return map;
 }
@@ -1162,7 +1210,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 @dynamic applicationReportingSettings, applicationReportsEnabled,
          deviceSettingsEnabled, displayInfoEnabled, hardwareStatusEnabled,
          memoryInfoEnabled, networkInfoEnabled, powerManagementEventsEnabled,
-         softwareInfoEnabled;
+         softwareInfoEnabled, systemPropertiesEnabled;
 @end
 
 

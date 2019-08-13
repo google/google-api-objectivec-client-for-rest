@@ -119,6 +119,8 @@ NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_Approved = @"APPROV
 NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_ConditionallyApproved = @"CONDITIONALLY_APPROVED";
 NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_Disapproved = @"DISAPPROVED";
 NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_NotChecked = @"NOT_CHECKED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_PendingReview = @"PENDING_REVIEW";
+NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_StatusTypeUnspecified = @"STATUS_TYPE_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRAdExchangeBuyerII_Creative.openAuctionStatus
@@ -126,6 +128,8 @@ NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_Approved = @"
 NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_ConditionallyApproved = @"CONDITIONALLY_APPROVED";
 NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_Disapproved = @"DISAPPROVED";
 NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_NotChecked = @"NOT_CHECKED";
+NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_PendingReview = @"PENDING_REVIEW";
+NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_StatusTypeUnspecified = @"STATUS_TYPE_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRAdExchangeBuyerII_Creative.restrictedCategories

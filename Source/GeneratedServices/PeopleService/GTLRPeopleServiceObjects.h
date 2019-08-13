@@ -1027,6 +1027,12 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @interface GTLRPeopleService_ModifyContactGroupMembersResponse : GTLRObject
 
+/**
+ *  The contact people resource names that cannot be removed from their
+ *  last contact group.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *canNotRemoveLastContactGroupResourceNames;
+
 /** The contact people resource names that were not found. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *notFoundResourceNames;
 

@@ -532,22 +532,13 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
 // Previous library name was
 //   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsCreateWithObject:projectId:historyId:executionId:]
 
-/**
- *  A Execution id.
- *  Required.
- */
+/** Required. An Execution id. */
 @property(nonatomic, copy, nullable) NSString *executionId;
 
-/**
- *  A History id.
- *  Required.
- */
+/** Required. A History id. */
 @property(nonatomic, copy, nullable) NSString *historyId;
 
-/**
- *  A Project id.
- *  Required.
- */
+/** Required. A Project id. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -569,12 +560,9 @@ GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
  *  Execution does not exist
  *
  *  @param object The @c GTLRToolResults_Step to include in the query.
- *  @param projectId A Project id.
- *    Required.
- *  @param historyId A History id.
- *    Required.
- *  @param executionId A Execution id.
- *    Required.
+ *  @param projectId Required. A Project id.
+ *  @param historyId Required. A History id.
+ *  @param executionId Required. An Execution id.
  *
  *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsCreate
  */

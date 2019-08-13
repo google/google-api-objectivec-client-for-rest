@@ -493,15 +493,18 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsListWithparent:]
 
 /**
- *  Optional. Only include resources that match the filter in the response
- *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ *  Optional. Only include resources that match the filter in the response. For
+ *  more information, see
+ *  [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. Specify how the results should be sorted. If not specified, the
- *  results will be sorted in the default order
- *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ *  results will be sorted in the default order. For more information, see
+ *  [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -824,15 +827,18 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysListWithparent:]
 
 /**
- *  Optional. Only include resources that match the filter in the response
- *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ *  Optional. Only include resources that match the filter in the response. For
+ *  more information, see
+ *  [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. Specify how the results should be sorted. If not specified, the
- *  results will be sorted in the default order
- *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ *  results will be sorted in the default order. For more information, see
+ *  [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1254,15 +1260,18 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsListWithparent:]
 
 /**
- *  Optional. Only include resources that match the filter in the response
- *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ *  Optional. Only include resources that match the filter in the response. For
+ *  more information, see
+ *  [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. Specify how the results should be sorted. If not specified, the
- *  results will be sorted in the default order
- *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ *  results will be sorted in the default order. For more information, see
+ *  [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1405,15 +1414,18 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsListWithparent:]
 
 /**
- *  Optional. Only include resources that match the filter in the response
- *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ *  Optional. Only include resources that match the filter in the response. For
+ *  more information, see
+ *  [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. Specify how the results should be sorted. If not specified, the
- *  results will be sorted in the default order
- *  (https://cloud.google.com/kms/docs/sorting-and-filtering).
+ *  results will be sorted in the default order. For more information, see
+ *  [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

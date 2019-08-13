@@ -1652,54 +1652,6 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @end
 
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSecurityLabelsGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1alpha2/{+resource}:getIamPolicy";
-  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSecurityLabelsGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCloudHealthcare_Policy class];
-  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.securityLabels.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSecurityLabelsSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1alpha2/{+resource}:setIamPolicy";
-  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSecurityLabelsSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCloudHealthcare_Policy class];
-  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.securityLabels.setIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSetIamPolicy
 
 @dynamic resource;

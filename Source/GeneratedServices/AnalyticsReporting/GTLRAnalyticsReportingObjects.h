@@ -1980,7 +1980,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeUnspeci
 
 /**
  *  The dimensions requested.
- *  Requests can have a total of 7 dimensions.
+ *  Requests can have a total of 9 dimensions.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Dimension *> *dimensions;
 

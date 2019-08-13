@@ -469,6 +469,42 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Gauge;
 GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_UnspecifiedDataSourceType;
 
 // ----------------------------------------------------------------------------
+// GTLRMonitoring_ContentMatcher.matcher
+
+/**
+ *  Allows checking substring matching. Default value for previous versions
+ *  without option.
+ *
+ *  Value: "CONTAINS_STRING"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContainsString;
+/**
+ *  No content macher option specified. Treated as CONTAINS_STRING.
+ *
+ *  Value: "CONTENT_MATCHER_OPTION_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified;
+/**
+ *  Allows checking regular expression matching.
+ *
+ *  Value: "MATCHES_REGEX"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex;
+/**
+ *  Allows checking negation of substring matching (doesn't contain the
+ *  substring).
+ *
+ *  Value: "NOT_CONTAINS_STRING"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString;
+/**
+ *  Allows checking negation of regular expression matching.
+ *
+ *  Value: "NOT_MATCHES_REGEX"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRegex;
+
+// ----------------------------------------------------------------------------
 // GTLRMonitoring_Field.cardinality
 
 /**
@@ -1536,6 +1572,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_AlertPolicy_UserLabels *userLabels;
 
+/**
+ *  Read-only description of how the alert policy is invalid. OK if the alert
+ *  policy is valid. If not OK, the alert policy will not generate incidents.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Status *validity;
+
 @end
 
 
@@ -1787,6 +1829,29 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /** String or regex content to match (max 1024 bytes) */
 @property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  The matcher representing content match options which the check will run
+ *  with. If the field is not specified (in previous versions), the option is
+ *  set to be CONTAINS_STRING which performs content substring matching.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_ContainsString Allows
+ *        checking substring matching. Default value for previous versions
+ *        without option. (Value: "CONTAINS_STRING")
+ *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified
+ *        No content macher option specified. Treated as CONTAINS_STRING.
+ *        (Value: "CONTENT_MATCHER_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex Allows
+ *        checking regular expression matching. (Value: "MATCHES_REGEX")
+ *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString Allows
+ *        checking negation of substring matching (doesn't contain the
+ *        substring). (Value: "NOT_CONTAINS_STRING")
+ *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRegex Allows
+ *        checking negation of regular expression matching. (Value:
+ *        "NOT_MATCHES_REGEX")
+ */
+@property(nonatomic, copy, nullable) NSString *matcher;
 
 @end
 
@@ -2363,6 +2428,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *useSsl;
+
+/**
+ *  Boolean specifying whether to validate SSL certificates. Only applies to
+ *  uptime_url checks. If use_ssl is false, setting this to true has no effect.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateSsl;
 
 @end
 

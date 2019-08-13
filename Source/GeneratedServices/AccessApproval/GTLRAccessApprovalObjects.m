@@ -19,6 +19,10 @@ NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedReview = @
 NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedService = @"GOOGLE_INITIATED_SERVICE";
 NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRAccessApproval_EnrolledService.enrollmentLevel
+NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_BlockAll = @"BLOCK_ALL";
+NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentLevelUnspecified = @"ENROLLMENT_LEVEL_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAccessApproval_AccessLocations
@@ -92,6 +96,16 @@ NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified = @"TYPE_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessApproval_EnrolledService
+//
+
+@implementation GTLRAccessApproval_EnrolledService
+@dynamic cloudProduct, enrollmentLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessApproval_ListApprovalRequestsResponse
 //
 
@@ -128,10 +142,11 @@ NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified = @"TYPE_
 //
 
 @implementation GTLRAccessApproval_Settings
-@dynamic name, notificationEmails;
+@dynamic enrolledServices, name, notificationEmails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"enrolledServices" : [GTLRAccessApproval_EnrolledService class],
     @"notificationEmails" : [NSString class]
   };
   return map;

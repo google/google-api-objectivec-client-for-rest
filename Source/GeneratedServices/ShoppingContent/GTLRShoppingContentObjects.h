@@ -87,6 +87,7 @@
 @class GTLRShoppingContent_OrderAddress;
 @class GTLRShoppingContent_OrderCancellation;
 @class GTLRShoppingContent_OrderCustomer;
+@class GTLRShoppingContent_OrderCustomerLoyaltyInfo;
 @class GTLRShoppingContent_OrderCustomerMarketingRightsInfo;
 @class GTLRShoppingContent_OrderDeliveryDetails;
 @class GTLRShoppingContent_OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceRefundOption;
@@ -1827,7 +1828,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of destinations to include for this target (corresponds to checked
  *  check boxes in Merchant Center). Default destinations are always included
- *  unless provided in the excluded_destination field.
+ *  unless provided in excludedDestinations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedDestinations;
 
@@ -2812,12 +2813,35 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *fullName;
 
 /**
+ *  Email address for receiving merchant issued value-added tax or invoice
+ *  documentation of this order.
+ */
+@property(nonatomic, copy, nullable) NSString *invoiceReceivingEmail;
+
+/** Loyalty program information. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_OrderCustomerLoyaltyInfo *loyaltyInfo;
+
+/**
  *  Customer's marketing preferences. Contains the marketing opt-in information
  *  that is current at the time that the merchant call. User preference
  *  selections can change from one order to the next so preferences must be
  *  checked with every order.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderCustomerMarketingRightsInfo *marketingRightsInfo;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderCustomerLoyaltyInfo
+ */
+@interface GTLRShoppingContent_OrderCustomerLoyaltyInfo : GTLRObject
+
+/** The loyalty card/membership number. */
+@property(nonatomic, copy, nullable) NSString *loyaltyNumber;
+
+/** Name of card/membership holder, this field will be populated when */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -3913,6 +3937,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "gls"
  *  - "dpd"
  *  - "bpost"
+ *  - "colis priv�"
+ *  - "boxtal"
+ *  - "geodis"
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
@@ -3934,6 +3961,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The line items that are shipped. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderShipmentLineItemShipment *> *lineItems;
+
+/**
+ *  The shipment group ID of the shipment. This is set in shiplineitems request.
+ */
+@property(nonatomic, copy, nullable) NSString *shipmentGroupId;
 
 /** The status of the shipment. */
 @property(nonatomic, copy, nullable) NSString *status;
@@ -5087,7 +5119,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of destinations to include for this target (corresponds to checked
  *  check boxes in Merchant Center). Default destinations are always included
- *  unless provided in the excluded_destination field.
+ *  unless provided in excludedDestinations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedDestinations;
 
@@ -6364,8 +6396,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The price of shipping for all items. Shipping tax is automatically
- *  calculated for MFL orders. For non-MFL orders, tax settings from Merchant
- *  Center are applied. Note that shipping is not taxed in certain states.
+ *  calculated for orders where marketplace facilitator tax laws are applicable.
+ *  Otherwise, tax settings from Merchant Center are applied. Note that shipping
+ *  is not taxed in certain states.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *shippingCost;
 
@@ -6432,8 +6465,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *offerId;
 
 /**
- *  The price for the product. Tax is automatically calculated for MFL orders.
- *  For non-MFL orders, tax settings from Merchant Center are applied.
+ *  The price for the product. Tax is automatically calculated for orders where
+ *  marketplace facilitator tax laws are applicable. Otherwise, tax settings
+ *  from Merchant Center are applied.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 

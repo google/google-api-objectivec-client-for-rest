@@ -47,6 +47,7 @@
 @class GTLRServiceControl_LogEntry_ProtoPayload;
 @class GTLRServiceControl_LogEntry_StructPayload;
 @class GTLRServiceControl_LogEntryOperation;
+@class GTLRServiceControl_LogEntrySourceLocation;
 @class GTLRServiceControl_MetricValue;
 @class GTLRServiceControl_MetricValue_Labels;
 @class GTLRServiceControl_MetricValueSet;
@@ -1778,6 +1779,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, copy, nullable) NSString *severity;
 
 /**
+ *  Optional. Source code location information associated with the log entry,
+ *  if any.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_LogEntrySourceLocation *sourceLocation;
+
+/**
  *  The log entry payload, represented as a structure that
  *  is expressed as a JSON object.
  */
@@ -1877,6 +1884,39 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  `"MyDivision.MyBigCompany.com"`, `"github.com/MyProject/MyApplication"`.
  */
 @property(nonatomic, copy, nullable) NSString *producer;
+
+@end
+
+
+/**
+ *  Additional information about the source code location that produced the log
+ *  entry.
+ */
+@interface GTLRServiceControl_LogEntrySourceLocation : GTLRObject
+
+/**
+ *  Optional. Source file name. Depending on the runtime environment, this
+ *  might be a simple name or a fully-qualified name.
+ */
+@property(nonatomic, copy, nullable) NSString *file;
+
+/**
+ *  Optional. Human-readable name of the function or method being invoked, with
+ *  optional context such as the class or package name. This information may be
+ *  used in contexts such as the logs viewer, where a file and line number are
+ *  less meaningful. The format can vary by language. For example:
+ *  `qual.if.ied.Class.method` (Java), `dir/package.func` (Go), `function`
+ *  (Python).
+ */
+@property(nonatomic, copy, nullable) NSString *function;
+
+/**
+ *  Optional. Line within the source file. 1-based; 0 indicates no line number
+ *  available.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *line;
 
 @end
 
@@ -2178,8 +2218,8 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 /**
  *  This message defines attributes for a node that handles a network request.
  *  The node can be either a service or an application that sends, forwards,
- *  or receives the request. Service peers should fill in the `service`,
- *  `principal`, and `labels` as appropriate.
+ *  or receives the request. Service peers should fill in
+ *  `principal` and `labels` as appropriate.
  */
 @interface GTLRServiceControl_Peer : GTLRObject
 
@@ -2209,12 +2249,6 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  physical location where this peer is running.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
-
-/**
- *  The canonical service name of the peer.
- *  NOTE: different systems may have different service naming schemes.
- */
-@property(nonatomic, copy, nullable) NSString *service;
 
 @end
 
@@ -2610,9 +2644,6 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Auth *auth;
 
-/** The HTTP URL fragment. No URL decoding is performed. */
-@property(nonatomic, copy, nullable) NSString *fragment;
-
 /**
  *  The HTTP request headers. If multiple headers share the same key, they
  *  must be merged according to the HTTP spec. All header keys must be
@@ -2791,8 +2822,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
- *  The type of the resource. The scheme is platform-specific because
+ *  The type of the resource. The syntax is platform-specific because
  *  different platforms define their resources differently.
+ *  For Google APIs, the type format must be "{service}/{kind}".
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

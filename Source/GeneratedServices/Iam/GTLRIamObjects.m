@@ -386,7 +386,7 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 @implementation GTLRIam_Permission
 @dynamic apiDisabled, customRolesSupportLevel, descriptionProperty, name,
-         onlyInPredefinedRoles, stage, title;
+         onlyInPredefinedRoles, primaryPermission, stage, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -112,8 +112,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAd
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAdvertiserTimezone;
 /** Value: "FILTER_AGE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAge;
-/** Value: "FILTER_AUTHORIZED_SELLER_STATE_ID" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAuthorizedSellerStateId;
+/** Value: "FILTER_AUTHORIZED_SELLER_STATE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAuthorizedSellerState;
 /** Value: "FILTER_BRANDSAFE_CHANNEL_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBrandsafeChannelId;
 /** Value: "FILTER_BROWSER" */
@@ -162,14 +162,10 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDe
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDfpOrderId;
 /** Value: "FILTER_DMA" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDma;
-/** Value: "FILTER_DV360_ACTIVITY_ID" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDv360ActivityId;
 /** Value: "FILTER_EXCHANGE_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterExchangeId;
 /** Value: "FILTER_FLOODLIGHT_ACTIVITY_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterFloodlightActivityId;
-/** Value: "FILTER_FLOODLIGHT_PIXEL_ID" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterFloodlightPixelId;
 /** Value: "FILTER_GENDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterGender;
 /** Value: "FILTER_INSERTION_ORDER" */
@@ -336,6 +332,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVi
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoCreativeDurationSkippable;
 /** Value: "FILTER_VIDEO_DURATION_SECONDS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoDurationSeconds;
+/** Value: "FILTER_VIDEO_DURATION_SECONDS_RANGE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoDurationSecondsRange;
 /** Value: "FILTER_VIDEO_FORMAT_SUPPORT" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoFormatSupport;
 /** Value: "FILTER_VIDEO_INVENTORY_TYPE" */
@@ -374,8 +372,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAdvertiserTimezone;
 /** Value: "FILTER_AGE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAge;
-/** Value: "FILTER_AUTHORIZED_SELLER_STATE_ID" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAuthorizedSellerStateId;
+/** Value: "FILTER_AUTHORIZED_SELLER_STATE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAuthorizedSellerState;
 /** Value: "FILTER_BRANDSAFE_CHANNEL_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBrandsafeChannelId;
 /** Value: "FILTER_BROWSER" */
@@ -424,14 +422,10 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDfpOrderId;
 /** Value: "FILTER_DMA" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDma;
-/** Value: "FILTER_DV360_ACTIVITY_ID" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDv360ActivityId;
 /** Value: "FILTER_EXCHANGE_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterExchangeId;
 /** Value: "FILTER_FLOODLIGHT_ACTIVITY_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterFloodlightActivityId;
-/** Value: "FILTER_FLOODLIGHT_PIXEL_ID" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterFloodlightPixelId;
 /** Value: "FILTER_GENDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterGender;
 /** Value: "FILTER_INSERTION_ORDER" */
@@ -598,6 +592,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoCreativeDurationSkippable;
 /** Value: "FILTER_VIDEO_DURATION_SECONDS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoDurationSeconds;
+/** Value: "FILTER_VIDEO_DURATION_SECONDS_RANGE" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoDurationSecondsRange;
 /** Value: "FILTER_VIDEO_FORMAT_SUPPORT" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoFormatSupport;
 /** Value: "FILTER_VIDEO_INVENTORY_TYPE" */
@@ -1657,8 +1653,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "FILTER_ADVERTISER_TIMEZONE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterAge Value
  *        "FILTER_AGE"
- *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterAuthorizedSellerStateId
- *        Value "FILTER_AUTHORIZED_SELLER_STATE_ID"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterAuthorizedSellerState
+ *        Value "FILTER_AUTHORIZED_SELLER_STATE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterBrandsafeChannelId
  *        Value "FILTER_BRANDSAFE_CHANNEL_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterBrowser Value
@@ -1707,14 +1703,10 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        "FILTER_DFP_ORDER_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterDma Value
  *        "FILTER_DMA"
- *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterDv360ActivityId
- *        Value "FILTER_DV360_ACTIVITY_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterExchangeId Value
  *        "FILTER_EXCHANGE_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterFloodlightActivityId
  *        Value "FILTER_FLOODLIGHT_ACTIVITY_ID"
- *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterFloodlightPixelId
- *        Value "FILTER_FLOODLIGHT_PIXEL_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterGender Value
  *        "FILTER_GENDER"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrder
@@ -1881,6 +1873,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "FILTER_VIDEO_CREATIVE_DURATION_SKIPPABLE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoDurationSeconds
  *        Value "FILTER_VIDEO_DURATION_SECONDS"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoDurationSecondsRange
+ *        Value "FILTER_VIDEO_DURATION_SECONDS_RANGE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoFormatSupport
  *        Value "FILTER_VIDEO_FORMAT_SUPPORT"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoInventoryType

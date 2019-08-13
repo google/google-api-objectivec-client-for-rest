@@ -3238,7 +3238,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  The intent that matched the conversational query. Some, not
  *  all fields are filled in this message, including but not limited to:
- *  `name`, `display_name` and `webhook_state`.
+ *  `name`, `display_name`, `end_interaction` and `is_fallback`.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent *intent;
 
@@ -5175,7 +5175,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  The intent that matched the conversational query. Some, not
  *  all fields are filled in this message, including but not limited to:
- *  `name`, `display_name` and `webhook_state`.
+ *  `name`, `display_name`, `end_interaction` and `is_fallback`.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2Intent *intent;
 

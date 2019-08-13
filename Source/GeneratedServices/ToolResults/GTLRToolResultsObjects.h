@@ -653,7 +653,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
  *  duration.seconds = end.seconds - start.seconds; duration.nanos = end.nanos -
  *  start.nanos;
  *  if (duration.seconds 0) { duration.seconds += 1; duration.nanos -=
- *  1000000000; } else if (durations.seconds > 0 && duration.nanos < 0) {
+ *  1000000000; } else if (duration.seconds > 0 && duration.nanos < 0) {
  *  duration.seconds -= 1; duration.nanos += 1000000000; }
  *  Example 2: Compute Timestamp from Timestamp + Duration in pseudo code.
  *  Timestamp start = ...; Duration duration = ...; Timestamp end = ...;
@@ -1891,6 +1891,12 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
  *  GTLRToolResults_TestCase
  */
 @interface GTLRToolResults_TestCase : GTLRObject
+
+/**
+ *  The elapsed run time of the test case.
+ *  Required.
+ */
+@property(nonatomic, strong, nullable) GTLRToolResults_Duration *elapsedTime;
 
 /**
  *  The end time of the test case.

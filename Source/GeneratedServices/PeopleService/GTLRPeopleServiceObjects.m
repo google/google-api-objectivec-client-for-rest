@@ -419,10 +419,11 @@ NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified = @"SOURCE
 //
 
 @implementation GTLRPeopleService_ModifyContactGroupMembersResponse
-@dynamic notFoundResourceNames;
+@dynamic canNotRemoveLastContactGroupResourceNames, notFoundResourceNames;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"canNotRemoveLastContactGroupResourceNames" : [NSString class],
     @"notFoundResourceNames" : [NSString class]
   };
   return map;

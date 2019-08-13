@@ -234,7 +234,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the settings associated with a project, folder, or organization.
- *  Completely replaces the existing settings.
+ *  Settings to update are determined by the value of field_mask.
  *
  *  Method: accessapproval.folders.updateAccessApprovalSettings
  *
@@ -256,10 +256,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  The update mask applies to the settings. For the `FieldMask` definition,
+ *  see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *  If this field is left unset, only the notification_emails field will be
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRAccessApproval_Settings.
  *
  *  Updates the settings associated with a project, folder, or organization.
- *  Completely replaces the existing settings.
+ *  Settings to update are determined by the value of field_mask.
  *
  *  @param object The @c GTLRAccessApproval_Settings to include in the query.
  *  @param name The resource name of the settings. Format is one of:
@@ -471,7 +482,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the settings associated with a project, folder, or organization.
- *  Completely replaces the existing settings.
+ *  Settings to update are determined by the value of field_mask.
  *
  *  Method: accessapproval.organizations.updateAccessApprovalSettings
  *
@@ -493,10 +504,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  The update mask applies to the settings. For the `FieldMask` definition,
+ *  see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *  If this field is left unset, only the notification_emails field will be
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRAccessApproval_Settings.
  *
  *  Updates the settings associated with a project, folder, or organization.
- *  Completely replaces the existing settings.
+ *  Settings to update are determined by the value of field_mask.
  *
  *  @param object The @c GTLRAccessApproval_Settings to include in the query.
  *  @param name The resource name of the settings. Format is one of:
@@ -708,7 +730,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the settings associated with a project, folder, or organization.
- *  Completely replaces the existing settings.
+ *  Settings to update are determined by the value of field_mask.
  *
  *  Method: accessapproval.projects.updateAccessApprovalSettings
  *
@@ -730,10 +752,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  The update mask applies to the settings. For the `FieldMask` definition,
+ *  see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *  If this field is left unset, only the notification_emails field will be
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRAccessApproval_Settings.
  *
  *  Updates the settings associated with a project, folder, or organization.
- *  Completely replaces the existing settings.
+ *  Settings to update are determined by the value of field_mask.
  *
  *  @param object The @c GTLRAccessApproval_Settings to include in the query.
  *  @param name The resource name of the settings. Format is one of:

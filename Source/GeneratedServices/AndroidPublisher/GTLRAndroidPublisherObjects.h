@@ -497,6 +497,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** A sha1 hash of the image that was uploaded. */
 @property(nonatomic, copy, nullable) NSString *sha1;
 
+/** A sha256 hash of the image that was uploaded. */
+@property(nonatomic, copy, nullable) NSString *sha256;
+
 /** A URL that will serve a preview of the image. */
 @property(nonatomic, copy, nullable) NSString *url;
 
