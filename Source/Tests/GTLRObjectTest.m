@@ -292,11 +292,14 @@ static Class gAdditionalPropsClass = Nil;
   NSMutableData *data = [NSMutableData data];
 
   NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+  [archiver setRequiresSecureCoding:YES];
   [archiver encodeObject:obj forKey:key];
   [archiver finishEncoding];
 
   NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-  GTLRTestingObject *obj2 = [unarchiver decodeObjectForKey:key];
+  [unarchiver setRequiresSecureCoding:YES];
+  GTLRTestingObject *obj2 = [unarchiver decodeObjectOfClass:[obj class]
+                                                     forKey:key];
   [unarchiver finishDecoding];
 
   return obj2;
@@ -317,7 +320,8 @@ static Class gAdditionalPropsClass = Nil;
 
 - (void)testSecureCoding {
   NSString * const jsonStr =
-      @"{\"a_date\":\"2011-01-14T15:00:00Z\",\"a.num\":1234,\"a_str\":\"foo bar\"}";
+      @"{\"a_date\":\"2011-01-14T15:00:00Z\",\"a.num\":1234,\"a_str\":\"foo bar\","
+      @"\"arrayString\":null}";
   NSError *err = nil;
   NSMutableDictionary *json = [self objectWithString:jsonStr
                                                error:&err];
@@ -325,6 +329,7 @@ static Class gAdditionalPropsClass = Nil;
   GTLRTestingObject *obj = [GTLRTestingObject objectWithJSON:json];
   obj.userProperties = @{ @"A" : @1 };
   XCTAssertNotNil(obj);
+  XCTAssertEqual((id)obj.arrayString, (id)[NSNull null]); // pointer comparision
 
   GTLRTestingObject *obj2 = [self objectFromRoundTripArchiveDearchiveWithObject:obj];
   XCTAssertNotNil(obj2);
@@ -333,6 +338,7 @@ static Class gAdditionalPropsClass = Nil;
   XCTAssertNotEqual(obj2.JSON, obj.JSON);
   XCTAssertNil(obj2.userProperties);  // userProperties are not encoded.
   XCTAssert([obj2.JSON isKindOfClass:[NSMutableDictionary class]]);
+  XCTAssertEqual((id)obj2.arrayString, (id)[NSNull null]); // pointer comparision
 }
 
 - (void)testSecureCodingMutability {
