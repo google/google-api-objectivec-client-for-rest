@@ -267,6 +267,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Warning;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_Anr;
 /** Value: "availableDeepLinks" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks;
+/** Value: "blankScreen" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_BlankScreen;
 /** Value: "compatibleWithOrchestrator" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator;
 /** Value: "completeRoboScriptExecution" */
@@ -299,12 +301,16 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash;
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageReport;
 /** Value: "nonSdkApiUsageViolation" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation;
+/** Value: "overlappingUiElements" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_OverlappingUiElements;
 /** Value: "performedGoogleLogin" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin;
 /** Value: "performedMonkeyActions" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_PerformedMonkeyActions;
 /** Value: "startActivityNotFound" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_StartActivityNotFound;
+/** Value: "uiElementsTooDeep" */
+GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UiElementsTooDeep;
 /** Value: "unspecifiedType" */
 GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
 /** Value: "unusedRoboDirective" */
@@ -1687,6 +1693,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
  *  TestExecutionStep with id 100 to COMPLETE
  *  A Step can be updated until its state is set to COMPLETE at which points it
  *  becomes immutable.
+ *  Next tag: 23
  */
 @interface GTLRToolResults_Step : GTLRObject
 
@@ -2067,6 +2074,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
  *    @arg @c kGTLRToolResults_TestIssue_Type_Anr Value "anr"
  *    @arg @c kGTLRToolResults_TestIssue_Type_AvailableDeepLinks Value
  *        "availableDeepLinks"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_BlankScreen Value "blankScreen"
  *    @arg @c kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator Value
  *        "compatibleWithOrchestrator"
  *    @arg @c kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution Value
@@ -2096,12 +2104,16 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
  *        "nonSdkApiUsageReport"
  *    @arg @c kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation Value
  *        "nonSdkApiUsageViolation"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_OverlappingUiElements Value
+ *        "overlappingUiElements"
  *    @arg @c kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin Value
  *        "performedGoogleLogin"
  *    @arg @c kGTLRToolResults_TestIssue_Type_PerformedMonkeyActions Value
  *        "performedMonkeyActions"
  *    @arg @c kGTLRToolResults_TestIssue_Type_StartActivityNotFound Value
  *        "startActivityNotFound"
+ *    @arg @c kGTLRToolResults_TestIssue_Type_UiElementsTooDeep Value
+ *        "uiElementsTooDeep"
  *    @arg @c kGTLRToolResults_TestIssue_Type_UnspecifiedType Value
  *        "unspecifiedType"
  *    @arg @c kGTLRToolResults_TestIssue_Type_UnusedRoboDirective Value

@@ -94,6 +94,55 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_Sent;
  */
 GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudTrace_Span.spanKind
+
+/**
+ *  Indicates that the span covers the client-side wrapper around an RPC or
+ *  other remote request.
+ *
+ *  Value: "CLIENT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Client;
+/**
+ *  Indicates that the span describes consumer recieving a message from a
+ *  broker. Unlike client and server, there is no direct critical path
+ *  latency relationship between producer and consumer spans (e.g. receiving
+ *  a message from a pubsub service subscription).
+ *
+ *  Value: "CONSUMER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Consumer;
+/**
+ *  Indicates that the span is used internally. Default value.
+ *
+ *  Value: "INTERNAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Internal;
+/**
+ *  Indicates that the span describes producer sending a message to a broker.
+ *  Unlike client and server, there is no direct critical path latency
+ *  relationship between producer and consumer spans (e.g. publishing a
+ *  message to a pubsub service).
+ *
+ *  Value: "PRODUCER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Producer;
+/**
+ *  Indicates that the span covers server-side handling of an RPC or other
+ *  remote network request.
+ *
+ *  Value: "SERVER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Server;
+/**
+ *  Unspecified. Do NOT use as default.
+ *  Implementations MAY assume SpanKind.INTERNAL to be default.
+ *
+ *  Value: "SPAN_KIND_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
+
 /**
  *  Text annotation with a set of attributes.
  */
@@ -411,6 +460,38 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified;
 
 /** The [SPAN_ID] portion of the span's resource name. */
 @property(nonatomic, copy, nullable) NSString *spanId;
+
+/**
+ *  Distinguishes between spans generated in a particular context. For example,
+ *  two spans with the same name may be distinguished using `CLIENT` (caller)
+ *  and `SERVER` (callee) to identify an RPC call.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTrace_Span_SpanKind_Client Indicates that the span
+ *        covers the client-side wrapper around an RPC or
+ *        other remote request. (Value: "CLIENT")
+ *    @arg @c kGTLRCloudTrace_Span_SpanKind_Consumer Indicates that the span
+ *        describes consumer recieving a message from a
+ *        broker. Unlike client and server, there is no direct critical path
+ *        latency relationship between producer and consumer spans (e.g.
+ *        receiving
+ *        a message from a pubsub service subscription). (Value: "CONSUMER")
+ *    @arg @c kGTLRCloudTrace_Span_SpanKind_Internal Indicates that the span is
+ *        used internally. Default value. (Value: "INTERNAL")
+ *    @arg @c kGTLRCloudTrace_Span_SpanKind_Producer Indicates that the span
+ *        describes producer sending a message to a broker.
+ *        Unlike client and server, there is no direct critical path latency
+ *        relationship between producer and consumer spans (e.g. publishing a
+ *        message to a pubsub service). (Value: "PRODUCER")
+ *    @arg @c kGTLRCloudTrace_Span_SpanKind_Server Indicates that the span
+ *        covers server-side handling of an RPC or other
+ *        remote network request. (Value: "SERVER")
+ *    @arg @c kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified Unspecified. Do
+ *        NOT use as default.
+ *        Implementations MAY assume SpanKind.INTERNAL to be default. (Value:
+ *        "SPAN_KIND_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *spanKind;
 
 /** Stack trace captured at the start of the span. */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_StackTrace *stackTrace;

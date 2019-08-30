@@ -18,6 +18,20 @@
 NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_High = @"HIGH";
 NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal = @"NORMAL";
 
+// GTLRFirebaseCloudMessaging_AndroidNotification.notificationPriority
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityDefault = @"PRIORITY_DEFAULT";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityHigh = @"PRIORITY_HIGH";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityLow = @"PRIORITY_LOW";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMax = @"PRIORITY_MAX";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMin = @"PRIORITY_MIN";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
+
+// GTLRFirebaseCloudMessaging_AndroidNotification.visibility
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Private = @"PRIVATE";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Public = @"PUBLIC";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Secret = @"SECRET";
+NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_VisibilityUnspecified = @"VISIBILITY_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRFirebaseCloudMessaging_AndroidConfig
@@ -59,13 +73,17 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal = @"N
 //
 
 @implementation GTLRFirebaseCloudMessaging_AndroidNotification
-@dynamic body, bodyLocArgs, bodyLocKey, channelId, clickAction, color, icon,
-         image, sound, tag, title, titleLocArgs, titleLocKey;
+@dynamic body, bodyLocArgs, bodyLocKey, channelId, clickAction, color,
+         defaultLightSettings, defaultSound, defaultVibrateTimings, eventTime,
+         icon, image, lightSettings, localOnly, notificationCount,
+         notificationPriority, sound, sticky, tag, ticker, title, titleLocArgs,
+         titleLocKey, vibrateTimings, visibility;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"bodyLocArgs" : [NSString class],
-    @"titleLocArgs" : [NSString class]
+    @"titleLocArgs" : [NSString class],
+    @"vibrateTimings" : [GTLRDuration class]
   };
   return map;
 }
@@ -123,11 +141,31 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal = @"N
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseCloudMessaging_Color
+//
+
+@implementation GTLRFirebaseCloudMessaging_Color
+@dynamic alpha, blue, green, red;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseCloudMessaging_FcmOptions
 //
 
 @implementation GTLRFirebaseCloudMessaging_FcmOptions
 @dynamic analyticsLabel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseCloudMessaging_LightSettings
+//
+
+@implementation GTLRFirebaseCloudMessaging_LightSettings
+@dynamic color, lightOffDuration, lightOnDuration;
 @end
 
 

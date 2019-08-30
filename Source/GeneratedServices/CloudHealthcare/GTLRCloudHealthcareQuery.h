@@ -1782,7 +1782,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0 and 1.
+ *  Acceptable values are 0, 1, and 3.
  *  If the value is 0, or the field is omitted, policy format version 1 will be
  *  returned.
  */
@@ -2846,8 +2846,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Retrieves all the resources in the patient compartment for a `Patient`
- *  resource.
+ *  Retrieves all the resources directly referenced by a patient, as well as
+ *  all of the resources in the patient compartment.
  *  Implements the FHIR extended operation
  *  [Patient-everything](http://hl7.org/implement/standards/fhir/STU3/patient-operations.html#everything).
  *  On success, the response body will contain a JSON-encoded representation
@@ -2867,6 +2867,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 // Previous library name was
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirPatientEverythingWithname:]
 
+/** Maximum number of resources in a page. Defaults to 100. */
+@property(nonatomic, assign) NSInteger xCount;
+
 /**
  *  The response includes records prior to the end date. If no end date is
  *  provided, all records subsequent to the start date are in scope.
@@ -2877,6 +2880,16 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Used to retrieve the next or previous page of results
+ *  when using pagination. Value should be set to the value of page_token set
+ *  in next or previous page links' url. Next and previous page are returned
+ *  in the response bundle's links field, where `link.relation` is "previous"
+ *  or "next".
+ *  Omit `page_token` if no previous request has been made.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
  *  The response includes records subsequent to the start date. If no start
  *  date is provided, all records prior to the end date are in scope.
  */
@@ -2885,8 +2898,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
- *  Retrieves all the resources in the patient compartment for a `Patient`
- *  resource.
+ *  Retrieves all the resources directly referenced by a patient, as well as
+ *  all of the resources in the patient compartment.
  *  Implements the FHIR extended operation
  *  [Patient-everything](http://hl7.org/implement/standards/fhir/STU3/patient-operations.html#everything).
  *  On success, the response body will contain a JSON-encoded representation
@@ -3253,7 +3266,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0 and 1.
+ *  Acceptable values are 0, 1, and 3.
  *  If the value is 0, or the field is omitted, policy format version 1 will be
  *  returned.
  */
@@ -3685,7 +3698,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0 and 1.
+ *  Acceptable values are 0, 1, and 3.
  *  If the value is 0, or the field is omitted, policy format version 1 will be
  *  returned.
  */
@@ -3824,7 +3837,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0 and 1.
+ *  Acceptable values are 0, 1, and 3.
  *  If the value is 0, or the field is omitted, policy format version 1 will be
  *  returned.
  */

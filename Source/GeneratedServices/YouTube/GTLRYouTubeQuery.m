@@ -46,6 +46,10 @@ NSString * const kGTLRYouTubeEventTypeUpcoming  = @"upcoming";
 NSString * const kGTLRYouTubeFilterAll    = @"all";
 NSString * const kGTLRYouTubeFilterNewest = @"newest";
 
+// mode
+NSString * const kGTLRYouTubeModeAllCurrent = @"all_current";
+NSString * const kGTLRYouTubeModeUpdates    = @"updates";
+
 // moderationStatus
 NSString * const kGTLRYouTubeModerationStatusHeldForReview = @"heldForReview";
 NSString * const kGTLRYouTubeModerationStatusLikelySpam    = @"likelySpam";
@@ -1165,6 +1169,42 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   query.part = part;
   query.expectedObjectClass = [GTLRYouTube_LiveStream class];
   query.loggingName = @"youtube.liveStreams.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_MembershipsLevelsList
+
+@dynamic part;
+
++ (instancetype)queryWithPart:(NSString *)part {
+  NSString *pathURITemplate = @"membershipsLevels";
+  GTLRYouTubeQuery_MembershipsLevelsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.part = part;
+  query.expectedObjectClass = [GTLRYouTube_MembershipsLevelListResponse class];
+  query.loggingName = @"youtube.membershipsLevels.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_MembersList
+
+@dynamic hasAccessToLevel, maxResults, mode, pageToken, part;
+
++ (instancetype)queryWithPart:(NSString *)part {
+  NSString *pathURITemplate = @"members";
+  GTLRYouTubeQuery_MembersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.part = part;
+  query.expectedObjectClass = [GTLRYouTube_MemberListResponse class];
+  query.loggingName = @"youtube.members.list";
   return query;
 }
 

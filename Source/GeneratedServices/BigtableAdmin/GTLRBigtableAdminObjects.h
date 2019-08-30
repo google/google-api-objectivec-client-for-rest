@@ -31,6 +31,7 @@
 @class GTLRBigtableAdmin_CreateInstanceRequest_Clusters;
 @class GTLRBigtableAdmin_Expr;
 @class GTLRBigtableAdmin_GcRule;
+@class GTLRBigtableAdmin_GetPolicyOptions;
 @class GTLRBigtableAdmin_Instance;
 @class GTLRBigtableAdmin_Instance_Labels;
 @class GTLRBigtableAdmin_Intersection;
@@ -358,7 +359,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -370,7 +371,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  *  ]
  *  },
  *  {
- *  "service": "fooservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com"
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -378,16 +379,16 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  *  {
  *  "log_type": "DATA_WRITE",
  *  "exempted_members": [
- *  "user:bar\@gmail.com"
+ *  "user:aliya\@example.com"
  *  ]
  *  }
  *  ]
  *  }
  *  ]
  *  }
- *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
- *  bar\@gmail.com from DATA_WRITE logging.
+ *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts jose\@example.com from DATA_READ logging, and
+ *  aliya\@example.com from DATA_WRITE logging.
  */
 @interface GTLRBigtableAdmin_AuditConfig : GTLRObject
 
@@ -412,7 +413,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -421,7 +422,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  *  ]
  *  }
  *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  foo\@gmail.com from DATA_READ logging.
+ *  jose\@example.com from DATA_READ logging.
  */
 @interface GTLRBigtableAdmin_AuditLogConfig : GTLRObject
 
@@ -471,7 +472,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -602,8 +603,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @interface GTLRBigtableAdmin_ClusterState : GTLRObject
 
 /**
- *  Output only.
- *  The state of replication for the table in this cluster.
+ *  Output only. The state of replication for the table in this cluster.
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_ClusterState_ReplicationState_Initializing The
@@ -967,6 +967,31 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  *  Request message for `GetIamPolicy` method.
  */
 @interface GTLRBigtableAdmin_GetIamPolicyRequest : GTLRObject
+
+/**
+ *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
+ *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GetPolicyOptions *options;
+
+@end
+
+
+/**
+ *  Encapsulates settings provided to GetIamPolicy.
+ */
+@interface GTLRBigtableAdmin_GetPolicyOptions : GTLRObject
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0, 1, and 3.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedPolicyVersion;
+
 @end
 
 
@@ -1548,7 +1573,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1682,8 +1707,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @interface GTLRBigtableAdmin_Table : GTLRObject
 
 /**
- *  Output only.
- *  Map from cluster ID to per-cluster table state.
+ *  Output only. Map from cluster ID to per-cluster table state.
  *  If it could not be determined whether or not the table has data in a
  *  particular cluster (for example, if its zone is unavailable), then
  *  there will be an entry for the cluster with UNKNOWN `replication_status`.
@@ -1716,8 +1740,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @property(nonatomic, copy, nullable) NSString *granularity;
 
 /**
- *  Output only.
- *  The unique name of the table. Values are of the form
+ *  Output only. The unique name of the table. Values are of the form
  *  `projects/<project>/instances/<instance>/tables/_a-zA-Z0-9*`.
  *  Views: `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`
  */
@@ -1727,8 +1750,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 
 
 /**
- *  Output only.
- *  Map from cluster ID to per-cluster table state.
+ *  Output only. Map from cluster ID to per-cluster table state.
  *  If it could not be determined whether or not the table has data in a
  *  particular cluster (for example, if its zone is unavailable), then
  *  there will be an entry for the cluster with UNKNOWN `replication_status`.

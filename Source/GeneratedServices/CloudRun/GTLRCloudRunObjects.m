@@ -13,6 +13,28 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_ListLocationsResponse
+//
+
+@implementation GTLRCloudRun_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRCloudRun_Location class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_Location
 //
 

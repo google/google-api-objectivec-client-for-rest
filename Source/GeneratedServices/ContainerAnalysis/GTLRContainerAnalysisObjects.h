@@ -23,8 +23,6 @@
 @class GTLRContainerAnalysis_Attestation;
 @class GTLRContainerAnalysis_AttestationAuthority;
 @class GTLRContainerAnalysis_AttestationAuthorityHint;
-@class GTLRContainerAnalysis_AuditConfig;
-@class GTLRContainerAnalysis_AuditLogConfig;
 @class GTLRContainerAnalysis_Basis;
 @class GTLRContainerAnalysis_Binding;
 @class GTLRContainerAnalysis_BuildDetails;
@@ -92,34 +90,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
-
-// ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_AuditLogConfig.logType
-
-/**
- *  Admin reads. Example: CloudIAM getIamPolicy
- *
- *  Value: "ADMIN_READ"
- */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_AuditLogConfig_LogType_AdminRead;
-/**
- *  Data reads. Example: CloudSQL Users list
- *
- *  Value: "DATA_READ"
- */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_AuditLogConfig_LogType_DataRead;
-/**
- *  Data writes. Example: CloudSQL Users create
- *
- *  Value: "DATA_WRITE"
- */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_AuditLogConfig_LogType_DataWrite;
-/**
- *  Default case. Should never be this.
- *
- *  Value: "LOG_TYPE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_BuildSignature.keyType
@@ -881,125 +851,6 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  The human readable name of this Attestation Authority, for example "qa".
  */
 @property(nonatomic, copy, nullable) NSString *humanReadableName;
-
-@end
-
-
-/**
- *  Specifies the audit configuration for a service.
- *  The configuration determines which permission types are logged, and what
- *  identities, if any, are exempted from logging.
- *  An AuditConfig must have one or more AuditLogConfigs.
- *  If there are AuditConfigs for both `allServices` and a specific service,
- *  the union of the two AuditConfigs is used for that service: the log_types
- *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditLogConfig are exempted.
- *  Example Policy with multiple AuditConfigs:
- *  {
- *  "audit_configs": [
- *  {
- *  "service": "allServices"
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE",
- *  },
- *  {
- *  "log_type": "ADMIN_READ",
- *  }
- *  ]
- *  },
- *  {
- *  "service": "sampleservice.googleapis.com"
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  },
- *  {
- *  "log_type": "DATA_WRITE",
- *  "exempted_members": [
- *  "user:aliya\@example.com"
- *  ]
- *  }
- *  ]
- *  }
- *  ]
- *  }
- *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts jose\@example.com from DATA_READ logging, and
- *  aliya\@example.com from DATA_WRITE logging.
- */
-@interface GTLRContainerAnalysis_AuditConfig : GTLRObject
-
-/** The configuration for logging of each type of permission. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_AuditLogConfig *> *auditLogConfigs;
-
-/**
- *  Specifies a service that will be enabled for audit logging.
- *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
- *  `allServices` is a special value that covers all services.
- */
-@property(nonatomic, copy, nullable) NSString *service;
-
-@end
-
-
-/**
- *  Provides the configuration for logging a type of permissions.
- *  Example:
- *  {
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE",
- *  }
- *  ]
- *  }
- *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  jose\@example.com from DATA_READ logging.
- */
-@interface GTLRContainerAnalysis_AuditLogConfig : GTLRObject
-
-/**
- *  Specifies the identities that do not cause logging for this type of
- *  permission.
- *  Follows the same format of Binding.members.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
-
-/**
- *  Specifies whether principals can be exempted for the same LogType in
- *  lower-level resource policies. If true, any lower-level exemptions will
- *  be ignored.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
-
-/**
- *  The log type that this config enables.
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_AuditLogConfig_LogType_AdminRead Admin
- *        reads. Example: CloudIAM getIamPolicy (Value: "ADMIN_READ")
- *    @arg @c kGTLRContainerAnalysis_AuditLogConfig_LogType_DataRead Data reads.
- *        Example: CloudSQL Users list (Value: "DATA_READ")
- *    @arg @c kGTLRContainerAnalysis_AuditLogConfig_LogType_DataWrite Data
- *        writes. Example: CloudSQL Users create (Value: "DATA_WRITE")
- *    @arg @c kGTLRContainerAnalysis_AuditLogConfig_LogType_LogTypeUnspecified
- *        Default case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *logType;
 
 @end
 
@@ -2505,9 +2356,6 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  */
 @interface GTLRContainerAnalysis_Policy : GTLRObject
 
-/** Specifies cloud audit logging configuration for this policy. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_AuditConfig *> *auditConfigs;
-
 /**
  *  Associates a list of `members` to a `role`.
  *  `bindings` with no members will result in an error.
@@ -2644,17 +2492,6 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  *  might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Policy *policy;
-
-/**
- *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
- *  the fields in the mask will be modified. If no mask is provided, the
- *  following default mask is used:
- *  paths: "bindings, etag"
- *  This field is only used by Cloud IAM.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 

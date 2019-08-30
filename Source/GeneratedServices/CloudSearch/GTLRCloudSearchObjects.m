@@ -1450,8 +1450,8 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 @dynamic booleanPropertyOptions, datePropertyOptions, displayOptions,
          doublePropertyOptions, enumPropertyOptions, htmlPropertyOptions,
          integerPropertyOptions, isFacetable, isRepeatable, isReturnable,
-         isSortable, isWildcardSearchable, name, objectPropertyOptions,
-         textPropertyOptions, timestampPropertyOptions;
+         isSortable, isSuggestable, isWildcardSearchable, name,
+         objectPropertyOptions, textPropertyOptions, timestampPropertyOptions;
 @end
 
 

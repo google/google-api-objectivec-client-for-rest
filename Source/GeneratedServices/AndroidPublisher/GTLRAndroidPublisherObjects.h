@@ -1590,6 +1590,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  The order id which uniquely identifies a one-time purchase, subscription
+ *  purchase, or subscription renewal.
+ */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
  *  The time at which the purchase was made, in milliseconds since the epoch
  *  (Jan 1, 1970).
  *
@@ -1598,10 +1604,36 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *purchaseTimeMillis;
 
 /**
- *  The token that was generated when a purchase was made. This uniquely
- *  identifies a purchase.
+ *  The token which uniquely identifies a one-time purchase or subscription. To
+ *  uniquely identify subscription renewals use order_id (available starting
+ *  from version 3 of the API).
  */
 @property(nonatomic, copy, nullable) NSString *purchaseToken;
+
+/**
+ *  The reason why the purchase was voided, possible values are:
+ *  - Other
+ *  - Remorse
+ *  - Not_received
+ *  - Defective
+ *  - Accidental_purchase
+ *  - Fraud
+ *  - Friendly_fraud
+ *  - Chargeback
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *voidedReason;
+
+/**
+ *  The initiator of voided purchase, possible values are:
+ *  - User
+ *  - Developer
+ *  - Google
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *voidedSource;
 
 /**
  *  The time at which the purchase was canceled/refunded/charged-back, in

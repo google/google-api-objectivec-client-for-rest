@@ -14,12 +14,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRContainerAnalysis_AuditLogConfig.logType
-NSString * const kGTLRContainerAnalysis_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRContainerAnalysis_AuditLogConfig_LogType_DataRead = @"DATA_READ";
-NSString * const kGTLRContainerAnalysis_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRContainerAnalysis_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
 // GTLRContainerAnalysis_BuildSignature.keyType
 NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_KeyTypeUnspecified = @"KEY_TYPE_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_PgpAsciiArmored = @"PGP_ASCII_ARMORED";
@@ -202,42 +196,6 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspe
 
 @implementation GTLRContainerAnalysis_AttestationAuthorityHint
 @dynamic humanReadableName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContainerAnalysis_AuditConfig
-//
-
-@implementation GTLRContainerAnalysis_AuditConfig
-@dynamic auditLogConfigs, service;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRContainerAnalysis_AuditLogConfig class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContainerAnalysis_AuditLogConfig
-//
-
-@implementation GTLRContainerAnalysis_AuditLogConfig
-@dynamic exemptedMembers, ignoreChildExemptions, logType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -942,7 +900,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspe
 //
 
 @implementation GTLRContainerAnalysis_Policy
-@dynamic auditConfigs, bindings, ETag, version;
+@dynamic bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -950,7 +908,6 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspe
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRContainerAnalysis_AuditConfig class],
     @"bindings" : [GTLRContainerAnalysis_Binding class]
   };
   return map;
@@ -1010,7 +967,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspe
 //
 
 @implementation GTLRContainerAnalysis_SetIamPolicyRequest
-@dynamic policy, updateMask;
+@dynamic policy;
 @end
 
 

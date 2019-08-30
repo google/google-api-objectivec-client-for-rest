@@ -207,7 +207,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_AuditLogConfig
-@dynamic exemptedMembers, ignoreChildExemptions, logType;
+@dynamic exemptedMembers, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

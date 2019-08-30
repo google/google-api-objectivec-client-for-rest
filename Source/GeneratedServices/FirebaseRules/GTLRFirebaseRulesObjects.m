@@ -35,6 +35,11 @@ NSString * const kGTLRFirebaseRules_TestCase_Expectation_Allow = @"ALLOW";
 NSString * const kGTLRFirebaseRules_TestCase_Expectation_Deny  = @"DENY";
 NSString * const kGTLRFirebaseRules_TestCase_Expectation_ExpectationUnspecified = @"EXPECTATION_UNSPECIFIED";
 
+// GTLRFirebaseRules_TestCase.pathEncoding
+NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";
+NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_Plain = @"PLAIN";
+NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_UrlEncoded = @"URL_ENCODED";
+
 // GTLRFirebaseRules_TestResult.state
 NSString * const kGTLRFirebaseRules_TestResult_State_Failure   = @"FAILURE";
 NSString * const kGTLRFirebaseRules_TestResult_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -239,7 +244,7 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 //
 
 @implementation GTLRFirebaseRules_TestCase
-@dynamic expectation, functionMocks, request, resource;
+@dynamic expectation, functionMocks, pathEncoding, request, resource;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

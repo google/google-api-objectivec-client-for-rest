@@ -324,7 +324,7 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 //
 
 @implementation GTLRContainer_GetJSONWebKeysResponse
-@dynamic keys;
+@dynamic cacheHeader, keys;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -342,8 +342,9 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 //
 
 @implementation GTLRContainer_GetOpenIDConfigResponse
-@dynamic claimsSupported, grantTypes, idTokenSigningAlgValuesSupported, issuer,
-         jwksUri, responseTypesSupported, subjectTypesSupported;
+@dynamic cacheHeader, claimsSupported, grantTypes,
+         idTokenSigningAlgValuesSupported, issuer, jwksUri,
+         responseTypesSupported, subjectTypesSupported;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -378,6 +379,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_HorizontalPodAutoscaling
 @dynamic disabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_HttpCacheControlResponseHeader
+//
+
+@implementation GTLRContainer_HttpCacheControlResponseHeader
+@dynamic age, directive, expires;
 @end
 
 

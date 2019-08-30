@@ -723,3 +723,13 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 @implementation GTLRIam_UndeleteServiceAccountResponse
 @dynamic restoredAccount;
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_UploadServiceAccountKeyRequest
+//
+
+@implementation GTLRIam_UploadServiceAccountKeyRequest
+@dynamic publicKeyData;
+@end

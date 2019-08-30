@@ -21,6 +21,7 @@
 @class GTLRCloudAsset_Asset;
 @class GTLRCloudAsset_AuditConfig;
 @class GTLRCloudAsset_AuditLogConfig;
+@class GTLRCloudAsset_BigQueryDestination;
 @class GTLRCloudAsset_Binding;
 @class GTLRCloudAsset_Expr;
 @class GTLRCloudAsset_GcsDestination;
@@ -28,6 +29,14 @@
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy;
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy;
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1RestoreDefault;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessLevel;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessPolicy;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Condition;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter;
+@class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig;
 @class GTLRCloudAsset_Operation_Metadata;
 @class GTLRCloudAsset_Operation_Response;
 @class GTLRCloudAsset_OutputConfig;
@@ -81,6 +90,12 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_LogTypeUnspe
 // GTLRCloudAsset_ExportAssetsRequest.contentType
 
 /**
+ *  The Cloud Access context mananger Policy set on an asset.
+ *
+ *  Value: "ACCESS_POLICY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_AccessPolicy;
+/**
  *  Unspecified content type.
  *
  *  Value: "CONTENT_TYPE_UNSPECIFIED"
@@ -127,11 +142,104 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_Al
  */
 GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Deny;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel.combiningFunction
+
+/**
+ *  All `Conditions` must be true for the `BasicLevel` to be true.
+ *
+ *  Value: "AND"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel_CombiningFunction_And;
+/**
+ *  If at least one `Condition` is true, then the `BasicLevel` is true.
+ *
+ *  Value: "OR"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel_CombiningFunction_Or;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy.allowedDeviceManagementLevels
+
+/** Value: "BASIC" */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_Basic;
+/** Value: "COMPLETE" */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_Complete;
+/** Value: "MANAGEMENT_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_ManagementUnspecified;
+/** Value: "NONE" */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_None;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy.allowedEncryptionStatuses
+
+/** Value: "ENCRYPTED" */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_Encrypted;
+/** Value: "ENCRYPTION_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_EncryptionUnspecified;
+/** Value: "ENCRYPTION_UNSUPPORTED" */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_EncryptionUnsupported;
+/** Value: "UNENCRYPTED" */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_Unencrypted;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint.osType
+
+/**
+ *  A desktop ChromeOS operating system.
+ *
+ *  Value: "DESKTOP_CHROME_OS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopChromeOs;
+/**
+ *  A desktop Linux operating system.
+ *
+ *  Value: "DESKTOP_LINUX"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopLinux;
+/**
+ *  A desktop Mac operating system.
+ *
+ *  Value: "DESKTOP_MAC"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopMac;
+/**
+ *  A desktop Windows operating system.
+ *
+ *  Value: "DESKTOP_WINDOWS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopWindows;
+/**
+ *  The operating system of the device is not specified or not known.
+ *
+ *  Value: "OS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_OsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter.perimeterType
+
+/**
+ *  Perimeter Bridge.
+ *
+ *  Value: "PERIMETER_TYPE_BRIDGE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeBridge;
+/**
+ *  Regular Perimeter.
+ *
+ *  Value: "PERIMETER_TYPE_REGULAR"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeRegular;
+
 /**
  *  Cloud asset. This includes all Google Cloud Platform resources,
  *  Cloud IAM policies, and other non-GCP assets.
  */
 @interface GTLRCloudAsset_Asset : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessLevel *accessLevel;
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessPolicy *accessPolicy;
 
 /** Type of the asset. Example: "compute.googleapis.com/Disk". */
 @property(nonatomic, copy, nullable) NSString *assetType;
@@ -160,6 +268,8 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_Al
 
 /** Representation of the resource. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Resource *resource;
+
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter *servicePerimeter;
 
 @end
 
@@ -257,15 +367,6 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_Al
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
- *  Specifies whether principals can be exempted for the same LogType in
- *  lower-level resource policies. If true, any lower-level exemptions will
- *  be ignored.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
-
-/**
  *  The log type that this config enables.
  *
  *  Likely values:
@@ -290,6 +391,39 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_Al
 
 /** A list of assets with valid time windows. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_TemporalAsset *> *assets;
+
+@end
+
+
+/**
+ *  A BigQuery destination.
+ */
+@interface GTLRCloudAsset_BigQueryDestination : GTLRObject
+
+/**
+ *  Required. The BigQuery dataset in format
+ *  "projects/projectId/datasets/datasetId", to which the snapshot result
+ *  should be exported. If this dataset does not exist, the export call returns
+ *  an error.
+ */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+/**
+ *  If the destination table already exists and this flag is `TRUE`, the
+ *  table will be overwritten by the contents of assets snapshot. If the flag
+ *  is not set and the destination table already exists, the export call
+ *  returns an error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+/**
+ *  Required. The BigQuery table to which the snapshot result should be
+ *  written. If this table does not exist, a new table with the given name
+ *  will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *table;
 
 @end
 
@@ -353,6 +487,9 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_Al
  *  returned.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_AccessPolicy The
+ *        Cloud Access context mananger Policy set on an asset. (Value:
+ *        "ACCESS_POLICY")
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_ContentTypeUnspecified
  *        Unspecified content type. (Value: "CONTENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_IamPolicy The
@@ -738,6 +875,363 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_Al
 
 
 /**
+ *  An `AccessLevel` is a label that can be applied to requests to GCP services,
+ *  along with a list of requirements necessary for the label to be applied.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessLevel : GTLRObject
+
+/** A `BasicLevel` composed of `Conditions`. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel *basic;
+
+/** Output only. Time the `AccessLevel` was created in UTC. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Description of the `AccessLevel` and its use. Does not affect behavior.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Resource name for the Access Level. The `short_name` component
+ *  must begin with a letter and only include alphanumeric and '_'. Format:
+ *  `accessPolicies/{policy_id}/accessLevels/{short_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Human readable title. Must be unique within the Policy. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** Output only. Time the `AccessLevel` was updated in UTC. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  `AccessPolicy` is a container for `AccessLevels` (which define the necessary
+ *  attributes to use GCP services) and `ServicePerimeters` (which define
+ *  regions
+ *  of services able to freely pass data within a perimeter). An access policy
+ *  is
+ *  globally visible within an organization, and the restrictions it specifies
+ *  apply to all projects within an organization.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessPolicy : GTLRObject
+
+/** Output only. Time the `AccessPolicy` was created in UTC. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Resource name of the `AccessPolicy`. Format:
+ *  `accessPolicies/{policy_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The parent of this `AccessPolicy` in the Cloud Resource
+ *  Hierarchy. Currently immutable once created. Format:
+ *  `organizations/{organization_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Human readable title. Does not affect behavior. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** Output only. Time the `AccessPolicy` was updated in UTC. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  `BasicLevel` is an `AccessLevel` using a set of recommended features.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel : GTLRObject
+
+/**
+ *  How the `conditions` list should be combined to determine if a request is
+ *  granted this `AccessLevel`. If AND is used, each `Condition` in
+ *  `conditions` must be satisfied for the `AccessLevel` to be applied. If OR
+ *  is used, at least one `Condition` in `conditions` must be satisfied for the
+ *  `AccessLevel` to be applied. Default behavior is AND.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel_CombiningFunction_And
+ *        All `Conditions` must be true for the `BasicLevel` to be true. (Value:
+ *        "AND")
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel_CombiningFunction_Or
+ *        If at least one `Condition` is true, then the `BasicLevel` is true.
+ *        (Value: "OR")
+ */
+@property(nonatomic, copy, nullable) NSString *combiningFunction;
+
+/** Required. A list of requirements for the `AccessLevel` to be granted. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Condition *> *conditions;
+
+@end
+
+
+/**
+ *  A condition necessary for an `AccessLevel` to be granted. The Condition is
+ *  an
+ *  AND over its fields. So a Condition is true if: 1) the request IP is from
+ *  one
+ *  of the listed subnetworks AND 2) the originating device complies with the
+ *  listed device policy AND 3) all listed access levels are granted AND 4) the
+ *  request was sent at a time allowed by the DateTimeRestriction.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Condition : GTLRObject
+
+/**
+ *  Device specific restrictions, all restrictions must hold for the
+ *  Condition to be true. If not specified, all devices are allowed.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy *devicePolicy;
+
+/**
+ *  CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for
+ *  a CIDR IP address block, the specified IP address portion must be properly
+ *  truncated (i.e. all the host bits must be zero) or the input is considered
+ *  malformed. For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is
+ *  not. Similarly, for IPv6, "2001:db8::/32" is accepted whereas
+ *  "2001:db8::1/32" is not. The originating IP of a request must be in one of
+ *  the listed subnets in order for this Condition to be true. If empty, all IP
+ *  addresses are allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ipSubnetworks;
+
+/**
+ *  The request must be made by one of the provided user or service
+ *  accounts. Groups are not supported.
+ *  Syntax:
+ *  `user:{emailid}`
+ *  `serviceAccount:{emailid}`
+ *  If not specified, a request may come from any user.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *members;
+
+/**
+ *  Whether to negate the Condition. If true, the Condition becomes a NAND over
+ *  its non-empty fields, each field must be false for the Condition overall to
+ *  be satisfied. Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *negate;
+
+/**
+ *  The request must originate from one of the provided countries/regions.
+ *  Must be valid ISO 3166-1 alpha-2 codes.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
+
+/**
+ *  A list of other access levels defined in the same `Policy`, referenced by
+ *  resource name. Referencing an `AccessLevel` which does not exist is an
+ *  error. All access levels listed must be granted for the Condition
+ *  to be true. Example:
+ *  "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredAccessLevels;
+
+@end
+
+
+/**
+ *  `DevicePolicy` specifies device specific restrictions necessary to acquire a
+ *  given access level. A `DevicePolicy` specifies requirements for requests
+ *  from
+ *  devices to be granted access levels, it does not do any enforcement on the
+ *  device. `DevicePolicy` acts as an AND over all specified fields, and each
+ *  repeated field is an OR over its elements. Any unset fields are ignored. For
+ *  example, if the proto is { os_type : DESKTOP_WINDOWS, os_type :
+ *  DESKTOP_LINUX, encryption_status: ENCRYPTED}, then the DevicePolicy will be
+ *  true for requests originating from encrypted Linux desktops and encrypted
+ *  Windows desktops.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy : GTLRObject
+
+/**
+ *  Allowed device management levels, an empty list allows all management
+ *  levels.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedDeviceManagementLevels;
+
+/** Allowed encryptions statuses, an empty list allows all statuses. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedEncryptionStatuses;
+
+/** Allowed OS versions, an empty list allows all types and all versions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint *> *osConstraints;
+
+/**
+ *  Whether the device needs to be approved by the customer admin.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requireAdminApproval;
+
+/**
+ *  Whether the device needs to be corp owned.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requireCorpOwned;
+
+/**
+ *  Whether or not screenlock is required for the DevicePolicy to be true.
+ *  Defaults to `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requireScreenlock;
+
+@end
+
+
+/**
+ *  A restriction on the OS type and version of devices making requests.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint : GTLRObject
+
+/**
+ *  The minimum allowed OS version. If not set, any version of this OS
+ *  satisfies the constraint. Format: `"major.minor.patch"`.
+ *  Examples: `"10.5.301"`, `"9.2.1"`.
+ */
+@property(nonatomic, copy, nullable) NSString *minimumVersion;
+
+/**
+ *  Required. The allowed OS type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopChromeOs
+ *        A desktop ChromeOS operating system. (Value: "DESKTOP_CHROME_OS")
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopLinux
+ *        A desktop Linux operating system. (Value: "DESKTOP_LINUX")
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopMac
+ *        A desktop Mac operating system. (Value: "DESKTOP_MAC")
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopWindows
+ *        A desktop Windows operating system. (Value: "DESKTOP_WINDOWS")
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_OsUnspecified
+ *        The operating system of the device is not specified or not known.
+ *        (Value: "OS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *osType;
+
+/**
+ *  Only allows requests from devices with a verified Chrome OS.
+ *  Verifications includes requirements that the device is enterprise-managed,
+ *  conformant to Dasher domain policies, and the caller has permission to call
+ *  the API targeted by the request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requireVerifiedChromeOs;
+
+@end
+
+
+/**
+ *  `ServicePerimeter` describes a set of GCP resources which can freely import
+ *  and export data amongst themselves, but not export outside of the
+ *  `ServicePerimeter`. If a request with a source within this
+ *  `ServicePerimeter`
+ *  has a target outside of the `ServicePerimeter`, the request will be blocked.
+ *  Otherwise the request is allowed. There are two types of Service Perimeter -
+ *  Regular and Bridge. Regular Service Perimeters cannot overlap, a single GCP
+ *  project can only belong to a single regular Service Perimeter. Service
+ *  Perimeter Bridges can contain only GCP projects as members, a single GCP
+ *  project may belong to multiple Service Perimeter Bridges.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter : GTLRObject
+
+/** Output only. Time the `ServicePerimeter` was created in UTC. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Description of the `ServicePerimeter` and its use. Does not affect
+ *  behavior.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Resource name for the ServicePerimeter. The `short_name`
+ *  component must begin with a letter and only include alphanumeric and '_'.
+ *  Format: `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Perimeter type indicator. A single project is
+ *  allowed to be a member of single regular perimeter, but multiple service
+ *  perimeter bridges. A project cannot be a included in a perimeter bridge
+ *  without being included in regular perimeter. For perimeter bridges,
+ *  the restricted service list as well as access level lists must be
+ *  empty.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeBridge
+ *        Perimeter Bridge. (Value: "PERIMETER_TYPE_BRIDGE")
+ *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeRegular
+ *        Regular Perimeter. (Value: "PERIMETER_TYPE_REGULAR")
+ */
+@property(nonatomic, copy, nullable) NSString *perimeterType;
+
+/**
+ *  Current ServicePerimeter configuration. Specifies sets of resources,
+ *  restricted services and access levels that determine perimeter
+ *  content and boundaries.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig *status;
+
+/** Human readable title. Must be unique within the Policy. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** Output only. Time the `ServicePerimeter` was updated in UTC. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  `ServicePerimeterConfig` specifies a set of GCP resources that describe
+ *  specific Service Perimeter configuration.
+ */
+@interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig : GTLRObject
+
+/**
+ *  A list of `AccessLevel` resource names that allow resources within the
+ *  `ServicePerimeter` to be accessed from the internet. `AccessLevels` listed
+ *  must be in the same policy as this `ServicePerimeter`. Referencing a
+ *  nonexistent `AccessLevel` is a syntax error. If no `AccessLevel` names are
+ *  listed, resources within the perimeter can only be accessed via GCP calls
+ *  with request origins within the perimeter. Example:
+ *  `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`.
+ *  For Service Perimeter Bridge, must be empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
+
+/**
+ *  A list of GCP resources that are inside of the service perimeter.
+ *  Currently only projects are allowed. Format: `projects/{project_number}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
+/**
+ *  GCP services that are subject to the Service Perimeter restrictions. For
+ *  example, if `storage.googleapis.com` is specified, access to the storage
+ *  buckets inside the perimeter must meet the perimeter's access restrictions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedServices;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -823,6 +1317,14 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_Al
  *  Output configuration for export assets destination.
  */
 @interface GTLRCloudAsset_OutputConfig : GTLRObject
+
+/**
+ *  Destination on BigQuery. The output table stores the fields in asset
+ *  proto as columns in BigQuery. The resource/iam_policy field is converted
+ *  to a record with each field to a column, except metadata to a single JSON
+ *  string.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_BigQueryDestination *bigqueryDestination;
 
 /** Destination on Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GcsDestination *gcsDestination;

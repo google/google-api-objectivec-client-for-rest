@@ -195,7 +195,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -207,7 +207,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  ]
  *  },
  *  {
- *  "service": "fooservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com"
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -215,16 +215,16 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  {
  *  "log_type": "DATA_WRITE",
  *  "exempted_members": [
- *  "user:bar\@gmail.com"
+ *  "user:aliya\@example.com"
  *  ]
  *  }
  *  ]
  *  }
  *  ]
  *  }
- *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
- *  bar\@gmail.com from DATA_WRITE logging.
+ *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts jose\@example.com from DATA_READ logging, and
+ *  aliya\@example.com from DATA_WRITE logging.
  */
 @interface GTLRCloudFunctions_AuditConfig : GTLRObject
 
@@ -249,7 +249,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -258,7 +258,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  ]
  *  }
  *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  foo\@gmail.com from DATA_READ logging.
+ *  jose\@example.com from DATA_READ logging.
  */
 @interface GTLRCloudFunctions_AuditLogConfig : GTLRObject
 
@@ -308,7 +308,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -364,7 +364,6 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 /**
  *  Describes a Cloud Function that contains user computation executed in
  *  response to an event. It encapsulate function and triggers configurations.
- *  LINT.IfChange
  */
 @interface GTLRCloudFunctions_CloudFunction : GTLRObject
 
@@ -436,23 +435,21 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  by it.
  *  See [the VPC documentation](https://cloud.google.com/compute/docs/vpc) for
  *  more information on connecting Cloud projects.
- *  This feature is currently in alpha, available only for whitelisted users.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Required. The runtime in which the function is going to run. Choices:
- *  * `nodejs6`: Node.js 6
- *  * `nodejs8`: Node.js 8
- *  * `nodejs10`: Node.js 10
- *  * `python37`: Python 3.7
- *  * `go111`: Go 1.11
+ *  The runtime in which to run the function. Required when deploying a new
+ *  function, optional when updating an existing function. For a complete
+ *  list of possible choices, see the
+ *  [`gcloud` command
+ *  reference](/sdk/gcloud/reference/functions/deploy#--runtime).
  */
 @property(nonatomic, copy, nullable) NSString *runtime;
 
 /**
  *  The email of the function's service account. If empty, defaults to
- *  {project_id}\@appspot.gserviceaccount.com.
+ *  `{project_id}\@appspot.gserviceaccount.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
@@ -507,8 +504,8 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Output only.
- *  The version identifier of the Cloud Function. Each deployment attempt
+ *  Output only. The version identifier of the Cloud Function. Each deployment
+ *  attempt
  *  results in a new version of a function being created.
  *
  *  Uses NSNumber of longLongValue.
@@ -524,7 +521,6 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  replace it.
  *  See [the VPC documentation](https://cloud.google.com/compute/docs/vpc) for
  *  more information on connecting Cloud projects.
- *  This feature is currently in alpha, available only for whitelisted users.
  */
 @property(nonatomic, copy, nullable) NSString *vpcConnector;
 
@@ -1116,7 +1112,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

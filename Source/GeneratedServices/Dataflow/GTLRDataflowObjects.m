@@ -152,14 +152,6 @@ NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Supported = @"SUPPORT
 NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unknown = @"UNKNOWN";
 NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unsupported = @"UNSUPPORTED";
 
-// GTLRDataflow_Snapshot.state
-NSString * const kGTLRDataflow_Snapshot_State_Deleted          = @"DELETED";
-NSString * const kGTLRDataflow_Snapshot_State_Failed           = @"FAILED";
-NSString * const kGTLRDataflow_Snapshot_State_Pending          = @"PENDING";
-NSString * const kGTLRDataflow_Snapshot_State_Ready            = @"READY";
-NSString * const kGTLRDataflow_Snapshot_State_Running          = @"RUNNING";
-NSString * const kGTLRDataflow_Snapshot_State_UnknownSnapshotState = @"UNKNOWN_SNAPSHOT_STATE";
-
 // GTLRDataflow_SourceSplitResponse.outcome
 NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeSplittingHappened = @"SOURCE_SPLIT_OUTCOME_SPLITTING_HAPPENED";
 NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeUnknown = @"SOURCE_SPLIT_OUTCOME_UNKNOWN";
@@ -471,15 +463,6 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
   return @{ @"namespaceProperty" : @"namespace" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataflow_DeleteSnapshotResponse
-//
-
-@implementation GTLRDataflow_DeleteSnapshotResponse
 @end
 
 
@@ -1185,24 +1168,6 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_ListSnapshotsResponse
-//
-
-@implementation GTLRDataflow_ListSnapshotsResponse
-@dynamic snapshots;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"snapshots" : [GTLRDataflow_Snapshot class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataflow_MapTask
 //
 
@@ -1831,31 +1796,6 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataflow_Snapshot
-//
-
-@implementation GTLRDataflow_Snapshot
-@dynamic creationTime, identifier, projectId, sourceJobId, state, ttl;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataflow_SnapshotJobRequest
-//
-
-@implementation GTLRDataflow_SnapshotJobRequest
-@dynamic location, ttl;
 @end
 
 

@@ -76,9 +76,13 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 //   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. The "resource name" of the region, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
- *  projects/{project_id}/regions/{region}
+ *  Required. The resource name of the region or location, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates,create, the resource name of the
+ *  region has the following format: projects/{project_id}/regions/{region}
+ *  For projects.locations.workflowTemplates.create, the resource name of the
+ *  location has the following format:
+ *  projects/{project_id}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -88,9 +92,13 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Creates new workflow template.
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
- *  @param parent Required. The "resource name" of the region, as described in
- *    https://cloud.google.com/apis/design/resource_names of the form
- *    projects/{project_id}/regions/{region}
+ *  @param parent Required. The resource name of the region or location, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates,create, the resource name of the
+ *    region has the following format: projects/{project_id}/regions/{region}
+ *    For projects.locations.workflowTemplates.create, the resource name of the
+ *    location has the following format:
+ *    projects/{project_id}/locations/{location}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesCreate
  */
@@ -112,9 +120,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 //   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesDeleteWithname:]
 
 /**
- *  Required. The "resource name" of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
+ *  Required. The resource name of the workflow template, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates.delete, the resource name of the
+ *  template has the following format:
  *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *  For projects.locations.workflowTemplates.instantiate, the resource name of
+ *  the template has the following format:
+ *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -130,10 +143,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  Deletes a workflow template. It does not cancel in-progress workflows.
  *
- *  @param name Required. The "resource name" of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names of the
- *    form
+ *  @param name Required. The resource name of the workflow template, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates.delete, the resource name of the
+ *    template has the following format:
  *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *    For projects.locations.workflowTemplates.instantiate, the resource name of
+ *    the template has the following format:
+ *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesDelete
  */
@@ -155,15 +172,20 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 //   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesGetWithname:]
 
 /**
- *  Required. The "resource name" of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
+ *  Required. The resource name of the workflow template, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates.get, the resource name of the
+ *  template has the following format:
  *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *  For projects.locations.workflowTemplates.get, the resource name of the
+ *  template has the following format:
+ *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. The version of workflow template to retrieve. Only previously
- *  instatiated versions can be retrieved.If unspecified, retrieves the current
+ *  instantiated versions can be retrieved.If unspecified, retrieves the current
  *  version.
  */
 @property(nonatomic, assign) NSInteger version;
@@ -174,10 +196,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Retrieves the latest workflow template.Can retrieve previously instantiated
  *  template by specifying optional version parameter.
  *
- *  @param name Required. The "resource name" of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names of the
- *    form
+ *  @param name Required. The resource name of the workflow template, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates.get, the resource name of the
+ *    template has the following format:
  *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *    For projects.locations.workflowTemplates.get, the resource name of the
+ *    template has the following format:
+ *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesGet
  */
@@ -242,9 +268,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 //   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesInstantiateWithObject:name:]
 
 /**
- *  Required. The "resource name" of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
+ *  Required. The resource name of the workflow template, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates.instantiate, the resource name of the
+ *  template has the following format:
  *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *  For projects.locations.workflowTemplates.instantiate, the resource name of
+ *  the template has the following format:
+ *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -261,10 +292,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param object The @c GTLRDataproc_InstantiateWorkflowTemplateRequest to
  *    include in the query.
- *  @param name Required. The "resource name" of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names of the
- *    form
+ *  @param name Required. The resource name of the workflow template, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates.instantiate, the resource name of
+ *    the template has the following format:
  *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *    For projects.locations.workflowTemplates.instantiate, the resource name of
+ *    the template has the following format:
+ *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesInstantiate
  */
@@ -294,9 +329,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 //   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesInstantiateInlineWithObject:parent:]
 
 /**
- *  Required. The "resource name" of the workflow template region, as described
- *  in https://cloud.google.com/apis/design/resource_names of the form
+ *  Required. The resource name of the region or location, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates,instantiateinline, the resource name
+ *  of the region has the following format:
  *  projects/{project_id}/regions/{region}
+ *  For projects.locations.workflowTemplates.instantiateinline, the resource
+ *  name of the location has the following format:
+ *  projects/{project_id}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -324,9 +364,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Operation.response will be Empty.
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
- *  @param parent Required. The "resource name" of the workflow template region,
- *    as described in https://cloud.google.com/apis/design/resource_names of the
- *    form projects/{project_id}/regions/{region}
+ *  @param parent Required. The resource name of the region or location, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates,instantiateinline, the resource
+ *    name of the region has the following format:
+ *    projects/{project_id}/regions/{region}
+ *    For projects.locations.workflowTemplates.instantiateinline, the resource
+ *    name of the location has the following format:
+ *    projects/{project_id}/locations/{location}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesInstantiateInline
  */
@@ -357,9 +402,13 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The "resource name" of the region, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
- *  projects/{project_id}/regions/{region}
+ *  Required. The resource name of the region or location, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates,list, the resource name of the region
+ *  has the following format: projects/{project_id}/regions/{region}
+ *  For projects.locations.workflowTemplates.list, the resource name of the
+ *  location has the following format:
+ *  projects/{project_id}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -368,9 +417,13 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  Lists workflows that match the specified filter in the request.
  *
- *  @param parent Required. The "resource name" of the region, as described in
- *    https://cloud.google.com/apis/design/resource_names of the form
- *    projects/{project_id}/regions/{region}
+ *  @param parent Required. The resource name of the region or location, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates,list, the resource name of the
+ *    region has the following format: projects/{project_id}/regions/{region}
+ *    For projects.locations.workflowTemplates.list, the resource name of the
+ *    location has the following format:
+ *    projects/{project_id}/locations/{location}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesList
  *
@@ -478,9 +531,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 //   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesUpdateWithObject:name:]
 
 /**
- *  Output only. The "resource name" of the template, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
+ *  Output only. The resource name of the workflow template, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates, the resource name of the template
+ *  has the following format:
  *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *  For projects.locations.workflowTemplates, the resource name of the template
+ *  has the following format:
+ *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -491,9 +549,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  version that matches the current server version.
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
- *  @param name Output only. The "resource name" of the template, as described
- *    in https://cloud.google.com/apis/design/resource_names of the form
+ *  @param name Output only. The resource name of the workflow template, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates, the resource name of the template
+ *    has the following format:
  *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *    For projects.locations.workflowTemplates, the resource name of the
+ *    template has the following format:
+ *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesUpdate
  */
@@ -503,7 +566,8 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
- *  Creates a cluster in a project.
+ *  Creates a cluster in a project. The returned Operation.metadata will be
+ *  ClusterOperationMetadata.
  *
  *  Method: dataproc.projects.regions.clusters.create
  *
@@ -537,7 +601,8 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /**
  *  Fetches a @c GTLRDataproc_Operation.
  *
- *  Creates a cluster in a project.
+ *  Creates a cluster in a project. The returned Operation.metadata will be
+ *  ClusterOperationMetadata.
  *
  *  @param object The @c GTLRDataproc_Cluster to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project that
@@ -554,7 +619,8 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
- *  Deletes a cluster in a project.
+ *  Deletes a cluster in a project. The returned Operation.metadata will be
+ *  ClusterOperationMetadata.
  *
  *  Method: dataproc.projects.regions.clusters.delete
  *
@@ -597,7 +663,8 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /**
  *  Fetches a @c GTLRDataproc_Operation.
  *
- *  Deletes a cluster in a project.
+ *  Deletes a cluster in a project. The returned Operation.metadata will be
+ *  ClusterOperationMetadata.
  *
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
@@ -614,8 +681,9 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
- *  Gets cluster diagnostic information. After the operation completes, the
- *  Operation.response field contains DiagnoseClusterOutputLocation.
+ *  Gets cluster diagnostic information. The returned Operation.metadata will be
+ *  ClusterOperationMetadata. After the operation completes, Operation.response
+ *  contains DiagnoseClusterResults.
  *
  *  Method: dataproc.projects.regions.clusters.diagnose
  *
@@ -641,8 +709,9 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /**
  *  Fetches a @c GTLRDataproc_Operation.
  *
- *  Gets cluster diagnostic information. After the operation completes, the
- *  Operation.response field contains DiagnoseClusterOutputLocation.
+ *  Gets cluster diagnostic information. The returned Operation.metadata will be
+ *  ClusterOperationMetadata. After the operation completes, Operation.response
+ *  contains DiagnoseClusterResults.
  *
  *  @param object The @c GTLRDataproc_DiagnoseClusterRequest to include in the
  *    query.
@@ -806,7 +875,8 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
- *  Updates a cluster in a project.
+ *  Updates a cluster in a project. The returned Operation.metadata will be
+ *  ClusterOperationMetadata.
  *
  *  Method: dataproc.projects.regions.clusters.patch
  *
@@ -890,7 +960,8 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /**
  *  Fetches a @c GTLRDataproc_Operation.
  *
- *  Updates a cluster in a project.
+ *  Updates a cluster in a project. The returned Operation.metadata will be
+ *  ClusterOperationMetadata.
  *
  *  @param object The @c GTLRDataproc_Cluster to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project the
@@ -1721,9 +1792,13 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 //   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. The "resource name" of the region, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
- *  projects/{project_id}/regions/{region}
+ *  Required. The resource name of the region or location, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates,create, the resource name of the
+ *  region has the following format: projects/{project_id}/regions/{region}
+ *  For projects.locations.workflowTemplates.create, the resource name of the
+ *  location has the following format:
+ *  projects/{project_id}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1733,9 +1808,13 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Creates new workflow template.
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
- *  @param parent Required. The "resource name" of the region, as described in
- *    https://cloud.google.com/apis/design/resource_names of the form
- *    projects/{project_id}/regions/{region}
+ *  @param parent Required. The resource name of the region or location, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates,create, the resource name of the
+ *    region has the following format: projects/{project_id}/regions/{region}
+ *    For projects.locations.workflowTemplates.create, the resource name of the
+ *    location has the following format:
+ *    projects/{project_id}/locations/{location}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesCreate
  */
@@ -1757,9 +1836,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 //   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesDeleteWithname:]
 
 /**
- *  Required. The "resource name" of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
+ *  Required. The resource name of the workflow template, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates.delete, the resource name of the
+ *  template has the following format:
  *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *  For projects.locations.workflowTemplates.instantiate, the resource name of
+ *  the template has the following format:
+ *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1775,10 +1859,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  Deletes a workflow template. It does not cancel in-progress workflows.
  *
- *  @param name Required. The "resource name" of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names of the
- *    form
+ *  @param name Required. The resource name of the workflow template, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates.delete, the resource name of the
+ *    template has the following format:
  *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *    For projects.locations.workflowTemplates.instantiate, the resource name of
+ *    the template has the following format:
+ *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesDelete
  */
@@ -1800,15 +1888,20 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 //   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesGetWithname:]
 
 /**
- *  Required. The "resource name" of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
+ *  Required. The resource name of the workflow template, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates.get, the resource name of the
+ *  template has the following format:
  *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *  For projects.locations.workflowTemplates.get, the resource name of the
+ *  template has the following format:
+ *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. The version of workflow template to retrieve. Only previously
- *  instatiated versions can be retrieved.If unspecified, retrieves the current
+ *  instantiated versions can be retrieved.If unspecified, retrieves the current
  *  version.
  */
 @property(nonatomic, assign) NSInteger version;
@@ -1819,10 +1912,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Retrieves the latest workflow template.Can retrieve previously instantiated
  *  template by specifying optional version parameter.
  *
- *  @param name Required. The "resource name" of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names of the
- *    form
+ *  @param name Required. The resource name of the workflow template, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates.get, the resource name of the
+ *    template has the following format:
  *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *    For projects.locations.workflowTemplates.get, the resource name of the
+ *    template has the following format:
+ *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesGet
  */
@@ -1887,9 +1984,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 //   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesInstantiateWithObject:name:]
 
 /**
- *  Required. The "resource name" of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
+ *  Required. The resource name of the workflow template, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates.instantiate, the resource name of the
+ *  template has the following format:
  *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *  For projects.locations.workflowTemplates.instantiate, the resource name of
+ *  the template has the following format:
+ *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1906,10 +2008,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param object The @c GTLRDataproc_InstantiateWorkflowTemplateRequest to
  *    include in the query.
- *  @param name Required. The "resource name" of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names of the
- *    form
+ *  @param name Required. The resource name of the workflow template, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates.instantiate, the resource name of
+ *    the template has the following format:
  *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *    For projects.locations.workflowTemplates.instantiate, the resource name of
+ *    the template has the following format:
+ *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesInstantiate
  */
@@ -1939,9 +2045,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 //   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesInstantiateInlineWithObject:parent:]
 
 /**
- *  Required. The "resource name" of the workflow template region, as described
- *  in https://cloud.google.com/apis/design/resource_names of the form
+ *  Required. The resource name of the region or location, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates,instantiateinline, the resource name
+ *  of the region has the following format:
  *  projects/{project_id}/regions/{region}
+ *  For projects.locations.workflowTemplates.instantiateinline, the resource
+ *  name of the location has the following format:
+ *  projects/{project_id}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1969,9 +2080,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Operation.response will be Empty.
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
- *  @param parent Required. The "resource name" of the workflow template region,
- *    as described in https://cloud.google.com/apis/design/resource_names of the
- *    form projects/{project_id}/regions/{region}
+ *  @param parent Required. The resource name of the region or location, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates,instantiateinline, the resource
+ *    name of the region has the following format:
+ *    projects/{project_id}/regions/{region}
+ *    For projects.locations.workflowTemplates.instantiateinline, the resource
+ *    name of the location has the following format:
+ *    projects/{project_id}/locations/{location}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesInstantiateInline
  */
@@ -2002,9 +2118,13 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The "resource name" of the region, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
- *  projects/{project_id}/regions/{region}
+ *  Required. The resource name of the region or location, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates,list, the resource name of the region
+ *  has the following format: projects/{project_id}/regions/{region}
+ *  For projects.locations.workflowTemplates.list, the resource name of the
+ *  location has the following format:
+ *  projects/{project_id}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2013,9 +2133,13 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  Lists workflows that match the specified filter in the request.
  *
- *  @param parent Required. The "resource name" of the region, as described in
- *    https://cloud.google.com/apis/design/resource_names of the form
- *    projects/{project_id}/regions/{region}
+ *  @param parent Required. The resource name of the region or location, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates,list, the resource name of the
+ *    region has the following format: projects/{project_id}/regions/{region}
+ *    For projects.locations.workflowTemplates.list, the resource name of the
+ *    location has the following format:
+ *    projects/{project_id}/locations/{location}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesList
  *
@@ -2123,9 +2247,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 //   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesUpdateWithObject:name:]
 
 /**
- *  Output only. The "resource name" of the template, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
+ *  Output only. The resource name of the workflow template, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates, the resource name of the template
+ *  has the following format:
  *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *  For projects.locations.workflowTemplates, the resource name of the template
+ *  has the following format:
+ *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2136,9 +2265,14 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  version that matches the current server version.
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
- *  @param name Output only. The "resource name" of the template, as described
- *    in https://cloud.google.com/apis/design/resource_names of the form
+ *  @param name Output only. The resource name of the workflow template, as
+ *    described in https://cloud.google.com/apis/design/resource_names.
+ *    For projects.regions.workflowTemplates, the resource name of the template
+ *    has the following format:
  *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *    For projects.locations.workflowTemplates, the resource name of the
+ *    template has the following format:
+ *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesUpdate
  */

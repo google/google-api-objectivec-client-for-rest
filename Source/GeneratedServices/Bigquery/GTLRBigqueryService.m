@@ -20,6 +20,7 @@ NSString * const kGTLRAuthScopeBigqueryDevstorageFullControl = @"https://www.goo
 NSString * const kGTLRAuthScopeBigqueryDevstorageReadOnly    = @"https://www.googleapis.com/auth/devstorage.read_only";
 NSString * const kGTLRAuthScopeBigqueryDevstorageReadWrite   = @"https://www.googleapis.com/auth/devstorage.read_write";
 NSString * const kGTLRAuthScopeBigqueryInsertdata            = @"https://www.googleapis.com/auth/bigquery.insertdata";
+NSString * const kGTLRAuthScopeBigqueryReadonly              = @"https://www.googleapis.com/auth/bigquery.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRBigqueryService

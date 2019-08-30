@@ -54,6 +54,34 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_BatchCreateSessionsRequest
+//
+
+@implementation GTLRSpanner_BatchCreateSessionsRequest
+@dynamic sessionCount, sessionTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_BatchCreateSessionsResponse
+//
+
+@implementation GTLRSpanner_BatchCreateSessionsResponse
+@dynamic session;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"session" : [GTLRSpanner_Session class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_BeginTransactionRequest
 //
 
@@ -329,6 +357,17 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_GetPolicyOptions
+//
+
+@implementation GTLRSpanner_GetPolicyOptions
+@dynamic requestedPolicyVersion;
 @end
 
 

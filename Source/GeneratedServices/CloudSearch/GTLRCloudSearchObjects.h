@@ -888,7 +888,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Interpretation
  */
 GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_None;
 /**
- *  The results only contain natural language results.
+ *  The results from original query are replaced. The reason for replacing
+ *  the results from original query is populated in the 'Reason' field below.
  *
  *  Value: "REPLACE"
  */
@@ -3567,6 +3568,13 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 @property(nonatomic, strong, nullable) NSNumber *isSortable;
 
 /**
+ *  Indicates that the property can be used for generating query suggestions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isSuggestable;
+
+/**
  *  Indicates that users can perform wildcard search for this
  *  property. Only supported for Text properties. IsReturnable must be true to
  *  set this option. In a given datasource maximum of 5 properties can be
@@ -3754,13 +3762,17 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *        natural language interpretation or the natural language interpretation
  *        is not used to fetch the search results. (Value: "NONE")
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_InterpretationType_Replace
- *        The results only contain natural language results. (Value: "REPLACE")
+ *        The results from original query are replaced. The reason for replacing
+ *        the results from original query is populated in the 'Reason' field
+ *        below. (Value: "REPLACE")
  */
 @property(nonatomic, copy, nullable) NSString *interpretationType;
 
 /**
- *  The interpretation of the query used in search. For example, query "email
- *  from john" will be interpreted as "from:john source:mail"
+ *  The interpretation of the query used in search. For example, queries with
+ *  natural language intent like "email from john" will be interpreted as
+ *  "from:john source:mail". This field will not be filled when the reason is
+ *  NO_RESULTS_FOUND_FOR_USER_QUERY.
  */
 @property(nonatomic, copy, nullable) NSString *interpretedQuery;
 

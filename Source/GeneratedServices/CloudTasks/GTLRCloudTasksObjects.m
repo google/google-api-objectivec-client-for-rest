@@ -146,6 +146,17 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 //
 
 @implementation GTLRCloudTasks_GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_GetPolicyOptions
+//
+
+@implementation GTLRCloudTasks_GetPolicyOptions
+@dynamic requestedPolicyVersion;
 @end
 
 

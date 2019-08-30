@@ -18,6 +18,46 @@
 
 @end
 
+@implementation GTLRAlertCenterQuery_AlertsBatchDelete
+
++ (instancetype)queryWithObject:(GTLRAlertCenter_BatchDeleteAlertsRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1beta1/alerts:batchDelete";
+  GTLRAlertCenterQuery_AlertsBatchDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRAlertCenter_BatchDeleteAlertsResponse class];
+  query.loggingName = @"alertcenter.alerts.batchDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAlertCenterQuery_AlertsBatchUndelete
+
++ (instancetype)queryWithObject:(GTLRAlertCenter_BatchUndeleteAlertsRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1beta1/alerts:batchUndelete";
+  GTLRAlertCenterQuery_AlertsBatchUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRAlertCenter_BatchUndeleteAlertsResponse class];
+  query.loggingName = @"alertcenter.alerts.batchUndelete";
+  return query;
+}
+
+@end
+
 @implementation GTLRAlertCenterQuery_AlertsDelete
 
 @dynamic alertId, customerId;
@@ -95,6 +135,25 @@
   query.alertId = alertId;
   query.expectedObjectClass = [GTLRAlertCenter_Alert class];
   query.loggingName = @"alertcenter.alerts.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAlertCenterQuery_AlertsGetMetadata
+
+@dynamic alertId, customerId;
+
++ (instancetype)queryWithAlertId:(NSString *)alertId {
+  NSArray *pathParams = @[ @"alertId" ];
+  NSString *pathURITemplate = @"v1beta1/alerts/{alertId}/metadata";
+  GTLRAlertCenterQuery_AlertsGetMetadata *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.alertId = alertId;
+  query.expectedObjectClass = [GTLRAlertCenter_AlertMetadata class];
+  query.loggingName = @"alertcenter.alerts.getMetadata";
   return query;
 }
 

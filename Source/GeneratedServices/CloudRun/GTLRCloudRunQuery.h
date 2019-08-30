@@ -64,6 +64,47 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: run.projects.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsList : GTLRCloudRunQuery
+// Previous library name was
+//   +[GTLQueryCloudRun queryForProjectsLocationsListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudRun_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

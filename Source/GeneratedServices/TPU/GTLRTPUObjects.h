@@ -228,6 +228,9 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 /** The next page token or empty if none. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -326,6 +329,9 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_TensorFlowVersion *> *tensorflowVersions;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

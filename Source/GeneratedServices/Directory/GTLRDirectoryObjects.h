@@ -583,6 +583,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** User of the device */
 @property(nonatomic, copy, nullable) NSString *annotatedUser;
 
+/**
+ *  (Read-only) The timestamp after which the device will stop receiving Chrome
+ *  updates or support
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoUpdateExpiration;
+
 /** Chromebook boot mode (Read-only) */
 @property(nonatomic, copy, nullable) NSString *bootMode;
 
@@ -598,11 +606,30 @@ NS_ASSUME_NONNULL_BEGIN
 /** Reports of disk space and other info about mounted/connected volumes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item *> *diskVolumeReports;
 
+/**
+ *  (Read-only) Built-in MAC address for the docking station that the device
+ *  connected to. Factory sets Media access control address (MAC address)
+ *  assigned for use by a dock. Currently this is only supported on the Dell
+ *  Arcada / Sarien devices and the Dell WD19 / WD19TB Docking Station. It is
+ *  reserved specifically for MAC pass through device policy. The format is
+ *  twelve (12) hexadecimal digits without any delimiter (uppercase letters).
+ *  This is only relevant for Dell devices.
+ */
+@property(nonatomic, copy, nullable) NSString *dockMacAddress;
+
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** Chromebook Mac Address on ethernet network interface (Read-only) */
 @property(nonatomic, copy, nullable) NSString *ethernetMacAddress;
+
+/**
+ *  (Read-only) MAC address used by the Chromebook’s internal ethernet port, and
+ *  for onboard network (ethernet) interface. The format is twelve (12)
+ *  hexadecimal digits without any delimiter (uppercase letters). This is only
+ *  relevant for Dell devices.
+ */
+@property(nonatomic, copy, nullable) NSString *ethernetMacAddress0;
 
 /** Chromebook firmware version (Read-only) */
 @property(nonatomic, copy, nullable) NSString *firmwareVersion;
@@ -621,6 +648,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Chromebook Mac Address on wifi network interface (Read-only) */
 @property(nonatomic, copy, nullable) NSString *macAddress;
+
+/** (Read-only) The date the device was manufactured in yyyy-mm-dd format. */
+@property(nonatomic, copy, nullable) NSString *manufactureDate;
 
 /**
  *  Mobile Equipment identifier for the 3G mobile card in the Chromebook
@@ -1298,8 +1328,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Unique identifier of customer member (Read-only) Unique identifier of group
- *  (Read-only) Unique identifier of member (Read-only)
+ *  The unique ID of the group member. A member id can be used as a member
+ *  request URI's memberKey. Unique identifier of group (Read-only) Unique
+ *  identifier of member (Read-only)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1755,7 +1786,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** The name of the privilege. */
 @property(nonatomic, copy, nullable) NSString *privilegeName;
 
-/** The obfuscated ID of the service this privilege is for. */
+/**
+ *  The obfuscated ID of the service this privilege is for. This value is
+ *  returned with Privileges.list().
+ */
 @property(nonatomic, copy, nullable) NSString *serviceId;
 
 /** The name of the service this privilege is for. */
@@ -1843,7 +1877,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** The name of the privilege. */
 @property(nonatomic, copy, nullable) NSString *privilegeName;
 
-/** The obfuscated ID of the service this privilege is for. */
+/**
+ *  The obfuscated ID of the service this privilege is for. This value is
+ *  returned with Privileges.list().
+ */
 @property(nonatomic, copy, nullable) NSString *serviceId;
 
 @end
@@ -2405,6 +2442,15 @@ NS_ASSUME_NONNULL_BEGIN
 /** username of User */
 @property(nonatomic, copy, nullable) NSString *primaryEmail;
 
+/** Recovery email of the user. */
+@property(nonatomic, copy, nullable) NSString *recoveryEmail;
+
+/**
+ *  Recovery phone of the user. The phone number must be in the E.164 format,
+ *  starting with the plus sign (+). Example: +16506661212.
+ */
+@property(nonatomic, copy, nullable) NSString *recoveryPhone;
+
 /**
  *  relations
  *
@@ -2800,7 +2846,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
- *  The full-time equivalent percent within the organization (100000 = 100%).
+ *  The full-time equivalent millipercent within the organization (100000 =
+ *  100%).
  *
  *  Uses NSNumber of intValue.
  */

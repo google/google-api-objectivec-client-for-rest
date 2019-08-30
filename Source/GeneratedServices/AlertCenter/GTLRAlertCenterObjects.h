@@ -21,7 +21,10 @@
 @class GTLRAlertCenter_Alert;
 @class GTLRAlertCenter_Alert_Data;
 @class GTLRAlertCenter_AlertFeedback;
+@class GTLRAlertCenter_AlertMetadata;
 @class GTLRAlertCenter_Attachment;
+@class GTLRAlertCenter_BatchDeleteAlertsResponse_FailedAlertStatus;
+@class GTLRAlertCenter_BatchUndeleteAlertsResponse_FailedAlertStatus;
 @class GTLRAlertCenter_CloudPubsubTopic;
 @class GTLRAlertCenter_Csv;
 @class GTLRAlertCenter_CsvRow;
@@ -31,6 +34,8 @@
 @class GTLRAlertCenter_LoginDetails;
 @class GTLRAlertCenter_MaliciousEntity;
 @class GTLRAlertCenter_Notification;
+@class GTLRAlertCenter_Status;
+@class GTLRAlertCenter_Status_Details_Item;
 @class GTLRAlertCenter_SuspiciousActivitySecurityDetail;
 
 // Generated comments include content from the discovery document; avoid them
@@ -206,6 +211,22 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
+ *  Optional. `etag` is used for optimistic concurrency control as a way to help
+ *  prevent simultaneous updates of an alert from overwriting each other.
+ *  It is strongly suggested that systems make use of the `etag` in the
+ *  read-modify-write cycle to perform alert updates in order to avoid race
+ *  conditions: An `etag` is returned in the response which contains alerts,
+ *  and systems are expected to put that etag in the request to update alert to
+ *  ensure that their change will be applied to the same version of the alert.
+ *  If no `etag` is provided in the call to update alert, then the existing
+ *  alert is overwritten blindly.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Output only. The metadata associated with this alert. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_AlertMetadata *metadata;
+
+/**
  *  Output only. An optional
  *  [Security Investigation Tool](https://support.google.com/a/answer/7575955)
  *  query for this alert.
@@ -300,6 +321,62 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
 
 
 /**
+ *  An alert metadata.
+ */
+@interface GTLRAlertCenter_AlertMetadata : GTLRObject
+
+/** Output only. The alert identifier. */
+@property(nonatomic, copy, nullable) NSString *alertId;
+
+/** The email address of the user assigned to the alert. */
+@property(nonatomic, copy, nullable) NSString *assignee;
+
+/**
+ *  Output only. The unique identifier of the Google account of the customer.
+ */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Optional. `etag` is used for optimistic concurrency control as a way to
+ *  help prevent simultaneous updates of an alert metadata from overwriting
+ *  each other. It is strongly suggested that systems make use of the `etag` in
+ *  the read-modify-write cycle to perform metatdata updates in order to avoid
+ *  race conditions: An `etag` is returned in the response which contains alert
+ *  metadata, and systems are expected to put that etag in the request to
+ *  update alert metadata to ensure that their change will be applied to the
+ *  same version of the alert metadata.
+ *  If no `etag` is provided in the call to update alert metadata, then the
+ *  existing alert metadata is overwritten blindly.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The severity value of the alert. Alert Center will set this field at alert
+ *  creation time, default's to an empty string when it could not be
+ *  determined.
+ *  The supported values for update actions on this field are the following:
+ *  * HIGH
+ *  * MEDIUM
+ *  * LOW
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/**
+ *  The current status of the alert.
+ *  The supported values are the following:
+ *  * NOT_STARTED
+ *  * IN_PROGRESS
+ *  * CLOSED
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Output only. The time this metadata was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Attachment with application-specific information about an alert.
  */
 @interface GTLRAlertCenter_Attachment : GTLRObject
@@ -331,6 +408,92 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
  */
 @property(nonatomic, copy, nullable) NSString *sourceIp;
 
+@end
+
+
+/**
+ *  A request to perform batch delete on alerts.
+ */
+@interface GTLRAlertCenter_BatchDeleteAlertsRequest : GTLRObject
+
+/** Required. list of alert ids. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *alertId;
+
+/**
+ *  Optional. The unique identifier of the G Suite organization account of the
+ *  customer the alerts are associated with.
+ */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+@end
+
+
+/**
+ *  Response to batch delete operation on alerts.
+ */
+@interface GTLRAlertCenter_BatchDeleteAlertsResponse : GTLRObject
+
+/** The status details for each failed alert_id. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_BatchDeleteAlertsResponse_FailedAlertStatus *failedAlertStatus;
+
+/** The successful list of alert ids. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *successAlertIds;
+
+@end
+
+
+/**
+ *  The status details for each failed alert_id.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAlertCenter_Status. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAlertCenter_BatchDeleteAlertsResponse_FailedAlertStatus : GTLRObject
+@end
+
+
+/**
+ *  A request to perform batch undelete on alerts.
+ */
+@interface GTLRAlertCenter_BatchUndeleteAlertsRequest : GTLRObject
+
+/** Required. list of alert ids. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *alertId;
+
+/**
+ *  Optional. The unique identifier of the G Suite organization account of the
+ *  customer the alerts are associated with.
+ */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+@end
+
+
+/**
+ *  Response to batch undelete operation on alerts.
+ */
+@interface GTLRAlertCenter_BatchUndeleteAlertsResponse : GTLRObject
+
+/** The status details for each failed alert_id. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_BatchUndeleteAlertsResponse_FailedAlertStatus *failedAlertStatus;
+
+/** The successful list of alert ids. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *successAlertIds;
+
+@end
+
+
+/**
+ *  The status details for each failed alert_id.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAlertCenter_Status. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAlertCenter_BatchUndeleteAlertsResponse_FailedAlertStatus : GTLRObject
 @end
 
 
@@ -712,6 +875,51 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
 /** The email of the user this incident was created for. */
 @property(nonatomic, copy, nullable) NSString *email;
 
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details.
+ *  You can find out more about this error model and how to work with it in the
+ *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRAlertCenter_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRAlertCenter_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAlertCenter_Status_Details_Item : GTLRObject
 @end
 
 

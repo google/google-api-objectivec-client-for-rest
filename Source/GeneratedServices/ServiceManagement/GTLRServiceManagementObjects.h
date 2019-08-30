@@ -1042,15 +1042,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
- *  Specifies whether principals can be exempted for the same LogType in
- *  lower-level resource policies. If true, any lower-level exemptions will
- *  be ignored.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
-
-/**
  *  The log type that this config enables.
  *
  *  Likely values:

@@ -1963,6 +1963,224 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 
 @end
 
+@implementation GTLRShoppingContentQuery_ReturnaddressCustombatch
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ReturnaddressCustomBatchRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"returnaddress/batch";
+  GTLRShoppingContentQuery_ReturnaddressCustombatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRShoppingContent_ReturnaddressCustomBatchResponse class];
+  query.loggingName = @"content.returnaddress.custombatch";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnaddressDelete
+
+@dynamic merchantId, returnAddressId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                    returnAddressId:(NSString *)returnAddressId {
+  NSArray *pathParams = @[
+    @"merchantId", @"returnAddressId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/returnaddress/{returnAddressId}";
+  GTLRShoppingContentQuery_ReturnaddressDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.returnAddressId = returnAddressId;
+  query.loggingName = @"content.returnaddress.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnaddressGet
+
+@dynamic merchantId, returnAddressId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                    returnAddressId:(NSString *)returnAddressId {
+  NSArray *pathParams = @[
+    @"merchantId", @"returnAddressId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/returnaddress/{returnAddressId}";
+  GTLRShoppingContentQuery_ReturnaddressGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.returnAddressId = returnAddressId;
+  query.expectedObjectClass = [GTLRShoppingContent_ReturnAddress class];
+  query.loggingName = @"content.returnaddress.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnaddressInsert
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ReturnAddress *)object
+                     merchantId:(unsigned long long)merchantId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/returnaddress";
+  GTLRShoppingContentQuery_ReturnaddressInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ReturnAddress class];
+  query.loggingName = @"content.returnaddress.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnaddressList
+
+@dynamic country, maxResults, merchantId, pageToken;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/returnaddress";
+  GTLRShoppingContentQuery_ReturnaddressList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ReturnaddressListResponse class];
+  query.loggingName = @"content.returnaddress.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnpolicyCustombatch
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ReturnpolicyCustomBatchRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"returnpolicy/batch";
+  GTLRShoppingContentQuery_ReturnpolicyCustombatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRShoppingContent_ReturnpolicyCustomBatchResponse class];
+  query.loggingName = @"content.returnpolicy.custombatch";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnpolicyDelete
+
+@dynamic merchantId, returnPolicyId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                     returnPolicyId:(NSString *)returnPolicyId {
+  NSArray *pathParams = @[
+    @"merchantId", @"returnPolicyId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/returnpolicy/{returnPolicyId}";
+  GTLRShoppingContentQuery_ReturnpolicyDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.returnPolicyId = returnPolicyId;
+  query.loggingName = @"content.returnpolicy.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnpolicyGet
+
+@dynamic merchantId, returnPolicyId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                     returnPolicyId:(NSString *)returnPolicyId {
+  NSArray *pathParams = @[
+    @"merchantId", @"returnPolicyId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/returnpolicy/{returnPolicyId}";
+  GTLRShoppingContentQuery_ReturnpolicyGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.returnPolicyId = returnPolicyId;
+  query.expectedObjectClass = [GTLRShoppingContent_ReturnPolicy class];
+  query.loggingName = @"content.returnpolicy.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnpolicyInsert
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ReturnPolicy *)object
+                     merchantId:(unsigned long long)merchantId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/returnpolicy";
+  GTLRShoppingContentQuery_ReturnpolicyInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ReturnPolicy class];
+  query.loggingName = @"content.returnpolicy.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnpolicyList
+
+@dynamic merchantId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/returnpolicy";
+  GTLRShoppingContentQuery_ReturnpolicyList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ReturnpolicyListResponse class];
+  query.loggingName = @"content.returnpolicy.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_ShippingsettingsCustombatch
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_ShippingsettingsCustomBatchRequest *)object {

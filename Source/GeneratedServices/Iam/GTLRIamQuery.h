@@ -38,6 +38,7 @@
 @class GTLRIam_TestIamPermissionsRequest;
 @class GTLRIam_UndeleteRoleRequest;
 @class GTLRIam_UndeleteServiceAccountRequest;
+@class GTLRIam_UploadServiceAccountKeyRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1650,6 +1651,54 @@ GTLR_EXTERN NSString * const kGTLRIamViewFull;
  *  @return GTLRIamQuery_ProjectsServiceAccountsKeysList
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Upload public key for a given service account.
+ *  This rpc will create a
+ *  ServiceAccountKey that has the
+ *  provided public key and returns it.
+ *
+ *  Method: iam.projects.serviceAccounts.keys.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsServiceAccountsKeysUpload : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsServiceAccountsKeysUploadWithObject:name:]
+
+/**
+ *  The resource name of the service account in the following format:
+ *  `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *  Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *  the account. The `ACCOUNT` value can be the `email` address or the
+ *  `unique_id` of the service account.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_ServiceAccountKey.
+ *
+ *  Upload public key for a given service account.
+ *  This rpc will create a
+ *  ServiceAccountKey that has the
+ *  provided public key and returns it.
+ *
+ *  @param object The @c GTLRIam_UploadServiceAccountKeyRequest to include in
+ *    the query.
+ *  @param name The resource name of the service account in the following
+ *    format:
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+ *    Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
+ *    the account. The `ACCOUNT` value can be the `email` address or the
+ *    `unique_id` of the service account.
+ *
+ *  @return GTLRIamQuery_ProjectsServiceAccountsKeysUpload
+ */
++ (instancetype)queryWithObject:(GTLRIam_UploadServiceAccountKeyRequest *)object
+                           name:(NSString *)name;
 
 @end
 

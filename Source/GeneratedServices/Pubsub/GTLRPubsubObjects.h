@@ -579,8 +579,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_PullRequest : GTLRObject
 
 /**
- *  The maximum number of messages returned for this request. The Pub/Sub
- *  system may return fewer than the number specified.
+ *  The maximum number of messages to return for this request. Must be a
+ *  positive integer. The Pub/Sub system may return fewer than the number
+ *  specified.
  *
  *  Uses NSNumber of intValue.
  */

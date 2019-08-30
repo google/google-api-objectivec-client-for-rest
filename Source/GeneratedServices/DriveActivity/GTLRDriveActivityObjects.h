@@ -926,7 +926,10 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
 /** The Drive item is a file. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveFile *driveFile;
 
-/** The Drive item is a folder. */
+/**
+ *  The Drive item is a folder. Includes information about the type of
+ *  folder.
+ */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveFolder *driveFolder;
 
 /** This field is deprecated; please use the `driveFile` field instead. */

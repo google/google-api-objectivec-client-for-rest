@@ -167,7 +167,7 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 //
 
 @implementation GTLRFirebaseHosting_Header
-@dynamic glob, headers;
+@dynamic glob, headers, regex;
 @end
 
 
@@ -299,7 +299,7 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 //
 
 @implementation GTLRFirebaseHosting_Redirect
-@dynamic glob, location, statusCode;
+@dynamic glob, location, regex, statusCode;
 @end
 
 
@@ -319,7 +319,7 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 //
 
 @implementation GTLRFirebaseHosting_Rewrite
-@dynamic dynamicLinks, function, glob, path, run;
+@dynamic dynamicLinks, function, glob, path, regex, run;
 @end
 
 

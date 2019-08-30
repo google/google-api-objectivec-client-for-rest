@@ -1143,9 +1143,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @interface GTLRDataproc_GetPolicyOptions : GTLRObject
 
 /**
- *  Optional. The policy format version to be returned. Acceptable values are 0
- *  and 1. If the value is 0, or the field is omitted, policy format version 1
- *  will be returned.
+ *  Optional. The policy format version to be returned. Acceptable values are 0,
+ *  1, and 3. If the value is 0, or the field is omitted, policy format version
+ *  1 will be returned.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1311,7 +1311,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @interface GTLRDataproc_InstanceGroupConfig : GTLRObject
 
 /**
- *  Optional. The Compute Engine accelerator configuration for these instances.
+ *  Optional. The Compute Engine accelerator configuration for these
+ *  instances.Beta Feature: This feature is still under development. It may be
+ *  changed before final release.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_AcceleratorConfig *> *accelerators;
 
@@ -2863,7 +2865,14 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Output only. The "resource name" of the template.
+ *  Output only. The resource name of the workflow template as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates, the resource name of the template
+ *  has the following format:
+ *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *  For projects.locations.workflowTemplates, the resource name of the template
+ *  has the following format:
+ *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  Remapped to 'templateProperty' to avoid language reserved word 'template'.
  */
@@ -2963,9 +2972,14 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, strong, nullable) GTLRDataproc_WorkflowTemplate_Labels *labels;
 
 /**
- *  Output only. The "resource name" of the template, as described in
- *  https://cloud.google.com/apis/design/resource_names of the form
+ *  Output only. The resource name of the workflow template, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.workflowTemplates, the resource name of the template
+ *  has the following format:
  *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
+ *  For projects.locations.workflowTemplates, the resource name of the template
+ *  has the following format:
+ *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

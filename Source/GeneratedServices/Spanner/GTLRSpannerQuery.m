@@ -284,6 +284,31 @@
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBatchCreate
+
+@dynamic database;
+
++ (instancetype)queryWithObject:(GTLRSpanner_BatchCreateSessionsRequest *)object
+                       database:(NSString *)database {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"database" ];
+  NSString *pathURITemplate = @"v1/{+database}/sessions:batchCreate";
+  GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBatchCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.database = database;
+  query.expectedObjectClass = [GTLRSpanner_BatchCreateSessionsResponse class];
+  query.loggingName = @"spanner.projects.instances.databases.sessions.batchCreate";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBeginTransaction
 
 @dynamic session;

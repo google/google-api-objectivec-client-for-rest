@@ -127,7 +127,7 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_AuditLogConfig
-@dynamic exemptedMembers, ignoreChildExemptions, logType;
+@dynamic exemptedMembers, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

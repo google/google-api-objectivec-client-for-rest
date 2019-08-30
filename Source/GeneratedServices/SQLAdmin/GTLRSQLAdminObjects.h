@@ -161,6 +161,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Disk encryption configuration specific to a backup. Applies only to Second
+ *  Generation instances.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DiskEncryptionConfiguration *diskEncryptionConfiguration;
+
+/**
+ *  Disk encryption status specific to a backup. Applies only to Second
+ *  Generation instances.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DiskEncryptionStatus *diskEncryptionStatus;
+
+/**
  *  The time the backup operation completed in UTC timezone in RFC 3339 format,
  *  for example 2012-11-15T16:19:00.094Z.
  */

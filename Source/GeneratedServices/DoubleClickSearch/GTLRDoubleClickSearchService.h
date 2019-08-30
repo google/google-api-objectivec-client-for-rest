@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DoubleClick Search API (doubleclicksearch/v2)
+//   Search Ads 360 API (doubleclicksearch/v2)
 // Description:
 //   Reports and modifies your advertising data in DoubleClick Search (for
 //   example, campaigns, ad groups, keywords, and conversions).
@@ -42,7 +42,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeDoubleClickSearch;
 //
 
 /**
- *  Service for executing DoubleClick Search API queries.
+ *  Service for executing Search Ads 360 API queries.
  *
  *  Reports and modifies your advertising data in DoubleClick Search (for
  *  example, campaigns, ad groups, keywords, and conversions).

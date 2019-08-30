@@ -92,6 +92,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Corresponds to `ClaimReview.reviewRating.image`. */
 @property(nonatomic, copy, nullable) NSString *imageUrl;
 
+/** Corresponds to `ClaimReview.reviewRating.ratingExplanation`. */
+@property(nonatomic, copy, nullable) NSString *ratingExplanation;
+
 /**
  *  A numeric rating of this claim, in the range worstRating — bestRating
  *  inclusive.<br>

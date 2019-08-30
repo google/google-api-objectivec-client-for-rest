@@ -31,6 +31,7 @@
 @class GTLRContainer_ConsumptionMeteringConfig;
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_HorizontalPodAutoscaling;
+@class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
 @class GTLRContainer_IPAllocationPolicy;
 @class GTLRContainer_Jwk;
@@ -1233,6 +1234,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 @interface GTLRContainer_GetJSONWebKeysResponse : GTLRObject
 
 /**
+ *  OnePlatform automatically extracts this field and uses it to set the HTTP
+ *  Cache-Control header.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_HttpCacheControlResponseHeader *cacheHeader;
+
+/**
  *  The public component of the keys used by the cluster to sign token
  *  requests.
  */
@@ -1246,6 +1253,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  See the OpenID Connect Discovery 1.0 specification for details.
  */
 @interface GTLRContainer_GetOpenIDConfigResponse : GTLRObject
+
+/**
+ *  OnePlatform automatically extracts this field and uses it to set the HTTP
+ *  Cache-Control header.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_HttpCacheControlResponseHeader *cacheHeader;
 
 /** Supported claims. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *claimsSupported;
@@ -1286,6 +1299,27 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+@end
+
+
+/**
+ *  RFC-2616: cache control support
+ */
+@interface GTLRContainer_HttpCacheControlResponseHeader : GTLRObject
+
+/**
+ *  14.6 response cache age, in seconds since the response is generated
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *age;
+
+/** 14.9 request and response directives */
+@property(nonatomic, copy, nullable) NSString *directive;
+
+/** 14.21 response cache expires, in RFC 1123 date format */
+@property(nonatomic, copy, nullable) NSString *expires;
 
 @end
 

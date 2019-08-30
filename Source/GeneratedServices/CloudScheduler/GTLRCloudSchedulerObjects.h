@@ -504,8 +504,7 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 @property(nonatomic, strong, nullable) GTLRCloudScheduler_OidcToken *oidcToken;
 
 /**
- *  Required.
- *  The full URI path that the request will be sent to. This string
+ *  Required. The full URI path that the request will be sent to. This string
  *  must begin with either "http://" or "https://". Some examples of
  *  valid values for uri are:
  *  `http://acme.com` and `https://acme.com/sales:8080`. Cloud Scheduler will
@@ -935,8 +934,7 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 @property(nonatomic, copy, nullable) NSString *data;
 
 /**
- *  Required.
- *  The name of the Cloud Pub/Sub topic to which messages will
+ *  Required. The name of the Cloud Pub/Sub topic to which messages will
  *  be published when a job is delivered. The topic name must be in the
  *  same format as required by PubSub's
  *  [PublishRequest.name](https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#publishrequest),

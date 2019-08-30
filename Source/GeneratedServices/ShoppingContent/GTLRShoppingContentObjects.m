@@ -1561,8 +1561,8 @@
 @implementation GTLRShoppingContent_OrderLineItem
 @dynamic adjustments, annotations, cancellations, identifier, price, product,
          quantityCanceled, quantityDelivered, quantityOrdered, quantityPending,
-         quantityReturned, quantityShipped, returnInfo, returns,
-         shippingDetails, tax;
+         quantityReturned, quantityShipped, quantityUndeliverable, returnInfo,
+         returns, shippingDetails, tax;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2890,6 +2890,226 @@
 
 @implementation GTLRShoppingContent_RegionalinventoryCustomBatchResponseEntry
 @dynamic batchId, errors, kind, regionalInventory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnAddress
+//
+
+@implementation GTLRShoppingContent_ReturnAddress
+@dynamic address, country, kind, label, phoneNumber, returnAddressId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnAddressAddress
+//
+
+@implementation GTLRShoppingContent_ReturnAddressAddress
+@dynamic country, locality, postalCode, recipientName, region, streetAddress;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"streetAddress" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnaddressCustomBatchRequest
+//
+
+@implementation GTLRShoppingContent_ReturnaddressCustomBatchRequest
+@dynamic entries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRShoppingContent_ReturnaddressCustomBatchRequestEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnaddressCustomBatchRequestEntry
+//
+
+@implementation GTLRShoppingContent_ReturnaddressCustomBatchRequestEntry
+@dynamic batchId, merchantId, method, returnAddress, returnAddressId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnaddressCustomBatchResponse
+//
+
+@implementation GTLRShoppingContent_ReturnaddressCustomBatchResponse
+@dynamic entries, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRShoppingContent_ReturnaddressCustomBatchResponseEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnaddressCustomBatchResponseEntry
+//
+
+@implementation GTLRShoppingContent_ReturnaddressCustomBatchResponseEntry
+@dynamic batchId, errors, kind, returnAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnaddressListResponse
+//
+
+@implementation GTLRShoppingContent_ReturnaddressListResponse
+@dynamic kind, nextPageToken, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRShoppingContent_ReturnAddress class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnPolicy
+//
+
+@implementation GTLRShoppingContent_ReturnPolicy
+@dynamic country, kind, label, name, nonFreeReturnReasons, policy,
+         returnPolicyId, seasonalOverrides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nonFreeReturnReasons" : [NSString class],
+    @"seasonalOverrides" : [GTLRShoppingContent_ReturnPolicySeasonalOverride class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnpolicyCustomBatchRequest
+//
+
+@implementation GTLRShoppingContent_ReturnpolicyCustomBatchRequest
+@dynamic entries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRShoppingContent_ReturnpolicyCustomBatchRequestEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnpolicyCustomBatchRequestEntry
+//
+
+@implementation GTLRShoppingContent_ReturnpolicyCustomBatchRequestEntry
+@dynamic batchId, merchantId, method, returnPolicy, returnPolicyId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnpolicyCustomBatchResponse
+//
+
+@implementation GTLRShoppingContent_ReturnpolicyCustomBatchResponse
+@dynamic entries, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRShoppingContent_ReturnpolicyCustomBatchResponseEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnpolicyCustomBatchResponseEntry
+//
+
+@implementation GTLRShoppingContent_ReturnpolicyCustomBatchResponseEntry
+@dynamic batchId, errors, kind, returnPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnpolicyListResponse
+//
+
+@implementation GTLRShoppingContent_ReturnpolicyListResponse
+@dynamic kind, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRShoppingContent_ReturnPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnPolicyPolicy
+//
+
+@implementation GTLRShoppingContent_ReturnPolicyPolicy
+@dynamic lastReturnDate, numberOfDays, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnPolicySeasonalOverride
+//
+
+@implementation GTLRShoppingContent_ReturnPolicySeasonalOverride
+@dynamic endDate, name, policy, startDate;
 @end
 
 

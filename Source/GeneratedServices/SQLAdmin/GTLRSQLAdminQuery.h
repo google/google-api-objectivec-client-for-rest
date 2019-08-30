@@ -1739,7 +1739,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySQLAdmin queryForUsersUpdateWithObject:project:instance:name:]
 
-/** Host of the user in the instance. */
+/**
+ *  Host of the user in the instance. For a MySQL instance, it's required; For a
+ *  PostgreSQL instance, it's optional.
+ */
 @property(nonatomic, copy, nullable) NSString *host;
 
 /** Database instance ID. This does not include the project ID. */

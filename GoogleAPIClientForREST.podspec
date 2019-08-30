@@ -112,6 +112,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/BigQueryDataTransfer/*.{h,m}'
   end
+  s.subspec 'BigQueryReservation' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/BigQueryReservation/*.{h,m}'
+  end
   s.subspec 'Bigquery' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Bigquery/*.{h,m}'
@@ -344,6 +348,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Docs/*.{h,m}'
   end
+  s.subspec 'DomainsRDAP' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/DomainsRDAP/*.{h,m}'
+  end
   s.subspec 'DoubleClickBidManager' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DoubleClickBidManager/*.{h,m}'
@@ -427,6 +435,10 @@ Pod::Spec.new do |s|
   s.subspec 'HangoutsChat' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/HangoutsChat/*.{h,m}'
+  end
+  s.subspec 'HomeGraphService' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/HomeGraphService/*.{h,m}'
   end
   s.subspec 'IAMCredentials' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

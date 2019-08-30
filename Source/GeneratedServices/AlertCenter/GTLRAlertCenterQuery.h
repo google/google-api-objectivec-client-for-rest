@@ -19,6 +19,8 @@
 #endif
 
 @class GTLRAlertCenter_AlertFeedback;
+@class GTLRAlertCenter_BatchDeleteAlertsRequest;
+@class GTLRAlertCenter_BatchUndeleteAlertsRequest;
 @class GTLRAlertCenter_Settings;
 @class GTLRAlertCenter_UndeleteAlertRequest;
 
@@ -36,6 +38,58 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Performs batch delete operation on alerts.
+ *
+ *  Method: alertcenter.alerts.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAlertCenterAppsAlerts
+ */
+@interface GTLRAlertCenterQuery_AlertsBatchDelete : GTLRAlertCenterQuery
+// Previous library name was
+//   +[GTLQueryAlertCenter queryForAlertsBatchDeleteWithObject:]
+
+/**
+ *  Fetches a @c GTLRAlertCenter_BatchDeleteAlertsResponse.
+ *
+ *  Performs batch delete operation on alerts.
+ *
+ *  @param object The @c GTLRAlertCenter_BatchDeleteAlertsRequest to include in
+ *    the query.
+ *
+ *  @return GTLRAlertCenterQuery_AlertsBatchDelete
+ */
++ (instancetype)queryWithObject:(GTLRAlertCenter_BatchDeleteAlertsRequest *)object;
+
+@end
+
+/**
+ *  Performs batch undelete operation on alerts.
+ *
+ *  Method: alertcenter.alerts.batchUndelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAlertCenterAppsAlerts
+ */
+@interface GTLRAlertCenterQuery_AlertsBatchUndelete : GTLRAlertCenterQuery
+// Previous library name was
+//   +[GTLQueryAlertCenter queryForAlertsBatchUndeleteWithObject:]
+
+/**
+ *  Fetches a @c GTLRAlertCenter_BatchUndeleteAlertsResponse.
+ *
+ *  Performs batch undelete operation on alerts.
+ *
+ *  @param object The @c GTLRAlertCenter_BatchUndeleteAlertsRequest to include
+ *    in the query.
+ *
+ *  @return GTLRAlertCenterQuery_AlertsBatchUndelete
+ */
++ (instancetype)queryWithObject:(GTLRAlertCenter_BatchUndeleteAlertsRequest *)object;
 
 @end
 
@@ -84,7 +138,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates new feedback for an alert. Attempting to create a feedback for
- *  a non-existent alert returns `NOT_FOUND` error.
+ *  a non-existent alert returns `NOT_FOUND` error. Attempting to create a
+ *  feedback for an alert that is marked for deletion returns
+ *  `FAILED_PRECONDITION' error.
  *
  *  Method: alertcenter.alerts.feedback.create
  *
@@ -109,7 +165,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAlertCenter_AlertFeedback.
  *
  *  Creates new feedback for an alert. Attempting to create a feedback for
- *  a non-existent alert returns `NOT_FOUND` error.
+ *  a non-existent alert returns `NOT_FOUND` error. Attempting to create a
+ *  feedback for an alert that is marked for deletion returns
+ *  `FAILED_PRECONDITION' error.
  *
  *  @param object The @c GTLRAlertCenter_AlertFeedback to include in the query.
  *  @param alertId Required. The identifier of the alert this feedback belongs
@@ -204,6 +262,44 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param alertId Required. The identifier of the alert to retrieve.
  *
  *  @return GTLRAlertCenterQuery_AlertsGet
+ */
++ (instancetype)queryWithAlertId:(NSString *)alertId;
+
+@end
+
+/**
+ *  Returns the metadata of an alert. Attempting to get metadata for
+ *  a non-existent alert returns `NOT_FOUND` error.
+ *
+ *  Method: alertcenter.alerts.getMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAlertCenterAppsAlerts
+ */
+@interface GTLRAlertCenterQuery_AlertsGetMetadata : GTLRAlertCenterQuery
+// Previous library name was
+//   +[GTLQueryAlertCenter queryForAlertsGetMetadataWithalertId:]
+
+/** Required. The identifier of the alert this metadata belongs to. */
+@property(nonatomic, copy, nullable) NSString *alertId;
+
+/**
+ *  Optional. The unique identifier of the G Suite organization account of the
+ *  customer the alert metadata is associated with.
+ *  Inferred from the caller identity if not provided.
+ */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Fetches a @c GTLRAlertCenter_AlertMetadata.
+ *
+ *  Returns the metadata of an alert. Attempting to get metadata for
+ *  a non-existent alert returns `NOT_FOUND` error.
+ *
+ *  @param alertId Required. The identifier of the alert this metadata belongs
+ *    to.
+ *
+ *  @return GTLRAlertCenterQuery_AlertsGetMetadata
  */
 + (instancetype)queryWithAlertId:(NSString *)alertId;
 

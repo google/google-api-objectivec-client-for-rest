@@ -186,6 +186,23 @@ GTLR_EXTERN NSString * const kGTLRYouTubeFilterAll;
 GTLR_EXTERN NSString * const kGTLRYouTubeFilterNewest;
 
 // ----------------------------------------------------------------------------
+// mode
+
+/**
+ *  Return all current members, from newest to oldest.
+ *
+ *  Value: "all_current"
+ */
+GTLR_EXTERN NSString * const kGTLRYouTubeModeAllCurrent;
+/**
+ *  Return only members that joined after the first call with this mode was
+ *  made.
+ *
+ *  Value: "updates"
+ */
+GTLR_EXTERN NSString * const kGTLRYouTubeModeUpdates;
+
+// ----------------------------------------------------------------------------
 // moderationStatus
 
 /** Value: "heldForReview" */
@@ -3768,6 +3785,117 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  */
 + (instancetype)queryWithObject:(GTLRYouTube_LiveStream *)object
                            part:(NSString *)part;
+
+@end
+
+/**
+ *  Lists pricing levels for a channel.
+ *
+ *  Method: youtube.membershipsLevels.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeForceSsl
+ *    @c kGTLRAuthScopeYouTubeReadonly
+ *    @c kGTLRAuthScopeYouTubeYoutubepartner
+ */
+@interface GTLRYouTubeQuery_MembershipsLevelsList : GTLRYouTubeQuery
+// Previous library name was
+//   +[GTLQueryYouTube queryForMembershipsLevelsListWithpart:]
+
+/**
+ *  The part parameter specifies the membershipsLevel resource parts that the
+ *  API response will include. Supported values are id and snippet.
+ */
+@property(nonatomic, copy, nullable) NSString *part;
+
+/**
+ *  Fetches a @c GTLRYouTube_MembershipsLevelListResponse.
+ *
+ *  Lists pricing levels for a channel.
+ *
+ *  @param part The part parameter specifies the membershipsLevel resource parts
+ *    that the API response will include. Supported values are id and snippet.
+ *
+ *  @return GTLRYouTubeQuery_MembershipsLevelsList
+ */
++ (instancetype)queryWithPart:(NSString *)part;
+
+@end
+
+/**
+ *  Lists members for a channel.
+ *
+ *  Method: youtube.members.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeForceSsl
+ *    @c kGTLRAuthScopeYouTubeReadonly
+ *    @c kGTLRAuthScopeYouTubeYoutubepartner
+ */
+@interface GTLRYouTubeQuery_MembersList : GTLRYouTubeQuery
+// Previous library name was
+//   +[GTLQueryYouTube queryForMembersListWithpart:]
+
+/**
+ *  The hasAccessToLevel parameter specifies, when set, the ID of a pricing
+ *  level that members from the results set should have access to. When not set,
+ *  all members will be considered, regardless of their active pricing level.
+ */
+@property(nonatomic, copy, nullable) NSString *hasAccessToLevel;
+
+/**
+ *  The maxResults parameter specifies the maximum number of items that should
+ *  be returned in the result set.
+ *
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..50).
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  The mode parameter specifies which channel members to return.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTubeModeAllCurrent Return all current members, from newest
+ *        to oldest. (Value: "all_current")
+ *    @arg @c kGTLRYouTubeModeUpdates Return only members that joined after the
+ *        first call with this mode was made. (Value: "updates")
+ *
+ *  @note If not set, the documented server-side default will be
+ *        "LIST_MEMBERS_MODE_ALL_CURRENT".
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  The pageToken parameter identifies a specific page in the result set that
+ *  should be returned. In an API response, the nextPageToken and prevPageToken
+ *  properties identify other pages that could be retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The part parameter specifies the member resource parts that the API response
+ *  will include. Supported values are id and snippet.
+ */
+@property(nonatomic, copy, nullable) NSString *part;
+
+/**
+ *  Fetches a @c GTLRYouTube_MemberListResponse.
+ *
+ *  Lists members for a channel.
+ *
+ *  @param part The part parameter specifies the member resource parts that the
+ *    API response will include. Supported values are id and snippet.
+ *
+ *  @return GTLRYouTubeQuery_MembersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithPart:(NSString *)part;
 
 @end
 

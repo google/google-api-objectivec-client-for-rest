@@ -42,7 +42,8 @@
 //
 
 @implementation GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1ClaimRating
-@dynamic bestRating, imageUrl, ratingValue, textualRating, worstRating;
+@dynamic bestRating, imageUrl, ratingExplanation, ratingValue, textualRating,
+         worstRating;
 @end
 
 

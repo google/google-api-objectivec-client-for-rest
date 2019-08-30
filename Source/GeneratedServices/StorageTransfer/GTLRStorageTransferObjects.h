@@ -567,14 +567,14 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 
 /**
- *  In a GcsData resource, an object's name is the Google Cloud Storage object's
+ *  In a GcsData resource, an object's name is the Cloud Storage object's
  *  name and its `lastModificationTime` refers to the object's updated time,
  *  which changes when the content or the metadata of the object is updated.
  */
 @interface GTLRStorageTransfer_GcsData : GTLRObject
 
 /**
- *  Required. Google Cloud Storage bucket name (see
+ *  Required. Cloud Storage bucket name (see
  *  [Bucket Name
  *  Requirements](https://cloud.google.com/storage/docs/naming#requirements)).
  */
@@ -618,7 +618,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  bytes, the object transfer will fail. For more information, see
  *  [Generating MD5 hashes](https://cloud.google.com/storage/transfer/#md5)
  *  * Ensure that each URL you specify is publicly accessible. For
- *  example, in Google Cloud Storage you can
+ *  example, in Cloud Storage you can
  *  [share an object publicly]
  *  (https://cloud.google.com/storage/docs/cloud-console#_sharingdata) and get
  *  a link to it.
@@ -691,7 +691,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /**
  *  Conditions that determine which objects will be transferred. Applies only
- *  to S3 and GCS objects.
+ *  to S3 and Cloud Storage objects.
  */
 @interface GTLRStorageTransfer_ObjectConditions : GTLRObject
 
@@ -740,7 +740,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  `NOW` refers to the `start_time` of the 'TransferOperation`. Also,
  *  `lastModificationTime` refers to the time of the last change to the
  *  object's content or metadata - specifically, this would be the `updated`
- *  property of GCS objects and the `LastModified` field of S3 objects.
+ *  property of Cloud Storage objects and the `LastModified` field of S3
+ *  objects.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxTimeElapsedSinceLastModification;
 
@@ -752,7 +753,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  `NOW` refers to the `start_time` of the 'TransferOperation`. Also,
  *  `lastModificationTime` refers to the time of the last change to the
  *  object's content or metadata - specifically, this would be the `updated`
- *  property of GCS objects and the `LastModified` field of S3 objects.
+ *  property of Cloud Storage objects and the `LastModified` field of S3
+ *  objects.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *minTimeElapsedSinceLastModification;
 
@@ -1253,10 +1255,10 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 /** An AWS S3 data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AwsS3Data *awsS3DataSource;
 
-/** A Google Cloud Storage data sink. */
+/** A Cloud Storage data sink. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_GcsData *gcsDataSink;
 
-/** A Google Cloud Storage data source. */
+/** A Cloud Storage data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_GcsData *gcsDataSource;
 
 /** An HTTP URL data source. */

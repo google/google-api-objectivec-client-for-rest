@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryLibraryagent queryForShelvesBooksBorrowWithname:]
 
-/** The name of the book to borrow. */
+/** Required. The name of the book to borrow. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns quota exceeded error if the amount of books borrowed exceeds
  *  allocation quota in any dimensions.
  *
- *  @param name The name of the book to borrow.
+ *  @param name Required. The name of the book to borrow.
  *
  *  @return GTLRLibraryagentQuery_ShelvesBooksBorrow
  */
@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryLibraryagent queryForShelvesBooksGetWithname:]
 
-/** The name of the book to retrieve. */
+/** Required. The name of the book to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -89,7 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a book. Returns NOT_FOUND if the book does not exist.
  *
- *  @param name The name of the book to retrieve.
+ *  @param name Required. The name of the book to retrieve.
  *
  *  @return GTLRLibraryagentQuery_ShelvesBooksGet
  */
@@ -125,7 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The name of the shelf whose books we'd like to list. */
+/** Required. The name of the shelf whose books we'd like to list. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -135,7 +135,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  created books will not necessarily be added to the end of this list.
  *  Returns NOT_FOUND if the shelf does not exist.
  *
- *  @param parent The name of the shelf whose books we'd like to list.
+ *  @param parent Required. The name of the shelf whose books we'd like to list.
  *
  *  @return GTLRLibraryagentQuery_ShelvesBooksList
  *
@@ -162,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryLibraryagent queryForShelvesBooksReturnWithname:]
 
-/** The name of the book to return. */
+/** Required. The name of the book to return. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -173,7 +173,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns error if the book does not belong to the library
  *  or the users didn't borrow before.
  *
- *  @param name The name of the book to return.
+ *  @param name Required. The name of the book to return.
  *
  *  @return GTLRLibraryagentQuery_ShelvesBooksReturn
  */
@@ -193,7 +193,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryLibraryagent queryForShelvesGetWithname:]
 
-/** The name of the shelf to retrieve. */
+/** Required. The name of the shelf to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -201,7 +201,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a shelf. Returns NOT_FOUND if the shelf does not exist.
  *
- *  @param name The name of the shelf to retrieve.
+ *  @param name Required. The name of the shelf to retrieve.
  *
  *  @return GTLRLibraryagentQuery_ShelvesGet
  */

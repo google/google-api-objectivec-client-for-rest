@@ -672,10 +672,21 @@ NSString * const kGTLRYouTube_ContentRating_NfvcbRating_NfvcbUnrated = @"nfvcbUn
 
 // GTLRYouTube_ContentRating.nkclvRating
 NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv12plus = @"nkclv12plus";
+NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv16plus = @"nkclv16plus";
 NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv18plus = @"nkclv18plus";
 NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv7plus = @"nkclv7plus";
 NSString * const kGTLRYouTube_ContentRating_NkclvRating_NkclvU = @"nkclvU";
 NSString * const kGTLRYouTube_ContentRating_NkclvRating_NkclvUnrated = @"nkclvUnrated";
+
+// GTLRYouTube_ContentRating.nmcRating
+NSString * const kGTLRYouTube_ContentRating_NmcRating_Nmc15plus = @"nmc15plus";
+NSString * const kGTLRYouTube_ContentRating_NmcRating_Nmc18plus = @"nmc18plus";
+NSString * const kGTLRYouTube_ContentRating_NmcRating_Nmc18tc  = @"nmc18tc";
+NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcG     = @"nmcG";
+NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcPg    = @"nmcPg";
+NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcPg13  = @"nmcPg13";
+NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcPg15  = @"nmcPg15";
+NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcUnrated = @"nmcUnrated";
 
 // GTLRYouTube_ContentRating.oflcRating
 NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcG   = @"oflcG";
@@ -1874,9 +1885,10 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
          mccypRating, mcstRating, mdaRating, medietilsynetRating, mekuRating,
          menaMpaaRating, mibacRating, mocRating, moctwRating, mpaaRating,
          mpaatRating, mtrcbRating, nbcplRating, nbcRating, nfrcRating,
-         nfvcbRating, nkclvRating, oflcRating, pefilmRating, rcnofRating,
-         resorteviolenciaRating, rtcRating, rteRating, russiaRating,
-         skfilmRating, smaisRating, smsaRating, tvpgRating, ytRating;
+         nfvcbRating, nkclvRating, nmcRating, oflcRating, pefilmRating,
+         rcnofRating, resorteviolenciaRating, rtcRating, rteRating,
+         russiaRating, skfilmRating, smaisRating, smsaRating, tvpgRating,
+         ytRating;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2136,6 +2148,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LanguageTag
 @dynamic value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LevelDetails
+//
+
+@implementation GTLRYouTube_LevelDetails
+@dynamic displayName;
 @end
 
 
@@ -2669,6 +2691,128 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LocalizedString
 @dynamic language, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_Member
+//
+
+@implementation GTLRYouTube_Member
+@dynamic ETag, identifier, kind, snippet;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_MemberListResponse
+//
+
+@implementation GTLRYouTube_MemberListResponse
+@dynamic ETag, eventId, items, kind, nextPageToken, pageInfo, tokenPagination,
+         visitorId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRYouTube_Member class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_MembershipsDetails
+//
+
+@implementation GTLRYouTube_MembershipsDetails
+@dynamic accessibleLevels, memberSince, memberSinceCurrentLevel,
+         memberTotalDuration, memberTotalDurationCurrentLevel, purchasedLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessibleLevels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_MembershipsLevel
+//
+
+@implementation GTLRYouTube_MembershipsLevel
+@dynamic ETag, identifier, kind, snippet;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_MembershipsLevelListResponse
+//
+
+@implementation GTLRYouTube_MembershipsLevelListResponse
+@dynamic ETag, eventId, items, kind, visitorId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRYouTube_MembershipsLevel class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_MembershipsLevelSnippet
+//
+
+@implementation GTLRYouTube_MembershipsLevelSnippet
+@dynamic creatorChannelId, levelDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_MemberSnippet
+//
+
+@implementation GTLRYouTube_MemberSnippet
+@dynamic creatorChannelId, memberDetails, membershipsDetails;
 @end
 
 
