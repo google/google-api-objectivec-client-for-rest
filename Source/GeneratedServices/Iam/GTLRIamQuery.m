@@ -598,6 +598,31 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 @end
 
+@implementation GTLRIamQuery_ProjectsServiceAccountsKeysUpload
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIam_UploadServiceAccountKeyRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/keys:upload";
+  GTLRIamQuery_ProjectsServiceAccountsKeysUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_ServiceAccountKey class];
+  query.loggingName = @"iam.projects.serviceAccounts.keys.upload";
+  return query;
+}
+
+@end
+
 @implementation GTLRIamQuery_ProjectsServiceAccountsList
 
 @dynamic name, pageSize, pageToken;

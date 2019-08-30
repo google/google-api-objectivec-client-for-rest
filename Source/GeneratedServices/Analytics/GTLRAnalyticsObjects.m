@@ -1596,7 +1596,7 @@
 //
 
 @implementation GTLRAnalytics_UserDeletionRequest
-@dynamic deletionRequestTime, firebaseProjectId, identifier, kind,
+@dynamic deletionRequestTime, firebaseProjectId, identifier, kind, propertyId,
          webPropertyId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

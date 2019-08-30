@@ -24,6 +24,7 @@
 @class GTLRCloudTasks_Attempt;
 @class GTLRCloudTasks_Binding;
 @class GTLRCloudTasks_Expr;
+@class GTLRCloudTasks_GetPolicyOptions;
 @class GTLRCloudTasks_Location;
 @class GTLRCloudTasks_Location_Labels;
 @class GTLRCloudTasks_Location_Metadata;
@@ -259,11 +260,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  protocol.
  *  The AppEngineRouting used to construct the URL that the task is
  *  delivered to can be set at the queue-level or task-level:
- *  * If set,
- *  app_engine_routing_override
- *  is used for all tasks in the queue, no matter what the setting
- *  is for the
- *  task-level app_engine_routing.
+ *  * If app_engine_routing_override is set on the
+ *  queue, this value is used for all
+ *  tasks in the queue, no matter what the setting is for the task-level
+ *  app_engine_routing.
  *  The `url` that the task will be sent to is:
  *  * `url =` host `+`
  *  relative_uri
@@ -293,10 +293,10 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 /**
  *  Task-level setting for App Engine routing.
- *  If set,
- *  app_engine_routing_override
- *  is used for all tasks in the queue, no matter what the setting is for the
- *  task-level app_engine_routing.
+ *  * If app_engine_routing_override is set on the
+ *  queue, this value is used for all
+ *  tasks in the queue, no matter what the setting is for the task-level
+ *  app_engine_routing.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_AppEngineRouting *appEngineRouting;
 
@@ -448,6 +448,11 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  routing](https://cloud.google.com/appengine/docs/standard/python/how-requests-are-routed),
  *  and [App Engine Flex request
  *  routing](https://cloud.google.com/appengine/docs/flexible/python/how-requests-are-routed).
+ *  Using AppEngineRouting requires
+ *  [`appengine.applications.get`](https://cloud.google.com/appengine/docs/admin-api/access-control)
+ *  Google IAM permission for the project
+ *  and the following scope:
+ *  `https://www.googleapis.com/auth/cloud-platform`
  */
 @interface GTLRCloudTasks_AppEngineRouting : GTLRObject
 
@@ -572,7 +577,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -629,8 +634,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *responseView;
 
 /**
- *  Required.
- *  The task to add.
+ *  Required. The task to add.
  *  Task names have the following format:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`.
  *  The user can optionally specify a task name. If a
@@ -721,6 +725,31 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  Request message for `GetIamPolicy` method.
  */
 @interface GTLRCloudTasks_GetIamPolicyRequest : GTLRObject
+
+/**
+ *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
+ *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_GetPolicyOptions *options;
+
+@end
+
+
+/**
+ *  Encapsulates settings provided to GetIamPolicy.
+ */
+@interface GTLRCloudTasks_GetPolicyOptions : GTLRObject
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0, 1, and 3.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedPolicyVersion;
+
 @end
 
 
@@ -935,7 +964,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1116,7 +1145,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  Cloud Tasks will pick the value of `max_burst_size` based on the
  *  value of
  *  max_dispatches_per_second.
- *  For App Engine queues that were created or updated using
+ *  For queues that were created or updated using
  *  `queue.yaml/xml`, `max_burst_size` is equal to
  *  [bucket_size](https://cloud.google.com/appengine/docs/standard/python/config/queueref#bucket_size).
  *  Since `max_burst_size` is output only, if
@@ -1152,8 +1181,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  The maximum rate at which tasks are dispatched from this queue.
  *  If unspecified when the queue is created, Cloud Tasks will pick the
  *  default.
- *  * For App Engine queues, the maximum allowed value
- *  is 500.
+ *  * The maximum allowed value is 500.
  *  This field has the same meaning as
  *  [rate in
  *  queue.yaml/xml](https://cloud.google.com/appengine/docs/standard/python/config/queueref#rate).
@@ -1466,8 +1494,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *responseCount;
 
 /**
- *  The time when the task is scheduled to be attempted.
- *  For App Engine queues, this is when the task will be attempted or retried.
+ *  The time when the task is scheduled to be attempted or retried.
  *  `schedule_time` will be truncated to the nearest microsecond.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduleTime;

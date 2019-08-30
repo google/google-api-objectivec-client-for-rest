@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DoubleClick Search API (doubleclicksearch/v2)
+//   Search Ads 360 API (doubleclicksearch/v2)
 // Description:
 //   Reports and modifies your advertising data in DoubleClick Search (for
 //   example, campaigns, ad groups, keywords, and conversions).
@@ -364,7 +364,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Asynchronous report only. Contains a list of generated report files once the
- *  report has succesfully completed.
+ *  report has successfully completed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickSearch_Report_Files_Item *> *files;
 

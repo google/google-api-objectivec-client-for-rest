@@ -771,7 +771,8 @@
 //
 
 @implementation GTLRAndroidPublisher_VoidedPurchase
-@dynamic kind, purchaseTimeMillis, purchaseToken, voidedTimeMillis;
+@dynamic kind, orderId, purchaseTimeMillis, purchaseToken, voidedReason,
+         voidedSource, voidedTimeMillis;
 @end
 
 

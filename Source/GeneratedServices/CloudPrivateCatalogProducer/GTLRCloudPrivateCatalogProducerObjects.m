@@ -264,7 +264,7 @@ NSString * const kGTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLogConfig_LogT
 //
 
 @implementation GTLRCloudPrivateCatalogProducer_GoogleIamV1AuditLogConfig
-@dynamic exemptedMembers, ignoreChildExemptions, logType;
+@dynamic exemptedMembers, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

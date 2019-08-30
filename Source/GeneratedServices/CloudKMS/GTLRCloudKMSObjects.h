@@ -782,12 +782,6 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
 @interface GTLRCloudKMS_AsymmetricSignResponse : GTLRObject
 
 /**
- *  The resource name of the CryptoKeyVersion used for signing. Check
- *  this field to verify that the intended resource was used for signing.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
  *  The created signature.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -2150,12 +2144,6 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
  *        4096 bit key with a SHA512 digest. (Value: "RSA_SIGN_PSS_4096_SHA512")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
-
-/**
- *  The name of the CryptoKeyVersion public key.
- *  Provided here for verification.
- */
-@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The public key, encoded in PEM format. For more information, see the

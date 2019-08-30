@@ -620,8 +620,8 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  Unimplemented. The condition that is associated with this binding.
- *  This field is logged only for Cloud Audit Logging.
+ *  The condition that is associated with this binding. This field is logged
+ *  only for Cloud Audit Logging.
  */
 @property(nonatomic, strong, nullable) GTLRIam_Expr *condition;
 
@@ -1793,6 +1793,25 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 /** Metadata for the restored service account. */
 @property(nonatomic, strong, nullable) GTLRIam_ServiceAccount *restoredAccount;
+
+@end
+
+
+/**
+ *  The service account key upload request.
+ */
+@interface GTLRIam_UploadServiceAccountKeyRequest : GTLRObject
+
+/**
+ *  A field that allows clients to upload their own public key. If set,
+ *  use this public key data to create a service account key for given
+ *  service account.
+ *  Please note, the expected format for this field is X509_PEM.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *publicKeyData;
 
 @end
 

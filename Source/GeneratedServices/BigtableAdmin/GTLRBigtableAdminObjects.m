@@ -343,6 +343,17 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GetPolicyOptions
+//
+
+@implementation GTLRBigtableAdmin_GetPolicyOptions
+@dynamic requestedPolicyVersion;
 @end
 
 

@@ -1406,7 +1406,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @implementation GTLRAndroidPublisherQuery_PurchasesVoidedpurchasesList
 
-@dynamic endTime, maxResults, packageName, startIndex, startTime, token;
+@dynamic endTime, maxResults, packageName, startIndex, startTime, token, type;
 
 + (instancetype)queryWithPackageName:(NSString *)packageName {
   NSArray *pathParams = @[ @"packageName" ];

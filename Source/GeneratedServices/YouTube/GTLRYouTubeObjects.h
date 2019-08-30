@@ -78,6 +78,7 @@
 @class GTLRYouTube_InvideoPromotion;
 @class GTLRYouTube_InvideoTiming;
 @class GTLRYouTube_LanguageTag;
+@class GTLRYouTube_LevelDetails;
 @class GTLRYouTube_LiveBroadcast;
 @class GTLRYouTube_LiveBroadcastContentDetails;
 @class GTLRYouTube_LiveBroadcastSnippet;
@@ -109,6 +110,11 @@
 @class GTLRYouTube_LiveStreamStatus;
 @class GTLRYouTube_LocalizedProperty;
 @class GTLRYouTube_LocalizedString;
+@class GTLRYouTube_Member;
+@class GTLRYouTube_MembershipsDetails;
+@class GTLRYouTube_MembershipsLevel;
+@class GTLRYouTube_MembershipsLevelSnippet;
+@class GTLRYouTube_MemberSnippet;
 @class GTLRYouTube_MonitorStreamInfo;
 @class GTLRYouTube_Nonprofit;
 @class GTLRYouTube_NonprofitId;
@@ -1499,6 +1505,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_NfvcbUnrated
 
 /** Value: "nkclv12plus" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv12plus;
+/** Value: "nkclv16plus" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv16plus;
 /** Value: "nkclv18plus" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv18plus;
 /** Value: "nkclv7plus" */
@@ -1507,6 +1515,26 @@ GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv7plus;
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_NkclvU;
 /** Value: "nkclvUnrated" */
 GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_NkclvUnrated;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_ContentRating.nmcRating
+
+/** Value: "nmc15plus" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_Nmc15plus;
+/** Value: "nmc18plus" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_Nmc18plus;
+/** Value: "nmc18tc" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_Nmc18tc;
+/** Value: "nmcG" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcG;
+/** Value: "nmcPg" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcPg;
+/** Value: "nmcPg13" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcPg13;
+/** Value: "nmcPg15" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcPg15;
+/** Value: "nmcUnrated" */
+GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.oflcRating
@@ -4220,7 +4248,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 /**
  *  Ratings schemes. The country-specific ratings are mostly for movies and
- *  shows. NEXT_ID: 71
+ *  shows. NEXT_ID: 72
  */
 @interface GTLRYouTube_ContentRating : GTLRObject
 
@@ -5147,6 +5175,8 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *  Likely values:
  *    @arg @c kGTLRYouTube_ContentRating_NkclvRating_Nkclv12plus Value
  *        "nkclv12plus"
+ *    @arg @c kGTLRYouTube_ContentRating_NkclvRating_Nkclv16plus Value
+ *        "nkclv16plus"
  *    @arg @c kGTLRYouTube_ContentRating_NkclvRating_Nkclv18plus Value
  *        "nkclv18plus"
  *    @arg @c kGTLRYouTube_ContentRating_NkclvRating_Nkclv7plus Value
@@ -5156,6 +5186,21 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "nkclvUnrated"
  */
 @property(nonatomic, copy, nullable) NSString *nkclvRating;
+
+/**
+ *  nmcRating
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_ContentRating_NmcRating_Nmc15plus Value "nmc15plus"
+ *    @arg @c kGTLRYouTube_ContentRating_NmcRating_Nmc18plus Value "nmc18plus"
+ *    @arg @c kGTLRYouTube_ContentRating_NmcRating_Nmc18tc Value "nmc18tc"
+ *    @arg @c kGTLRYouTube_ContentRating_NmcRating_NmcG Value "nmcG"
+ *    @arg @c kGTLRYouTube_ContentRating_NmcRating_NmcPg Value "nmcPg"
+ *    @arg @c kGTLRYouTube_ContentRating_NmcRating_NmcPg13 Value "nmcPg13"
+ *    @arg @c kGTLRYouTube_ContentRating_NmcRating_NmcPg15 Value "nmcPg15"
+ *    @arg @c kGTLRYouTube_ContentRating_NmcRating_NmcUnrated Value "nmcUnrated"
+ */
+@property(nonatomic, copy, nullable) NSString *nmcRating;
 
 /**
  *  The video's Office of Film and Literature Classification (OFLC - New
@@ -5889,6 +5934,16 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_LanguageTag : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LevelDetails
+ */
+@interface GTLRYouTube_LevelDetails : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 @end
 
@@ -7388,6 +7443,219 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 
 @property(nonatomic, copy, nullable) NSString *language;
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A member resource represents a member for a YouTube channel. A member
+ *  provides recurring monetary support to a creator and receives special
+ *  benefits.
+ */
+@interface GTLRYouTube_Member : GTLRObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The ID that YouTube assigns to uniquely identify the member.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#member".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The snippet object contains basic details about the member. */
+@property(nonatomic, strong, nullable) GTLRYouTube_MemberSnippet *snippet;
+
+@end
+
+
+/**
+ *  GTLRYouTube_MemberListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRYouTube_MemberListResponse : GTLRCollectionObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Serialized EventId of the request which produced this response. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/**
+ *  A list of members that match the request criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_Member *> *items;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#memberListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The token that can be used as the value of the pageToken parameter to
+ *  retrieve the next page in the result set.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
+@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
+
+/** The visitorId identifies the visitor. */
+@property(nonatomic, copy, nullable) NSString *visitorId;
+
+@end
+
+
+/**
+ *  GTLRYouTube_MembershipsDetails
+ */
+@interface GTLRYouTube_MembershipsDetails : GTLRObject
+
+/**
+ *  All levels that the user has access to. This includes the purchased level
+ *  and all other levels that are included because of a higher purchase.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accessibleLevels;
+
+/**
+ *  The date and time when the user became a continuous member across all
+ *  levels.
+ */
+@property(nonatomic, copy, nullable) NSString *memberSince;
+
+/**
+ *  The date and time when the user started to continuously have access to the
+ *  currently highest level.
+ */
+@property(nonatomic, copy, nullable) NSString *memberSinceCurrentLevel;
+
+/**
+ *  The cumulative time the user has been a member across all levels in complete
+ *  months (the time is rounded down to the nearest integer).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memberTotalDuration;
+
+/**
+ *  The cumulative time the user has had access to the currently highest level
+ *  in complete months (the time is rounded down to the nearest integer).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memberTotalDurationCurrentLevel;
+
+/** The highest level the user has access to at the moment. */
+@property(nonatomic, copy, nullable) NSString *purchasedLevel;
+
+@end
+
+
+/**
+ *  A membershipsLevel resource represents an offer made by YouTube creators for
+ *  their fans. Users can become members of the channel by joining one of the
+ *  available levels. They will provide recurring monetary support and receives
+ *  special benefits.
+ */
+@interface GTLRYouTube_MembershipsLevel : GTLRObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The ID that YouTube assigns to uniquely identify the memberships level.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#membershipsLevel".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The snippet object contains basic details about the level. */
+@property(nonatomic, strong, nullable) GTLRYouTube_MembershipsLevelSnippet *snippet;
+
+@end
+
+
+/**
+ *  GTLRYouTube_MembershipsLevelListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRYouTube_MembershipsLevelListResponse : GTLRCollectionObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Serialized EventId of the request which produced this response. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/**
+ *  A list of pricing levels offered by a creator to the fans.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_MembershipsLevel *> *items;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#membershipsLevelListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The visitorId identifies the visitor. */
+@property(nonatomic, copy, nullable) NSString *visitorId;
+
+@end
+
+
+/**
+ *  GTLRYouTube_MembershipsLevelSnippet
+ */
+@interface GTLRYouTube_MembershipsLevelSnippet : GTLRObject
+
+/** The id of the channel that's offering channel memberships. */
+@property(nonatomic, copy, nullable) NSString *creatorChannelId;
+
+@property(nonatomic, strong, nullable) GTLRYouTube_LevelDetails *levelDetails;
+
+@end
+
+
+/**
+ *  GTLRYouTube_MemberSnippet
+ */
+@interface GTLRYouTube_MemberSnippet : GTLRObject
+
+/** The id of the channel that's offering memberships. */
+@property(nonatomic, copy, nullable) NSString *creatorChannelId;
+
+/** Details about the member. */
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *memberDetails;
+
+/** Details about the user's membership. */
+@property(nonatomic, strong, nullable) GTLRYouTube_MembershipsDetails *membershipsDetails;
 
 @end
 

@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAbusiveExperienceReport queryForSitesGetWithname:]
 
 /**
- *  The required site name. This is the site property whose abusive
+ *  Required. The site property whose abusive
  *  experiences have been reviewed, and it must be URL-encoded. For example,
  *  sites/https%3A%2F%2Fwww.google.com. The server will return an error of
  *  BAD_REQUEST if this field is not filled in. Note that if the site property
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a summary of the abusive experience rating of a site.
  *
- *  @param name The required site name. This is the site property whose abusive
+ *  @param name Required. The site property whose abusive
  *    experiences have been reviewed, and it must be URL-encoded. For example,
  *    sites/https%3A%2F%2Fwww.google.com. The server will return an error of
  *    BAD_REQUEST if this field is not filled in. Note that if the site property
@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists sites with Abusive Experience Report statuses of "Failing".
+ *  Lists sites with failing Abusive Experience Report statuses.
  *
  *  Method: abusiveexperiencereport.violatingSites.list
  *
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAbusiveExperienceReport_ViolatingSitesResponse.
  *
- *  Lists sites with Abusive Experience Report statuses of "Failing".
+ *  Lists sites with failing Abusive Experience Report statuses.
  *
  *  @return GTLRAbusiveExperienceReportQuery_ViolatingSitesList
  */

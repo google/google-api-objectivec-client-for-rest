@@ -497,7 +497,11 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Immutable ID of the G Suite account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Maximum number of results to return. Default is 100 */
+/**
+ *  Maximum number of results to return. Max allowed value is 200.
+ *
+ *  @note If not set, the documented server-side default will be 100.
+ */
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
@@ -1251,7 +1255,11 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
-/** Maximum number of results to return. Default is 200 */
+/**
+ *  Maximum number of results to return. Max allowed value is 200.
+ *
+ *  @note If not set, the documented server-side default will be 200.
+ */
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
@@ -1284,8 +1292,9 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
- *  Email or immutable Id of the user if only those groups are to be listed, the
- *  given user is a member of. If Id, it should match with id of user object
+ *  Email or immutable ID of the user if only those groups are to be listed, the
+ *  given user is a member of. If it's an ID, it should match with the ID of the
+ *  user object.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
@@ -1541,7 +1550,11 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Whether to list indirect memberships. Default: false. */
 @property(nonatomic, assign) BOOL includeDerivedMembership;
 
-/** Maximum number of results to return. Default is 200 */
+/**
+ *  Maximum number of results to return. Max allowed value is 200.
+ *
+ *  @note If not set, the documented server-side default will be 200.
+ */
 @property(nonatomic, assign) NSInteger maxResults;
 
 /** Token to specify next page in the list */
@@ -1793,7 +1806,11 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /** Immutable ID of the G Suite account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Maximum number of results to return. Default is 100 */
+/**
+ *  Maximum number of results to return. Max allowed value is 100.
+ *
+ *  @note If not set, the documented server-side default will be 100.
+ */
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
@@ -4192,9 +4209,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *event;
 
 /**
- *  Maximum number of results to return. Default is 100. Max allowed is 500
+ *  Maximum number of results to return.
  *
- *  @note The documented range is 1..500.
+ *  @note If not set, the documented server-side default will be 100 (from the
+ *        range 1..500).
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -4236,7 +4254,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
-/** If set to true retrieves the list of deleted users. Default is false */
+/** If set to true, retrieves the list of deleted users. (Default: false) */
 @property(nonatomic, copy, nullable) NSString *showDeleted;
 
 /**
@@ -4573,9 +4591,10 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *event;
 
 /**
- *  Maximum number of results to return. Default is 100. Max allowed is 500
+ *  Maximum number of results to return.
  *
- *  @note The documented range is 1..500.
+ *  @note If not set, the documented server-side default will be 100 (from the
+ *        range 1..500).
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -4617,7 +4636,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
-/** If set to true retrieves the list of deleted users. Default is false */
+/** If set to true, retrieves the list of deleted users. (Default: false) */
 @property(nonatomic, copy, nullable) NSString *showDeleted;
 
 /**

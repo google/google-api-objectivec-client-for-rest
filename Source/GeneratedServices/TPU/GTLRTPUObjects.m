@@ -63,11 +63,12 @@ NSString * const kGTLRTPU_Node_State_Unhiding         = @"UNHIDING";
 //
 
 @implementation GTLRTPU_ListAcceleratorTypesResponse
-@dynamic acceleratorTypes, nextPageToken;
+@dynamic acceleratorTypes, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"acceleratorTypes" : [GTLRTPU_AcceleratorType class]
+    @"acceleratorTypes" : [GTLRTPU_AcceleratorType class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -152,11 +153,12 @@ NSString * const kGTLRTPU_Node_State_Unhiding         = @"UNHIDING";
 //
 
 @implementation GTLRTPU_ListTensorFlowVersionsResponse
-@dynamic nextPageToken, tensorflowVersions;
+@dynamic nextPageToken, tensorflowVersions, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"tensorflowVersions" : [GTLRTPU_TensorFlowVersion class]
+    @"tensorflowVersions" : [GTLRTPU_TensorFlowVersion class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

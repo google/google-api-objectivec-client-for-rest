@@ -767,10 +767,11 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  The request throws a 400 error if `person.metadata.sources` is not
  *  specified for the contact to be updated.
  *  <br>
- *  The request throws a 412 error if `person.metadata.sources.etag` is
- *  different than the contact's etag, which indicates the contact has changed
- *  since its data was read. Clients should get the latest person and re-apply
- *  their updates to the latest person.
+ *  The request throws a 400 error with an error with reason
+ *  `"failedPrecondition"` if `person.metadata.sources.etag` is different than
+ *  the contact's etag, which indicates the contact has changed since its data
+ *  was read. Clients should get the latest person and re-apply their updates
+ *  to the latest person.
  *
  *  Method: people.people.updateContact
  *
@@ -827,10 +828,11 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  The request throws a 400 error if `person.metadata.sources` is not
  *  specified for the contact to be updated.
  *  <br>
- *  The request throws a 412 error if `person.metadata.sources.etag` is
- *  different than the contact's etag, which indicates the contact has changed
- *  since its data was read. Clients should get the latest person and re-apply
- *  their updates to the latest person.
+ *  The request throws a 400 error with an error with reason
+ *  `"failedPrecondition"` if `person.metadata.sources.etag` is different than
+ *  the contact's etag, which indicates the contact has changed since its data
+ *  was read. Clients should get the latest person and re-apply their updates
+ *  to the latest person.
  *
  *  @param object The @c GTLRPeopleService_Person to include in the query.
  *  @param resourceName The resource name for the person, assigned by the

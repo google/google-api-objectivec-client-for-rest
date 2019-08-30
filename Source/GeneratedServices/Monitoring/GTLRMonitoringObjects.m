@@ -1363,6 +1363,35 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_UptimeCheckResult
+//
+
+@implementation GTLRMonitoring_UptimeCheckResult
+@dynamic checkPassed, contentMismatch, errorCode, httpStatus, monitoredResource,
+         requestLatency;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_ValidateUptimeCheckConfigResponse
+//
+
+@implementation GTLRMonitoring_ValidateUptimeCheckConfigResponse
+@dynamic uptimeCheckResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"uptimeCheckResults" : [GTLRMonitoring_UptimeCheckResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_VerifyNotificationChannelRequest
 //
 

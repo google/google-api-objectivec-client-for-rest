@@ -851,6 +851,31 @@ NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
 
 @end
 
+@implementation GTLRMonitoringQuery_ProjectsValidateUptimeCheckConfig
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_UptimeCheckConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:validateUptimeCheckConfig";
+  GTLRMonitoringQuery_ProjectsValidateUptimeCheckConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMonitoring_ValidateUptimeCheckConfigResponse class];
+  query.loggingName = @"monitoring.projects.validateUptimeCheckConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRMonitoringQuery_UptimeCheckIpsList
 
 @dynamic pageSize, pageToken;

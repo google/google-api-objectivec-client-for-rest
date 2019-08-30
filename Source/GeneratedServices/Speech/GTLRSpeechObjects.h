@@ -288,7 +288,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
  *  to improve the accuracy for specific words and phrases, for example, if
  *  specific commands are typically spoken by the user. This can also be used
  *  to add additional words to the vocabulary of the recognizer. See
- *  [usage limits](/speech-to-text/quotas#content).
+ *  [usage limits](https://cloud.google.com/speech-to-text/quotas#content).
  *  List items can also be set to classes for groups of words that represent
  *  common concepts that occur in natural language. For example, rather than
  *  providing phrase hints for every month of the year, using the $MONTH class
@@ -504,7 +504,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
  *  Contains audio data in the encoding specified in the `RecognitionConfig`.
  *  Either `content` or `uri` must be supplied. Supplying both or neither
  *  returns google.rpc.Code.INVALID_ARGUMENT. See
- *  [content limits](/speech-to-text/quotas#content).
+ *  [content limits](https://cloud.google.com/speech-to-text/quotas#content).
  */
 @interface GTLRSpeech_RecognitionAudio : GTLRObject
 
@@ -642,8 +642,9 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
  *  *Required* The language of the supplied audio as a
  *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.
  *  Example: "en-US".
- *  See [Language Support](/speech-to-text/docs/languages)
- *  for a list of the currently supported language codes.
+ *  See [Language
+ *  Support](https://cloud.google.com/speech-to-text/docs/languages) for a list
+ *  of the currently supported language codes.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -724,7 +725,9 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 /**
  *  *Optional* array of SpeechContext.
  *  A means to provide context to assist the speech recognition. For more
- *  information, see [Phrase Hints](/speech-to-text/docs/basics#phrase-hints).
+ *  information, see
+ *  [speech
+ *  adaptation](https://cloud.google.com/speech-to-text/docs/context-strength).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_Context *> *speechContexts;
 

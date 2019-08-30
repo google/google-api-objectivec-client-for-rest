@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExperienceReport queryForSitesGetWithname:]
 
 /**
- *  The required site name. It should be the site property whose ad experiences
+ *  Required. The site property whose ad experiences
  *  may have been reviewed, and it should be URL-encoded. For example,
  *  sites/https%3A%2F%2Fwww.google.com. The server will return an error of
  *  BAD_REQUEST if this field is not filled in. Note that if the site property
@@ -64,8 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a summary of the ad experience rating of a site.
  *
- *  @param name The required site name. It should be the site property whose ad
- *    experiences
+ *  @param name Required. The site property whose ad experiences
  *    may have been reviewed, and it should be URL-encoded. For example,
  *    sites/https%3A%2F%2Fwww.google.com. The server will return an error of
  *    BAD_REQUEST if this field is not filled in. Note that if the site property
@@ -80,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists sites with Ad Experience Report statuses of "Failing" or "Warning".
+ *  Lists sites with failing Ad Experience Report statuses.
  *
  *  Method: adexperiencereport.violatingSites.list
  *
@@ -94,7 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAdExperienceReport_ViolatingSitesResponse.
  *
- *  Lists sites with Ad Experience Report statuses of "Failing" or "Warning".
+ *  Lists sites with failing Ad Experience Report statuses.
  *
  *  @return GTLRAdExperienceReportQuery_ViolatingSitesList
  */

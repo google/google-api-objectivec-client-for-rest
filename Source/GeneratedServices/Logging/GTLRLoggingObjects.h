@@ -928,8 +928,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 @interface GTLRLogging_ListLogsResponse : GTLRObject
 
 /**
- *  A list of log names. For example, "projects/my-project/logs/syslog" or
- *  "organizations/123/logs/cloudresourcemanager.googleapis.com%2Factivity".
+ *  A list of log names. For example, "projects/my-project/syslog" or
+ *  "organizations/123/cloudresourcemanager.googleapis.com%2Factivity".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *logNames;
 

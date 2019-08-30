@@ -262,12 +262,13 @@
 
 @implementation GTLRDirectory_ChromeOsDevice
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
-         bootMode, cpuStatusReports, deviceFiles, deviceId, diskVolumeReports,
-         ETag, ethernetMacAddress, firmwareVersion, kind, lastEnrollmentTime,
-         lastSync, macAddress, meid, model, notes, orderNumber, orgUnitPath,
-         osVersion, platformVersion, recentUsers, serialNumber, status,
-         supportEndDate, systemRamFreeReports, systemRamTotal, tpmVersionInfo,
-         willAutoRenew;
+         autoUpdateExpiration, bootMode, cpuStatusReports, deviceFiles,
+         deviceId, diskVolumeReports, dockMacAddress, ETag, ethernetMacAddress,
+         ethernetMacAddress0, firmwareVersion, kind, lastEnrollmentTime,
+         lastSync, macAddress, manufactureDate, meid, model, notes, orderNumber,
+         orgUnitPath, osVersion, platformVersion, recentUsers, serialNumber,
+         status, supportEndDate, systemRamFreeReports, systemRamTotal,
+         tpmVersionInfo, willAutoRenew;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1212,8 +1213,9 @@
          isEnforcedIn2Sv, isEnrolledIn2Sv, isMailboxSetup, keywords, kind,
          languages, lastLoginTime, locations, name, nonEditableAliases, notes,
          organizations, orgUnitPath, password, phones, posixAccounts,
-         primaryEmail, relations, sshPublicKeys, suspended, suspensionReason,
-         thumbnailPhotoEtag, thumbnailPhotoUrl, websites;
+         primaryEmail, recoveryEmail, recoveryPhone, relations, sshPublicKeys,
+         suspended, suspensionReason, thumbnailPhotoEtag, thumbnailPhotoUrl,
+         websites;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

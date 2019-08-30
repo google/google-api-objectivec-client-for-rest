@@ -143,6 +143,29 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_Expectation_Deny;
 GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_Expectation_ExpectationUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRFirebaseRules_TestCase.pathEncoding
+
+/**
+ *  No encoding has been specified. Defaults to "URL_ENCODED" behavior.
+ *
+ *  Value: "ENCODING_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_EncodingUnspecified;
+/**
+ *  Treats total path as non-URL encoded e.g. raw.
+ *
+ *  Value: "PLAIN"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_Plain;
+/**
+ *  Treats path segments as URL encoded but with non-encoded separators
+ *  ("/"). This is the default behavior.
+ *
+ *  Value: "URL_ENCODED"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_UrlEncoded;
+
+// ----------------------------------------------------------------------------
 // GTLRFirebaseRules_TestResult.state
 
 /**
@@ -577,6 +600,21 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  *  not influence the test outcome.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseRules_FunctionMock *> *functionMocks;
+
+/**
+ *  Specifies whether paths (such as request.path) are encoded and how.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseRules_TestCase_PathEncoding_EncodingUnspecified No
+ *        encoding has been specified. Defaults to "URL_ENCODED" behavior.
+ *        (Value: "ENCODING_UNSPECIFIED")
+ *    @arg @c kGTLRFirebaseRules_TestCase_PathEncoding_Plain Treats total path
+ *        as non-URL encoded e.g. raw. (Value: "PLAIN")
+ *    @arg @c kGTLRFirebaseRules_TestCase_PathEncoding_UrlEncoded Treats path
+ *        segments as URL encoded but with non-encoded separators
+ *        ("/"). This is the default behavior. (Value: "URL_ENCODED")
+ */
+@property(nonatomic, copy, nullable) NSString *pathEncoding;
 
 /**
  *  Request context.

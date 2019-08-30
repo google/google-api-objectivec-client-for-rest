@@ -1953,6 +1953,42 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @end
 
 /**
+ *  Validates a new uptime check configuration, and also executes the Uptime
+ *  check. The results of the Uptime check are returned, but not stored.
+ *
+ *  Method: monitoring.projects.validateUptimeCheckConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_ProjectsValidateUptimeCheckConfig : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForProjectsValidateUptimeCheckConfigWithObject:parent:]
+
+/** The project for the uptime check. The format is projects/[PROJECT_ID]. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMonitoring_ValidateUptimeCheckConfigResponse.
+ *
+ *  Validates a new uptime check configuration, and also executes the Uptime
+ *  check. The results of the Uptime check are returned, but not stored.
+ *
+ *  @param object The @c GTLRMonitoring_UptimeCheckConfig to include in the
+ *    query.
+ *  @param parent The project for the uptime check. The format is
+ *    projects/[PROJECT_ID].
+ *
+ *  @return GTLRMonitoringQuery_ProjectsValidateUptimeCheckConfig
+ */
++ (instancetype)queryWithObject:(GTLRMonitoring_UptimeCheckConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Returns the list of IPs that checkers run from
  *
  *  Method: monitoring.uptimeCheckIps.list

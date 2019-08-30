@@ -154,8 +154,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesCreateWithObject:parent:]
 
 /**
- *  Required.
- *  The location name in which the queue will be created.
+ *  Required. The location name in which the queue will be created.
  *  For example: `projects/PROJECT_ID/locations/LOCATION_ID`
  *  The list of allowed locations can be obtained by calling Cloud
  *  Tasks' implementation of
@@ -179,8 +178,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  this method.
  *
  *  @param object The @c GTLRCloudTasks_Queue to include in the query.
- *  @param parent Required.
- *    The location name in which the queue will be created.
+ *  @param parent Required. The location name in which the queue will be
+ *    created.
  *    For example: `projects/PROJECT_ID/locations/LOCATION_ID`
  *    The list of allowed locations can be obtained by calling Cloud
  *    Tasks' implementation of
@@ -215,8 +214,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesDeleteWithname:]
 
 /**
- *  Required.
- *  The queue name. For example:
+ *  Required. The queue name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -235,8 +233,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  queue.yaml](https://cloud.google.com/tasks/docs/queue-yaml) before using
  *  this method.
  *
- *  @param name Required.
- *    The queue name. For example:
+ *  @param name Required. The queue name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesDelete
@@ -258,8 +255,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesGetWithname:]
 
 /**
- *  Required.
- *  The resource name of the queue. For example:
+ *  Required. The resource name of the queue. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -269,8 +265,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *
  *  Gets a queue.
  *
- *  @param name Required.
- *    The resource name of the queue. For example:
+ *  @param name Required. The resource name of the queue. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesGet
@@ -375,8 +370,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required.
- *  The location name.
+ *  Required. The location name.
  *  For example: `projects/PROJECT_ID/locations/LOCATION_ID`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -387,8 +381,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Lists queues.
  *  Queues are returned in lexicographical order.
  *
- *  @param parent Required.
- *    The location name.
+ *  @param parent Required. The location name.
  *    For example: `projects/PROJECT_ID/locations/LOCATION_ID`
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesList
@@ -513,8 +506,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesPauseWithObject:name:]
 
 /**
- *  Required.
- *  The queue name. For example:
+ *  Required. The queue name. For example:
  *  `projects/PROJECT_ID/location/LOCATION_ID/queues/QUEUE_ID`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -531,8 +523,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *
  *  @param object The @c GTLRCloudTasks_PauseQueueRequest to include in the
  *    query.
- *  @param name Required.
- *    The queue name. For example:
+ *  @param name Required. The queue name. For example:
  *    `projects/PROJECT_ID/location/LOCATION_ID/queues/QUEUE_ID`
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesPause
@@ -558,8 +549,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesPurgeWithObject:name:]
 
 /**
- *  Required.
- *  The queue name. For example:
+ *  Required. The queue name. For example:
  *  `projects/PROJECT_ID/location/LOCATION_ID/queues/QUEUE_ID`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -574,8 +564,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *
  *  @param object The @c GTLRCloudTasks_PurgeQueueRequest to include in the
  *    query.
- *  @param name Required.
- *    The queue name. For example:
+ *  @param name Required. The queue name. For example:
  *    `projects/PROJECT_ID/location/LOCATION_ID/queues/QUEUE_ID`
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesPurge
@@ -608,8 +597,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesResumeWithObject:name:]
 
 /**
- *  Required.
- *  The queue name. For example:
+ *  Required. The queue name. For example:
  *  `projects/PROJECT_ID/location/LOCATION_ID/queues/QUEUE_ID`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -631,8 +619,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *
  *  @param object The @c GTLRCloudTasks_ResumeQueueRequest to include in the
  *    query.
- *  @param name Required.
- *    The queue name. For example:
+ *  @param name Required. The queue name. For example:
  *    `projects/PROJECT_ID/location/LOCATION_ID/queues/QUEUE_ID`
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesResume
@@ -707,8 +694,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksCreateWithObject:parent:]
 
 /**
- *  Required.
- *  The queue name. For example:
+ *  Required. The queue name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *  The queue must already exist.
  */
@@ -723,8 +709,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *
  *  @param object The @c GTLRCloudTasks_CreateTaskRequest to include in the
  *    query.
- *  @param parent Required.
- *    The queue name. For example:
+ *  @param parent Required. The queue name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *    The queue must already exist.
  *
@@ -751,8 +736,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksDeleteWithname:]
 
 /**
- *  Required.
- *  The task name. For example:
+ *  Required. The task name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -765,8 +749,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  cannot be deleted if it has executed successfully or permanently
  *  failed.
  *
- *  @param name Required.
- *    The task name. For example:
+ *  @param name Required. The task name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksDelete
@@ -788,8 +771,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksGetWithname:]
 
 /**
- *  Required.
- *  The task name. For example:
+ *  Required. The task name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -819,8 +801,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *
  *  Gets a task.
  *
- *  @param name Required.
- *    The task name. For example:
+ *  @param name Required. The task name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksGet
@@ -869,8 +850,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required.
- *  The queue name. For example:
+ *  Required. The queue name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -906,8 +886,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  The tasks may be returned in any order. The ordering may change at any
  *  time.
  *
- *  @param parent Required.
- *    The queue name. For example:
+ *  @param parent Required. The queue name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksList
@@ -951,8 +930,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 //   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksRunWithObject:name:]
 
 /**
- *  Required.
- *  The task name. For example:
+ *  Required. The task name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -981,8 +959,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  task that has already succeeded or permanently failed.
  *
  *  @param object The @c GTLRCloudTasks_RunTaskRequest to include in the query.
- *  @param name Required.
- *    The task name. For example:
+ *  @param name Required. The task name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
  *
  *  @return GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksRun

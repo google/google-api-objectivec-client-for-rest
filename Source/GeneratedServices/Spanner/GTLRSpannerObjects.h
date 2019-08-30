@@ -27,6 +27,7 @@
 @class GTLRSpanner_ExecuteSqlRequest_ParamTypes;
 @class GTLRSpanner_Expr;
 @class GTLRSpanner_Field;
+@class GTLRSpanner_GetPolicyOptions;
 @class GTLRSpanner_Instance;
 @class GTLRSpanner_Instance_Labels;
 @class GTLRSpanner_InstanceConfig;
@@ -296,6 +297,40 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_Timestamp;
 GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
+ *  The request for BatchCreateSessions.
+ */
+@interface GTLRSpanner_BatchCreateSessionsRequest : GTLRObject
+
+/**
+ *  Required. The number of sessions to be created in this batch call.
+ *  The API may return fewer than the requested number of sessions. If a
+ *  specific number of sessions are desired, the client can make additional
+ *  calls to BatchCreateSessions (adjusting
+ *  session_count as necessary).
+ *  The maximum allowed sessions are documented at https://goo.gl/hBUQED.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sessionCount;
+
+/** Parameters to be applied to each created session. */
+@property(nonatomic, strong, nullable) GTLRSpanner_Session *sessionTemplate;
+
+@end
+
+
+/**
+ *  The response for BatchCreateSessions.
+ */
+@interface GTLRSpanner_BatchCreateSessionsResponse : GTLRObject
+
+/** The freshly created sessions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Session *> *session;
+
+@end
+
+
+/**
  *  The request for BeginTransaction.
  */
 @interface GTLRSpanner_BeginTransactionRequest : GTLRObject
@@ -327,7 +362,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -886,6 +921,31 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Request message for `GetIamPolicy` method.
  */
 @interface GTLRSpanner_GetIamPolicyRequest : GTLRObject
+
+/**
+ *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
+ *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_GetPolicyOptions *options;
+
+@end
+
+
+/**
+ *  Encapsulates settings provided to GetIamPolicy.
+ */
+@interface GTLRSpanner_GetPolicyOptions : GTLRObject
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Acceptable values are 0 and 1.
+ *  If the value is 0, or the field is omitted, policy format version 1 will be
+ *  returned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedPolicyVersion;
+
 @end
 
 
@@ -1904,7 +1964,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

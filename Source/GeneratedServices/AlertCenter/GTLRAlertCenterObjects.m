@@ -64,8 +64,14 @@ NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUn
 //
 
 @implementation GTLRAlertCenter_Alert
-@dynamic alertId, createTime, customerId, data, deleted, endTime,
-         securityInvestigationToolLink, source, startTime, type, updateTime;
+@dynamic alertId, createTime, customerId, data, deleted, endTime, ETag,
+         metadata, securityInvestigationToolLink, source, startTime, type,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 
@@ -95,6 +101,21 @@ NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_AlertMetadata
+//
+
+@implementation GTLRAlertCenter_AlertMetadata
+@dynamic alertId, assignee, customerId, ETag, severity, status, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_Attachment
 //
 
@@ -116,6 +137,106 @@ NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUn
     @"messages" : [GTLRAlertCenter_GmailMessageInfo class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_BatchDeleteAlertsRequest
+//
+
+@implementation GTLRAlertCenter_BatchDeleteAlertsRequest
+@dynamic alertId, customerId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alertId" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_BatchDeleteAlertsResponse
+//
+
+@implementation GTLRAlertCenter_BatchDeleteAlertsResponse
+@dynamic failedAlertStatus, successAlertIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"successAlertIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_BatchDeleteAlertsResponse_FailedAlertStatus
+//
+
+@implementation GTLRAlertCenter_BatchDeleteAlertsResponse_FailedAlertStatus
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAlertCenter_Status class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_BatchUndeleteAlertsRequest
+//
+
+@implementation GTLRAlertCenter_BatchUndeleteAlertsRequest
+@dynamic alertId, customerId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alertId" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_BatchUndeleteAlertsResponse
+//
+
+@implementation GTLRAlertCenter_BatchUndeleteAlertsResponse
+@dynamic failedAlertStatus, successAlertIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"successAlertIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_BatchUndeleteAlertsResponse_FailedAlertStatus
+//
+
+@implementation GTLRAlertCenter_BatchUndeleteAlertsResponse_FailedAlertStatus
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAlertCenter_Status class];
 }
 
 @end
@@ -398,6 +519,38 @@ NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUn
 
 @implementation GTLRAlertCenter_StateSponsoredAttack
 @dynamic email;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_Status
+//
+
+@implementation GTLRAlertCenter_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRAlertCenter_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_Status_Details_Item
+//
+
+@implementation GTLRAlertCenter_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

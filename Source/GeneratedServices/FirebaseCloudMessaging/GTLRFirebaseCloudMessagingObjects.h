@@ -27,7 +27,9 @@
 @class GTLRFirebaseCloudMessaging_ApnsConfig_Headers;
 @class GTLRFirebaseCloudMessaging_ApnsConfig_Payload;
 @class GTLRFirebaseCloudMessaging_ApnsFcmOptions;
+@class GTLRFirebaseCloudMessaging_Color;
 @class GTLRFirebaseCloudMessaging_FcmOptions;
+@class GTLRFirebaseCloudMessaging_LightSettings;
 @class GTLRFirebaseCloudMessaging_Message;
 @class GTLRFirebaseCloudMessaging_Message_Data;
 @class GTLRFirebaseCloudMessaging_Notification;
@@ -74,6 +76,85 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
  *  Value: "NORMAL"
  */
 GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseCloudMessaging_AndroidNotification.notificationPriority
+
+/**
+ *  Default notification priority. If the application does not prioritize its
+ *  own notifications, use this value for all notifications.
+ *
+ *  Value: "PRIORITY_DEFAULT"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityDefault;
+/**
+ *  Higher notification priority. Use this for more important notifications
+ *  or alerts. The UI may choose to show these notifications larger, or at a
+ *  different position in the notification lists, compared with notifications
+ *  with `PRIORITY_DEFAULT`.
+ *
+ *  Value: "PRIORITY_HIGH"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityHigh;
+/**
+ *  Lower notification priority. The UI may choose to show the notifications
+ *  smaller, or at a different position in the list, compared with
+ *  notifications with `PRIORITY_DEFAULT`.
+ *
+ *  Value: "PRIORITY_LOW"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityLow;
+/**
+ *  Highest notification priority. Use this for the application's most
+ *  important items that require the user's prompt attention or input.
+ *
+ *  Value: "PRIORITY_MAX"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMax;
+/**
+ *  Lowest notification priority. Notifications with this `PRIORITY_MIN`
+ *  might not be shown to the user except under special circumstances,
+ *  such as detailed notification logs.
+ *
+ *  Value: "PRIORITY_MIN"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMin;
+/**
+ *  If priority is unspecified, notification priority is set to
+ *  `PRIORITY_DEFAULT`.
+ *
+ *  Value: "PRIORITY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseCloudMessaging_AndroidNotification.visibility
+
+/**
+ *  Show this notification on all lockscreens, but conceal sensitive or
+ *  private information on secure lockscreens.
+ *
+ *  Value: "PRIVATE"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Private;
+/**
+ *  Show this notification in its entirety on all lockscreens.
+ *
+ *  Value: "PUBLIC"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Public;
+/**
+ *  Do not reveal any part of this notification on a secure lockscreen.
+ *
+ *  Value: "SECRET"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Secret;
+/**
+ *  If unspecified, default to `Visibility.PRIVATE`.
+ *
+ *  Value: "VISIBILITY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_VisibilityUnspecified;
 
 /**
  *  Android specific options for messages sent through
@@ -224,6 +305,46 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
 @property(nonatomic, copy, nullable) NSString *color;
 
 /**
+ *  If set to true, use the Android framework's default LED light settings for
+ *  the notification. Default values are specified in
+ *  [config.xml](https://android.googlesource.com/platform/frameworks/base/+/master/core/res/res/values/config.xml).
+ *  If `default_light_settings` is set to true and `light_settings` is also
+ *  set, the user-specified `light_settings` is used instead of the
+ *  default value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultLightSettings;
+
+/**
+ *  If set to true, use the Android framework's default sound for the
+ *  notification. Default values are specified in
+ *  [config.xml](https://android.googlesource.com/platform/frameworks/base/+/master/core/res/res/values/config.xml).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultSound;
+
+/**
+ *  If set to true, use the Android framework's default vibrate pattern for the
+ *  notification. Default values are specified in
+ *  [config.xml](https://android.googlesource.com/platform/frameworks/base/+/master/core/res/res/values/config.xml).
+ *  If `default_vibrate_timings` is set to true and `vibrate_timings` is also
+ *  set, the default value is used instead of the user-specified
+ *  `vibrate_timings`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultVibrateTimings;
+
+/**
+ *  Set the time that the event in the notification occurred. Notifications in
+ *  the panel are sorted by this time. A point in time is represented using
+ *  [protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/java/com/google/protobuf/Timestamp).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
  *  The notification's icon.
  *  Sets the notification icon to myicon for drawable resource myicon.
  *  If you don't send this key in the request, FCM displays the launcher icon
@@ -239,11 +360,98 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
 @property(nonatomic, copy, nullable) NSString *image;
 
 /**
+ *  Settings to control the notification's LED blinking rate and color if LED
+ *  is available on the device. The total blinking time is controlled by the
+ *  OS.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_LightSettings *lightSettings;
+
+/**
+ *  Set whether or not this notification is relevant only to the current
+ *  device. Some notifications can be bridged to other devices for remote
+ *  display, such as a Wear OS watch. This hint can be set to recommend this
+ *  notification not be bridged. See [Wear OS
+ *  guides](https://developer.android.com/training/wearables/notifications/bridger#existing-method-of-preventing-bridging)
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localOnly;
+
+/**
+ *  Sets the number of items this notification represents. May be displayed as
+ *  a badge count for launchers that support badging.See [Notification
+ *  Badge](https://developer.android.com/training/notify-user/badges).
+ *  For example, this might be useful if you're using just one notification to
+ *  represent multiple new messages but you want the count here to represent
+ *  the number of total new messages.
+ *  If zero or unspecified, systems that support badging use the default, which
+ *  is to increment a number displayed on the long-press menu each time a new
+ *  notification arrives.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *notificationCount;
+
+/**
+ *  Set the relative priority for this notification. Priority is an indication
+ *  of how much of the user's attention should be consumed by this
+ *  notification. Low-priority notifications may be hidden from the user in
+ *  certain situations, while the user might be interrupted for a
+ *  higher-priority notification. The effect of setting the same priorities may
+ *  differ slightly on different platforms. Note this priority differs from
+ *  `AndroidMessagePriority`. This priority is processed by the client after
+ *  the message has been delivered, whereas
+ *  [AndroidMessagePriority](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#androidmessagepriority)
+ *  is an FCM concept that controls when the message is delivered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityDefault
+ *        Default notification priority. If the application does not prioritize
+ *        its
+ *        own notifications, use this value for all notifications. (Value:
+ *        "PRIORITY_DEFAULT")
+ *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityHigh
+ *        Higher notification priority. Use this for more important
+ *        notifications
+ *        or alerts. The UI may choose to show these notifications larger, or at
+ *        a
+ *        different position in the notification lists, compared with
+ *        notifications
+ *        with `PRIORITY_DEFAULT`. (Value: "PRIORITY_HIGH")
+ *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityLow
+ *        Lower notification priority. The UI may choose to show the
+ *        notifications
+ *        smaller, or at a different position in the list, compared with
+ *        notifications with `PRIORITY_DEFAULT`. (Value: "PRIORITY_LOW")
+ *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMax
+ *        Highest notification priority. Use this for the application's most
+ *        important items that require the user's prompt attention or input.
+ *        (Value: "PRIORITY_MAX")
+ *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMin
+ *        Lowest notification priority. Notifications with this `PRIORITY_MIN`
+ *        might not be shown to the user except under special circumstances,
+ *        such as detailed notification logs. (Value: "PRIORITY_MIN")
+ *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityUnspecified
+ *        If priority is unspecified, notification priority is set to
+ *        `PRIORITY_DEFAULT`. (Value: "PRIORITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *notificationPriority;
+
+/**
  *  The sound to play when the device receives the notification.
  *  Supports "default" or the filename of a sound resource bundled in the app.
  *  Sound files must reside in /res/raw/.
  */
 @property(nonatomic, copy, nullable) NSString *sound;
+
+/**
+ *  When set to false or unset, the notification is automatically
+ *  dismissed when the user clicks it in the panel. When set to true, the
+ *  notification persists even when the user clicks it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sticky;
 
 /**
  *  Identifier used to replace existing notifications in the notification
@@ -253,6 +461,13 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
  *  the new notification replaces the existing one in the notification drawer.
  */
 @property(nonatomic, copy, nullable) NSString *tag;
+
+/**
+ *  Sets the "ticker" text, which is sent to accessibility services.
+ *  Prior to API level 21 (`Lollipop`), sets the text that is displayed in the
+ *  status bar when the notification first arrives.
+ */
+@property(nonatomic, copy, nullable) NSString *ticker;
 
 /**
  *  The notification's title. If present, it will override
@@ -274,6 +489,39 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
  *  See [String Resources](https://goo.gl/NdFZGI) for more information.
  */
 @property(nonatomic, copy, nullable) NSString *titleLocKey;
+
+/**
+ *  Set the vibration pattern to use. Pass in an array of
+ *  [protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Duration)
+ *  to turn on or off the vibrator. The first value indicates the `Duration` to
+ *  wait before turning the vibrator on. The next value indicates the
+ *  `Duration` to keep the vibrator on. Subsequent values alternate between
+ *  `Duration` to turn the vibrator off and to turn the vibrator on.
+ *  If `vibrate_timings` is set and `default_vibrate_timings` is set to `true`,
+ *  the default value is used instead of the user-specified `vibrate_timings`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDuration *> *vibrateTimings;
+
+/**
+ *  Set the
+ *  [Notification.visibility](https://developer.android.com/reference/android/app/Notification.html#visibility)
+ *  of the notification.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Private
+ *        Show this notification on all lockscreens, but conceal sensitive or
+ *        private information on secure lockscreens. (Value: "PRIVATE")
+ *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Public
+ *        Show this notification in its entirety on all lockscreens. (Value:
+ *        "PUBLIC")
+ *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Secret
+ *        Do not reveal any part of this notification on a secure lockscreen.
+ *        (Value: "SECRET")
+ *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_VisibilityUnspecified
+ *        If unspecified, default to `Visibility.PRIVATE`. (Value:
+ *        "VISIBILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *visibility;
 
 @end
 
@@ -352,12 +600,187 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
 
 
 /**
+ *  Represents a color in the RGBA color space. This representation is designed
+ *  for simplicity of conversion to/from color representations in various
+ *  languages over compactness; for example, the fields of this representation
+ *  can be trivially provided to the constructor of "java.awt.Color" in Java; it
+ *  can also be trivially provided to UIColor's "+colorWithRed:green:blue:alpha"
+ *  method in iOS; and, with just a little work, it can be easily formatted into
+ *  a CSS "rgba()" string in JavaScript, as well.
+ *  Note: this proto does not carry information about the absolute color space
+ *  that should be used to interpret the RGB value (e.g. sRGB, Adobe RGB,
+ *  DCI-P3, BT.2020, etc.). By default, applications SHOULD assume the sRGB
+ *  color
+ *  space.
+ *  Example (Java):
+ *  import com.google.type.Color;
+ *  // ...
+ *  public static java.awt.Color fromProto(Color protocolor) {
+ *  float alpha = protocolor.hasAlpha()
+ *  ? protocolor.getAlpha().getValue()
+ *  : 1.0;
+ *  return new java.awt.Color(
+ *  protocolor.getRed(),
+ *  protocolor.getGreen(),
+ *  protocolor.getBlue(),
+ *  alpha);
+ *  }
+ *  public static Color toProto(java.awt.Color color) {
+ *  float red = (float) color.getRed();
+ *  float green = (float) color.getGreen();
+ *  float blue = (float) color.getBlue();
+ *  float denominator = 255.0;
+ *  Color.Builder resultBuilder =
+ *  Color
+ *  .newBuilder()
+ *  .setRed(red / denominator)
+ *  .setGreen(green / denominator)
+ *  .setBlue(blue / denominator);
+ *  int alpha = color.getAlpha();
+ *  if (alpha != 255) {
+ *  result.setAlpha(
+ *  FloatValue
+ *  .newBuilder()
+ *  .setValue(((float) alpha) / denominator)
+ *  .build());
+ *  }
+ *  return resultBuilder.build();
+ *  }
+ *  // ...
+ *  Example (iOS / Obj-C):
+ *  // ...
+ *  static UIColor* fromProto(Color* protocolor) {
+ *  float red = [protocolor red];
+ *  float green = [protocolor green];
+ *  float blue = [protocolor blue];
+ *  FloatValue* alpha_wrapper = [protocolor alpha];
+ *  float alpha = 1.0;
+ *  if (alpha_wrapper != nil) {
+ *  alpha = [alpha_wrapper value];
+ *  }
+ *  return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+ *  }
+ *  static Color* toProto(UIColor* color) {
+ *  CGFloat red, green, blue, alpha;
+ *  if (![color getRed:&red green:&green blue:&blue alpha:&alpha]) {
+ *  return nil;
+ *  }
+ *  Color* result = [[Color alloc] init];
+ *  [result setRed:red];
+ *  [result setGreen:green];
+ *  [result setBlue:blue];
+ *  if (alpha <= 0.9999) {
+ *  [result setAlpha:floatWrapperWithValue(alpha)];
+ *  }
+ *  [result autorelease];
+ *  return result;
+ *  }
+ *  // ...
+ *  Example (JavaScript):
+ *  // ...
+ *  var protoToCssColor = function(rgb_color) {
+ *  var redFrac = rgb_color.red || 0.0;
+ *  var greenFrac = rgb_color.green || 0.0;
+ *  var blueFrac = rgb_color.blue || 0.0;
+ *  var red = Math.floor(redFrac * 255);
+ *  var green = Math.floor(greenFrac * 255);
+ *  var blue = Math.floor(blueFrac * 255);
+ *  if (!('alpha' in rgb_color)) {
+ *  return rgbToCssColor_(red, green, blue);
+ *  }
+ *  var alphaFrac = rgb_color.alpha.value || 0.0;
+ *  var rgbParams = [red, green, blue].join(',');
+ *  return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
+ *  };
+ *  var rgbToCssColor_ = function(red, green, blue) {
+ *  var rgbNumber = new Number((red << 16) | (green << 8) | blue);
+ *  var hexString = rgbNumber.toString(16);
+ *  var missingZeros = 6 - hexString.length;
+ *  var resultBuilder = ['#'];
+ *  for (var i = 0; i < missingZeros; i++) {
+ *  resultBuilder.push('0');
+ *  }
+ *  resultBuilder.push(hexString);
+ *  return resultBuilder.join('');
+ *  };
+ *  // ...
+ */
+@interface GTLRFirebaseCloudMessaging_Color : GTLRObject
+
+/**
+ *  The fraction of this color that should be applied to the pixel. That is,
+ *  the final pixel color is defined by the equation:
+ *  pixel color = alpha * (this color) + (1.0 - alpha) * (background color)
+ *  This means that a value of 1.0 corresponds to a solid color, whereas
+ *  a value of 0.0 corresponds to a completely transparent color. This
+ *  uses a wrapper message rather than a simple float scalar so that it is
+ *  possible to distinguish between a default value and the value being unset.
+ *  If omitted, this color object is to be rendered as a solid color
+ *  (as if the alpha value had been explicitly given with a value of 1.0).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *alpha;
+
+/**
+ *  The amount of blue in the color as a value in the interval [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blue;
+
+/**
+ *  The amount of green in the color as a value in the interval [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *green;
+
+/**
+ *  The amount of red in the color as a value in the interval [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *red;
+
+@end
+
+
+/**
  *  Platform independent options for features provided by the FCM SDKs.
  */
 @interface GTLRFirebaseCloudMessaging_FcmOptions : GTLRObject
 
 /** Label associated with the message's analytics data. */
 @property(nonatomic, copy, nullable) NSString *analyticsLabel;
+
+@end
+
+
+/**
+ *  Settings to control notification LED.
+ */
+@interface GTLRFirebaseCloudMessaging_LightSettings : GTLRObject
+
+/**
+ *  Required. Set `color` of the LED with
+ *  [google.type.Color](https://github.com/googleapis/googleapis/blob/master/google/type/color.proto).
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_Color *color;
+
+/**
+ *  Required. Along with `light_on_duration `, define the blink rate of LED
+ *  flashes. Resolution defined by
+ *  [proto.Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Duration)
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *lightOffDuration;
+
+/**
+ *  Required. Along with `light_off_duration`, define the blink rate of LED
+ *  flashes. Resolution defined by
+ *  [proto.Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Duration)
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *lightOnDuration;
 
 @end
 

@@ -2776,7 +2776,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  Optional. The visibility of the job.
+ *  Deprecated. The job is only visible to the owner.
+ *  The visibility of the job.
  *  Defaults to Visibility.ACCOUNT_ONLY if not specified.
  *
  *  Likely values:

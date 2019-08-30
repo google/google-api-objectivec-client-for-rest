@@ -169,10 +169,7 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
 /** Configuration parameters for this environment. */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_EnvironmentConfig *config;
 
-/**
- *  Output only.
- *  The time at which this environment was created.
- */
+/** Output only. The time at which this environment was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -213,15 +210,12 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/**
- *  Output only.
- *  The time at which this environment was last modified.
- */
+/** Output only. The time at which this environment was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Output only.
- *  The UUID (Universally Unique IDentifier) associated with this environment.
+ *  Output only. The UUID (Universally Unique IDentifier) associated with this
+ *  environment.
  *  This value is generated when the environment is created.
  */
 @property(nonatomic, copy, nullable) NSString *uuid;
@@ -253,16 +247,16 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
 @interface GTLRCloudComposer_EnvironmentConfig : GTLRObject
 
 /**
- *  Output only.
- *  The URI of the Apache Airflow Web UI hosted within this environment (see
+ *  Output only. The URI of the Apache Airflow Web UI hosted within this
+ *  environment (see
  *  [Airflow web
  *  interface](/composer/docs/how-to/accessing/airflow-web-interface)).
  */
 @property(nonatomic, copy, nullable) NSString *airflowUri;
 
 /**
- *  Output only.
- *  The Cloud Storage prefix of the DAGs for this environment. Although Cloud
+ *  Output only. The Cloud Storage prefix of the DAGs for this environment.
+ *  Although Cloud
  *  Storage objects reside in a flat namespace, a hierarchical file tree
  *  can be simulated using "/"-delimited object name prefixes. DAG objects for
  *  this environment reside in a simulated directory with the given prefix.
@@ -270,8 +264,7 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
 @property(nonatomic, copy, nullable) NSString *dagGcsPrefix;
 
 /**
- *  Output only.
- *  The Kubernetes Engine cluster used to run this environment.
+ *  Output only. The Kubernetes Engine cluster used to run this environment.
  */
 @property(nonatomic, copy, nullable) NSString *gkeCluster;
 
@@ -435,6 +428,8 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  *  both fields. If exactly one of this field and `nodeConfig.location` is
  *  specified, the location information from the specified field will be
  *  propagated to the unspecified field.
+ *  The `machineTypeId` must not be a [shared-core machine
+ *  type](/compute/docs/machine-types#sharedcore).
  *  If this field is unspecified, the `machineTypeId` defaults
  *  to "n1-standard-1".
  */
@@ -578,22 +573,18 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  */
 @interface GTLRCloudComposer_OperationMetadata : GTLRObject
 
-/**
- *  Output only.
- *  The time the operation was submitted to the server.
- */
+/** Output only. The time the operation was submitted to the server. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only.
- *  The time when the operation terminated, regardless of its success.
+ *  Output only. The time when the operation terminated, regardless of its
+ *  success.
  *  This field is unset if the operation is still ongoing.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Output only.
- *  The type of operation being performed.
+ *  Output only. The type of operation being performed.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Create A
@@ -608,21 +599,16 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
 @property(nonatomic, copy, nullable) NSString *operationType;
 
 /**
- *  Output only.
- *  The resource being operated on, as a [relative resource name](
+ *  Output only. The resource being operated on, as a [relative resource name](
  *  /apis/design/resource_names#relative_resource_name).
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
-/**
- *  Output only.
- *  The UUID of the resource being operated on.
- */
+/** Output only. The UUID of the resource being operated on. */
 @property(nonatomic, copy, nullable) NSString *resourceUuid;
 
 /**
- *  Output only.
- *  The current operation state.
+ *  Output only. The current operation state.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudComposer_OperationMetadata_State_Failed The operation is

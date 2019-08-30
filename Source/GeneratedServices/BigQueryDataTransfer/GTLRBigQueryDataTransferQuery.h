@@ -96,6 +96,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -139,6 +140,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -176,6 +178,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -233,6 +236,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -276,6 +280,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -313,6 +318,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -365,6 +371,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -395,6 +402,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -543,6 +551,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -578,6 +587,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -750,6 +760,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -785,6 +796,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -862,6 +874,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -1116,6 +1129,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -1151,6 +1165,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -1323,6 +1338,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -1358,6 +1374,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */
@@ -1435,6 +1452,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
  *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
  */

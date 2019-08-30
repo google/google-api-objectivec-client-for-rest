@@ -4028,6 +4028,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Value is "analytics#userDeletionRequest". */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** Property ID */
+@property(nonatomic, copy, nullable) NSString *propertyId;
+
 /** Web property ID of the form UA-XXXXX-YY. */
 @property(nonatomic, copy, nullable) NSString *webPropertyId;
 

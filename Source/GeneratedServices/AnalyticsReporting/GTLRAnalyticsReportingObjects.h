@@ -781,7 +781,11 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeUnspeci
  */
 @interface GTLRAnalyticsReporting_Activity : GTLRObject
 
-/** Timestamp of the activity. */
+/**
+ *  Timestamp of the activity. If activities for a visit cross midnight and
+ *  occur in two separate dates, then two sessions (one per date)
+ *  share the session identifier.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *activityTime;
 
 /**

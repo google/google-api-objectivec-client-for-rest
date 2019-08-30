@@ -21,6 +21,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfi
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaT4 = @"NVIDIA_TESLA_T4";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100 = @"NVIDIA_TESLA_V100";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2 = @"TPU_V2";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3 = @"TPU_V3";
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
@@ -30,6 +31,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Avail
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaT4 = @"NVIDIA_TESLA_T4";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaV100 = @"NVIDIA_TESLA_V100";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV2 = @"TPU_V2";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV3 = @"TPU_V3";
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.type
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_BatchPrediction = @"BATCH_PREDICTION";
@@ -590,6 +592,16 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig
+@dynamic bigqueryTableName, samplingPercentage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMachineLearningEngine_GoogleCloudMlV1SetDefaultVersionRequest
 //
 
@@ -649,7 +661,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 @dynamic autoScaling, createTime, deploymentUri, descriptionProperty,
          errorMessage, ETag, framework, isDefault, labels, lastUseTime,
          machineType, manualScaling, name, packageUris, predictionClass,
-         pythonVersion, runtimeVersion, serviceAccount, state;
+         pythonVersion, requestLoggingConfig, runtimeVersion, serviceAccount,
+         state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

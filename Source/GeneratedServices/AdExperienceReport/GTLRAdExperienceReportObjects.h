@@ -54,7 +54,7 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsSt
  */
 GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Unknown;
 /**
- *  Warning.
+ *  Warning. No longer a possible status.
  *
  *  Value: "WARNING"
  */
@@ -122,11 +122,11 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_Regi
  *    @arg @c kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Unknown
  *        Not reviewed. (Value: "UNKNOWN")
  *    @arg @c kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Warning
- *        Warning. (Value: "WARNING")
+ *        Warning. No longer a possible status. (Value: "WARNING")
  */
 @property(nonatomic, copy, nullable) NSString *betterAdsStatus;
 
-/** The date on which ad filtering begins. */
+/** The time at which ad filtering begins. */
 @property(nonatomic, strong, nullable) GTLRDateTime *enforcementTime;
 
 /**

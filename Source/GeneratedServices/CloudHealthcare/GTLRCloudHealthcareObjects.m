@@ -119,7 +119,7 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_AuditLogConfig
-@dynamic exemptedMembers, ignoreChildExemptions, logType;
+@dynamic exemptedMembers, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

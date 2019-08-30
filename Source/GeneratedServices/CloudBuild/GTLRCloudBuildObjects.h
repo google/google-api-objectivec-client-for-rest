@@ -909,6 +909,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedFiles;
 
+/** User assigned name of the trigger. Must be unique within the project. */
+@property(nonatomic, copy, nullable) NSString *name;
+
 /** Substitutions data for Build resource. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_BuildTrigger_Substitutions *substitutions;
 
@@ -1250,14 +1253,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
 @interface GTLRCloudBuild_PushFilter : GTLRObject
 
 /**
- *  Regexes of branches to match.
+ *  Regexes matching branches to build.
  *  The syntax of the regular expressions accepted is the syntax accepted by
  *  RE2 and described at https://github.com/google/re2/wiki/Syntax
  */
 @property(nonatomic, copy, nullable) NSString *branch;
 
 /**
- *  Regexes of tags to match.
+ *  Regexes matching tags to build.
  *  The syntax of the regular expressions accepted is the syntax accepted by
  *  RE2 and described at https://github.com/google/re2/wiki/Syntax
  */
@@ -1271,7 +1274,11 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
  */
 @interface GTLRCloudBuild_RepoSource : GTLRObject
 
-/** Name of the branch to build. */
+/**
+ *  Regex matching branches to build.
+ *  The syntax of the regular expressions accepted is the syntax accepted by
+ *  RE2 and described at https://github.com/google/re2/wiki/Syntax
+ */
 @property(nonatomic, copy, nullable) NSString *branchName;
 
 /** Explicit commit SHA to build. */
@@ -1296,7 +1303,11 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
  */
 @property(nonatomic, copy, nullable) NSString *repoName;
 
-/** Name of the tag to build. */
+/**
+ *  Regex matching tags to build.
+ *  The syntax of the regular expressions accepted is the syntax accepted by
+ *  RE2 and described at https://github.com/google/re2/wiki/Syntax
+ */
 @property(nonatomic, copy, nullable) NSString *tagName;
 
 @end

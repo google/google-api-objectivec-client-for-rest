@@ -105,7 +105,7 @@ GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_Fi
  */
 @property(nonatomic, copy, nullable) NSString *abusiveStatus;
 
-/** The date on which enforcement begins. */
+/** The time at which enforcement begins. */
 @property(nonatomic, strong, nullable) GTLRDateTime *enforcementTime;
 
 /**

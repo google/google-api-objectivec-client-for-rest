@@ -40,6 +40,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version;
@@ -110,6 +111,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Acce
  *  Value: "TPU_V2"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2;
+/**
+ *  TPU v3.
+ *
+ *  Value: "TPU_V3"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
@@ -128,6 +135,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capa
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaV100;
 /** Value: "TPU_V2" */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV2;
+/** Value: "TPU_V3" */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV3;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.type
@@ -758,6 +767,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        Nvidia Tesla V100 GPU. (Value: "NVIDIA_TESLA_V100")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2
  *        TPU v2. (Value: "TPU_V2")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3
+ *        TPU v3. (Value: "TPU_V3")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1858,6 +1869,36 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
+ *  Configurations for logging request-response pairs. Currently only BigQuery
+ *  logging is supported. The request and response will be converted to raw
+ *  string and stored within the specified BigQuery table. The schema is:
+ *  model: STRING
+ *  version: STRING
+ *  time: Timestamp
+ *  raw_data: STRING
+ *  raw_prediction: STRING
+ *  ground_truth: STRING
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig : GTLRObject
+
+/**
+ *  Fully qualified BigQuery table name in the format of
+ *  "[project_id].[dataset_name].[table_name]".
+ */
+@property(nonatomic, copy, nullable) NSString *bigqueryTableName;
+
+/**
+ *  Percentage of the request being logged. The sampling window is the lifetime
+ *  of the Version. Defaults to 0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplingPercentage;
+
+@end
+
+
+/**
  *  Request message for the SetDefaultVersion request.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1SetDefaultVersionRequest : GTLRObject
@@ -2444,6 +2485,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  to '1.4' and above. Python '2.7' works with all supported runtime versions.
  */
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
+
+/**
+ *  Optional. Configures the request-response pair logging on predictions from
+ *  this Version.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig *requestLoggingConfig;
 
 /**
  *  Optional. The AI Platform runtime version to use for this deployment.

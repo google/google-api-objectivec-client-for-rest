@@ -27,6 +27,14 @@ NSString * const kGTLRCloudTrace_MessageEvent_Type_Received    = @"RECEIVED";
 NSString * const kGTLRCloudTrace_MessageEvent_Type_Sent        = @"SENT";
 NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudTrace_Span.spanKind
+NSString * const kGTLRCloudTrace_Span_SpanKind_Client          = @"CLIENT";
+NSString * const kGTLRCloudTrace_Span_SpanKind_Consumer        = @"CONSUMER";
+NSString * const kGTLRCloudTrace_Span_SpanKind_Internal        = @"INTERNAL";
+NSString * const kGTLRCloudTrace_Span_SpanKind_Producer        = @"PRODUCER";
+NSString * const kGTLRCloudTrace_Span_SpanKind_Server          = @"SERVER";
+NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified = @"SPAN_KIND_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudTrace_Annotation
@@ -163,8 +171,8 @@ NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified = @"TYPE_UNSP
 
 @implementation GTLRCloudTrace_Span
 @dynamic attributes, childSpanCount, displayName, endTime, links, name,
-         parentSpanId, sameProcessAsParentSpan, spanId, stackTrace, startTime,
-         status, timeEvents;
+         parentSpanId, sameProcessAsParentSpan, spanId, spanKind, stackTrace,
+         startTime, status, timeEvents;
 @end
 
 

@@ -1331,7 +1331,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canDownload;
 
 /**
- *  Whether the current user can edit this file.
+ *  Whether the current user can edit this file. Other factors may limit the
+ *  type of changes a user can make to a file. For example, see
+ *  canChangeCopyRequiresWriterPermission or canModifyContent.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1344,6 +1346,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canListChildren;
+
+/**
+ *  Whether the current user can modify the content of this file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canModifyContent;
 
 /**
  *  Whether the current user can move children of this folder outside of the

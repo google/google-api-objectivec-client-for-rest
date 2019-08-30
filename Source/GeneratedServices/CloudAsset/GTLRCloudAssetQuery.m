@@ -16,6 +16,7 @@
 // Constants
 
 // contentType
+NSString * const kGTLRCloudAssetContentTypeAccessPolicy        = @"ACCESS_POLICY";
 NSString * const kGTLRCloudAssetContentTypeContentTypeUnspecified = @"CONTENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudAssetContentTypeIamPolicy           = @"IAM_POLICY";
 NSString * const kGTLRCloudAssetContentTypeOrgPolicy           = @"ORG_POLICY";

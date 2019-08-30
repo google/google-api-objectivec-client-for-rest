@@ -81,8 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsCreateWithObject:parent:]
 
 /**
- *  Required.
- *  The location name. For example:
+ *  Required. The location name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -93,8 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a job.
  *
  *  @param object The @c GTLRCloudScheduler_Job to include in the query.
- *  @param parent Required.
- *    The location name. For example:
+ *  @param parent Required. The location name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID`.
  *
  *  @return GTLRCloudSchedulerQuery_ProjectsLocationsJobsCreate
@@ -117,8 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsDeleteWithname:]
 
 /**
- *  Required.
- *  The job name. For example:
+ *  Required. The job name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -128,8 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a job.
  *
- *  @param name Required.
- *    The job name. For example:
+ *  @param name Required. The job name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  *
  *  @return GTLRCloudSchedulerQuery_ProjectsLocationsJobsDelete
@@ -151,8 +147,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsGetWithname:]
 
 /**
- *  Required.
- *  The job name. For example:
+ *  Required. The job name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -162,8 +157,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a job.
  *
- *  @param name Required.
- *    The job name. For example:
+ *  @param name Required. The job name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  *
  *  @return GTLRCloudSchedulerQuery_ProjectsLocationsJobsGet
@@ -205,8 +199,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required.
- *  The location name. For example:
+ *  Required. The location name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -216,8 +209,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists jobs.
  *
- *  @param parent Required.
- *    The location name. For example:
+ *  @param parent Required. The location name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID`.
  *
  *  @return GTLRCloudSchedulerQuery_ProjectsLocationsJobsList
@@ -327,8 +319,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsPauseWithObject:name:]
 
 /**
- *  Required.
- *  The job name. For example:
+ *  Required. The job name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -345,8 +336,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudScheduler_PauseJobRequest to include in the
  *    query.
- *  @param name Required.
- *    The job name. For example:
+ *  @param name Required. The job name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  *
  *  @return GTLRCloudSchedulerQuery_ProjectsLocationsJobsPause
@@ -373,8 +363,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsResumeWithObject:name:]
 
 /**
- *  Required.
- *  The job name. For example:
+ *  Required. The job name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -390,8 +379,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudScheduler_ResumeJobRequest to include in the
  *    query.
- *  @param name Required.
- *    The job name. For example:
+ *  @param name Required. The job name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  *
  *  @return GTLRCloudSchedulerQuery_ProjectsLocationsJobsResume
@@ -416,8 +404,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsRunWithObject:name:]
 
 /**
- *  Required.
- *  The job name. For example:
+ *  Required. The job name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -431,8 +418,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudScheduler_RunJobRequest to include in the
  *    query.
- *  @param name Required.
- *    The job name. For example:
+ *  @param name Required. The job name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
  *
  *  @return GTLRCloudSchedulerQuery_ProjectsLocationsJobsRun

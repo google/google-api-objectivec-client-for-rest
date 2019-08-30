@@ -293,7 +293,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /** Details of the source. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_AnnotationSource *annotationSource;
 
-/** Annnotations for images, e.g., bounding polygons. */
+/** Annotations for images, e.g., bounding polygons. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ImageAnnotation *imageAnnotation;
 
 /**
@@ -463,15 +463,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
- *  Specifies whether principals can be exempted for the same LogType in
- *  lower-level resource policies. If true, any lower-level exemptions will
- *  be ignored.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
-
-/**
  *  The log type that this config enables.
  *
  *  Likely values:
@@ -574,8 +565,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /**
  *  An AES 128/192/256 bit key. Causes the hash to be computed based on this
- *  key. A default key is generated for each DeidentifyDataset operation and is
- *  used wherever crypto_key is not specified.
+ *  key. A default key is generated for each Deidentify operation and is used
+ *  wherever crypto_key is not specified.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -620,8 +611,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /**
  *  An AES 128/192/256 bit key. Causes the shift to be computed based on this
  *  key and the patient ID. A default key is generated for each
- *  DeidentifyDataset operation and is used wherever crypto_key is not
- *  specified.
+ *  Deidentify operation and is used wherever crypto_key is not specified.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1208,7 +1198,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0 and 1.
+ *  Acceptable values are 0, 1, and 3.
  *  If the value is 0, or the field is omitted, policy format version 1 will be
  *  returned.
  *

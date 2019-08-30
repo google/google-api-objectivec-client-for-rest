@@ -116,7 +116,6 @@
 @class GTLRDataflow_Sink;
 @class GTLRDataflow_Sink_Codec;
 @class GTLRDataflow_Sink_Spec;
-@class GTLRDataflow_Snapshot;
 @class GTLRDataflow_Source;
 @class GTLRDataflow_Source_BaseSpecs_Item;
 @class GTLRDataflow_Source_Codec;
@@ -1012,47 +1011,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unknown;
  *  Value: "UNSUPPORTED"
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unsupported;
-
-// ----------------------------------------------------------------------------
-// GTLRDataflow_Snapshot.state
-
-/**
- *  Snapshot has been deleted.
- *
- *  Value: "DELETED"
- */
-GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Deleted;
-/**
- *  Snapshot failed to be created.
- *
- *  Value: "FAILED"
- */
-GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Failed;
-/**
- *  Snapshot intent to create has been persisted, snapshotting of state has not
- *  yet started.
- *
- *  Value: "PENDING"
- */
-GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Pending;
-/**
- *  Snapshot has been created and is ready to be used.
- *
- *  Value: "READY"
- */
-GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Ready;
-/**
- *  Snapshotting is being performed.
- *
- *  Value: "RUNNING"
- */
-GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Running;
-/**
- *  Unknown state.
- *
- *  Value: "UNKNOWN_SNAPSHOT_STATE"
- */
-GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_UnknownSnapshotState;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SourceSplitResponse.outcome
@@ -2016,13 +1974,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** ProjectId accessed in the connection. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-@end
-
-
-/**
- *  Response from deleting a snapshot.
- */
-@interface GTLRDataflow_DeleteSnapshotResponse : GTLRObject
 @end
 
 
@@ -3598,17 +3549,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  List of snapshots.
- */
-@interface GTLRDataflow_ListSnapshotsResponse : GTLRObject
-
-/** Returned snapshots. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Snapshot *> *snapshots;
-
-@end
-
-
-/**
  *  MapTask consists of an ordered set of instructions, each of which
  *  describes one particular low-level operation for the worker to
  *  perform in order to accomplish the MapTask's WorkItem.
@@ -4696,67 +4636,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDataflow_Sink_Spec : GTLRObject
-@end
-
-
-/**
- *  Represents a snapshot of a job.
- */
-@interface GTLRDataflow_Snapshot : GTLRObject
-
-/** The time this snapshot was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
-
-/**
- *  The unique ID of this snapshot.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/** The project this snapshot belongs to. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** The job this snapshot was created from. */
-@property(nonatomic, copy, nullable) NSString *sourceJobId;
-
-/**
- *  State of the snapshot.
- *
- *  Likely values:
- *    @arg @c kGTLRDataflow_Snapshot_State_Deleted Snapshot has been deleted.
- *        (Value: "DELETED")
- *    @arg @c kGTLRDataflow_Snapshot_State_Failed Snapshot failed to be created.
- *        (Value: "FAILED")
- *    @arg @c kGTLRDataflow_Snapshot_State_Pending Snapshot intent to create has
- *        been persisted, snapshotting of state has not
- *        yet started. (Value: "PENDING")
- *    @arg @c kGTLRDataflow_Snapshot_State_Ready Snapshot has been created and
- *        is ready to be used. (Value: "READY")
- *    @arg @c kGTLRDataflow_Snapshot_State_Running Snapshotting is being
- *        performed. (Value: "RUNNING")
- *    @arg @c kGTLRDataflow_Snapshot_State_UnknownSnapshotState Unknown state.
- *        (Value: "UNKNOWN_SNAPSHOT_STATE")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** The time after which this snapshot will be automatically deleted. */
-@property(nonatomic, strong, nullable) GTLRDuration *ttl;
-
-@end
-
-
-/**
- *  Request to create a snapshot of a job.
- */
-@interface GTLRDataflow_SnapshotJobRequest : GTLRObject
-
-/** The location that contains this job. */
-@property(nonatomic, copy, nullable) NSString *location;
-
-/** TTL for the snapshot. */
-@property(nonatomic, strong, nullable) GTLRDuration *ttl;
-
 @end
 
 

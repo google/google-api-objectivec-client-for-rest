@@ -593,14 +593,20 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 @interface GTLRFirebaseHosting_Header : GTLRObject
 
 /**
- *  Required. The user-supplied
- *  [glob pattern](/docs/hosting/full-config#glob_pattern_matching) to match
+ *  The user-supplied [glob
+ *  pattern](/docs/hosting/full-config#glob_pattern_matching) to match
  *  against the request URL path.
  */
 @property(nonatomic, copy, nullable) NSString *glob;
 
 /** Required. The additional headers to add to the response. */
 @property(nonatomic, strong, nullable) GTLRFirebaseHosting_Header_Headers *headers;
+
+/**
+ *  The user-supplied RE2 regular expression to match against the request
+ *  URL path.
+ */
+@property(nonatomic, copy, nullable) NSString *regex;
 
 @end
 
@@ -755,8 +761,8 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 @interface GTLRFirebaseHosting_Redirect : GTLRObject
 
 /**
- *  Required. The user-supplied
- *  [glob pattern](/docs/hosting/full-config#glob_pattern_matching) to match
+ *  The user-supplied [glob
+ *  pattern](/docs/hosting/full-config#glob_pattern_matching) to match
  *  against the request URL path.
  */
 @property(nonatomic, copy, nullable) NSString *glob;
@@ -772,6 +778,12 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
  *  <br>"location": "https://example.com/foo/:capture"</code>
  */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  The user-supplied RE2 regular expression to match against the request
+ *  URL path.
+ */
+@property(nonatomic, copy, nullable) NSString *regex;
 
 /**
  *  Required. The status HTTP code to return in the response. It must be a
@@ -859,14 +871,20 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 @property(nonatomic, copy, nullable) NSString *function;
 
 /**
- *  Required. The user-supplied
- *  [glob pattern](/docs/hosting/full-config#glob_pattern_matching) to match
+ *  The user-supplied [glob
+ *  pattern](/docs/hosting/full-config#glob_pattern_matching) to match
  *  against the request URL path.
  */
 @property(nonatomic, copy, nullable) NSString *glob;
 
 /** The URL path to rewrite the request to. */
 @property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  The user-supplied RE2 regular expression to match against the request
+ *  URL path.
+ */
+@property(nonatomic, copy, nullable) NSString *regex;
 
 /** The request will be forwarded to Cloud Run. */
 @property(nonatomic, strong, nullable) GTLRFirebaseHosting_CloudRunRewrite *run;

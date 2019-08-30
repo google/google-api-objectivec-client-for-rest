@@ -1389,6 +1389,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Creates a session entity type.
  *  If the specified session entity type already exists, overrides the session
  *  entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
  *
  *  Method: dialogflow.projects.agent.sessions.entityTypes.create
  *
@@ -1412,6 +1415,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Creates a session entity type.
  *  If the specified session entity type already exists, overrides the session
  *  entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType
  *    to include in the query.
@@ -1427,6 +1433,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Deletes the specified session entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
  *
  *  Method: dialogflow.projects.agent.sessions.entityTypes.delete
  *
@@ -1450,6 +1459,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
  *
  *  Deletes the specified session entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
  *
  *  @param name Required. The name of the entity type to delete. Format:
  *    `projects/<Project ID>/agent/sessions/<Session
@@ -1464,6 +1476,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Retrieves the specified session entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
  *
  *  Method: dialogflow.projects.agent.sessions.entityTypes.get
  *
@@ -1487,6 +1502,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.
  *
  *  Retrieves the specified session entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
  *
  *  @param name Required. The name of the session entity type. Format:
  *    `projects/<Project ID>/agent/sessions/<Session
@@ -1501,6 +1519,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Returns the list of all session entity types in the specified session.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
  *
  *  Method: dialogflow.projects.agent.sessions.entityTypes.list
  *
@@ -1534,6 +1555,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  GTLRDialogflow_GoogleCloudDialogflowV2ListSessionEntityTypesResponse.
  *
  *  Returns the list of all session entity types in the specified session.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
  *
  *  @param parent Required. The session to list all session entity types from.
  *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
@@ -1550,6 +1574,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Updates the specified session entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
  *
  *  Method: dialogflow.projects.agent.sessions.entityTypes.patch
  *
@@ -1582,6 +1609,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.
  *
  *  Updates the specified session entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType
  *    to include in the query.

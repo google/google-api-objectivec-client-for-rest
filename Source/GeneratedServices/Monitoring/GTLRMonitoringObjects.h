@@ -81,6 +81,7 @@
 @class GTLRMonitoring_TypedValue;
 @class GTLRMonitoring_UptimeCheckConfig;
 @class GTLRMonitoring_UptimeCheckIp;
+@class GTLRMonitoring_UptimeCheckResult;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -3964,8 +3965,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  is specified, the start time defaults to the value of the end time, and the
  *  interval represents a single point in time. Such an interval is valid only
  *  for GAUGE metrics, which are point-in-time measurements.
- *  For DELTA and CUMULATIVE metrics, the start time must be later than the end
- *  time.
+ *  For DELTA and CUMULATIVE metrics, the start time must be earlier than the
+ *  end time.
  *  In all cases, the start time of the next interval must be at least a
  *  microsecond after the end time of the previous interval. Because the
  *  interval is closed, if the start time of a new interval is the same as the
@@ -4294,6 +4295,65 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *        locations within the United States of America. (Value: "USA")
  */
 @property(nonatomic, copy, nullable) NSString *region;
+
+@end
+
+
+/**
+ *  The result of a single uptime check execution. For group checks, this
+ *  corresponds to one member of the group.
+ */
+@interface GTLRMonitoring_UptimeCheckResult : GTLRObject
+
+/**
+ *  True if the resource passed the check.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *checkPassed;
+
+/**
+ *  True if the response had content that did not match the check.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contentMismatch;
+
+/**
+ *  For HTTP checks, error, if any, that prevented contact with the resource
+ *  (ex: DNS_NAME_UNKNOWN, INVALID_URL).
+ */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/**
+ *  For HTTP checks, HTTP response code returned by the resource.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *httpStatus;
+
+/**
+ *  The monitored resource (https://cloud.google.com/monitoring/api/resources)
+ *  for the Uptime check result.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *monitoredResource;
+
+/** The request latency when executing the uptime check. */
+@property(nonatomic, strong, nullable) GTLRDuration *requestLatency;
+
+@end
+
+
+/**
+ *  The protocol for the ValidateUptimeCheckConfigResponse response.
+ */
+@interface GTLRMonitoring_ValidateUptimeCheckConfigResponse : GTLRObject
+
+/**
+ *  The results of the uptime check execution (includes one result per group
+ *  member, up to a maximum of 3 randomly selected group members).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_UptimeCheckResult *> *uptimeCheckResults;
 
 @end
 

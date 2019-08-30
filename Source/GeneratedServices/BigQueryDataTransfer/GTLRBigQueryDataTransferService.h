@@ -36,6 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferBigquery;
 /**
+ *  Authorization scope: View your data in Google BigQuery
+ *
+ *  Value "https://www.googleapis.com/auth/bigquery.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly;
+/**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *

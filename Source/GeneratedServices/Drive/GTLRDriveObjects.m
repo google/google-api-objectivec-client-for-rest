@@ -377,13 +377,14 @@
 @dynamic canAddChildren, canChangeCopyRequiresWriterPermission,
          canChangeViewersCanCopyContent, canComment, canCopy, canDelete,
          canDeleteChildren, canDownload, canEdit, canListChildren,
-         canMoveChildrenOutOfDrive, canMoveChildrenOutOfTeamDrive,
-         canMoveChildrenWithinDrive, canMoveChildrenWithinTeamDrive,
-         canMoveItemIntoTeamDrive, canMoveItemOutOfDrive,
-         canMoveItemOutOfTeamDrive, canMoveItemWithinDrive,
-         canMoveItemWithinTeamDrive, canMoveTeamDriveItem, canReadDrive,
-         canReadRevisions, canReadTeamDrive, canRemoveChildren, canRename,
-         canShare, canTrash, canTrashChildren, canUntrash;
+         canModifyContent, canMoveChildrenOutOfDrive,
+         canMoveChildrenOutOfTeamDrive, canMoveChildrenWithinDrive,
+         canMoveChildrenWithinTeamDrive, canMoveItemIntoTeamDrive,
+         canMoveItemOutOfDrive, canMoveItemOutOfTeamDrive,
+         canMoveItemWithinDrive, canMoveItemWithinTeamDrive,
+         canMoveTeamDriveItem, canReadDrive, canReadRevisions, canReadTeamDrive,
+         canRemoveChildren, canRename, canShare, canTrash, canTrashChildren,
+         canUntrash;
 @end
 
 

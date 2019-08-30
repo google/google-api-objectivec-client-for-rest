@@ -48,9 +48,9 @@
 //
 
 @implementation GTLRSQLAdmin_BackupRun
-@dynamic descriptionProperty, endTime, enqueuedTime, error, identifier,
-         instance, kind, location, selfLink, startTime, status, type,
-         windowStartTime;
+@dynamic descriptionProperty, diskEncryptionConfiguration, diskEncryptionStatus,
+         endTime, enqueuedTime, error, identifier, instance, kind, location,
+         selfLink, startTime, status, type, windowStartTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
