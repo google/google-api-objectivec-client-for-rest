@@ -208,7 +208,7 @@
 
   @synchronized([GTLRQuery class]) {
     ++lastRequestID;
-    result = [NSString stringWithFormat:@"gtlr_%tu", lastRequestID];
+    result = [NSString stringWithFormat:@"gtlr_%lu", (unsigned long)lastRequestID];
   }
   return result;
 }

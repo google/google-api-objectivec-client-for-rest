@@ -56,7 +56,7 @@
     for (NSArray *testCase in testCases) {
       // Each case is an array of the template and value...
       XCTAssertEqual(testCase.count, (NSUInteger)2,
-                     @" test index %tu of '%@'", idx, suiteName);
+                     @" test index %lu of '%@'", (unsigned long)idx, suiteName);
 
       NSString *testTemplate = [testCase objectAtIndex:0];
       NSString *expectedResult = [testCase objectAtIndex:1];
@@ -64,8 +64,8 @@
       NSString *result = [GTLRURITemplate expandTemplate:testTemplate
                                                   values:vars];
       XCTAssertEqualObjects(result, expectedResult,
-                            @"template was '%@' (index %tu of '%@')",
-                            testTemplate, idx, suiteName);
+                            @"template was '%@' (index %lu of '%@')",
+                            testTemplate, (unsigned long)idx, suiteName);
       ++idx;
     }
   }

@@ -692,7 +692,8 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
   if (loggingName.length > 0) {
     NSUInteger pageNumber = ticket.pagesFetchedCounter + 1;
     if (pageNumber > 1) {
-      loggingName = [loggingName stringByAppendingFormat:@", page %tu", pageNumber];
+      loggingName = [loggingName stringByAppendingFormat:@", page %lu",
+                     (unsigned long)pageNumber];
     }
     fetcher.comment = loggingName;
   }
@@ -1028,11 +1029,12 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     NSUInteger pageNumber = ticket.pagesFetchedCounter;
     NSString *pageStr = @"";
     if (pageNumber > 0) {
-      pageStr = [NSString stringWithFormat:@"page %tu, ", pageNumber + 1];
+      pageStr = [NSString stringWithFormat:@"page %lu, ",
+                 (unsigned long)(pageNumber + 1)];
     }
-    batchCopy.loggingName = [NSString stringWithFormat:@"batch: %@ (%@%tu queries)",
+    batchCopy.loggingName = [NSString stringWithFormat:@"batch: %@ (%@%lu queries)",
                              [loggingNames.allObjects componentsJoinedByString:@", "],
-                             pageStr, numberOfQueries];
+                             pageStr, (unsigned long)numberOfQueries];
   }
 #endif
 
@@ -1371,8 +1373,9 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
           } else {
             queryLabel = [[executingQuery class] description];
           }
-          GTLR_DEBUG_LOG(@"Executing %@ query required fetching %tu pages; use a query with"
-                         @" a larger maxResults for faster results", queryLabel, pageCount);
+          GTLR_DEBUG_LOG(@"Executing %@ query required fetching %lu pages; use a query with"
+                         @" a larger maxResults for faster results",
+                         queryLabel, (unsigned long)pageCount);
         }
   #endif
       }  // nextPageQuery
@@ -2668,7 +2671,8 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 - (void)startBackgroundTask {
 #if GTM_BACKGROUND_TASK_FETCHING
   GTLR_DEBUG_ASSERT(self.backgroundTaskIdentifier == UIBackgroundTaskInvalid,
-                    @"Redundant GTLRService background task: %tu", self.backgroundTaskIdentifier);
+                    @"Redundant GTLRService background task: %lu",
+                    (unsigned long)self.backgroundTaskIdentifier);
 
   NSString *taskName = [[self.executingQuery class] description];
 
