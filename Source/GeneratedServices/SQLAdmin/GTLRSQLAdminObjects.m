@@ -344,7 +344,18 @@
 //
 
 @implementation GTLRSQLAdmin_ImportContext
-@dynamic csvImportOptions, database, fileType, importUser, kind, uri;
+@dynamic bakImportOptions, csvImportOptions, database, fileType, importUser,
+         kind, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_ImportContext_BakImportOptions
+//
+
+@implementation GTLRSQLAdmin_ImportContext_BakImportOptions
+@dynamic encryptionOptions;
 @end
 
 
@@ -363,6 +374,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions
+//
+
+@implementation GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions
+@dynamic certPath, pvkPassword, pvkPath;
 @end
 
 

@@ -33,15 +33,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The metadata for operation returned from
- *  ReservationService.CreateSlotPool.
+ *  ReservationService.CreateCapacityCommitment.
  */
-@interface GTLRBigQueryReservation_CreateSlotPoolMetadata : GTLRObject
+@interface GTLRBigQueryReservation_CreateCapacityCommitmentMetadata : GTLRObject
 
 /**
- *  Resource name of the slot pool that is being created. E.g.,
- *  projects/myproject/locations/us-central1/reservations/foo/slotPools/123
+ *  Resource name of the capacity commitment that is being created. E.g.,
+ *  projects/myproject/locations/US/capacityCommitments/123
  */
-@property(nonatomic, copy, nullable) NSString *slotPool;
+@property(nonatomic, copy, nullable) NSString *capacityCommitment;
 
 @end
 

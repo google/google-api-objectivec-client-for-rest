@@ -12,11 +12,11 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigQueryReservation_CreateSlotPoolMetadata
+//   GTLRBigQueryReservation_CreateCapacityCommitmentMetadata
 //
 
-@implementation GTLRBigQueryReservation_CreateSlotPoolMetadata
-@dynamic slotPool;
+@implementation GTLRBigQueryReservation_CreateCapacityCommitmentMetadata
+@dynamic capacityCommitment;
 @end
 
 

@@ -19,6 +19,10 @@
 #endif
 
 @class GTLRDataproc_AcceleratorConfig;
+@class GTLRDataproc_AutoscalingConfig;
+@class GTLRDataproc_AutoscalingPolicy;
+@class GTLRDataproc_BasicAutoscalingAlgorithm;
+@class GTLRDataproc_BasicYarnAutoscalingConfig;
 @class GTLRDataproc_Binding;
 @class GTLRDataproc_Cluster;
 @class GTLRDataproc_Cluster_Labels;
@@ -43,6 +47,7 @@
 @class GTLRDataproc_HiveJob;
 @class GTLRDataproc_HiveJob_Properties;
 @class GTLRDataproc_HiveJob_ScriptVariables;
+@class GTLRDataproc_InstanceGroupAutoscalingPolicyConfig;
 @class GTLRDataproc_InstanceGroupConfig;
 @class GTLRDataproc_InstantiateWorkflowTemplateRequest_Parameters;
 @class GTLRDataproc_Job;
@@ -486,6 +491,142 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
+ *  Autoscaling Policy config associated with the cluster.
+ */
+@interface GTLRDataproc_AutoscalingConfig : GTLRObject
+
+/**
+ *  Optional. The autoscaling policy used by the cluster.Only resource names
+ *  including projectid and location (region) are valid. Examples:
+ *  https://www.googleapis.com/compute/v1/projects/[project_id]/locations/[dataproc_region]/autoscalingPolicies/[policy_id]
+ *  projects/[project_id]/locations/[dataproc_region]/autoscalingPolicies/[policy_id]Note
+ *  that the policy must be in the same project and Cloud Dataproc region.
+ */
+@property(nonatomic, copy, nullable) NSString *policyUri;
+
+@end
+
+
+/**
+ *  Describes an autoscaling policy for Dataproc cluster autoscaler.
+ */
+@interface GTLRDataproc_AutoscalingPolicy : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDataproc_BasicAutoscalingAlgorithm *basicAlgorithm;
+
+/**
+ *  Required. The policy id.The id must contain only letters (a-z, A-Z), numbers
+ *  (0-9), underscores (_), and hyphens (-). Cannot begin or end with underscore
+ *  or hyphen. Must consist of between 3 and 50 characters.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The "resource name" of the autoscaling policy, as described in
+ *  https://cloud.google.com/apis/design/resource_names.
+ *  For projects.regions.autoscalingPolicies, the resource name of the policy
+ *  has the following format:
+ *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
+ *  For projects.locations.autoscalingPolicies, the resource name of the policy
+ *  has the following format:
+ *  projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Describes how the autoscaler will operate for secondary workers.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupAutoscalingPolicyConfig *secondaryWorkerConfig;
+
+/**
+ *  Required. Describes how the autoscaler will operate for primary workers.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupAutoscalingPolicyConfig *workerConfig;
+
+@end
+
+
+/**
+ *  Basic algorithm for autoscaling.
+ */
+@interface GTLRDataproc_BasicAutoscalingAlgorithm : GTLRObject
+
+/**
+ *  Optional. Duration between scaling events. A scaling period starts after the
+ *  update operation from the previous event has completed.Bounds: 2m, 1d.
+ *  Default: 2m.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *cooldownPeriod;
+
+/** Required. YARN autoscaling configuration. */
+@property(nonatomic, strong, nullable) GTLRDataproc_BasicYarnAutoscalingConfig *yarnConfig;
+
+@end
+
+
+/**
+ *  Basic autoscaling configurations for YARN.
+ */
+@interface GTLRDataproc_BasicYarnAutoscalingConfig : GTLRObject
+
+/**
+ *  Required. Timeout for YARN graceful decommissioning of Node Managers.
+ *  Specifies the duration to wait for jobs to complete before forcefully
+ *  removing workers (and potentially interrupting jobs). Only applicable to
+ *  downscaling operations.Bounds: 0s, 1d.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *gracefulDecommissionTimeout;
+
+/**
+ *  Required. Fraction of average pending memory in the last cooldown period for
+ *  which to remove workers. A scale-down factor of 1 will result in scaling
+ *  down so that there is no available memory remaining after the update (more
+ *  aggressive scaling). A scale-down factor of 0 disables removing workers,
+ *  which can be beneficial for autoscaling a single job.Bounds: 0.0, 1.0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleDownFactor;
+
+/**
+ *  Optional. Minimum scale-down threshold as a fraction of total cluster size
+ *  before scaling occurs. For example, in a 20-worker cluster, a threshold of
+ *  0.1 means the autoscaler must recommend at least a 2 worker scale-down for
+ *  the cluster to scale. A threshold of 0 means the autoscaler will scale down
+ *  on any recommended change.Bounds: 0.0, 1.0. Default: 0.0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleDownMinWorkerFraction;
+
+/**
+ *  Required. Fraction of average pending memory in the last cooldown period for
+ *  which to add workers. A scale-up factor of 1.0 will result in scaling up so
+ *  that there is no pending memory remaining after the update (more aggressive
+ *  scaling). A scale-up factor closer to 0 will result in a smaller magnitude
+ *  of scaling up (less aggressive scaling).Bounds: 0.0, 1.0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleUpFactor;
+
+/**
+ *  Optional. Minimum scale-up threshold as a fraction of total cluster size
+ *  before scaling occurs. For example, in a 20-worker cluster, a threshold of
+ *  0.1 means the autoscaler must recommend at least a 2-worker scale-up for the
+ *  cluster to scale. A threshold of 0 means the autoscaler will scale up on any
+ *  recommended change.Bounds: 0.0, 1.0. Default: 0.0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleUpMinWorkerFraction;
+
+@end
+
+
+/**
  *  Associates members with a role.
  */
 @interface GTLRDataproc_Binding : GTLRObject
@@ -607,6 +748,12 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  The cluster config.
  */
 @interface GTLRDataproc_ClusterConfig : GTLRObject
+
+/**
+ *  Optional. Autoscaling config for the policy associated with the cluster.
+ *  Cluster does not autoscale if this field is unset.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_AutoscalingConfig *autoscalingConfig;
 
 /**
  *  Optional. A Google Cloud Storage bucket used to stage job dependencies,
@@ -850,7 +997,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @interface GTLRDataproc_ClusterStatus : GTLRObject
 
-/** Output only. Optional details of cluster's state. */
+/** Optional. Output only. Details of cluster's state. */
 @property(nonatomic, copy, nullable) NSString *detail;
 
 /**
@@ -1143,9 +1290,11 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @interface GTLRDataproc_GetPolicyOptions : GTLRObject
 
 /**
- *  Optional. The policy format version to be returned. Acceptable values are 0,
- *  1, and 3. If the value is 0, or the field is omitted, policy format version
- *  1 will be returned.
+ *  Optional. The policy format version to be returned.Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected.Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1301,6 +1450,55 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *        fetch them all at once.
  */
 @interface GTLRDataproc_HiveJob_ScriptVariables : GTLRObject
+@end
+
+
+/**
+ *  Configuration for the size bounds of an instance group, including its
+ *  proportional size to other groups.
+ */
+@interface GTLRDataproc_InstanceGroupAutoscalingPolicyConfig : GTLRObject
+
+/**
+ *  Required. Maximum number of instances for this group. Required for primary
+ *  workers. Note that by default, clusters will not use secondary workers.
+ *  Required for secondary workers if the minimum secondary instances is
+ *  set.Primary workers - Bounds: [min_instances, ). Secondary workers - Bounds:
+ *  [min_instances, ). Default: 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxInstances;
+
+/**
+ *  Optional. Minimum number of instances for this group.Primary workers -
+ *  Bounds: 2, max_instances. Default: 2. Secondary workers - Bounds: 0,
+ *  max_instances. Default: 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minInstances;
+
+/**
+ *  Optional. Weight for the instance group, which is used to determine the
+ *  fraction of total workers in the cluster from this instance group. For
+ *  example, if primary workers have weight 2, and secondary workers have weight
+ *  1, the cluster will have approximately 2 primary workers for each secondary
+ *  worker.The cluster may not reach the specified balance if constrained by
+ *  min/max bounds or other autoscaling settings. For example, if max_instances
+ *  for secondary workers is 0, then only primary workers will be added. The
+ *  cluster can also be out of balance when created.If weight is not set on any
+ *  instance group, the cluster will default to equal weight for all groups: the
+ *  cluster will attempt to maintain an equal number of workers in each group
+ *  within the configured size bounds for each group. If weight is set for one
+ *  group only, the cluster will default to zero weight on the unset group. For
+ *  example if weight is set only on primary workers, the cluster will use
+ *  primary workers only and no secondary workers.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weight;
+
 @end
 
 
@@ -1582,8 +1780,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @interface GTLRDataproc_JobStatus : GTLRObject
 
 /**
- *  Output only. Optional job state details, such as an error description if the
- *  state is <code>ERROR</code>.
+ *  Optional. Output only. Job state details, such as an error description if
+ *  the state is <code>ERROR</code>.
  */
 @property(nonatomic, copy, nullable) NSString *details;
 
@@ -1714,6 +1912,12 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, copy, nullable) NSString *kmsKeyUri;
 
 /**
+ *  Optional. The name of the on-cluster Kerberos realm. If not specified, the
+ *  uppercased domain of hostnames will be the realm.
+ */
+@property(nonatomic, copy, nullable) NSString *realm;
+
+/**
  *  Required. The Cloud Storage URI of a KMS encrypted file containing the root
  *  principal password.
  */
@@ -1772,6 +1976,33 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  and became eligible for deletion due to idleness.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *idleStartTime;
+
+@end
+
+
+/**
+ *  A response to a request to list autoscaling policies in a project.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "policies" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataproc_ListAutoscalingPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  Output only. This token is included in the response if there are more
+ *  results to fetch.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. Autoscaling policies list.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_AutoscalingPolicy *> *policies;
 
 @end
 
@@ -2238,25 +2469,33 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
- *  specify access control policies for Cloud Platform resources.A Policy
- *  consists of a list of bindings. A binding binds a list of members to a role,
- *  where the members can be user accounts, Google groups, Google domains, and
- *  service accounts. A role is a named list of permissions defined by IAM.JSON
- *  Example
+ *  specify access control policies for Cloud Platform resources.A Policy is a
+ *  collection of bindings. A binding binds one or more members to a single
+ *  role. Members can be user accounts, service accounts, Google groups, and
+ *  domains (such as G Suite). A role is a named list of permissions (defined by
+ *  IAM or configured by users). A binding can optionally specify a condition,
+ *  which is a logic expression that further constrains the role binding based
+ *  on attributes about the request and/or target resource.JSON Example
  *  {
  *  "bindings": [
  *  {
- *  "role": "roles/owner",
+ *  "role": "role/resourcemanager.organizationAdmin",
  *  "members": [
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",
  *  "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com"
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
  *  ]
  *  },
  *  {
- *  "role": "roles/viewer",
- *  "members": ["user:sean\@example.com"]
+ *  "role": "roles/resourcemanager.organizationViewer",
+ *  "members": ["user:eve\@example.com"],
+ *  "condition": {
+ *  "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020",
+ *  "expression": "request.time <
+ *  timestamp('2020-10-01T00:00:00.000Z')",
+ *  }
  *  }
  *  ]
  *  }
@@ -2266,19 +2505,24 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  - user:mike\@example.com
  *  - group:admins\@example.com
  *  - domain:google.com
- *  - serviceAccount:my-other-app\@appspot.gserviceaccount.com
- *  role: roles/owner
+ *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
+ *  role: roles/resourcemanager.organizationAdmin
  *  - members:
- *  - user:sean\@example.com
- *  role: roles/viewer
+ *  - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer
+ *  condition:
+ *  title: expirable access
+ *  description: Does not grant access after Sep 2020
+ *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
  *  For a description of IAM and its features, see the IAM developer's guide
  *  (https://cloud.google.com/iam/docs).
  */
 @interface GTLRDataproc_Policy : GTLRObject
 
 /**
- *  Associates a list of members to a role. bindings with no members will result
- *  in an error.
+ *  Associates a list of members to a role. Optionally may specify a condition
+ *  that determines when binding is in effect. bindings with no members will
+ *  result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_Binding *> *bindings;
 
@@ -2290,7 +2534,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  returned in the response to getIamPolicy, and systems are expected to put
  *  that etag in the request to setIamPolicy to ensure that their change will be
  *  applied to the same version of the policy.If no etag is provided in the call
- *  to setIamPolicy, then the existing policy is overwritten.
+ *  to setIamPolicy, then the existing policy is overwritten. Due to blind-set
+ *  semantics of an etag-less policy, 'setIamPolicy' will not fail even if
+ *  either of incoming or stored policy does not meet the version requirements.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2298,7 +2544,14 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Deprecated.
+ *  Specifies the format of the policy.Valid values are 0, 1, and 3. Requests
+ *  specifying an invalid value will be rejected.Operations affecting
+ *  conditional bindings must specify version 3. This can be either setting a
+ *  conditional policy, modifying a conditional binding, or removing a
+ *  conditional binding from the stored conditional policy. Operations on
+ *  non-conditional policies may specify any valid value or leave the field
+ *  unset.If no etag is provided in the call to setIamPolicy, any version
+ *  compliance checks on the incoming and/or stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2459,7 +2712,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, copy, nullable) NSString *imageVersion;
 
-/** The set of optional components to activate on the cluster. */
+/** Optional. The set of components to activate on the cluster. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *optionalComponents;
 
 /**
@@ -2949,9 +3202,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Required. The template id.The id must contain only letters (a-z, A-Z),
- *  numbers (0-9), underscores (_), and hyphens (-). Cannot begin or end with
- *  underscore or hyphen. Must consist of between 3 and 50 characters.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2984,9 +3235,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Template parameters whose values are substituted into the
- *  template. Values for parameters must be provided when the template is
- *  instantiated.
+ *  Optional. emplate parameters whose values are substituted into the template.
+ *  Values for parameters must be provided when the template is instantiated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_TemplateParameter *> *parameters;
 
@@ -3043,7 +3293,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_ClusterSelector *clusterSelector;
 
-/** Optional. A cluster that is managed by the workflow. */
+/** A cluster that is managed by the workflow. */
 @property(nonatomic, strong, nullable) GTLRDataproc_ManagedCluster *managedCluster;
 
 @end

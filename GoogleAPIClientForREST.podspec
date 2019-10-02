@@ -108,6 +108,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Appsactivity/*.{h,m}'
   end
+  s.subspec 'BigQueryConnectionService' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/BigQueryConnectionService/*.{h,m}'
+  end
   s.subspec 'BigQueryDataTransfer' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/BigQueryDataTransfer/*.{h,m}'
@@ -508,6 +512,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PlusDomains/*.{h,m}'
   end
+  s.subspec 'PolicyTroubleshooter' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/PolicyTroubleshooter/*.{h,m}'
+  end
   s.subspec 'PolyService' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PolyService/*.{h,m}'
@@ -519,6 +527,10 @@ Pod::Spec.new do |s|
   s.subspec 'Pubsub' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Pubsub/*.{h,m}'
+  end
+  s.subspec 'Recommender' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Recommender/*.{h,m}'
   end
   s.subspec 'RemoteBuildExecution' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -648,13 +660,13 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Translate/*.{h,m}'
   end
-  s.subspec 'URLShortener' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/URLShortener/*.{h,m}'
-  end
   s.subspec 'Vault' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Vault/*.{h,m}'
+  end
+  s.subspec 'Verifiedaccess' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Verifiedaccess/*.{h,m}'
   end
   s.subspec 'Vision' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

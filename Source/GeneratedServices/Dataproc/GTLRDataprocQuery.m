@@ -30,6 +30,188 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataproc_AutoscalingPolicy *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/autoscalingPolicies";
+  GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_AutoscalingPolicy class];
+  query.loggingName = @"dataproc.projects.locations.autoscalingPolicies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Empty class];
+  query.loggingName = @"dataproc.projects.locations.autoscalingPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AutoscalingPolicy class];
+  query.loggingName = @"dataproc.projects.locations.autoscalingPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.locations.autoscalingPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/autoscalingPolicies";
+  GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_ListAutoscalingPoliciesResponse class];
+  query.loggingName = @"dataproc.projects.locations.autoscalingPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.locations.autoscalingPolicies.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_TestIamPermissionsResponse class];
+  query.loggingName = @"dataproc.projects.locations.autoscalingPolicies.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_AutoscalingPolicy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AutoscalingPolicy class];
+  query.loggingName = @"dataproc.projects.locations.autoscalingPolicies.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesCreate
 
 @dynamic parent;
@@ -257,6 +439,188 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
   query.name = name;
   query.expectedObjectClass = [GTLRDataproc_WorkflowTemplate class];
   query.loggingName = @"dataproc.projects.locations.workflowTemplates.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataproc_AutoscalingPolicy *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/autoscalingPolicies";
+  GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_AutoscalingPolicy class];
+  query.loggingName = @"dataproc.projects.regions.autoscalingPolicies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Empty class];
+  query.loggingName = @"dataproc.projects.regions.autoscalingPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AutoscalingPolicy class];
+  query.loggingName = @"dataproc.projects.regions.autoscalingPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.regions.autoscalingPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/autoscalingPolicies";
+  GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_ListAutoscalingPoliciesResponse class];
+  query.loggingName = @"dataproc.projects.regions.autoscalingPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_Policy class];
+  query.loggingName = @"dataproc.projects.regions.autoscalingPolicies.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataproc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataproc_TestIamPermissionsResponse class];
+  query.loggingName = @"dataproc.projects.regions.autoscalingPolicies.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_AutoscalingPolicy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AutoscalingPolicy class];
+  query.loggingName = @"dataproc.projects.regions.autoscalingPolicies.update";
   return query;
 }
 

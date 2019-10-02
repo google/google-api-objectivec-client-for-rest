@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTexttospeech queryForVoicesList]
 
 /**
- *  Optional (but recommended)
+ *  Optional. Recommended.
  *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag. If
  *  specified, the ListVoices call will only return voices that can be used to
  *  synthesize this language_code. E.g. when specifying "en-NZ", you will get

@@ -139,6 +139,10 @@ NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_InFrontOfText = @"
 NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_PositionedObjectLayoutUnspecified = @"POSITIONED_OBJECT_LAYOUT_UNSPECIFIED";
 NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_WrapText = @"WRAP_TEXT";
 
+// GTLRDocs_ReplaceImageRequest.imageReplaceMethod
+NSString * const kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_CenterCrop = @"CENTER_CROP";
+NSString * const kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified = @"IMAGE_REPLACE_METHOD_UNSPECIFIED";
+
 // GTLRDocs_SectionStyle.columnSeparatorStyle
 NSString * const kGTLRDocs_SectionStyle_ColumnSeparatorStyle_BetweenEachColumn = @"BETWEEN_EACH_COLUMN";
 NSString * const kGTLRDocs_SectionStyle_ColumnSeparatorStyle_ColumnSeparatorStyleUnspecified = @"COLUMN_SEPARATOR_STYLE_UNSPECIFIED";
@@ -1162,6 +1166,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_MergeTableCellsRequest
+//
+
+@implementation GTLRDocs_MergeTableCellsRequest
+@dynamic tableRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_NamedRange
 //
 
@@ -1566,6 +1580,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_ReplaceImageRequest
+//
+
+@implementation GTLRDocs_ReplaceImageRequest
+@dynamic imageObjectId, imageReplaceMethod, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_Request
 //
 
@@ -1574,9 +1598,9 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
          deleteNamedRange, deleteParagraphBullets, deletePositionedObject,
          deleteTableColumn, deleteTableRow, insertInlineImage, insertPageBreak,
          insertTable, insertTableColumn, insertTableRow, insertText,
-         replaceAllText, updateDocumentStyle, updateParagraphStyle,
-         updateTableCellStyle, updateTableColumnProperties, updateTableRowStyle,
-         updateTextStyle;
+         mergeTableCells, replaceAllText, replaceImage, unmergeTableCells,
+         updateDocumentStyle, updateParagraphStyle, updateTableCellStyle,
+         updateTableColumnProperties, updateTableRowStyle, updateTextStyle;
 @end
 
 
@@ -2108,6 +2132,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
          fontSizeSuggested, foregroundColorSuggested, italicSuggested,
          linkSuggested, smallCapsSuggested, strikethroughSuggested,
          underlineSuggested, weightedFontFamilySuggested;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_UnmergeTableCellsRequest
+//
+
+@implementation GTLRDocs_UnmergeTableCellsRequest
+@dynamic tableRange;
 @end
 
 

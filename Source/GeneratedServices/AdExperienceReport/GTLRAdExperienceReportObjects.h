@@ -107,12 +107,12 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_Regi
 GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionUnknown;
 
 /**
- *  Summary of the ad experience rating of a site for a specific platform.
+ *  A site's Ad Experience Report summary on a single platform.
  */
 @interface GTLRAdExperienceReport_PlatformSummary : GTLRObject
 
 /**
- *  The status of the site reviewed for the Better Ads Standards.
+ *  The site's Ad Experience Report status on this platform.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Failing
@@ -126,11 +126,20 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_Regi
  */
 @property(nonatomic, copy, nullable) NSString *betterAdsStatus;
 
-/** The time at which ad filtering begins. */
+/**
+ *  The time at which
+ *  [enforcement](https://support.google.com/webtools/answer/7308033) against
+ *  the site began or will begin on this platform.
+ *  Not set when the
+ *  filter_status
+ *  is OFF.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *enforcementTime;
 
 /**
- *  The ad filtering status of the site.
+ *  The site's [enforcement
+ *  status](https://support.google.com/webtools/answer/7308033) on this
+ *  platform.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExperienceReport_PlatformSummary_FilterStatus_Off Ad
@@ -146,21 +155,28 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_Regi
  */
 @property(nonatomic, copy, nullable) NSString *filterStatus;
 
-/** The last time that the site changed status. */
+/** The time at which the site's status last changed on this platform. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastChangeTime;
 
 /**
- *  The assigned regions for the site and platform.
+ *  The site's regions on this platform.
  *  No longer populated, because there is no longer any semantic difference
  *  between sites in different regions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *region;
 
-/** A link that leads to a full ad experience report. */
+/**
+ *  A link to the full Ad Experience Report for the site on this platform..
+ *  Not set in
+ *  ViolatingSitesResponse.
+ *  Note that you must complete the [Search Console verification
+ *  process](https://support.google.com/webmasters/answer/9008080) for the site
+ *  before you can access the full report.
+ */
 @property(nonatomic, copy, nullable) NSString *reportUrl;
 
 /**
- *  Whether the site is currently under review.
+ *  Whether the site is currently under review on this platform.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -174,13 +190,13 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_Regi
  */
 @interface GTLRAdExperienceReport_SiteSummaryResponse : GTLRObject
 
-/** Summary for the desktop review of the site. */
+/** The site's Ad Experience Report summary on desktop. */
 @property(nonatomic, strong, nullable) GTLRAdExperienceReport_PlatformSummary *desktopSummary;
 
-/** Summary for the mobile review of the site. */
+/** The site's Ad Experience Report summary on mobile. */
 @property(nonatomic, strong, nullable) GTLRAdExperienceReport_PlatformSummary *mobileSummary;
 
-/** The name of the site reviewed. */
+/** The name of the reviewed site, e.g. `google.com`. */
 @property(nonatomic, copy, nullable) NSString *reviewedSite;
 
 @end
@@ -191,7 +207,7 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_Regi
  */
 @interface GTLRAdExperienceReport_ViolatingSitesResponse : GTLRObject
 
-/** A list of summaries of violating sites. */
+/** The list of violating sites. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExperienceReport_SiteSummaryResponse *> *violatingSites;
 
 @end

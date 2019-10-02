@@ -1225,6 +1225,16 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation *> *segmentLabelAnnotations;
 
+/**
+ *  Presence label annotations on video level or user specified segment level.
+ *  There is exactly one element for each unique label. Compared to the
+ *  existing topical `segment_label_annotations`, this field presents more
+ *  fine-grained, segment-level labels detected in video content and is made
+ *  available only when the client sets `LabelDetectionConfig.model` to
+ *  "builtin/latest" in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation *> *segmentPresenceLabelAnnotations;
+
 /** Shot annotations. Each shot is represented as a video segment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment *> *shotAnnotations;
 
@@ -1233,6 +1243,15 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation *> *shotLabelAnnotations;
+
+/**
+ *  Presence label annotations on shot level. There is exactly one element for
+ *  each unique label. Compared to the existing topical
+ *  `shot_label_annotations`, this field presents more fine-grained, shot-level
+ *  labels detected in video content and is made available only when the client
+ *  sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation *> *shotPresenceLabelAnnotations;
 
 /** Speech transcription. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechTranscription *> *speechTranscriptions;
@@ -2211,6 +2230,16 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation *> *segmentLabelAnnotations;
 
+/**
+ *  Presence label annotations on video level or user specified segment level.
+ *  There is exactly one element for each unique label. Compared to the
+ *  existing topical `segment_label_annotations`, this field presents more
+ *  fine-grained, segment-level labels detected in video content and is made
+ *  available only when the client sets `LabelDetectionConfig.model` to
+ *  "builtin/latest" in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation *> *segmentPresenceLabelAnnotations;
+
 /** Shot annotations. Each shot is represented as a video segment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoSegment *> *shotAnnotations;
 
@@ -2219,6 +2248,15 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation *> *shotLabelAnnotations;
+
+/**
+ *  Presence label annotations on shot level. There is exactly one element for
+ *  each unique label. Compared to the existing topical
+ *  `shot_label_annotations`, this field presents more fine-grained, shot-level
+ *  labels detected in video content and is made available only when the client
+ *  sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation *> *shotPresenceLabelAnnotations;
 
 /** Speech transcription. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1SpeechTranscription *> *speechTranscriptions;
@@ -2817,6 +2855,16 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation *> *segmentLabelAnnotations;
 
+/**
+ *  Presence label annotations on video level or user specified segment level.
+ *  There is exactly one element for each unique label. Compared to the
+ *  existing topical `segment_label_annotations`, this field presents more
+ *  fine-grained, segment-level labels detected in video content and is made
+ *  available only when the client sets `LabelDetectionConfig.model` to
+ *  "builtin/latest" in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation *> *segmentPresenceLabelAnnotations;
+
 /** Shot annotations. Each shot is represented as a video segment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment *> *shotAnnotations;
 
@@ -2825,6 +2873,15 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation *> *shotLabelAnnotations;
+
+/**
+ *  Presence label annotations on shot level. There is exactly one element for
+ *  each unique label. Compared to the existing topical
+ *  `shot_label_annotations`, this field presents more fine-grained, shot-level
+ *  labels detected in video content and is made available only when the client
+ *  sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation *> *shotPresenceLabelAnnotations;
 
 /** Speech transcription. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechTranscription *> *speechTranscriptions;
@@ -3578,6 +3635,16 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation *> *segmentLabelAnnotations;
 
+/**
+ *  Presence label annotations on video level or user specified segment level.
+ *  There is exactly one element for each unique label. Compared to the
+ *  existing topical `segment_label_annotations`, this field presents more
+ *  fine-grained, segment-level labels detected in video content and is made
+ *  available only when the client sets `LabelDetectionConfig.model` to
+ *  "builtin/latest" in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation *> *segmentPresenceLabelAnnotations;
+
 /** Shot annotations. Each shot is represented as a video segment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment *> *shotAnnotations;
 
@@ -3586,6 +3653,15 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation *> *shotLabelAnnotations;
+
+/**
+ *  Presence label annotations on shot level. There is exactly one element for
+ *  each unique label. Compared to the existing topical
+ *  `shot_label_annotations`, this field presents more fine-grained, shot-level
+ *  labels detected in video content and is made available only when the client
+ *  sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation *> *shotPresenceLabelAnnotations;
 
 /** Speech transcription. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechTranscription *> *speechTranscriptions;
@@ -4025,6 +4101,16 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation *> *segmentLabelAnnotations;
 
+/**
+ *  Presence label annotations on video level or user specified segment level.
+ *  There is exactly one element for each unique label. Compared to the
+ *  existing topical `segment_label_annotations`, this field presents more
+ *  fine-grained, segment-level labels detected in video content and is made
+ *  available only when the client sets `LabelDetectionConfig.model` to
+ *  "builtin/latest" in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation *> *segmentPresenceLabelAnnotations;
+
 /** Shot annotations. Each shot is represented as a video segment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment *> *shotAnnotations;
 
@@ -4033,6 +4119,15 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation *> *shotLabelAnnotations;
+
+/**
+ *  Presence label annotations on shot level. There is exactly one element for
+ *  each unique label. Compared to the existing topical
+ *  `shot_label_annotations`, this field presents more fine-grained, shot-level
+ *  labels detected in video content and is made available only when the client
+ *  sets `LabelDetectionConfig.model` to "builtin/latest" in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation *> *shotPresenceLabelAnnotations;
 
 /** Speech transcription. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscription *> *speechTranscriptions;

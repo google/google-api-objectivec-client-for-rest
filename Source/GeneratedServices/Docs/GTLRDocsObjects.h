@@ -90,6 +90,7 @@
 @class GTLRDocs_ListProperties;
 @class GTLRDocs_ListPropertiesSuggestionState;
 @class GTLRDocs_Location;
+@class GTLRDocs_MergeTableCellsRequest;
 @class GTLRDocs_NamedRange;
 @class GTLRDocs_NamedRanges;
 @class GTLRDocs_NamedStyle;
@@ -119,6 +120,7 @@
 @class GTLRDocs_Range;
 @class GTLRDocs_ReplaceAllTextRequest;
 @class GTLRDocs_ReplaceAllTextResponse;
+@class GTLRDocs_ReplaceImageRequest;
 @class GTLRDocs_Request;
 @class GTLRDocs_Response;
 @class GTLRDocs_RgbColor;
@@ -163,6 +165,7 @@
 @class GTLRDocs_TextRun_SuggestedTextStyleChanges;
 @class GTLRDocs_TextStyle;
 @class GTLRDocs_TextStyleSuggestionState;
+@class GTLRDocs_UnmergeTableCellsRequest;
 @class GTLRDocs_UpdateDocumentStyleRequest;
 @class GTLRDocs_UpdateParagraphStyleRequest;
 @class GTLRDocs_UpdateTableCellStyleRequest;
@@ -849,6 +852,24 @@ GTLR_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_Positi
  *  Value: "WRAP_TEXT"
  */
 GTLR_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_WrapText;
+
+// ----------------------------------------------------------------------------
+// GTLRDocs_ReplaceImageRequest.imageReplaceMethod
+
+/**
+ *  Scales and centers the image to fill the bounds of the original image.
+ *  The image may be cropped in order to fill the original image's bounds. The
+ *  rendered size of the image will be the same as that of the original image.
+ *
+ *  Value: "CENTER_CROP"
+ */
+GTLR_EXTERN NSString * const kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_CenterCrop;
+/**
+ *  Unspecified image replace method. This value must not be used.
+ *
+ *  Value: "IMAGE_REPLACE_METHOD_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_SectionStyle.columnSeparatorStyle
@@ -3178,6 +3199,26 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
+ *  Merges cells in a Table.
+ */
+@interface GTLRDocs_MergeTableCellsRequest : GTLRObject
+
+/**
+ *  The table range specifying which cells of the table to merge.
+ *  Any text in the cells being merged will be concatenated and stored in the
+ *  "head" cell of the range. This is the upper-left cell of the range when
+ *  the content direction is left to right, and the upper-right cell of the
+ *  range otherwise.
+ *  If the range is non-rectangular (which can occur in some cases where the
+ *  range covers cells that are already merged or where the table is
+ *  non-rectangular), a 400 bad request error is returned.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_TableRange *tableRange;
+
+@end
+
+
+/**
  *  A collection of Ranges with the same named range
  *  ID.
  *  Named ranges allow developers to associate parts of a document with an
@@ -4413,6 +4454,46 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
+ *  Replaces an existing image with a new image.
+ *  Replacing an image removes some image effects from the existing image in
+ *  order to
+ *  mirror the behavior of the Docs editor.
+ */
+@interface GTLRDocs_ReplaceImageRequest : GTLRObject
+
+/** The ID of the existing image that will be replaced. */
+@property(nonatomic, copy, nullable) NSString *imageObjectId;
+
+/**
+ *  The replacement method.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_CenterCrop Scales
+ *        and centers the image to fill the bounds of the original image.
+ *        The image may be cropped in order to fill the original image's bounds.
+ *        The
+ *        rendered size of the image will be the same as that of the original
+ *        image. (Value: "CENTER_CROP")
+ *    @arg @c kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified
+ *        Unspecified image replace method. This value must not be used. (Value:
+ *        "IMAGE_REPLACE_METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *imageReplaceMethod;
+
+/**
+ *  The URI of the new image.
+ *  The image is fetched once at insertion time and a copy is stored for
+ *  display inside the document. Images must be less than 50MB in size, cannot
+ *  exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF format.
+ *  The provided URI can be at most 2 kB in length. The URI itself is saved
+ *  with the image, and exposed via the ImageProperties.source_uri field.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  A single update to apply to a document.
  */
 @interface GTLRDocs_Request : GTLRObject
@@ -4459,8 +4540,17 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /** Inserts text at the specified location. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertTextRequest *insertText;
 
+/** Merges cells in a table. */
+@property(nonatomic, strong, nullable) GTLRDocs_MergeTableCellsRequest *mergeTableCells;
+
 /** Replaces all instances of the specified text. */
 @property(nonatomic, strong, nullable) GTLRDocs_ReplaceAllTextRequest *replaceAllText;
+
+/** Replaces an image in the document. */
+@property(nonatomic, strong, nullable) GTLRDocs_ReplaceImageRequest *replaceImage;
+
+/** Unmerges cells in a table. */
+@property(nonatomic, strong, nullable) GTLRDocs_UnmergeTableCellsRequest *unmergeTableCells;
 
 /** Updates the style of the document. */
 @property(nonatomic, strong, nullable) GTLRDocs_UpdateDocumentStyleRequest *updateDocumentStyle;
@@ -5115,10 +5205,15 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /**
  *  A border around a table cell.
+ *  Table cell borders cannot be transparent. To hide a table cell border, make
+ *  its width 0.
  */
 @interface GTLRDocs_TableCellBorder : GTLRObject
 
-/** The color of the border. */
+/**
+ *  The color of the border.
+ *  This color cannot be transparent.
+ */
 @property(nonatomic, strong, nullable) GTLRDocs_OptionalColor *color;
 
 /**
@@ -5823,6 +5918,26 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *weightedFontFamilySuggested;
+
+@end
+
+
+/**
+ *  Unmerges cells in a Table.
+ */
+@interface GTLRDocs_UnmergeTableCellsRequest : GTLRObject
+
+/**
+ *  The table range specifying which cells of the table to unmerge.
+ *  All merged cells in this range will be unmerged, and cells that are already
+ *  unmerged will not be affected. If the range has no merged cells, the
+ *  request will do nothing.
+ *  If there is text in any of the merged cells, the text will remain in the
+ *  "head" cell of the resulting block of unmerged cells. The "head" cell is
+ *  the upper-left cell when the content direction is from left to right, and
+ *  the upper-right otherwise.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_TableRange *tableRange;
 
 @end
 

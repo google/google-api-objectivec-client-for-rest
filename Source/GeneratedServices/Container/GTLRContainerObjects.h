@@ -23,6 +23,7 @@
 @class GTLRContainer_AddonsConfig;
 @class GTLRContainer_AutoUpgradeOptions;
 @class GTLRContainer_BigQueryDestination;
+@class GTLRContainer_BinaryAuthorization;
 @class GTLRContainer_CidrBlock;
 @class GTLRContainer_ClientCertificateConfig;
 @class GTLRContainer_Cluster;
@@ -30,9 +31,11 @@
 @class GTLRContainer_ClusterUpdate;
 @class GTLRContainer_ConsumptionMeteringConfig;
 @class GTLRContainer_DailyMaintenanceWindow;
+@class GTLRContainer_DatabaseEncryption;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
+@class GTLRContainer_IntraNodeVisibilityConfig;
 @class GTLRContainer_IPAllocationPolicy;
 @class GTLRContainer_Jwk;
 @class GTLRContainer_KubernetesDashboard;
@@ -56,6 +59,7 @@
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_ResourceUsageExportConfig;
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
+@class GTLRContainer_ShieldedInstanceConfig;
 @class GTLRContainer_StatusCondition;
 @class GTLRContainer_UsableSubnetwork;
 @class GTLRContainer_UsableSubnetworkSecondaryRange;
@@ -120,6 +124,29 @@ GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_StatusUnspecified;
  *  Value: "STOPPING"
  */
 GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Stopping;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_DatabaseEncryption.state
+
+/**
+ *  Secrets in etcd are stored in plain text (at etcd level) - this is
+ *  unrelated to GCE level full disk encryption.
+ *
+ *  Value: "DECRYPTED"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Decrypted;
+/**
+ *  Secrets in etcd are encrypted.
+ *
+ *  Value: "ENCRYPTED"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Encrypted;
+/**
+ *  Should never be set
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NetworkPolicy.provider
@@ -393,6 +420,14 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 // GTLRContainer_StatusCondition.code
 
 /**
+ *  Unable to perform an encrypt operation against the CloudKMS key used for
+ *  etcd level encryption.
+ *  More codes TBA
+ *
+ *  Value: "CLOUD_KMS_KEY_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_CloudKmsKeyError;
+/**
  *  Google Compute Engine quota was exceeded.
  *
  *  Value: "GCE_QUOTA_EXCEEDED"
@@ -413,7 +448,6 @@ GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GceStockout;
 GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted;
 /**
  *  Cluster state was manually changed by an SRE due to a system logic error.
- *  More codes TBA
  *
  *  Value: "SET_BY_OPERATOR"
  */
@@ -477,7 +511,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /**
  *  The accelerator type resource name. List of supported accelerators
- *  [here](/compute/docs/gpus/#Introduction)
+ *  [here](/compute/docs/gpus)
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
@@ -558,6 +592,22 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 
 /**
+ *  Configuration for Binary Authorization.
+ */
+@interface GTLRContainer_BinaryAuthorization : GTLRObject
+
+/**
+ *  Enable Binary Authorization for this cluster. If enabled, all container
+ *  images will be validated by Binary Authorization.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  CancelOperationRequest cancels a single operation.
  */
 @interface GTLRContainer_CancelOperationRequest : GTLRObject
@@ -630,6 +680,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 /** Configurations for the various addons available to run in the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *addonsConfig;
 
+/** Configuration for Binary Authorization. */
+@property(nonatomic, strong, nullable) GTLRContainer_BinaryAuthorization *binaryAuthorization;
+
 /**
  *  The IP address range of the container pods in this cluster, in
  *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -666,6 +719,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  upgraded, this reflects the minimum version of all nodes.
  */
 @property(nonatomic, copy, nullable) NSString *currentNodeVersion;
+
+/** Configuration of etcd encryption. */
+@property(nonatomic, strong, nullable) GTLRContainer_DatabaseEncryption *databaseEncryption;
 
 /**
  *  The default constraint on the maximum number of pods that can be run
@@ -972,11 +1028,20 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 /** Configurations for the various addons available to run in the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *desiredAddonsConfig;
 
+/** The desired configuration options for the Binary Authorization feature. */
+@property(nonatomic, strong, nullable) GTLRContainer_BinaryAuthorization *desiredBinaryAuthorization;
+
+/** Configuration of etcd encryption. */
+@property(nonatomic, strong, nullable) GTLRContainer_DatabaseEncryption *desiredDatabaseEncryption;
+
 /**
  *  The desired image type for the node pool.
  *  NOTE: Set the "desired_node_pool" field as well.
  */
 @property(nonatomic, copy, nullable) NSString *desiredImageType;
+
+/** The desired config of Intra-node visibility. */
+@property(nonatomic, strong, nullable) GTLRContainer_IntraNodeVisibilityConfig *desiredIntraNodeVisibilityConfig;
 
 /**
  *  The desired list of Google Compute Engine
@@ -1216,6 +1281,34 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 
 /**
+ *  Configuration of etcd encryption.
+ */
+@interface GTLRContainer_DatabaseEncryption : GTLRObject
+
+/**
+ *  Name of CloudKMS key to use for the encryption of secrets in etcd.
+ *  Ex. projects/my-project/locations/global/keyRings/my-ring/cryptoKeys/my-key
+ */
+@property(nonatomic, copy, nullable) NSString *keyName;
+
+/**
+ *  Denotes the state of etcd encryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_DatabaseEncryption_State_Decrypted Secrets in etcd
+ *        are stored in plain text (at etcd level) - this is
+ *        unrelated to GCE level full disk encryption. (Value: "DECRYPTED")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_State_Encrypted Secrets in etcd
+ *        are encrypted. (Value: "ENCRYPTED")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_State_Unknown Should never be
+ *        set (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -1338,6 +1431,22 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+@end
+
+
+/**
+ *  IntraNodeVisibilityConfig contains the desired config of the intra-node
+ *  visibility on this cluster.
+ */
+@interface GTLRContainer_IntraNodeVisibilityConfig : GTLRObject
+
+/**
+ *  Enables intra node visibility for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -1724,6 +1833,14 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 @interface GTLRContainer_NetworkConfig : GTLRObject
 
 /**
+ *  Whether Intra-node visibility is enabled for this cluster.
+ *  This makes same node pod to pod traffic visible for VPC network.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableIntraNodeVisibility;
+
+/**
  *  Output only. The relative name of the Google Compute Engine
  *  network(/compute/docs/networks-and-firewalls#networks) to which
  *  the cluster is connected.
@@ -1832,9 +1949,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /**
  *  The number of local SSD disks to be attached to the node.
- *  The limit for this value is dependant upon the maximum number of
+ *  The limit for this value is dependent upon the maximum number of
  *  disks available on a machine per zone. See:
- *  https://cloud.google.com/compute/docs/disks/local-ssd#local_ssd_limits
+ *  https://cloud.google.com/compute/docs/disks/local-ssd
  *  for more information.
  *
  *  Uses NSNumber of intValue.
@@ -1922,6 +2039,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  no Service Account is specified, the "default" service account is used.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Shielded Instance options. */
+@property(nonatomic, strong, nullable) GTLRContainer_ShieldedInstanceConfig *shieldedInstanceConfig;
 
 /**
  *  The list of instance tags applied to all nodes. Tags are used to identify
@@ -3025,6 +3145,35 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 
 /**
+ *  A set of Shielded Instance options.
+ */
+@interface GTLRContainer_ShieldedInstanceConfig : GTLRObject
+
+/**
+ *  Defines whether the instance has integrity monitoring enabled.
+ *  Enables monitoring and attestation of the boot integrity of the instance.
+ *  The attestation is performed against the integrity policy baseline. This
+ *  baseline is initially derived from the implicitly trusted boot image when
+ *  the instance is created.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableIntegrityMonitoring;
+
+/**
+ *  Defines whether the instance has Secure Boot enabled.
+ *  Secure Boot helps ensure that the system only runs authentic software by
+ *  verifying the digital signature of all boot components, and halting the
+ *  boot process if signature verification fails.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSecureBoot;
+
+@end
+
+
+/**
  *  StartIPRotationRequest creates a new IP for the cluster and then performs
  *  a node upgrade on each node pool to point to the new IP.
  */
@@ -3079,6 +3228,10 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  Machine-friendly representation of the condition
  *
  *  Likely values:
+ *    @arg @c kGTLRContainer_StatusCondition_Code_CloudKmsKeyError Unable to
+ *        perform an encrypt operation against the CloudKMS key used for
+ *        etcd level encryption.
+ *        More codes TBA (Value: "CLOUD_KMS_KEY_ERROR")
  *    @arg @c kGTLRContainer_StatusCondition_Code_GceQuotaExceeded Google
  *        Compute Engine quota was exceeded. (Value: "GCE_QUOTA_EXCEEDED")
  *    @arg @c kGTLRContainer_StatusCondition_Code_GceStockout GCE_STOCKOUT
@@ -3088,8 +3241,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *        robot
  *        service account. (Value: "GKE_SERVICE_ACCOUNT_DELETED")
  *    @arg @c kGTLRContainer_StatusCondition_Code_SetByOperator Cluster state
- *        was manually changed by an SRE due to a system logic error.
- *        More codes TBA (Value: "SET_BY_OPERATOR")
+ *        was manually changed by an SRE due to a system logic error. (Value:
+ *        "SET_BY_OPERATOR")
  *    @arg @c kGTLRContainer_StatusCondition_Code_Unknown UNKNOWN indicates a
  *        generic condition. (Value: "UNKNOWN")
  */

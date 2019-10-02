@@ -66,7 +66,7 @@ SERVICE_GENERATOR_COMMAND+=(
   admin:datatransfer_v1
   admin:directory_v1
 
-  # doubleclicksearch got retitled to "Search Ads 360 API" so we no long guess
+  # doubleclicksearch got retitled to "Search Ads 360 API" so we no longer guess
   # a good formatted name. Force the name to keep things in sync (can revisit
   # this in the future).
   --formattedName doubleclicksearch:v2=DoubleClickSearch

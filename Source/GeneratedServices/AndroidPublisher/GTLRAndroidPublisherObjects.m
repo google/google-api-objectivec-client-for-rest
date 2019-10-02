@@ -664,12 +664,11 @@
 //
 
 @implementation GTLRAndroidPublisher_Testers
-@dynamic googleGroups, googlePlusCommunities;
+@dynamic googleGroups;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"googleGroups" : [NSString class],
-    @"googlePlusCommunities" : [NSString class]
+    @"googleGroups" : [NSString class]
   };
   return map;
 }

@@ -178,7 +178,7 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 //
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule
-@dynamic canReschedule, endTime, startTime;
+@dynamic canReschedule, endTime, rolloutManagementPolicy, startTime;
 @end
 
 

@@ -1462,6 +1462,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *resourceId;
 
+/**
+ *  The IAM policy format version.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
 @end
 
 

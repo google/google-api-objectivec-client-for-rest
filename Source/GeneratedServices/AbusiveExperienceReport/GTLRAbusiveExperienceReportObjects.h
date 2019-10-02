@@ -57,25 +57,25 @@ GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_Ab
 // GTLRAbusiveExperienceReport_SiteSummaryResponse.filterStatus
 
 /**
- *  Ad filtering is off.
+ *  Enforcement is off.
  *
  *  Value: "OFF"
  */
 GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Off;
 /**
- *  Ad filtering is on.
+ *  Enforcement is on.
  *
  *  Value: "ON"
  */
 GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_On;
 /**
- *  Ad filtering is paused.
+ *  Enforcement is paused.
  *
  *  Value: "PAUSED"
  */
 GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Paused;
 /**
- *  Ad filtering is pending.
+ *  Enforcement is pending.
  *
  *  Value: "PENDING"
  */
@@ -93,7 +93,7 @@ GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_Fi
 @interface GTLRAbusiveExperienceReport_SiteSummaryResponse : GTLRObject
 
 /**
- *  The status of the site reviewed for the abusive experiences.
+ *  The site's Abusive Experience Report status.
  *
  *  Likely values:
  *    @arg @c kGTLRAbusiveExperienceReport_SiteSummaryResponse_AbusiveStatus_Failing
@@ -105,33 +105,48 @@ GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_Fi
  */
 @property(nonatomic, copy, nullable) NSString *abusiveStatus;
 
-/** The time at which enforcement begins. */
+/**
+ *  The time at which
+ *  [enforcement](https://support.google.com/webtools/answer/7538608) against
+ *  the site began or will begin.
+ *  Not set when the
+ *  filter_status
+ *  is OFF.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *enforcementTime;
 
 /**
- *  The abusive experience enforcement status of the site.
+ *  The site's [enforcement
+ *  status](https://support.google.com/webtools/answer/7538608).
  *
  *  Likely values:
  *    @arg @c kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Off
- *        Ad filtering is off. (Value: "OFF")
+ *        Enforcement is off. (Value: "OFF")
  *    @arg @c kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_On
- *        Ad filtering is on. (Value: "ON")
+ *        Enforcement is on. (Value: "ON")
  *    @arg @c kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Paused
- *        Ad filtering is paused. (Value: "PAUSED")
+ *        Enforcement is paused. (Value: "PAUSED")
  *    @arg @c kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Pending
- *        Ad filtering is pending. (Value: "PENDING")
+ *        Enforcement is pending. (Value: "PENDING")
  *    @arg @c kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Unknown
  *        N/A. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *filterStatus;
 
-/** The last time that the site changed status. */
+/** The time at which the site's status last changed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastChangeTime;
 
-/** A link that leads to a full abusive experience report. */
+/**
+ *  A link to the full Abusive Experience Report for the site.
+ *  Not set in
+ *  ViolatingSitesResponse.
+ *  Note that you must complete the [Search Console verification
+ *  process](https://support.google.com/webmasters/answer/9008080) for the site
+ *  before you can access the full report.
+ */
 @property(nonatomic, copy, nullable) NSString *reportUrl;
 
-/** The name of the site reviewed. */
+/** The name of the reviewed site, e.g. `google.com`. */
 @property(nonatomic, copy, nullable) NSString *reviewedSite;
 
 /**
@@ -149,7 +164,7 @@ GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_Fi
  */
 @interface GTLRAbusiveExperienceReport_ViolatingSitesResponse : GTLRObject
 
-/** A list of summaries of violating sites. */
+/** The list of violating sites. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAbusiveExperienceReport_SiteSummaryResponse *> *violatingSites;
 
 @end

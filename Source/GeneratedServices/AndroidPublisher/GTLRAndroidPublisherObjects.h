@@ -1381,12 +1381,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *googleGroups;
 
-/**
- *  A list of all Google+ Communities, as URLs, that define testers for this
- *  track.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *googlePlusCommunities;
-
 @end
 
 

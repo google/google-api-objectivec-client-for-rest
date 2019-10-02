@@ -149,7 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsCallWithObject:name:]
 
-/** The name of the function to be called. */
+/** Required. The name of the function to be called. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -162,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFunctions_CallFunctionRequest to include in
  *    the query.
- *  @param name The name of the function to be called.
+ *  @param name Required. The name of the function to be called.
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCall
  */
@@ -186,7 +186,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsCreateWithObject:location:]
 
 /**
- *  The project and location in which the function should be created, specified
+ *  Required. The project and location in which the function should be created,
+ *  specified
  *  in the format `projects/ * /locations/ *`
  */
 @property(nonatomic, copy, nullable) NSString *location;
@@ -200,8 +201,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFunctions_CloudFunction to include in the
  *    query.
- *  @param location The project and location in which the function should be
- *    created, specified
+ *  @param location Required. The project and location in which the function
+ *    should be created, specified
  *    in the format `projects/ * /locations/ *`
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCreate
@@ -225,7 +226,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsDeleteWithname:]
 
-/** The name of the function which should be deleted. */
+/** Required. The name of the function which should be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -235,7 +236,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  given function is used by some trigger, the trigger will be updated to
  *  remove this function.
  *
- *  @param name The name of the function which should be deleted.
+ *  @param name Required. The name of the function which should be deleted.
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsDelete
  */
@@ -371,7 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsGetWithname:]
 
-/** The name of the function which details should be obtained. */
+/** Required. The name of the function which details should be obtained. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -379,7 +380,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns a function with the given name from the requested project.
  *
- *  @param name The name of the function which details should be obtained.
+ *  @param name Required. The name of the function which details should be
+ *    obtained.
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGet
  */
@@ -403,9 +405,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0, 1, and 3.
- *  If the value is 0, or the field is omitted, policy format version 1 will be
- *  returned.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Requests for policies with any conditional bindings must specify version 3.
+ *  Policies without any conditional bindings may specify any valid value or
+ *  leave the field unset.
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 

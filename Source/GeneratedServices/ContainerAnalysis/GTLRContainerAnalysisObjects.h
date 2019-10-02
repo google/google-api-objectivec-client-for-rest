@@ -1324,6 +1324,9 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
  */
 @property(nonatomic, copy, nullable) NSString *continuousAnalysis;
 
+/** The CPE of the resource being scanned. */
+@property(nonatomic, copy, nullable) NSString *cpe;
+
 /**
  *  Output only. An operation that indicates the status of the current scan.
  *  This field is deprecated, do not use.
@@ -1534,9 +1537,11 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0, 1, and 3.
- *  If the value is 0, or the field is omitted, policy format version 1 will be
- *  returned.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Requests for policies with any conditional bindings must specify version 3.
+ *  Policies without any conditional bindings may specify any valid value or
+ *  leave the field unset.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2379,7 +2384,12 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Deprecated.
+ *  Specifies the format of the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset.
  *
  *  Uses NSNumber of intValue.
  */

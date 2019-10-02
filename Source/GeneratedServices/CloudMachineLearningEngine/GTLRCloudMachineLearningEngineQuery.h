@@ -186,9 +186,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0, 1, and 3.
- *  If the value is 0, or the field is omitted, policy format version 1 will be
- *  returned.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Requests for policies with any conditional bindings must specify version 3.
+ *  Policies without any conditional bindings may specify any valid value or
+ *  leave the field unset.
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
@@ -624,9 +626,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0, 1, and 3.
- *  If the value is 0, or the field is omitted, policy format version 1 will be
- *  returned.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Requests for policies with any conditional bindings must specify version 3.
+ *  Policies without any conditional bindings may specify any valid value or
+ *  leave the field unset.
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 

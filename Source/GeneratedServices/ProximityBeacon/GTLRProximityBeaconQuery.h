@@ -96,9 +96,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  Calling this method on an already active beacon will do nothing (but
  *  will return a successful response code).
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  Method: proximitybeacon.beacons.activate
  *
@@ -136,9 +136,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  Calling this method on an already active beacon will do nothing (but
  *  will return a successful response code).
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  @param beaconName Beacon that should be activated. A beacon name has the
  *    format
@@ -163,9 +163,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  attachments on the given beacon will be deleted. You also may explicitly
  *  specify `* / *` to delete all.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  Method: proximitybeacon.beacons.attachments.batchDelete
  *
@@ -215,9 +215,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  attachments on the given beacon will be deleted. You also may explicitly
  *  specify `* / *` to delete all.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  @param beaconName The beacon whose attachments should be deleted. A beacon
  *    name has the
@@ -247,9 +247,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  forward slash (`/`) up to 100 characters in length.
  *  Attachment data can be up to 1024 bytes long.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  Method: proximitybeacon.beacons.attachments.create
  *
@@ -294,9 +294,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  forward slash (`/`) up to 100 characters in length.
  *  Attachment data can be up to 1024 bytes long.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  @param object The @c GTLRProximityBeacon_BeaconAttachment to include in the
  *    query.
@@ -323,9 +323,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  request to control which attachment is removed. This operation cannot be
  *  undone.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  Method: proximitybeacon.beacons.attachments.delete
  *
@@ -362,9 +362,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  request to control which attachment is removed. This operation cannot be
  *  undone.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  @param attachmentName The attachment name (`attachmentName`) of
  *    the attachment to remove. For example:
@@ -387,9 +387,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  `* / *`, to return all attachments, or the namespace must be one of
  *  the ones returned from the `namespaces` endpoint.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **viewer**, **Is owner** or **Can edit**
- *  permissions in the Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **viewer**, **Is owner** or **Can edit** permissions in
+ *  the Google Developers Console project.
  *
  *  Method: proximitybeacon.beacons.attachments.list
  *
@@ -438,9 +438,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  `* / *`, to return all attachments, or the namespace must be one of
  *  the ones returned from the `namespaces` endpoint.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **viewer**, **Is owner** or **Can edit**
- *  permissions in the Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **viewer**, **Is owner** or **Can edit** permissions in
+ *  the Google Developers Console project.
  *
  *  @param beaconName Beacon whose attachments should be fetched. A beacon name
  *    has the
@@ -463,9 +463,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  `beaconinfo.getforobserved`. Calling this method on an already inactive
  *  beacon will do nothing (but will return a successful response code).
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  Method: proximitybeacon.beacons.deactivate
  *
@@ -503,9 +503,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  `beaconinfo.getforobserved`. Calling this method on an already inactive
  *  beacon will do nothing (but will return a successful response code).
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  @param beaconName Beacon that should be deactivated. A beacon name has the
  *    format
@@ -528,9 +528,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  permanent -- you will not be able to re-register a beacon with this ID
  *  again.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  Method: proximitybeacon.beacons.decommission
  *
@@ -568,9 +568,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  permanent -- you will not be able to re-register a beacon with this ID
  *  again.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  @param beaconName Beacon that should be decommissioned. A beacon name has
  *    the format
@@ -592,9 +592,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  as well as any attachments on the beacon (including those belonging to
  *  other projects). This operation cannot be undone.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  Method: proximitybeacon.beacons.delete
  *
@@ -630,9 +630,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  as well as any attachments on the beacon (including those belonging to
  *  other projects). This operation cannot be undone.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  @param beaconName Beacon that should be deleted. A beacon name has the
  *    format
@@ -654,9 +654,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  all the beacons owned by your Google Developers Console project by using
  *  the beacon name `beacons/-`.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **viewer**, **Is owner** or **Can edit**
- *  permissions in the Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **viewer**, **Is owner** or **Can edit** permissions in
+ *  the Google Developers Console project.
  *
  *  Method: proximitybeacon.beacons.diagnostics.list
  *
@@ -710,9 +710,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  all the beacons owned by your Google Developers Console project by using
  *  the beacon name `beacons/-`.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **viewer**, **Is owner** or **Can edit**
- *  permissions in the Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **viewer**, **Is owner** or **Can edit** permissions in
+ *  the Google Developers Console project.
  *
  *  @param beaconName Beacon that the diagnostics are for.
  *
@@ -729,9 +729,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
 /**
  *  Returns detailed information about the specified beacon.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **viewer**, **Is owner** or **Can edit**
- *  permissions in the Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **viewer**, **Is owner** or **Can edit** permissions in
+ *  the Google Developers Console project.
  *  Requests may supply an Eddystone-EID beacon name in the form:
  *  `beacons/4!beaconId` where the `beaconId` is the base16 ephemeral ID
  *  broadcast by the beacon. The returned `Beacon` object will contain the
@@ -771,9 +771,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *
  *  Returns detailed information about the specified beacon.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **viewer**, **Is owner** or **Can edit**
- *  permissions in the Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **viewer**, **Is owner** or **Can edit** permissions in
+ *  the Google Developers Console project.
  *  Requests may supply an Eddystone-EID beacon name in the form:
  *  `beacons/4!beaconId` where the `beaconId` is the base16 ephemeral ID
  *  broadcast by the beacon. The returned `Beacon` object will contain the
@@ -799,9 +799,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  criteria. Only those beacons that the client has permission to list
  *  will be returned.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **viewer**, **Is owner** or **Can edit**
- *  permissions in the Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **viewer**, **Is owner** or **Can edit** permissions in
+ *  the Google Developers Console project.
  *
  *  Method: proximitybeacon.beacons.list
  *
@@ -903,9 +903,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  criteria. Only those beacons that the client has permission to list
  *  will be returned.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **viewer**, **Is owner** or **Can edit**
- *  permissions in the Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **viewer**, **Is owner** or **Can edit** permissions in
+ *  the Google Developers Console project.
  *
  *  @return GTLRProximityBeaconQuery_BeaconsList
  *
@@ -921,9 +921,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  Registers a previously unregistered beacon given its `advertisedId`.
  *  These IDs are unique within the system. An ID can be registered only once.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  Method: proximitybeacon.beacons.register
  *
@@ -948,9 +948,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  Registers a previously unregistered beacon given its `advertisedId`.
  *  These IDs are unique within the system. An ID can be registered only once.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  @param object The @c GTLRProximityBeacon_Beacon to include in the query.
  *
@@ -969,9 +969,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  To update beacon status, use the separate methods on this API for
  *  activation, deactivation, and decommissioning.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  Method: proximitybeacon.beacons.update
  *
@@ -1011,9 +1011,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  To update beacon status, use the separate methods on this API for
  *  activation, deactivation, and decommissioning.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **Is owner** or **Can edit** permissions in the
- *  Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **Is owner** or **Can edit** permissions in the Google
+ *  Developers Console project.
  *
  *  @param object The @c GTLRProximityBeacon_Beacon to include in the query.
  *  @param beaconName Resource name of this beacon. A beacon name has the format
@@ -1035,9 +1035,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  project. Attachment data associated with a beacon must include a
  *  namespaced type, and the namespace must be owned by your project.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **viewer**, **Is owner** or **Can edit**
- *  permissions in the Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **viewer**, **Is owner** or **Can edit** permissions in
+ *  the Google Developers Console project.
  *
  *  Method: proximitybeacon.namespaces.list
  *
@@ -1061,9 +1061,9 @@ GTLR_EXTERN NSString * const kGTLRProximityBeaconAlertFilterWrongLocation;
  *  project. Attachment data associated with a beacon must include a
  *  namespaced type, and the namespace must be owned by your project.
  *  Authenticate using an [OAuth access
- *  token](https://developers.google.com/identity/protocols/OAuth2)
- *  from a signed-in user with **viewer**, **Is owner** or **Can edit**
- *  permissions in the Google Developers Console project.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) from a
+ *  signed-in user with **viewer**, **Is owner** or **Can edit** permissions in
+ *  the Google Developers Console project.
  *
  *  @return GTLRProximityBeaconQuery_NamespacesList
  */

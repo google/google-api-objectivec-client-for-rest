@@ -242,7 +242,8 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_BucketsGetIamPolicy
 
-@dynamic bucket, provisionalUserProject, userProject;
+@dynamic bucket, optionsRequestedPolicyVersion, provisionalUserProject,
+         userProject;
 
 + (instancetype)queryWithBucket:(NSString *)bucket {
   NSArray *pathParams = @[ @"bucket" ];

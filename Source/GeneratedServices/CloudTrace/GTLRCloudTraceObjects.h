@@ -242,7 +242,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
 @interface GTLRCloudTrace_BatchWriteSpansRequest : GTLRObject
 
 /**
- *  A list of new spans. The span names must not match existing
+ *  Required. A list of new spans. The span names must not match existing
  *  spans, or the results are undefined.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTrace_Span *> *spans;
@@ -404,7 +404,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Attributes *attributes;
 
 /**
- *  An optional number of child spans that were generated while this span
+ *  Optional. The number of child spans that were generated while this span
  *  was active. If set, allows implementation to detect missing child spans.
  *
  *  Uses NSNumber of intValue.
@@ -449,7 +449,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
 @property(nonatomic, copy, nullable) NSString *parentSpanId;
 
 /**
- *  (Optional) Set this parameter to indicate whether this span is in
+ *  Optional. Set this parameter to indicate whether this span is in
  *  the same process as its parent. If you do not set this parameter,
  *  Stackdriver Trace is unable to take advantage of this helpful
  *  information.
@@ -503,7 +503,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
-/** An optional final status for this span. */
+/** Optional. The final status for this span. */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Status *status;
 
 /**

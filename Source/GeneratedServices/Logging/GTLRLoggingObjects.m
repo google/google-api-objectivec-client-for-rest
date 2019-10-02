@@ -93,6 +93,16 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_BigQueryOptions
+//
+
+@implementation GTLRLogging_BigQueryOptions
+@dynamic usePartitionedTables;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_BucketOptions
 //
 
@@ -463,8 +473,8 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 //
 
 @implementation GTLRLogging_LogSink
-@dynamic createTime, destination, filter, includeChildren, name,
-         outputVersionFormat, updateTime, writerIdentity;
+@dynamic bigqueryOptions, createTime, destination, filter, includeChildren,
+         name, outputVersionFormat, updateTime, writerIdentity;
 @end
 
 

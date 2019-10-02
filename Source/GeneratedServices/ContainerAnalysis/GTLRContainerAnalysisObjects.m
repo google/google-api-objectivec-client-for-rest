@@ -408,7 +408,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspe
 //
 
 @implementation GTLRContainerAnalysis_Discovered
-@dynamic analysisStatus, analysisStatusError, continuousAnalysis, operation;
+@dynamic analysisStatus, analysisStatusError, continuousAnalysis, cpe,
+         operation;
 @end
 
 

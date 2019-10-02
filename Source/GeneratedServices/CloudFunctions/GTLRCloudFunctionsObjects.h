@@ -332,7 +332,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  */
 @interface GTLRCloudFunctions_CallFunctionRequest : GTLRObject
 
-/** Input to be passed to the function. */
+/** Required. Input to be passed to the function. */
 @property(nonatomic, copy, nullable) NSString *data;
 
 @end
@@ -1120,7 +1120,12 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Deprecated.
+ *  Specifies the format of the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset.
  *
  *  Uses NSNumber of intValue.
  */

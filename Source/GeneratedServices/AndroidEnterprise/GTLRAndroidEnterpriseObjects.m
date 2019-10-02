@@ -613,15 +613,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ManagedConfigurationsSettings
-@dynamic kind, lastUpdatedTimestampMillis, managedProperty, mcmId, name;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"managedProperty" : [GTLRAndroidEnterprise_ManagedProperty class]
-  };
-  return map;
-}
-
+@dynamic kind, lastUpdatedTimestampMillis, mcmId, name;
 @end
 
 

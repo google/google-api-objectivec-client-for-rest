@@ -686,7 +686,7 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Transfe
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_Photo *photo;
 
 /**
- *  Mask that identifies fields on the photo metadata to update.
+ *  Required. Mask that identifies fields on the photo metadata to update.
  *  If not present, the old Photo
  *  metadata is entirely replaced with the
  *  new Photo metadata in this request.

@@ -35,16 +35,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierUnspecifi
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewFull = @"INTENT_VIEW_FULL";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewUnspecified = @"INTENT_VIEW_UNSPECIFIED";
 
-// GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel.state
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Creating = @"CREATING";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deleting = @"DELETING";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deployed = @"DEPLOYED";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deploying = @"DEPLOYING";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Failed = @"FAILED";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Undeployed = @"UNDEPLOYED";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Undeploying = @"UNDEPLOYING";
-
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType.autoExpansionMode
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_AutoExpansionMode_AutoExpansionModeDefault = @"AUTO_EXPANSION_MODE_DEFAULT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_AutoExpansionMode_AutoExpansionModeUnspecified = @"AUTO_EXPANSION_MODE_UNSPECIFIED";
@@ -52,6 +42,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_AutoExpa
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType.kind
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindList = @"KIND_LIST";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindMap = @"KIND_MAP";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindRegexp = @"KIND_REGEXP";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent.defaultResponsePlatforms
@@ -84,6 +75,28 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platf
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Telegram = @"TELEGRAM";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Telephony = @"TELEPHONY";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Viber = @"VIBER";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard.imageDisplayOptions
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_BlurredBackground = @"BLURRED_BACKGROUND";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped = @"CROPPED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray = @"GRAY";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_ImageDisplayOptionsUnspecified = @"IMAGE_DISPLAY_OPTIONS_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_White = @"WHITE";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction.urlTypeHint
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction = @"AMP_ACTION";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpContent = @"AMP_CONTENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_UrlTypeHintUnspecified = @"URL_TYPE_HINT_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties.horizontalAlignment
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Center = @"CENTER";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Leading = @"LEADING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Trailing = @"TRAILING";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent.mediaType
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent_MediaType_Audio = @"AUDIO";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent_MediaType_ResponseMediaTypeUnspecified = @"RESPONSE_MEDIA_TYPE_UNSPECIFIED";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia.height
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_HeightUnspecified = @"HEIGHT_UNSPECIFIED";
@@ -123,6 +136,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationM
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Running = @"RUNNING";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType.entityOverrideMode
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride = @"ENTITY_OVERRIDE_MODE_OVERRIDE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement = @"ENTITY_OVERRIDE_MODE_SUPPLEMENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified = @"ENTITY_OVERRIDE_MODE_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2EntityType.autoExpansionMode
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_AutoExpansionMode_AutoExpansionModeDefault = @"AUTO_EXPANSION_MODE_DEFAULT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_AutoExpansionMode_AutoExpansionModeUnspecified = @"AUTO_EXPANSION_MODE_UNSPECIFIED";
@@ -130,6 +148,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_AutoExpansion
 // GTLRDialogflow_GoogleCloudDialogflowV2EntityType.kind
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindList = @"KIND_LIST";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindMap = @"KIND_MAP";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindRegexp = @"KIND_REGEXP";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig.audioEncoding
@@ -388,16 +407,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleSuggestionModelMetadata
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleSuggestionModelMetadata
-@dynamic modelType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1BatchUpdateEntityTypesResponse
 //
 
@@ -458,30 +467,12 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel
-@dynamic articleSuggestionModelMetadata, createTime, datasets, displayName,
-         name, state;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"datasets" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1InputDataset class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType
-@dynamic autoExpansionMode, displayName, entities, kind, name;
+@dynamic autoExpansionMode, displayName, enableFuzzyExtraction, entities, kind,
+         name;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -553,16 +544,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDialogflow_GoogleCloudDialogflowV2beta1InputDataset
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1InputDataset
-@dynamic dataset;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent
 //
 
@@ -606,11 +587,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage
-@dynamic basicCard, card, carouselSelect, image, linkOutSuggestion, listSelect,
-         payload, platform, quickReplies, rbmCarouselRichCard,
-         rbmStandaloneRichCard, rbmText, simpleResponses, suggestions,
-         telephonyPlayAudio, telephonySynthesizeSpeech, telephonyTransferCall,
-         text;
+@dynamic basicCard, browseCarouselCard, card, carouselSelect, image,
+         linkOutSuggestion, listSelect, mediaContent, payload, platform,
+         quickReplies, rbmCarouselRichCard, rbmStandaloneRichCard, rbmText,
+         simpleResponses, suggestions, tableCard, telephonyPlayAudio,
+         telephonySynthesizeSpeech, telephonyTransferCall, text;
 @end
 
 
@@ -663,6 +644,49 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBasicCardButtonOpenUriAction
 @dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard
+@dynamic imageDisplayOptions, items;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItem
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItem
+@dynamic descriptionProperty, footer, image, openUriAction, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction
+@dynamic url, urlTypeHint;
 @end
 
 
@@ -729,6 +753,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties
+@dynamic header, horizontalAlignment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageImage
 //
 
@@ -772,6 +806,39 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageListSelectItem
 @dynamic descriptionProperty, image, info, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent
+@dynamic mediaObjects, mediaType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mediaObjects" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContentResponseMediaObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContentResponseMediaObject
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContentResponseMediaObject
+@dynamic contentUrl, descriptionProperty, icon, largeImage, name;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1002,6 +1069,54 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"suggestions" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSuggestion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCard
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCard
+@dynamic buttons, columnProperties, image, rows, subtitle, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buttons" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBasicCardButton class],
+    @"columnProperties" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties class],
+    @"rows" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCardRow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCardCell
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCardCell
+@dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCardRow
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCardRow
+@dynamic cells, dividerAfter;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cells" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCardCell class]
   };
   return map;
 }
@@ -1263,6 +1378,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType
+@dynamic entities, entityOverrideMode, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entities" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookRequest
 //
 
@@ -1287,12 +1420,13 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse
 @dynamic endInteraction, followupEventInput, fulfillmentMessages,
-         fulfillmentText, outputContexts, payload, source;
+         fulfillmentText, outputContexts, payload, sessionEntityTypes, source;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"fulfillmentMessages" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage class],
-    @"outputContexts" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1Context class]
+    @"outputContexts" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1Context class],
+    @"sessionEntityTypes" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType class]
   };
   return map;
 }
@@ -1364,7 +1498,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2EntityType
-@dynamic autoExpansionMode, displayName, entities, kind, name;
+@dynamic autoExpansionMode, displayName, enableFuzzyExtraction, entities, kind,
+         name;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2256,12 +2391,13 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse
 @dynamic followupEventInput, fulfillmentMessages, fulfillmentText,
-         outputContexts, payload, source;
+         outputContexts, payload, sessionEntityTypes, source;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"fulfillmentMessages" : [GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage class],
-    @"outputContexts" : [GTLRDialogflow_GoogleCloudDialogflowV2Context class]
+    @"outputContexts" : [GTLRDialogflow_GoogleCloudDialogflowV2Context class],
+    @"sessionEntityTypes" : [GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType class]
   };
   return map;
 }

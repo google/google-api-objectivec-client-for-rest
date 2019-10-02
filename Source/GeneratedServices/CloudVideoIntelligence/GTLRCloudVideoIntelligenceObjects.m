@@ -454,16 +454,19 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationResults
 @dynamic error, explicitAnnotation, frameLabelAnnotations, inputUri,
-         objectAnnotations, segment, segmentLabelAnnotations, shotAnnotations,
-         shotLabelAnnotations, speechTranscriptions, textAnnotations;
+         objectAnnotations, segment, segmentLabelAnnotations,
+         segmentPresenceLabelAnnotations, shotAnnotations, shotLabelAnnotations,
+         shotPresenceLabelAnnotations, speechTranscriptions, textAnnotations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"frameLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation class],
     @"objectAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ObjectTrackingAnnotation class],
     @"segmentLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation class],
+    @"segmentPresenceLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation class],
     @"shotAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment class],
     @"shotLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation class],
+    @"shotPresenceLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation class],
     @"speechTranscriptions" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechTranscription class],
     @"textAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2TextAnnotation class]
   };
@@ -957,16 +960,19 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationResults
 @dynamic error, explicitAnnotation, frameLabelAnnotations, inputUri,
-         objectAnnotations, segment, segmentLabelAnnotations, shotAnnotations,
-         shotLabelAnnotations, speechTranscriptions, textAnnotations;
+         objectAnnotations, segment, segmentLabelAnnotations,
+         segmentPresenceLabelAnnotations, shotAnnotations, shotLabelAnnotations,
+         shotPresenceLabelAnnotations, speechTranscriptions, textAnnotations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"frameLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation class],
     @"objectAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ObjectTrackingAnnotation class],
     @"segmentLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation class],
+    @"segmentPresenceLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation class],
     @"shotAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoSegment class],
     @"shotLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation class],
+    @"shotPresenceLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation class],
     @"speechTranscriptions" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1SpeechTranscription class],
     @"textAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1TextAnnotation class]
   };
@@ -1280,16 +1286,19 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationResults
 @dynamic error, explicitAnnotation, frameLabelAnnotations, inputUri,
-         objectAnnotations, segment, segmentLabelAnnotations, shotAnnotations,
-         shotLabelAnnotations, speechTranscriptions, textAnnotations;
+         objectAnnotations, segment, segmentLabelAnnotations,
+         segmentPresenceLabelAnnotations, shotAnnotations, shotLabelAnnotations,
+         shotPresenceLabelAnnotations, speechTranscriptions, textAnnotations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"frameLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation class],
     @"objectAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ObjectTrackingAnnotation class],
     @"segmentLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation class],
+    @"segmentPresenceLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation class],
     @"shotAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment class],
     @"shotLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation class],
+    @"shotPresenceLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation class],
     @"speechTranscriptions" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechTranscription class],
     @"textAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1TextAnnotation class]
   };
@@ -1701,7 +1710,8 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationResults
 @dynamic error, explicitAnnotation, frameLabelAnnotations, inputUri,
          logoRecognitionAnnotations, objectAnnotations, segment,
-         segmentLabelAnnotations, shotAnnotations, shotLabelAnnotations,
+         segmentLabelAnnotations, segmentPresenceLabelAnnotations,
+         shotAnnotations, shotLabelAnnotations, shotPresenceLabelAnnotations,
          speechTranscriptions, textAnnotations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1710,8 +1720,10 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
     @"logoRecognitionAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LogoRecognitionAnnotation class],
     @"objectAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingAnnotation class],
     @"segmentLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation class],
+    @"segmentPresenceLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation class],
     @"shotAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment class],
     @"shotLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation class],
+    @"shotPresenceLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation class],
     @"speechTranscriptions" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechTranscription class],
     @"textAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextAnnotation class]
   };
@@ -1907,16 +1919,19 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationResults
 @dynamic error, explicitAnnotation, frameLabelAnnotations, inputUri,
-         objectAnnotations, segment, segmentLabelAnnotations, shotAnnotations,
-         shotLabelAnnotations, speechTranscriptions, textAnnotations;
+         objectAnnotations, segment, segmentLabelAnnotations,
+         segmentPresenceLabelAnnotations, shotAnnotations, shotLabelAnnotations,
+         shotPresenceLabelAnnotations, speechTranscriptions, textAnnotations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"frameLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation class],
     @"objectAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingAnnotation class],
     @"segmentLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation class],
+    @"segmentPresenceLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation class],
     @"shotAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment class],
     @"shotLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation class],
+    @"shotPresenceLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation class],
     @"speechTranscriptions" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscription class],
     @"textAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextAnnotation class]
   };

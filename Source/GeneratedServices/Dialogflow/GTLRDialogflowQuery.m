@@ -859,6 +859,82 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @end
 
+@implementation GTLRDialogflowQuery_ProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:cancel";
+  GTLRDialogflowQuery_ProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
+  query.loggingName = @"dialogflow.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
+  query.loggingName = @"dialogflow.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/operations";
+  GTLRDialogflowQuery_ProjectsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningListOperationsResponse class];
+  query.loggingName = @"dialogflow.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:cancel";
+  GTLRDialogflowQuery_ProjectsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
+  query.loggingName = @"dialogflow.projects.operations.cancel";
+  return query;
+}
+
+@end
+
 @implementation GTLRDialogflowQuery_ProjectsOperationsGet
 
 @dynamic name;

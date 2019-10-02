@@ -27,6 +27,7 @@
 @class GTLRSpeech_RecognitionConfig;
 @class GTLRSpeech_RecognitionMetadata;
 @class GTLRSpeech_RecognitionResult;
+@class GTLRSpeech_SpeakerDiarizationConfig;
 @class GTLRSpeech_Status;
 @class GTLRSpeech_Status_Details_Item;
 @class GTLRSpeech_WordInfo;
@@ -283,7 +284,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @interface GTLRSpeech_Context : GTLRObject
 
 /**
- *  *Optional* A list of strings containing words and phrases "hints" so that
+ *  A list of strings containing words and phrases "hints" so that
  *  the speech recognition is more likely to recognize them. This can be used
  *  to improve the accuracy for specific words and phrases, for example, if
  *  specific commands are typically spoken by the user. This can also be used
@@ -354,11 +355,11 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
  */
 @interface GTLRSpeech_LongRunningRecognizeRequest : GTLRObject
 
-/** *Required* The audio data to be recognized. */
+/** Required. The audio data to be recognized. */
 @property(nonatomic, strong, nullable) GTLRSpeech_RecognitionAudio *audio;
 
 /**
- *  *Required* Provides information to the recognizer that specifies how to
+ *  Required. Provides information to the recognizer that specifies how to
  *  process the request.
  */
 @property(nonatomic, strong, nullable) GTLRSpeech_RecognitionConfig *config;
@@ -377,7 +378,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @interface GTLRSpeech_LongRunningRecognizeResponse : GTLRObject
 
 /**
- *  Output only. Sequential list of transcription results corresponding to
+ *  Sequential list of transcription results corresponding to
  *  sequential portions of audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionResult *> *results;
@@ -473,7 +474,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @interface GTLRSpeech_RecognitionAlternative : GTLRObject
 
 /**
- *  Output only. The confidence estimate between 0.0 and 1.0. A higher number
+ *  The confidence estimate between 0.0 and 1.0. A higher number
  *  indicates an estimated greater likelihood that the recognized words are
  *  correct. This field is set only for the top alternative of a non-streaming
  *  result or, of a streaming result where `is_final=true`.
@@ -485,13 +486,11 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
-/**
- *  Output only. Transcript text representing the words that the user spoke.
- */
+/** Transcript text representing the words that the user spoke. */
 @property(nonatomic, copy, nullable) NSString *transcript;
 
 /**
- *  Output only. A list of word-specific information for each recognized word.
+ *  A list of word-specific information for each recognized word.
  *  Note: When `enable_speaker_diarization` is true, you will see all the words
  *  from the beginning of the audio.
  */
@@ -539,7 +538,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @interface GTLRSpeech_RecognitionConfig : GTLRObject
 
 /**
- *  *Optional* The number of channels in the input audio data.
+ *  The number of channels in the input audio data.
  *  ONLY set this for MULTI-CHANNEL recognition.
  *  Valid values for LINEAR16 and FLAC are `1`-`8`.
  *  Valid values for OGG_OPUS are '1'-'254'.
@@ -554,7 +553,19 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @property(nonatomic, strong, nullable) NSNumber *audioChannelCount;
 
 /**
- *  *Optional* If 'true', adds punctuation to recognition result hypotheses.
+ *  Config to enable speaker diarization and set additional
+ *  parameters to make diarization better suited for your application.
+ *  Note: When this is enabled, we send all the words from the beginning of the
+ *  audio for the top alternative in every consecutive STREAMING responses.
+ *  This is done in order to improve our speaker tags as our models learn to
+ *  identify the speakers in the conversation over time.
+ *  For non-streaming requests, the diarization results will be provided only
+ *  in the top alternative of the FINAL SpeechRecognitionResult.
+ */
+@property(nonatomic, strong, nullable) GTLRSpeech_SpeakerDiarizationConfig *diarizationConfig;
+
+/**
+ *  If 'true', adds punctuation to recognition result hypotheses.
  *  This feature is only available in select languages. Setting this for
  *  requests in other languages has no effect at all.
  *  The default 'false' value does not add punctuation to result hypotheses.
@@ -579,7 +590,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @property(nonatomic, strong, nullable) NSNumber *enableSeparateRecognitionPerChannel;
 
 /**
- *  *Optional* If `true`, the top result includes a list of words and
+ *  If `true`, the top result includes a list of words and
  *  the start and end time offsets (timestamps) for those words. If
  *  `false`, no word-level time offset information is returned. The default is
  *  `false`.
@@ -639,7 +650,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @property(nonatomic, copy, nullable) NSString *encoding;
 
 /**
- *  *Required* The language of the supplied audio as a
+ *  Required. The language of the supplied audio as a
  *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.
  *  Example: "en-US".
  *  See [Language
@@ -649,7 +660,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  *Optional* Maximum number of recognition hypotheses to be returned.
+ *  Maximum number of recognition hypotheses to be returned.
  *  Specifically, the maximum number of `SpeechRecognitionAlternative` messages
  *  within each `SpeechRecognitionResult`.
  *  The server may return fewer than `max_alternatives`.
@@ -660,11 +671,11 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
  */
 @property(nonatomic, strong, nullable) NSNumber *maxAlternatives;
 
-/** *Optional* Metadata regarding this request. */
+/** Metadata regarding this request. */
 @property(nonatomic, strong, nullable) GTLRSpeech_RecognitionMetadata *metadata;
 
 /**
- *  *Optional* Which model to select for the given request. Select the model
+ *  Which model to select for the given request. Select the model
  *  best suited to your domain to get best results. If a model is not
  *  explicitly specified, then we auto-select a model based on the parameters
  *  in the RecognitionConfig.
@@ -700,7 +711,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @property(nonatomic, copy, nullable) NSString *model;
 
 /**
- *  *Optional* If set to `true`, the server will attempt to filter out
+ *  If set to `true`, the server will attempt to filter out
  *  profanities, replacing all but the initial character in each filtered word
  *  with asterisks, e.g. "f***". If set to `false` or omitted, profanities
  *  won't be filtered out.
@@ -723,7 +734,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @property(nonatomic, strong, nullable) NSNumber *sampleRateHertz;
 
 /**
- *  *Optional* array of SpeechContext.
+ *  Array of SpeechContext.
  *  A means to provide context to assist the speech recognition. For more
  *  information, see
  *  [speech
@@ -732,7 +743,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_Context *> *speechContexts;
 
 /**
- *  *Optional* Set to true to use an enhanced model for speech recognition.
+ *  Set to true to use an enhanced model for speech recognition.
  *  If `use_enhanced` is set to true and the `model` field is not set, then
  *  an appropriate enhanced model is chosen if an enhanced model exists for
  *  the audio.
@@ -892,7 +903,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @interface GTLRSpeech_RecognitionResult : GTLRObject
 
 /**
- *  Output only. May contain one or more recognition hypotheses (up to the
+ *  May contain one or more recognition hypotheses (up to the
  *  maximum specified in `max_alternatives`).
  *  These alternatives are ordered in terms of accuracy, with the top (first)
  *  alternative being the most probable, as ranked by the recognizer.
@@ -916,11 +927,11 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
  */
 @interface GTLRSpeech_RecognizeRequest : GTLRObject
 
-/** *Required* The audio data to be recognized. */
+/** Required. The audio data to be recognized. */
 @property(nonatomic, strong, nullable) GTLRSpeech_RecognitionAudio *audio;
 
 /**
- *  *Required* Provides information to the recognizer that specifies how to
+ *  Required. Provides information to the recognizer that specifies how to
  *  process the request.
  */
 @property(nonatomic, strong, nullable) GTLRSpeech_RecognitionConfig *config;
@@ -936,10 +947,45 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @interface GTLRSpeech_RecognizeResponse : GTLRObject
 
 /**
- *  Output only. Sequential list of transcription results corresponding to
+ *  Sequential list of transcription results corresponding to
  *  sequential portions of audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionResult *> *results;
+
+@end
+
+
+/**
+ *  Config to enable speaker diarization.
+ */
+@interface GTLRSpeech_SpeakerDiarizationConfig : GTLRObject
+
+/**
+ *  If 'true', enables speaker detection for each recognized word in
+ *  the top alternative of the recognition result using a speaker_tag provided
+ *  in the WordInfo.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSpeakerDiarization;
+
+/**
+ *  Maximum number of speakers in the conversation. This range gives you more
+ *  flexibility by allowing the system to automatically determine the correct
+ *  number of speakers. If not set, the default value is 6.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSpeakerCount;
+
+/**
+ *  Minimum number of speakers in the conversation. This range gives you more
+ *  flexibility by allowing the system to automatically determine the correct
+ *  number of speakers. If not set, the default value is 2.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minSpeakerCount;
 
 @end
 
@@ -995,7 +1041,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @interface GTLRSpeech_WordInfo : GTLRObject
 
 /**
- *  Output only. Time offset relative to the beginning of the audio,
+ *  Time offset relative to the beginning of the audio,
  *  and corresponding to the end of the spoken word.
  *  This field is only set if `enable_word_time_offsets=true` and only
  *  in the top hypothesis.
@@ -1005,7 +1051,18 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @property(nonatomic, strong, nullable) GTLRDuration *endTime;
 
 /**
- *  Output only. Time offset relative to the beginning of the audio,
+ *  A distinct integer value is assigned for every speaker within
+ *  the audio. This field specifies which one of those speakers was detected to
+ *  have spoken this word. Value ranges from '1' to diarization_speaker_count.
+ *  speaker_tag is set if enable_speaker_diarization = 'true' and only in the
+ *  top alternative.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *speakerTag;
+
+/**
+ *  Time offset relative to the beginning of the audio,
  *  and corresponding to the start of the spoken word.
  *  This field is only set if `enable_word_time_offsets=true` and only
  *  in the top hypothesis.
@@ -1014,7 +1071,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
  */
 @property(nonatomic, strong, nullable) GTLRDuration *startTime;
 
-/** Output only. The word corresponding to this set of information. */
+/** The word corresponding to this set of information. */
 @property(nonatomic, copy, nullable) NSString *word;
 
 @end

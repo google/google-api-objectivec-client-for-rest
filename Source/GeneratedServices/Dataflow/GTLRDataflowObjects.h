@@ -2268,6 +2268,24 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_WorkerPool *> *workerPools;
 
+/**
+ *  The Compute Engine region
+ *  (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in
+ *  which worker processing should occur, e.g. "us-west1". Mutually exclusive
+ *  with worker_zone. If neither worker_region nor worker_zone is specified,
+ *  default to the control plane's region.
+ */
+@property(nonatomic, copy, nullable) NSString *workerRegion;
+
+/**
+ *  The Compute Engine zone
+ *  (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in
+ *  which worker processing should occur, e.g. "us-west1-a". Mutually exclusive
+ *  with worker_region. If neither worker_region nor worker_zone is specified,
+ *  a zone in the control plane's region is chosen based on available capacity.
+ */
+@property(nonatomic, copy, nullable) NSString *workerZone;
+
 @end
 
 
@@ -4368,9 +4386,38 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, copy, nullable) NSString *tempLocation;
 
 /**
+ *  Optional. Specifies whether worker pools should be started with private IP
+ *  addresses.
+ *  False by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usePrivateIps;
+
+/**
+ *  The Compute Engine region
+ *  (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in
+ *  which worker processing should occur, e.g. "us-west1". Mutually exclusive
+ *  with worker_zone. If neither worker_region nor worker_zone is specified,
+ *  default to the control plane's region.
+ */
+@property(nonatomic, copy, nullable) NSString *workerRegion;
+
+/**
+ *  The Compute Engine zone
+ *  (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in
+ *  which worker processing should occur, e.g. "us-west1-a". Mutually exclusive
+ *  with worker_region. If neither worker_region nor worker_zone is specified,
+ *  a zone in the control plane's region is chosen based on available capacity.
+ *  If both `worker_zone` and `zone` are set, `worker_zone` takes precedence.
+ */
+@property(nonatomic, copy, nullable) NSString *workerZone;
+
+/**
  *  The Compute Engine [availability
  *  zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones)
  *  for launching worker instances to run your pipeline.
+ *  In the future, worker_zone will take precedence.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -5265,6 +5312,20 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  A task that carries configuration information for streaming computations.
  */
 @interface GTLRDataflow_StreamingConfigTask : GTLRObject
+
+/**
+ *  Chunk size for commit streams from the harness to windmill.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *commitStreamChunkSizeBytes;
+
+/**
+ *  Chunk size for get data streams from the harness to windmill.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *getDataStreamChunkSizeBytes;
 
 /**
  *  Maximum size for work item commit supported windmill storage layer.

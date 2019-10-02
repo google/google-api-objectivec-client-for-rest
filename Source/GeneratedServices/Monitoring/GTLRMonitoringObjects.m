@@ -929,7 +929,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 @implementation GTLRMonitoring_MetricDescriptor
 @dynamic descriptionProperty, displayName, labels, launchStage, metadata,
-         metricKind, name, type, unit, valueType;
+         metricKind, monitoredResourceTypes, name, type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -937,7 +937,8 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"labels" : [GTLRMonitoring_LabelDescriptor class]
+    @"labels" : [GTLRMonitoring_LabelDescriptor class],
+    @"monitoredResourceTypes" : [NSString class]
   };
   return map;
 }
@@ -1358,35 +1359,6 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 @implementation GTLRMonitoring_UptimeCheckIp
 @dynamic ipAddress, location, region;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMonitoring_UptimeCheckResult
-//
-
-@implementation GTLRMonitoring_UptimeCheckResult
-@dynamic checkPassed, contentMismatch, errorCode, httpStatus, monitoredResource,
-         requestLatency;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMonitoring_ValidateUptimeCheckConfigResponse
-//
-
-@implementation GTLRMonitoring_ValidateUptimeCheckConfigResponse
-@dynamic uptimeCheckResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"uptimeCheckResults" : [GTLRMonitoring_UptimeCheckResult class]
-  };
-  return map;
-}
-
 @end
 
 

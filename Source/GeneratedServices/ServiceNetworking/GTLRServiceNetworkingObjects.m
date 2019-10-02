@@ -714,7 +714,7 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceNetworking_MetricDescriptor
 @dynamic descriptionProperty, displayName, labels, launchStage, metadata,
-         metricKind, name, type, unit, valueType;
+         metricKind, monitoredResourceTypes, name, type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -722,7 +722,8 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"labels" : [GTLRServiceNetworking_LabelDescriptor class]
+    @"labels" : [GTLRServiceNetworking_LabelDescriptor class],
+    @"monitoredResourceTypes" : [NSString class]
   };
   return map;
 }

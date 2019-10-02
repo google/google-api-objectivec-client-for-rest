@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Binary Authorization API (binaryauthorization/v1beta1)
+//   Binary Authorization API (binaryauthorization/v1)
 // Description:
 //   The management interface for Binary Authorization, a system providing
 //   policy control for images deployed to Kubernetes Engine clusters.
@@ -30,7 +30,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/attestors";
+  NSString *pathURITemplate = @"v1/{+parent}/attestors";
   GTLRBinaryAuthorizationQuery_ProjectsAttestorsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -50,7 +50,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRBinaryAuthorizationQuery_ProjectsAttestorsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -69,7 +69,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRBinaryAuthorizationQuery_ProjectsAttestorsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -92,7 +92,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRBinaryAuthorizationQuery_ProjectsAttestorsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -111,7 +111,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/attestors";
+  NSString *pathURITemplate = @"v1/{+parent}/attestors";
   GTLRBinaryAuthorizationQuery_ProjectsAttestorsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -135,7 +135,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRBinaryAuthorizationQuery_ProjectsAttestorsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -160,7 +160,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRBinaryAuthorizationQuery_ProjectsAttestorsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -185,7 +185,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRBinaryAuthorizationQuery_ProjectsAttestorsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -205,7 +205,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRBinaryAuthorizationQuery_ProjectsGetPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -228,7 +228,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRBinaryAuthorizationQuery_ProjectsPolicyGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -252,7 +252,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRBinaryAuthorizationQuery_ProjectsPolicySetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -277,7 +277,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRBinaryAuthorizationQuery_ProjectsPolicyTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -302,7 +302,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRBinaryAuthorizationQuery_ProjectsUpdatePolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"

@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a summary of the ad experience rating of a site.
+ *  Gets a site's Ad Experience Report summary.
  *
  *  Method: adexperiencereport.sites.get
  *
@@ -49,28 +49,20 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdExperienceReport queryForSitesGetWithname:]
 
 /**
- *  Required. The site property whose ad experiences
- *  may have been reviewed, and it should be URL-encoded. For example,
- *  sites/https%3A%2F%2Fwww.google.com. The server will return an error of
- *  BAD_REQUEST if this field is not filled in. Note that if the site property
- *  is not yet verified in Search Console, the reportUrl field returned by the
- *  API will lead to the verification page, prompting the user to go through
- *  that process before they can gain access to the Ad Experience Report.
+ *  Required. The name of the site whose summary to get, e.g.
+ *  `sites/http%3A%2F%2Fwww.google.com%2F`.
+ *  Format: `sites/{site}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAdExperienceReport_SiteSummaryResponse.
  *
- *  Gets a summary of the ad experience rating of a site.
+ *  Gets a site's Ad Experience Report summary.
  *
- *  @param name Required. The site property whose ad experiences
- *    may have been reviewed, and it should be URL-encoded. For example,
- *    sites/https%3A%2F%2Fwww.google.com. The server will return an error of
- *    BAD_REQUEST if this field is not filled in. Note that if the site property
- *    is not yet verified in Search Console, the reportUrl field returned by the
- *    API will lead to the verification page, prompting the user to go through
- *    that process before they can gain access to the Ad Experience Report.
+ *  @param name Required. The name of the site whose summary to get, e.g.
+ *    `sites/http%3A%2F%2Fwww.google.com%2F`.
+ *    Format: `sites/{site}`
  *
  *  @return GTLRAdExperienceReportQuery_SitesGet
  */
@@ -79,7 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists sites with failing Ad Experience Report statuses.
+ *  Lists sites that are failing in the Ad Experience Report on at least one
+ *  platform.
  *
  *  Method: adexperiencereport.violatingSites.list
  *
@@ -93,7 +86,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAdExperienceReport_ViolatingSitesResponse.
  *
- *  Lists sites with failing Ad Experience Report statuses.
+ *  Lists sites that are failing in the Ad Experience Report on at least one
+ *  platform.
  *
  *  @return GTLRAdExperienceReportQuery_ViolatingSitesList
  */

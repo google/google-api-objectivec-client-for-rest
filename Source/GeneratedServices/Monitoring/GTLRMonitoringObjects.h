@@ -81,7 +81,6 @@
 @class GTLRMonitoring_TypedValue;
 @class GTLRMonitoring_UptimeCheckConfig;
 @class GTLRMonitoring_UptimeCheckIp;
-@class GTLRMonitoring_UptimeCheckResult;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -473,33 +472,38 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Unspec
 // GTLRMonitoring_ContentMatcher.matcher
 
 /**
- *  Allows checking substring matching. Default value for previous versions
- *  without option.
+ *  Selects substring matching (there is a match if the output contains the
+ *  content string). This is the default value for checks without a matcher
+ *  option, or where the value of matcher is CONTENT_MATCHER_OPTION_UNSPECIFIED.
  *
  *  Value: "CONTAINS_STRING"
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContainsString;
 /**
- *  No content macher option specified. Treated as CONTAINS_STRING.
+ *  No content matcher type specified (maintained for backward compatibility,
+ *  but deprecated for future use). Treated as CONTAINS_STRING.
  *
  *  Value: "CONTENT_MATCHER_OPTION_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified;
 /**
- *  Allows checking regular expression matching.
+ *  Selects regular expression matching (there is a match of the output matches
+ *  the regular expression specified in the content string).
  *
  *  Value: "MATCHES_REGEX"
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex;
 /**
- *  Allows checking negation of substring matching (doesn't contain the
- *  substring).
+ *  Selects negation of substring matching (there is a match if the output does
+ *  NOT contain the content string).
  *
  *  Value: "NOT_CONTAINS_STRING"
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString;
 /**
- *  Allows checking negation of regular expression matching.
+ *  Selects negation of regular expression matching (there is a match if the
+ *  output does NOT match the regular expression specified in the content
+ *  string).
  *
  *  Value: "NOT_MATCHES_REGEX"
  */
@@ -657,7 +661,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUnknown;
 /**
  *  The checker is being created, provisioned, and configured. A checker in this
  *  state can be returned by ListInternalCheckers or GetInternalChecker, as well
- *  as by examining the longrunning.Operation that created it.
+ *  as by examining the long running Operation
+ *  (https://cloud.google.com/apis/design/design_patterns#long_running_operations)
+ *  that created it.
  *
  *  Value: "CREATING"
  */
@@ -665,9 +671,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Creating;
 /**
  *  The checker is running and available for use. A checker in this state can be
  *  returned by ListInternalCheckers or GetInternalChecker as well as by
- *  examining the longrunning.Operation that created it. If a checker is being
- *  torn down, it is neither visible nor usable, so there is no "deleting" or
- *  "down" state.
+ *  examining the long running Operation
+ *  (https://cloud.google.com/apis/design/design_patterns#long_running_operations)
+ *  that created it. If a checker is being torn down, it is neither visible nor
+ *  usable, so there is no "deleting" or "down" state.
  *
  *  Value: "RUNNING"
  */
@@ -1194,7 +1201,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_AsiaPacific;
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Europe;
 /**
- *  Default value if no region is specified. Will result in uptime checks
+ *  Default value if no region is specified. Will result in Uptime checks
  *  running from all regions.
  *
  *  Value: "REGION_UNSPECIFIED"
@@ -1599,16 +1606,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
- *  A type of authentication to perform against the specified resource or URL
- *  that uses username and password. Currently, only Basic authentication is
- *  supported in Uptime Monitoring.
+ *  The authentication parameters to provide to the specified resource or URL
+ *  that requires a username and password. Currently, only Basic HTTP
+ *  authentication (https://tools.ietf.org/html/rfc7617) is supported in Uptime
+ *  checks.
  */
 @interface GTLRMonitoring_BasicAuthentication : GTLRObject
 
-/** The password to authenticate. */
+/** The password to use when authenticating with the HTTP server. */
 @property(nonatomic, copy, nullable) NSString *password;
 
-/** The username to authenticate. */
+/** The username to use when authenticating with the HTTP server. */
 @property(nonatomic, copy, nullable) NSString *username;
 
 @end
@@ -1832,25 +1840,30 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
- *  The matcher representing content match options which the check will run
- *  with. If the field is not specified (in previous versions), the option is
- *  set to be CONTAINS_STRING which performs content substring matching.
+ *  The type of content matcher that will be applied to the server output,
+ *  compared to the content string when the check is run.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_ContainsString Allows
- *        checking substring matching. Default value for previous versions
- *        without option. (Value: "CONTAINS_STRING")
+ *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_ContainsString Selects
+ *        substring matching (there is a match if the output contains the
+ *        content string). This is the default value for checks without a
+ *        matcher option, or where the value of matcher is
+ *        CONTENT_MATCHER_OPTION_UNSPECIFIED. (Value: "CONTAINS_STRING")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified
- *        No content macher option specified. Treated as CONTAINS_STRING.
- *        (Value: "CONTENT_MATCHER_OPTION_UNSPECIFIED")
- *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex Allows
- *        checking regular expression matching. (Value: "MATCHES_REGEX")
- *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString Allows
- *        checking negation of substring matching (doesn't contain the
- *        substring). (Value: "NOT_CONTAINS_STRING")
- *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRegex Allows
- *        checking negation of regular expression matching. (Value:
- *        "NOT_MATCHES_REGEX")
+ *        No content matcher type specified (maintained for backward
+ *        compatibility, but deprecated for future use). Treated as
+ *        CONTAINS_STRING. (Value: "CONTENT_MATCHER_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex Selects
+ *        regular expression matching (there is a match of the output matches
+ *        the regular expression specified in the content string). (Value:
+ *        "MATCHES_REGEX")
+ *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString Selects
+ *        negation of substring matching (there is a match if the output does
+ *        NOT contain the content string). (Value: "NOT_CONTAINS_STRING")
+ *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRegex Selects
+ *        negation of regular expression matching (there is a match if the
+ *        output does NOT match the regular expression specified in the content
+ *        string). (Value: "NOT_MATCHES_REGEX")
  */
 @property(nonatomic, copy, nullable) NSString *matcher;
 
@@ -2374,7 +2387,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
- *  Information involved in an HTTP/HTTPS uptime check request.
+ *  Information involved in an HTTP/HTTPS Uptime check request.
  */
 @interface GTLRMonitoring_HttpCheck : GTLRObject
 
@@ -2385,7 +2398,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) GTLRMonitoring_BasicAuthentication *authInfo;
 
 /**
- *  The list of headers to send as part of the uptime check request. If two
+ *  The list of headers to send as part of the Uptime check request. If two
  *  headers have the same key and different values, they should be entered as a
  *  single header, with the value being a comma-separated list of all the
  *  desired values as described at
@@ -2400,24 +2413,25 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  should be specified for any headers related to authentication that you do
  *  not wish to be seen when retrieving the configuration. The server will be
  *  responsible for encrypting the headers. On Get/List calls, if mask_headers
- *  is set to True then the headers will be obscured with ******.
+ *  is set to true then the headers will be obscured with ******.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maskHeaders;
 
 /**
- *  The path to the page to run the check against. Will be combined with the
- *  host (specified within the MonitoredResource) and port to construct the full
- *  URL. Optional (defaults to "/"). If the provided path does not begin with
- *  "/", it will be prepended automatically.
+ *  Optional (defaults to "/"). The path to the page against which to run the
+ *  check. Will be combined with the host (specified within the
+ *  monitored_resource) and port to construct the full URL. If the provided path
+ *  does not begin with "/", a "/" will be prepended automatically.
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  The port to the page to run the check against. Will be combined with host
- *  (specified within the MonitoredResource) and path to construct the full URL.
- *  Optional (defaults to 80 without SSL, or 443 with SSL).
+ *  Optional (defaults to 80 when use_ssl is false, and 443 when use_ssl is
+ *  true). The TCP port on the HTTP server against which to run the check. Will
+ *  be combined with host (specified within the monitored_resource) and path to
+ *  construct the full URL.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2431,8 +2445,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) NSNumber *useSsl;
 
 /**
- *  Boolean specifying whether to validate SSL certificates. Only applies to
- *  uptime_url checks. If use_ssl is false, setting this to true has no effect.
+ *  Boolean specifying whether to include SSL certificate validation as a part
+ *  of the Uptime check. Only applies to checks where monitored_resource is set
+ *  to uptime_url. If use_ssl is false, setting validate_ssl to true has no
+ *  effect.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2442,7 +2458,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
- *  The list of headers to send as part of the uptime check request. If two
+ *  The list of headers to send as part of the Uptime check request. If two
  *  headers have the same key and different values, they should be entered as a
  *  single header, with the value being a comma-separated list of all the
  *  desired values as described at
@@ -2460,7 +2476,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
- *  An internal checker allows uptime checks to run on private/internal GCP
+ *  An internal checker allows Uptime checks to run on private/internal GCP
  *  resources.
  */
 @interface GTLRMonitoring_InternalChecker : GTLRObject
@@ -2473,15 +2489,15 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The GCP zone the uptime check should egress from. Only respected for
- *  internal uptime checks, where internal_network is specified.
+ *  The GCP zone the Uptime check should egress from. Only respected for
+ *  internal Uptime checks, where internal_network is specified.
  */
 @property(nonatomic, copy, nullable) NSString *gcpZone;
 
 /**
  *  A unique resource name for this InternalChecker. The format
- *  is:projects/[PROJECT_ID]/internalCheckers/[INTERNAL_CHECKER_ID].PROJECT_ID
- *  is the stackdriver workspace project for the uptime check config associated
+ *  is:projects/[PROJECT_ID]/internalCheckers/[INTERNAL_CHECKER_ID].[PROJECT_ID]
+ *  is the Stackdriver Workspace project for the Uptime check config associated
  *  with the internal checker.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2493,8 +2509,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  The GCP project_id where the internal checker lives. Not necessary the same
- *  as the workspace project.
+ *  The GCP project ID where the internal checker lives. Not necessary the same
+ *  as the Workspace project.
  */
 @property(nonatomic, copy, nullable) NSString *peerProjectId;
 
@@ -2505,14 +2521,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *    @arg @c kGTLRMonitoring_InternalChecker_State_Creating The checker is
  *        being created, provisioned, and configured. A checker in this state
  *        can be returned by ListInternalCheckers or GetInternalChecker, as well
- *        as by examining the longrunning.Operation that created it. (Value:
- *        "CREATING")
+ *        as by examining the long running Operation
+ *        (https://cloud.google.com/apis/design/design_patterns#long_running_operations)
+ *        that created it. (Value: "CREATING")
  *    @arg @c kGTLRMonitoring_InternalChecker_State_Running The checker is
  *        running and available for use. A checker in this state can be returned
  *        by ListInternalCheckers or GetInternalChecker as well as by examining
- *        the longrunning.Operation that created it. If a checker is being torn
- *        down, it is neither visible nor usable, so there is no "deleting" or
- *        "down" state. (Value: "RUNNING")
+ *        the long running Operation
+ *        (https://cloud.google.com/apis/design/design_patterns#long_running_operations)
+ *        that created it. If a checker is being torn down, it is neither
+ *        visible nor usable, so there is no "deleting" or "down" state. (Value:
+ *        "RUNNING")
  *    @arg @c kGTLRMonitoring_InternalChecker_State_Unspecified An internal
  *        checker should never be in the unspecified state. (Value:
  *        "UNSPECIFIED")
@@ -2837,7 +2856,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The total number of uptime check configurations for the project,
+ *  The total number of Uptime check configurations for the project,
  *  irrespective of any pagination.
  *
  *  Uses NSNumber of intValue.
@@ -2845,7 +2864,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
 
 /**
- *  The returned uptime check configurations.
+ *  The returned Uptime check configurations.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3064,6 +3083,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  */
 @property(nonatomic, copy, nullable) NSString *metricKind;
 
+/**
+ *  Read-only. If present, then a time series, which is identified partially by
+ *  a metric type and a MonitoredResourceDescriptor, that is associated with
+ *  this metric type can only be associated with one of the monitored resource
+ *  types listed here.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *monitoredResourceTypes;
+
 /** The resource name of the metric descriptor. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3170,8 +3197,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) GTLRDuration *ingestDelay;
 
 /**
- *  Deprecated. Please use the MetricDescriptor.launch_stage instead. The launch
- *  stage of the metric definition.
+ *  Deprecated. Must use the MetricDescriptor.launch_stage instead.
  *
  *  Likely values:
  *    @arg @c kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Alpha Alpha
@@ -3274,9 +3300,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  single stream for each resource or when aggregating streams across all
  *  members of a group of resources).When computing ratios, the aggregations and
  *  denominator_aggregations fields must use the same alignment period and
- *  produce time series that have the same periodicity and labels.This field is
- *  similar to the one in the MetricService.ListTimeSeries request. It is
- *  advisable to use the ListTimeSeries method when debugging this field.
+ *  produce time series that have the same periodicity and labels.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Aggregation *> *denominatorAggregations;
 
@@ -3284,12 +3308,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  A filter that identifies a time series that should be used as the
  *  denominator of a ratio that will be compared with the threshold. If a
  *  denominator_filter is specified, the time series specified by the filter
- *  field will be used as the numerator.The filter is similar to the one that is
- *  specified in the MetricService.ListTimeSeries request (that call is useful
- *  to verify the time series that will be retrieved / processed) and must
- *  specify the metric type and optionally may contain restrictions on resource
- *  type, resource labels, and metric labels. This field may not exceed 2048
- *  Unicode characters in length.
+ *  field will be used as the numerator.The filter must specify the metric type
+ *  and optionally may contain restrictions on resource type, resource labels,
+ *  and metric labels. This field may not exceed 2048 Unicode characters in
+ *  length.
  */
 @property(nonatomic, copy, nullable) NSString *denominatorFilter;
 
@@ -3830,8 +3852,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @interface GTLRMonitoring_ResourceGroup : GTLRObject
 
 /**
- *  The group of resources being monitored. Should be only the group_id, not
- *  projects/<project_id>/groups/<group_id>.
+ *  The group of resources being monitored. Should be only the [GROUP_ID], and
+ *  not the full-path projects/[PROJECT_ID]/groups/[GROUP_ID].
  */
 @property(nonatomic, copy, nullable) NSString *groupId;
 
@@ -3940,14 +3962,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
- *  Information required for a TCP uptime check request.
+ *  Information required for a TCP Uptime check request.
  */
 @interface GTLRMonitoring_TcpCheck : GTLRObject
 
 /**
- *  The port to the page to run the check against. Will be combined with host
- *  (specified within the MonitoredResource) to construct the full URL.
- *  Required.
+ *  The TCP port on the server against which to run the check. Will be combined
+ *  with host (specified within the monitored_resource) to construct the full
+ *  URL. Required.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4182,16 +4204,16 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @interface GTLRMonitoring_UptimeCheckConfig : GTLRObject
 
 /**
- *  The expected content on the page the check is run against. Currently, only
- *  the first entry in the list is supported, and other entries will be ignored.
- *  The server will look for an exact match of the string in the page response's
- *  content. This field is optional and should only be specified if a content
- *  match is required.
+ *  The content that is expected to appear in the data returned by the target
+ *  server against which the check is run. Currently, only the first entry in
+ *  the content_matchers list is supported, and additional entries will be
+ *  ignored. This field is optional and should only be specified if a content
+ *  match is required as part of the/ Uptime check.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_ContentMatcher *> *contentMatchers;
 
 /**
- *  A human-friendly name for the uptime check configuration. The display name
+ *  A human-friendly name for the Uptime check configuration. The display name
  *  should be unique within a Stackdriver Workspace in order to make it easier
  *  to identify; however, uniqueness is not enforced. Required.
  */
@@ -4203,28 +4225,29 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  The internal checkers that this check will egress from. If is_internal is
  *  true and this list is empty, the check will egress from all the
- *  InternalCheckers configured for the project that owns this CheckConfig.
+ *  InternalCheckers configured for the project that owns this
+ *  UptimeCheckConfig.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_InternalChecker *> *internalCheckers;
 
 /**
  *  The monitored resource (https://cloud.google.com/monitoring/api/resources)
  *  associated with the configuration. The following monitored resource types
- *  are supported for uptime checks: uptime_url gce_instance gae_app
- *  aws_ec2_instance aws_elb_load_balancer
+ *  are supported for Uptime checks: uptime_url, gce_instance, gae_app,
+ *  aws_ec2_instance, aws_elb_load_balancer
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *monitoredResource;
 
 /**
- *  A unique resource name for this UptimeCheckConfig. The format
+ *  A unique resource name for this Uptime check configuration. The format
  *  is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field
- *  should be omitted when creating the uptime check configuration; on create,
+ *  should be omitted when creating the Uptime check configuration; on create,
  *  the resource name is assigned by the server and included in the response.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  How often, in seconds, the uptime check is performed. Currently, the only
+ *  How often, in seconds, the Uptime check is performed. Currently, the only
  *  supported values are 60s (1 minute), 300s (5 minutes), 600s (10 minutes),
  *  and 900s (15 minutes). Optional, defaults to 60s.
  */
@@ -4236,9 +4259,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  The list of regions from which the check will be run. Some regions contain
  *  one location, and others contain more than one. If this field is specified,
- *  enough regions to include a minimum of 3 locations must be provided, or an
- *  error message is returned. Not specifying this field will result in uptime
- *  checks running from all regions.
+ *  enough regions must be provided to include a minimum of 3 locations. Not
+ *  specifying this field will result in Uptime checks running from all
+ *  available regions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *selectedRegions;
 
@@ -4261,10 +4284,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @interface GTLRMonitoring_UptimeCheckIp : GTLRObject
 
 /**
- *  The IP address from which the uptime check originates. This is a full IP
- *  address (not an IP address range). Most IP addresses, as of this
- *  publication, are in IPv4 format; however, one should not rely on the IP
- *  addresses being in IPv4 format indefinitely and should support interpreting
+ *  The IP address from which the Uptime check originates. This is a fully
+ *  specified IP address (not an IP address range). Most IP addresses, as of
+ *  this publication, are in IPv4 format; however, one should not rely on the IP
+ *  addresses being in IPv4 format indefinitely, and should support interpreting
  *  this field in either IPv4 or IPv6 format.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
@@ -4286,7 +4309,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *    @arg @c kGTLRMonitoring_UptimeCheckIp_Region_Europe Allows checks to run
  *        from locations within the continent of Europe. (Value: "EUROPE")
  *    @arg @c kGTLRMonitoring_UptimeCheckIp_Region_RegionUnspecified Default
- *        value if no region is specified. Will result in uptime checks running
+ *        value if no region is specified. Will result in Uptime checks running
  *        from all regions. (Value: "REGION_UNSPECIFIED")
  *    @arg @c kGTLRMonitoring_UptimeCheckIp_Region_SouthAmerica Allows checks to
  *        run from locations within the continent of South America. (Value:
@@ -4295,65 +4318,6 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *        locations within the United States of America. (Value: "USA")
  */
 @property(nonatomic, copy, nullable) NSString *region;
-
-@end
-
-
-/**
- *  The result of a single uptime check execution. For group checks, this
- *  corresponds to one member of the group.
- */
-@interface GTLRMonitoring_UptimeCheckResult : GTLRObject
-
-/**
- *  True if the resource passed the check.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *checkPassed;
-
-/**
- *  True if the response had content that did not match the check.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *contentMismatch;
-
-/**
- *  For HTTP checks, error, if any, that prevented contact with the resource
- *  (ex: DNS_NAME_UNKNOWN, INVALID_URL).
- */
-@property(nonatomic, copy, nullable) NSString *errorCode;
-
-/**
- *  For HTTP checks, HTTP response code returned by the resource.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *httpStatus;
-
-/**
- *  The monitored resource (https://cloud.google.com/monitoring/api/resources)
- *  for the Uptime check result.
- */
-@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *monitoredResource;
-
-/** The request latency when executing the uptime check. */
-@property(nonatomic, strong, nullable) GTLRDuration *requestLatency;
-
-@end
-
-
-/**
- *  The protocol for the ValidateUptimeCheckConfigResponse response.
- */
-@interface GTLRMonitoring_ValidateUptimeCheckConfigResponse : GTLRObject
-
-/**
- *  The results of the uptime check execution (includes one result per group
- *  member, up to a maximum of 3 randomly selected group members).
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_UptimeCheckResult *> *uptimeCheckResults;
 
 @end
 

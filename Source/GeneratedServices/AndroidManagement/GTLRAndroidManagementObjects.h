@@ -27,6 +27,7 @@
 @class GTLRAndroidManagement_ApplicationPolicy_ManagedConfiguration;
 @class GTLRAndroidManagement_ApplicationReport;
 @class GTLRAndroidManagement_ApplicationReportingSettings;
+@class GTLRAndroidManagement_AppTrackInfo;
 @class GTLRAndroidManagement_BlockAction;
 @class GTLRAndroidManagement_ChoosePrivateKeyRule;
 @class GTLRAndroidManagement_ComplianceRule;
@@ -931,9 +932,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_Passwor
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_BiometricWeak;
 /**
- *  The password must contain at least a letter, a numerical digit and a special
- *  symbol. Other password constraints, for example, password_minimum_letters
- *  are enforced.
+ *  The password must meet the minimum requirements specified in
+ *  passwordMinimumLength, passwordMinimumLetters, passwordMinimumSymbols, etc.
+ *  For example, if passwordMinimumSymbols is 2, the password must contain at
+ *  least two symbols.
  *
  *  Value: "COMPLEX"
  */
@@ -1118,12 +1120,18 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_Encr
 
 /** Value: "ALL_FEATURES" */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_AllFeatures;
+/** Value: "BIOMETRICS" */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Biometrics;
 /** Value: "CAMERA" */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Camera;
 /** Value: "DISABLE_FINGERPRINT" */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableFingerprint;
 /** Value: "DISABLE_REMOTE_INPUT" */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableRemoteInput;
+/** Value: "FACE" */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Face;
+/** Value: "IRIS" */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Iris;
 /** Value: "KEYGUARD_DISABLED_FEATURE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_KeyguardDisabledFeatureUnspecified;
 /** Value: "NOTIFICATIONS" */
@@ -1208,21 +1216,21 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Wi
 // GTLRAndroidManagement_PostureDetail.securityRisk
 
 /**
- *  SafetyNet detects that the device uses a compromised OS (basicIntegrity
- *  check fails).
+ *  SafetyNet detects that the device is running a compromised OS
+ *  (basicIntegrity check fails).
  *
  *  Value: "COMPROMISED_OS"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_CompromisedOs;
 /**
- *  Unspecified. Cannot determine the risk detail.
+ *  Unspecified.
  *
  *  Value: "SECURITY_RISK_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_SecurityRiskUnspecified;
 /**
- *  SafetyNet detects that the device uses an unknown OS (basicIntegrity check
- *  passes while ctsProfileMatch fails).
+ *  SafetyNet detects that the device is running an unknown OS (basicIntegrity
+ *  check succeeds but ctsProfileMatch fails).
  *
  *  Value: "UNKNOWN_OS"
  */
@@ -1284,30 +1292,27 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventTy
 // GTLRAndroidManagement_SecurityPosture.devicePosture
 
 /**
- *  The device is at risk (both SafetyNet's ctsProfileMatch check and
- *  basicIntegrity check pass).
+ *  This device may be more vulnerable to malicious actors than is recommended
+ *  for use with corporate data.
  *
  *  Value: "AT_RISK"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_AtRisk;
 /**
- *  Unspecified. It is unable to determine the correct device posture because of
- *  insufficient data (for example, in the case of SafetyNet outage, there is no
- *  SafetyNet result). There is no posture detail for this posture value.
+ *  Unspecified. There is no posture detail for this posture value.
  *
  *  Value: "POSTURE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PostureUnspecified;
 /**
- *  The device is potentially compromised (either SafetyNet's ctsProfileMatch
- *  check or basicIntegrity check fails).
+ *  This device may be compromised and corporate data may be accessible to
+ *  unauthorized actors.
  *
  *  Value: "POTENTIALLY_COMPROMISED"
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PotentiallyCompromised;
 /**
- *  The device is in the most secure state (both SafetyNet's ctsProfileMatch
- *  check and basicIntegrity check pass).
+ *  This device is secure.
  *
  *  Value: "SECURE"
  */
@@ -1428,6 +1433,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @interface GTLRAndroidManagement_Application : GTLRObject
 
+/** Application tracks visible to the enterprise. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_AppTrackInfo *> *appTracks;
+
 /**
  *  The set of managed properties available to be pre-configured for the app.
  */
@@ -1513,6 +1521,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Policy for an individual app.
  */
 @interface GTLRAndroidManagement_ApplicationPolicy : GTLRObject
+
+/**
+ *  List of the app’s track IDs that a device belonging to the enterprise can
+ *  access. If the list contains multiple track IDs, devices receive the latest
+ *  version among all accessible tracks. If the list contains no track IDs,
+ *  devices only have access to the app’s production track. More details about
+ *  each track are available in AppTrackInfo.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accessibleTrackIds;
 
 /**
  *  The default policy for all permissions requested by the app. If specified,
@@ -1745,6 +1762,26 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *includeRemovedApps;
+
+@end
+
+
+/**
+ *  Id to name association of a app track.
+ */
+@interface GTLRAndroidManagement_AppTrackInfo : GTLRObject
+
+/**
+ *  The track name associated with the trackId, set in the Play Console. The
+ *  name is modifiable from Play Console.
+ */
+@property(nonatomic, copy, nullable) NSString *trackAlias;
+
+/**
+ *  The unmodifiable unique track identifier, taken from the releaseTrackId in
+ *  the URL of the Play Console page that displays the app’s track information.
+ */
+@property(nonatomic, copy, nullable) NSString *trackId;
 
 @end
 
@@ -2121,7 +2158,11 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Map of selected system properties name and value related to the device. */
+/**
+ *  Map of selected system properties name and value related to the device. This
+ *  information is only available if systemPropertiesEnabled is true in the
+ *  device's policy.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_Device_SystemProperties *systemProperties;
 
 /** The user who owns the device. */
@@ -2137,7 +2178,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 
 /**
- *  Map of selected system properties name and value related to the device.
+ *  Map of selected system properties name and value related to the device. This
+ *  information is only available if systemPropertiesEnabled is true in the
+ *  device's policy.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3337,9 +3380,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        PIN (false detection is less than 1 in 1,000). (Value:
  *        "BIOMETRIC_WEAK")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex
- *        The password must contain at least a letter, a numerical digit and a
- *        special symbol. Other password constraints, for example,
- *        password_minimum_letters are enforced. (Value: "COMPLEX")
+ *        The password must meet the minimum requirements specified in
+ *        passwordMinimumLength, passwordMinimumLetters, passwordMinimumSymbols,
+ *        etc. For example, if passwordMinimumSymbols is 2, the password must
+ *        contain at least two symbols. (Value: "COMPLEX")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Numeric
  *        The password must contain numeric characters. (Value: "NUMERIC")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_NumericComplex
@@ -3821,6 +3865,15 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PermissionGrant *> *permissionGrants;
 
 /**
+ *  Specifies permitted accessibility services. If the field is not set, any
+ *  accessibility service can be used. If the field is set, only the
+ *  accessibility services in this list and the system's built-in accessibility
+ *  service can be used. In particular, if the field is set to empty, only the
+ *  system's built-in accessibility servicess can be used.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_PackageNameList *permittedAccessibilityServices;
+
+/**
  *  If present, only the input methods provided by packages in this list are
  *  permitted. If this field is present, but the list is empty, then only system
  *  input methods are permitted.
@@ -4077,27 +4130,30 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 
 /**
- *  Detail that provides further information if the device is not in the most
- *  secure state.
+ *  Additional details regarding the security posture of the device.
  */
 @interface GTLRAndroidManagement_PostureDetail : GTLRObject
 
-/** Corresponding pieces of advice to mitigate the security risk. */
+/**
+ *  Corresponding admin-facing advice to mitigate this security risk and improve
+ *  the security posture of the device.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_UserFacingMessage *> *advice;
 
 /**
- *  The risk that makes the device not in the most secure state.
+ *  A specific security risk that negatively affects the security posture of the
+ *  device.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_CompromisedOs
- *        SafetyNet detects that the device uses a compromised OS
+ *        SafetyNet detects that the device is running a compromised OS
  *        (basicIntegrity check fails). (Value: "COMPROMISED_OS")
  *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_SecurityRiskUnspecified
- *        Unspecified. Cannot determine the risk detail. (Value:
- *        "SECURITY_RISK_UNSPECIFIED")
+ *        Unspecified. (Value: "SECURITY_RISK_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_PostureDetail_SecurityRisk_UnknownOs
- *        SafetyNet detects that the device uses an unknown OS (basicIntegrity
- *        check passes while ctsProfileMatch fails). (Value: "UNKNOWN_OS")
+ *        SafetyNet detects that the device is running an unknown OS
+ *        (basicIntegrity check succeeds but ctsProfileMatch fails). (Value:
+ *        "UNKNOWN_OS")
  */
 @property(nonatomic, copy, nullable) NSString *securityRisk;
 
@@ -4176,7 +4232,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 
 
 /**
- *  . Device's security posture value that reflects how secure the device is.
+ *  The security posture of the device, as determined by the current device
+ *  state and the policies applied.
  */
 @interface GTLRAndroidManagement_SecurityPosture : GTLRObject
 
@@ -4184,28 +4241,21 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Device's security posture value.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidManagement_SecurityPosture_DevicePosture_AtRisk The
- *        device is at risk (both SafetyNet's ctsProfileMatch check and
- *        basicIntegrity check pass). (Value: "AT_RISK")
+ *    @arg @c kGTLRAndroidManagement_SecurityPosture_DevicePosture_AtRisk This
+ *        device may be more vulnerable to malicious actors than is recommended
+ *        for use with corporate data. (Value: "AT_RISK")
  *    @arg @c kGTLRAndroidManagement_SecurityPosture_DevicePosture_PostureUnspecified
- *        Unspecified. It is unable to determine the correct device posture
- *        because of insufficient data (for example, in the case of SafetyNet
- *        outage, there is no SafetyNet result). There is no posture detail for
- *        this posture value. (Value: "POSTURE_UNSPECIFIED")
+ *        Unspecified. There is no posture detail for this posture value.
+ *        (Value: "POSTURE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_SecurityPosture_DevicePosture_PotentiallyCompromised
- *        The device is potentially compromised (either SafetyNet's
- *        ctsProfileMatch check or basicIntegrity check fails). (Value:
- *        "POTENTIALLY_COMPROMISED")
- *    @arg @c kGTLRAndroidManagement_SecurityPosture_DevicePosture_Secure The
- *        device is in the most secure state (both SafetyNet's ctsProfileMatch
- *        check and basicIntegrity check pass). (Value: "SECURE")
+ *        This device may be compromised and corporate data may be accessible to
+ *        unauthorized actors. (Value: "POTENTIALLY_COMPROMISED")
+ *    @arg @c kGTLRAndroidManagement_SecurityPosture_DevicePosture_Secure This
+ *        device is secure. (Value: "SECURE")
  */
 @property(nonatomic, copy, nullable) NSString *devicePosture;
 
-/**
- *  Details that provide further information if the device is not in the most
- *  secure state.
- */
+/** Additional details regarding the security posture of the device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PostureDetail *> *postureDetails;
 
 @end

@@ -631,7 +631,7 @@
 //
 
 @implementation GTLRStorage_Policy
-@dynamic bindings, ETag, kind, resourceId;
+@dynamic bindings, ETag, kind, resourceId, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

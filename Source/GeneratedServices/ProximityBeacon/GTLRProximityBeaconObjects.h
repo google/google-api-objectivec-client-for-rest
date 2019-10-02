@@ -685,7 +685,8 @@ GTLR_EXTERN NSString * const kGTLRProximityBeacon_Namespace_ServingVisibility_Vi
 
 /**
  *  Indicates the maximum rotation period supported by the service.
- *  See EddystoneEidRegistration.rotation_period_exponent
+ *  See
+ *  EddystoneEidRegistration.rotation_period_exponent
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -693,7 +694,8 @@ GTLR_EXTERN NSString * const kGTLRProximityBeacon_Namespace_ServingVisibility_Vi
 
 /**
  *  Indicates the minimum rotation period supported by the service.
- *  See EddystoneEidRegistration.rotation_period_exponent
+ *  See
+ *  EddystoneEidRegistration.rotation_period_exponent
  *
  *  Uses NSNumber of unsignedIntValue.
  */

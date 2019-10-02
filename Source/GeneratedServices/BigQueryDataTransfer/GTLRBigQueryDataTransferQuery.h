@@ -105,7 +105,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsDataSourcesCheckValidCredsWithObject:name:]
 
 /**
- *  The data source in the form:
+ *  Required. The data source in the form:
  *  `projects/{project_id}/dataSources/{data_source_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -122,7 +122,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  @param object The @c GTLRBigQueryDataTransfer_CheckValidCredsRequest to
  *    include in the query.
- *  @param name The data source in the form:
+ *  @param name Required. The data source in the form:
  *    `projects/{project_id}/dataSources/{data_source_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsDataSourcesCheckValidCreds
@@ -149,7 +149,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsDataSourcesGetWithname:]
 
 /**
- *  The field will contain name of the resource requested, for example:
+ *  Required. The field will contain name of the resource requested, for
+ *  example:
  *  `projects/{project_id}/dataSources/{data_source_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -160,8 +161,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Retrieves a supported data source and returns its settings,
  *  which can be used for UI rendering.
  *
- *  @param name The field will contain name of the resource requested, for
- *    example:
+ *  @param name Required. The field will contain name of the resource requested,
+ *    for example:
  *    `projects/{project_id}/dataSources/{data_source_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsDataSourcesGet
@@ -199,7 +200,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The BigQuery project id for which data sources should be returned.
+ *  Required. The BigQuery project id for which data sources should be returned.
  *  Must be in the form: `projects/{project_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -210,8 +211,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Lists supported data sources and returns their settings,
  *  which can be used for UI rendering.
  *
- *  @param parent The BigQuery project id for which data sources should be
- *    returned.
+ *  @param parent Required. The BigQuery project id for which data sources
+ *    should be returned.
  *    Must be in the form: `projects/{project_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsDataSourcesList
@@ -245,7 +246,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsLocationsDataSourcesCheckValidCredsWithObject:name:]
 
 /**
- *  The data source in the form:
+ *  Required. The data source in the form:
  *  `projects/{project_id}/dataSources/{data_source_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -262,7 +263,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  @param object The @c GTLRBigQueryDataTransfer_CheckValidCredsRequest to
  *    include in the query.
- *  @param name The data source in the form:
+ *  @param name Required. The data source in the form:
  *    `projects/{project_id}/dataSources/{data_source_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesCheckValidCreds
@@ -289,7 +290,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsLocationsDataSourcesGetWithname:]
 
 /**
- *  The field will contain name of the resource requested, for example:
+ *  Required. The field will contain name of the resource requested, for
+ *  example:
  *  `projects/{project_id}/dataSources/{data_source_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -300,8 +302,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Retrieves a supported data source and returns its settings,
  *  which can be used for UI rendering.
  *
- *  @param name The field will contain name of the resource requested, for
- *    example:
+ *  @param name Required. The field will contain name of the resource requested,
+ *    for example:
  *    `projects/{project_id}/dataSources/{data_source_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesGet
@@ -339,7 +341,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The BigQuery project id for which data sources should be returned.
+ *  Required. The BigQuery project id for which data sources should be returned.
  *  Must be in the form: `projects/{project_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -350,8 +352,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Lists supported data sources and returns their settings,
  *  which can be used for UI rendering.
  *
- *  @param parent The BigQuery project id for which data sources should be
- *    returned.
+ *  @param parent Required. The BigQuery project id for which data sources
+ *    should be returned.
  *    Must be in the form: `projects/{project_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesList
@@ -471,7 +473,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *authorizationCode;
 
 /**
- *  The BigQuery project id where the transfer configuration should be created.
+ *  Required. The BigQuery project id where the transfer configuration should be
+ *  created.
  *  Must be in the format projects/{project_id}/locations/{location_id}
  *  If specified location and location of the destination bigquery dataset
  *  do not match - the request will fail.
@@ -495,8 +498,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
- *  @param parent The BigQuery project id where the transfer configuration
- *    should be created.
+ *  @param parent Required. The BigQuery project id where the transfer
+ *    configuration should be created.
  *    Must be in the format projects/{project_id}/locations/{location_id}
  *    If specified location and location of the destination bigquery dataset
  *    do not match - the request will fail.
@@ -523,7 +526,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsLocationsTransferConfigsDeleteWithname:]
 
 /**
- *  The field will contain name of the resource requested, for example:
+ *  Required. The field will contain name of the resource requested, for
+ *  example:
  *  `projects/{project_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -534,8 +538,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Deletes a data transfer configuration,
  *  including any associated transfer runs and logs.
  *
- *  @param name The field will contain name of the resource requested, for
- *    example:
+ *  @param name Required. The field will contain name of the resource requested,
+ *    for example:
  *    `projects/{project_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsDelete
@@ -560,7 +564,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsLocationsTransferConfigsGetWithname:]
 
 /**
- *  The field will contain name of the resource requested, for example:
+ *  Required. The field will contain name of the resource requested, for
+ *  example:
  *  `projects/{project_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -570,8 +575,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Returns information about a data transfer config.
  *
- *  @param name The field will contain name of the resource requested, for
- *    example:
+ *  @param name Required. The field will contain name of the resource requested,
+ *    for example:
  *    `projects/{project_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsGet
@@ -613,7 +618,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The BigQuery project id for which data sources
+ *  Required. The BigQuery project id for which data sources
  *  should be returned: `projects/{project_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -623,7 +628,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Returns information about all data transfers in the project.
  *
- *  @param parent The BigQuery project id for which data sources
+ *  @param parent Required. The BigQuery project id for which data sources
  *    should be returned: `projects/{project_id}`.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsList
@@ -680,7 +685,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required list of fields to be updated in this request.
+ *  Required. Required list of fields to be updated in this request.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -733,7 +738,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsLocationsTransferConfigsRunsDeleteWithname:]
 
 /**
- *  The field will contain name of the resource requested, for example:
+ *  Required. The field will contain name of the resource requested, for
+ *  example:
  *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -743,8 +749,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Deletes the specified transfer run.
  *
- *  @param name The field will contain name of the resource requested, for
- *    example:
+ *  @param name Required. The field will contain name of the resource requested,
+ *    for example:
  *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsDelete
@@ -769,7 +775,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsLocationsTransferConfigsRunsGetWithname:]
 
 /**
- *  The field will contain name of the resource requested, for example:
+ *  Required. The field will contain name of the resource requested, for
+ *  example:
  *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -779,8 +786,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Returns information about the particular transfer run.
  *
- *  @param name The field will contain name of the resource requested, for
- *    example:
+ *  @param name Required. The field will contain name of the resource requested,
+ *    for example:
  *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsGet
@@ -817,7 +824,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Name of transfer configuration for which transfer runs should be retrieved.
+ *  Required. Name of transfer configuration for which transfer runs should be
+ *  retrieved.
  *  Format of transfer configuration resource name is:
  *  `projects/{project_id}/transferConfigs/{config_id}`.
  */
@@ -852,8 +860,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Returns information about running and completed jobs.
  *
- *  @param parent Name of transfer configuration for which transfer runs should
- *    be retrieved.
+ *  @param parent Required. Name of transfer configuration for which transfer
+ *    runs should be retrieved.
  *    Format of transfer configuration resource name is:
  *    `projects/{project_id}/transferConfigs/{config_id}`.
  *
@@ -908,7 +916,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Transfer run name in the form:
+ *  Required. Transfer run name in the form:
  *  `projects/{project_id}/transferConfigs/{config_Id}/runs/{run_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -918,7 +926,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Returns user facing log messages for the data transfer run.
  *
- *  @param parent Transfer run name in the form:
+ *  @param parent Required. Transfer run name in the form:
  *    `projects/{project_id}/transferConfigs/{config_Id}/runs/{run_id}`.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsTransferLogsList
@@ -949,7 +957,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsLocationsTransferConfigsScheduleRunsWithObject:parent:]
 
 /**
- *  Transfer configuration name in the form:
+ *  Required. Transfer configuration name in the form:
  *  `projects/{project_id}/transferConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -965,7 +973,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  @param object The @c GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest to
  *    include in the query.
- *  @param parent Transfer configuration name in the form:
+ *  @param parent Required. Transfer configuration name in the form:
  *    `projects/{project_id}/transferConfigs/{config_id}`.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsScheduleRuns
@@ -1049,7 +1057,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *authorizationCode;
 
 /**
- *  The BigQuery project id where the transfer configuration should be created.
+ *  Required. The BigQuery project id where the transfer configuration should be
+ *  created.
  *  Must be in the format projects/{project_id}/locations/{location_id}
  *  If specified location and location of the destination bigquery dataset
  *  do not match - the request will fail.
@@ -1073,8 +1082,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
- *  @param parent The BigQuery project id where the transfer configuration
- *    should be created.
+ *  @param parent Required. The BigQuery project id where the transfer
+ *    configuration should be created.
  *    Must be in the format projects/{project_id}/locations/{location_id}
  *    If specified location and location of the destination bigquery dataset
  *    do not match - the request will fail.
@@ -1101,7 +1110,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsTransferConfigsDeleteWithname:]
 
 /**
- *  The field will contain name of the resource requested, for example:
+ *  Required. The field will contain name of the resource requested, for
+ *  example:
  *  `projects/{project_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1112,8 +1122,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  Deletes a data transfer configuration,
  *  including any associated transfer runs and logs.
  *
- *  @param name The field will contain name of the resource requested, for
- *    example:
+ *  @param name Required. The field will contain name of the resource requested,
+ *    for example:
  *    `projects/{project_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsDelete
@@ -1138,7 +1148,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsTransferConfigsGetWithname:]
 
 /**
- *  The field will contain name of the resource requested, for example:
+ *  Required. The field will contain name of the resource requested, for
+ *  example:
  *  `projects/{project_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1148,8 +1159,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Returns information about a data transfer config.
  *
- *  @param name The field will contain name of the resource requested, for
- *    example:
+ *  @param name Required. The field will contain name of the resource requested,
+ *    for example:
  *    `projects/{project_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsGet
@@ -1191,7 +1202,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The BigQuery project id for which data sources
+ *  Required. The BigQuery project id for which data sources
  *  should be returned: `projects/{project_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1201,7 +1212,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Returns information about all data transfers in the project.
  *
- *  @param parent The BigQuery project id for which data sources
+ *  @param parent Required. The BigQuery project id for which data sources
  *    should be returned: `projects/{project_id}`.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsList
@@ -1258,7 +1269,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required list of fields to be updated in this request.
+ *  Required. Required list of fields to be updated in this request.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1311,7 +1322,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsTransferConfigsRunsDeleteWithname:]
 
 /**
- *  The field will contain name of the resource requested, for example:
+ *  Required. The field will contain name of the resource requested, for
+ *  example:
  *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1321,8 +1333,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Deletes the specified transfer run.
  *
- *  @param name The field will contain name of the resource requested, for
- *    example:
+ *  @param name Required. The field will contain name of the resource requested,
+ *    for example:
  *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsDelete
@@ -1347,7 +1359,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsTransferConfigsRunsGetWithname:]
 
 /**
- *  The field will contain name of the resource requested, for example:
+ *  Required. The field will contain name of the resource requested, for
+ *  example:
  *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1357,8 +1370,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Returns information about the particular transfer run.
  *
- *  @param name The field will contain name of the resource requested, for
- *    example:
+ *  @param name Required. The field will contain name of the resource requested,
+ *    for example:
  *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsGet
@@ -1395,7 +1408,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Name of transfer configuration for which transfer runs should be retrieved.
+ *  Required. Name of transfer configuration for which transfer runs should be
+ *  retrieved.
  *  Format of transfer configuration resource name is:
  *  `projects/{project_id}/transferConfigs/{config_id}`.
  */
@@ -1430,8 +1444,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Returns information about running and completed jobs.
  *
- *  @param parent Name of transfer configuration for which transfer runs should
- *    be retrieved.
+ *  @param parent Required. Name of transfer configuration for which transfer
+ *    runs should be retrieved.
  *    Format of transfer configuration resource name is:
  *    `projects/{project_id}/transferConfigs/{config_id}`.
  *
@@ -1486,7 +1500,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Transfer run name in the form:
+ *  Required. Transfer run name in the form:
  *  `projects/{project_id}/transferConfigs/{config_Id}/runs/{run_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1496,7 +1510,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  Returns user facing log messages for the data transfer run.
  *
- *  @param parent Transfer run name in the form:
+ *  @param parent Required. Transfer run name in the form:
  *    `projects/{project_id}/transferConfigs/{config_Id}/runs/{run_id}`.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsTransferLogsList
@@ -1527,7 +1541,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsTransferConfigsScheduleRunsWithObject:parent:]
 
 /**
- *  Transfer configuration name in the form:
+ *  Required. Transfer configuration name in the form:
  *  `projects/{project_id}/transferConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1543,7 +1557,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *
  *  @param object The @c GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest to
  *    include in the query.
- *  @param parent Transfer configuration name in the form:
+ *  @param parent Required. Transfer configuration name in the form:
  *    `projects/{project_id}/transferConfigs/{config_id}`.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsScheduleRuns

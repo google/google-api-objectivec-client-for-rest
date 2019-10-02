@@ -25,11 +25,17 @@
 @class GTLRDns_ManagedZone;
 @class GTLRDns_ManagedZone_Labels;
 @class GTLRDns_ManagedZoneDnsSecConfig;
+@class GTLRDns_ManagedZoneForwardingConfig;
+@class GTLRDns_ManagedZoneForwardingConfigNameServerTarget;
 @class GTLRDns_ManagedZonePrivateVisibilityConfig;
 @class GTLRDns_ManagedZonePrivateVisibilityConfigNetwork;
 @class GTLRDns_Operation;
 @class GTLRDns_OperationDnsKeyContext;
 @class GTLRDns_OperationManagedZoneContext;
+@class GTLRDns_Policy;
+@class GTLRDns_PolicyAlternativeNameServerConfig;
+@class GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer;
+@class GTLRDns_PolicyNetwork;
 @class GTLRDns_Quota;
 @class GTLRDns_ResourceRecordSet;
 @class GTLRDns_ResponseHeader;
@@ -476,6 +482,13 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZoneDnsSecConfig *dnssecConfig;
 
 /**
+ *  The presence for this field indicates that outbound forwarding is enabled
+ *  for this zone. The value of this field contains the set of destinations to
+ *  forward to.
+ */
+@property(nonatomic, strong, nullable) GTLRDns_ManagedZoneForwardingConfig *forwardingConfig;
+
+/**
  *  Unique identifier for the resource; defined by the server (output only)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -550,8 +563,8 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @interface GTLRDns_ManagedZoneDnsSecConfig : GTLRObject
 
 /**
- *  Specifies parameters that will be used for generating initial DnsKeys for
- *  this ManagedZone. Can only be changed while state is OFF.
+ *  Specifies parameters for generating initial DnsKeys for this ManagedZone.
+ *  Can only be changed while the state is OFF.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_DnsKeySpec *> *defaultKeySpecs;
 
@@ -562,8 +575,8 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Specifies the mechanism used to provide authenticated denial-of-existence
- *  responses. Can only be changed while state is OFF.
+ *  Specifies the mechanism for authenticated denial-of-existence responses. Can
+ *  only be changed while the state is OFF.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec Value "nsec"
@@ -580,6 +593,43 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_State_Transfer Value "transfer"
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  GTLRDns_ManagedZoneForwardingConfig
+ */
+@interface GTLRDns_ManagedZoneForwardingConfig : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dns#managedZoneForwardingConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  List of target name servers to forward to. Cloud DNS will select the best
+ *  available name server if more than one target is given.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZoneForwardingConfigNameServerTarget *> *targetNameServers;
+
+@end
+
+
+/**
+ *  GTLRDns_ManagedZoneForwardingConfigNameServerTarget
+ */
+@interface GTLRDns_ManagedZoneForwardingConfigNameServerTarget : GTLRObject
+
+/** IPv4 address of a target name server. */
+@property(nonatomic, copy, nullable) NSString *ipv4Address;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dns#managedZoneForwardingConfigNameServerTarget".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -793,6 +843,182 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 
 /**
+ *  GTLRDns_PoliciesListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "policies" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDns_PoliciesListResponse : GTLRCollectionObject
+
+@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
+
+/** Type of resource. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The presence of this field indicates that there exist more results following
+ *  your last page of results in pagination order. To fetch them, make another
+ *  list request using this value as your page token.
+ *  In this way you can retrieve the complete contents of even very large
+ *  collections one page at a time. However, if the contents of the collection
+ *  change between the first and last paginated list request, the set of all
+ *  elements returned will be an inconsistent view of the collection. There is
+ *  no way to retrieve a consistent snapshot of a collection larger than the
+ *  maximum page size.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The policy resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_Policy *> *policies;
+
+@end
+
+
+/**
+ *  GTLRDns_PoliciesPatchResponse
+ */
+@interface GTLRDns_PoliciesPatchResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
+@property(nonatomic, strong, nullable) GTLRDns_Policy *policy;
+
+@end
+
+
+/**
+ *  GTLRDns_PoliciesUpdateResponse
+ */
+@interface GTLRDns_PoliciesUpdateResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
+@property(nonatomic, strong, nullable) GTLRDns_Policy *policy;
+
+@end
+
+
+/**
+ *  A policy is a collection of DNS rules applied to one or more Virtual Private
+ *  Cloud resources.
+ */
+@interface GTLRDns_Policy : GTLRObject
+
+/**
+ *  Sets an alternative name server for the associated networks. When specified,
+ *  all DNS queries are forwarded to a name server that you choose. Names such
+ *  as .internal are not available when an alternative name server is specified.
+ */
+@property(nonatomic, strong, nullable) GTLRDns_PolicyAlternativeNameServerConfig *alternativeNameServerConfig;
+
+/**
+ *  A mutable string of at most 1024 characters associated with this resource
+ *  for the user's convenience. Has no effect on the policy's function.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Allows networks bound to this policy to receive DNS queries sent by VMs or
+ *  applications over VPN connections. When enabled, a virtual IP address will
+ *  be allocated from each of the sub-networks that are bound to this policy.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableInboundForwarding;
+
+/**
+ *  Unique identifier for the resource; defined by the server (output only).
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dns#policy".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** User assigned name for this policy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of network names specifying networks to which this policy is applied.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_PolicyNetwork *> *networks;
+
+@end
+
+
+/**
+ *  GTLRDns_PolicyAlternativeNameServerConfig
+ */
+@interface GTLRDns_PolicyAlternativeNameServerConfig : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dns#policyAlternativeNameServerConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Sets an alternative name server for the associated networks. When specified,
+ *  all DNS queries are forwarded to a name server that you choose. Names such
+ *  as .internal are not available when an alternative name server is specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer *> *targetNameServers;
+
+@end
+
+
+/**
+ *  GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer
+ */
+@interface GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer : GTLRObject
+
+/** IPv4 address to forward to. */
+@property(nonatomic, copy, nullable) NSString *ipv4Address;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dns#policyAlternativeNameServerConfigTargetNameServer".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRDns_PolicyNetwork
+ */
+@interface GTLRDns_PolicyNetwork : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dns#policyNetwork".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The fully qualified URL of the VPC network to bind to. This should be
+ *  formatted like
+ *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ */
+@property(nonatomic, copy, nullable) NSString *networkUrl;
+
+@end
+
+
+/**
  *  A project resource. The project is a top level container for resources
  *  including Cloud DNS ManagedZones. Projects can be created only in the APIs
  *  console.
@@ -867,6 +1093,20 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, strong, nullable) NSNumber *networksPerManagedZone;
 
 /**
+ *  Maximum allowed number of networks per policy.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *networksPerPolicy;
+
+/**
+ *  Maximum allowed number of policies per project.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *policies;
+
+/**
  *  Maximum allowed number of ResourceRecords per ResourceRecordSet.
  *
  *  Uses NSNumber of intValue.
@@ -895,6 +1135,20 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rrsetsPerManagedZone;
+
+/**
+ *  Maximum allowed number of target name servers per managed forwarding zone.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetNameServersPerManagedZone;
+
+/**
+ *  Maximum allowed number of alternative target name servers per policy.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetNameServersPerPolicy;
 
 /**
  *  Maximum allowed size for total rrdata in one ChangesCreateRequest in bytes.

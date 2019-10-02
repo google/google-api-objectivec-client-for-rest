@@ -307,7 +307,6 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  specific number of sessions are desired, the client can make additional
  *  calls to BatchCreateSessions (adjusting
  *  session_count as necessary).
- *  The maximum allowed sessions are documented at https://goo.gl/hBUQED.
  *
  *  Uses NSNumber of intValue.
  */
@@ -938,7 +937,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0 and 1.
+ *  Acceptable values are 0, 1, and 3.
  *  If the value is 0, or the field is omitted, policy format version 1 will be
  *  returned.
  *
@@ -1392,6 +1391,10 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  deleted, and the column values provided are inserted
  *  instead. Unlike insert_or_update, this means any values not
  *  explicitly written become `NULL`.
+ *  In an interleaved table, if you create the child table with the
+ *  `ON DELETE CASCADE` annotation, then replacing a parent row
+ *  also deletes the child rows. Otherwise, you must delete the
+ *  child rows before you replace the parent row.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_Write *replace;
 

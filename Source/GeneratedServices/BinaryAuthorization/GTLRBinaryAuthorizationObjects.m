@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Binary Authorization API (binaryauthorization/v1beta1)
+//   Binary Authorization API (binaryauthorization/v1)
 // Description:
 //   The management interface for Binary Authorization, a system providing
 //   policy control for images deployed to Kubernetes Engine clusters.
@@ -78,7 +78,7 @@ NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Glob
 //
 
 @implementation GTLRBinaryAuthorization_Attestor
-@dynamic descriptionProperty, name, updateTime, userOwnedDrydockNote;
+@dynamic descriptionProperty, name, updateTime, userOwnedGrafeasNote;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -284,10 +284,10 @@ NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Glob
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBinaryAuthorization_UserOwnedDrydockNote
+//   GTLRBinaryAuthorization_UserOwnedGrafeasNote
 //
 
-@implementation GTLRBinaryAuthorization_UserOwnedDrydockNote
+@implementation GTLRBinaryAuthorization_UserOwnedGrafeasNote
 @dynamic delegationServiceAccountEmail, noteReference, publicKeys;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

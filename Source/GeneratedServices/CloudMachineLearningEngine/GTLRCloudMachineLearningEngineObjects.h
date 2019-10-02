@@ -1869,27 +1869,44 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  Configurations for logging request-response pairs. Currently only BigQuery
- *  logging is supported. The request and response will be converted to raw
- *  string and stored within the specified BigQuery table. The schema is:
- *  model: STRING
- *  version: STRING
- *  time: Timestamp
- *  raw_data: STRING
- *  raw_prediction: STRING
- *  ground_truth: STRING
+ *  Configuration for logging request-response pairs to a BigQuery table.
+ *  Online prediction requests to a model version and the responses to these
+ *  requests are converted to raw strings and saved to the specified BigQuery
+ *  table. Logging is constrained by [BigQuery quotas and
+ *  limits](/bigquery/quotas). If your project exceeds BigQuery quotas or
+ *  limits,
+ *  AI Platform Prediction does not log request-response pairs, but it continues
+ *  to serve predictions.
+ *  If you are using [continuous
+ *  evaluation](/ml-engine/docs/continuous-evaluation/), you do not need to
+ *  specify this configuration manually. Setting up continuous evaluation
+ *  automatically enables logging of request-response pairs.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig : GTLRObject
 
 /**
- *  Fully qualified BigQuery table name in the format of
- *  "[project_id].[dataset_name].[table_name]".
+ *  Required. Fully qualified BigQuery table name in the following format:
+ *  "<var>project_id</var>.<var>dataset_name</var>.<var>table_name</var>"
+ *  The specifcied table must already exist, and the "Cloud ML Service Agent"
+ *  for your project must have permission to write to it. The table must have
+ *  the following [schema](/bigquery/docs/schemas):
+ *  <table>
+ *  <tr><th>Field name</th><th style="display: table-cell">Type</th>
+ *  <th style="display: table-cell">Mode</th></tr>
+ *  <tr><td>model</td><td>STRING</td><td>REQUIRED</td></tr>
+ *  <tr><td>model_version</td><td>STRING</td><td>REQUIRED</td></tr>
+ *  <tr><td>time</td><td>TIMESTAMP</td><td>REQUIRED</td></tr>
+ *  <tr><td>raw_data</td><td>STRING</td><td>REQUIRED</td></tr>
+ *  <tr><td>raw_prediction</td><td>STRING</td><td>NULLABLE</td></tr>
+ *  <tr><td>groundtruth</td><td>STRING</td><td>NULLABLE</td></tr>
+ *  </table>
  */
 @property(nonatomic, copy, nullable) NSString *bigqueryTableName;
 
 /**
- *  Percentage of the request being logged. The sampling window is the lifetime
- *  of the Version. Defaults to 0.
+ *  Percentage of requests to be logged, expressed as a fraction from 0 to 1.
+ *  For example, if you want to log 10% of requests, enter `0.1`. The sampling
+ *  window is the lifetime of the model version. Defaults to 0.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -2054,9 +2071,6 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  You must set this value when `scaleTier` is set to `CUSTOM`.
  */
 @property(nonatomic, copy, nullable) NSString *masterType;
-
-/** Optional. The maximum job running time. The default is 7 days. */
-@property(nonatomic, strong, nullable) GTLRDuration *maxRunningTime;
 
 /**
  *  Required. The Google Cloud Storage location of the packages with
@@ -2703,27 +2717,35 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources.
- *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
- *  `members` to a `role`, where the members can be user accounts, Google
- *  groups,
- *  Google domains, and service accounts. A `role` is a named list of
- *  permissions
- *  defined by IAM.
+ *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
+ *  `members` to a single `role`. Members can be user accounts, service
+ *  accounts,
+ *  Google groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions (defined by IAM or configured by users). A `binding` can
+ *  optionally specify a `condition`, which is a logic expression that further
+ *  constrains the role binding based on attributes about the request and/or
+ *  target resource.
  *  **JSON Example**
  *  {
  *  "bindings": [
  *  {
- *  "role": "roles/owner",
+ *  "role": "role/resourcemanager.organizationAdmin",
  *  "members": [
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",
  *  "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com"
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
  *  ]
  *  },
  *  {
- *  "role": "roles/viewer",
- *  "members": ["user:sean\@example.com"]
+ *  "role": "roles/resourcemanager.organizationViewer",
+ *  "members": ["user:eve\@example.com"],
+ *  "condition": {
+ *  "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020",
+ *  "expression": "request.time <
+ *  timestamp('2020-10-01T00:00:00.000Z')",
+ *  }
  *  }
  *  ]
  *  }
@@ -2733,11 +2755,15 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  - user:mike\@example.com
  *  - group:admins\@example.com
  *  - domain:google.com
- *  - serviceAccount:my-other-app\@appspot.gserviceaccount.com
- *  role: roles/owner
+ *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
+ *  role: roles/resourcemanager.organizationAdmin
  *  - members:
- *  - user:sean\@example.com
- *  role: roles/viewer
+ *  - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer
+ *  condition:
+ *  title: expirable access
+ *  description: Does not grant access after Sep 2020
+ *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
  *  For a description of IAM and its features, see the
  *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
@@ -2747,7 +2773,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleIamV1AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`.
+ *  Associates a list of `members` to a `role`. Optionally may specify a
+ *  `condition` that determines when binding is in effect.
  *  `bindings` with no members will result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleIamV1Binding *> *bindings;
@@ -2761,7 +2788,9 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten.
+ *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
+ *  'setIamPolicy' will not fail even if either of incoming or stored policy
+ *  does not meet the version requirements.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2769,7 +2798,16 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Deprecated.
+ *  Specifies the format of the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Operations affecting conditional bindings must specify version 3. This can
+ *  be either setting a conditional policy, modifying a conditional binding,
+ *  or removing a conditional binding from the stored conditional policy.
+ *  Operations on non-conditional policies may specify any valid value or
+ *  leave the field unset.
+ *  If no etag is provided in the call to `setIamPolicy`, any version
+ *  compliance checks on the incoming and/or stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */

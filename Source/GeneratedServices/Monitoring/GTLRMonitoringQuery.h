@@ -1735,7 +1735,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @end
 
 /**
- *  Creates a new uptime check configuration.
+ *  Creates a new Uptime check configuration.
  *
  *  Method: monitoring.projects.uptimeCheckConfigs.create
  *
@@ -1748,7 +1748,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 //   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsCreateWithObject:parent:]
 
 /**
- *  The project in which to create the uptime check. The format is
+ *  The project in which to create the Uptime check. The format is
  *  projects/[PROJECT_ID].
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1756,11 +1756,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 /**
  *  Fetches a @c GTLRMonitoring_UptimeCheckConfig.
  *
- *  Creates a new uptime check configuration.
+ *  Creates a new Uptime check configuration.
  *
  *  @param object The @c GTLRMonitoring_UptimeCheckConfig to include in the
  *    query.
- *  @param parent The project in which to create the uptime check. The format is
+ *  @param parent The project in which to create the Uptime check. The format is
  *    projects/[PROJECT_ID].
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsCreate
@@ -1771,8 +1771,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @end
 
 /**
- *  Deletes an uptime check configuration. Note that this method will fail if
- *  the uptime check configuration is referenced by an alert policy or other
+ *  Deletes an Uptime check configuration. Note that this method will fail if
+ *  the Uptime check configuration is referenced by an alert policy or other
  *  dependent configs that would be rendered invalid by the deletion.
  *
  *  Method: monitoring.projects.uptimeCheckConfigs.delete
@@ -1786,7 +1786,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 //   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsDeleteWithname:]
 
 /**
- *  The uptime check configuration to delete. The format is
+ *  The Uptime check configuration to delete. The format is
  *  projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1794,11 +1794,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 /**
  *  Fetches a @c GTLRMonitoring_Empty.
  *
- *  Deletes an uptime check configuration. Note that this method will fail if
- *  the uptime check configuration is referenced by an alert policy or other
+ *  Deletes an Uptime check configuration. Note that this method will fail if
+ *  the Uptime check configuration is referenced by an alert policy or other
  *  dependent configs that would be rendered invalid by the deletion.
  *
- *  @param name The uptime check configuration to delete. The format is
+ *  @param name The Uptime check configuration to delete. The format is
  *    projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsDelete
@@ -1808,7 +1808,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @end
 
 /**
- *  Gets a single uptime check configuration.
+ *  Gets a single Uptime check configuration.
  *
  *  Method: monitoring.projects.uptimeCheckConfigs.get
  *
@@ -1822,7 +1822,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 //   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsGetWithname:]
 
 /**
- *  The uptime check configuration to retrieve. The format is
+ *  The Uptime check configuration to retrieve. The format is
  *  projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1830,9 +1830,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 /**
  *  Fetches a @c GTLRMonitoring_UptimeCheckConfig.
  *
- *  Gets a single uptime check configuration.
+ *  Gets a single Uptime check configuration.
  *
- *  @param name The uptime check configuration to retrieve. The format is
+ *  @param name The Uptime check configuration to retrieve. The format is
  *    projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsGet
@@ -1842,8 +1842,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @end
 
 /**
- *  Lists the existing valid uptime check configurations for the project,
- *  leaving out any invalid configurations.
+ *  Lists the existing valid Uptime check configurations for the project
+ *  (leaving out any invalid configurations).
  *
  *  Method: monitoring.projects.uptimeCheckConfigs.list
  *
@@ -1872,7 +1872,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The project whose uptime check configurations are listed. The format is
+ *  The project whose Uptime check configurations are listed. The format is
  *  projects/[PROJECT_ID].
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1880,10 +1880,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 /**
  *  Fetches a @c GTLRMonitoring_ListUptimeCheckConfigsResponse.
  *
- *  Lists the existing valid uptime check configurations for the project,
- *  leaving out any invalid configurations.
+ *  Lists the existing valid Uptime check configurations for the project
+ *  (leaving out any invalid configurations).
  *
- *  @param parent The project whose uptime check configurations are listed. The
+ *  @param parent The project whose Uptime check configurations are listed. The
  *    format is projects/[PROJECT_ID].
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList
@@ -1897,10 +1897,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @end
 
 /**
- *  Updates an uptime check configuration. You can either replace the entire
+ *  Updates an Uptime check configuration. You can either replace the entire
  *  configuration with a new one or replace only certain fields in the current
- *  configuration by specifying the fields to be updated via "updateMask".
- *  Returns the updated configuration.
+ *  configuration by specifying the fields to be updated via updateMask. Returns
+ *  the updated configuration.
  *
  *  Method: monitoring.projects.uptimeCheckConfigs.patch
  *
@@ -1913,15 +1913,15 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 //   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsPatchWithObject:name:]
 
 /**
- *  A unique resource name for this UptimeCheckConfig. The format
+ *  A unique resource name for this Uptime check configuration. The format
  *  is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field
- *  should be omitted when creating the uptime check configuration; on create,
+ *  should be omitted when creating the Uptime check configuration; on create,
  *  the resource name is assigned by the server and included in the response.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. If present, only the listed fields in the current uptime check
+ *  Optional. If present, only the listed fields in the current Uptime check
  *  configuration are updated with values from the new configuration. If this
  *  field is empty, then the current configuration is completely replaced with
  *  the new configuration.
@@ -1933,17 +1933,18 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 /**
  *  Fetches a @c GTLRMonitoring_UptimeCheckConfig.
  *
- *  Updates an uptime check configuration. You can either replace the entire
+ *  Updates an Uptime check configuration. You can either replace the entire
  *  configuration with a new one or replace only certain fields in the current
- *  configuration by specifying the fields to be updated via "updateMask".
- *  Returns the updated configuration.
+ *  configuration by specifying the fields to be updated via updateMask. Returns
+ *  the updated configuration.
  *
  *  @param object The @c GTLRMonitoring_UptimeCheckConfig to include in the
  *    query.
- *  @param name A unique resource name for this UptimeCheckConfig. The format
- *    is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field
- *    should be omitted when creating the uptime check configuration; on create,
- *    the resource name is assigned by the server and included in the response.
+ *  @param name A unique resource name for this Uptime check configuration. The
+ *    format is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This
+ *    field should be omitted when creating the Uptime check configuration; on
+ *    create, the resource name is assigned by the server and included in the
+ *    response.
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch
  */
@@ -1953,43 +1954,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @end
 
 /**
- *  Validates a new uptime check configuration, and also executes the Uptime
- *  check. The results of the Uptime check are returned, but not stored.
- *
- *  Method: monitoring.projects.validateUptimeCheckConfig
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeMonitoring
- *    @c kGTLRAuthScopeMonitoringCloudPlatform
- *    @c kGTLRAuthScopeMonitoringRead
- */
-@interface GTLRMonitoringQuery_ProjectsValidateUptimeCheckConfig : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsValidateUptimeCheckConfigWithObject:parent:]
-
-/** The project for the uptime check. The format is projects/[PROJECT_ID]. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRMonitoring_ValidateUptimeCheckConfigResponse.
- *
- *  Validates a new uptime check configuration, and also executes the Uptime
- *  check. The results of the Uptime check are returned, but not stored.
- *
- *  @param object The @c GTLRMonitoring_UptimeCheckConfig to include in the
- *    query.
- *  @param parent The project for the uptime check. The format is
- *    projects/[PROJECT_ID].
- *
- *  @return GTLRMonitoringQuery_ProjectsValidateUptimeCheckConfig
- */
-+ (instancetype)queryWithObject:(GTLRMonitoring_UptimeCheckConfig *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Returns the list of IPs that checkers run from
+ *  Returns the list of IP addresses that checkers run from
  *
  *  Method: monitoring.uptimeCheckIps.list
  *
@@ -2021,7 +1986,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 /**
  *  Fetches a @c GTLRMonitoring_ListUptimeCheckIpsResponse.
  *
- *  Returns the list of IPs that checkers run from
+ *  Returns the list of IP addresses that checkers run from
  *
  *  @return GTLRMonitoringQuery_UptimeCheckIpsList
  *

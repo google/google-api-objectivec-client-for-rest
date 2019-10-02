@@ -560,7 +560,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "eventHangout": unset.
  *  - "eventNamedHangout": the name of the Hangout.
  *  - "hangoutsMeet": the 10-letter meeting code, for example "aaa-bbbb-ccc".
- *  Optional.
+ *  - "addOn": defined by 3P conference provider. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *conferenceId;
 
@@ -717,6 +717,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "eventNamedHangout" for classic Hangouts for G Suite users
  *  (http://hangouts.google.com)
  *  - "hangoutsMeet" for Hangouts Meet (http://meet.google.com)
+ *  - "addOn" for 3P conference providers
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1063,8 +1064,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRCalendar_EventDateTime *originalStartTime;
 
 /**
- *  Whether this is a private event copy where changes are not shared with other
- *  copies on other calendars. Optional. Immutable. The default is False.
+ *  If set to True, Event propagation is disabled. Note that it is not the same
+ *  thing as Private event properties. Optional. Immutable. The default is
+ *  False.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -1219,9 +1219,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *lastUpdatedTimestampMillis;
 
-/** The set of managed properties for this configuration. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedProperty *> *managedProperty;
-
 /** The ID of the managed configurations settings. */
 @property(nonatomic, copy, nullable) NSString *mcmId;
 
