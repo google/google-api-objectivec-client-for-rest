@@ -95,7 +95,7 @@ static void DebugAssertValidBatchQueryItem(GTLRQuery *query) { }
   NSString *namesStr = [[dedupedNames allObjects] componentsJoinedByString:@","];
 
   return [NSString stringWithFormat:@"%@ %p (queries:%lu - %@)",
-          [self class], self, (long)queries.count, namesStr];
+          [self class], self, (unsigned long)queries.count, namesStr];
 }
 
 #pragma mark -
