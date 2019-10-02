@@ -15,6 +15,7 @@
 
 NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroups = @"https://www.googleapis.com/auth/cloud-identity.groups";
 NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly = @"https://www.googleapis.com/auth/cloud-identity.groups.readonly";
+NSString * const kGTLRAuthScopeCloudIdentityCloudPlatform      = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudIdentityService

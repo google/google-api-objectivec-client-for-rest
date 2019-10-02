@@ -485,7 +485,7 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_StreamMapping
-@dynamic app, streamId;
+@dynamic app, measurementId, streamId;
 @end
 
 
@@ -523,6 +523,6 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_WebAppConfig
-@dynamic apiKey, appId, authDomain, databaseURL, locationId, messagingSenderId,
-         projectId, storageBucket;
+@dynamic apiKey, appId, authDomain, databaseURL, locationId, measurementId,
+         messagingSenderId, projectId, storageBucket;
 @end

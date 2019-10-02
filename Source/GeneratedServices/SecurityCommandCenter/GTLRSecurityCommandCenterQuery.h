@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsAssetsGroupWithObject:parent:]
 
 /**
- *  Name of the organization to groupBy. Its format is
+ *  Required. Name of the organization to groupBy. Its format is
  *  "organizations/[organization_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_GroupAssetsRequest to include
  *    in the query.
- *  @param parent Name of the organization to groupBy. Its format is
+ *  @param parent Required. Name of the organization to groupBy. Its format is
  *    "organizations/[organization_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsAssetsGroup
@@ -210,7 +210,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Name of the organization assets should belong to. Its format is
+ *  Required. Name of the organization assets should belong to. Its format is
  *  "organizations/[organization_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -228,8 +228,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists an organization's assets.
  *
- *  @param parent Name of the organization assets should belong to. Its format
- *    is
+ *  @param parent Required. Name of the organization assets should belong to.
+ *    Its format is
  *    "organizations/[organization_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsAssetsList
@@ -259,7 +259,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsAssetsRunDiscoveryWithObject:parent:]
 
 /**
- *  Name of the organization to run asset discovery for. Its format is
+ *  Required. Name of the organization to run asset discovery for. Its format is
  *  "organizations/[organization_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -275,8 +275,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_RunAssetDiscoveryRequest to
  *    include in the query.
- *  @param parent Name of the organization to run asset discovery for. Its
- *    format is
+ *  @param parent Required. Name of the organization to run asset discovery for.
+ *    Its format is
  *    "organizations/[organization_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsAssetsRunDiscovery
@@ -357,7 +357,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsGetOrganizationSettingsWithname:]
 
 /**
- *  Name of the organization to get organization settings for. Its format is
+ *  Required. Name of the organization to get organization settings for. Its
+ *  format is
  *  "organizations/[organization_id]/organizationSettings".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -367,8 +368,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the settings for an organization.
  *
- *  @param name Name of the organization to get organization settings for. Its
- *    format is
+ *  @param name Required. Name of the organization to get organization settings
+ *    for. Its format is
  *    "organizations/[organization_id]/organizationSettings".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsGetOrganizationSettings
@@ -559,7 +560,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesCreateWithObject:parent:]
 
 /**
- *  Resource name of the new source's parent. Its format should be
+ *  Required. Resource name of the new source's parent. Its format should be
  *  "organizations/[organization_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -571,7 +572,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_Source to include in the
  *    query.
- *  @param parent Resource name of the new source's parent. Its format should be
+ *  @param parent Required. Resource name of the new source's parent. Its format
+ *    should be
  *    "organizations/[organization_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesCreate
@@ -595,14 +597,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesFindingsCreateWithObject:parent:]
 
 /**
- *  Unique identifier provided by the client within the parent scope.
+ *  Required. Unique identifier provided by the client within the parent scope.
  *  It must be alphanumeric and less than or equal to 32 characters and
  *  greater than 0 characters in length.
  */
 @property(nonatomic, copy, nullable) NSString *findingId;
 
 /**
- *  Resource name of the new finding's parent. Its format should be
+ *  Required. Resource name of the new finding's parent. Its format should be
  *  "organizations/[organization_id]/sources/[source_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -615,8 +617,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_Finding to include in the
  *    query.
- *  @param parent Resource name of the new finding's parent. Its format should
- *    be
+ *  @param parent Required. Resource name of the new finding's parent. Its
+ *    format should be
  *    "organizations/[organization_id]/sources/[source_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsCreate
@@ -642,7 +644,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesFindingsGroupWithObject:parent:]
 
 /**
- *  Name of the source to groupBy. Its format is
+ *  Required. Name of the source to groupBy. Its format is
  *  "organizations/[organization_id]/sources/[source_id]". To groupBy across
  *  all sources provide a source_id of `-`. For example:
  *  organizations/123/sources/-
@@ -659,7 +661,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_GroupFindingsRequest to
  *    include in the query.
- *  @param parent Name of the source to groupBy. Its format is
+ *  @param parent Required. Name of the source to groupBy. Its format is
  *    "organizations/[organization_id]/sources/[source_id]". To groupBy across
  *    all sources provide a source_id of `-`. For example:
  *    organizations/123/sources/-
@@ -789,7 +791,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Name of the source the findings belong to. Its format is
+ *  Required. Name of the source the findings belong to. Its format is
  *  "organizations/[organization_id]/sources/[source_id]". To list across all
  *  sources provide a source_id of `-`. For example:
  *  organizations/123/sources/-
@@ -811,7 +813,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  To list across all sources provide a `-` as the source id.
  *  Example: /v1/organizations/123/sources/-/findings
  *
- *  @param parent Name of the source the findings belong to. Its format is
+ *  @param parent Required. Name of the source the findings belong to. Its
+ *    format is
  *    "organizations/[organization_id]/sources/[source_id]". To list across all
  *    sources provide a source_id of `-`. For example:
  *    organizations/123/sources/-
@@ -892,7 +895,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesFindingsSetStateWithObject:name:]
 
 /**
- *  The relative resource name of the finding. See:
+ *  Required. The relative resource name of the finding. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
  *  "organizations/123/sources/456/finding/789".
@@ -906,7 +909,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecurityCommandCenter_SetFindingStateRequest to
  *    include in the query.
- *  @param name The relative resource name of the finding. See:
+ *  @param name Required. The relative resource name of the finding. See:
  *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *    Example:
  *    "organizations/123/sources/456/finding/789".
@@ -989,7 +992,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesGetWithname:]
 
 /**
- *  Relative resource name of the source. Its format is
+ *  Required. Relative resource name of the source. Its format is
  *  "organizations/[organization_id]/source/[source_id]".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -999,7 +1002,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a source.
  *
- *  @param name Relative resource name of the source. Its format is
+ *  @param name Required. Relative resource name of the source. Its format is
  *    "organizations/[organization_id]/source/[source_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesGet
@@ -1070,7 +1073,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Resource name of the parent of sources to list. Its format should be
+ *  Required. Resource name of the parent of sources to list. Its format should
+ *  be
  *  "organizations/[organization_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1080,8 +1084,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists all sources belonging to an organization.
  *
- *  @param parent Resource name of the parent of sources to list. Its format
- *    should be
+ *  @param parent Required. Resource name of the parent of sources to list. Its
+ *    format should be
  *    "organizations/[organization_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesList

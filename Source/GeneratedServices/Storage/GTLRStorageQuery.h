@@ -611,6 +611,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
+ *  The IAM policy format version to be returned. If the
+ *  optionsRequestedPolicyVersion is for an older version that doesn't support
+ *  part of the requested IAM policy, the request fails.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
  *  The project to be billed for this request if the target bucket is
  *  requester-pays bucket.
  */

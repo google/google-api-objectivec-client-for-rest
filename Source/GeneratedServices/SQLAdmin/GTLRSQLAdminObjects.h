@@ -41,6 +41,8 @@
 @class GTLRSQLAdmin_FailoverContext;
 @class GTLRSQLAdmin_Flag;
 @class GTLRSQLAdmin_ImportContext;
+@class GTLRSQLAdmin_ImportContext_BakImportOptions;
+@class GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions;
 @class GTLRSQLAdmin_ImportContext_CsvImportOptions;
 @class GTLRSQLAdmin_IpConfiguration;
 @class GTLRSQLAdmin_IpMapping;
@@ -910,6 +912,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdmin_ImportContext : GTLRObject
 
+/** Import parameters specific to SQL Server .BAK files */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_BakImportOptions *bakImportOptions;
+
 /** Options for importing data as CSV. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_CsvImportOptions *csvImportOptions;
 
@@ -948,6 +953,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Import parameters specific to SQL Server .BAK files
+ */
+@interface GTLRSQLAdmin_ImportContext_BakImportOptions : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions *encryptionOptions;
+
+@end
+
+
+/**
  *  Options for importing data as CSV.
  */
 @interface GTLRSQLAdmin_ImportContext_CsvImportOptions : GTLRObject
@@ -960,6 +975,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The table to which CSV data is imported. */
 @property(nonatomic, copy, nullable) NSString *table;
+
+@end
+
+
+/**
+ *  GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions
+ */
+@interface GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions : GTLRObject
+
+/**
+ *  Path to the Certificate (.cer) in Cloud Storage, in the form
+ *  gs://bucketName/fileName. The instance must have write permissions to the
+ *  bucket and read access to the file.
+ */
+@property(nonatomic, copy, nullable) NSString *certPath;
+
+/** Password that encrypts the private key */
+@property(nonatomic, copy, nullable) NSString *pvkPassword;
+
+/**
+ *  Path to the Certificate Private Key (.pvk) in Cloud Storage, in the form
+ *  gs://bucketName/fileName. The instance must have write permissions to the
+ *  bucket and read access to the file.
+ */
+@property(nonatomic, copy, nullable) NSString *pvkPath;
 
 @end
 

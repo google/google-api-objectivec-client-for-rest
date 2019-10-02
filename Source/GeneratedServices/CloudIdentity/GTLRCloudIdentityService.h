@@ -42,6 +42,13 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroups;
  *  Value "https://www.googleapis.com/auth/cloud-identity.groups.readonly"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly;
+/**
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudPlatform;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudIdentityService

@@ -734,7 +734,7 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 
 @implementation GTLRServiceConsumerManagement_MetricDescriptor
 @dynamic descriptionProperty, displayName, labels, launchStage, metadata,
-         metricKind, name, type, unit, valueType;
+         metricKind, monitoredResourceTypes, name, type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -742,7 +742,8 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"labels" : [GTLRServiceConsumerManagement_LabelDescriptor class]
+    @"labels" : [GTLRServiceConsumerManagement_LabelDescriptor class],
+    @"monitoredResourceTypes" : [NSString class]
   };
   return map;
 }

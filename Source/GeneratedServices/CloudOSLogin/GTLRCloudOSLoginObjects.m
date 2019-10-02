@@ -76,8 +76,8 @@ NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Windows = @"
 //
 
 @implementation GTLRCloudOSLogin_PosixAccount
-@dynamic accountId, gecos, gid, homeDirectory, operatingSystemType, primary,
-         shell, systemId, uid, username;
+@dynamic accountId, gecos, gid, homeDirectory, name, operatingSystemType,
+         primary, shell, systemId, uid, username;
 @end
 
 
@@ -87,5 +87,5 @@ NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Windows = @"
 //
 
 @implementation GTLRCloudOSLogin_SshPublicKey
-@dynamic expirationTimeUsec, fingerprint, key;
+@dynamic expirationTimeUsec, fingerprint, key, name;
 @end

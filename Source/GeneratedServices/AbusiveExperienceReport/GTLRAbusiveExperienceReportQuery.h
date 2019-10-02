@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a summary of the abusive experience rating of a site.
+ *  Gets a site's Abusive Experience Report summary.
  *
  *  Method: abusiveexperiencereport.sites.get
  *
@@ -49,30 +49,20 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAbusiveExperienceReport queryForSitesGetWithname:]
 
 /**
- *  Required. The site property whose abusive
- *  experiences have been reviewed, and it must be URL-encoded. For example,
- *  sites/https%3A%2F%2Fwww.google.com. The server will return an error of
- *  BAD_REQUEST if this field is not filled in. Note that if the site property
- *  is not yet verified in Search Console, the reportUrl field
- *  returned by the API will lead to the verification page, prompting the user
- *  to go through that process before they can gain access to the Abusive
- *  Experience Report.
+ *  Required. The name of the site whose summary to get, e.g.
+ *  `sites/http%3A%2F%2Fwww.google.com%2F`.
+ *  Format: `sites/{site}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAbusiveExperienceReport_SiteSummaryResponse.
  *
- *  Gets a summary of the abusive experience rating of a site.
+ *  Gets a site's Abusive Experience Report summary.
  *
- *  @param name Required. The site property whose abusive
- *    experiences have been reviewed, and it must be URL-encoded. For example,
- *    sites/https%3A%2F%2Fwww.google.com. The server will return an error of
- *    BAD_REQUEST if this field is not filled in. Note that if the site property
- *    is not yet verified in Search Console, the reportUrl field
- *    returned by the API will lead to the verification page, prompting the user
- *    to go through that process before they can gain access to the Abusive
- *    Experience Report.
+ *  @param name Required. The name of the site whose summary to get, e.g.
+ *    `sites/http%3A%2F%2Fwww.google.com%2F`.
+ *    Format: `sites/{site}`
  *
  *  @return GTLRAbusiveExperienceReportQuery_SitesGet
  */
@@ -81,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists sites with failing Abusive Experience Report statuses.
+ *  Lists sites that are failing in the Abusive Experience Report.
  *
  *  Method: abusiveexperiencereport.violatingSites.list
  *
@@ -95,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAbusiveExperienceReport_ViolatingSitesResponse.
  *
- *  Lists sites with failing Abusive Experience Report statuses.
+ *  Lists sites that are failing in the Abusive Experience Report.
  *
  *  @return GTLRAbusiveExperienceReportQuery_ViolatingSitesList
  */

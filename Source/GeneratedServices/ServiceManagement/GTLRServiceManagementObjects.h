@@ -2323,9 +2323,11 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 /**
  *  Optional. The policy format version to be returned.
- *  Acceptable values are 0, 1, and 3.
- *  If the value is 0, or the field is omitted, policy format version 1 will be
- *  returned.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Requests for policies with any conditional bindings must specify version 3.
+ *  Policies without any conditional bindings may specify any valid value or
+ *  leave the field unset.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3832,7 +3834,12 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Deprecated.
+ *  Specifies the format of the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3936,10 +3943,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Duration of this limit in textual notation. Example: "100s", "24h", "1d".
- *  For duration longer than a day, only multiple of days is supported. We
- *  support only "100s" and "1d" for now. Additional support will be added in
- *  the future. "0" indicates indefinite duration.
+ *  Duration of this limit in textual notation. Must be "100s" or "1d".
  *  Used by group-based quotas only.
  */
 @property(nonatomic, copy, nullable) NSString *duration;

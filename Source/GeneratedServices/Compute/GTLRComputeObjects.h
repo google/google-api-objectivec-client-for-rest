@@ -81,6 +81,7 @@
 @class GTLRCompute_BackendServicesScopedList_Warning_Data_Item;
 @class GTLRCompute_Binding;
 @class GTLRCompute_CacheKeyPolicy;
+@class GTLRCompute_CircuitBreakers;
 @class GTLRCompute_Commitment;
 @class GTLRCompute_CommitmentAggregatedList_Items;
 @class GTLRCompute_CommitmentAggregatedList_Warning;
@@ -92,6 +93,9 @@
 @class GTLRCompute_CommitmentsScopedList_Warning_Data_Item;
 @class GTLRCompute_Condition;
 @class GTLRCompute_ConnectionDraining;
+@class GTLRCompute_ConsistentHashLoadBalancerSettings;
+@class GTLRCompute_ConsistentHashLoadBalancerSettingsHttpCookie;
+@class GTLRCompute_CorsPolicy;
 @class GTLRCompute_CustomerEncryptionKey;
 @class GTLRCompute_CustomerEncryptionKeyProtectedDisk;
 @class GTLRCompute_DeprecationStatus;
@@ -115,9 +119,16 @@
 @class GTLRCompute_DiskTypesScopedList;
 @class GTLRCompute_DiskTypesScopedList_Warning;
 @class GTLRCompute_DiskTypesScopedList_Warning_Data_Item;
+@class GTLRCompute_DisplayDevice;
 @class GTLRCompute_DistributionPolicy;
 @class GTLRCompute_DistributionPolicyZoneConfiguration;
+@class GTLRCompute_Duration;
 @class GTLRCompute_Expr;
+@class GTLRCompute_ExternalVpnGateway;
+@class GTLRCompute_ExternalVpnGateway_Labels;
+@class GTLRCompute_ExternalVpnGatewayInterface;
+@class GTLRCompute_ExternalVpnGatewayList_Warning;
+@class GTLRCompute_ExternalVpnGatewayList_Warning_Data_Item;
 @class GTLRCompute_Firewall;
 @class GTLRCompute_Firewall_Allowed_Item;
 @class GTLRCompute_Firewall_Denied_Item;
@@ -143,14 +154,32 @@
 @class GTLRCompute_HealthCheckList_Warning;
 @class GTLRCompute_HealthCheckList_Warning_Data_Item;
 @class GTLRCompute_HealthCheckReference;
+@class GTLRCompute_HealthChecksAggregatedList_Items;
+@class GTLRCompute_HealthChecksAggregatedList_Warning;
+@class GTLRCompute_HealthChecksAggregatedList_Warning_Data_Item;
+@class GTLRCompute_HealthChecksScopedList;
+@class GTLRCompute_HealthChecksScopedList_Warning;
+@class GTLRCompute_HealthChecksScopedList_Warning_Data_Item;
 @class GTLRCompute_HealthStatus;
 @class GTLRCompute_HealthStatusForNetworkEndpoint;
 @class GTLRCompute_HostRule;
 @class GTLRCompute_HTTP2HealthCheck;
+@class GTLRCompute_HttpFaultAbort;
+@class GTLRCompute_HttpFaultDelay;
+@class GTLRCompute_HttpFaultInjection;
+@class GTLRCompute_HttpHeaderAction;
+@class GTLRCompute_HttpHeaderMatch;
+@class GTLRCompute_HttpHeaderOption;
 @class GTLRCompute_HTTPHealthCheck;
 @class GTLRCompute_HttpHealthCheck;
 @class GTLRCompute_HttpHealthCheckList_Warning;
 @class GTLRCompute_HttpHealthCheckList_Warning_Data_Item;
+@class GTLRCompute_HttpQueryParameterMatch;
+@class GTLRCompute_HttpRedirectAction;
+@class GTLRCompute_HttpRetryPolicy;
+@class GTLRCompute_HttpRouteAction;
+@class GTLRCompute_HttpRouteRule;
+@class GTLRCompute_HttpRouteRuleMatch;
 @class GTLRCompute_HTTPSHealthCheck;
 @class GTLRCompute_HttpsHealthCheck;
 @class GTLRCompute_HttpsHealthCheckList_Warning;
@@ -205,6 +234,7 @@
 @class GTLRCompute_InstanceTemplateList_Warning;
 @class GTLRCompute_InstanceTemplateList_Warning_Data_Item;
 @class GTLRCompute_InstanceWithNamedPorts;
+@class GTLRCompute_Int64RangeMatch;
 @class GTLRCompute_Interconnect;
 @class GTLRCompute_InterconnectAttachment;
 @class GTLRCompute_InterconnectAttachmentAggregatedList_Items;
@@ -256,6 +286,8 @@
 @class GTLRCompute_ManagedInstanceVersion;
 @class GTLRCompute_Metadata;
 @class GTLRCompute_Metadata_Items_Item;
+@class GTLRCompute_MetadataFilter;
+@class GTLRCompute_MetadataFilterLabelMatch;
 @class GTLRCompute_NamedPort;
 @class GTLRCompute_Network;
 @class GTLRCompute_NetworkEndpoint;
@@ -321,6 +353,7 @@
 @class GTLRCompute_OperationsScopedList;
 @class GTLRCompute_OperationsScopedList_Warning;
 @class GTLRCompute_OperationsScopedList_Warning_Data_Item;
+@class GTLRCompute_OutlierDetection;
 @class GTLRCompute_PathMatcher;
 @class GTLRCompute_PathRule;
 @class GTLRCompute_Policy;
@@ -341,6 +374,7 @@
 @class GTLRCompute_RegionList_Warning;
 @class GTLRCompute_RegionList_Warning_Data_Item;
 @class GTLRCompute_RegionSetLabelsRequest_Labels;
+@class GTLRCompute_RequestMirrorPolicy;
 @class GTLRCompute_Reservation;
 @class GTLRCompute_ReservationAffinity;
 @class GTLRCompute_ReservationAggregatedList_Items;
@@ -414,8 +448,14 @@
 @class GTLRCompute_SnapshotList_Warning_Data_Item;
 @class GTLRCompute_SourceInstanceParams;
 @class GTLRCompute_SslCertificate;
+@class GTLRCompute_SslCertificateAggregatedList_Items;
+@class GTLRCompute_SslCertificateAggregatedList_Warning;
+@class GTLRCompute_SslCertificateAggregatedList_Warning_Data_Item;
 @class GTLRCompute_SslCertificateList_Warning;
 @class GTLRCompute_SslCertificateList_Warning_Data_Item;
+@class GTLRCompute_SslCertificatesScopedList;
+@class GTLRCompute_SslCertificatesScopedList_Warning;
+@class GTLRCompute_SslCertificatesScopedList_Warning_Data_Item;
 @class GTLRCompute_SSLHealthCheck;
 @class GTLRCompute_SslPoliciesList_Warning;
 @class GTLRCompute_SslPoliciesList_Warning_Data_Item;
@@ -428,15 +468,26 @@
 @class GTLRCompute_SubnetworkAggregatedList_Warning_Data_Item;
 @class GTLRCompute_SubnetworkList_Warning;
 @class GTLRCompute_SubnetworkList_Warning_Data_Item;
+@class GTLRCompute_SubnetworkLogConfig;
 @class GTLRCompute_SubnetworkSecondaryRange;
 @class GTLRCompute_SubnetworksScopedList;
 @class GTLRCompute_SubnetworksScopedList_Warning;
 @class GTLRCompute_SubnetworksScopedList_Warning_Data_Item;
 @class GTLRCompute_Tags;
+@class GTLRCompute_TargetHttpProxiesScopedList;
+@class GTLRCompute_TargetHttpProxiesScopedList_Warning;
+@class GTLRCompute_TargetHttpProxiesScopedList_Warning_Data_Item;
 @class GTLRCompute_TargetHttpProxy;
+@class GTLRCompute_TargetHttpProxyAggregatedList_Items;
 @class GTLRCompute_TargetHttpProxyList_Warning;
 @class GTLRCompute_TargetHttpProxyList_Warning_Data_Item;
+@class GTLRCompute_TargetHttpsProxiesScopedList;
+@class GTLRCompute_TargetHttpsProxiesScopedList_Warning;
+@class GTLRCompute_TargetHttpsProxiesScopedList_Warning_Data_Item;
 @class GTLRCompute_TargetHttpsProxy;
+@class GTLRCompute_TargetHttpsProxyAggregatedList_Items;
+@class GTLRCompute_TargetHttpsProxyAggregatedList_Warning;
+@class GTLRCompute_TargetHttpsProxyAggregatedList_Warning_Data_Item;
 @class GTLRCompute_TargetHttpsProxyList_Warning;
 @class GTLRCompute_TargetHttpsProxyList_Warning_Data_Item;
 @class GTLRCompute_TargetInstance;
@@ -477,8 +528,15 @@
 @class GTLRCompute_UrlMap;
 @class GTLRCompute_UrlMapList_Warning;
 @class GTLRCompute_UrlMapList_Warning_Data_Item;
+@class GTLRCompute_UrlMapsAggregatedList_Items;
+@class GTLRCompute_UrlMapsAggregatedList_Warning;
+@class GTLRCompute_UrlMapsAggregatedList_Warning_Data_Item;
+@class GTLRCompute_UrlMapsScopedList;
+@class GTLRCompute_UrlMapsScopedList_Warning;
+@class GTLRCompute_UrlMapsScopedList_Warning_Data_Item;
 @class GTLRCompute_UrlMapTest;
 @class GTLRCompute_UrlMapValidationResult;
+@class GTLRCompute_UrlRewrite;
 @class GTLRCompute_UsableSubnetwork;
 @class GTLRCompute_UsableSubnetworksAggregatedList_Warning;
 @class GTLRCompute_UsableSubnetworksAggregatedList_Warning_Data_Item;
@@ -488,6 +546,21 @@
 @class GTLRCompute_VmEndpointNatMappingsInterfaceNatMappings;
 @class GTLRCompute_VmEndpointNatMappingsList_Warning;
 @class GTLRCompute_VmEndpointNatMappingsList_Warning_Data_Item;
+@class GTLRCompute_VpnGateway;
+@class GTLRCompute_VpnGateway_Labels;
+@class GTLRCompute_VpnGatewayAggregatedList_Items;
+@class GTLRCompute_VpnGatewayAggregatedList_Warning;
+@class GTLRCompute_VpnGatewayAggregatedList_Warning_Data_Item;
+@class GTLRCompute_VpnGatewayList_Warning;
+@class GTLRCompute_VpnGatewayList_Warning_Data_Item;
+@class GTLRCompute_VpnGatewaysScopedList;
+@class GTLRCompute_VpnGatewaysScopedList_Warning;
+@class GTLRCompute_VpnGatewaysScopedList_Warning_Data_Item;
+@class GTLRCompute_VpnGatewayStatus;
+@class GTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState;
+@class GTLRCompute_VpnGatewayStatusTunnel;
+@class GTLRCompute_VpnGatewayStatusVpnConnection;
+@class GTLRCompute_VpnGatewayVpnGatewayInterface;
 @class GTLRCompute_VpnTunnel;
 @class GTLRCompute_VpnTunnelAggregatedList_Items;
 @class GTLRCompute_VpnTunnelAggregatedList_Warning;
@@ -497,6 +570,7 @@
 @class GTLRCompute_VpnTunnelsScopedList;
 @class GTLRCompute_VpnTunnelsScopedList_Warning;
 @class GTLRCompute_VpnTunnelsScopedList_Warning_Data_Item;
+@class GTLRCompute_WeightedBackendService;
 @class GTLRCompute_XpnHostList_Warning;
 @class GTLRCompute_XpnHostList_Warning_Data_Item;
 @class GTLRCompute_XpnResourceId;
@@ -1210,10 +1284,30 @@ GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_Unreach
 GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_External;
 /** Value: "INTERNAL" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_Internal;
+/** Value: "INTERNAL_MANAGED" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_InternalManaged;
 /** Value: "INTERNAL_SELF_MANAGED" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_InternalSelfManaged;
 /** Value: "INVALID_LOAD_BALANCING_SCHEME" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_InvalidLoadBalancingScheme;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_BackendService.localityLbPolicy
+
+/** Value: "INVALID_LB_POLICY" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_InvalidLbPolicy;
+/** Value: "LEAST_REQUEST" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_LeastRequest;
+/** Value: "MAGLEV" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_Maglev;
+/** Value: "ORIGINAL_DESTINATION" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_OriginalDestination;
+/** Value: "RANDOM" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_Random;
+/** Value: "RING_HASH" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_RingHash;
+/** Value: "ROUND_ROBIN" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_RoundRobin;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendService.protocol
@@ -1242,6 +1336,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientI
 GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIpProto;
 /** Value: "GENERATED_COOKIE" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_GeneratedCookie;
+/** Value: "HEADER_FIELD" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_HeaderField;
+/** Value: "HTTP_COOKIE" */
+GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_HttpCookie;
 /** Value: "NONE" */
 GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_None;
 
@@ -1960,6 +2058,66 @@ GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_Undec
 GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_ExternalVpnGateway.redundancyType
+
+/** Value: "FOUR_IPS_REDUNDANCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGateway_RedundancyType_FourIpsRedundancy;
+/** Value: "SINGLE_IP_INTERNALLY_REDUNDANT" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGateway_RedundancyType_SingleIpInternallyRedundant;
+/** Value: "TWO_IPS_REDUNDANCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGateway_RedundancyType_TwoIpsRedundancy;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_ExternalVpnGatewayList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Firewall.direction
 
 /** Value: "EGRESS" */
@@ -2050,6 +2208,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_IpVersion_UnspecifiedVe
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_External;
 /** Value: "INTERNAL" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Internal;
+/** Value: "INTERNAL_MANAGED" */
+GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_InternalManaged;
 /** Value: "INTERNAL_SELF_MANAGED" */
 GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_InternalSelfManaged;
 /** Value: "INVALID" */
@@ -2296,6 +2456,106 @@ GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_Undeclare
 GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_HealthChecksAggregatedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_HealthChecksScopedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_HealthStatus.healthState
 
 /** Value: "HEALTHY" */
@@ -2400,6 +2660,20 @@ GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_Singl
 GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_HttpRedirectAction.redirectResponseCode
+
+/** Value: "FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_Found;
+/** Value: "MOVED_PERMANENTLY_DEFAULT" */
+GTLR_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_MovedPermanentlyDefault;
+/** Value: "PERMANENT_REDIRECT" */
+GTLR_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_PermanentRedirect;
+/** Value: "SEE_OTHER" */
+GTLR_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_SeeOther;
+/** Value: "TEMPORARY_REDIRECT" */
+GTLR_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_TemporaryRedirect;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HTTPSHealthCheck.portSpecification
@@ -3224,6 +3498,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_InterconnectType_Partner;
 // ----------------------------------------------------------------------------
 // GTLRCompute_Interconnect.linkType
 
+/** Value: "LINK_TYPE_ETHERNET_100G_LR" */
+GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet100gLr;
 /** Value: "LINK_TYPE_ETHERNET_10G_LR" */
 GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet10gLr;
 
@@ -3254,6 +3530,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps10
 GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps1g;
 /** Value: "BPS_200M" */
 GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps200m;
+/** Value: "BPS_20G" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps20g;
 /** Value: "BPS_2G" */
 GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps2g;
 /** Value: "BPS_300M" */
@@ -3262,6 +3540,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps30
 GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps400m;
 /** Value: "BPS_500M" */
 GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps500m;
+/** Value: "BPS_50G" */
+GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps50g;
 /** Value: "BPS_50M" */
 GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps50m;
 /** Value: "BPS_5G" */
@@ -3938,6 +4218,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Suspend
 GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Suspending;
 /** Value: "TERMINATED" */
 GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Terminated;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_MetadataFilter.filterMatchCriteria
+
+/** Value: "MATCH_ALL" */
+GTLR_EXTERN NSString * const kGTLRCompute_MetadataFilter_FilterMatchCriteria_MatchAll;
+/** Value: "MATCH_ANY" */
+GTLR_EXTERN NSString * const kGTLRCompute_MetadataFilter_FilterMatchCriteria_MatchAny;
+/** Value: "NOT_SET" */
+GTLR_EXTERN NSString * const kGTLRCompute_MetadataFilter_FilterMatchCriteria_NotSet;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkEndpointGroup.networkEndpointType
@@ -5004,10 +5294,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_BackendServices;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_C2Cpus;
 /** Value: "COMMITMENTS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Commitments;
+/** Value: "COMMITTED_C2_CPUS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedC2Cpus;
 /** Value: "COMMITTED_CPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedCpus;
 /** Value: "COMMITTED_LOCAL_SSD_TOTAL_GB" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb;
+/** Value: "COMMITTED_N2_CPUS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedN2Cpus;
 /** Value: "COMMITTED_NVIDIA_K80_GPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaK80Gpus;
 /** Value: "COMMITTED_NVIDIA_P100_GPUS" */
@@ -6364,6 +6658,56 @@ GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_UndeclaredPr
 GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_SslCertificateAggregatedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_SslCertificateList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -6412,6 +6756,56 @@ GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_Single
 GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SslCertificatesScopedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SSLHealthCheck.portSpecification
@@ -6554,6 +6948,32 @@ GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Undeclare
 GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Subnetwork.purpose
+
+/** Value: "INTERNAL_HTTPS_LOAD_BALANCER" */
+GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_InternalHttpsLoadBalancer;
+/** Value: "PRIVATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_Private;
+/** Value: "PRIVATE_RFC_1918" */
+GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_PrivateRfc1918;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Subnetwork.role
+
+/** Value: "ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_Role_Active;
+/** Value: "BACKUP" */
+GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_Role_Backup;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Subnetwork.state
+
+/** Value: "DRAINING" */
+GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_State_Draining;
+/** Value: "READY" */
+GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_State_Ready;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_SubnetworkAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -6654,6 +7074,30 @@ GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_Undeclared
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_SubnetworkLogConfig.aggregationInterval
+
+/** Value: "INTERVAL_10_MIN" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval10Min;
+/** Value: "INTERVAL_15_MIN" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval15Min;
+/** Value: "INTERVAL_1_MIN" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval1Min;
+/** Value: "INTERVAL_30_SEC" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval30Sec;
+/** Value: "INTERVAL_5_MIN" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval5Min;
+/** Value: "INTERVAL_5_SEC" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval5Sec;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SubnetworkLogConfig.metadata
+
+/** Value: "EXCLUDE_ALL_METADATA" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_Metadata_ExcludeAllMetadata;
+/** Value: "INCLUDE_ALL_METADATA" */
+GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_Metadata_IncludeAllMetadata;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_SubnetworksScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -6702,6 +7146,56 @@ GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_Sin
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_TargetHttpProxiesScopedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetHttpProxyList_Warning.code
@@ -6754,6 +7248,56 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_Undec
 GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_TargetHttpsProxiesScopedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest.quicOverride
 
 /** Value: "DISABLE" */
@@ -6772,6 +7316,56 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxy_QuicOverride_Disable;
 GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxy_QuicOverride_Enable;
 /** Value: "NONE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxy_QuicOverride_None;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_TargetHttpsProxyAggregatedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetHttpsProxyList_Warning.code
@@ -6990,6 +7584,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpPor
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpProto;
 /** Value: "GENERATED_COOKIE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_GeneratedCookie;
+/** Value: "HEADER_FIELD" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_HeaderField;
+/** Value: "HTTP_COOKIE" */
+GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_HttpCookie;
 /** Value: "NONE" */
 GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_None;
 
@@ -7506,6 +8104,106 @@ GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_UndeclaredProp
 GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_UrlMapsAggregatedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_UrlMapsScopedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_UsableSubnetworksAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -7604,6 +8302,170 @@ GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code
 GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_VpnGatewayAggregatedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_VpnGatewayList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_VpnGatewaysScopedList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState.state
+
+/** Value: "CONNECTION_REDUNDANCY_MET" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState_State_ConnectionRedundancyMet;
+/** Value: "CONNECTION_REDUNDANCY_NOT_MET" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState_State_ConnectionRedundancyNotMet;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState.unsatisfiedReason
+
+/** Value: "INCOMPLETE_TUNNELS_COVERAGE" */
+GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState_UnsatisfiedReason_IncompleteTunnelsCoverage;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VpnTunnel.status
@@ -9105,17 +9967,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_AllocationSpecificSKUReservation : GTLRObject
 
 /**
- *  Specifies number of resources that are allocated.
+ *  Specifies the number of resources that are allocated.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
 
-/** The instance properties for this specific sku reservation. */
+/** The instance properties for the reservation. */
 @property(nonatomic, strong, nullable) GTLRCompute_AllocationSpecificSKUAllocationReservedInstanceProperties *instanceProperties;
 
 /**
- *  [OutputOnly] Indicates how many resource are in use.
+ *  [OutputOnly] Indicates how many instances are in use.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9235,7 +10097,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  Specifies a valid partial or full URL to an existing Persistent Disk
  *  resource. When creating a new instance, one of initializeParams.sourceImage
- *  or disks.source is required except for local SSD.
+ *  or initializeParams.sourceSnapshot or disks.source is required except for
+ *  local SSD.
  *  If desired, you can also attach existing non-root persistent disks using
  *  this property. This field is only applicable for persistent disks.
  *  Note that for InstanceTemplate, specify the disk name, not the URL for the
@@ -9280,7 +10143,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *diskName;
 
 /**
- *  Specifies the size of the disk in base-2 GB.
+ *  Specifies the size of the disk in base-2 GB. If not specified, the disk will
+ *  be the same size as the image (usually 10GB). If specified, the size must be
+ *  equal to or larger than 10GB.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9316,8 +10181,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  The source image to create this disk. When creating a new instance, one of
- *  initializeParams.sourceImage or disks.source is required except for local
- *  SSD.
+ *  initializeParams.sourceImage or initializeParams.sourceSnapshot or
+ *  disks.source is required except for local SSD.
  *  To create a disk with one of the public operating system images, specify the
  *  image by its family name. For example, specify family/debian-9 to use the
  *  latest Debian 9 image:
@@ -9346,8 +10211,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  The source snapshot to create this disk. When creating a new instance, one
- *  of initializeParams.sourceSnapshot or disks.source is required except for
- *  local SSD.
+ *  of initializeParams.sourceSnapshot or initializeParams.sourceImage or
+ *  disks.source is required except for local SSD.
  *  To create a disk with a snapshot that you created, specify the snapshot name
  *  in the following format:
  *  global/snapshots/my-backup
@@ -9385,14 +10250,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  AuditLogConfig are exempted.
  *  Example Policy with multiple AuditConfigs:
  *  { "audit_configs": [ { "service": "allServices" "audit_log_configs": [ {
- *  "log_type": "DATA_READ", "exempted_members": [ "user:foo\@gmail.com" ] }, {
- *  "log_type": "DATA_WRITE", }, { "log_type": "ADMIN_READ", } ] }, { "service":
- *  "fooservice.googleapis.com" "audit_log_configs": [ { "log_type":
- *  "DATA_READ", }, { "log_type": "DATA_WRITE", "exempted_members": [
- *  "user:bar\@gmail.com" ] } ] } ] }
- *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
- *  bar\@gmail.com from DATA_WRITE logging.
+ *  "log_type": "DATA_READ", "exempted_members": [ "user:jose\@example.com" ] },
+ *  { "log_type": "DATA_WRITE", }, { "log_type": "ADMIN_READ", } ] }, {
+ *  "service": "sampleservice.googleapis.com" "audit_log_configs": [ {
+ *  "log_type": "DATA_READ", }, { "log_type": "DATA_WRITE", "exempted_members":
+ *  [ "user:aliya\@example.com" ] } ] } ] }
+ *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts jose\@example.com from DATA_READ logging, and
+ *  aliya\@example.com from DATA_WRITE logging.
  */
 @interface GTLRCompute_AuditConfig : GTLRObject
 
@@ -9414,9 +10279,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  Provides the configuration for logging a type of permissions. Example:
  *  { "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
- *  "user:foo\@gmail.com" ] }, { "log_type": "DATA_WRITE", } ] }
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE", } ] }
  *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  foo\@gmail.com from DATA_READ logging.
+ *  jose\@example.com from DATA_READ logging.
  */
 @interface GTLRCompute_AuditLogConfig : GTLRObject
 
@@ -9425,6 +10290,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  permission. Follows the same format of [Binding.members][].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  ignoreChildExemptions
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
 
 /**
  *  The log type that this config enables.
@@ -10156,25 +11028,25 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  type of backend (instance group or NEG).
  *  - If the load balancing mode is CONNECTION, then the load is spread based on
  *  how many concurrent connections the backend can handle.
- *  The CONNECTION balancing mode is only available if the protocol for the
- *  backend service is SSL, TCP, or UDP.
+ *  You can use the CONNECTION balancing mode if the protocol for the backend
+ *  service is SSL, TCP, or UDP.
  *  If the loadBalancingScheme for the backend service is EXTERNAL (SSL Proxy
  *  and TCP Proxy load balancers), you must also specify exactly one of the
  *  following parameters: maxConnections, maxConnectionsPerInstance, or
  *  maxConnectionsPerEndpoint.
  *  If the loadBalancingScheme for the backend service is INTERNAL (internal
  *  TCP/UDP load balancers), you cannot specify any additional parameters.
- *  - If the load balancing mode is RATE, then the load is spread based on the
- *  rate of HTTP requests per second (RPS).
- *  The RATE balancing mode is only available if the protocol for the backend
- *  service is HTTP or HTTPS. You must specify exactly one of the following
- *  parameters: maxRate, maxRatePerInstance, or maxRatePerEndpoint.
- *  - If the load balancing mode is UTILIZATION, then the load is spread based
- *  on the CPU utilization of instances in an instance group.
- *  The UTILIZATION balancing mode is only available if the loadBalancingScheme
- *  of the backend service is EXTERNAL, INTERNAL_SELF_MANAGED, or
- *  INTERNAL_MANAGED and the backend is made up of instance groups. There are no
- *  restrictions on the backend service protocol.
+ *  - If the load balancing mode is RATE, the load is spread based on the rate
+ *  of HTTP requests per second (RPS).
+ *  You can use the RATE balancing mode if the protocol for the backend service
+ *  is HTTP or HTTPS. You must specify exactly one of the following parameters:
+ *  maxRate, maxRatePerInstance, or maxRatePerEndpoint.
+ *  - If the load balancing mode is UTILIZATION, the load is spread based on the
+ *  CPU utilization of instances in an instance group.
+ *  You can use the UTILIZATION balancing mode if the loadBalancingScheme of the
+ *  backend service is EXTERNAL, INTERNAL_SELF_MANAGED, or INTERNAL_MANAGED and
+ *  the backends are instance groups. There are no restrictions on the backend
+ *  service protocol.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Backend_BalancingMode_Connection Value "CONNECTION"
@@ -10572,7 +11444,33 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /** Cloud CDN configuration for this BackendService. */
 @property(nonatomic, strong, nullable) GTLRCompute_BackendServiceCdnPolicy *cdnPolicy;
 
+/**
+ *  Settings controlling the volume of connections to a backend service.
+ *  This field is applicable to either:
+ *  - A regional backend service with the service_protocol set to HTTP, HTTPS,
+ *  or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED.
+ *  - A global backend service with the load_balancing_scheme set to
+ *  INTERNAL_SELF_MANAGED.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_CircuitBreakers *circuitBreakers;
+
 @property(nonatomic, strong, nullable) GTLRCompute_ConnectionDraining *connectionDraining;
+
+/**
+ *  Consistent Hash-based load balancing can be used to provide soft session
+ *  affinity based on HTTP headers, cookies or other properties. This load
+ *  balancing policy is applicable only for HTTP connections. The affinity to a
+ *  particular destination host will be lost when one or more hosts are
+ *  added/removed from the destination service. This field specifies parameters
+ *  that control consistent hashing. This field is only applicable when
+ *  localityLbPolicy is set to MAGLEV or RING_HASH.
+ *  This field is applicable to either:
+ *  - A regional backend service with the service_protocol set to HTTP, HTTPS,
+ *  or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED.
+ *  - A global backend service with the load_balancing_scheme set to
+ *  INTERNAL_SELF_MANAGED.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_ConsistentHashLoadBalancerSettings *consistentHash;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
@@ -10649,12 +11547,56 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "EXTERNAL"
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_Internal Value
  *        "INTERNAL"
+ *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_InternalManaged
+ *        Value "INTERNAL_MANAGED"
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_InternalSelfManaged
  *        Value "INTERNAL_SELF_MANAGED"
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_InvalidLoadBalancingScheme
  *        Value "INVALID_LOAD_BALANCING_SCHEME"
  */
 @property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
+
+/**
+ *  The load balancing algorithm used within the scope of the locality. The
+ *  possible values are:
+ *  - ROUND_ROBIN: This is a simple policy in which each healthy backend is
+ *  selected in round robin order. This is the default.
+ *  - LEAST_REQUEST: An O(1) algorithm which selects two random healthy hosts
+ *  and picks the host which has fewer active requests.
+ *  - RING_HASH: The ring/modulo hash load balancer implements consistent
+ *  hashing to backends. The algorithm has the property that the
+ *  addition/removal of a host from a set of N hosts only affects 1/N of the
+ *  requests.
+ *  - RANDOM: The load balancer selects a random healthy host.
+ *  - ORIGINAL_DESTINATION: Backend host is selected based on the client
+ *  connection metadata, i.e., connections are opened to the same address as the
+ *  destination address of the incoming connection before the connection was
+ *  redirected to the load balancer.
+ *  - MAGLEV: used as a drop in replacement for the ring hash load balancer.
+ *  Maglev is not as stable as ring hash but has faster table lookup build times
+ *  and host selection times. For more information about Maglev, refer to
+ *  https://ai.google/research/pubs/pub44824
+ *  This field is applicable to either:
+ *  - A regional backend service with the service_protocol set to HTTP, HTTPS,
+ *  or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED.
+ *  - A global backend service with the load_balancing_scheme set to
+ *  INTERNAL_SELF_MANAGED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_BackendService_LocalityLbPolicy_InvalidLbPolicy Value
+ *        "INVALID_LB_POLICY"
+ *    @arg @c kGTLRCompute_BackendService_LocalityLbPolicy_LeastRequest Value
+ *        "LEAST_REQUEST"
+ *    @arg @c kGTLRCompute_BackendService_LocalityLbPolicy_Maglev Value "MAGLEV"
+ *    @arg @c kGTLRCompute_BackendService_LocalityLbPolicy_OriginalDestination
+ *        Value "ORIGINAL_DESTINATION"
+ *    @arg @c kGTLRCompute_BackendService_LocalityLbPolicy_Random Value "RANDOM"
+ *    @arg @c kGTLRCompute_BackendService_LocalityLbPolicy_RingHash Value
+ *        "RING_HASH"
+ *    @arg @c kGTLRCompute_BackendService_LocalityLbPolicy_RoundRobin Value
+ *        "ROUND_ROBIN"
+ */
+@property(nonatomic, copy, nullable) NSString *localityLbPolicy;
 
 /**
  *  Name of the resource. Provided by the client when the resource is created.
@@ -10666,6 +11608,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  dash.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Settings controlling eviction of unhealthy hosts from the load balancing
+ *  pool. This field is applicable to either:
+ *  - A regional backend service with the service_protocol set to HTTP, HTTPS,
+ *  or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED.
+ *  - A global backend service with the load_balancing_scheme set to
+ *  INTERNAL_SELF_MANAGED.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_OutlierDetection *outlierDetection;
 
 /**
  *  Deprecated in favor of portName. The TCP port to connect on the backend. The
@@ -10725,8 +11677,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Type of session affinity to use. The default is NONE. Session affinity is
  *  not applicable if the --protocol is UDP.
  *  When the loadBalancingScheme is EXTERNAL, possible values are NONE,
- *  CLIENT_IP, or GENERATED_COOKIE. GENERATED_COOKIE is only available if the
- *  protocol is HTTP or HTTPS.
+ *  CLIENT_IP, or GENERATED_COOKIE. You can use GENERATED_COOKIE if the protocol
+ *  is HTTP or HTTPS.
  *  When the loadBalancingScheme is INTERNAL, possible values are NONE,
  *  CLIENT_IP, CLIENT_IP_PROTO, or CLIENT_IP_PORT_PROTO.
  *  When the loadBalancingScheme is INTERNAL_SELF_MANAGED, possible values are
@@ -10741,6 +11693,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLIENT_IP_PROTO"
  *    @arg @c kGTLRCompute_BackendService_SessionAffinity_GeneratedCookie Value
  *        "GENERATED_COOKIE"
+ *    @arg @c kGTLRCompute_BackendService_SessionAffinity_HeaderField Value
+ *        "HEADER_FIELD"
+ *    @arg @c kGTLRCompute_BackendService_SessionAffinity_HttpCookie Value
+ *        "HTTP_COOKIE"
  *    @arg @c kGTLRCompute_BackendService_SessionAffinity_None Value "NONE"
  */
 @property(nonatomic, copy, nullable) NSString *sessionAffinity;
@@ -11251,7 +12207,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone who
  *  is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group. For
@@ -11336,6 +12292,56 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  Settings controlling the volume of connections to a backend service.
+ */
+@interface GTLRCompute_CircuitBreakers : GTLRObject
+
+/**
+ *  The maximum number of connections to the backend cluster. If not specified,
+ *  the default is 1024.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConnections;
+
+/**
+ *  The maximum number of pending requests allowed to the backend cluster. If
+ *  not specified, the default is 1024.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxPendingRequests;
+
+/**
+ *  The maximum number of parallel requests that allowed to the backend cluster.
+ *  If not specified, the default is 1024.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxRequests;
+
+/**
+ *  Maximum requests for a single backend connection. This parameter is
+ *  respected by both the HTTP/1.1 and HTTP/2 implementations. If not specified,
+ *  there is no limit. Setting this parameter to 1 will effectively disable keep
+ *  alive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxRequestsPerConnection;
+
+/**
+ *  The maximum number of parallel retries allowed to the backend cluster. If
+ *  not specified, the default is 3.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxRetries;
+
+@end
+
+
+/**
  *  Represents a regional Commitment resource.
  *  Creating a commitment resource means that you are purchasing a committed use
  *  contract with an explicit start and end time. You can create commitments
@@ -11402,7 +12408,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /** [Output Only] URL of the region where this commitment may be used. */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** List of reservations for this commitment. */
+/** List of reservations in this commitment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_Reservation *> *reservations;
 
 /**
@@ -11907,6 +12913,116 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  This message defines settings for a consistent hash style load balancer.
+ */
+@interface GTLRCompute_ConsistentHashLoadBalancerSettings : GTLRObject
+
+/**
+ *  Hash is based on HTTP Cookie. This field describes a HTTP cookie that will
+ *  be used as the hash key for the consistent hash load balancer. If the cookie
+ *  is not present, it will be generated. This field is applicable if the
+ *  sessionAffinity is set to HTTP_COOKIE.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_ConsistentHashLoadBalancerSettingsHttpCookie *httpCookie;
+
+/**
+ *  The hash based on the value of the specified header field. This field is
+ *  applicable if the sessionAffinity is set to HEADER_FIELD.
+ */
+@property(nonatomic, copy, nullable) NSString *httpHeaderName;
+
+/**
+ *  The minimum number of virtual nodes to use for the hash ring. Defaults to
+ *  1024. Larger ring sizes result in more granular load distributions. If the
+ *  number of hosts in the load balancing pool is larger than the ring size,
+ *  each host will be assigned a single virtual node.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumRingSize;
+
+@end
+
+
+/**
+ *  The information about the HTTP Cookie on which the hash function is based
+ *  for load balancing policies that use a consistent hash.
+ */
+@interface GTLRCompute_ConsistentHashLoadBalancerSettingsHttpCookie : GTLRObject
+
+/** Name of the cookie. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Path to set for the cookie. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Lifetime of the cookie. */
+@property(nonatomic, strong, nullable) GTLRCompute_Duration *ttl;
+
+@end
+
+
+/**
+ *  The specification for allowing client side cross-origin requests. Please see
+ *  W3C Recommendation for Cross Origin Resource Sharing
+ */
+@interface GTLRCompute_CorsPolicy : GTLRObject
+
+/**
+ *  In response to a preflight request, setting this to true indicates that the
+ *  actual request can include user credentials. This translates to the
+ *  Access-Control-Allow-Credentials header.
+ *  Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCredentials;
+
+/** Specifies the content for the Access-Control-Allow-Headers header. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowHeaders;
+
+/** Specifies the content for the Access-Control-Allow-Methods header. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowMethods;
+
+/**
+ *  Specifies the regualar expression patterns that match allowed origins. For
+ *  regular expression grammar please see
+ *  en.cppreference.com/w/cpp/regex/ecmascript
+ *  An origin is allowed if it matches either allow_origins or
+ *  allow_origin_regex.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowOriginRegexes;
+
+/**
+ *  Specifies the list of origins that will be allowed to do CORS requests.
+ *  An origin is allowed if it matches either allow_origins or
+ *  allow_origin_regex.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowOrigins;
+
+/**
+ *  If true, specifies the CORS policy is disabled. The default value of false,
+ *  which indicates that the CORS policy is in effect.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/** Specifies the content for the Access-Control-Expose-Headers header. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exposeHeaders;
+
+/**
+ *  Specifies how long the results of a preflight request can be cached. This
+ *  translates to the content for the Access-Control-Max-Age header.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxAge;
+
+@end
+
+
+/**
  *  Represents a customer-supplied encryption key
  */
 @interface GTLRCompute_CustomerEncryptionKey : GTLRObject
@@ -12215,7 +13331,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *sourceSnapshotId;
 
 /**
- *  [Output Only] The status of disk creation.
+ *  [Output Only] The status of disk creation. CREATING: Disk is provisioning.
+ *  RESTORING: Source data is being copied into the disk. FAILED: Disk creation
+ *  failed. READY: Disk is ready for use. DELETING: Disk is deleting.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Disk_Status_Creating Value "CREATING"
@@ -13258,6 +14376,21 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  A set of Display Device options
+ */
+@interface GTLRCompute_DisplayDevice : GTLRObject
+
+/**
+ *  Defines whether the instance has Display enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableDisplay;
+
+@end
+
+
+/**
  *  GTLRCompute_DistributionPolicy
  */
 @interface GTLRCompute_DistributionPolicy : GTLRObject
@@ -13283,6 +14416,35 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  A Duration represents a fixed-length span of time represented as a count of
+ *  seconds and fractions of seconds at nanosecond resolution. It is independent
+ *  of any calendar and concepts like "day" or "month". Range is approximately
+ *  10,000 years.
+ */
+@interface GTLRCompute_Duration : GTLRObject
+
+/**
+ *  Span of time that's a fraction of a second at nanosecond resolution.
+ *  Durations less than one second are represented with a 0 `seconds` field and
+ *  a positive `nanos` field. Must be from 0 to 999,999,999 inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Span of time at a resolution of a second. Must be from 0 to 315,576,000,000
+ *  inclusive. Note: these bounds are computed from: 60 sec/min * 60 min/hr * 24
+ *  hr/day * 365.25 days/year * 10000 years
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
 
 @end
 
@@ -13321,6 +14483,284 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  External VPN gateway is the on-premises VPN gateway(s) or another cloud
+ *  provider?s VPN gateway that connects to your Google Cloud VPN gateway. To
+ *  create a highly available VPN from Google Cloud to your on-premises side or
+ *  another Cloud provider's VPN gateway, you must create a external VPN gateway
+ *  resource in GCP, which provides the information to GCP about your external
+ *  VPN gateway.
+ */
+@interface GTLRCompute_ExternalVpnGateway : GTLRObject
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  An optional description of this resource. Provide this property when you
+ *  create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** List of interfaces for this external VPN gateway. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_ExternalVpnGatewayInterface *> *interfaces;
+
+/**
+ *  [Output Only] Type of the resource. Always compute#externalVpnGateway for
+ *  externalVpnGateways.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  A fingerprint for the labels being applied to this ExternalVpnGateway, which
+ *  is essentially a hash of the labels set used for optimistic locking. The
+ *  fingerprint is initially generated by Compute Engine and changes after every
+ *  request to modify or update labels. You must always provide an up-to-date
+ *  fingerprint hash in order to update or change labels, otherwise the request
+ *  will fail with error 412 conditionNotMet.
+ *  To see the latest fingerprint, make a get() request to retrieve an
+ *  ExternalVpnGateway.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+/**
+ *  Labels to apply to this ExternalVpnGateway resource. These can be later
+ *  modified by the setLabels method. Each label key/value must comply with
+ *  RFC1035. Label values may be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_ExternalVpnGateway_Labels *labels;
+
+/**
+ *  Name of the resource. Provided by the client when the resource is created.
+ *  The name must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the name must be 1-63 characters long and match the regular
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
+ *  be a lowercase letter, and all following characters must be a dash,
+ *  lowercase letter, or digit, except the last character, which cannot be a
+ *  dash.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates the user-supplied redundancy type of this external VPN gateway.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_ExternalVpnGateway_RedundancyType_FourIpsRedundancy
+ *        Value "FOUR_IPS_REDUNDANCY"
+ *    @arg @c kGTLRCompute_ExternalVpnGateway_RedundancyType_SingleIpInternallyRedundant
+ *        Value "SINGLE_IP_INTERNALLY_REDUNDANT"
+ *    @arg @c kGTLRCompute_ExternalVpnGateway_RedundancyType_TwoIpsRedundancy
+ *        Value "TWO_IPS_REDUNDANCY"
+ */
+@property(nonatomic, copy, nullable) NSString *redundancyType;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  Labels to apply to this ExternalVpnGateway resource. These can be later
+ *  modified by the setLabels method. Each label key/value must comply with
+ *  RFC1035. Label values may be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_ExternalVpnGateway_Labels : GTLRObject
+@end
+
+
+/**
+ *  The interface for the external VPN gateway.
+ */
+@interface GTLRCompute_ExternalVpnGatewayInterface : GTLRObject
+
+/**
+ *  The numeric ID of this interface. The allowed input values for this id for
+ *  different redundancy types of external VPN gateway:
+ *  SINGLE_IP_INTERNALLY_REDUNDANT - 0 TWO_IPS_REDUNDANCY - 0, 1
+ *  FOUR_IPS_REDUNDANCY - 0, 1, 2, 3
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  IP address of the interface in the external VPN gateway. Only IPv4 is
+ *  supported. This IP address can be either from your on-premise gateway or
+ *  another Cloud provider?s VPN gateway, it cannot be an IP address from Google
+ *  Compute Engine.
+ */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+@end
+
+
+/**
+ *  Response to the list request, and contains a list of externalVpnGateways.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_ExternalVpnGatewayList : GTLRCollectionObject
+
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of ExternalVpnGateway resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_ExternalVpnGateway *> *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#externalVpnGatewayList for
+ *  lists of externalVpnGateways.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_ExternalVpnGatewayList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_ExternalVpnGatewayList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_ExternalVpnGatewayList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_ExternalVpnGatewayList_Warning_Data_Item
+ */
+@interface GTLRCompute_ExternalVpnGatewayList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -13821,33 +15261,21 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  The IP address that this forwarding rule is serving on behalf of.
- *  Addresses are restricted based on the forwarding rule's load balancing
- *  scheme (EXTERNAL or INTERNAL) and scope (global or regional).
- *  When the load balancing scheme is EXTERNAL, for global forwarding rules, the
- *  address must be a global IP, and for regional forwarding rules, the address
- *  must live in the same region as the forwarding rule. If this field is empty,
- *  an ephemeral IPv4 address from the same scope (global or regional) will be
- *  assigned. A regional forwarding rule supports IPv4 only. A global forwarding
- *  rule supports either IPv4 or IPv6.
- *  When the load balancing scheme is INTERNAL_SELF_MANAGED, this must be a URL
- *  reference to an existing Address resource ( internal regional static IP
- *  address), with a purpose of GCE_END_POINT and address_type of INTERNAL.
- *  When the load balancing scheme is INTERNAL, this can only be an RFC 1918 IP
- *  address belonging to the network/subnet configured for the forwarding rule.
- *  By default, if this field is empty, an ephemeral internal IP address will be
- *  automatically allocated from the IP range of the subnet or network
- *  configured for this forwarding rule.
- *  An address can be specified either by a literal IP address or a URL
- *  reference to an existing Address resource. The following examples are all
- *  valid:
- *  - 100.1.2.3
- *  -
- *  https://www.googleapis.com/compute/v1/projects/project/regions/region/addresses/address
- *  - projects/project/regions/region/addresses/address
- *  - regions/region/addresses/address
- *  - global/addresses/address
- *  - address
+ *  IP address that this forwarding rule serves. When a client sends traffic to
+ *  this IP address, the forwarding rule directs the traffic to the target that
+ *  you specify in the forwarding rule.
+ *  If you don't specify a reserved IP address, an ephemeral IP address is
+ *  assigned. Methods for specifying an IP address:
+ *  * IPv4 dotted decimal, as in `100.1.2.3` * Full URL, as in
+ *  https://www.googleapis.com/compute/v1/projects/project_id/regions/region/addresses/address-name
+ *  * Partial URL or by name, as in: *
+ *  projects/project_id/regions/region/addresses/address-name *
+ *  regions/region/addresses/address-name * global/addresses/address-name *
+ *  address-name
+ *  The loadBalancingScheme and the forwarding rule's target determine the type
+ *  of IP address that you can use. For detailed information, refer to [IP
+ *  address
+ *  specifications](/load-balancing/docs/forwarding-rule-concepts#ip_address_specifications).
  */
 @property(nonatomic, copy, nullable) NSString *IPAddress;
 
@@ -13900,12 +15328,31 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "EXTERNAL"
  *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_Internal Value
  *        "INTERNAL"
+ *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_InternalManaged
+ *        Value "INTERNAL_MANAGED"
  *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_InternalSelfManaged
  *        Value "INTERNAL_SELF_MANAGED"
  *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_Invalid Value
  *        "INVALID"
  */
 @property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
+
+/**
+ *  Opaque filter criteria used by Loadbalancer to restrict routing
+ *  configuration to a limited set xDS compliant clients. In their xDS requests
+ *  to Loadbalancer, xDS clients present node metadata. If a match takes place,
+ *  the relevant routing configuration is made available to those proxies.
+ *  For each metadataFilter in this list, if its filterMatchCriteria is set to
+ *  MATCH_ANY, at least one of the filterLabels must match the corresponding
+ *  label provided in the metadata. If its filterMatchCriteria is set to
+ *  MATCH_ALL, then all of its filterLabels must match with corresponding labels
+ *  in the provided metadata.
+ *  metadataFilters specified here can be overridden by those specified in the
+ *  UrlMap that this ForwardingRule references.
+ *  metadataFilters only applies to Loadbalancers that have their
+ *  loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_MetadataFilter *> *metadataFilters;
 
 /**
  *  Name of the resource; provided by the client when the resource is created.
@@ -13941,14 +15388,22 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *networkTier;
 
 /**
- *  This field is used along with the target field for TargetHttpProxy,
- *  TargetHttpsProxy, TargetSslProxy, TargetTcpProxy, TargetVpnGateway,
- *  TargetPool, TargetInstance.
- *  Applicable only when IPProtocol is TCP, UDP, or SCTP, only packets addressed
- *  to ports in the specified range will be forwarded to target. Forwarding
- *  rules with the same [IPAddress, IPProtocol] pair must have disjoint port
- *  ranges.
- *  Some types of forwarding target have constraints on the acceptable ports:
+ *  This field is deprecated. See the port
+ *  field.
+ */
+@property(nonatomic, copy, nullable) NSString *portRange;
+
+/**
+ *  List of comma-separated ports. The forwarding rule forwards packets with
+ *  matching destination ports. If the forwarding rule's loadBalancingScheme is
+ *  EXTERNAL, and the forwarding rule references a target pool, specifying ports
+ *  is optional. You can specify an unlimited number of ports, but they must be
+ *  contiguous. If you omit ports, GCP forwards traffic on any port of the
+ *  forwarding rule's protocol.
+ *  If the forwarding rule's loadBalancingScheme is EXTERNAL, and the forwarding
+ *  rule references a target HTTP proxy, target HTTPS proxy, target TCP proxy,
+ *  target SSL proxy, or target VPN gateway, you must specify ports using the
+ *  following constraints:
  *  - TargetHttpProxy: 80, 8080
  *  - TargetHttpsProxy: 443
  *  - TargetTcpProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995, 1688,
@@ -13956,17 +15411,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  - TargetSslProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995, 1688,
  *  1883, 5222
  *  - TargetVpnGateway: 500, 4500
- */
-@property(nonatomic, copy, nullable) NSString *portRange;
-
-/**
- *  This field is used along with the backend_service field for internal load
- *  balancing.
- *  When the load balancing scheme is INTERNAL, a list of ports can be
- *  configured, for example, ['80'], ['8000','9000'] etc. Only packets addressed
- *  to these ports will be forwarded to the backends configured with this
- *  forwarding rule.
- *  You may specify a maximum of up to 5 ports.
+ *  If the forwarding rule's loadBalancingScheme is INTERNAL, you must specify
+ *  ports in one of the following ways:
+ *  * A list of up to five ports, which can be non-contiguous * Keyword ALL,
+ *  which causes the forwarding rule to forward traffic on any port of the
+ *  forwarding rule's protocol.
+ *  The ports field is used along with the target field for TargetHttpProxy,
+ *  TargetHttpsProxy, TargetSslProxy, TargetTcpProxy, TargetVpnGateway,
+ *  TargetPool, TargetInstance.
+ *  Applicable only when IPProtocol is TCP, UDP, or SCTP. Forwarding rules with
+ *  the same [IPAddress, IPProtocol] pair must have disjoint port ranges.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ports;
 
@@ -13983,7 +15437,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  An optional prefix to the service name for this Forwarding Rule. If
- *  specified, will be the first label of the fully qualified service name.
+ *  specified, the prefix is the first label of the fully qualified service
+ *  name.
  *  The label must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the label must be 1-63 characters long and match the regular
  *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
@@ -14670,6 +16125,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  [Output Only] Region where the health check resides. Not applicable to
+ *  global health checks.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -14867,6 +16328,258 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  GTLRCompute_HealthChecksAggregatedList
+ */
+@interface GTLRCompute_HealthChecksAggregatedList : GTLRObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** A list of HealthChecksScopedList resources. */
+@property(nonatomic, strong, nullable) GTLRCompute_HealthChecksAggregatedList_Items *items;
+
+/** Type of resource. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_HealthChecksAggregatedList_Warning *warning;
+
+@end
+
+
+/**
+ *  A list of HealthChecksScopedList resources.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_HealthChecksScopedList. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCompute_HealthChecksAggregatedList_Items : GTLRObject
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_HealthChecksAggregatedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_HealthChecksAggregatedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_HealthChecksAggregatedList_Warning_Data_Item
+ */
+@interface GTLRCompute_HealthChecksAggregatedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_HealthChecksScopedList
+ */
+@interface GTLRCompute_HealthChecksScopedList : GTLRObject
+
+/** A list of HealthChecks contained in this scope. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_HealthCheck *> *healthChecks;
+
+/**
+ *  Informational warning which replaces the list of backend services when the
+ *  list is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HealthChecksScopedList_Warning *warning;
+
+@end
+
+
+/**
+ *  Informational warning which replaces the list of backend services when the
+ *  list is empty.
+ */
+@interface GTLRCompute_HealthChecksScopedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_HealthChecksScopedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_HealthChecksScopedList_Warning_Data_Item
+ */
+@interface GTLRCompute_HealthChecksScopedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  GTLRCompute_HealthStatus
  */
 @interface GTLRCompute_HealthStatus : GTLRObject
@@ -15048,6 +16761,296 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  Specification for how requests are aborted as part of fault injection.
+ */
+@interface GTLRCompute_HttpFaultAbort : GTLRObject
+
+/**
+ *  The HTTP status code used to abort the request.
+ *  The value must be between 200 and 599 inclusive.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *httpStatus;
+
+/**
+ *  The percentage of traffic (connections/operations/requests) which will be
+ *  aborted as part of fault injection.
+ *  The value must be between 0.0 and 100.0 inclusive.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentage;
+
+@end
+
+
+/**
+ *  Specifies the delay introduced by Loadbalancer before forwarding the request
+ *  to the backend service as part of fault injection.
+ */
+@interface GTLRCompute_HttpFaultDelay : GTLRObject
+
+/** Specifies the value of the fixed delay interval. */
+@property(nonatomic, strong, nullable) GTLRCompute_Duration *fixedDelay;
+
+/**
+ *  The percentage of traffic (connections/operations/requests) on which delay
+ *  will be introduced as part of fault injection.
+ *  The value must be between 0.0 and 100.0 inclusive.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentage;
+
+@end
+
+
+/**
+ *  The specification for fault injection introduced into traffic to test the
+ *  resiliency of clients to backend service failure. As part of fault
+ *  injection, when clients send requests to a backend service, delays can be
+ *  introduced by Loadbalancer on a percentage of requests before sending those
+ *  request to the backend service. Similarly requests from clients can be
+ *  aborted by the Loadbalancer for a percentage of requests.
+ */
+@interface GTLRCompute_HttpFaultInjection : GTLRObject
+
+/**
+ *  The specification for how client requests are aborted as part of fault
+ *  injection.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpFaultAbort *abort;
+
+/**
+ *  The specification for how client requests are delayed as part of fault
+ *  injection, before being sent to a backend service.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpFaultDelay *delay;
+
+@end
+
+
+/**
+ *  The request and response header transformations that take effect before the
+ *  request is passed along to the selected backendService.
+ */
+@interface GTLRCompute_HttpHeaderAction : GTLRObject
+
+/**
+ *  Headers to add to a matching request prior to forwarding the request to the
+ *  backendService.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_HttpHeaderOption *> *requestHeadersToAdd;
+
+/**
+ *  A list of header names for headers that need to be removed from the request
+ *  prior to forwarding the request to the backendService.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestHeadersToRemove;
+
+/**
+ *  Headers to add the response prior to sending the response back to the
+ *  client.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_HttpHeaderOption *> *responseHeadersToAdd;
+
+/**
+ *  A list of header names for headers that need to be removed from the response
+ *  prior to sending the response back to the client.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *responseHeadersToRemove;
+
+@end
+
+
+/**
+ *  matchRule criteria for request header matches.
+ */
+@interface GTLRCompute_HttpHeaderMatch : GTLRObject
+
+/**
+ *  The value should exactly match contents of exactMatch.
+ *  Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch
+ *  or rangeMatch must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *exactMatch;
+
+/**
+ *  The name of the HTTP header to match.
+ *  For matching against the HTTP request's authority, use a headerMatch with
+ *  the header name ":authority".
+ *  For matching a request's method, use the headerName ":method".
+ */
+@property(nonatomic, copy, nullable) NSString *headerName;
+
+/**
+ *  If set to false, the headerMatch is considered a match if the match criteria
+ *  above are met. If set to true, the headerMatch is considered a match if the
+ *  match criteria above are NOT met.
+ *  The default setting is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *invertMatch;
+
+/**
+ *  The value of the header must start with the contents of prefixMatch.
+ *  Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch
+ *  or rangeMatch must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *prefixMatch;
+
+/**
+ *  A header with the contents of headerName must exist. The match takes place
+ *  whether or not the request's header has a value or not.
+ *  Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch
+ *  or rangeMatch must be set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *presentMatch;
+
+/**
+ *  The header value must be an integer and its value must be in the range
+ *  specified in rangeMatch. If the header does not contain an integer, number
+ *  or is empty, the match fails.
+ *  For example for a range [-5, 0]
+ *  - -3 will match.
+ *  - 0 will not match.
+ *  - 0.25 will not match.
+ *  - -3someString will not match.
+ *  Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch
+ *  or rangeMatch must be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Int64RangeMatch *rangeMatch;
+
+/**
+ *  The value of the header must match the regualar expression specified in
+ *  regexMatch. For regular expression grammar, please see:
+ *  en.cppreference.com/w/cpp/regex/ecmascript
+ *  For matching against a port specified in the HTTP request, use a headerMatch
+ *  with headerName set to PORT and a regular expression that satisfies the
+ *  RFC2616 Host header's port specifier.
+ *  Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch
+ *  or rangeMatch must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *regexMatch;
+
+/**
+ *  The value of the header must end with the contents of suffixMatch.
+ *  Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch
+ *  or rangeMatch must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *suffixMatch;
+
+@end
+
+
+/**
+ *  Specification determining how headers are added to requests or responses.
+ */
+@interface GTLRCompute_HttpHeaderOption : GTLRObject
+
+/** The name of the header. */
+@property(nonatomic, copy, nullable) NSString *headerName;
+
+/** The value of the header to add. */
+@property(nonatomic, copy, nullable) NSString *headerValue;
+
+/**
+ *  If false, headerValue is appended to any values that already exist for the
+ *  header. If true, headerValue is set for the header, discarding any values
+ *  that were set for that header.
+ *  The default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *replace;
+
+@end
+
+
+/**
+ *  GTLRCompute_HTTPHealthCheck
+ */
+@interface GTLRCompute_HTTPHealthCheck : GTLRObject
+
+/**
+ *  The value of the host header in the HTTP health check request. If left empty
+ *  (default value), the IP on behalf of which this health check is performed
+ *  will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  The TCP port number for the health check request. The default value is 80.
+ *  Valid values are 1 through 65535.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
+ *  port_name are defined, port takes precedence.
+ */
+@property(nonatomic, copy, nullable) NSString *portName;
+
+/**
+ *  Specifies how port is selected for health checking, can be one of following
+ *  values:
+ *  USE_FIXED_PORT: The port number in
+ *  port
+ *  is used for health checking.
+ *  USE_NAMED_PORT: The
+ *  portName
+ *  is used for health checking.
+ *  USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each
+ *  network endpoint is used for health checking. For other backends, the port
+ *  or named port specified in the Backend Service is used for health checking.
+ *  If not specified, HTTP health check follows behavior specified in
+ *  port
+ *  and
+ *  portName
+ *  fields.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HTTPHealthCheck_PortSpecification_UseFixedPort Value
+ *        "USE_FIXED_PORT"
+ *    @arg @c kGTLRCompute_HTTPHealthCheck_PortSpecification_UseNamedPort Value
+ *        "USE_NAMED_PORT"
+ *    @arg @c kGTLRCompute_HTTPHealthCheck_PortSpecification_UseServingPort
+ *        Value "USE_SERVING_PORT"
+ */
+@property(nonatomic, copy, nullable) NSString *portSpecification;
+
+/**
+ *  Specifies the type of proxy header to append before sending data to the
+ *  backend, either NONE or PROXY_V1. The default is NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HTTPHealthCheck_ProxyHeader_None Value "NONE"
+ *    @arg @c kGTLRCompute_HTTPHealthCheck_ProxyHeader_ProxyV1 Value "PROXY_V1"
+ */
+@property(nonatomic, copy, nullable) NSString *proxyHeader;
+
+/**
+ *  The request path of the HTTP health check request. The default value is /.
+ */
+@property(nonatomic, copy, nullable) NSString *requestPath;
+
+/**
+ *  The string to match anywhere in the first 1024 bytes of the response body.
+ *  If left empty (the default value), the status code determines health. The
+ *  response data can only be ASCII.
+ */
+@property(nonatomic, copy, nullable) NSString *response;
+
+@end
+
+
+/**
  *  Represents a legacy HTTP Health Check resource.
  *  Legacy health checks are required by network load balancers. For more
  *  information, read Health Check Concepts.
@@ -15148,85 +17151,6 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unhealthyThreshold;
-
-@end
-
-
-/**
- *  GTLRCompute_HTTPHealthCheck
- */
-@interface GTLRCompute_HTTPHealthCheck : GTLRObject
-
-/**
- *  The value of the host header in the HTTP health check request. If left empty
- *  (default value), the IP on behalf of which this health check is performed
- *  will be used.
- */
-@property(nonatomic, copy, nullable) NSString *host;
-
-/**
- *  The TCP port number for the health check request. The default value is 80.
- *  Valid values are 1 through 65535.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *port;
-
-/**
- *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
- *  port_name are defined, port takes precedence.
- */
-@property(nonatomic, copy, nullable) NSString *portName;
-
-/**
- *  Specifies how port is selected for health checking, can be one of following
- *  values:
- *  USE_FIXED_PORT: The port number in
- *  port
- *  is used for health checking.
- *  USE_NAMED_PORT: The
- *  portName
- *  is used for health checking.
- *  USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each
- *  network endpoint is used for health checking. For other backends, the port
- *  or named port specified in the Backend Service is used for health checking.
- *  If not specified, HTTP health check follows behavior specified in
- *  port
- *  and
- *  portName
- *  fields.
- *
- *  Likely values:
- *    @arg @c kGTLRCompute_HTTPHealthCheck_PortSpecification_UseFixedPort Value
- *        "USE_FIXED_PORT"
- *    @arg @c kGTLRCompute_HTTPHealthCheck_PortSpecification_UseNamedPort Value
- *        "USE_NAMED_PORT"
- *    @arg @c kGTLRCompute_HTTPHealthCheck_PortSpecification_UseServingPort
- *        Value "USE_SERVING_PORT"
- */
-@property(nonatomic, copy, nullable) NSString *portSpecification;
-
-/**
- *  Specifies the type of proxy header to append before sending data to the
- *  backend, either NONE or PROXY_V1. The default is NONE.
- *
- *  Likely values:
- *    @arg @c kGTLRCompute_HTTPHealthCheck_ProxyHeader_None Value "NONE"
- *    @arg @c kGTLRCompute_HTTPHealthCheck_ProxyHeader_ProxyV1 Value "PROXY_V1"
- */
-@property(nonatomic, copy, nullable) NSString *proxyHeader;
-
-/**
- *  The request path of the HTTP health check request. The default value is /.
- */
-@property(nonatomic, copy, nullable) NSString *requestPath;
-
-/**
- *  The string to match anywhere in the first 1024 bytes of the response body.
- *  If left empty (the default value), the status code determines health. The
- *  response data can only be ASCII.
- */
-@property(nonatomic, copy, nullable) NSString *response;
 
 @end
 
@@ -15366,6 +17290,356 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  HttpRouteRuleMatch criteria for a request's query parameter.
+ */
+@interface GTLRCompute_HttpQueryParameterMatch : GTLRObject
+
+/**
+ *  The queryParameterMatch matches if the value of the parameter exactly
+ *  matches the contents of exactMatch.
+ *  Only one of presentMatch, exactMatch and regexMatch must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *exactMatch;
+
+/**
+ *  The name of the query parameter to match. The query parameter must exist in
+ *  the request, in the absence of which the request match fails.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Specifies that the queryParameterMatch matches if the request contains the
+ *  query parameter, irrespective of whether the parameter has a value or not.
+ *  Only one of presentMatch, exactMatch and regexMatch must be set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *presentMatch;
+
+/**
+ *  The queryParameterMatch matches if the value of the parameter matches the
+ *  regular expression specified by regexMatch. For the regular expression
+ *  grammar, please see en.cppreference.com/w/cpp/regex/ecmascript
+ *  Only one of presentMatch, exactMatch and regexMatch must be set.
+ */
+@property(nonatomic, copy, nullable) NSString *regexMatch;
+
+@end
+
+
+/**
+ *  Specifies settings for an HTTP redirect.
+ */
+@interface GTLRCompute_HttpRedirectAction : GTLRObject
+
+/**
+ *  The host that will be used in the redirect response instead of the one that
+ *  was supplied in the request.
+ *  The value must be between 1 and 255 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *hostRedirect;
+
+/**
+ *  If set to true, the URL scheme in the redirected request is set to https. If
+ *  set to false, the URL scheme of the redirected request will remain the same
+ *  as that of the request.
+ *  This must only be set for UrlMaps used in TargetHttpProxys. Setting this
+ *  true for TargetHttpsProxy is not permitted.
+ *  The default is set to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *httpsRedirect;
+
+/**
+ *  The path that will be used in the redirect response instead of the one that
+ *  was supplied in the request.
+ *  Only one of pathRedirect or prefixRedirect must be specified.
+ *  The value must be between 1 and 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *pathRedirect;
+
+/**
+ *  The prefix that replaces the prefixMatch specified in the
+ *  HttpRouteRuleMatch, retaining the remaining portion of the URL before
+ *  redirecting the request.
+ */
+@property(nonatomic, copy, nullable) NSString *prefixRedirect;
+
+/**
+ *  The HTTP Status code to use for this RedirectAction.
+ *  Supported values are:
+ *  - MOVED_PERMANENTLY_DEFAULT, which is the default value and corresponds to
+ *  301.
+ *  - FOUND, which corresponds to 302.
+ *  - SEE_OTHER which corresponds to 303.
+ *  - TEMPORARY_REDIRECT, which corresponds to 307. In this case, the request
+ *  method will be retained.
+ *  - PERMANENT_REDIRECT, which corresponds to 308. In this case, the request
+ *  method will be retained.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HttpRedirectAction_RedirectResponseCode_Found Value
+ *        "FOUND"
+ *    @arg @c kGTLRCompute_HttpRedirectAction_RedirectResponseCode_MovedPermanentlyDefault
+ *        Value "MOVED_PERMANENTLY_DEFAULT"
+ *    @arg @c kGTLRCompute_HttpRedirectAction_RedirectResponseCode_PermanentRedirect
+ *        Value "PERMANENT_REDIRECT"
+ *    @arg @c kGTLRCompute_HttpRedirectAction_RedirectResponseCode_SeeOther
+ *        Value "SEE_OTHER"
+ *    @arg @c kGTLRCompute_HttpRedirectAction_RedirectResponseCode_TemporaryRedirect
+ *        Value "TEMPORARY_REDIRECT"
+ */
+@property(nonatomic, copy, nullable) NSString *redirectResponseCode;
+
+/**
+ *  If set to true, any accompanying query portion of the original URL is
+ *  removed prior to redirecting the request. If set to false, the query portion
+ *  of the original URL is retained.
+ *  The default is set to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stripQuery;
+
+@end
+
+
+/**
+ *  The retry policy associates with HttpRouteRule
+ */
+@interface GTLRCompute_HttpRetryPolicy : GTLRObject
+
+/**
+ *  Specifies the allowed number retries. This number must be > 0.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRetries;
+
+/** Specifies a non-zero timeout per retry attempt. */
+@property(nonatomic, strong, nullable) GTLRCompute_Duration *perTryTimeout;
+
+/**
+ *  Specfies one or more conditions when this retry rule applies. Valid values
+ *  are:
+ *  - 5xx: Loadbalancer will attempt a retry if the backend service responds
+ *  with any 5xx response code, or if the backend service does not respond at
+ *  all, example: disconnects, reset, read timeout, connection failure, and
+ *  refused streams.
+ *  - gateway-error: Similar to 5xx, but only applies to response codes 502, 503
+ *  or 504.
+ *  -
+ *  - connect-failure: Loadbalancer will retry on failures connecting to backend
+ *  services, for example due to connection timeouts.
+ *  - retriable-4xx: Loadbalancer will retry for retriable 4xx response codes.
+ *  Currently the only retriable error supported is 409.
+ *  - refused-stream:Loadbalancer will retry if the backend service resets the
+ *  stream with a REFUSED_STREAM error code. This reset type indicates that it
+ *  is safe to retry.
+ *  - cancelledLoadbalancer will retry if the gRPC status code in the response
+ *  header is set to cancelled
+ *  - deadline-exceeded: Loadbalancer will retry if the gRPC status code in the
+ *  response header is set to deadline-exceeded
+ *  - resource-exhausted: Loadbalancer will retry if the gRPC status code in the
+ *  response header is set to resource-exhausted
+ *  - unavailable: Loadbalancer will retry if the gRPC status code in the
+ *  response header is set to unavailable
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *retryConditions;
+
+@end
+
+
+/**
+ *  GTLRCompute_HttpRouteAction
+ */
+@interface GTLRCompute_HttpRouteAction : GTLRObject
+
+/**
+ *  The specification for allowing client side cross-origin requests. Please see
+ *  W3C Recommendation for Cross Origin Resource Sharing
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_CorsPolicy *corsPolicy;
+
+/**
+ *  The specification for fault injection introduced into traffic to test the
+ *  resiliency of clients to backend service failure. As part of fault
+ *  injection, when clients send requests to a backend service, delays can be
+ *  introduced by Loadbalancer on a percentage of requests before sending those
+ *  request to the backend service. Similarly requests from clients can be
+ *  aborted by the Loadbalancer for a percentage of requests.
+ *  timeout and retry_policy will be ignored by clients that are configured with
+ *  a fault_injection_policy.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpFaultInjection *faultInjectionPolicy;
+
+/**
+ *  Specifies the policy on how requests intended for the route's backends are
+ *  shadowed to a separate mirrored backend service. Loadbalancer does not wait
+ *  for responses from the shadow service. Prior to sending traffic to the
+ *  shadow service, the host / authority header is suffixed with -shadow.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_RequestMirrorPolicy *requestMirrorPolicy;
+
+/** Specifies the retry policy associated with this route. */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpRetryPolicy *retryPolicy;
+
+/**
+ *  Specifies the timeout for the selected route. Timeout is computed from the
+ *  time the request is has been fully processed (i.e. end-of-stream) up until
+ *  the response has been completely processed. Timeout includes all retries.
+ *  If not specified, the default value is 15 seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Duration *timeout;
+
+/**
+ *  The spec to modify the URL of the request, prior to forwarding the request
+ *  to the matched service
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_UrlRewrite *urlRewrite;
+
+/**
+ *  A list of weighted backend services to send traffic to when a route match
+ *  occurs. The weights determine the fraction of traffic that flows to their
+ *  corresponding backend service. If all traffic needs to go to a single
+ *  backend service, there must be one weightedBackendService with weight set to
+ *  a non 0 number.
+ *  Once a backendService is identified and before forwarding the request to the
+ *  backend service, advanced routing actions like Url rewrites and header
+ *  transformations are applied depending on additional settings specified in
+ *  this HttpRouteAction.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_WeightedBackendService *> *weightedBackendServices;
+
+@end
+
+
+/**
+ *  An HttpRouteRule specifies how to match an HTTP request and the
+ *  corresponding routing action that load balancing proxies will perform.
+ */
+@interface GTLRCompute_HttpRouteRule : GTLRObject
+
+/**
+ *  Specifies changes to request and response headers that need to take effect
+ *  for the selected backendService.
+ *  The headerAction specified here are applied before the matching
+ *  pathMatchers[].headerAction and after
+ *  pathMatchers[].routeRules[].routeAction.weightedBackendService.backendServiceWeightAction[].headerAction
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpHeaderAction *headerAction;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_HttpRouteRuleMatch *> *matchRules;
+
+/**
+ *  In response to a matching matchRule, the load balancer performs advanced
+ *  routing actions like URL rewrites, header transformations, etc. prior to
+ *  forwarding the request to the selected backend. If routeAction specifies any
+ *  weightedBackendServices, service must not be set. Conversely if service is
+ *  set, routeAction cannot contain any weightedBackendServices.
+ *  Only one of routeAction or urlRedirect must be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpRouteAction *routeAction;
+
+/**
+ *  The full or partial URL of the backend service resource to which traffic is
+ *  directed if this rule is matched. If routeAction is additionally specified,
+ *  advanced routing actions like URL Rewrites, etc. take effect prior to
+ *  sending the request to the backend. However, if service is specified,
+ *  routeAction cannot contain any weightedBackendService s. Conversely, if
+ *  routeAction specifies any weightedBackendServices, service must not be
+ *  specified.
+ *  Only one of urlRedirect, service or routeAction.weightedBackendService must
+ *  be set.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  When this rule is matched, the request is redirected to a URL specified by
+ *  urlRedirect.
+ *  If urlRedirect is specified, service or routeAction must not be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpRedirectAction *urlRedirect;
+
+@end
+
+
+/**
+ *  HttpRouteRuleMatch specifies a set of criteria for matching requests to an
+ *  HttpRouteRule. All specified criteria must be satisfied for a match to
+ *  occur.
+ */
+@interface GTLRCompute_HttpRouteRuleMatch : GTLRObject
+
+/**
+ *  For satifying the matchRule condition, the path of the request must exactly
+ *  match the value specified in fullPathMatch after removing any query
+ *  parameters and anchor that may be part of the original URL.
+ *  FullPathMatch must be between 1 and 1024 characters.
+ *  Only one of prefixMatch, fullPathMatch or regexMatch must be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *fullPathMatch;
+
+/**
+ *  Specifies a list of header match criteria, all of which must match
+ *  corresponding headers in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_HttpHeaderMatch *> *headerMatches;
+
+/**
+ *  Specifies that prefixMatch and fullPathMatch matches are case sensitive.
+ *  The default value is false.
+ *  caseSensitive must not be used with regexMatch.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreCase;
+
+/**
+ *  Opaque filter criteria used by Loadbalancer to restrict routing
+ *  configuration to a limited set xDS compliant clients. In their xDS requests
+ *  to Loadbalancer, xDS clients present node metadata. If a match takes place,
+ *  the relevant routing configuration is made available to those proxies.
+ *  For each metadataFilter in this list, if its filterMatchCriteria is set to
+ *  MATCH_ANY, at least one of the filterLabels must match the corresponding
+ *  label provided in the metadata. If its filterMatchCriteria is set to
+ *  MATCH_ALL, then all of its filterLabels must match with corresponding labels
+ *  in the provided metadata.
+ *  metadataFilters specified here can be overrides those specified in
+ *  ForwardingRule that refers to this UrlMap.
+ *  metadataFilters only applies to Loadbalancers that have their
+ *  loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_MetadataFilter *> *metadataFilters;
+
+/**
+ *  For satifying the matchRule condition, the request's path must begin with
+ *  the specified prefixMatch. prefixMatch must begin with a /.
+ *  The value must be between 1 and 1024 characters.
+ *  Only one of prefixMatch, fullPathMatch or regexMatch must be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *prefixMatch;
+
+/**
+ *  Specifies a list of query parameter match criteria, all of which must match
+ *  corresponding query parameters in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_HttpQueryParameterMatch *> *queryParameterMatches;
+
+/**
+ *  For satifying the matchRule condition, the path of the request must satisfy
+ *  the regular expression specified in regexMatch after removing any query
+ *  parameters and anchor supplied with the original URL. For regular expression
+ *  grammar please see en.cppreference.com/w/cpp/regex/ecmascript
+ *  Only one of prefixMatch, fullPathMatch or regexMatch must be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *regexMatch;
 
 @end
 
@@ -16137,11 +18411,20 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_AttachedDisk *> *disks;
 
+/** Enables display device for the instance. */
+@property(nonatomic, strong, nullable) GTLRCompute_DisplayDevice *displayDevice;
+
 /**
  *  A list of the type and count of accelerator cards attached to the instance.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_AcceleratorConfig *> *guestAccelerators;
 
+/**
+ *  Specifies the hostname of the instance. The specified hostname must be
+ *  RFC1035 compliant. If hostname is not specified, the default hostname is
+ *  [INSTANCE_NAME].c.[PROJECT_ID].internal when using the global DNS, and
+ *  [INSTANCE_NAME].[ZONE].c.[PROJECT_ID].internal when using zonal DNS.
+ */
 @property(nonatomic, copy, nullable) NSString *hostname;
 
 /**
@@ -18965,6 +21248,29 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  HttpRouteRuleMatch criteria for field values that must stay within the
+ *  specified integer range.
+ */
+@interface GTLRCompute_Int64RangeMatch : GTLRObject
+
+/**
+ *  The end of the range (exclusive) in signed long integer format.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rangeEnd;
+
+/**
+ *  The start of the range (inclusive) in signed long integer format.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rangeStart;
+
+@end
+
+
+/**
  *  Represents an Interconnect resource.
  *  An Interconnect resource is a dedicated connection between the GCP network
  *  and your on-premises network. For more information, read the Dedicated
@@ -19067,6 +21373,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  of the entire bundle.
  *
  *  Likely values:
+ *    @arg @c kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet100gLr Value
+ *        "LINK_TYPE_ETHERNET_100G_LR"
  *    @arg @c kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet10gLr Value
  *        "LINK_TYPE_ETHERNET_10G_LR"
  */
@@ -19196,6 +21504,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  - BPS_2G: 2 Gbit/s
  *  - BPS_5G: 5 Gbit/s
  *  - BPS_10G: 10 Gbit/s
+ *  - BPS_20G: 20 Gbit/s
+ *  - BPS_50G: 50 Gbit/s
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_InterconnectAttachment_Bandwidth_Bps100m Value
@@ -19205,6 +21515,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_InterconnectAttachment_Bandwidth_Bps1g Value "BPS_1G"
  *    @arg @c kGTLRCompute_InterconnectAttachment_Bandwidth_Bps200m Value
  *        "BPS_200M"
+ *    @arg @c kGTLRCompute_InterconnectAttachment_Bandwidth_Bps20g Value
+ *        "BPS_20G"
  *    @arg @c kGTLRCompute_InterconnectAttachment_Bandwidth_Bps2g Value "BPS_2G"
  *    @arg @c kGTLRCompute_InterconnectAttachment_Bandwidth_Bps300m Value
  *        "BPS_300M"
@@ -19212,6 +21524,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "BPS_400M"
  *    @arg @c kGTLRCompute_InterconnectAttachment_Bandwidth_Bps500m Value
  *        "BPS_500M"
+ *    @arg @c kGTLRCompute_InterconnectAttachment_Bandwidth_Bps50g Value
+ *        "BPS_50G"
  *    @arg @c kGTLRCompute_InterconnectAttachment_Bandwidth_Bps50m Value
  *        "BPS_50M"
  *    @arg @c kGTLRCompute_InterconnectAttachment_Bandwidth_Bps5g Value "BPS_5G"
@@ -21771,6 +24085,77 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  Opaque filter criteria used by loadbalancers to restrict routing
+ *  configuration to a limited set of loadbalancing proxies. Proxies and
+ *  sidecars involved in loadbalancing would typically present metadata to the
+ *  loadbalancers which need to match criteria specified here. If a match takes
+ *  place, the relevant routing configuration is made available to those
+ *  proxies.
+ *  For each metadataFilter in this list, if its filterMatchCriteria is set to
+ *  MATCH_ANY, at least one of the filterLabels must match the corresponding
+ *  label provided in the metadata. If its filterMatchCriteria is set to
+ *  MATCH_ALL, then all of its filterLabels must match with corresponding labels
+ *  in the provided metadata.
+ *  An example for using metadataFilters would be: if loadbalancing involves
+ *  Envoys, they will only receive routing configuration when values in
+ *  metadataFilters match values supplied in <a
+ *  href="https://www.envoyproxy.io/docs/envoy/latest/api-v2/api/v2/core/base.proto#envoy-api-msg-core-node"
+ *  Node metadata of their XDS requests to loadbalancers.
+ */
+@interface GTLRCompute_MetadataFilter : GTLRObject
+
+/**
+ *  The list of label value pairs that must match labels in the provided
+ *  metadata based on filterMatchCriteria
+ *  This list must not be empty and can have at the most 64 entries.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_MetadataFilterLabelMatch *> *filterLabels;
+
+/**
+ *  Specifies how individual filterLabel matches within the list of filterLabels
+ *  contribute towards the overall metadataFilter match.
+ *  Supported values are:
+ *  - MATCH_ANY: At least one of the filterLabels must have a matching label in
+ *  the provided metadata.
+ *  - MATCH_ALL: All filterLabels must have matching labels in the provided
+ *  metadata.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_MetadataFilter_FilterMatchCriteria_MatchAll Value
+ *        "MATCH_ALL"
+ *    @arg @c kGTLRCompute_MetadataFilter_FilterMatchCriteria_MatchAny Value
+ *        "MATCH_ANY"
+ *    @arg @c kGTLRCompute_MetadataFilter_FilterMatchCriteria_NotSet Value
+ *        "NOT_SET"
+ */
+@property(nonatomic, copy, nullable) NSString *filterMatchCriteria;
+
+@end
+
+
+/**
+ *  MetadataFilter label name value pairs that are expected to match
+ *  corresponding labels presented as metadata to the loadbalancer.
+ */
+@interface GTLRCompute_MetadataFilterLabelMatch : GTLRObject
+
+/**
+ *  Name of metadata label.
+ *  The name can have a maximum length of 1024 characters and must be at least 1
+ *  character long.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The value of the label must match the specified value.
+ *  value can have a maximum length of 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  The named port. For example: .
  */
 @interface GTLRCompute_NamedPort : GTLRObject
@@ -21895,9 +24280,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  Optional IPv4 address of network endpoint. The IP address must belong to a
- *  VM in GCE (either the primary IP or as part of an aliased IP range). If the
- *  IP address is not specified, then the primary IP address for the VM instance
- *  in the network that the network endpoint group belongs to will be used.
+ *  VM in Compute Engine (either the primary IP or as part of an aliased IP
+ *  range). If the IP address is not specified, then the primary IP address for
+ *  the VM instance in the network that the network endpoint group belongs to
+ *  will be used.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
@@ -22856,6 +25242,20 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSNumber *exchangeSubnetRoutes;
 
 /**
+ *  Whether to export the custom routes to peer network.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exportCustomRoutes;
+
+/**
+ *  Whether to import the custom routes from peer network.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *importCustomRoutes;
+
+/**
  *  Name of this peering. Provided by the client when the peering is created.
  *  The name must comply with RFC1035. Specifically, the name must be 1-63
  *  characters long and match regular expression `[a-z]([-a-z0-9]*[a-z0-9])?`.
@@ -22961,6 +25361,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** Name of the peering, which should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  GTLRCompute_NetworksUpdatePeeringRequest
+ */
+@interface GTLRCompute_NetworksUpdatePeeringRequest : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCompute_NetworkPeering *networkPeering;
 
 @end
 
@@ -23387,6 +25797,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @interface GTLRCompute_NodeGroupsDeleteNodesRequest : GTLRObject
 
+/** Names of the nodes to delete. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nodes;
 
 @end
@@ -24722,7 +27133,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSNumber *httpErrorStatusCode;
 
 /**
- *  [Output Only] The unique identifier for the resource. This identifier is
+ *  [Output Only] The unique identifier for the operation. This identifier is
  *  defined by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -24743,7 +27154,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** [Output Only] Name of the resource. */
+/** [Output Only] Name of the operation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -25361,11 +27772,132 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  Settings controlling eviction of unhealthy hosts from the load balancing
+ *  pool.
+ */
+@interface GTLRCompute_OutlierDetection : GTLRObject
+
+/**
+ *  The base time that a host is ejected for. The real time is equal to the base
+ *  time multiplied by the number of times the host has been ejected. Defaults
+ *  to 30000ms or 30s.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Duration *baseEjectionTime;
+
+/**
+ *  Number of errors before a host is ejected from the connection pool. When the
+ *  backend host is accessed over HTTP, a 5xx return code qualifies as an error.
+ *  Defaults to 5.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consecutiveErrors;
+
+/**
+ *  The number of consecutive gateway failures (502, 503, 504 status or
+ *  connection errors that are mapped to one of those status codes) before a
+ *  consecutive gateway failure ejection occurs. Defaults to 5.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consecutiveGatewayFailure;
+
+/**
+ *  The percentage chance that a host will be actually ejected when an outlier
+ *  status is detected through consecutive 5xx. This setting can be used to
+ *  disable ejection or to ramp it up slowly. Defaults to 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforcingConsecutiveErrors;
+
+/**
+ *  The percentage chance that a host will be actually ejected when an outlier
+ *  status is detected through consecutive gateway failures. This setting can be
+ *  used to disable ejection or to ramp it up slowly. Defaults to 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforcingConsecutiveGatewayFailure;
+
+/**
+ *  The percentage chance that a host will be actually ejected when an outlier
+ *  status is detected through success rate statistics. This setting can be used
+ *  to disable ejection or to ramp it up slowly. Defaults to 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforcingSuccessRate;
+
+/**
+ *  Time interval between ejection sweep analysis. This can result in both new
+ *  ejections as well as hosts being returned to service. Defaults to 10
+ *  seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Duration *interval;
+
+/**
+ *  Maximum percentage of hosts in the load balancing pool for the backend
+ *  service that can be ejected. Defaults to 10%.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxEjectionPercent;
+
+/**
+ *  The number of hosts in a cluster that must have enough request volume to
+ *  detect success rate outliers. If the number of hosts is less than this
+ *  setting, outlier detection via success rate statistics is not performed for
+ *  any host in the cluster. Defaults to 5.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successRateMinimumHosts;
+
+/**
+ *  The minimum number of total requests that must be collected in one interval
+ *  (as defined by the interval duration above) to include this host in success
+ *  rate based outlier detection. If the volume is lower than this setting,
+ *  outlier detection via success rate statistics is not performed for that
+ *  host. Defaults to 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successRateRequestVolume;
+
+/**
+ *  This factor is used to determine the ejection threshold for success rate
+ *  outlier ejection. The ejection threshold is the difference between the mean
+ *  success rate, and the product of this factor and the standard deviation of
+ *  the mean success rate: mean - (stdev * success_rate_stdev_factor). This
+ *  factor is divided by a thousand to get a double. That is, if the desired
+ *  factor is 1.9, the runtime value should be 1900. Defaults to 1900.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successRateStdevFactor;
+
+@end
+
+
+/**
  *  A matcher for the path portion of the URL. The BackendService from the
  *  longest-matched rule will serve the URL. If no rule was matched, the default
  *  service will be used.
  */
 @interface GTLRCompute_PathMatcher : GTLRObject
+
+/**
+ *  defaultRouteAction takes effect when none of the pathRules or routeRules
+ *  match. The load balancer performs advanced routing actions like URL
+ *  rewrites, header transformations, etc. prior to forwarding the request to
+ *  the selected backend. If defaultRouteAction specifies any
+ *  weightedBackendServices, defaultService must not be set. Conversely if
+ *  defaultService is set, defaultRouteAction cannot contain any
+ *  weightedBackendServices.
+ *  Only one of defaultRouteAction or defaultUrlRedirect must be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpRouteAction *defaultRouteAction;
 
 /**
  *  The full or partial URL to the BackendService resource. This will be used if
@@ -25390,12 +27922,28 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *defaultService;
 
 /**
+ *  When when none of the specified pathRules or routeRules match, the request
+ *  is redirected to a URL specified by defaultUrlRedirect.
+ *  If defaultUrlRedirect is specified, defaultService or defaultRouteAction
+ *  must not be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpRedirectAction *defaultUrlRedirect;
+
+/**
  *  An optional description of this resource. Provide this property when you
  *  create the resource.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Specifies changes to request and response headers that need to take effect
+ *  for the selected backendService.
+ *  HeaderAction specified here are applied after the matching HttpRouteRule
+ *  HeaderAction and before the HeaderAction in the UrlMap
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpHeaderAction *headerAction;
 
 /** The name to which this PathMatcher is referred by the HostRule. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -25407,9 +27955,20 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  longest-path-first basis.
  *  For example: a pathRule with a path /a/b/c/ * will match before /a/b/ *
  *  irrespective of the order in which those paths appear in this list.
- *  Only one of pathRules or routeRules must be set.
+ *  Within a given pathMatcher, only one of pathRules or routeRules must be set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_PathRule *> *pathRules;
+
+/**
+ *  The list of ordered HTTP route rules. Use this list instead of pathRules
+ *  when advanced route matching and routing actions are desired. The order of
+ *  specifying routeRules matters: the first rule that matches will cause its
+ *  specified routing action to take effect.
+ *  Within a given pathMatcher, only one of pathRules or routeRules must be set.
+ *  routeRules are not supported in UrlMaps intended for External Load
+ *  balancers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_HttpRouteRule *> *routeRules;
 
 @end
 
@@ -25429,6 +27988,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
 /**
+ *  In response to a matching path, the load balancer performs advanced routing
+ *  actions like URL rewrites, header transformations, etc. prior to forwarding
+ *  the request to the selected backend. If routeAction specifies any
+ *  weightedBackendServices, service must not be set. Conversely if service is
+ *  set, routeAction cannot contain any weightedBackendServices.
+ *  Only one of routeAction or urlRedirect must be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpRouteAction *routeAction;
+
+/**
  *  The full or partial URL of the backend service resource to which traffic is
  *  directed if this rule is matched. If routeAction is additionally specified,
  *  advanced routing actions like URL Rewrites, etc. take effect prior to
@@ -25440,6 +28009,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  be set.
  */
 @property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  When a path pattern is matched, the request is redirected to a URL specified
+ *  by urlRedirect.
+ *  If urlRedirect is specified, service or routeAction must not be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpRedirectAction *urlRedirect;
 
 @end
 
@@ -25483,7 +28059,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  that etag in the request to `setIamPolicy` to ensure that their change will
  *  be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -25509,7 +28085,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_Rule *> *rules;
 
 /**
- *  Deprecated.
+ *  Specifies the format of the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset.
  *
  *  Uses NSNumber of intValue.
  */
@@ -25723,9 +28304,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_BackendServices Value "BACKEND_SERVICES"
  *    @arg @c kGTLRCompute_Quota_Metric_C2Cpus Value "C2_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_Commitments Value "COMMITMENTS"
+ *    @arg @c kGTLRCompute_Quota_Metric_CommittedC2Cpus Value
+ *        "COMMITTED_C2_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedCpus Value "COMMITTED_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb Value
  *        "COMMITTED_LOCAL_SSD_TOTAL_GB"
+ *    @arg @c kGTLRCompute_Quota_Metric_CommittedN2Cpus Value
+ *        "COMMITTED_N2_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedNvidiaK80Gpus Value
  *        "COMMITTED_NVIDIA_K80_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedNvidiaP100Gpus Value
@@ -27031,17 +29616,57 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  GTLRCompute_RegionTargetHttpsProxiesSetSslCertificatesRequest
+ */
+@interface GTLRCompute_RegionTargetHttpsProxiesSetSslCertificatesRequest : GTLRObject
+
+/**
+ *  New set of SslCertificate resources to associate with this TargetHttpsProxy
+ *  resource. Currently exactly one SslCertificate resource must be specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sslCertificates;
+
+@end
+
+
+/**
+ *  GTLRCompute_RegionUrlMapsValidateRequest
+ */
+@interface GTLRCompute_RegionUrlMapsValidateRequest : GTLRObject
+
+/** Content of the UrlMap to be validated. */
+@property(nonatomic, strong, nullable) GTLRCompute_UrlMap *resource;
+
+@end
+
+
+/**
+ *  A policy that specifies how requests intended for the route's backends are
+ *  shadowed to a separate mirrored backend service. Loadbalancer does not wait
+ *  for responses from the shadow service. Prior to sending traffic to the
+ *  shadow service, the host / authority header is suffixed with -shadow.
+ */
+@interface GTLRCompute_RequestMirrorPolicy : GTLRObject
+
+/**
+ *  The full or partial URL to the BackendService resource being mirrored to.
+ */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+@end
+
+
+/**
  *  Represents a reservation resource. A reservation ensures that capacity is
  *  held in a specific zone even if the reserved VMs are not running. For more
  *  information, read Reserving zonal resources. (== resource_for
- *  beta.reservations ==) (== resource_for v1.reservations ==) (== NextID: 13
- *  ==)
+ *  beta.reservations ==) (== resource_for v1.reservations ==)
  */
 @interface GTLRCompute_Reservation : GTLRObject
 
 /**
- *  [OutputOnly] Full or partial url for parent commitment for reservations
- *  which are tied to a commitment.
+ *  [OutputOnly] Full or partial URL to a parent commitment. This field displays
+ *  for reservations that are tied to a commitment.
  */
 @property(nonatomic, copy, nullable) NSString *commitment;
 
@@ -27111,8 +29736,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  Zone in which the reservation resides, must be provided if reservation is
- *  created with commitment creation.
+ *  Zone in which the reservation resides. A zone must be provided if the
+ *  reservation is created within a commitment.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -28225,7 +30850,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) GTLRCompute_ResourcePolicySnapshotSchedulePolicySnapshotProperties_Labels *labels;
 
 /**
- *  GCS bucket storage location of the auto snapshot (regional or
+ *  Cloud Storage bucket storage location of the auto snapshot (regional or
  *  multi-regional).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *storageLocations;
@@ -28999,8 +31624,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *managementType;
 
 /**
- *  Name of this BGP peer. The name must be 1-63 characters long and comply with
- *  RFC1035.
+ *  Name of this BGP peer. The name must be 1-63 characters long, and comply
+ *  with RFC1035. Specifically, the name must be 1-63 characters long and match
+ *  the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first
+ *  character must be a lowercase letter, and all following characters must be a
+ *  dash, lowercase letter, or digit, except the last character, which cannot be
+ *  a dash.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -29066,8 +31695,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *managementType;
 
 /**
- *  Name of this interface entry. The name must be 1-63 characters long and
- *  comply with RFC1035.
+ *  Name of this interface entry. The name must be 1-63 characters long, and
+ *  comply with RFC1035. Specifically, the name must be 1-63 characters long and
+ *  match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the
+ *  first character must be a lowercase letter, and all following characters
+ *  must be a dash, lowercase letter, or digit, except the last character, which
+ *  cannot be a dash.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -30423,7 +33056,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *storageBytesStatus;
 
 /**
- *  GCS bucket storage location of the snapshot (regional or multi-regional).
+ *  Cloud Storage bucket storage location of the snapshot (regional or
+ *  multi-regional).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *storageLocations;
 
@@ -30659,8 +33293,158 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, copy, nullable) NSString *privateKey;
 
+/**
+ *  [Output Only] URL of the region where the regional SSL Certificate resides.
+ *  This field is not applicable to global SSL Certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
 /** [Output only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslCertificateAggregatedList
+ */
+@interface GTLRCompute_SslCertificateAggregatedList : GTLRObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** A list of SslCertificatesScopedList resources. */
+@property(nonatomic, strong, nullable) GTLRCompute_SslCertificateAggregatedList_Items *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#sslCertificateAggregatedList
+ *  for lists of SSL Certificates.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_SslCertificateAggregatedList_Warning *warning;
+
+@end
+
+
+/**
+ *  A list of SslCertificatesScopedList resources.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_SslCertificatesScopedList. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCompute_SslCertificateAggregatedList_Items : GTLRObject
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_SslCertificateAggregatedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SslCertificateAggregatedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslCertificateAggregatedList_Warning_Data_Item
+ */
+@interface GTLRCompute_SslCertificateAggregatedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -30786,6 +33570,117 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  GTLRCompute_SslCertificateList_Warning_Data_Item
  */
 @interface GTLRCompute_SslCertificateList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslCertificatesScopedList
+ */
+@interface GTLRCompute_SslCertificatesScopedList : GTLRObject
+
+/** List of SslCertificates contained in this scope. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SslCertificate *> *sslCertificates;
+
+/**
+ *  Informational warning which replaces the list of backend services when the
+ *  list is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SslCertificatesScopedList_Warning *warning;
+
+@end
+
+
+/**
+ *  Informational warning which replaces the list of backend services when the
+ *  list is empty.
+ */
+@interface GTLRCompute_SslCertificatesScopedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_SslCertificatesScopedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_SslCertificatesScopedList_Warning_Data_Item
+ */
+@interface GTLRCompute_SslCertificatesScopedList_Warning_Data_Item : GTLRObject
 
 /**
  *  [Output Only] A key that provides more detail on the warning being returned.
@@ -31321,6 +34216,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  This field denotes the VPC flow logging options for this subnetwork. If
+ *  logging is enabled, logs are exported to Stackdriver.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SubnetworkLogConfig *logConfig;
+
+/**
  *  The name of the resource, provided by the client when initially creating the
  *  resource. The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
@@ -31349,10 +34250,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSNumber *privateIpGoogleAccess;
 
 /**
+ *  The purpose of the resource. This field can be either PRIVATE_RFC_1918 or
+ *  INTERNAL_HTTPS_LOAD_BALANCER. A subnetwork with purpose set to
+ *  INTERNAL_HTTPS_LOAD_BALANCER is a user-created subnetwork that is reserved
+ *  for Internal HTTP(S) Load Balancing. If unspecified, the purpose defaults to
+ *  PRIVATE_RFC_1918.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Subnetwork_Purpose_InternalHttpsLoadBalancer Value
+ *        "INTERNAL_HTTPS_LOAD_BALANCER"
+ *    @arg @c kGTLRCompute_Subnetwork_Purpose_Private Value "PRIVATE"
+ *    @arg @c kGTLRCompute_Subnetwork_Purpose_PrivateRfc1918 Value
+ *        "PRIVATE_RFC_1918"
+ */
+@property(nonatomic, copy, nullable) NSString *purpose;
+
+/**
  *  URL of the region where the Subnetwork resides. This field can be set only
  *  at resource creation time.
  */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  The role of subnetwork. Currenly, this field is only used when purpose =
+ *  INTERNAL_HTTPS_LOAD_BALANCER. The value can be set to ACTIVE or BACKUP. An
+ *  ACTIVE subnetwork is one that is currently being used for Internal HTTP(S)
+ *  Load Balancing. A BACKUP subnetwork is one that is ready to be promoted to
+ *  ACTIVE or is currently draining. This field can be updated with a patch
+ *  request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Subnetwork_Role_Active Value "ACTIVE"
+ *    @arg @c kGTLRCompute_Subnetwork_Role_Backup Value "BACKUP"
+ */
+@property(nonatomic, copy, nullable) NSString *role;
 
 /**
  *  An array of configurations for secondary IP ranges for VM instances
@@ -31364,6 +34295,20 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  [Output Only] The state of the subnetwork, which can be one of READY or
+ *  DRAINING. A subnetwork that is READY is ready to be used. The state of
+ *  DRAINING is only applicable to subnetworks that have the purpose set to
+ *  INTERNAL_HTTPS_LOAD_BALANCER and indicates that connections to the load
+ *  balancer are being drained. A subnetwork that is draining cannot be used or
+ *  modified until it reaches a status of READY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Subnetwork_State_Draining Value "DRAINING"
+ *    @arg @c kGTLRCompute_Subnetwork_State_Ready Value "READY"
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -31655,6 +34600,69 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  The available logging options for this subnetwork.
+ */
+@interface GTLRCompute_SubnetworkLogConfig : GTLRObject
+
+/**
+ *  Can only be specified if VPC flow logging for this subnetwork is enabled.
+ *  Toggles the aggregation interval for collecting flow logs. Increasing the
+ *  interval time will reduce the amount of generated flow logs for long lasting
+ *  connections. Default is an interval of 5 seconds per connection.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval10Min
+ *        Value "INTERVAL_10_MIN"
+ *    @arg @c kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval15Min
+ *        Value "INTERVAL_15_MIN"
+ *    @arg @c kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval1Min
+ *        Value "INTERVAL_1_MIN"
+ *    @arg @c kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval30Sec
+ *        Value "INTERVAL_30_SEC"
+ *    @arg @c kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval5Min
+ *        Value "INTERVAL_5_MIN"
+ *    @arg @c kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval5Sec
+ *        Value "INTERVAL_5_SEC"
+ */
+@property(nonatomic, copy, nullable) NSString *aggregationInterval;
+
+/**
+ *  Whether to enable flow logging for this subnetwork. If this field is not
+ *  explicitly set, it will not appear in get listings. If not set the default
+ *  behavior is to disable flow logging.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enable;
+
+/**
+ *  Can only be specified if VPC flow logging for this subnetwork is enabled.
+ *  The value of the field must be in [0, 1]. Set the sampling rate of VPC flow
+ *  logs within the subnetwork where 1.0 means all collected logs are reported
+ *  and 0.0 means no logs are reported. Default is 0.5, which means half of all
+ *  collected logs are reported.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flowSampling;
+
+/**
+ *  Can only be specified if VPC flow logs for this subnetwork is enabled.
+ *  Configures whether all, none or a subset of metadata fields should be added
+ *  to the reported VPC flow logs. Default is INCLUDE_ALL_METADATA.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SubnetworkLogConfig_Metadata_ExcludeAllMetadata Value
+ *        "EXCLUDE_ALL_METADATA"
+ *    @arg @c kGTLRCompute_SubnetworkLogConfig_Metadata_IncludeAllMetadata Value
+ *        "INCLUDE_ALL_METADATA"
+ */
+@property(nonatomic, copy, nullable) NSString *metadata;
+
+@end
+
+
+/**
  *  Represents a secondary IP range of a subnetwork.
  */
 @interface GTLRCompute_SubnetworkSecondaryRange : GTLRObject
@@ -31845,6 +34853,117 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  GTLRCompute_TargetHttpProxiesScopedList
+ */
+@interface GTLRCompute_TargetHttpProxiesScopedList : GTLRObject
+
+/** A list of TargetHttpProxies contained in this scope. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetHttpProxy *> *targetHttpProxies;
+
+/**
+ *  Informational warning which replaces the list of backend services when the
+ *  list is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_TargetHttpProxiesScopedList_Warning *warning;
+
+@end
+
+
+/**
+ *  Informational warning which replaces the list of backend services when the
+ *  list is empty.
+ */
+@interface GTLRCompute_TargetHttpProxiesScopedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetHttpProxiesScopedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_TargetHttpProxiesScopedList_Warning_Data_Item
+ */
+@interface GTLRCompute_TargetHttpProxiesScopedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Represents a Target HTTP Proxy resource.
  *  A target HTTP proxy is a component of certain types of load balancers.
  *  Global forwarding rules reference a target HTTP proxy, and the target proxy
@@ -31892,6 +35011,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  [Output Only] URL of the region where the regional Target HTTP Proxy
+ *  resides. This field is not applicable to global Target HTTP Proxies.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -31901,6 +35026,55 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, copy, nullable) NSString *urlMap;
 
+@end
+
+
+/**
+ *  GTLRCompute_TargetHttpProxyAggregatedList
+ */
+@interface GTLRCompute_TargetHttpProxyAggregatedList : GTLRObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** A list of TargetHttpProxiesScopedList resources. */
+@property(nonatomic, strong, nullable) GTLRCompute_TargetHttpProxyAggregatedList_Items *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#targetHttpProxyAggregatedList
+ *  for lists of Target HTTP Proxies.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+@end
+
+
+/**
+ *  A list of TargetHttpProxiesScopedList resources.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_TargetHttpProxiesScopedList. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRCompute_TargetHttpProxyAggregatedList_Items : GTLRObject
 @end
 
 
@@ -32047,6 +35221,117 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  GTLRCompute_TargetHttpsProxiesScopedList
+ */
+@interface GTLRCompute_TargetHttpsProxiesScopedList : GTLRObject
+
+/** A list of TargetHttpsProxies contained in this scope. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetHttpsProxy *> *targetHttpsProxies;
+
+/**
+ *  Informational warning which replaces the list of backend services when the
+ *  list is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_TargetHttpsProxiesScopedList_Warning *warning;
+
+@end
+
+
+/**
+ *  Informational warning which replaces the list of backend services when the
+ *  list is empty.
+ */
+@interface GTLRCompute_TargetHttpsProxiesScopedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetHttpsProxiesScopedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_TargetHttpsProxiesScopedList_Warning_Data_Item
+ */
+@interface GTLRCompute_TargetHttpsProxiesScopedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  GTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest
  */
 @interface GTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest : GTLRObject
@@ -32145,6 +35430,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, copy, nullable) NSString *quicOverride;
 
+/**
+ *  [Output Only] URL of the region where the regional TargetHttpsProxy resides.
+ *  This field is not applicable to global TargetHttpsProxies.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -32171,6 +35462,151 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  - global/urlMaps/url-map
  */
 @property(nonatomic, copy, nullable) NSString *urlMap;
+
+@end
+
+
+/**
+ *  GTLRCompute_TargetHttpsProxyAggregatedList
+ */
+@interface GTLRCompute_TargetHttpsProxyAggregatedList : GTLRObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** A list of TargetHttpsProxiesScopedList resources. */
+@property(nonatomic, strong, nullable) GTLRCompute_TargetHttpsProxyAggregatedList_Items *items;
+
+/**
+ *  [Output Only] Type of resource. Always
+ *  compute#targetHttpsProxyAggregatedList for lists of Target HTTP Proxies.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_TargetHttpsProxyAggregatedList_Warning *warning;
+
+@end
+
+
+/**
+ *  A list of TargetHttpsProxiesScopedList resources.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_TargetHttpsProxiesScopedList. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRCompute_TargetHttpsProxyAggregatedList_Items : GTLRObject
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_TargetHttpsProxyAggregatedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetHttpsProxyAggregatedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_TargetHttpsProxyAggregatedList_Warning_Data_Item
+ */
+@interface GTLRCompute_TargetHttpsProxyAggregatedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -32911,6 +36347,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "CLIENT_IP_PROTO"
  *    @arg @c kGTLRCompute_TargetPool_SessionAffinity_GeneratedCookie Value
  *        "GENERATED_COOKIE"
+ *    @arg @c kGTLRCompute_TargetPool_SessionAffinity_HeaderField Value
+ *        "HEADER_FIELD"
+ *    @arg @c kGTLRCompute_TargetPool_SessionAffinity_HttpCookie Value
+ *        "HTTP_COOKIE"
  *    @arg @c kGTLRCompute_TargetPool_SessionAffinity_None Value "NONE"
  */
 @property(nonatomic, copy, nullable) NSString *sessionAffinity;
@@ -33698,7 +37138,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  Represents a Target TCP Proxy resource.
  *  A target TCP proxy is a component of a TCP Proxy load balancer. Global
- *  forwarding rules reference ta target TCP proxy, and the target proxy then
+ *  forwarding rules reference target TCP proxy, and the target proxy then
  *  references an external backend service. For more information, read TCP Proxy
  *  Load Balancing Concepts. (== resource_for beta.targetTcpProxies ==) (==
  *  resource_for v1.targetTcpProxies ==)
@@ -34520,6 +37960,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
 /**
+ *  defaultRouteAction takes effect when none of the hostRules match. The load
+ *  balancer performs advanced routing actions like URL rewrites, header
+ *  transformations, etc. prior to forwarding the request to the selected
+ *  backend. If defaultRouteAction specifies any weightedBackendServices,
+ *  defaultService must not be set. Conversely if defaultService is set,
+ *  defaultRouteAction cannot contain any weightedBackendServices.
+ *  Only one of defaultRouteAction or defaultUrlRedirect must be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpRouteAction *defaultRouteAction;
+
+/**
  *  The full or partial URL of the defaultService resource to which traffic is
  *  directed if none of the hostRules match. If defaultRouteAction is
  *  additionally specified, advanced routing actions like URL Rewrites, etc.
@@ -34531,6 +37982,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  defaultRouteAction.weightedBackendService must be set.
  */
 @property(nonatomic, copy, nullable) NSString *defaultService;
+
+/**
+ *  When none of the specified hostRules match, the request is redirected to a
+ *  URL specified by defaultUrlRedirect.
+ *  If defaultUrlRedirect is specified, defaultService or defaultRouteAction
+ *  must not be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpRedirectAction *defaultUrlRedirect;
 
 /**
  *  An optional description of this resource. Provide this property when you
@@ -34552,6 +38011,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  Specifies changes to request and response headers that need to take effect
+ *  for the selected backendService.
+ *  The headerAction specified here take effect after headerAction specified
+ *  under pathMatcher.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpHeaderAction *headerAction;
 
 /** The list of HostRules to use against the URL. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_HostRule *> *hostRules;
@@ -34584,6 +38051,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** The list of named PathMatchers to use against the URL. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_PathMatcher *> *pathMatchers;
+
+/**
+ *  [Output Only] URL of the region where the regional URL map resides. This
+ *  field is not applicable to global URL maps. You must specify this field as
+ *  part of the HTTP request URL. It is not settable as a field in the request
+ *  body.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -34748,6 +38223,258 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  GTLRCompute_UrlMapsAggregatedList
+ */
+@interface GTLRCompute_UrlMapsAggregatedList : GTLRObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** A list of UrlMapsScopedList resources. */
+@property(nonatomic, strong, nullable) GTLRCompute_UrlMapsAggregatedList_Items *items;
+
+/** Type of resource. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_UrlMapsAggregatedList_Warning *warning;
+
+@end
+
+
+/**
+ *  A list of UrlMapsScopedList resources.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_UrlMapsScopedList. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCompute_UrlMapsAggregatedList_Items : GTLRObject
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_UrlMapsAggregatedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_UrlMapsAggregatedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_UrlMapsAggregatedList_Warning_Data_Item
+ */
+@interface GTLRCompute_UrlMapsAggregatedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_UrlMapsScopedList
+ */
+@interface GTLRCompute_UrlMapsScopedList : GTLRObject
+
+/** A list of UrlMaps contained in this scope. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_UrlMap *> *urlMaps;
+
+/**
+ *  Informational warning which replaces the list of backend services when the
+ *  list is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_UrlMapsScopedList_Warning *warning;
+
+@end
+
+
+/**
+ *  Informational warning which replaces the list of backend services when the
+ *  list is empty.
+ */
+@interface GTLRCompute_UrlMapsScopedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_CleanupFailed Value
+ *        "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_NoResultsOnPage Value
+ *        "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_NotCriticalError Value
+ *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_UrlMapsScopedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_UrlMapsScopedList_Warning_Data_Item
+ */
+@interface GTLRCompute_UrlMapsScopedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  GTLRCompute_UrlMapsValidateRequest
  */
 @interface GTLRCompute_UrlMapsValidateRequest : GTLRObject
@@ -34816,6 +38543,29 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *testPassed;
+
+@end
+
+
+/**
+ *  The spec for modifying the path before sending the request to the matched
+ *  backend service.
+ */
+@interface GTLRCompute_UrlRewrite : GTLRObject
+
+/**
+ *  Prior to forwarding the request to the selected service, the request's host
+ *  header is replaced with contents of hostRewrite.
+ *  The value must be between 1 and 255 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *hostRewrite;
+
+/**
+ *  Prior to forwarding the request to the selected backend service, the
+ *  matching portion of the request's path is replaced by pathPrefixRewrite.
+ *  The value must be between 1 and 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *pathPrefixRewrite;
 
 @end
 
@@ -35218,6 +38968,626 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  Represents a VPN gateway resource.
+ */
+@interface GTLRCompute_VpnGateway : GTLRObject
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  An optional description of this resource. Provide this property when you
+ *  create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  [Output Only] The unique identifier for the resource. This identifier is
+ *  defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  [Output Only] Type of resource. Always compute#vpnGateway for VPN gateways.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  A fingerprint for the labels being applied to this VpnGateway, which is
+ *  essentially a hash of the labels set used for optimistic locking. The
+ *  fingerprint is initially generated by Compute Engine and changes after every
+ *  request to modify or update labels. You must always provide an up-to-date
+ *  fingerprint hash in order to update or change labels, otherwise the request
+ *  will fail with error 412 conditionNotMet.
+ *  To see the latest fingerprint, make a get() request to retrieve an
+ *  VpnGateway.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *labelFingerprint;
+
+/**
+ *  Labels to apply to this VpnGateway resource. These can be later modified by
+ *  the setLabels method. Each label key/value must comply with RFC1035. Label
+ *  values may be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_VpnGateway_Labels *labels;
+
+/**
+ *  Name of the resource. Provided by the client when the resource is created.
+ *  The name must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the name must be 1-63 characters long and match the regular
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
+ *  be a lowercase letter, and all following characters must be a dash,
+ *  lowercase letter, or digit, except the last character, which cannot be a
+ *  dash.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  URL of the network to which this VPN gateway is attached. Provided by the
+ *  client when the VPN gateway is created.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** [Output Only] URL of the region where the VPN gateway resides. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] A list of interfaces on this VPN gateway. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VpnGatewayVpnGatewayInterface *> *vpnInterfaces;
+
+@end
+
+
+/**
+ *  Labels to apply to this VpnGateway resource. These can be later modified by
+ *  the setLabels method. Each label key/value must comply with RFC1035. Label
+ *  values may be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_VpnGateway_Labels : GTLRObject
+@end
+
+
+/**
+ *  GTLRCompute_VpnGatewayAggregatedList
+ */
+@interface GTLRCompute_VpnGatewayAggregatedList : GTLRObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** A list of VpnGateway resources. */
+@property(nonatomic, strong, nullable) GTLRCompute_VpnGatewayAggregatedList_Items *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#vpnGateway for VPN gateways.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_VpnGatewayAggregatedList_Warning *warning;
+
+@end
+
+
+/**
+ *  A list of VpnGateway resources.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_VpnGatewaysScopedList. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCompute_VpnGatewayAggregatedList_Items : GTLRObject
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_VpnGatewayAggregatedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VpnGatewayAggregatedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_VpnGatewayAggregatedList_Warning_Data_Item
+ */
+@interface GTLRCompute_VpnGatewayAggregatedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Contains a list of VpnGateway resources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_VpnGatewayList : GTLRCollectionObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of VpnGateway resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VpnGateway *> *items;
+
+/**
+ *  [Output Only] Type of resource. Always compute#vpnGateway for VPN gateways.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_VpnGatewayList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_VpnGatewayList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_CleanupFailed Value
+ *        "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_DeprecatedTypeUsed Value
+ *        "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_ExternalApiWarning Value
+ *        "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_FieldValueOverriden Value
+ *        "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_NextHopNotRunning Value
+ *        "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_NoResultsOnPage Value
+ *        "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_NotCriticalError Value
+ *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_ResourceNotDeleted Value
+ *        "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VpnGatewayList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_VpnGatewayList_Warning_Data_Item
+ */
+@interface GTLRCompute_VpnGatewayList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_VpnGatewaysGetStatusResponse
+ */
+@interface GTLRCompute_VpnGatewaysGetStatusResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCompute_VpnGatewayStatus *result;
+
+@end
+
+
+/**
+ *  GTLRCompute_VpnGatewaysScopedList
+ */
+@interface GTLRCompute_VpnGatewaysScopedList : GTLRObject
+
+/** [Output Only] A list of VPN gateways contained in this scope. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VpnGateway *> *vpnGateways;
+
+/**
+ *  [Output Only] Informational warning which replaces the list of addresses
+ *  when the list is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_VpnGatewaysScopedList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning which replaces the list of addresses
+ *  when the list is empty.
+ */
+@interface GTLRCompute_VpnGatewaysScopedList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VpnGatewaysScopedList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_VpnGatewaysScopedList_Warning_Data_Item
+ */
+@interface GTLRCompute_VpnGatewaysScopedList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_VpnGatewayStatus
+ */
+@interface GTLRCompute_VpnGatewayStatus : GTLRObject
+
+/** List of VPN connection for this VpnGateway. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VpnGatewayStatusVpnConnection *> *vpnConnections;
+
+@end
+
+
+/**
+ *  Describes the high availability requirement state for the VPN connection
+ *  between this Cloud VPN gateway and a peer gateway.
+ */
+@interface GTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState : GTLRObject
+
+/**
+ *  Indicates the high availability requirement state for the VPN connection.
+ *  Valid values are CONNECTION_REDUNDANCY_MET, CONNECTION_REDUNDANCY_NOT_MET.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState_State_ConnectionRedundancyMet
+ *        Value "CONNECTION_REDUNDANCY_MET"
+ *    @arg @c kGTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState_State_ConnectionRedundancyNotMet
+ *        Value "CONNECTION_REDUNDANCY_NOT_MET"
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Indicates the reason why the VPN connection does not meet the high
+ *  availability redundancy criteria/requirement. Valid values is
+ *  INCOMPLETE_TUNNELS_COVERAGE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState_UnsatisfiedReason_IncompleteTunnelsCoverage
+ *        Value "INCOMPLETE_TUNNELS_COVERAGE"
+ */
+@property(nonatomic, copy, nullable) NSString *unsatisfiedReason;
+
+@end
+
+
+/**
+ *  Contains some information about a VPN tunnel.
+ */
+@interface GTLRCompute_VpnGatewayStatusTunnel : GTLRObject
+
+/**
+ *  The VPN gateway interface this VPN tunnel is associated with.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localGatewayInterface;
+
+/**
+ *  The peer gateway interface this VPN tunnel is connected to, the peer gateway
+ *  could either be an external VPN gateway or GCP VPN gateway.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *peerGatewayInterface;
+
+/** URL reference to the VPN tunnel. */
+@property(nonatomic, copy, nullable) NSString *tunnelUrl;
+
+@end
+
+
+/**
+ *  A VPN connection contains all VPN tunnels connected from this VpnGateway to
+ *  the same peer gateway. The peer gateway could either be a external VPN
+ *  gateway or GCP VPN gateway.
+ */
+@interface GTLRCompute_VpnGatewayStatusVpnConnection : GTLRObject
+
+/**
+ *  URL reference to the peer external VPN gateways to which the VPN tunnels in
+ *  this VPN connection are connected. This field is mutually exclusive with
+ *  peer_gcp_gateway.
+ */
+@property(nonatomic, copy, nullable) NSString *peerExternalGateway;
+
+/**
+ *  URL reference to the peer side VPN gateways to which the VPN tunnels in this
+ *  VPN connection are connected. This field is mutually exclusive with
+ *  peer_gcp_gateway.
+ */
+@property(nonatomic, copy, nullable) NSString *peerGcpGateway;
+
+/** HighAvailabilityRequirementState for the VPN connection. */
+@property(nonatomic, strong, nullable) GTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState *state;
+
+/** List of VPN tunnels that are in this VPN connection. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_VpnGatewayStatusTunnel *> *tunnels;
+
+@end
+
+
+/**
+ *  A VPN gateway interface.
+ */
+@interface GTLRCompute_VpnGatewayVpnGatewayInterface : GTLRObject
+
+/**
+ *  The numeric ID of this VPN gateway interface.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** The external IP address for this VPN gateway interface. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+@end
+
+
+/**
  *  Represents a Cloud VPN Tunnel resource.
  *  For more information about VPN, read the the Cloud VPN Overview. (==
  *  resource_for beta.vpnTunnels ==) (== resource_for v1.vpnTunnels ==)
@@ -35278,6 +39648,31 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  dash.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  URL of the peer side external VPN gateway to which this VPN tunnel is
+ *  connected. Provided by the client when the VPN tunnel is created. This field
+ *  is exclusive with the field peerGcpGateway.
+ */
+@property(nonatomic, copy, nullable) NSString *peerExternalGateway;
+
+/**
+ *  The interface ID of the external VPN gateway to which this VPN tunnel is
+ *  connected. Provided by the client when the VPN tunnel is created.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *peerExternalGatewayInterface;
+
+/**
+ *  URL of the peer side HA GCP VPN gateway to which this VPN tunnel is
+ *  connected. Provided by the client when the VPN tunnel is created. This field
+ *  can be used when creating highly available VPN from VPC network to VPC
+ *  network, the field is exclusive with the field peerExternalGateway. If
+ *  provided, the VPN tunnel will automatically use the same vpnGatewayInterface
+ *  ID in the peer GCP VPN gateway.
+ */
+@property(nonatomic, copy, nullable) NSString *peerGcpGateway;
 
 /** IP address of the peer VPN gateway. Only IPv4 is supported. */
 @property(nonatomic, copy, nullable) NSString *peerIp;
@@ -35355,6 +39750,21 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Provided by the client when the VPN tunnel is created.
  */
 @property(nonatomic, copy, nullable) NSString *targetVpnGateway;
+
+/**
+ *  URL of the VPN gateway with which this VPN tunnel is associated. Provided by
+ *  the client when the VPN tunnel is created. This must be used (instead of
+ *  target_vpn_gateway) if a High Availability VPN gateway resource is created.
+ */
+@property(nonatomic, copy, nullable) NSString *vpnGateway;
+
+/**
+ *  The interface ID of the VPN gateway with which this VPN tunnel is
+ *  associated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vpnGatewayInterface;
 
 @end
 
@@ -35750,6 +40160,46 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  In contrast to a single BackendService in HttpRouteAction to which all
+ *  matching traffic is directed to, WeightedBackendService allows traffic to be
+ *  split across multiple BackendServices. The volume of traffic for each
+ *  BackendService is proportional to the weight specified in each
+ *  WeightedBackendService
+ */
+@interface GTLRCompute_WeightedBackendService : GTLRObject
+
+/**
+ *  The full or partial URL to the default BackendService resource. Before
+ *  forwarding the request to backendService, the loadbalancer applies any
+ *  relevant headerActions specified as part of this backendServiceWeight.
+ */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+/**
+ *  Specifies changes to request and response headers that need to take effect
+ *  for the selected backendService.
+ *  headerAction specified here take effect before headerAction in the enclosing
+ *  HttpRouteRule, PathMatcher and UrlMap.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_HttpHeaderAction *headerAction;
+
+/**
+ *  Specifies the fraction of traffic sent to backendService, computed as weight
+ *  / (sum of all weightedBackendService weights in routeAction) .
+ *  The selection of a backend service is determined only for new traffic. Once
+ *  a user's request has been directed to a backendService, subsequent requests
+ *  will be sent to the same backendService as determined by the
+ *  BackendService's session affinity policy.
+ *  The value must be between 0 and 1000
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weight;
 
 @end
 

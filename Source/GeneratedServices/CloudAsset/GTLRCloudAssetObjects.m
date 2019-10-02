@@ -64,11 +64,12 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 //
 
 @implementation GTLRCloudAsset_Asset
-@dynamic accessLevel, accessPolicy, assetType, iamPolicy, name, orgPolicy,
-         resource, servicePerimeter;
+@dynamic accessLevel, accessPolicy, ancestors, assetType, iamPolicy, name,
+         orgPolicy, resource, servicePerimeter;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"ancestors" : [NSString class],
     @"orgPolicy" : [GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy class]
   };
   return map;

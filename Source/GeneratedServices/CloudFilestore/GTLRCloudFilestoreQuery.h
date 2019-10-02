@@ -259,6 +259,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  field. The elements of the repeated paths field may only include these
  *  fields:
  *  "description"
+ *  "file_shares"
+ *  "labels"
  *
  *  String format is a comma-separated list of fields.
  */

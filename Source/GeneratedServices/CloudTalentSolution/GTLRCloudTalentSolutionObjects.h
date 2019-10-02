@@ -1354,7 +1354,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
  */
 GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_JobSearch;
 /**
- *  The mode of the search method isn't specified.
+ *  The mode of the search method isn't specified. The default search
+ *  behavior is identical to JOB_SEARCH search behavior.
  *
  *  Value: "SEARCH_MODE_UNSPECIFIED"
  */
@@ -3917,7 +3918,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
  *        (jobs with promotionValue > 0) are not specially handled. (Value:
  *        "JOB_SEARCH")
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchModeUnspecified
- *        The mode of the search method isn't specified. (Value:
+ *        The mode of the search method isn't specified. The default search
+ *        behavior is identical to JOB_SEARCH search behavior. (Value:
  *        "SEARCH_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *searchMode;

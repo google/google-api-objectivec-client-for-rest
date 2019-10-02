@@ -204,7 +204,7 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_RecognitionConfig
-@dynamic audioChannelCount, enableAutomaticPunctuation,
+@dynamic audioChannelCount, diarizationConfig, enableAutomaticPunctuation,
          enableSeparateRecognitionPerChannel, enableWordTimeOffsets, encoding,
          languageCode, maxAlternatives, metadata, model, profanityFilter,
          sampleRateHertz, speechContexts, useEnhanced;
@@ -279,6 +279,16 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpeech_SpeakerDiarizationConfig
+//
+
+@implementation GTLRSpeech_SpeakerDiarizationConfig
+@dynamic enableSpeakerDiarization, maxSpeakerCount, minSpeakerCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpeech_Status
 //
 
@@ -315,5 +325,5 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_WordInfo
-@dynamic endTime, startTime, word;
+@dynamic endTime, speakerTag, startTime, word;
 @end

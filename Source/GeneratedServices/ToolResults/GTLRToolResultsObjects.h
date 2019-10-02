@@ -1443,7 +1443,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
  */
 @interface GTLRToolResults_PerfSample : GTLRObject
 
-/** Timestamp of collection */
+/** Timestamp of collection. */
 @property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *sampleTime;
 
 /**
@@ -1693,7 +1693,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirec
  *  TestExecutionStep with id 100 to COMPLETE
  *  A Step can be updated until its state is set to COMPLETE at which points it
  *  becomes immutable.
- *  Next tag: 23
+ *  Next tag: 27
  */
 @interface GTLRToolResults_Step : GTLRObject
 

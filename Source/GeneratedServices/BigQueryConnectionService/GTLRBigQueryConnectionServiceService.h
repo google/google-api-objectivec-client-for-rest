@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   URL Shortener API (urlshortener/v1)
+//   BigQuery Connection API (bigqueryconnection/v1beta1)
 // Description:
-//   Lets you create, inspect, and manage goo.gl short URLs
+//   Allows users to manage BigQuery connections to external data sources.
 // Documentation:
-//   https://developers.google.com/url-shortener/v1/getting_started
+//   https://cloud.google.com/bigquery/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -26,31 +26,38 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
- *  Authorization scope: Manage your goo.gl short URLs
+ *  Authorization scope: View and manage your data in Google BigQuery
  *
- *  Value "https://www.googleapis.com/auth/urlshortener"
+ *  Value "https://www.googleapis.com/auth/bigquery"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeURLShortener;
+GTLR_EXTERN NSString * const kGTLRAuthScopeBigQueryConnectionServiceBigquery;
+/**
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeBigQueryConnectionServiceCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRURLShortenerService
+//   GTLRBigQueryConnectionServiceService
 //
 
 /**
- *  Service for executing URL Shortener API queries.
+ *  Service for executing BigQuery Connection API queries.
  *
- *  Lets you create, inspect, and manage goo.gl short URLs
+ *  Allows users to manage BigQuery connections to external data sources.
  */
-@interface GTLRURLShortenerService : GTLRService
+@interface GTLRBigQueryConnectionServiceService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRURLShortenerQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRBigQueryConnectionServiceQuery.h. The query can the be sent with
+// GTLRService's execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

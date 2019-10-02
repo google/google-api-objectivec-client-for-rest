@@ -1947,8 +1947,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @end
 
 /**
- *  Lists all the managed configurations settings for the specified app. Only
- *  the ID and the name is set.
+ *  Lists all the managed configurations settings for the specified app.
  *
  *  Method: androidenterprise.managedconfigurationssettings.list
  *
@@ -1972,8 +1971,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Fetches a @c
  *  GTLRAndroidEnterprise_ManagedConfigurationsSettingsListResponse.
  *
- *  Lists all the managed configurations settings for the specified app. Only
- *  the ID and the name is set.
+ *  Lists all the managed configurations settings for the specified app.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param productId The ID of the product for which the managed configurations

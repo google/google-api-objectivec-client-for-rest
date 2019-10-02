@@ -101,6 +101,8 @@
 @class GTLRShoppingContent_OrderLineItemShippingDetails;
 @class GTLRShoppingContent_OrderLineItemShippingDetailsMethod;
 @class GTLRShoppingContent_OrderMerchantProvidedAnnotation;
+@class GTLRShoppingContent_OrderPickupDetails;
+@class GTLRShoppingContent_OrderPickupDetailsCollector;
 @class GTLRShoppingContent_OrderPromotion;
 @class GTLRShoppingContent_OrderPromotionItem;
 @class GTLRShoppingContent_OrderRefund;
@@ -2705,6 +2707,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The status of the payment. */
 @property(nonatomic, copy, nullable) NSString *paymentStatus;
 
+/** Pickup details for shipments of type pickup. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_OrderPickupDetails *pickupDetails;
+
 /** The date when the order was placed, in ISO 8601 format. */
 @property(nonatomic, copy, nullable) NSString *placedDate;
 
@@ -3095,6 +3100,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *quantityPending;
 
 /**
+ *  Number of items ready for pickup.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quantityReadyForPickup;
+
+/**
  *  Number of items returned.
  *
  *  Uses NSNumber of unsignedIntValue.
@@ -3278,6 +3290,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** The ship by date, in ISO 8601 format. */
 @property(nonatomic, copy, nullable) NSString *shipByDate;
 
+/**
+ *  Type of shipment. Indicates whether deliveryDetails or pickupDetails is
+ *  applicable for this shipment.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -3328,6 +3346,41 @@ NS_ASSUME_NONNULL_BEGIN
  *  the line item.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderPickupDetails
+ */
+@interface GTLRShoppingContent_OrderPickupDetails : GTLRObject
+
+/**
+ *  Address of the pickup location where the shipment should be sent. Note that
+ *  recipientName in the address is the name of the business at the pickup
+ *  location.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_OrderAddress *address;
+
+/** Collectors authorized to pick up shipment from the pickup location. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderPickupDetailsCollector *> *collectors;
+
+/** ID of the pickup location. */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderPickupDetailsCollector
+ */
+@interface GTLRShoppingContent_OrderPickupDetailsCollector : GTLRObject
+
+/** Name of the person picking up the shipment. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Phone number of the person picking up the shipment. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
 
 @end
 
@@ -6785,6 +6838,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Email address of the customer. */
 @property(nonatomic, copy, nullable) NSString *predefinedEmail;
+
+/**
+ *  Identifier of one of the predefined pickup details. Required for orders
+ *  containing line items with shipping type pickup.
+ */
+@property(nonatomic, copy, nullable) NSString *predefinedPickupDetails;
 
 /** Promotions associated with the order. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderPromotion *> *promotions;

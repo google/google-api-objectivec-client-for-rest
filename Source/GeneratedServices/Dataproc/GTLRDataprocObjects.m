@@ -105,6 +105,52 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_AutoscalingConfig
+//
+
+@implementation GTLRDataproc_AutoscalingConfig
+@dynamic policyUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AutoscalingPolicy
+//
+
+@implementation GTLRDataproc_AutoscalingPolicy
+@dynamic basicAlgorithm, identifier, name, secondaryWorkerConfig, workerConfig;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_BasicAutoscalingAlgorithm
+//
+
+@implementation GTLRDataproc_BasicAutoscalingAlgorithm
+@dynamic cooldownPeriod, yarnConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_BasicYarnAutoscalingConfig
+//
+
+@implementation GTLRDataproc_BasicYarnAutoscalingConfig
+@dynamic gracefulDecommissionTimeout, scaleDownFactor,
+         scaleDownMinWorkerFraction, scaleUpFactor, scaleUpMinWorkerFraction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_Binding
 //
 
@@ -169,7 +215,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ClusterConfig
-@dynamic configBucket, encryptionConfig, gceClusterConfig,
+@dynamic autoscalingConfig, configBucket, encryptionConfig, gceClusterConfig,
          initializationActions, lifecycleConfig, masterConfig,
          secondaryWorkerConfig, securityConfig, softwareConfig, workerConfig;
 
@@ -520,6 +566,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_InstanceGroupAutoscalingPolicyConfig
+//
+
+@implementation GTLRDataproc_InstanceGroupAutoscalingPolicyConfig
+@dynamic maxInstances, minInstances, weight;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_InstanceGroupConfig
 //
 
@@ -645,7 +701,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_KerberosConfig
 @dynamic crossRealmTrustAdminServer, crossRealmTrustKdc, crossRealmTrustRealm,
          crossRealmTrustSharedPasswordUri, enableKerberos, kdcDbKeyUri,
-         keyPasswordUri, keystorePasswordUri, keystoreUri, kmsKeyUri,
+         keyPasswordUri, keystorePasswordUri, keystoreUri, kmsKeyUri, realm,
          rootPrincipalPasswordUri, tgtLifetimeHours, truststorePasswordUri,
          truststoreUri;
 @end
@@ -658,6 +714,28 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_LifecycleConfig
 @dynamic autoDeleteTime, autoDeleteTtl, idleDeleteTtl, idleStartTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ListAutoscalingPoliciesResponse
+//
+
+@implementation GTLRDataproc_ListAutoscalingPoliciesResponse
+@dynamic nextPageToken, policies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policies" : [GTLRDataproc_AutoscalingPolicy class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"policies";
+}
+
 @end
 
 

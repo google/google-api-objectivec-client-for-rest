@@ -21,14 +21,12 @@
 
 @class GTLRDialogflow_GoogleCloudDialogflowV2Agent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedConversationDataset;
-@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleSuggestionModelMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput_Parameters;
-@class GTLRDialogflow_GoogleCloudDialogflowV2beta1InputDataset;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentFollowupIntentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage;
@@ -36,14 +34,20 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBasicCard;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBasicCardButton;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBasicCardButtonOpenUriAction;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItem;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageCard;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageCardButton;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageCarouselSelect;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageCarouselSelectItem;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageImage;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageLinkOutSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageListSelect;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageListSelectItem;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContentResponseMediaObject;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageQuickReplies;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia;
@@ -61,6 +65,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSimpleResponses;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSuggestions;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCard;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCardCell;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCardRow;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyPlayAudio;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonySynthesizeSpeech;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyTransferCall;
@@ -78,6 +85,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_WebhookPayload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters;
@@ -245,58 +253,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateI
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel.state
-
-/**
- *  Model is creating.
- *
- *  Value: "CREATING"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Creating;
-/**
- *  Model is deleting.
- *
- *  Value: "DELETING"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deleting;
-/**
- *  Model is deployed and ready to use.
- *
- *  Value: "DEPLOYED"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deployed;
-/**
- *  Model is deploying.
- *
- *  Value: "DEPLOYING"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deploying;
-/**
- *  Model is in error state. Not ready to deploy and use.
- *
- *  Value: "FAILED"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Failed;
-/**
- *  Should not be used, an un-set enum has this value by default.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_StateUnspecified;
-/**
- *  Model is not deployed but ready to deploy.
- *
- *  Value: "UNDEPLOYED"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Undeployed;
-/**
- *  Model is undeploying.
- *
- *  Value: "UNDEPLOYING"
- */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Undeploying;
-
-// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType.autoExpansionMode
 
 /**
@@ -331,6 +287,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityT
  *  Value: "KIND_MAP"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindMap;
+/**
+ *  Regexp entity types allow to specify regular expressions in entries
+ *  values.
+ *
+ *  Value: "KIND_REGEXP"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindRegexp;
 /**
  *  Not specified. This value should be never used.
  *
@@ -518,6 +481,116 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Viber;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard.imageDisplayOptions
+
+/**
+ *  Pad the gaps between image and image frame with a blurred copy of the
+ *  same image.
+ *
+ *  Value: "BLURRED_BACKGROUND"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_BlurredBackground;
+/**
+ *  Image is scaled such that the image width and height match or exceed
+ *  the container dimensions. This may crop the top and bottom of the
+ *  image if the scaled image height is greater than the container
+ *  height, or crop the left and right of the image if the scaled image
+ *  width is greater than the container width. This is similar to "Zoom
+ *  Mode" on a widescreen TV when playing a 4:3 video.
+ *
+ *  Value: "CROPPED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped;
+/**
+ *  Fill the gaps between the image and the image container with gray
+ *  bars.
+ *
+ *  Value: "GRAY"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray;
+/**
+ *  Fill the gaps between the image and the image container with gray
+ *  bars.
+ *
+ *  Value: "IMAGE_DISPLAY_OPTIONS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_ImageDisplayOptionsUnspecified;
+/**
+ *  Fill the gaps between the image and the image container with white
+ *  bars.
+ *
+ *  Value: "WHITE"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_White;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction.urlTypeHint
+
+/**
+ *  Url would be an amp action
+ *
+ *  Value: "AMP_ACTION"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction;
+/**
+ *  URL that points directly to AMP content, or to a canonical URL
+ *  which refers to AMP content via <link rel="amphtml">.
+ *
+ *  Value: "AMP_CONTENT"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpContent;
+/**
+ *  Unspecified
+ *
+ *  Value: "URL_TYPE_HINT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_UrlTypeHintUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties.horizontalAlignment
+
+/**
+ *  Text is centered in the column.
+ *
+ *  Value: "CENTER"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Center;
+/**
+ *  Text is aligned to the leading edge of the column.
+ *
+ *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_HorizontalAlignmentUnspecified;
+/**
+ *  Text is aligned to the leading edge of the column.
+ *
+ *  Value: "LEADING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Leading;
+/**
+ *  Text is aligned to the trailing edge of the column.
+ *
+ *  Value: "TRAILING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Trailing;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent.mediaType
+
+/**
+ *  Response media type is audio.
+ *
+ *  Value: "AUDIO"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent_MediaType_Audio;
+/**
+ *  Unspecified.
+ *
+ *  Value: "RESPONSE_MEDIA_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent_MediaType_ResponseMediaTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia.height
 
 /**
@@ -697,6 +770,36 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Knowled
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType.entityOverrideMode
+
+/**
+ *  The collection of session entities overrides the collection of entities
+ *  in the corresponding developer entity type.
+ *
+ *  Value: "ENTITY_OVERRIDE_MODE_OVERRIDE"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride;
+/**
+ *  The collection of session entities extends the collection of entities in
+ *  the corresponding developer entity type.
+ *  Note: Even in this override mode calls to `ListSessionEntityTypes`,
+ *  `GetSessionEntityType`, `CreateSessionEntityType` and
+ *  `UpdateSessionEntityType` only return the additional entities added in
+ *  this session entity type. If you want to get the supplemented list,
+ *  please call EntityTypes.GetEntityType on the developer entity type
+ *  and merge.
+ *
+ *  Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement;
+/**
+ *  Not specified. This value should be never used.
+ *
+ *  Value: "ENTITY_OVERRIDE_MODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2EntityType.autoExpansionMode
 
 /**
@@ -731,6 +834,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_K
  *  Value: "KIND_MAP"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindMap;
+/**
+ *  Regexp entity types allow to specify regular expressions in entries
+ *  values.
+ *
+ *  Value: "KIND_REGEXP"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindRegexp;
 /**
  *  Not specified. This value should be never used.
  *
@@ -1538,20 +1648,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Metadata for article suggestion models.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleSuggestionModelMetadata : GTLRObject
-
-/**
- *  Optional. Type of the article suggestion model. The available values are:
- *  * `article-suggestion-gbt-1` - (default) Article Suggestion Gbt model.
- */
-@property(nonatomic, copy, nullable) NSString *modelType;
-
-@end
-
-
-/**
  *  The response message for EntityTypes.BatchUpdateEntityTypes.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1BatchUpdateEntityTypesResponse : GTLRObject
@@ -1628,58 +1724,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Represents a conversation model.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel : GTLRObject
-
-/** Metadata for article suggestion models. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleSuggestionModelMetadata *articleSuggestionModelMetadata;
-
-/** Output only. Creation time of this model. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Required. Datasets used to create model. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1InputDataset *> *datasets;
-
-/** Required. The display name of the model. At most 64 bytes long. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Output only. ConversationModel resource name. Format:
- *  `projects/<Project ID>/conversationModels/<Conversation Model ID>`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Output only. State of the model. A model can only serve prediction requests
- *  after it gets deployed.
- *
- *  Likely values:
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Creating
- *        Model is creating. (Value: "CREATING")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deleting
- *        Model is deleting. (Value: "DELETING")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deployed
- *        Model is deployed and ready to use. (Value: "DEPLOYED")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Deploying
- *        Model is deploying. (Value: "DEPLOYING")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Failed
- *        Model is in error state. Not ready to deploy and use. (Value:
- *        "FAILED")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_StateUnspecified
- *        Should not be used, an un-set enum has this value by default. (Value:
- *        "STATE_UNSPECIFIED")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Undeployed
- *        Model is not deployed but ready to deploy. (Value: "UNDEPLOYED")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationModel_State_Undeploying
- *        Model is undeploying. (Value: "UNDEPLOYING")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
  *  Represents an entity type.
  *  Entity types serve as a tool for extracting parameter values from natural
  *  language queries.
@@ -1704,6 +1748,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Optional. Enables fuzzy entity extraction during classification.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableFuzzyExtraction;
+
+/**
  *  Optional. The collection of entity entries associated with the entity type.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity *> *entities;
@@ -1721,6 +1772,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindMap
  *        Map entity types allow mapping of a group of synonyms to a canonical
  *        value. (Value: "KIND_MAP")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindRegexp
+ *        Regexp entity types allow to specify regular expressions in entries
+ *        values. (Value: "KIND_REGEXP")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindUnspecified
  *        Not specified. This value should be never used. (Value:
  *        "KIND_UNSPECIFIED")
@@ -1813,19 +1867,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ExportAgentResponse : GTLRObject
 
 /**
- *  The exported agent.
- *  Example for how to export an agent to a zip file via a command line:
- *  <pre>curl \\
- *  'https://dialogflow.googleapis.com/v2beta1/projects/&lt;project_name&gt;/agent:export'\\
- *  -X POST \\
- *  -H 'Authorization: Bearer '$(gcloud auth application-default
- *  print-access-token) \\
- *  -H 'Accept: application/json' \\
- *  -H 'Content-Type: application/json' \\
- *  --compressed \\
- *  --data-binary '{}' \\
- *  | grep agentContent | sed -e 's/.*"agentContent": "\\([^"]*\\)".* /\\1/' \\
- *  | base64 --decode > &lt;agent zip file&gt;</pre>
+ *  Zip compressed raw byte content for agent.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1837,23 +1879,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  only if `agent_uri` is specified in `ExportAgentRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
-
-@end
-
-
-/**
- *  InputDataset used to create model or do evaluation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1InputDataset : GTLRObject
-
-/**
- *  Required. ConversationDataset resource name. Format:
- *  `projects/<Project ID>/conversationDatasets/<Conversation Dataset ID>`
- *  or
- *  `projects/<Project ID>/conversationDatasets/<Conversation Dataset
- *  ID>/annotatedConversationDatasets/<Annotated Conversation Dataset ID>`
- */
-@property(nonatomic, copy, nullable) NSString *dataset;
 
 @end
 
@@ -2059,6 +2084,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /** Displays a basic card for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBasicCard *basicCard;
 
+/** Browse carousel card for Actions on Google. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard *browseCarouselCard;
+
 /** Displays a card. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageCard *card;
 
@@ -2073,6 +2101,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /** Displays a list card for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageListSelect *listSelect;
+
+/** The media content card for Actions on Google. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent *mediaContent;
 
 /**
  *  Returns a response containing a custom, platform-specific payload.
@@ -2192,6 +2223,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /** Displays suggestion chips for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSuggestions *suggestions;
 
+/** Table card for Actions on Google. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCard *tableCard;
+
 /** Plays audio from a file in Telephony Gateway. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyPlayAudio *telephonyPlayAudio;
 
@@ -2265,6 +2299,112 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /** Required. The HTTP or HTTPS scheme URI. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Browse Carousel Card for Actions on Google.
+ *  https://developers.google.com/actions/assistant/responses#browsing_carousel
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard : GTLRCollectionObject
+
+/**
+ *  Optional. Settings for displaying the image. Applies to every image in
+ *  items.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_BlurredBackground
+ *        Pad the gaps between image and image frame with a blurred copy of the
+ *        same image. (Value: "BLURRED_BACKGROUND")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped
+ *        Image is scaled such that the image width and height match or exceed
+ *        the container dimensions. This may crop the top and bottom of the
+ *        image if the scaled image height is greater than the container
+ *        height, or crop the left and right of the image if the scaled image
+ *        width is greater than the container width. This is similar to "Zoom
+ *        Mode" on a widescreen TV when playing a 4:3 video. (Value: "CROPPED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray
+ *        Fill the gaps between the image and the image container with gray
+ *        bars. (Value: "GRAY")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_ImageDisplayOptionsUnspecified
+ *        Fill the gaps between the image and the image container with gray
+ *        bars. (Value: "IMAGE_DISPLAY_OPTIONS_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_White
+ *        Fill the gaps between the image and the image container with white
+ *        bars. (Value: "WHITE")
+ */
+@property(nonatomic, copy, nullable) NSString *imageDisplayOptions;
+
+/**
+ *  Required. List of items in the Browse Carousel Card. Minimum of two
+ *  items, maximum of ten.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItem *> *items;
+
+@end
+
+
+/**
+ *  Browsing carousel tile
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItem : GTLRObject
+
+/**
+ *  Optional. Description of the carousel item. Maximum of four lines of
+ *  text.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Text that appears at the bottom of the Browse Carousel
+ *  Card. Maximum of one line of text.
+ */
+@property(nonatomic, copy, nullable) NSString *footer;
+
+/** Optional. Hero image for the carousel item. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageImage *image;
+
+/** Required. Action to present to the user. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction *openUriAction;
+
+/** Required. Title of the carousel item. Maximum of two lines of text. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Actions on Google action to open a given url.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction : GTLRObject
+
+/** Required. URL */
+@property(nonatomic, copy, nullable) NSString *url;
+
+/**
+ *  Optional. Specifies the type of viewer that is used when opening
+ *  the URL. Defaults to opening via web browser.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction
+ *        Url would be an amp action (Value: "AMP_ACTION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpContent
+ *        URL that points directly to AMP content, or to a canonical URL
+ *        which refers to AMP content via <link rel="amphtml">. (Value:
+ *        "AMP_CONTENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_UrlTypeHintUnspecified
+ *        Unspecified (Value: "URL_TYPE_HINT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *urlTypeHint;
 
 @end
 
@@ -2350,6 +2490,34 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
+ *  Column properties for TableCard.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties : GTLRObject
+
+/** Required. Column heading. */
+@property(nonatomic, copy, nullable) NSString *header;
+
+/**
+ *  Optional. Defines text alignment for all cells in this column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Center
+ *        Text is centered in the column. (Value: "CENTER")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_HorizontalAlignmentUnspecified
+ *        Text is aligned to the leading edge of the column. (Value:
+ *        "HORIZONTAL_ALIGNMENT_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Leading
+ *        Text is aligned to the leading edge of the column. (Value: "LEADING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Trailing
+ *        Text is aligned to the trailing edge of the column. (Value:
+ *        "TRAILING")
+ */
+@property(nonatomic, copy, nullable) NSString *horizontalAlignment;
+
+@end
+
+
+/**
  *  The image response message.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageImage : GTLRObject
@@ -2426,6 +2594,55 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /** Required. The title of the list item. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  The media content card for Actions on Google.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent : GTLRObject
+
+/** Required. List of media objects. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContentResponseMediaObject *> *mediaObjects;
+
+/**
+ *  Optional. What type of media is the content (ie "audio").
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent_MediaType_Audio
+ *        Response media type is audio. (Value: "AUDIO")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent_MediaType_ResponseMediaTypeUnspecified
+ *        Unspecified. (Value: "RESPONSE_MEDIA_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mediaType;
+
+@end
+
+
+/**
+ *  Response media object for media content card.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContentResponseMediaObject : GTLRObject
+
+/** Required. Url where the media is stored. */
+@property(nonatomic, copy, nullable) NSString *contentUrl;
+
+/**
+ *  Optional. Description of media card.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Icon to display above media content. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageImage *icon;
+
+/** Optional. Image to display above media content. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageImage *largeImage;
+
+/** Required. Name of media card. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -2803,6 +3020,61 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /** Required. The list of suggested replies. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSuggestion *> *suggestions;
+
+@end
+
+
+/**
+ *  Table card for Actions on Google.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCard : GTLRObject
+
+/** Optional. List of buttons for the card. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBasicCardButton *> *buttons;
+
+/** Optional. Display properties for the columns in this table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties *> *columnProperties;
+
+/** Optional. Image which should be displayed on the card. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageImage *image;
+
+/** Optional. Rows in this table of data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCardRow *> *rows;
+
+/** Optional. Subtitle to the title. */
+@property(nonatomic, copy, nullable) NSString *subtitle;
+
+/** Required. Title of the card. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Cell of TableCardRow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCardCell : GTLRObject
+
+/** Required. Text in this cell. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Row of TableCard.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCardRow : GTLRObject
+
+/** Optional. List of cells that make up this row. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTableCardCell *> *cells;
+
+/**
+ *  Optional. Whether to add a visual divider after this row.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dividerAfter;
 
 @end
 
@@ -3405,6 +3677,66 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
+ *  Represents a session entity type.
+ *  Extends or replaces a developer entity type at the user session level (we
+ *  refer to the entity types defined at the agent level as "developer entity
+ *  types").
+ *  Note: session entity types apply to all queries, regardless of the language.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType : GTLRObject
+
+/**
+ *  Required. The collection of entities associated with this session entity
+ *  type.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity *> *entities;
+
+/**
+ *  Required. Indicates whether the additional data should override or
+ *  supplement the developer entity type definition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride
+ *        The collection of session entities overrides the collection of
+ *        entities
+ *        in the corresponding developer entity type. (Value:
+ *        "ENTITY_OVERRIDE_MODE_OVERRIDE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement
+ *        The collection of session entities extends the collection of entities
+ *        in
+ *        the corresponding developer entity type.
+ *        Note: Even in this override mode calls to `ListSessionEntityTypes`,
+ *        `GetSessionEntityType`, `CreateSessionEntityType` and
+ *        `UpdateSessionEntityType` only return the additional entities added in
+ *        this session entity type. If you want to get the supplemented list,
+ *        please call EntityTypes.GetEntityType on the developer entity type
+ *        and merge. (Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified
+ *        Not specified. This value should be never used. (Value:
+ *        "ENTITY_OVERRIDE_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *entityOverrideMode;
+
+/**
+ *  Required. The unique identifier of this session entity type. Format:
+ *  `projects/<Project ID>/agent/sessions/<Session
+ *  ID>/entityTypes/<Entity Type 
+ Display Name>`, or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session
+ *  ID>/entityTypes/<Entity Type Display Name>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
+ *  `<Entity Type Display Name>` must be the display name of an existing entity
+ *  type in the same agent that will be overridden or supplemented.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  The request message for a webhook call.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookRequest : GTLRObject
@@ -3508,6 +3840,15 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  }</pre>
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload *payload;
+
+/**
+ *  Optional. Additional session entity types to replace or extend developer
+ *  entity types with. The entity synonyms apply to all languages and persist
+ *  for the session of this query. Setting the session entity types inside
+ *  webhook overwrites the session entity types that have been set through
+ *  `DetectIntentRequest.query_params.session_entity_types`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType *> *sessionEntityTypes;
 
 /**
  *  Optional. This value is passed directly to `QueryResult.webhook_source`.
@@ -3700,6 +4041,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Optional. Enables fuzzy entity extraction during classification.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableFuzzyExtraction;
+
+/**
  *  Optional. The collection of entity entries associated with the entity type.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity *> *entities;
@@ -3717,6 +4065,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindMap Map
  *        entity types allow mapping of a group of synonyms to a canonical
  *        value. (Value: "KIND_MAP")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindRegexp
+ *        Regexp entity types allow to specify regular expressions in entries
+ *        values. (Value: "KIND_REGEXP")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindUnspecified
  *        Not specified. This value should be never used. (Value:
  *        "KIND_UNSPECIFIED")
@@ -3820,8 +4171,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ExportAgentRequest : GTLRObject
 
 /**
- *  Optional. The
- *  [Google Cloud Storage](https://cloud.google.com/storage/docs/)
+ *  Required. The [Google Cloud Storage](https://cloud.google.com/storage/docs/)
  *  URI to export the agent to.
  *  The format of this URI must be `gs://<bucket-name>/<object-name>`.
  *  If left unspecified, the serialized agent is returned inline.
@@ -3837,19 +4187,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ExportAgentResponse : GTLRObject
 
 /**
- *  The exported agent.
- *  Example for how to export an agent to a zip file via a command line:
- *  <pre>curl \\
- *  'https://dialogflow.googleapis.com/v2/projects/&lt;project_name&gt;/agent:export'\\
- *  -X POST \\
- *  -H 'Authorization: Bearer '$(gcloud auth application-default
- *  print-access-token) \\
- *  -H 'Accept: application/json' \\
- *  -H 'Content-Type: application/json' \\
- *  --compressed \\
- *  --data-binary '{}' \\
- *  | grep agentContent | sed -e 's/.*"agentContent": "\\([^"]*\\)".* /\\1/' \\
- *  | base64 --decode > &lt;agent zip file&gt;</pre>
+ *  Zip compressed raw byte content for agent.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -3871,19 +4209,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ImportAgentRequest : GTLRObject
 
 /**
- *  The agent to import.
- *  Example for how to import an agent via the command line:
- *  <pre>curl \\
- *  'https://dialogflow.googleapis.com/v2/projects/&lt;project_name&gt;/agent:import\\
- *  -X POST \\
- *  -H 'Authorization: Bearer '$(gcloud auth application-default
- *  print-access-token) \\
- *  -H 'Accept: application/json' \\
- *  -H 'Content-Type: application/json' \\
- *  --compressed \\
- *  --data-binary "{
- *  'agentContent': '$(cat &lt;agent zip file&gt; | base64 -w 0)'
- *  }"</pre>
+ *  Zip compressed raw byte content for agent.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -4432,7 +4758,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Optional. Contains information about a button.
+ *  Contains information about a button.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageCardButton : GTLRObject
 
@@ -5304,19 +5630,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @interface GTLRDialogflow_GoogleCloudDialogflowV2RestoreAgentRequest : GTLRObject
 
 /**
- *  The agent to restore.
- *  Example for how to restore an agent via the command line:
- *  <pre>curl \\
- *  'https://dialogflow.googleapis.com/v2/projects/&lt;project_name&gt;/agent:restore\\
- *  -X POST \\
- *  -H 'Authorization: Bearer '$(gcloud auth application-default
- *  print-access-token) \\
- *  -H 'Accept: application/json' \\
- *  -H 'Content-Type: application/json' \\
- *  --compressed \\
- *  --data-binary "{
- *  'agentContent': '$(cat &lt;agent zip file&gt; | base64 -w 0)'
- *  }"</pre>
+ *  Zip compressed raw byte content for agent.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -5675,6 +5989,15 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  }</pre>
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload *payload;
+
+/**
+ *  Optional. Additional session entity types to replace or extend developer
+ *  entity types with. The entity synonyms apply to all languages and persist
+ *  for the session of this query. Setting the session entity types inside
+ *  webhook overwrites the session entity types that have been set through
+ *  `DetectIntentRequest.query_params.session_entity_types`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType *> *sessionEntityTypes;
 
 /**
  *  Optional. This value is passed directly to `QueryResult.webhook_source`.

@@ -181,9 +181,9 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 //
 
 @implementation GTLRDns_ManagedZone
-@dynamic creationTime, descriptionProperty, dnsName, dnssecConfig, identifier,
-         kind, labels, name, nameServers, nameServerSet,
-         privateVisibilityConfig, visibility;
+@dynamic creationTime, descriptionProperty, dnsName, dnssecConfig,
+         forwardingConfig, identifier, kind, labels, name, nameServers,
+         nameServerSet, privateVisibilityConfig, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -232,6 +232,34 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZoneForwardingConfig
+//
+
+@implementation GTLRDns_ManagedZoneForwardingConfig
+@dynamic kind, targetNameServers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetNameServers" : [GTLRDns_ManagedZoneForwardingConfigNameServerTarget class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZoneForwardingConfigNameServerTarget
+//
+
+@implementation GTLRDns_ManagedZoneForwardingConfigNameServerTarget
+@dynamic ipv4Address, kind;
 @end
 
 
@@ -345,6 +373,113 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDns_PoliciesListResponse
+//
+
+@implementation GTLRDns_PoliciesListResponse
+@dynamic header, kind, nextPageToken, policies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policies" : [GTLRDns_Policy class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"policies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_PoliciesPatchResponse
+//
+
+@implementation GTLRDns_PoliciesPatchResponse
+@dynamic header, policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_PoliciesUpdateResponse
+//
+
+@implementation GTLRDns_PoliciesUpdateResponse
+@dynamic header, policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_Policy
+//
+
+@implementation GTLRDns_Policy
+@dynamic alternativeNameServerConfig, descriptionProperty,
+         enableInboundForwarding, identifier, kind, name, networks;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networks" : [GTLRDns_PolicyNetwork class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_PolicyAlternativeNameServerConfig
+//
+
+@implementation GTLRDns_PolicyAlternativeNameServerConfig
+@dynamic kind, targetNameServers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetNameServers" : [GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer
+//
+
+@implementation GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer
+@dynamic ipv4Address, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_PolicyNetwork
+//
+
+@implementation GTLRDns_PolicyNetwork
+@dynamic kind, networkUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDns_Project
 //
 
@@ -365,8 +500,10 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 
 @implementation GTLRDns_Quota
 @dynamic dnsKeysPerManagedZone, kind, managedZones, managedZonesPerNetwork,
-         networksPerManagedZone, resourceRecordsPerRrset,
-         rrsetAdditionsPerChange, rrsetDeletionsPerChange, rrsetsPerManagedZone,
+         networksPerManagedZone, networksPerPolicy, policies,
+         resourceRecordsPerRrset, rrsetAdditionsPerChange,
+         rrsetDeletionsPerChange, rrsetsPerManagedZone,
+         targetNameServersPerManagedZone, targetNameServersPerPolicy,
          totalRrdataSizePerChange, whitelistedKeySpecs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

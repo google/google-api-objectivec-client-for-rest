@@ -55,6 +55,10 @@ NSString * const kGTLRServiceUsage_Field_Kind_TypeUint32   = @"TYPE_UINT32";
 NSString * const kGTLRServiceUsage_Field_Kind_TypeUint64   = @"TYPE_UINT64";
 NSString * const kGTLRServiceUsage_Field_Kind_TypeUnknown  = @"TYPE_UNKNOWN";
 
+// GTLRServiceUsage_GetServiceIdentityResponse.state
+NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_Active = @"ACTIVE";
+NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_IdentityStateUnspecified = @"IDENTITY_STATE_UNSPECIFIED";
+
 // GTLRServiceUsage_GoogleApiServiceusageV1Service.state
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Disabled = @"DISABLED";
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Enabled = @"ENABLED";
@@ -612,6 +616,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_GetServiceIdentityResponse
+//
+
+@implementation GTLRServiceUsage_GetServiceIdentityResponse
+@dynamic identity, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_GoogleApiService
 //
 
@@ -876,7 +890,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUsage_MetricDescriptor
 @dynamic descriptionProperty, displayName, labels, launchStage, metadata,
-         metricKind, name, type, unit, valueType;
+         metricKind, monitoredResourceTypes, name, type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -884,7 +898,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"labels" : [GTLRServiceUsage_LabelDescriptor class]
+    @"labels" : [GTLRServiceUsage_LabelDescriptor class],
+    @"monitoredResourceTypes" : [NSString class]
   };
   return map;
 }
@@ -1173,6 +1188,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_ServiceIdentity
+//
+
+@implementation GTLRServiceUsage_ServiceIdentity
+@dynamic email, uniqueId;
 @end
 
 

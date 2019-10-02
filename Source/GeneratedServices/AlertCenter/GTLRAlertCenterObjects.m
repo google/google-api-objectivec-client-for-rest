@@ -116,6 +116,24 @@ NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_AppMakerSqlSetupNotification
+//
+
+@implementation GTLRAlertCenter_AppMakerSqlSetupNotification
+@dynamic requestInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestInfo" : [GTLRAlertCenter_RequestInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_Attachment
 //
 
@@ -487,6 +505,24 @@ NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUn
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"messages" : [GTLRAlertCenter_GmailMessageInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_RequestInfo
+//
+
+@implementation GTLRAlertCenter_RequestInfo
+@dynamic appDeveloperEmail, appKey, numberOfRequests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"appDeveloperEmail" : [NSString class]
   };
   return map;
 }

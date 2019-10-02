@@ -498,6 +498,13 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 /** The scheduled end time for the maintenance. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/**
+ *  The rollout management policy this maintenance schedule is associated
+ *  with. When doing reschedule update request, the reschedule should be
+ *  against this given policy.
+ */
+@property(nonatomic, copy, nullable) NSString *rolloutManagementPolicy;
+
 /** The scheduled start time for the maintenance. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 

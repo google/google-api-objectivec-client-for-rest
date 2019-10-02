@@ -2347,6 +2347,15 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *metricKind;
 
+/**
+ *  Read-only. If present, then a time
+ *  series, which is identified partially by
+ *  a metric type and a MonitoredResourceDescriptor, that is associated
+ *  with this metric type can only be associated with one of the monitored
+ *  resource types listed here.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *monitoredResourceTypes;
+
 /** The resource name of the metric descriptor. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2459,8 +2468,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRDuration *ingestDelay;
 
 /**
- *  Deprecated. Please use the MetricDescriptor.launch_stage instead.
- *  The launch stage of the metric definition.
+ *  Deprecated. Must use the MetricDescriptor.launch_stage instead.
  *
  *  Likely values:
  *    @arg @c kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Alpha
@@ -3111,10 +3119,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Duration of this limit in textual notation. Example: "100s", "24h", "1d".
- *  For duration longer than a day, only multiple of days is supported. We
- *  support only "100s" and "1d" for now. Additional support will be added in
- *  the future. "0" indicates indefinite duration.
+ *  Duration of this limit in textual notation. Must be "100s" or "1d".
  *  Used by group-based quotas only.
  */
 @property(nonatomic, copy, nullable) NSString *duration;

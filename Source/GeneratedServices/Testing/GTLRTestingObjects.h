@@ -51,6 +51,7 @@
 @class GTLRTesting_IosDeviceList;
 @class GTLRTesting_IosModel;
 @class GTLRTesting_IosRuntimeConfiguration;
+@class GTLRTesting_IosTestLoop;
 @class GTLRTesting_IosTestSetup;
 @class GTLRTesting_IosVersion;
 @class GTLRTesting_IosXcTest;
@@ -490,8 +491,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Invali
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk;
 /**
+ *  The iOS application bundle (.app) couldn't be processed.
+ *
+ *  Value: "MALFORMED_APP_BUNDLE"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedAppBundle;
+/**
  *  The input IPA could not be parsed.
- *  Deprecated and not currently used.
  *
  *  Value: "MALFORMED_IPA"
  */
@@ -510,6 +516,12 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Malfor
  *  Value: "MALFORMED_XC_TEST_ZIP"
  */
 GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedXcTestZip;
+/**
+ *  The application doesn't register the game loop URL scheme.
+ *
+ *  Value: "MISSING_URL_SCHEME"
+ */
+GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MissingUrlScheme;
 /**
  *  APK contains no code.
  *  See also
@@ -1669,6 +1681,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  A description of an iOS device tests may be run on.
+ *  Next tag: 10
  */
 @interface GTLRTesting_IosModel : GTLRObject
 
@@ -1709,6 +1722,27 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Screen density in DPI.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenDensity;
+
+/**
+ *  Screen size in the horizontal (X) dimension measured in pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenX;
+
+/**
+ *  Screen size in the vertical (Y) dimension measured in pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenY;
+
 /** The set of iOS major software versions this device supports. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedVersionIds;
 
@@ -1731,6 +1765,31 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /** The set of available orientations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_Orientation *> *orientations;
+
+@end
+
+
+/**
+ *  A test of an iOS application that implements one or more game loop
+ *  scenarios.
+ *  This test type accepts an archived application (.ipa file) and a list of
+ *  integer scenarios that will be executed on the app sequentially.
+ */
+@interface GTLRTesting_IosTestLoop : GTLRObject
+
+/** Output only. The bundle id for the application under test. */
+@property(nonatomic, copy, nullable) NSString *appBundleId;
+
+/** Required. The .ipa of the application to test. */
+@property(nonatomic, strong, nullable) GTLRTesting_FileReference *appIpa;
+
+/**
+ *  The list of scenarios that should be run during the test. Defaults to the
+ *  single scenario 0 if unspecified.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *scenarios;
 
 @end
 
@@ -2310,15 +2369,20 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        "INVALID_ROBO_DIRECTIVES")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk The
  *        input app APK could not be parsed. (Value: "MALFORMED_APK")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedAppBundle
+ *        The iOS application bundle (.app) couldn't be processed. (Value:
+ *        "MALFORMED_APP_BUNDLE")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa The
- *        input IPA could not be parsed.
- *        Deprecated and not currently used. (Value: "MALFORMED_IPA")
+ *        input IPA could not be parsed. (Value: "MALFORMED_IPA")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk The
  *        input test APK could not be parsed. (Value: "MALFORMED_TEST_APK")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedXcTestZip
  *        The zipped XCTest was malformed. The zip did not contain a single
  *        .xctestrun file and the contents of the DerivedData/Build/Products
  *        directory. (Value: "MALFORMED_XC_TEST_ZIP")
+ *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_MissingUrlScheme The
+ *        application doesn't register the game loop URL scheme. (Value:
+ *        "MISSING_URL_SCHEME")
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoCodeApk APK
  *        contains no code.
  *        See also
@@ -2557,6 +2621,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableVideoRecording;
+
+/** An iOS application with a test loop. */
+@property(nonatomic, strong, nullable) GTLRTesting_IosTestLoop *iosTestLoop;
 
 /** Test setup requirements for iOS. */
 @property(nonatomic, strong, nullable) GTLRTesting_IosTestSetup *iosTestSetup;

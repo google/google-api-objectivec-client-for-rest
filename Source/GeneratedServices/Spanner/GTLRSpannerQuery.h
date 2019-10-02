@@ -649,9 +649,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates multiple new sessions. If the requested number of sessions would
- *  cause the database to exceed its session limit, returns a
- *  RESOURCE_EXHAUSTED error.
+ *  Creates multiple new sessions.
  *  This API can be used to initialize a session cache on the clients.
  *  See https://goo.gl/TgSFN2 for best practices on session cache management.
  *
@@ -671,9 +669,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSpanner_BatchCreateSessionsResponse.
  *
- *  Creates multiple new sessions. If the requested number of sessions would
- *  cause the database to exceed its session limit, returns a
- *  RESOURCE_EXHAUSTED error.
+ *  Creates multiple new sessions.
  *  This API can be used to initialize a session cache on the clients.
  *  See https://goo.gl/TgSFN2 for best practices on session cache management.
  *

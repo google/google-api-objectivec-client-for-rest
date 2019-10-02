@@ -149,6 +149,7 @@ GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_TextEntry_Type_TextTypeUnspeci
 
 /**
  *  The comment analysis request message.
+ *  LINT.IfChange
  */
 @interface GTLRCommentAnalyzer_AnalyzeCommentRequest : GTLRObject
 
@@ -192,16 +193,12 @@ GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_TextEntry_Type_TextTypeUnspeci
 /**
  *  Specification of requested attributes. The AttributeParameters serve as
  *  configuration for each associated attribute. The map keys are attribute
- *  names. The following attributes are available:
- *  "ATTACK_ON_AUTHOR" - Attack on author of original article or post.
- *  "ATTACK_ON_COMMENTER" - Attack on fellow commenter.
- *  "ATTACK_ON_PUBLISHER" - Attack on publisher of article/post.
- *  "INCOHERENT" - Difficult to understand, nonsensical.
- *  "INFLAMMATORY" - Intending to provoke or inflame.
- *  "OBSCENE" - Obscene, such as cursing.
- *  "OFF_TOPIC" - Not related to the original topic.
- *  "SPAM" - Commercial/advertising spam content.
- *  "UNSUBSTANTIAL" - Trivial.
+ *  names. The available attributes may be different on each RFE installation,
+ *  and can be seen by calling ListAttributes (see above).
+ *  For the prod installation, known as Perspective API, at
+ *  blade:commentanalyzer-esf and commentanalyzer.googleapis.com, see
+ *  go/checker-models (internal) and
+ *  https://github.com/conversationai/perspectiveapi/blob/master/api_reference.md#models.
  */
 @property(nonatomic, strong, nullable) GTLRCommentAnalyzer_AnalyzeCommentRequest_RequestedAttributes *requestedAttributes;
 
@@ -228,16 +225,12 @@ GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_TextEntry_Type_TextTypeUnspeci
 /**
  *  Specification of requested attributes. The AttributeParameters serve as
  *  configuration for each associated attribute. The map keys are attribute
- *  names. The following attributes are available:
- *  "ATTACK_ON_AUTHOR" - Attack on author of original article or post.
- *  "ATTACK_ON_COMMENTER" - Attack on fellow commenter.
- *  "ATTACK_ON_PUBLISHER" - Attack on publisher of article/post.
- *  "INCOHERENT" - Difficult to understand, nonsensical.
- *  "INFLAMMATORY" - Intending to provoke or inflame.
- *  "OBSCENE" - Obscene, such as cursing.
- *  "OFF_TOPIC" - Not related to the original topic.
- *  "SPAM" - Commercial/advertising spam content.
- *  "UNSUBSTANTIAL" - Trivial.
+ *  names. The available attributes may be different on each RFE installation,
+ *  and can be seen by calling ListAttributes (see above).
+ *  For the prod installation, known as Perspective API, at
+ *  blade:commentanalyzer-esf and commentanalyzer.googleapis.com, see
+ *  go/checker-models (internal) and
+ *  https://github.com/conversationai/perspectiveapi/blob/master/api_reference.md#models.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCommentAnalyzer_AttributeParameters. Use @c -additionalJSONKeys

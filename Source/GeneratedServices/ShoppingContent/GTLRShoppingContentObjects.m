@@ -1374,8 +1374,9 @@
 @implementation GTLRShoppingContent_Order
 @dynamic acknowledged, billingAddress, customer, deliveryDetails, identifier,
          kind, lineItems, merchantId, merchantOrderId, netPriceAmount,
-         netTaxAmount, paymentStatus, placedDate, promotions, refunds,
-         shipments, shippingCost, shippingCostTax, status, taxCollector;
+         netTaxAmount, paymentStatus, pickupDetails, placedDate, promotions,
+         refunds, shipments, shippingCost, shippingCostTax, status,
+         taxCollector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1561,8 +1562,8 @@
 @implementation GTLRShoppingContent_OrderLineItem
 @dynamic adjustments, annotations, cancellations, identifier, price, product,
          quantityCanceled, quantityDelivered, quantityOrdered, quantityPending,
-         quantityReturned, quantityShipped, quantityUndeliverable, returnInfo,
-         returns, shippingDetails, tax;
+         quantityReadyForPickup, quantityReturned, quantityShipped,
+         quantityUndeliverable, returnInfo, returns, shippingDetails, tax;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1652,7 +1653,7 @@
 //
 
 @implementation GTLRShoppingContent_OrderLineItemShippingDetails
-@dynamic deliverByDate, method, shipByDate;
+@dynamic deliverByDate, method, shipByDate, type;
 @end
 
 
@@ -1673,6 +1674,34 @@
 
 @implementation GTLRShoppingContent_OrderMerchantProvidedAnnotation
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderPickupDetails
+//
+
+@implementation GTLRShoppingContent_OrderPickupDetails
+@dynamic address, collectors, locationId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"collectors" : [GTLRShoppingContent_OrderPickupDetailsCollector class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderPickupDetailsCollector
+//
+
+@implementation GTLRShoppingContent_OrderPickupDetailsCollector
+@dynamic name, phoneNumber;
 @end
 
 
@@ -3374,7 +3403,7 @@
 @implementation GTLRShoppingContent_TestOrder
 @dynamic enableOrderinvoices, kind, lineItems, notificationMode,
          predefinedBillingAddress, predefinedDeliveryAddress, predefinedEmail,
-         promotions, shippingCost, shippingOption;
+         predefinedPickupDetails, promotions, shippingCost, shippingOption;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

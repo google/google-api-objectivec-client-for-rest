@@ -974,8 +974,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *fullFileExtension;
 
 /**
- *  Whether any users are granted file access directly on this file. This field
- *  is only populated for shared drive files.
+ *  Whether there are permissions directly on this file. This field is only
+ *  populated for items in shared drives.
  *
  *  Uses NSNumber of boolValue.
  */

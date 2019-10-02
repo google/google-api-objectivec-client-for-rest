@@ -229,9 +229,12 @@ NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EncryptionPolicy
 
 // GTLRAndroidManagement_Policy.keyguardDisabledFeatures
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_AllFeatures = @"ALL_FEATURES";
+NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Biometrics = @"BIOMETRICS";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Camera = @"CAMERA";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableFingerprint = @"DISABLE_FINGERPRINT";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableRemoteInput = @"DISABLE_REMOTE_INPUT";
+NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Face = @"FACE";
+NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Iris = @"IRIS";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_KeyguardDisabledFeatureUnspecified = @"KEYGUARD_DISABLED_FEATURE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Notifications = @"NOTIFICATIONS";
 NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_TrustAgents = @"TRUST_AGENTS";
@@ -318,10 +321,11 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_Application
-@dynamic managedProperties, name, permissions, title;
+@dynamic appTracks, managedProperties, name, permissions, title;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"appTracks" : [GTLRAndroidManagement_AppTrackInfo class],
     @"managedProperties" : [GTLRAndroidManagement_ManagedProperty class],
     @"permissions" : [GTLRAndroidManagement_ApplicationPermission class]
   };
@@ -362,12 +366,14 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_ApplicationPolicy
-@dynamic defaultPermissionPolicy, delegatedScopes, disabled, installType,
-         lockTaskAllowed, managedConfiguration, managedConfigurationTemplate,
-         minimumVersionCode, packageName, permissionGrants;
+@dynamic accessibleTrackIds, defaultPermissionPolicy, delegatedScopes, disabled,
+         installType, lockTaskAllowed, managedConfiguration,
+         managedConfigurationTemplate, minimumVersionCode, packageName,
+         permissionGrants;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"accessibleTrackIds" : [NSString class],
     @"delegatedScopes" : [NSString class],
     @"permissionGrants" : [GTLRAndroidManagement_PermissionGrant class]
   };
@@ -420,6 +426,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_ApplicationReportingSettings
 @dynamic includeRemovedApps;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_AppTrackInfo
+//
+
+@implementation GTLRAndroidManagement_AppTrackInfo
+@dynamic trackAlias, trackId;
 @end
 
 
@@ -999,8 +1015,9 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          mountPhysicalMediaDisabled, name, networkEscapeHatchEnabled,
          networkResetDisabled, openNetworkConfiguration, outgoingBeamDisabled,
          outgoingCallsDisabled, passwordPolicies, passwordRequirements,
-         permissionGrants, permittedInputMethods, persistentPreferredActivities,
-         playStoreMode, policyEnforcementRules, privateKeySelectionEnabled,
+         permissionGrants, permittedAccessibilityServices,
+         permittedInputMethods, persistentPreferredActivities, playStoreMode,
+         policyEnforcementRules, privateKeySelectionEnabled,
          recommendedGlobalProxy, removeUserDisabled, safeBootDisabled,
          screenCaptureDisabled, setupActions, setUserIconDisabled,
          setWallpaperDisabled, shareLocationDisabled, shortSupportMessage,

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Binary Authorization API (binaryauthorization/v1beta1)
+//   Binary Authorization API (binaryauthorization/v1)
 // Description:
 //   The management interface for Binary Authorization, a system providing
 //   policy control for images deployed to Kubernetes Engine clusters.
@@ -28,7 +28,7 @@
 @class GTLRBinaryAuthorization_IamPolicy;
 @class GTLRBinaryAuthorization_PkixPublicKey;
 @class GTLRBinaryAuthorization_Policy_ClusterAdmissionRules;
-@class GTLRBinaryAuthorization_UserOwnedDrydockNote;
+@class GTLRBinaryAuthorization_UserOwnedGrafeasNote;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -289,8 +289,8 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluat
 /** Output only. Time when the attestor was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** A Drydock ATTESTATION_AUTHORITY Note, created by the user. */
-@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_UserOwnedDrydockNote *userOwnedDrydockNote;
+/** A Grafeas Attestation.Authority Note, created by the user. */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_UserOwnedGrafeasNote *userOwnedGrafeasNote;
 
 @end
 
@@ -500,7 +500,12 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluat
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Deprecated.
+ *  Specifies the format of the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset.
  *
  *  Uses NSNumber of intValue.
  */
@@ -731,10 +736,10 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluat
 
 
 /**
- *  An user owned drydock note references a Drydock
- *  ATTESTATION_AUTHORITY Note created by the user.
+ *  An user owned Grafeas note references a Grafeas
+ *  Attestation.Authority Note created by the user.
  */
-@interface GTLRBinaryAuthorization_UserOwnedDrydockNote : GTLRObject
+@interface GTLRBinaryAuthorization_UserOwnedGrafeasNote : GTLRObject
 
 /**
  *  Output only. This field will contain the service account email address
@@ -749,12 +754,12 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluat
 @property(nonatomic, copy, nullable) NSString *delegationServiceAccountEmail;
 
 /**
- *  Required. The Drydock resource name of a ATTESTATION_AUTHORITY Note,
- *  created by the user, in the format: `projects/ * /notes/ *` (or the legacy
- *  `providers/ * /notes/ *`). This field may not be updated.
- *  An attestation by this attestor is stored as a Drydock
- *  ATTESTATION_AUTHORITY Occurrence that names a container image and that
- *  links to this Note. Drydock is an external dependency.
+ *  Required. The Grafeas resource name of a Attestation.Authority Note,
+ *  created by the user, in the format: `projects/ * /notes/ *`. This field may
+ *  not be updated.
+ *  An attestation by this attestor is stored as a Grafeas
+ *  Attestation.Authority Occurrence that names a container image and that
+ *  links to this Note. Grafeas is an external dependency.
  */
 @property(nonatomic, copy, nullable) NSString *noteReference;
 

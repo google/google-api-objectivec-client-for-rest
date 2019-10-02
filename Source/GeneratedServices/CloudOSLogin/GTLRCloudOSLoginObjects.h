@@ -132,6 +132,9 @@ GTLR_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_
 /** The path to the home directory for this account. */
 @property(nonatomic, copy, nullable) NSString *homeDirectory;
 
+/** Output only. The canonical resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
 /**
  *  The operating system type where this account applies.
  *
@@ -197,6 +200,9 @@ GTLR_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_
  *  section 6.6.
  */
 @property(nonatomic, copy, nullable) NSString *key;
+
+/** Output only. The canonical resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

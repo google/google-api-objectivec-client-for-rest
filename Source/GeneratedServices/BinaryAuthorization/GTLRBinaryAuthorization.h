@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Binary Authorization API (binaryauthorization/v1beta1)
+//   Binary Authorization API (binaryauthorization/v1)
 // Description:
 //   The management interface for Binary Authorization, a system providing
 //   policy control for images deployed to Kubernetes Engine clusters.

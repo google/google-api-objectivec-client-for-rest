@@ -7,7 +7,6 @@
     "Guessed formatted name 'ReplicaPool' from API title 'Replica Pool API'",
     "Guessed formatted name 'SafeBrowsing' from API title 'Safe Browsing API'",
     "Guessed formatted name 'StorageTransfer' from API title 'Storage Transfer API'",
-    "Guessed formatted name 'URLShortener' from API title 'URL Shortener API'",
   ],
   "WARNING": [
     "Method 'admin.channels.stop' had a 'path' that started with '/', removing it.",

@@ -1805,6 +1805,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  This annotation identifies the surrogate when inspecting content using the
  *  custom info type 'Surrogate'. This facilitates reversal of the
  *  surrogate when it occurs in free text.
+ *  Note: For record transformations where the entire cell in a table is being
+ *  transformed, surrogates are optional to use. Surrogates are used to denote
+ *  the location of the token and are necessary for re-identification in free
+ *  form text.
  *  In order for inspection to work properly, the name of this info type must
  *  not occur naturally anywhere in your data; otherwise, inspection may either
  *  - reverse a surrogate that does not correspond to an actual identifier
@@ -1815,7 +1819,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  that are highly improbable to exist in your data.
  *  For example, assuming your data is entered from a regular ASCII keyboard,
  *  the symbol with the hex code point 29DD might be used like so:
- *  ⧝MY_TOKEN_TYPE
+ *  ⧝MY_TOKEN_TYPE.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *surrogateInfoType;
 
@@ -3077,10 +3081,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  When no InfoTypes or CustomInfoTypes are specified in a request, the
  *  system may automatically choose what detectors to run. By default this may
  *  be all types, but may change over time as detectors are updated.
- *  The special InfoType name "ALL_BASIC" can be used to trigger all detectors,
- *  but may change over time as new InfoTypes are added. If you need precise
- *  control and predictability as to what detectors are run you should specify
- *  specific InfoTypes listed in the reference.
+ *  If you need precise control and predictability as to what detectors are
+ *  run you should specify specific InfoTypes listed in the reference,
+ *  otherwise a default list will be used, which may change over time.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
 
@@ -3139,6 +3142,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /** The item to inspect. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ContentItem *item;
+
+/**
+ *  The geographic location to process content inspection. Reserved for future
+ *  extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 @end
 
@@ -3903,6 +3912,27 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  Request for the list of infoTypes.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ListInfoTypesRequest : GTLRObject
+
+/**
+ *  Optional filter to only return infoTypes supported by certain parts of the
+ *  API. Defaults to supported_by=INSPECT.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional BCP-47 language code for localized infoType friendly
+ *  names. If omitted, or if localized strings are not available,
+ *  en-US strings will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
  *  Response to the ListInfoTypes request.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse : GTLRObject
@@ -4552,6 +4582,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ContentItem *item;
 
 /**
+ *  The geographic location to process content reidentification. Reserved for
+ *  future extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Configuration for the re-identification of the content item.
  *  This field shares the same proto message type that is used for
  *  de-identification, however its usage here is for the reversal of the
@@ -4559,6 +4595,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  the transformations used to de-identify the items and executing the
  *  reverse. This requires that only reversible transformations
  *  be provided here. The reversible transformations are:
+ *  - `CryptoDeterministicConfig`
  *  - `CryptoReplaceFfxFpeConfig`
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig *reidentifyConfig;
@@ -5060,14 +5097,17 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Specification of the field containing the timestamp of scanned items.
- *  Used for data sources like Datastore or BigQuery.
- *  If not specified for BigQuery, table last modification timestamp
- *  is checked against given time span.
- *  The valid data types of the timestamp field are:
- *  for BigQuery - timestamp, date, datetime;
- *  for Datastore - timestamp.
- *  Datastore entity will be scanned if the timestamp property does not exist
- *  or its value is empty or invalid.
+ *  Used for data sources like Datastore and BigQuery.
+ *  For BigQuery:
+ *  Required to filter out rows based on the given start and
+ *  end times. If not specified and the table was modified between the given
+ *  start and end times, the entire table will be scanned.
+ *  The valid data types of the timestamp field are: `INTEGER`, `DATE`,
+ *  `TIMESTAMP`, or `DATETIME` BigQuery column.
+ *  For Datastore.
+ *  Valid data types of the timestamp field are: `TIMESTAMP`.
+ *  Datastore entity will be scanned if the timestamp property does not
+ *  exist or its value is empty or invalid.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *timestampField;
 

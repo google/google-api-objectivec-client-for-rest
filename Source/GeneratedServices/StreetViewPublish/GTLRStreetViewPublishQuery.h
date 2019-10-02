@@ -181,7 +181,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @property(nonatomic, copy, nullable) NSString *photoId;
 
 /**
- *  Specifies if a download URL for the photo bytes should be returned in the
+ *  Required. Specifies if a download URL for the photo bytes should be returned
+ *  in the
  *  Photo response.
  *
  *  Likely values:
@@ -309,7 +310,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *photoIds;
 
 /**
- *  Specifies if a download URL for the photo bytes should be returned in the
+ *  Required. Specifies if a download URL for the photo bytes should be returned
+ *  in the
  *  Photo response.
  *
  *  Likely values:
@@ -442,7 +444,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 //   +[GTLQueryStreetViewPublish queryForPhotosList]
 
 /**
- *  The filter expression. For example: `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`.
+ *  Required. The filter expression. For example:
+ *  `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`.
  *  The only filter supported at the moment is `placeId`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -475,7 +478,8 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Specifies if a download URL for the photos bytes should be returned in the
+ *  Required. Specifies if a download URL for the photos bytes should be
+ *  returned in the
  *  Photos response.
  *
  *  Likely values:
@@ -593,7 +597,7 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Mask that identifies fields on the photo metadata to update.
+ *  Required. Mask that identifies fields on the photo metadata to update.
  *  If not present, the old Photo
  *  metadata is entirely replaced with the
  *  new Photo metadata in this request.

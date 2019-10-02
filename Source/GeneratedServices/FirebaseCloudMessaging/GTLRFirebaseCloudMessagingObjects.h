@@ -536,14 +536,16 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Vis
 
 /**
  *  HTTP request headers defined in Apple Push Notification Service. Refer to
- *  [APNs request headers](https://goo.gl/C6Yhia) for
- *  supported headers, e.g. "apns-priority": "10".
+ *  [APNs request
+ *  headers](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns)
+ *  for supported headers, e.g. "apns-priority": "10".
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_ApnsConfig_Headers *headers;
 
 /**
  *  APNs payload as a JSON object, including both `aps` dictionary and custom
- *  payload. See [Payload Key Reference](https://goo.gl/32Pl5W).
+ *  payload. See [Payload Key
+ *  Reference](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
  *  If present, it overrides google.firebase.fcm.v1.Notification.title
  *  and google.firebase.fcm.v1.Notification.body.
  */
@@ -554,8 +556,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Vis
 
 /**
  *  HTTP request headers defined in Apple Push Notification Service. Refer to
- *  [APNs request headers](https://goo.gl/C6Yhia) for
- *  supported headers, e.g. "apns-priority": "10".
+ *  [APNs request
+ *  headers](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns)
+ *  for supported headers, e.g. "apns-priority": "10".
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -568,7 +571,8 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Vis
 
 /**
  *  APNs payload as a JSON object, including both `aps` dictionary and custom
- *  payload. See [Payload Key Reference](https://goo.gl/32Pl5W).
+ *  payload. See [Payload Key
+ *  Reference](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
  *  If present, it overrides google.firebase.fcm.v1.Notification.title
  *  and google.firebase.fcm.v1.Notification.body.
  *
@@ -808,7 +812,10 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Vis
  */
 @property(nonatomic, copy, nullable) NSString *condition;
 
-/** Input only. Arbitrary key/value payload. */
+/**
+ *  Input only. Arbitrary key/value payload. The key should not be a reserved
+ *  word ("from", "message_type", or any word starting with "google" or "gcm").
+ */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_Message_Data *data;
 
 /**
@@ -845,7 +852,8 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Vis
 
 
 /**
- *  Input only. Arbitrary key/value payload.
+ *  Input only. Arbitrary key/value payload. The key should not be a reserved
+ *  word ("from", "message_type", or any word starting with "google" or "gcm").
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

@@ -82,9 +82,11 @@ NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidPackageName
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidResourceName = @"INVALID_RESOURCE_NAME";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidRoboDirectives = @"INVALID_ROBO_DIRECTIVES";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk = @"MALFORMED_APK";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedAppBundle = @"MALFORMED_APP_BUNDLE";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa = @"MALFORMED_IPA";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk = @"MALFORMED_TEST_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedXcTestZip = @"MALFORMED_XC_TEST_ZIP";
+NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MissingUrlScheme = @"MISSING_URL_SCHEME";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoCodeApk = @"NO_CODE_APK";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoInstrumentation = @"NO_INSTRUMENTATION";
 NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoLauncherActivity = @"NO_LAUNCHER_ACTIVITY";
@@ -586,8 +588,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_IosModel
-@dynamic deviceCapabilities, formFactor, identifier, name, supportedVersionIds,
-         tags;
+@dynamic deviceCapabilities, formFactor, identifier, name, screenDensity,
+         screenX, screenY, supportedVersionIds, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -617,6 +619,24 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
   NSDictionary<NSString *, Class> *map = @{
     @"locales" : [GTLRTesting_Locale class],
     @"orientations" : [GTLRTesting_Orientation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_IosTestLoop
+//
+
+@implementation GTLRTesting_IosTestLoop
+@dynamic appBundleId, appIpa, scenarios;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scenarios" : [NSNumber class]
   };
   return map;
 }
@@ -926,8 +946,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_TestSpecification
 @dynamic androidInstrumentationTest, androidRoboTest, androidTestLoop,
-         disablePerformanceMetrics, disableVideoRecording, iosTestSetup,
-         iosXcTest, testSetup, testTimeout;
+         disablePerformanceMetrics, disableVideoRecording, iosTestLoop,
+         iosTestSetup, iosXcTest, testSetup, testTimeout;
 @end
 
 

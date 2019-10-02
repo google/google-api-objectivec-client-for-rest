@@ -23,6 +23,11 @@ NSString * const kGTLRContainer_Cluster_Status_Running         = @"RUNNING";
 NSString * const kGTLRContainer_Cluster_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRContainer_Cluster_Status_Stopping        = @"STOPPING";
 
+// GTLRContainer_DatabaseEncryption.state
+NSString * const kGTLRContainer_DatabaseEncryption_State_Decrypted = @"DECRYPTED";
+NSString * const kGTLRContainer_DatabaseEncryption_State_Encrypted = @"ENCRYPTED";
+NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown = @"UNKNOWN";
+
 // GTLRContainer_NetworkPolicy.provider
 NSString * const kGTLRContainer_NetworkPolicy_Provider_Calico  = @"CALICO";
 NSString * const kGTLRContainer_NetworkPolicy_Provider_ProviderUnspecified = @"PROVIDER_UNSPECIFIED";
@@ -75,6 +80,7 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetUsername = @"SET_
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN";
 
 // GTLRContainer_StatusCondition.code
+NSString * const kGTLRContainer_StatusCondition_Code_CloudKmsKeyError = @"CLOUD_KMS_KEY_ERROR";
 NSString * const kGTLRContainer_StatusCondition_Code_GceQuotaExceeded = @"GCE_QUOTA_EXCEEDED";
 NSString * const kGTLRContainer_StatusCondition_Code_GceStockout = @"GCE_STOCKOUT";
 NSString * const kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted = @"GKE_SERVICE_ACCOUNT_DELETED";
@@ -136,6 +142,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_BinaryAuthorization
+//
+
+@implementation GTLRContainer_BinaryAuthorization
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_CancelOperationRequest
 //
 
@@ -175,17 +191,18 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 //
 
 @implementation GTLRContainer_Cluster
-@dynamic addonsConfig, clusterIpv4Cidr, conditions, createTime,
-         currentMasterVersion, currentNodeCount, currentNodeVersion,
-         defaultMaxPodsConstraint, descriptionProperty, enableKubernetesAlpha,
-         enableTpu, endpoint, expireTime, initialClusterVersion,
-         initialNodeCount, instanceGroupUrls, ipAllocationPolicy,
-         labelFingerprint, legacyAbac, location, locations, loggingService,
-         maintenancePolicy, masterAuth, masterAuthorizedNetworksConfig,
-         monitoringService, name, network, networkConfig, networkPolicy,
-         nodeConfig, nodeIpv4CidrSize, nodePools, privateClusterConfig,
-         resourceLabels, resourceUsageExportConfig, selfLink, servicesIpv4Cidr,
-         status, statusMessage, subnetwork, tpuIpv4CidrBlock, zoneProperty;
+@dynamic addonsConfig, binaryAuthorization, clusterIpv4Cidr, conditions,
+         createTime, currentMasterVersion, currentNodeCount, currentNodeVersion,
+         databaseEncryption, defaultMaxPodsConstraint, descriptionProperty,
+         enableKubernetesAlpha, enableTpu, endpoint, expireTime,
+         initialClusterVersion, initialNodeCount, instanceGroupUrls,
+         ipAllocationPolicy, labelFingerprint, legacyAbac, location, locations,
+         loggingService, maintenancePolicy, masterAuth,
+         masterAuthorizedNetworksConfig, monitoringService, name, network,
+         networkConfig, networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePools,
+         privateClusterConfig, resourceLabels, resourceUsageExportConfig,
+         selfLink, servicesIpv4Cidr, status, statusMessage, subnetwork,
+         tpuIpv4CidrBlock, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -228,7 +245,9 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 //
 
 @implementation GTLRContainer_ClusterUpdate
-@dynamic desiredAddonsConfig, desiredImageType, desiredLocations,
+@dynamic desiredAddonsConfig, desiredBinaryAuthorization,
+         desiredDatabaseEncryption, desiredImageType,
+         desiredIntraNodeVisibilityConfig, desiredLocations,
          desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
          desiredMasterVersion, desiredMonitoringService,
          desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
@@ -306,6 +325,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_DailyMaintenanceWindow
 @dynamic duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_DatabaseEncryption
+//
+
+@implementation GTLRContainer_DatabaseEncryption
+@dynamic keyName, state;
 @end
 
 
@@ -399,6 +428,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_HttpLoadBalancing
 @dynamic disabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_IntraNodeVisibilityConfig
+//
+
+@implementation GTLRContainer_IntraNodeVisibilityConfig
+@dynamic enabled;
 @end
 
 
@@ -588,7 +627,7 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 //
 
 @implementation GTLRContainer_NetworkConfig
-@dynamic network, subnetwork;
+@dynamic enableIntraNodeVisibility, network, subnetwork;
 @end
 
 
@@ -620,7 +659,7 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 @implementation GTLRContainer_NodeConfig
 @dynamic accelerators, diskSizeGb, diskType, imageType, labels, localSsdCount,
          machineType, metadata, minCpuPlatform, oauthScopes, preemptible,
-         serviceAccount, tags, taints;
+         serviceAccount, shieldedInstanceConfig, tags, taints;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -996,6 +1035,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
   return @{ @"zoneProperty" : @"zone" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ShieldedInstanceConfig
+//
+
+@implementation GTLRContainer_ShieldedInstanceConfig
+@dynamic enableIntegrityMonitoring, enableSecureBoot;
 @end
 
 

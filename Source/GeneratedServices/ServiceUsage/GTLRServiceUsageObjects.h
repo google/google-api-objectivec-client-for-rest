@@ -71,6 +71,7 @@
 @class GTLRServiceUsage_QuotaLimit_Values;
 @class GTLRServiceUsage_QuotaOverride;
 @class GTLRServiceUsage_QuotaOverride_Dimensions;
+@class GTLRServiceUsage_ServiceIdentity;
 @class GTLRServiceUsage_SourceContext;
 @class GTLRServiceUsage_SourceInfo;
 @class GTLRServiceUsage_SourceInfo_SourceFiles_Item;
@@ -316,6 +317,23 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeUint64;
  *  Value: "TYPE_UNKNOWN"
  */
 GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_GetServiceIdentityResponse.state
+
+/**
+ *  Service identity has been created and can be used.
+ *
+ *  Value: "ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_Active;
+/**
+ *  Default service identity state. This value is used if the state is
+ *  omitted.
+ *
+ *  Value: "IDENTITY_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_IdentityStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_GoogleApiServiceusageV1Service.state
@@ -1697,6 +1715,33 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Response message for getting service identity.
+ */
+@interface GTLRServiceUsage_GetServiceIdentityResponse : GTLRObject
+
+/**
+ *  Service identity that service producer can use to access consumer
+ *  resources. If exists is true, it contains email and unique_id. If exists is
+ *  false, it contains pre-constructed email and empty unique_id.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_ServiceIdentity *identity;
+
+/**
+ *  Service identity state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_GetServiceIdentityResponse_State_Active Service
+ *        identity has been created and can be used. (Value: "ACTIVE")
+ *    @arg @c kGTLRServiceUsage_GetServiceIdentityResponse_State_IdentityStateUnspecified
+ *        Default service identity state. This value is used if the state is
+ *        omitted. (Value: "IDENTITY_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  `Service` is the root object of Google service configuration schema. It
  *  describes basic information about a service, such as the name and the
  *  title, and delegates other aspects to sub-sections. Each sub-section is
@@ -2639,6 +2684,15 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *metricKind;
 
+/**
+ *  Read-only. If present, then a time
+ *  series, which is identified partially by
+ *  a metric type and a MonitoredResourceDescriptor, that is associated
+ *  with this metric type can only be associated with one of the monitored
+ *  resource types listed here.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *monitoredResourceTypes;
+
 /** The resource name of the metric descriptor. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2751,8 +2805,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRDuration *ingestDelay;
 
 /**
- *  Deprecated. Please use the MetricDescriptor.launch_stage instead.
- *  The launch stage of the metric definition.
+ *  Deprecated. Must use the MetricDescriptor.launch_stage instead.
  *
  *  Likely values:
  *    @arg @c kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Alpha Alpha
@@ -3416,10 +3469,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Duration of this limit in textual notation. Example: "100s", "24h", "1d".
- *  For duration longer than a day, only multiple of days is supported. We
- *  support only "100s" and "1d" for now. Additional support will be added in
- *  the future. "0" indicates indefinite duration.
+ *  Duration of this limit in textual notation. Must be "100s" or "1d".
  *  Used by group-based quotas only.
  */
 @property(nonatomic, copy, nullable) NSString *duration;
@@ -3573,6 +3623,27 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        fetch them all at once.
  */
 @interface GTLRServiceUsage_QuotaOverride_Dimensions : GTLRObject
+@end
+
+
+/**
+ *  Service identity for a service. This is the identity that service producer
+ *  should use to access consumer resources.
+ */
+@interface GTLRServiceUsage_ServiceIdentity : GTLRObject
+
+/**
+ *  The email address of the service account that a service producer would use
+ *  to access consumer resources.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  The unique and stable id of the service account.
+ *  https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts#ServiceAccount
+ */
+@property(nonatomic, copy, nullable) NSString *uniqueId;
+
 @end
 
 

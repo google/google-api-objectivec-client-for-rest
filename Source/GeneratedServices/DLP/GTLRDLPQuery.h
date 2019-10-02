@@ -29,6 +29,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest;
 @class GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest;
 @class GTLRDLP_GooglePrivacyDlpV2InspectContentRequest;
+@class GTLRDLP_GooglePrivacyDlpV2ListInfoTypesRequest;
 @class GTLRDLP_GooglePrivacyDlpV2RedactImageRequest;
 @class GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest;
 @class GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest;
@@ -98,6 +99,12 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
+ *  The geographic location to list info types. Reserved for future
+ *  extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
  *
  *  Returns a list of the sensitive information types that the DLP API
@@ -107,6 +114,46 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @return GTLRDLPQuery_InfoTypesList
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Returns a list of the sensitive information types that the DLP API
+ *  supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
+ *  learn more.
+ *
+ *  Method: dlp.locations.infoTypes
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_LocationsInfoTypes : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForLocationsInfoTypesWithObject:location:]
+
+/**
+ *  The geographic location to list info types. Reserved for future
+ *  extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
+ *
+ *  Returns a list of the sensitive information types that the DLP API
+ *  supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
+ *  learn more.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesRequest to
+ *    include in the query.
+ *  @param location The geographic location to list info types. Reserved for
+ *    future
+ *    extensions.
+ *
+ *  @return GTLRDLPQuery_LocationsInfoTypes
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2ListInfoTypesRequest *)object
+                       location:(NSString *)location;
 
 @end
 
@@ -1956,6 +2003,106 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @return GTLRDLPQuery_ProjectsLocationsContentDeidentify
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest *)object
+                         parent:(NSString *)parent
+                       location:(NSString *)location;
+
+@end
+
+/**
+ *  Finds potentially sensitive info in content.
+ *  This method has limits on input size, processing time, and output size.
+ *  When no InfoTypes or CustomInfoTypes are specified in this request, the
+ *  system will automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
+ *  For how to guides, see https://cloud.google.com/dlp/docs/inspecting-images
+ *  and https://cloud.google.com/dlp/docs/inspecting-text,
+ *
+ *  Method: dlp.projects.locations.content.inspect
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsContentInspect : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsLocationsContentInspectWithObject:parent:location:]
+
+/**
+ *  The geographic location to process content inspection. Reserved for future
+ *  extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The parent resource name, for example projects/my-project-id. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectContentResponse.
+ *
+ *  Finds potentially sensitive info in content.
+ *  This method has limits on input size, processing time, and output size.
+ *  When no InfoTypes or CustomInfoTypes are specified in this request, the
+ *  system will automatically choose what detectors to run. By default this may
+ *  be all types, but may change over time as detectors are updated.
+ *  For how to guides, see https://cloud.google.com/dlp/docs/inspecting-images
+ *  and https://cloud.google.com/dlp/docs/inspecting-text,
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2InspectContentRequest to
+ *    include in the query.
+ *  @param parent The parent resource name, for example projects/my-project-id.
+ *  @param location The geographic location to process content inspection.
+ *    Reserved for future
+ *    extensions.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsContentInspect
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2InspectContentRequest *)object
+                         parent:(NSString *)parent
+                       location:(NSString *)location;
+
+@end
+
+/**
+ *  Re-identifies content that has been de-identified.
+ *  See
+ *  https://cloud.google.com/dlp/docs/pseudonymization#re-identification_in_free_text_code_example
+ *  to learn more.
+ *
+ *  Method: dlp.projects.locations.content.reidentify
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsContentReidentify : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsLocationsContentReidentifyWithObject:parent:location:]
+
+/**
+ *  The geographic location to process content reidentification. Reserved for
+ *  future extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The parent resource name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentResponse.
+ *
+ *  Re-identifies content that has been de-identified.
+ *  See
+ *  https://cloud.google.com/dlp/docs/pseudonymization#re-identification_in_free_text_code_example
+ *  to learn more.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest to
+ *    include in the query.
+ *  @param parent The parent resource name.
+ *  @param location The geographic location to process content reidentification.
+ *    Reserved for
+ *    future extensions.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsContentReidentify
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest *)object
                          parent:(NSString *)parent
                        location:(NSString *)location;
 

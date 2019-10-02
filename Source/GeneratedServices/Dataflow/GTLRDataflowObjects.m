@@ -531,7 +531,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 @dynamic clusterManagerApiService, dataset, experiments,
          flexResourceSchedulingGoal, internalExperiments, sdkPipelineOptions,
          serviceAccountEmail, serviceKmsKeyName, tempStoragePrefix, userAgent,
-         version, workerPools;
+         version, workerPools, workerRegion, workerZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1581,7 +1581,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 @implementation GTLRDataflow_RuntimeEnvironment
 @dynamic additionalExperiments, additionalUserLabels, bypassTempDirValidation,
          kmsKeyName, machineType, maxWorkers, network, numWorkers,
-         serviceAccountEmail, subnetwork, tempLocation, zoneProperty;
+         serviceAccountEmail, subnetwork, tempLocation, usePrivateIps,
+         workerRegion, workerZone, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -2157,7 +2158,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_StreamingConfigTask
-@dynamic maxWorkItemCommitBytes, streamingComputationConfigs,
+@dynamic commitStreamChunkSizeBytes, getDataStreamChunkSizeBytes,
+         maxWorkItemCommitBytes, streamingComputationConfigs,
          userStepToStateFamilyNameMap, windmillServiceEndpoint,
          windmillServicePort;
 

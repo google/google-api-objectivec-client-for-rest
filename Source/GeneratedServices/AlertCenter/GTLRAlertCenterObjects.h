@@ -34,6 +34,7 @@
 @class GTLRAlertCenter_LoginDetails;
 @class GTLRAlertCenter_MaliciousEntity;
 @class GTLRAlertCenter_Notification;
+@class GTLRAlertCenter_RequestInfo;
 @class GTLRAlertCenter_Status;
 @class GTLRAlertCenter_Status_Details_Item;
 @class GTLRAlertCenter_SuspiciousActivitySecurityDetail;
@@ -372,6 +373,17 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
 
 /** Output only. The time this metadata was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Alerts from App Maker to notify admins to set up default SQL instance.
+ */
+@interface GTLRAlertCenter_AppMakerSqlSetupNotification : GTLRObject
+
+/** List of applications with requests for default SQL set up. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_RequestInfo *> *requestInfo;
 
 @end
 
@@ -852,6 +864,31 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
 
 /** The list of messages contained by this alert. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_GmailMessageInfo *> *messages;
+
+@end
+
+
+/**
+ *  Requests for one application that needs default SQL setup.
+ */
+@interface GTLRAlertCenter_RequestInfo : GTLRObject
+
+/**
+ *  List of app developers who triggered notifications for above
+ *  application.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *appDeveloperEmail;
+
+/** Required. The application that requires the SQL setup. */
+@property(nonatomic, copy, nullable) NSString *appKey;
+
+/**
+ *  Required. Number of requests sent for this application to set up default
+ *  SQL instance.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numberOfRequests;
 
 @end
 

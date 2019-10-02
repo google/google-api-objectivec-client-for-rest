@@ -282,8 +282,8 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
 /**
- *  ID of the user whose blogs are to be fetched. Either the word 'self' (sans
- *  quote marks) or the user's profile identifier.
+ *  ID of the user whose blogs are to be fetched. Either the word 'self' or the
+ *  user's profile identifier.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -304,7 +304,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  Retrieves a list of blogs, possibly filtered.
  *
  *  @param userId ID of the user whose blogs are to be fetched. Either the word
- *    'self' (sans quote marks) or the user's profile identifier.
+ *    'self' or the user's profile identifier.
  *
  *  @return GTLRBloggerQuery_BlogsListByUser
  */
@@ -332,8 +332,8 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 @property(nonatomic, assign) NSUInteger maxPosts;
 
 /**
- *  ID of the user whose blogs are to be fetched. Either the word 'self' (sans
- *  quote marks) or the user's profile identifier.
+ *  ID of the user whose blogs are to be fetched. Either the word 'self' or the
+ *  user's profile identifier.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -343,7 +343,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  Gets one blog and user info pair by blogId and userId.
  *
  *  @param userId ID of the user whose blogs are to be fetched. Either the word
- *    'self' (sans quote marks) or the user's profile identifier.
+ *    'self' or the user's profile identifier.
  *  @param blogId The ID of the blog to get.
  *
  *  @return GTLRBloggerQuery_BlogUserInfosGet
@@ -1650,7 +1650,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 
 /**
  *  ID of the user for the per-user information to be fetched. Either the word
- *  'self' (sans quote marks) or the user's profile identifier.
+ *  'self' or the user's profile identifier.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -1662,8 +1662,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  specific to the user.
  *
  *  @param userId ID of the user for the per-user information to be fetched.
- *    Either the word 'self' (sans quote marks) or the user's profile
- *    identifier.
+ *    Either the word 'self' or the user's profile identifier.
  *  @param blogId The ID of the blog.
  *  @param postId The ID of the post to get.
  *
@@ -1741,7 +1740,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
 
 /**
  *  ID of the user for the per-user information to be fetched. Either the word
- *  'self' (sans quote marks) or the user's profile identifier.
+ *  'self' or the user's profile identifier.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -1764,8 +1763,7 @@ GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
  *  rights, specific to the user.
  *
  *  @param userId ID of the user for the per-user information to be fetched.
- *    Either the word 'self' (sans quote marks) or the user's profile
- *    identifier.
+ *    Either the word 'self' or the user's profile identifier.
  *  @param blogId ID of the blog to fetch posts from.
  *
  *  @return GTLRBloggerQuery_PostUserInfosList
