@@ -31,7 +31,7 @@ case "${BUILD_MODE}" in
     CMD_BUILDER+=(
       -project Source/GTLRCore.xcodeproj
       -scheme "iOS Framework and Tests"
-      -destination "platform=iOS Simulator,name=iPhone 6,OS=latest"
+      -destination "platform=iOS Simulator,name=iPhone 8,OS=latest"
     )
     ;;
   OSXCore)
