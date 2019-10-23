@@ -57,6 +57,7 @@
 @class GTLRTesting_IosXcTest;
 @class GTLRTesting_LauncherActivityIntent;
 @class GTLRTesting_Locale;
+@class GTLRTesting_ManualSharding;
 @class GTLRTesting_NetworkConfiguration;
 @class GTLRTesting_NetworkConfigurationCatalog;
 @class GTLRTesting_ObbFile;
@@ -66,15 +67,19 @@
 @class GTLRTesting_ResultStorage;
 @class GTLRTesting_RoboDirective;
 @class GTLRTesting_RoboStartingIntent;
+@class GTLRTesting_Shard;
+@class GTLRTesting_ShardingOption;
 @class GTLRTesting_StartActivityIntent;
 @class GTLRTesting_TestDetails;
 @class GTLRTesting_TestExecution;
 @class GTLRTesting_TestSetup;
 @class GTLRTesting_TestSpecification;
+@class GTLRTesting_TestTargetsForShard;
 @class GTLRTesting_ToolResultsExecution;
 @class GTLRTesting_ToolResultsHistory;
 @class GTLRTesting_ToolResultsStep;
 @class GTLRTesting_TrafficRule;
+@class GTLRTesting_UniformSharding;
 @class GTLRTesting_XcodeVersion;
 
 // Generated comments include content from the discovery document; avoid them
@@ -894,6 +899,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, copy, nullable) NSString *orchestratorOption;
 
+/** The option to run tests in multiple shards in parallel. */
+@property(nonatomic, strong, nullable) GTLRTesting_ShardingOption *shardingOption;
+
 /** Required. The APK containing the test code to be executed. */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *testApk;
 
@@ -1681,7 +1689,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  A description of an iOS device tests may be run on.
- *  Next tag: 10
+ *  Next tag: 11
  */
 @interface GTLRTesting_IosModel : GTLRObject
 
@@ -1932,6 +1940,23 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  Shards test cases into the specified groups of packages, classes, and/or
+ *  methods.
+ *  With manual sharding enabled, specifying test targets via
+ *  environment_variables or in InstrumentationTest is invalid.
+ */
+@interface GTLRTesting_ManualSharding : GTLRObject
+
+/**
+ *  Required. Group of packages, classes, and/or test methods to be run for
+ *  each shard. The number of shard_test_targets must be > 1, and <= 50.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_TestTargetsForShard *> *testTargetsForShard;
+
+@end
+
+
+/**
  *  GTLRTesting_NetworkConfiguration
  */
 @interface GTLRTesting_NetworkConfiguration : GTLRObject
@@ -2144,6 +2169,48 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  Output only. Details about the shard.
+ */
+@interface GTLRTesting_Shard : GTLRObject
+
+/**
+ *  Output only. The total number of shards.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numShards;
+
+/**
+ *  Output only. The index of the shard among all the shards.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shardIndex;
+
+/** Output only. Test targets for each shard. */
+@property(nonatomic, strong, nullable) GTLRTesting_TestTargetsForShard *testTargetsForShard;
+
+@end
+
+
+/**
+ *  Options for enabling sharding.
+ */
+@interface GTLRTesting_ShardingOption : GTLRObject
+
+/**
+ *  Shards test cases into the specified groups of packages, classes, and/or
+ *  methods.
+ */
+@property(nonatomic, strong, nullable) GTLRTesting_ManualSharding *manualSharding;
+
+/** Uniformly shards test cases given a total number of shards. */
+@property(nonatomic, strong, nullable) GTLRTesting_UniformSharding *uniformSharding;
+
+@end
+
+
+/**
  *  A starting intent specified by an action, uri, and categories.
  */
 @interface GTLRTesting_StartActivityIntent : GTLRObject
@@ -2225,6 +2292,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /** Output only. The cloud project that owns the test execution. */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Output only. Details about the shard. */
+@property(nonatomic, strong, nullable) GTLRTesting_Shard *shard;
 
 /**
  *  Output only. Indicates the current progress of the test execution
@@ -2648,6 +2718,22 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  Test targets for a shard.
+ */
+@interface GTLRTesting_TestTargetsForShard : GTLRObject
+
+/**
+ *  Group of packages, classes, and/or test methods to be run for each shard.
+ *  The targets need to be specified in AndroidJUnitRunner argument format. For
+ *  example, “package com.my.packages” “class com.my.package.MyClass”.
+ *  The number of shard_test_targets must be greater than 0.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *testTargets;
+
+@end
+
+
+/**
  *  Represents a tool results execution resource.
  *  This has the results of a TestMatrix.
  */
@@ -2735,6 +2821,24 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *packetLossRatio;
+
+@end
+
+
+/**
+ *  Uniformly shards test cases given a total number of shards.
+ *  For Instrumentation test, it will be translated to “-e numShard” “-e
+ *  shardIndex” AndroidJUnitRunner arguments. With uniform sharding enabled,
+ *  specifying these sharding arguments via environment_variables is invalid.
+ */
+@interface GTLRTesting_UniformSharding : GTLRObject
+
+/**
+ *  Required. Total number of shards. The number must be > 1, and <= 50.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numShards;
 
 @end
 

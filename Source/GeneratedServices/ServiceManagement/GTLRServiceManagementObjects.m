@@ -576,6 +576,15 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceManagement_DisableServiceResponse
+//
+
+@implementation GTLRServiceManagement_DisableServiceResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceManagement_Documentation
 //
 
@@ -615,6 +624,15 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_EnableServiceRequest
 @dynamic consumerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_EnableServiceResponse
+//
+
+@implementation GTLRServiceManagement_EnableServiceResponse
 @end
 
 
@@ -1044,7 +1062,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_MetricDescriptor
 @dynamic descriptionProperty, displayName, labels, launchStage, metadata,
-         metricKind, name, type, unit, valueType;
+         metricKind, monitoredResourceTypes, name, type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1052,7 +1070,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"labels" : [GTLRServiceManagement_LabelDescriptor class]
+    @"labels" : [GTLRServiceManagement_LabelDescriptor class],
+    @"monitoredResourceTypes" : [NSString class]
   };
   return map;
 }

@@ -128,6 +128,7 @@ NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_SeverityUnspecifi
 
 // GTLRAndroidManagement_ManagedProperty.type
 NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Bool = @"BOOL";
+NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Bundle = @"BUNDLE";
 NSString * const kGTLRAndroidManagement_ManagedProperty_Type_BundleArray = @"BUNDLE_ARRAY";
 NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Choice = @"CHOICE";
 NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Hidden = @"HIDDEN";
@@ -290,6 +291,14 @@ NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_DisplayModeUnspecifie
 NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_FullScreen = @"FULL_SCREEN";
 NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_MinimalUi = @"MINIMAL_UI";
 NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_Standalone = @"STANDALONE";
+
+// GTLRAndroidManagement_WebToken.enabledFeatures
+NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_FeatureUnspecified = @"FEATURE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_ManagedConfigurations = @"MANAGED_CONFIGURATIONS";
+NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_PlaySearch = @"PLAY_SEARCH";
+NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_PrivateApps = @"PRIVATE_APPS";
+NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_StoreBuilder = @"STORE_BUILDER";
+NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_WebApps = @"WEB_APPS";
 
 // GTLRAndroidManagement_WebToken.permissions
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_ApproveApps = @"APPROVE_APPS";
@@ -1319,10 +1328,11 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_WebToken
-@dynamic name, parentFrameUrl, permissions, value;
+@dynamic enabledFeatures, name, parentFrameUrl, permissions, value;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"enabledFeatures" : [NSString class],
     @"permissions" : [NSString class]
   };
   return map;

@@ -978,6 +978,28 @@ GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Set;
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Sum;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_RuntimeEnvironment.ipConfiguration
+
+/**
+ *  Workers should have private IP addresses.
+ *
+ *  Value: "WORKER_IP_PRIVATE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPrivate;
+/**
+ *  Workers should have public IP addresses.
+ *
+ *  Value: "WORKER_IP_PUBLIC"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPublic;
+/**
+ *  The configuration is unknown, or unspecified.
+ *
+ *  Value: "WORKER_IP_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_SdkVersion.sdkSupportStatus
 
 /**
@@ -4337,6 +4359,20 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) NSNumber *bypassTempDirValidation;
 
 /**
+ *  Configuration for VM IPs.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPrivate
+ *        Workers should have private IP addresses. (Value: "WORKER_IP_PRIVATE")
+ *    @arg @c kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPublic
+ *        Workers should have public IP addresses. (Value: "WORKER_IP_PUBLIC")
+ *    @arg @c kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpUnspecified
+ *        The configuration is unknown, or unspecified. (Value:
+ *        "WORKER_IP_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ipConfiguration;
+
+/**
  *  Optional. Name for the Cloud KMS key for the job.
  *  Key format is:
  *  projects/<project>/locations/<location>/keyRings/<keyring>/cryptoKeys/<key>
@@ -4384,15 +4420,6 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Must be a valid Cloud Storage URL, beginning with `gs://`.
  */
 @property(nonatomic, copy, nullable) NSString *tempLocation;
-
-/**
- *  Optional. Specifies whether worker pools should be started with private IP
- *  addresses.
- *  False by default.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *usePrivateIps;
 
 /**
  *  The Compute Engine region

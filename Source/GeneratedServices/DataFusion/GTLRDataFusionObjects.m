@@ -69,6 +69,8 @@ NSString * const kGTLRDataFusion_DataAccessOptions_LogMode_LogFailClosed = @"LOG
 NSString * const kGTLRDataFusion_DataAccessOptions_LogMode_LogModeUnspecified = @"LOG_MODE_UNSPECIFIED";
 
 // GTLRDataFusion_Instance.state
+NSString * const kGTLRDataFusion_Instance_State_AutoUpdating   = @"AUTO_UPDATING";
+NSString * const kGTLRDataFusion_Instance_State_AutoUpgrading  = @"AUTO_UPGRADING";
 NSString * const kGTLRDataFusion_Instance_State_Creating       = @"CREATING";
 NSString * const kGTLRDataFusion_Instance_State_Deleting       = @"DELETING";
 NSString * const kGTLRDataFusion_Instance_State_Failed         = @"FAILED";
@@ -116,7 +118,7 @@ NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRDataFusion_AuditLogConfig
-@dynamic exemptedMembers, logType;
+@dynamic exemptedMembers, ignoreChildExemptions, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -199,7 +201,25 @@ NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRDataFusion_CounterOptions
-@dynamic field, metric;
+@dynamic customFields, field, metric;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customFields" : [GTLRDataFusion_CustomField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_CustomField
+//
+
+@implementation GTLRDataFusion_CustomField
+@dynamic name, value;
 @end
 
 
@@ -243,15 +263,23 @@ NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRDataFusion_Instance
-@dynamic createTime, descriptionProperty, displayName, enableStackdriverLogging,
-         enableStackdriverMonitoring, labels, name, networkConfig, options,
-         privateInstance, serviceAccount, serviceEndpoint, state, stateMessage,
-         type, updateTime, version, zoneProperty;
+@dynamic apiEndpoint, availableVersion, createTime, descriptionProperty,
+         displayName, enableStackdriverLogging, enableStackdriverMonitoring,
+         labels, name, networkConfig, options, privateInstance, serviceAccount,
+         serviceEndpoint, state, stateMessage, type, updateTime, version,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
     @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"availableVersion" : [GTLRDataFusion_Version class]
   };
   return map;
 }
@@ -609,4 +637,14 @@ NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRDataFusion_UpgradeInstanceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_Version
+//
+
+@implementation GTLRDataFusion_Version
+@dynamic versionNumber;
 @end

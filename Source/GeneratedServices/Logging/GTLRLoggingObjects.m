@@ -473,8 +473,9 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 //
 
 @implementation GTLRLogging_LogSink
-@dynamic bigqueryOptions, createTime, destination, filter, includeChildren,
-         name, outputVersionFormat, updateTime, writerIdentity;
+@dynamic bigqueryOptions, createTime, destination, endTime, filter,
+         includeChildren, name, outputVersionFormat, startTime, updateTime,
+         writerIdentity;
 @end
 
 
@@ -485,7 +486,7 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 
 @implementation GTLRLogging_MetricDescriptor
 @dynamic descriptionProperty, displayName, labels, launchStage, metadata,
-         metricKind, name, type, unit, valueType;
+         metricKind, monitoredResourceTypes, name, type, unit, valueType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -493,7 +494,8 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"labels" : [GTLRLogging_LabelDescriptor class]
+    @"labels" : [GTLRLogging_LabelDescriptor class],
+    @"monitoredResourceTypes" : [NSString class]
   };
   return map;
 }

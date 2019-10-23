@@ -268,6 +268,7 @@
 @class GTLRCompute_LogConfig;
 @class GTLRCompute_LogConfigCloudAuditOptions;
 @class GTLRCompute_LogConfigCounterOptions;
+@class GTLRCompute_LogConfigCounterOptionsCustomField;
 @class GTLRCompute_LogConfigDataAccessOptions;
 @class GTLRCompute_MachineType;
 @class GTLRCompute_MachineType_ScratchDisks_Item;
@@ -11416,16 +11417,11 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  Represents a Backend Service resource.
- *  Backend services must have an associated health check. Backend services also
- *  store information about session affinity. For more information, read Backend
- *  Services.
- *  A backendServices resource represents a global backend service. Global
- *  backend services are used for HTTP(S), SSL Proxy, TCP Proxy load balancing
- *  and Traffic Director.
- *  A regionBackendServices resource represents a regional backend service.
- *  Regional backend services are used for internal TCP/UDP load balancing. For
- *  more information, read Internal TCP/UDP Load balancing. (== resource_for
- *  v1.backendService ==) (== resource_for beta.backendService ==)
+ *  A backend service contains configuration values for Google Cloud Platform
+ *  load balancing services.
+ *  For more information, read Backend Services.
+ *  (== resource_for v1.backendService ==) (== resource_for beta.backendService
+ *  ==)
  */
 @interface GTLRCompute_BackendService : GTLRObject
 
@@ -11538,9 +11534,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Indicates whether the backend service will be used with internal or external
- *  load balancing. A backend service created for one type of load balancing
- *  cannot be used with the other. Possible values are INTERNAL and EXTERNAL.
+ *  Specifies the load balancer type. Choose EXTERNAL for load balancers that
+ *  receive traffic from external clients. Choose INTERNAL for Internal TCP/UDP
+ *  Load Balancing. Choose INTERNAL_MANAGED for Internal HTTP(S) Load Balancing.
+ *  Choose INTERNAL_SELF_MANAGED for Traffic Director. A backend service created
+ *  for one type of load balancing cannot be used with another. For more
+ *  information, refer to Choosing a load balancer.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_External Value
@@ -11642,9 +11641,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  The protocol this BackendService uses to communicate with backends.
- *  Possible values are HTTP, HTTPS, TCP, SSL, or UDP, depending on the chosen
- *  load balancer or Traffic Director configuration. Refer to the documentation
- *  for the load balancer or for Traffic director for more information.
+ *  Possible values are HTTP, HTTPS, HTTP2, TCP, SSL, or UDP, depending on the
+ *  chosen load balancer or Traffic Director configuration. Refer to the
+ *  documentation for the load balancer or for Traffic Director for more
+ *  information.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_BackendService_Protocol_Http Value "HTTP"
@@ -15193,27 +15193,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  Represents a Forwarding Rule resource.
- *  A forwardingRules resource represents a regional forwarding rule.
- *  Regional external forwarding rules can reference any of the following
- *  resources:
- *  - A target instance
- *  - A Cloud VPN Classic gateway (targetVpnGateway),
- *  - A target pool for a Network Load Balancer
- *  - A global target HTTP(S) proxy for an HTTP(S) load balancer using Standard
- *  Tier
- *  - A target SSL proxy for a SSL Proxy load balancer using Standard Tier
- *  - A target TCP proxy for a TCP Proxy load balancer using Standard Tier.
- *  Regional internal forwarding rules can reference the backend service of an
- *  internal TCP/UDP load balancer.
- *  For regional internal forwarding rules, the following applies:
- *  - If the loadBalancingScheme for the load balancer is INTERNAL, then the
- *  forwarding rule references a regional internal backend service.
- *  - If the loadBalancingScheme for the load balancer is INTERNAL_MANAGED, then
- *  the forwarding rule must reference a regional target HTTP(S) proxy.
- *  For more information, read Using Forwarding rules.
- *  A globalForwardingRules resource represents a global forwarding rule.
- *  Global forwarding rules are only used by load balancers that use Premium
- *  Tier. (== resource_for beta.forwardingRules ==) (== resource_for
+ *  A forwarding rule and its corresponding IP address represent the frontend
+ *  configuration of a Google Cloud Platform load balancer. Forwarding rules can
+ *  also reference target instances and Cloud VPN Classic gateways
+ *  (targetVpnGateway).
+ *  For more information, read Forwarding rule concepts and Using protocol
+ *  forwarding.
+ *  (== resource_for beta.forwardingRules ==) (== resource_for
  *  v1.forwardingRules ==) (== resource_for beta.globalForwardingRules ==) (==
  *  resource_for v1.globalForwardingRules ==) (== resource_for
  *  beta.regionForwardingRules ==) (== resource_for v1.regionForwardingRules ==)
@@ -15282,8 +15268,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  The IP protocol to which this rule applies. Valid options are TCP, UDP, ESP,
  *  AH, SCTP or ICMP.
- *  When the load balancing scheme is INTERNAL, only TCP and UDP are valid. When
- *  the load balancing scheme is INTERNAL_SELF_MANAGED, only TCPis valid.
+ *  For Internal TCP/UDP Load Balancing, the load balancing scheme is INTERNAL,
+ *  and one of TCP or UDP are valid. For Traffic Director, the load balancing
+ *  scheme is INTERNAL_SELF_MANAGED, and only TCPis valid. For Internal HTTP(S)
+ *  Load Balancing, the load balancing scheme is INTERNAL_MANAGED, and only TCP
+ *  is valid. For HTTP(S), SSL Proxy, and TCP Proxy Load Balancing, the load
+ *  balancing scheme is EXTERNAL and only TCP is valid. For Network TCP/UDP Load
+ *  Balancing, the load balancing scheme is EXTERNAL, and one of TCP or UDP is
+ *  valid.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_ForwardingRule_IPProtocol_Ah Value "AH"
@@ -15315,13 +15307,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  This signifies what the ForwardingRule will be used for and can only take
- *  the following values: INTERNAL, INTERNAL_SELF_MANAGED, EXTERNAL. The value
- *  of INTERNAL means that this will be used for Internal Network Load Balancing
- *  (TCP, UDP). The value of INTERNAL_SELF_MANAGED means that this will be used
- *  for Internal Global HTTP(S) LB. The value of EXTERNAL means that this will
- *  be used for External Load Balancing (HTTP(S) LB, External TCP/UDP LB, SSL
- *  Proxy)
+ *  Specifies the forwarding rule type. EXTERNAL is used for: - Classic Cloud
+ *  VPN gateways - Protocol forwarding to VMs from an external IP address - The
+ *  following load balancers: HTTP(S), SSL Proxy, TCP Proxy, and Network
+ *  TCP/UDP.
+ *  INTERNAL is used for: - Protocol forwarding to VMs from an internal IP
+ *  address - Internal TCP/UDP load balancers
+ *  INTERNAL_MANAGED is used for: - Internal HTTP(S) load balancers
+ *  INTERNAL_SELF_MANAGED is used for: - Traffic Director
+ *  For more information about forwarding rules, refer to Forwarding rule
+ *  concepts.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_External Value
@@ -17527,6 +17522,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_HttpRouteRule : GTLRObject
 
 /**
+ *  The short description conveying the intent of this routeRule.
+ *  The description can have a maximum length of 1024 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
  *  Specifies changes to request and response headers that need to take effect
  *  for the selected backendService.
  *  The headerAction specified here are applied before the matching
@@ -17536,6 +17539,24 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) GTLRCompute_HttpHeaderAction *headerAction;
 
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_HttpRouteRuleMatch *> *matchRules;
+
+/**
+ *  For routeRules within a given pathMatcher, priority determines the order in
+ *  which load balancer will interpret routeRules. RouteRules are evaluated in
+ *  order of priority, from the lowest to highest number. The priority of a rule
+ *  decreases as its number increases (1, 2, 3, N+1). The first rule that
+ *  matches the request is applied.
+ *  You cannot configure two or more routeRules with the same priority. Priority
+ *  for each rule must be set to a number between 0 and 2147483647 inclusive.
+ *  Priority numbers can have gaps, which enable you to add or remove rules in
+ *  the future without affecting the rest of the rules. For example, 1, 2, 3, 4,
+ *  5, 9, 12, 16 is a valid series of priority numbers to which you could add
+ *  rules numbered from 6 to 8, 10 to 11, and 13 to 15 in the future without any
+ *  impact on existing rules.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
 
 /**
  *  In response to a matching matchRule, the load balancer performs advanced
@@ -23305,11 +23326,33 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @interface GTLRCompute_LogConfigCounterOptions : GTLRObject
 
+/** Custom fields. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_LogConfigCounterOptionsCustomField *> *customFields;
+
 /** The field value to attribute. */
 @property(nonatomic, copy, nullable) NSString *field;
 
 /** The metric to update. */
 @property(nonatomic, copy, nullable) NSString *metric;
+
+@end
+
+
+/**
+ *  Custom fields. These can be used to create a counter with arbitrary
+ *  field/value pairs. See: go/rpcsp-custom-fields.
+ */
+@interface GTLRCompute_LogConfigCounterOptionsCustomField : GTLRObject
+
+/** Name is the field name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Value is the field value. It is important that in contrast to the
+ *  CounterOptions.field, the value here is a constant that is not derived from
+ *  the IAMContext.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -28023,19 +28066,30 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources.
- *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
- *  `members` to a `role`, where the members can be user accounts, Google
- *  groups, Google domains, and service accounts. A `role` is a named list of
- *  permissions defined by IAM.
+ *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
+ *  `members` to a single `role`. Members can be user accounts, service
+ *  accounts, Google groups, and domains (such as G Suite). A `role` is a named
+ *  list of permissions (defined by IAM or configured by users). A `binding` can
+ *  optionally specify a `condition`, which is a logic expression that further
+ *  constrains the role binding based on attributes about the request and/or
+ *  target resource.
  *  **JSON Example**
- *  { "bindings": [ { "role": "roles/owner", "members": [
- *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com" ] }, { "role":
- *  "roles/viewer", "members": ["user:sean\@example.com"] } ] }
+ *  { "bindings": [ { "role": "roles/resourcemanager.organizationAdmin",
+ *  "members": [ "user:mike\@example.com", "group:admins\@example.com",
+ *  "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members":
+ *  ["user:eve\@example.com"], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ] }
  *  **YAML Example**
  *  bindings: - members: - user:mike\@example.com - group:admins\@example.com -
- *  domain:google.com - serviceAccount:my-other-app\@appspot.gserviceaccount.com
- *  role: roles/owner - members: - user:sean\@example.com role: roles/viewer
+ *  domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z')
  *  For a description of IAM and its features, see the [IAM developer's
  *  guide](https://cloud.google.com/iam/docs).
  */
@@ -28045,8 +28099,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. `bindings` with no members will
- *  result in an error.
+ *  Associates a list of `members` to a `role`. Optionally may specify a
+ *  `condition` that determines when binding is in effect. `bindings` with no
+ *  members will result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_Binding *> *bindings;
 
@@ -28059,7 +28114,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  that etag in the request to `setIamPolicy` to ensure that their change will
  *  be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten.
+ *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
+ *  'setIamPolicy' will not fail even if either of incoming or stored policy
+ *  does not meet the version requirements.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -28088,9 +28145,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  Specifies the format of the policy.
  *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
  *  rejected.
- *  Policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset.
+ *  Operations affecting conditional bindings must specify version 3. This can
+ *  be either setting a conditional policy, modifying a conditional binding, or
+ *  removing a conditional binding from the stored conditional policy.
+ *  Operations on non-conditional policies may specify any valid value or leave
+ *  the field unset.
+ *  If no etag is provided in the call to `setIamPolicy`, any version compliance
+ *  checks on the incoming and/or stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */
@@ -30989,6 +31050,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *nextHopGateway;
 
 /**
+ *  The URL to a forwarding rule of type loadBalancingScheme=INTERNAL that
+ *  should handle matching packets. You can only specify the forwarding rule as
+ *  a partial or full URL. For example, the following are all valid URLs:
+ *  -
+ *  https://www.googleapis.com/compute/v1/projects/project/regions/region/forwardingRules/forwardingRule
+ *  - regions/region/forwardingRules/forwardingRule
+ */
+@property(nonatomic, copy, nullable) NSString *nextHopIlb;
+
+/**
  *  The URL to an instance that should handle matching packets. You can specify
  *  this as a full or partial URL. For example:
  *  https://www.googleapis.com/compute/v1/projects/project/zones/zone/instances/
@@ -31856,6 +31927,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_RouterNat : GTLRObject
 
 /**
+ *  A list of URLs of the IP resources to be drained. These IPs must be valid
+ *  static external IPs that have been assigned to the NAT. These IPs should be
+ *  used for updating/patching a NAT only.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *drainNatIps;
+
+/**
  *  Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.
  *
  *  Uses NSNumber of intValue.
@@ -32217,6 +32295,18 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  A list of IPs auto-allocated for NAT. Example: ["1.1.1.1", "129.2.16.89"]
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *autoAllocatedNatIps;
+
+/**
+ *  A list of IPs auto-allocated for NAT that are in drain mode. Example:
+ *  ["1.1.1.1", ?179.12.26.133?].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *drainAutoAllocatedNatIps;
+
+/**
+ *  A list of IPs user-allocated for NAT that are in drain mode. Example:
+ *  ["1.1.1.1", ?179.12.26.133?].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *drainUserAllocatedNatIps;
 
 /**
  *  The number of extra IPs to allocate. This will be greater than 0 only if
@@ -35416,12 +35506,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  Specifies the QUIC override policy for this TargetHttpsProxy resource. This
- *  determines whether the load balancer will attempt to negotiate QUIC with
- *  clients or not. Can specify one of NONE, ENABLE, or DISABLE. Specify ENABLE
- *  to always enable QUIC, Enables QUIC when set to ENABLE, and disables QUIC
- *  when set to DISABLE. If NONE is specified, uses the QUIC policy with no user
- *  overrides, which is equivalent to DISABLE. Not specifying this field is
- *  equivalent to specifying NONE.
+ *  setting determines whether the load balancer attempts to negotiate QUIC with
+ *  clients. You can specify NONE, ENABLE, or DISABLE.
+ *  - When quic-override is set to NONE, Google manages whether QUIC is used.
+ *  - When quic-override is set to ENABLE, the load balancer uses QUIC when
+ *  possible.
+ *  - When quic-override is set to DISABLE, the load balancer doesn't use QUIC.
+ *  - If the quic-override flag is not specified, NONE is implied.
+ *  -
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_TargetHttpsProxy_QuicOverride_Disable Value "DISABLE"
@@ -35448,8 +35540,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  URL of SslPolicy resource that will be associated with the TargetHttpsProxy
- *  resource. If not set, the TargetHttpsProxy resource will not have any SSL
- *  policy configured.
+ *  resource. If not set, the TargetHttpsProxy resource has no SSL policy
+ *  configured.
  */
 @property(nonatomic, copy, nullable) NSString *sslPolicy;
 
@@ -38798,11 +38890,27 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_VmEndpointNatMappingsInterfaceNatMappings : GTLRObject
 
 /**
+ *  List of all drain IP:port-range mappings assigned to this interface. These
+ *  ranges are inclusive, that is, both the first and the last ports can be used
+ *  for NAT. Example: ["2.2.2.2:12345-12355", "1.1.1.1:2234-2234"].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *drainNatIpPortRanges;
+
+/**
  *  A list of all IP:port-range mappings assigned to this interface. These
  *  ranges are inclusive, that is, both the first and the last ports can be used
  *  for NAT. Example: ["2.2.2.2:12345-12355", "1.1.1.1:2234-2234"].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *natIpPortRanges;
+
+/**
+ *  Total number of drain ports across all NAT IPs allocated to this interface.
+ *  It equals to the aggregated port number in the field
+ *  drain_nat_ip_port_ranges.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numTotalDrainNatPorts;
 
 /**
  *  Total number of ports across all NAT IPs allocated to this interface. It
@@ -39720,6 +39828,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  - NEGOTIATION_FAILURE: Handshake failed.
  *  - DEPROVISIONING: Resources are being deallocated for the VPN tunnel.
  *  - FAILED: Tunnel creation has failed and the tunnel is not ready to be used.
+ *  - NO_INCOMING_PACKETS: No incoming packets from peer.
+ *  - REJECTED: Tunnel configuration was rejected, can be result of being
+ *  blacklisted.
+ *  - ALLOCATING_RESOURCES: Cloud VPN is in the process of allocating all
+ *  required resources.
+ *  - STOPPED: Tunnel is stopped due to its Forwarding Rules being deleted for
+ *  Classic VPN tunnels or the project is in frozen state.
+ *  - PEER_IDENTITY_MISMATCH: Peer identity does not match peer IP, probably
+ *  behind NAT.
+ *  - TS_NARROWING_NOT_ALLOWED: Traffic selector narrowing not allowed for an
+ *  HA-VPN tunnel.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_VpnTunnel_Status_AllocatingResources Value

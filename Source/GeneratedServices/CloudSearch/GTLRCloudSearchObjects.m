@@ -183,6 +183,11 @@ NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_Blend =
 NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_None = @"NONE";
 NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_Replace = @"REPLACE";
 
+// GTLRCloudSearch_QueryInterpretation.reason
+NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_NoResultsFoundForUserQuery = @"NO_RESULTS_FOUND_FOR_USER_QUERY";
+NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_QueryHasNaturalLanguageIntent = @"QUERY_HAS_NATURAL_LANGUAGE_INTENT";
+NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_Unspecified = @"UNSPECIFIED";
+
 // GTLRCloudSearch_QueryOperator.type
 NSString * const kGTLRCloudSearch_QueryOperator_Type_Boolean   = @"BOOLEAN";
 NSString * const kGTLRCloudSearch_QueryOperator_Type_Date      = @"DATE";
@@ -304,6 +309,45 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CustomerQueryStats
+//
+
+@implementation GTLRCloudSearch_CustomerQueryStats
+@dynamic date, queryCountByStatus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queryCountByStatus" : [GTLRCloudSearch_QueryCountByStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CustomerSessionStats
+//
+
+@implementation GTLRCloudSearch_CustomerSessionStats
+@dynamic date, searchSessionsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_CustomerUserStats
+//
+
+@implementation GTLRCloudSearch_CustomerUserStats
+@dynamic date, oneDayActiveUsersCount, sevenDaysActiveUsersCount,
+         thirtyDaysActiveUsersCount;
 @end
 
 
@@ -718,6 +762,60 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_GetCustomerQueryStatsResponse
+//
+
+@implementation GTLRCloudSearch_GetCustomerQueryStatsResponse
+@dynamic stats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stats" : [GTLRCloudSearch_CustomerQueryStats class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GetCustomerSessionStatsResponse
+//
+
+@implementation GTLRCloudSearch_GetCustomerSessionStatsResponse
+@dynamic stats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stats" : [GTLRCloudSearch_CustomerSessionStats class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GetCustomerUserStatsResponse
+//
+
+@implementation GTLRCloudSearch_GetCustomerUserStatsResponse
+@dynamic stats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stats" : [GTLRCloudSearch_CustomerUserStats class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_GetDataSourceIndexStatsResponse
 //
 
@@ -727,6 +825,60 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"stats" : [GTLRCloudSearch_DataSourceIndexStats class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GetSearchApplicationQueryStatsResponse
+//
+
+@implementation GTLRCloudSearch_GetSearchApplicationQueryStatsResponse
+@dynamic stats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stats" : [GTLRCloudSearch_SearchApplicationQueryStats class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GetSearchApplicationSessionStatsResponse
+//
+
+@implementation GTLRCloudSearch_GetSearchApplicationSessionStatsResponse
+@dynamic stats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stats" : [GTLRCloudSearch_SearchApplicationSessionStats class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GetSearchApplicationUserStatsResponse
+//
+
+@implementation GTLRCloudSearch_GetSearchApplicationUserStatsResponse
+@dynamic stats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stats" : [GTLRCloudSearch_SearchApplicationUserStats class]
   };
   return map;
 }
@@ -1488,11 +1640,21 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_QueryCountByStatus
+//
+
+@implementation GTLRCloudSearch_QueryCountByStatus
+@dynamic count, statusCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_QueryInterpretation
 //
 
 @implementation GTLRCloudSearch_QueryInterpretation
-@dynamic interpretationType, interpretedQuery;
+@dynamic interpretationType, interpretedQuery, reason;
 @end
 
 
@@ -1502,7 +1664,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_QueryInterpretationOptions
-@dynamic disableNlInterpretation;
+@dynamic disableNlInterpretation, enableVerbatimMode;
 @end
 
 
@@ -1748,6 +1910,45 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SearchApplicationQueryStats
+//
+
+@implementation GTLRCloudSearch_SearchApplicationQueryStats
+@dynamic date, queryCountByStatus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queryCountByStatus" : [GTLRCloudSearch_QueryCountByStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SearchApplicationSessionStats
+//
+
+@implementation GTLRCloudSearch_SearchApplicationSessionStats
+@dynamic date, searchSessionsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_SearchApplicationUserStats
+//
+
+@implementation GTLRCloudSearch_SearchApplicationUserStats
+@dynamic date, oneDayActiveUsersCount, sevenDaysActiveUsersCount,
+         thirtyDaysActiveUsersCount;
 @end
 
 

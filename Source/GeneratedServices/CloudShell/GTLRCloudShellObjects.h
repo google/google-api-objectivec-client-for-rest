@@ -38,6 +38,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudShell_Environment.size
+
+/**
+ *  The boosted VM size.
+ *
+ *  Value: "BOOSTED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_Size_Boosted;
+/**
+ *  The default VM size.
+ *
+ *  Value: "DEFAULT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_Size_Default;
+/**
+ *  The VM size is unknown.
+ *
+ *  Value: "VM_SIZE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_Size_VmSizeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudShell_Environment.state
 
 /**
@@ -201,6 +223,21 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Unar
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudShell_PublicKey *> *publicKeys;
 
 /**
+ *  Indicates the size of the backing VM running the environment. If set to
+ *  something other than DEFAULT, it will be reverted to the default VM size
+ *  after vm_size_expire_time.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudShell_Environment_Size_Boosted The boosted VM size.
+ *        (Value: "BOOSTED")
+ *    @arg @c kGTLRCloudShell_Environment_Size_Default The default VM size.
+ *        (Value: "DEFAULT")
+ *    @arg @c kGTLRCloudShell_Environment_Size_VmSizeUnspecified The VM size is
+ *        unknown. (Value: "VM_SIZE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *size;
+
+/**
  *  Output only. Host to which clients can connect to initiate SSH sessions
  *  with the environment.
  */
@@ -240,6 +277,12 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Unar
  *        environment's states is unknown. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The time when the Environment will expire back to the default
+ *  VM size.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *vmSizeExpireTime;
 
 /**
  *  Output only. Host to which clients can connect to initiate HTTPS or WSS

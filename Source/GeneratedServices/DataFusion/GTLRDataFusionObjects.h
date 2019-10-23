@@ -34,6 +34,7 @@
 @class GTLRDataFusion_CloudAuditOptions;
 @class GTLRDataFusion_Condition;
 @class GTLRDataFusion_CounterOptions;
+@class GTLRDataFusion_CustomField;
 @class GTLRDataFusion_DataAccessOptions;
 @class GTLRDataFusion_Expr;
 @class GTLRDataFusion_Instance;
@@ -51,6 +52,7 @@
 @class GTLRDataFusion_Rule;
 @class GTLRDataFusion_Status;
 @class GTLRDataFusion_Status_Details_Item;
+@class GTLRDataFusion_Version;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -188,10 +190,11 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Iam_Authority;
 GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Iam_CredentialsType;
 /**
  *  What types of justifications have been supplied with this request.
- *  String values should match enum names from tech.iam.JustificationType,
- *  e.g. "MANUAL_STRING". It is not permitted to grant access based on
- *  the *absence* of a justification, so justification conditions can only
- *  be used in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN).
+ *  String values should match enum names from
+ *  security.credentials.JustificationType, e.g. "MANUAL_STRING". It is not
+ *  permitted to grant access based on the *absence* of a justification, so
+ *  justification conditions can only be used in a "positive" context
+ *  (e.g., ALLOW/IN or DENY/NOT_IN).
  *  Multiple justifications, e.g., a Buganizer ID and a manually-entered
  *  reason, are normal and supported.
  *
@@ -329,6 +332,18 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_DataAccessOptions_LogMode_LogModeUn
 // GTLRDataFusion_Instance.state
 
 /**
+ *  Instance is being auto-updated
+ *
+ *  Value: "AUTO_UPDATING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_AutoUpdating;
+/**
+ *  Instance is being auto-upgraded
+ *
+ *  Value: "AUTO_UPGRADING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_AutoUpgrading;
+/**
  *  Instance is being created
  *
  *  Value: "CREATING"
@@ -365,7 +380,7 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_Running;
  */
 GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_StateUnspecified;
 /**
- *  Instance is being updated
+ *  Instance is being updated on customer request
  *
  *  Value: "UPDATING"
  */
@@ -464,7 +479,7 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -476,7 +491,7 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  ]
  *  },
  *  {
- *  "service": "fooservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com"
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -484,16 +499,16 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  {
  *  "log_type": "DATA_WRITE",
  *  "exempted_members": [
- *  "user:bar\@gmail.com"
+ *  "user:aliya\@example.com"
  *  ]
  *  }
  *  ]
  *  }
  *  ]
  *  }
- *  For fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
- *  logging. It also exempts foo\@gmail.com from DATA_READ logging, and
- *  bar\@gmail.com from DATA_WRITE logging.
+ *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts jose\@example.com from DATA_READ logging, and
+ *  aliya\@example.com from DATA_WRITE logging.
  */
 @interface GTLRDataFusion_AuditConfig : GTLRObject
 
@@ -520,7 +535,7 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  {
  *  "log_type": "DATA_READ",
  *  "exempted_members": [
- *  "user:foo\@gmail.com"
+ *  "user:jose\@example.com"
  *  ]
  *  },
  *  {
@@ -529,7 +544,7 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  ]
  *  }
  *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  foo\@gmail.com from DATA_READ logging.
+ *  jose\@example.com from DATA_READ logging.
  */
 @interface GTLRDataFusion_AuditLogConfig : GTLRObject
 
@@ -539,6 +554,13 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  ignoreChildExemptions
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
 
 /**
  *  The log type that this config enables.
@@ -604,7 +626,7 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  * `allAuthenticatedUsers`: A special identifier that represents anyone
  *  who is authenticated with a Google account or a service account.
  *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@gmail.com` .
+ *  account. For example, `alice\@example.com` .
  *  * `serviceAccount:{emailid}`: An email address that represents a service
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
@@ -689,10 +711,13 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *        context (e.g., ALLOW/IN or DENY/NOT_IN). (Value: "CREDENTIALS_TYPE")
  *    @arg @c kGTLRDataFusion_Condition_Iam_JustificationType What types of
  *        justifications have been supplied with this request.
- *        String values should match enum names from tech.iam.JustificationType,
- *        e.g. "MANUAL_STRING". It is not permitted to grant access based on
- *        the *absence* of a justification, so justification conditions can only
- *        be used in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN).
+ *        String values should match enum names from
+ *        security.credentials.JustificationType, e.g. "MANUAL_STRING". It is
+ *        not
+ *        permitted to grant access based on the *absence* of a justification,
+ *        so
+ *        justification conditions can only be used in a "positive" context
+ *        (e.g., ALLOW/IN or DENY/NOT_IN).
  *        Multiple justifications, e.g., a Buganizer ID and a manually-entered
  *        reason, are normal and supported. (Value: "JUSTIFICATION_TYPE")
  *    @arg @c kGTLRDataFusion_Condition_Iam_NoAttr Default non-attribute.
@@ -781,18 +806,40 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  - "" (empty string), resulting in a counter with no fields.
  *  Examples:
  *  counter { metric: "/debug_access_count" field: "iam_principal" }
- *  ==> increment counter /iam/policy/backend_debug_access_count
+ *  ==> increment counter /iam/policy/debug_access_count
  *  {iam_principal=[value of IAMContext.principal]}
- *  At this time we do not support multiple field names (though this may be
- *  supported in the future).
  */
 @interface GTLRDataFusion_CounterOptions : GTLRObject
+
+/** Custom fields. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_CustomField *> *customFields;
 
 /** The field value to attribute. */
 @property(nonatomic, copy, nullable) NSString *field;
 
 /** The metric to update. */
 @property(nonatomic, copy, nullable) NSString *metric;
+
+@end
+
+
+/**
+ *  Custom fields.
+ *  These can be used to create a counter with arbitrary field/value
+ *  pairs.
+ *  See: go/rpcsp-custom-fields.
+ */
+@interface GTLRDataFusion_CustomField : GTLRObject
+
+/** Name is the field name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Value is the field value. It is important that in contrast to the
+ *  CounterOptions.field, the value here is a constant that is not
+ *  derived from the IAMContext.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -889,6 +936,15 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  */
 @interface GTLRDataFusion_Instance : GTLRObject
 
+/** Output only. Endpoint on which the REST APIs is accessible. */
+@property(nonatomic, copy, nullable) NSString *apiEndpoint;
+
+/**
+ *  Available versions that the instance can be upgraded to using
+ *  UpdateInstanceRequest.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Version *> *availableVersion;
+
 /** Output only. The time the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -956,16 +1012,17 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
-/**
- *  Output only. Endpoint on which the Data Fusion UI and REST APIs are
- *  accessible.
- */
+/** Output only. Endpoint on which the Data Fusion UI is accessible. */
 @property(nonatomic, copy, nullable) NSString *serviceEndpoint;
 
 /**
  *  Output only. The current state of this Data Fusion instance.
  *
  *  Likely values:
+ *    @arg @c kGTLRDataFusion_Instance_State_AutoUpdating Instance is being
+ *        auto-updated (Value: "AUTO_UPDATING")
+ *    @arg @c kGTLRDataFusion_Instance_State_AutoUpgrading Instance is being
+ *        auto-upgraded (Value: "AUTO_UPGRADING")
  *    @arg @c kGTLRDataFusion_Instance_State_Creating Instance is being created
  *        (Value: "CREATING")
  *    @arg @c kGTLRDataFusion_Instance_State_Deleting Instance is being deleted
@@ -979,7 +1036,7 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *    @arg @c kGTLRDataFusion_Instance_State_StateUnspecified Instance does not
  *        have a state yet (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRDataFusion_Instance_State_Updating Instance is being updated
- *        (Value: "UPDATING")
+ *        on customer request (Value: "UPDATING")
  *    @arg @c kGTLRDataFusion_Instance_State_Upgrading Instance is being
  *        upgraded (Value: "UPGRADING")
  */
@@ -1013,7 +1070,7 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 /** Output only. The time the instance was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** Output only. Current version of the Data Fusion. */
+/** Current version of the Data Fusion. Only specifiable in Update. */
 @property(nonatomic, copy, nullable) NSString *version;
 
 /**
@@ -1229,7 +1286,9 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 
 /**
  *  Name of the network in the customer project with which the Tenant Project
- *  will be peered for executing pipelines.
+ *  will be peered for executing pipelines. In case of shared VPC where the
+ *  network resides in another host project the network should specified in
+ *  the form of projects/{host-project-id}/global/networks/{network}
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -1357,27 +1416,35 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources.
- *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
- *  `members` to a `role`, where the members can be user accounts, Google
- *  groups,
- *  Google domains, and service accounts. A `role` is a named list of
- *  permissions
- *  defined by IAM.
+ *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
+ *  `members` to a single `role`. Members can be user accounts, service
+ *  accounts,
+ *  Google groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions (defined by IAM or configured by users). A `binding` can
+ *  optionally specify a `condition`, which is a logic expression that further
+ *  constrains the role binding based on attributes about the request and/or
+ *  target resource.
  *  **JSON Example**
  *  {
  *  "bindings": [
  *  {
- *  "role": "roles/owner",
+ *  "role": "roles/resourcemanager.organizationAdmin",
  *  "members": [
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",
  *  "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com"
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
  *  ]
  *  },
  *  {
- *  "role": "roles/viewer",
- *  "members": ["user:sean\@example.com"]
+ *  "role": "roles/resourcemanager.organizationViewer",
+ *  "members": ["user:eve\@example.com"],
+ *  "condition": {
+ *  "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020",
+ *  "expression": "request.time <
+ *  timestamp('2020-10-01T00:00:00.000Z')",
+ *  }
  *  }
  *  ]
  *  }
@@ -1387,11 +1454,15 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  - user:mike\@example.com
  *  - group:admins\@example.com
  *  - domain:google.com
- *  - serviceAccount:my-other-app\@appspot.gserviceaccount.com
- *  role: roles/owner
+ *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
+ *  role: roles/resourcemanager.organizationAdmin
  *  - members:
- *  - user:sean\@example.com
- *  role: roles/viewer
+ *  - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer
+ *  condition:
+ *  title: expirable access
+ *  description: Does not grant access after Sep 2020
+ *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
  *  For a description of IAM and its features, see the
  *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
@@ -1401,7 +1472,8 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`.
+ *  Associates a list of `members` to a `role`. Optionally may specify a
+ *  `condition` that determines when binding is in effect.
  *  `bindings` with no members will result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Binding *> *bindings;
@@ -1415,7 +1487,9 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten blindly.
+ *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
+ *  'setIamPolicy' will not fail even if either of incoming or stored policy
+ *  does not meet the version requirements.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1443,7 +1517,16 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Rule *> *rules;
 
 /**
- *  Deprecated.
+ *  Specifies the format of the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Operations affecting conditional bindings must specify version 3. This can
+ *  be either setting a conditional policy, modifying a conditional binding,
+ *  or removing a conditional binding from the stored conditional policy.
+ *  Operations on non-conditional policies may specify any valid value or
+ *  leave the field unset.
+ *  If no etag is provided in the call to `setIamPolicy`, any version
+ *  compliance checks on the incoming and/or stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1637,6 +1720,17 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  To change the instance properties, instance update should be used.
  */
 @interface GTLRDataFusion_UpgradeInstanceRequest : GTLRObject
+@end
+
+
+/**
+ *  The Data Fusion version.
+ */
+@interface GTLRDataFusion_Version : GTLRObject
+
+/** The version number of the Data Fusion instance, such as '6.0.1.0'. */
+@property(nonatomic, copy, nullable) NSString *versionNumber;
+
 @end
 
 NS_ASSUME_NONNULL_END

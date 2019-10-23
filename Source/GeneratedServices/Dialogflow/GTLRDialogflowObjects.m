@@ -201,6 +201,12 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Typ
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Template = @"TEMPLATE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata.state
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Done = @"DONE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Pending = @"PENDING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig.audioEncoding
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingLinear16 = @"OUTPUT_AUDIO_ENCODING_LINEAR_16";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3 = @"OUTPUT_AUDIO_ENCODING_MP3";
@@ -237,6 +243,38 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
     @"supportedLanguageCodes" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer
+@dynamic answerRecord, confidence, metadata, snippets, title, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"snippets" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1599,6 +1637,48 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer
+@dynamic answer, answerRecord, confidence, metadata, question, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2HumanAgentAssistantEvent
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2HumanAgentAssistantEvent
+@dynamic conversation, participant, suggestionResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suggestionResults" : [GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2ImportAgentRequest
 //
 
@@ -2019,6 +2099,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2ListContextsResponse
 //
 
@@ -2324,6 +2414,52 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse
+@dynamic articleAnswers, contextSize, latestMessage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"articleAnswers" : [GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse
+@dynamic contextSize, faqAnswers, latestMessage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"faqAnswers" : [GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult
+@dynamic error, suggestArticlesResponse, suggestFaqAnswersResponse;
 @end
 
 

@@ -59,6 +59,10 @@ NSString * const kGTLRServiceUsage_Field_Kind_TypeUnknown  = @"TYPE_UNKNOWN";
 NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_Active = @"ACTIVE";
 NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_IdentityStateUnspecified = @"IDENTITY_STATE_UNSPECIFIED";
 
+// GTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse.state
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse_State_Active = @"ACTIVE";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse_State_IdentityStateUnspecified = @"IDENTITY_STATE_UNSPECIFIED";
+
 // GTLRServiceUsage_GoogleApiServiceusageV1Service.state
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Disabled = @"DISABLED";
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Enabled = @"ENABLED";
@@ -654,6 +658,26 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse
+@dynamic identity, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV1beta1ServiceIdentity
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV1beta1ServiceIdentity
+@dynamic email, uniqueId;
 @end
 
 

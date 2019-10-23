@@ -21,6 +21,8 @@
 @class GTLRCloudHealthcare_CreateMessageRequest;
 @class GTLRCloudHealthcare_Dataset;
 @class GTLRCloudHealthcare_DeidentifyDatasetRequest;
+@class GTLRCloudHealthcare_DeidentifyDicomStoreRequest;
+@class GTLRCloudHealthcare_DeidentifyFhirStoreRequest;
 @class GTLRCloudHealthcare_DicomStore;
 @class GTLRCloudHealthcare_ExportDicomDataRequest;
 @class GTLRCloudHealthcare_ExportResourcesRequest;
@@ -132,6 +134,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  response field type is
  *  DeidentifySummary.
  *  If errors occur,
+ *  error
  *  details field type is
  *  DeidentifyErrorDetails.
  *  Errors are also logged to Stackdriver Logging. For more information,
@@ -162,6 +165,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  response field type is
  *  DeidentifySummary.
  *  If errors occur,
+ *  error
  *  details field type is
  *  DeidentifyErrorDetails.
  *  Errors are also logged to Stackdriver Logging. For more information,
@@ -248,6 +252,61 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_DicomStore *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new DICOM store containing de-identified data from the source
+ *  store. The metadata field type
+ *  is OperationMetadata.
+ *  If the request is successful, the
+ *  response field type is
+ *  DeidentifyDicomStoreSummary. If errors occur,
+ *  error
+ *  details field type is
+ *  DeidentifyErrorDetails.
+ *  Errors are also logged to Stackdriver
+ *  (see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging)).
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.deidentify
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDeidentify : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDeidentifyWithObject:sourceStore:]
+
+/**
+ *  Source DICOM store resource name. For example,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceStore;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Creates a new DICOM store containing de-identified data from the source
+ *  store. The metadata field type
+ *  is OperationMetadata.
+ *  If the request is successful, the
+ *  response field type is
+ *  DeidentifyDicomStoreSummary. If errors occur,
+ *  error
+ *  details field type is
+ *  DeidentifyErrorDetails.
+ *  Errors are also logged to Stackdriver
+ *  (see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging)).
+ *
+ *  @param object The @c GTLRCloudHealthcare_DeidentifyDicomStoreRequest to
+ *    include in the query.
+ *  @param sourceStore Source DICOM store resource name. For example,
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDeidentify
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_DeidentifyDicomStoreRequest *)object
+                    sourceStore:(NSString *)sourceStore;
 
 @end
 
@@ -682,6 +741,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.setIamPolicy
  *
@@ -703,6 +763,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  @param object The @c GTLRCloudHealthcare_SetIamPolicyRequest to include in
  *    the query.
@@ -1595,6 +1656,61 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
+ *  Creates a new FHIR store containing de-identified data from the source
+ *  store. The metadata field type
+ *  is OperationMetadata.
+ *  If the request is successful, the
+ *  response field type is
+ *  DeidentifyFhirStoreSummary. If errors occur,
+ *  error
+ *  details field type is
+ *  DeidentifyErrorDetails.
+ *  Errors are also logged to Stackdriver
+ *  (see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging)).
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.deidentify
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDeidentify : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresDeidentifyWithObject:sourceStore:]
+
+/**
+ *  Source FHIR store resource name. For example,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceStore;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Creates a new FHIR store containing de-identified data from the source
+ *  store. The metadata field type
+ *  is OperationMetadata.
+ *  If the request is successful, the
+ *  response field type is
+ *  DeidentifyFhirStoreSummary. If errors occur,
+ *  error
+ *  details field type is
+ *  DeidentifyErrorDetails.
+ *  Errors are also logged to Stackdriver
+ *  (see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging)).
+ *
+ *  @param object The @c GTLRCloudHealthcare_DeidentifyFhirStoreRequest to
+ *    include in the query.
+ *  @param sourceStore Source FHIR store resource name. For example,
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDeidentify
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_DeidentifyFhirStoreRequest *)object
+                    sourceStore:(NSString *)sourceStore;
+
+@end
+
+/**
  *  Deletes the specified FHIR store and removes all resources within it.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.delete
@@ -2161,6 +2277,16 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirHistoryWithname:]
 
 /**
+ *  Used to retrieve the first, previous, next, or last page of resource
+ *  versions when using pagination. Value should be set to the value of
+ *  `_page_token` set in next or previous page links' URLs. Next and previous
+ *  page are returned in the response bundle's links field, where
+ *  `link.relation` is "previous" or "next".
+ *  Omit `_page_token` if no previous request has been made.
+ */
+@property(nonatomic, copy, nullable) NSString *xPageToken;
+
+/**
  *  Only include resource versions that were current at some point during the
  *  time period specified in the date time value. The date parameter format is
  *  yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]
@@ -2178,13 +2304,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /** The name of the resource to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Used to retrieve the first, previous, next, or last page of resource
- *  versions when using pagination. Value should be set to the value of the
- *  `link.url` field returned in the response to the previous request, where
- *  `link.relation` is "first", "previous", "next" or "last".
- *  Omit `page` if no previous request has been made.
- */
+/** DEPRECATED! Use `_page_token`. */
 @property(nonatomic, copy, nullable) NSString *page;
 
 /**
@@ -2226,9 +2346,15 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Implements the FHIR extended operation
  *  [Observation-lastn](http://hl7.org/implement/standards/fhir/STU3/observation-operations.html#lastn).
  *  Search terms are provided as query parameters following the same pattern as
- *  the search method. This operation accepts an additional
- *  query parameter `max`, which specifies N, the maximum number of
- *  Observations to return from each group, with a default of 1.
+ *  the search method. The following search parameters must
+ *  be provided
+ *  - `subject` or `patient` to specify a subject for the Observation.
+ *  - `code`, `category` or any of the composite parameters that include
+ *  `code`.
+ *  Any other valid Observation search parameters can also be provided. This
+ *  operation accepts an additional query parameter `max`, which specifies N,
+ *  the maximum number of Observations to return from each group, with a
+ *  default of 1.
  *  On success, the response body will contain a JSON-encoded representation
  *  of a `Bundle` resource of type `searchset`, containing the results of the
  *  operation.
@@ -2258,9 +2384,15 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Implements the FHIR extended operation
  *  [Observation-lastn](http://hl7.org/implement/standards/fhir/STU3/observation-operations.html#lastn).
  *  Search terms are provided as query parameters following the same pattern as
- *  the search method. This operation accepts an additional
- *  query parameter `max`, which specifies N, the maximum number of
- *  Observations to return from each group, with a default of 1.
+ *  the search method. The following search parameters must
+ *  be provided
+ *  - `subject` or `patient` to specify a subject for the Observation.
+ *  - `code`, `category` or any of the composite parameters that include
+ *  `code`.
+ *  Any other valid Observation search parameters can also be provided. This
+ *  operation accepts an additional query parameter `max`, which specifies N,
+ *  the maximum number of Observations to return from each group, with a
+ *  default of 1.
  *  On success, the response body will contain a JSON-encoded representation
  *  of a `Bundle` resource of type `searchset`, containing the results of the
  *  operation.
@@ -3037,6 +3169,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.setIamPolicy
  *
@@ -3058,6 +3191,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  @param object The @c GTLRCloudHealthcare_SetIamPolicyRequest to include in
  *    the query.
@@ -3724,6 +3858,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.setIamPolicy
  *
@@ -3745,6 +3880,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  @param object The @c GTLRCloudHealthcare_SetIamPolicyRequest to include in
  *    the query.
@@ -3987,6 +4123,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  Method: healthcare.projects.locations.datasets.setIamPolicy
  *
@@ -4008,6 +4145,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  @param object The @c GTLRCloudHealthcare_SetIamPolicyRequest to include in
  *    the query.

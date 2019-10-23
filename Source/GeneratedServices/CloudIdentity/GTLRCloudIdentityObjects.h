@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudIdentity_Group : GTLRObject
 
 /**
- *  The time when the Group was created.
+ *  Output only. The time when the Group was created.
  *  Output only.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -89,20 +89,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  EntityKey of the Group.
+ *  Required. Immutable. EntityKey of the Group.
  *  Must be set when creating a Group, read-only afterwards.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_EntityKey *groupKey;
 
 /**
- *  `Required`. Labels for Group resource.
+ *  Required. `Required`. Labels for Group resource.
  *  For creating Groups under a namespace, set label key to
  *  'labels/system/groups/external' and label value as empty.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_Group_Labels *labels;
 
 /**
- *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  Output only. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  Group in the format: `groups/{group_id}`, where group_id is the unique ID
  *  assigned to the Group.
  *  Must be left blank while creating a Group.
@@ -110,14 +111,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The entity under which this Group resides in Cloud Identity resource
+ *  Required. Immutable. The entity under which this Group resides in Cloud
+ *  Identity resource
  *  hierarchy. Must be set when creating a Group, read-only afterwards.
  *  Currently allowed types: `identitysources`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The time when the Group was last updated.
+ *  Output only. The time when the Group was last updated.
  *  Output only.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -126,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  `Required`. Labels for Group resource.
+ *  Required. `Required`. Labels for Group resource.
  *  For creating Groups under a namespace, set label key to
  *  'labels/system/groups/external' and label value as empty.
  *
@@ -231,11 +233,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudIdentity_Membership : GTLRObject
 
-/** Creation timestamp of the Membership. Output only. */
+/** Output only. Creation timestamp of the Membership. Output only. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  Output only. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  Membership in the format: `groups/{group_id}/memberships/{member_id}`,
  *  where group_id is the unique ID assigned to the Group to which Membership
  *  belongs to, and member_id is the unique ID assigned to the member
@@ -244,7 +247,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  EntityKey of the entity to be added as the member. Must be set while
+ *  Required. Immutable. EntityKey of the entity to be added as the member. Must
+ *  be set while
  *  creating a Membership, read-only afterwards.
  *  Currently allowed entity types: `Users`, `Groups`.
  */
@@ -256,7 +260,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_MembershipRole *> *roles;
 
-/** Last updated timestamp of the Membership. Output only. */
+/** Output only. Last updated timestamp of the Membership. Output only. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end

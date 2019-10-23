@@ -1843,11 +1843,20 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  */
 @property(nonatomic, strong, nullable) GTLRDuration *dockerPrep;
 
+/** The timestamp when docker prepartion begins. */
+@property(nonatomic, strong, nullable) GTLRDateTime *dockerPrepStartTime;
+
 /**
  *  The time spent downloading the input files and constructing the working
  *  directory.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *download;
+
+/** The timestamp when downloading the input files begins. */
+@property(nonatomic, strong, nullable) GTLRDateTime *downloadStartTime;
+
+/** The timestamp when execution begins. */
+@property(nonatomic, strong, nullable) GTLRDateTime *execStartTime;
 
 /** The time spent executing the command (i.e., doing useful work). */
 @property(nonatomic, strong, nullable) GTLRDuration *execution;
@@ -1865,6 +1874,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 
 /** The time spent uploading the output files. */
 @property(nonatomic, strong, nullable) GTLRDuration *upload;
+
+/** The timestamp when uploading the output files begins. */
+@property(nonatomic, strong, nullable) GTLRDateTime *uploadStartTime;
 
 @end
 

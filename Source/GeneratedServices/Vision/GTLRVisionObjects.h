@@ -187,7 +187,6 @@
 @class GTLRVision_GoogleCloudVisionV1p4beta1GcsSource;
 @class GTLRVision_GoogleCloudVisionV1p4beta1ImageAnnotationContext;
 @class GTLRVision_GoogleCloudVisionV1p4beta1ImageProperties;
-@class GTLRVision_GoogleCloudVisionV1p4beta1ImageQuality;
 @class GTLRVision_GoogleCloudVisionV1p4beta1InputConfig;
 @class GTLRVision_GoogleCloudVisionV1p4beta1LocalizedObjectAnnotation;
 @class GTLRVision_GoogleCloudVisionV1p4beta1LocationInfo;
@@ -203,7 +202,6 @@
 @class GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResultsObjectAnnotation;
 @class GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResultsResult;
 @class GTLRVision_GoogleCloudVisionV1p4beta1Property;
-@class GTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult;
 @class GTLRVision_GoogleCloudVisionV1p4beta1ReferenceImage;
 @class GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation;
 @class GTLRVision_GoogleCloudVisionV1p4beta1Symbol;
@@ -3828,43 +3826,6 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMeta
  *  Value: "STATE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_StateUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult.qualityOptimizationType
-
-/**
- *  Reduce image file size. Detailed params specified in CompressionConfig.
- *  If customer do not specify CompressionConfig, it will reduce image file
- *  size while not reducing image quality. If customer specify
- *  CompressionConfig, we will reduce file size while keeping
- *  CompressionParams.target_quality.
- *
- *  Value: "COMPRESSION"
- */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult_QualityOptimizationType_Compression;
-/**
- *  Denoise, sharpening, HDR and upscaling. Detailed params specified in
- *  EnhancementConfig. If customer do not specify EnhancmentConfig, it will
- *  do image enhancement using default values. If upscale_ratio not
- *  specified, the output image will have the same resolution as input image.
- *
- *  Value: "ENHANCEMENT"
- */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult_QualityOptimizationType_Enhancement;
-/**
- *  Query quality score for an image. Detailed params specified in
- *  QualityScoreConfig. If customer does not specify QualityScoreConfig,
- *  aesthetic score of image will be returned.
- *
- *  Value: "QUALITY_SCORE"
- */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult_QualityOptimizationType_QualityScore;
-/**
- *  Invalid. Customer must select one Type.
- *
- *  Value: "TYPE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult_QualityOptimizationType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation.adult
@@ -10729,9 +10690,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 /** If present, image properties were extracted successfully. */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1ImageProperties *imagePropertiesAnnotation;
 
-/** If present, image quality calculation has completed successfully. */
-@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1ImageQuality *imageQualityAnnotation;
-
 /** If present, label detection has completed successfully. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1EntityAnnotation *> *labelAnnotations;
 
@@ -10749,9 +10707,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /** If present, product search has completed successfully. */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResults *productSearchResults;
-
-/** If present, image quality optimization has completed successfully. */
-@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult *qualityOptimizationResult;
 
 /** If present, safe-search annotation has completed successfully. */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation *safeSearchAnnotation;
@@ -11456,25 +11411,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
- *  Stores image quality scores, could be aesthetic quality or technical
- *  quality.
- */
-@interface GTLRVision_GoogleCloudVisionV1p4beta1ImageQuality : GTLRObject
-
-/**
- *  A score representing the aesthetic/technical quality of the image. The
- *  score is in range [0, 1]. Higher value corresponds to more professional
- *  looking photos. 0 means the image looks very bad, 1 means the image with
- *  very high quality.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *qualityScore;
-
-@end
-
-
-/**
  *  Response message for the `ImportProductSets` method.
  *  This message is returned by the
  *  google.longrunning.Operations.GetOperation method in the returned
@@ -11949,53 +11885,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
- *  Stores enhanced image bytes.
- */
-@interface GTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult : GTLRObject
-
-/**
- *  Optimized image bytes.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *image;
-
-/** Mime type of the output image. */
-@property(nonatomic, copy, nullable) NSString *mimeType;
-
-/**
- *  Required optimization type.
- *
- *  Likely values:
- *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult_QualityOptimizationType_Compression
- *        Reduce image file size. Detailed params specified in
- *        CompressionConfig.
- *        If customer do not specify CompressionConfig, it will reduce image
- *        file
- *        size while not reducing image quality. If customer specify
- *        CompressionConfig, we will reduce file size while keeping
- *        CompressionParams.target_quality. (Value: "COMPRESSION")
- *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult_QualityOptimizationType_Enhancement
- *        Denoise, sharpening, HDR and upscaling. Detailed params specified in
- *        EnhancementConfig. If customer do not specify EnhancmentConfig, it
- *        will
- *        do image enhancement using default values. If upscale_ratio not
- *        specified, the output image will have the same resolution as input
- *        image. (Value: "ENHANCEMENT")
- *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult_QualityOptimizationType_QualityScore
- *        Query quality score for an image. Detailed params specified in
- *        QualityScoreConfig. If customer does not specify QualityScoreConfig,
- *        aesthetic score of image will be returned. (Value: "QUALITY_SCORE")
- *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult_QualityOptimizationType_TypeUnspecified
- *        Invalid. Customer must select one Type. (Value: "TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *qualityOptimizationType;
-
-@end
-
-
-/**
  *  A `ReferenceImage` represents a product image and its associated metadata,
  *  such as bounding boxes.
  */
@@ -12059,14 +11948,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @property(nonatomic, copy, nullable) NSString *adult;
 
 /**
- *  Confidence of adult_score. Range [0, 1]. 0 means not confident, 1 means
- *  very confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *adultConfidence;
-
-/**
  *  Likelihood that this is a medical image.
  *
  *  Likely values:
@@ -12084,22 +11965,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
 @property(nonatomic, copy, nullable) NSString *medical;
-
-/**
- *  Confidence of medical_score. Range [0, 1]. 0 means not confident, 1 means
- *  very confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *medicalConfidence;
-
-/**
- *  Confidence of nsfw_score. Range [0, 1]. 0 means not confident, 1 means very
- *  confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *nsfwConfidence;
 
 /**
  *  Likelihood that the request image contains racy content. Racy content may
@@ -12124,14 +11989,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @property(nonatomic, copy, nullable) NSString *racy;
 
 /**
- *  Confidence of racy_score. Range [0, 1]. 0 means not confident, 1 means very
- *  confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *racyConfidence;
-
-/**
  *  Spoof likelihood. The likelihood that an modification
  *  was made to the image's canonical version to make it appear
  *  funny or offensive.
@@ -12153,14 +12010,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @property(nonatomic, copy, nullable) NSString *spoof;
 
 /**
- *  Confidence of spoof_score. Range [0, 1]. 0 means not confident, 1 means
- *  very confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *spoofConfidence;
-
-/**
  *  Likelihood that this image contains violent content.
  *
  *  Likely values:
@@ -12178,14 +12027,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        It is very unlikely. (Value: "VERY_UNLIKELY")
  */
 @property(nonatomic, copy, nullable) NSString *violence;
-
-/**
- *  Confidence of violence_score. Range [0, 1]. 0 means not confident, 1 means
- *  very confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *violenceConfidence;
 
 @end
 
@@ -13480,7 +13321,7 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 /**
  *  The bounding polygon around the area of interest in the image.
- *  Optional. If it is not specified, system discretion will be applied.
+ *  If it is not specified, system discretion will be applied.
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
 
@@ -13750,14 +13591,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @property(nonatomic, copy, nullable) NSString *adult;
 
 /**
- *  Confidence of adult_score. Range [0, 1]. 0 means not confident, 1 means
- *  very confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *adultConfidence;
-
-/**
  *  Likelihood that this is a medical image.
  *
  *  Likely values:
@@ -13775,22 +13608,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        unlikely. (Value: "VERY_UNLIKELY")
  */
 @property(nonatomic, copy, nullable) NSString *medical;
-
-/**
- *  Confidence of medical_score. Range [0, 1]. 0 means not confident, 1 means
- *  very confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *medicalConfidence;
-
-/**
- *  Confidence of nsfw_score. Range [0, 1]. 0 means not confident, 1 means very
- *  confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *nsfwConfidence;
 
 /**
  *  Likelihood that the request image contains racy content. Racy content may
@@ -13815,14 +13632,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @property(nonatomic, copy, nullable) NSString *racy;
 
 /**
- *  Confidence of racy_score. Range [0, 1]. 0 means not confident, 1 means very
- *  confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *racyConfidence;
-
-/**
  *  Spoof likelihood. The likelihood that an modification
  *  was made to the image's canonical version to make it appear
  *  funny or offensive.
@@ -13844,14 +13653,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @property(nonatomic, copy, nullable) NSString *spoof;
 
 /**
- *  Confidence of spoof_score. Range [0, 1]. 0 means not confident, 1 means
- *  very confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *spoofConfidence;
-
-/**
  *  Likelihood that this image contains violent content.
  *
  *  Likely values:
@@ -13869,14 +13670,6 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        unlikely. (Value: "VERY_UNLIKELY")
  */
 @property(nonatomic, copy, nullable) NSString *violence;
-
-/**
- *  Confidence of violence_score. Range [0, 1]. 0 means not confident, 1 means
- *  very confident.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *violenceConfidence;
 
 @end
 

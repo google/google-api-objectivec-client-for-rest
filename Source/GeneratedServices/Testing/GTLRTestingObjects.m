@@ -188,8 +188,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_AndroidInstrumentationTest
-@dynamic appApk, appBundle, appPackageId, orchestratorOption, testApk,
-         testPackageId, testRunnerClass, testTargets;
+@dynamic appApk, appBundle, appPackageId, orchestratorOption, shardingOption,
+         testApk, testPackageId, testRunnerClass, testTargets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -720,6 +720,24 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_ManualSharding
+//
+
+@implementation GTLRTesting_ManualSharding
+@dynamic testTargetsForShard;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"testTargetsForShard" : [GTLRTesting_TestTargetsForShard class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_NetworkConfiguration
 //
 
@@ -836,6 +854,26 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_Shard
+//
+
+@implementation GTLRTesting_Shard
+@dynamic numShards, shardIndex, testTargetsForShard;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_ShardingOption
+//
+
+@implementation GTLRTesting_ShardingOption
+@dynamic manualSharding, uniformSharding;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_StartActivityIntent
 //
 
@@ -887,8 +925,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_TestExecution
-@dynamic environment, identifier, matrixId, projectId, state, testDetails,
-         testSpecification, timestamp, toolResultsStep;
+@dynamic environment, identifier, matrixId, projectId, shard, state,
+         testDetails, testSpecification, timestamp, toolResultsStep;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -953,6 +991,24 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_TestTargetsForShard
+//
+
+@implementation GTLRTesting_TestTargetsForShard
+@dynamic testTargets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"testTargets" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_ToolResultsExecution
 //
 
@@ -988,6 +1044,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_TrafficRule
 @dynamic bandwidth, burst, delay, packetDuplicationRatio, packetLossRatio;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_UniformSharding
+//
+
+@implementation GTLRTesting_UniformSharding
+@dynamic numShards;
 @end
 
 

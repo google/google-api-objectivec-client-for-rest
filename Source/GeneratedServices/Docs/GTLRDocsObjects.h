@@ -28,6 +28,10 @@
 @class GTLRDocs_Color;
 @class GTLRDocs_ColumnBreak;
 @class GTLRDocs_ColumnBreak_SuggestedTextStyleChanges;
+@class GTLRDocs_CreateFooterRequest;
+@class GTLRDocs_CreateFooterResponse;
+@class GTLRDocs_CreateHeaderRequest;
+@class GTLRDocs_CreateHeaderResponse;
 @class GTLRDocs_CreateNamedRangeRequest;
 @class GTLRDocs_CreateNamedRangeResponse;
 @class GTLRDocs_CreateParagraphBulletsRequest;
@@ -121,6 +125,7 @@
 @class GTLRDocs_ReplaceAllTextRequest;
 @class GTLRDocs_ReplaceAllTextResponse;
 @class GTLRDocs_ReplaceImageRequest;
+@class GTLRDocs_ReplaceNamedRangeContentRequest;
 @class GTLRDocs_Request;
 @class GTLRDocs_Response;
 @class GTLRDocs_RgbColor;
@@ -207,6 +212,38 @@ GTLR_EXTERN NSString * const kGTLRDocs_AutoText_Type_PageNumber;
  *  Value: "TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDocs_AutoText_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDocs_CreateFooterRequest.type
+
+/**
+ *  A default header/footer.
+ *
+ *  Value: "DEFAULT"
+ */
+GTLR_EXTERN NSString * const kGTLRDocs_CreateFooterRequest_Type_Default;
+/**
+ *  The header/footer type is unspecified.
+ *
+ *  Value: "HEADER_FOOTER_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDocs_CreateFooterRequest_Type_HeaderFooterTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDocs_CreateHeaderRequest.type
+
+/**
+ *  A default header/footer.
+ *
+ *  Value: "DEFAULT"
+ */
+GTLR_EXTERN NSString * const kGTLRDocs_CreateHeaderRequest_Type_Default;
+/**
+ *  The header/footer type is unspecified.
+ *
+ *  Value: "HEADER_FOOTER_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDocs_CreateHeaderRequest_Type_HeaderFooterTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_CreateParagraphBulletsRequest.bulletPreset
@@ -1316,6 +1353,76 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRDocs_ColumnBreak_SuggestedTextStyleChanges : GTLRObject
+@end
+
+
+/**
+ *  Creates a Footer. The new footer will be
+ *  applied to the DocumentStyle.
+ *  If a footer of the specified type already exists then a 400 bad request
+ *  error
+ *  will be returned.
+ */
+@interface GTLRDocs_CreateFooterRequest : GTLRObject
+
+/**
+ *  The type of footer to create.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocs_CreateFooterRequest_Type_Default A default
+ *        header/footer. (Value: "DEFAULT")
+ *    @arg @c kGTLRDocs_CreateFooterRequest_Type_HeaderFooterTypeUnspecified The
+ *        header/footer type is unspecified. (Value:
+ *        "HEADER_FOOTER_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The result of creating a footer.
+ */
+@interface GTLRDocs_CreateFooterResponse : GTLRObject
+
+/** The ID of the created footer. */
+@property(nonatomic, copy, nullable) NSString *footerId;
+
+@end
+
+
+/**
+ *  Creates a Header. The new header will be
+ *  applied to the DocumentStyle.
+ *  If a header of the specified type already exists then a 400 bad request
+ *  error
+ *  will be returned.
+ */
+@interface GTLRDocs_CreateHeaderRequest : GTLRObject
+
+/**
+ *  The type of header to create.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocs_CreateHeaderRequest_Type_Default A default
+ *        header/footer. (Value: "DEFAULT")
+ *    @arg @c kGTLRDocs_CreateHeaderRequest_Type_HeaderFooterTypeUnspecified The
+ *        header/footer type is unspecified. (Value:
+ *        "HEADER_FOOTER_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The result of creating a header.
+ */
+@interface GTLRDocs_CreateHeaderResponse : GTLRObject
+
+/** The ID of the created header. */
+@property(nonatomic, copy, nullable) NSString *headerId;
+
 @end
 
 
@@ -4494,9 +4601,54 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
+ *  Replaces the contents of the specified
+ *  NamedRange or
+ *  NamedRanges with the given replacement
+ *  content.
+ *  Note that an individual NamedRange may
+ *  consist of multiple discontinuous
+ *  ranges. In this case, only the
+ *  content in the first range will be replaced. The other ranges and their
+ *  content will be deleted.
+ *  In cases where replacing or deleting any ranges would result in an invalid
+ *  document structure, a 400 bad request error is returned.
+ */
+@interface GTLRDocs_ReplaceNamedRangeContentRequest : GTLRObject
+
+/**
+ *  The ID of the named range whose content will be replaced.
+ *  If there is no named range with the given ID a 400 bad request error is
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *namedRangeId;
+
+/**
+ *  The name of the NamedRanges whose
+ *  content will be replaced.
+ *  If there are multiple named ranges with the given name, then
+ *  the content of each one will be replaced. If there are no named ranges
+ *  with the given name, then the request will be a no-op.
+ */
+@property(nonatomic, copy, nullable) NSString *namedRangeName;
+
+/**
+ *  Replaces the content of the specified named range(s) with the given text.
+ */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
  *  A single update to apply to a document.
  */
 @interface GTLRDocs_Request : GTLRObject
+
+/** Creates a footer. */
+@property(nonatomic, strong, nullable) GTLRDocs_CreateFooterRequest *createFooter;
+
+/** Creates a header. */
+@property(nonatomic, strong, nullable) GTLRDocs_CreateHeaderRequest *createHeader;
 
 /** Creates a named range. */
 @property(nonatomic, strong, nullable) GTLRDocs_CreateNamedRangeRequest *createNamedRange;
@@ -4549,6 +4701,9 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /** Replaces an image in the document. */
 @property(nonatomic, strong, nullable) GTLRDocs_ReplaceImageRequest *replaceImage;
 
+/** Replaces the content in a named range. */
+@property(nonatomic, strong, nullable) GTLRDocs_ReplaceNamedRangeContentRequest *replaceNamedRangeContent;
+
 /** Unmerges cells in a table. */
 @property(nonatomic, strong, nullable) GTLRDocs_UnmergeTableCellsRequest *unmergeTableCells;
 
@@ -4577,6 +4732,12 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *  A single response from an update.
  */
 @interface GTLRDocs_Response : GTLRObject
+
+/** The result of creating a footer. */
+@property(nonatomic, strong, nullable) GTLRDocs_CreateFooterResponse *createFooter;
+
+/** The result of creating a header. */
+@property(nonatomic, strong, nullable) GTLRDocs_CreateHeaderResponse *createHeader;
 
 /** The result of creating a named range. */
 @property(nonatomic, strong, nullable) GTLRDocs_CreateNamedRangeResponse *createNamedRange;

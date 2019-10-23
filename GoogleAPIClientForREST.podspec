@@ -196,6 +196,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudKMS/*.{h,m}'
   end
+  s.subspec 'CloudLifeSciences' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudLifeSciences/*.{h,m}'
+  end
   s.subspec 'CloudMachineLearningEngine' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudMachineLearningEngine/*.{h,m}'

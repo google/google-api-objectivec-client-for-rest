@@ -427,7 +427,9 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 
 /**
  *  Deletes Item resource for the
- *  specified resource name.
+ *  specified resource name. This API requires an admin or service account
+ *  to execute. The service account used is the one whitelisted in the
+ *  corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.delete
  *
@@ -487,7 +489,9 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
  *  Deletes Item resource for the
- *  specified resource name.
+ *  specified resource name. This API requires an admin or service account
+ *  to execute. The service account used is the one whitelisted in the
+ *  corresponding data source.
  *
  *  @param name Required. Name of the item to delete.
  *    Format: datasources/{source_id}/items/{item_id}
@@ -501,6 +505,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 /**
  *  Deletes all items in a queue. This method is useful for deleting stale
  *  items.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.deleteQueueItems
  *
@@ -523,6 +529,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *
  *  Deletes all items in a queue. This method is useful for deleting stale
  *  items.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  @param object The @c GTLRCloudSearch_DeleteQueueItemsRequest to include in
  *    the query.
@@ -538,6 +546,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 
 /**
  *  Gets Item resource by item name.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.get
  *
@@ -571,6 +581,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  Fetches a @c GTLRCloudSearch_Item.
  *
  *  Gets Item resource by item name.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  @param name Name of the item to get info.
  *    Format: datasources/{source_id}/items/{item_id}
@@ -587,6 +599,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  does not exist.
  *  This method does not support partial updates. Fields with no provided
  *  values are cleared out in the Cloud Search index.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.index
  *
@@ -614,6 +628,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  does not exist.
  *  This method does not support partial updates. Fields with no provided
  *  values are cleared out in the Cloud Search index.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  @param object The @c GTLRCloudSearch_IndexItemRequest to include in the
  *    query.
@@ -631,6 +647,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 
 /**
  *  Lists all or a subset of Item resources.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.list
  *
@@ -646,9 +664,21 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  When set to true, the indexing system only populates the following fields:
  *  name,
  *  version,
+ *  queue.
  *  metadata.hash,
+ *  metadata.title,
+ *  metadata.sourceRepositoryURL,
+ *  metadata.objectType,
+ *  metadata.createTime,
+ *  metadata.updateTime,
+ *  metadata.contentLanguage,
+ *  metadata.mimeType,
  *  structured_data.hash,
- *  content.hash.
+ *  content.hash,
+ *  itemType,
+ *  itemStatus.code,
+ *  itemStatus.processingError.code,
+ *  itemStatus.repositoryError.type,
  *  <br />If this value is false, then all the fields are populated in Item.
  */
 @property(nonatomic, assign) BOOL brief;
@@ -688,6 +718,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  Fetches a @c GTLRCloudSearch_ListItemsResponse.
  *
  *  Lists all or a subset of Item resources.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  @param name Name of the Data Source to list Items. Format:
  *    datasources/{source_id}
@@ -726,6 +758,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  the type REQUEUE.
  *  Items automatically become available (unreserved) after 4 hours even if no
  *  update or push method is called.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.poll
  *
@@ -769,6 +803,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  the type REQUEUE.
  *  Items automatically become available (unreserved) after 4 hours even if no
  *  update or push method is called.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  @param object The @c GTLRCloudSearch_PollItemsRequest to include in the
  *    query.
@@ -784,6 +820,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 
 /**
  *  Pushes an item onto a queue for later polling and updating.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.push
  *
@@ -808,6 +846,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  Fetches a @c GTLRCloudSearch_Item.
  *
  *  Pushes an item onto a queue for later polling and updating.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  @param object The @c GTLRCloudSearch_PushItemRequest to include in the
  *    query.
@@ -828,6 +868,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  Unreserves all items from a queue, making them all eligible to be
  *  polled. This method is useful for resetting the indexing queue
  *  after a connector has been restarted.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.unreserve
  *
@@ -851,6 +893,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  Unreserves all items from a queue, making them all eligible to be
  *  polled. This method is useful for resetting the indexing queue
  *  after a connector has been restarted.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  @param object The @c GTLRCloudSearch_UnreserveItemsRequest to include in the
  *    query.
@@ -869,6 +913,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  than 100 KB, it's easier to embed the content
  *  inline within
  *  an index request.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.upload
  *
@@ -893,6 +939,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  than 100 KB, it's easier to embed the content
  *  inline within
  *  an index request.
+ *  This API requires an admin or service account to execute. The service
+ *  account used is the one whitelisted in the corresponding data source.
  *
  *  @param object The @c GTLRCloudSearch_StartUploadItemRequest to include in
  *    the query.
@@ -1113,10 +1161,13 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  For more information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  *  For translations.
+ *  Set this field using the language set in browser or for the page. In the
+ *  event that the user's language preference is known, set this field to the
+ *  known user language.
  *  When specified, the documents in search results are biased towards the
  *  specified language.
- *  Suggest API does not use this parameter. It autocompletes only based on
- *  characters in the query.
+ *  The suggest API does not use this parameter. Instead, suggest autocompletes
+ *  only based on characters in the query.
  */
 @property(nonatomic, copy, nullable) NSString *requestOptionsLanguageCode;
 
@@ -1642,6 +1693,135 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 @end
 
 /**
+ *  Get the query statistics for customer
+ *
+ *  Method: cloudsearch.stats.getQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStats
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStatsIndexing
+ */
+@interface GTLRCloudSearchQuery_StatsGetQuery : GTLRCloudSearchQuery
+// Previous library name was
+//   +[GTLQueryCloudSearch queryForStatsGetQuery]
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger fromDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger fromDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger fromDateYear;
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger toDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger toDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger toDateYear;
+
+/**
+ *  Fetches a @c GTLRCloudSearch_GetCustomerQueryStatsResponse.
+ *
+ *  Get the query statistics for customer
+ *
+ *  @return GTLRCloudSearchQuery_StatsGetQuery
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Get the # of search sessions for the customer
+ *
+ *  Method: cloudsearch.stats.getSession
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStats
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStatsIndexing
+ */
+@interface GTLRCloudSearchQuery_StatsGetSession : GTLRCloudSearchQuery
+// Previous library name was
+//   +[GTLQueryCloudSearch queryForStatsGetSession]
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger fromDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger fromDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger fromDateYear;
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger toDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger toDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger toDateYear;
+
+/**
+ *  Fetches a @c GTLRCloudSearch_GetCustomerSessionStatsResponse.
+ *
+ *  Get the # of search sessions for the customer
+ *
+ *  @return GTLRCloudSearchQuery_StatsGetSession
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Get the users statistics for customer
+ *
+ *  Method: cloudsearch.stats.getUser
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStats
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStatsIndexing
+ */
+@interface GTLRCloudSearchQuery_StatsGetUser : GTLRCloudSearchQuery
+// Previous library name was
+//   +[GTLQueryCloudSearch queryForStatsGetUser]
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger fromDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger fromDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger fromDateYear;
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger toDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger toDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger toDateYear;
+
+/**
+ *  Fetches a @c GTLRCloudSearch_GetCustomerUserStatsResponse.
+ *
+ *  Get the users statistics for customer
+ *
+ *  @return GTLRCloudSearchQuery_StatsGetUser
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Gets indexed item statistics for a single data source.
  *
  *  Method: cloudsearch.stats.index.datasources.get
@@ -1688,6 +1868,165 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *    in the following format: "datasources/{source_id}"
  *
  *  @return GTLRCloudSearchQuery_StatsIndexDatasourcesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the query statistics for search application
+ *
+ *  Method: cloudsearch.stats.query.searchapplications.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStats
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStatsIndexing
+ */
+@interface GTLRCloudSearchQuery_StatsQuerySearchapplicationsGet : GTLRCloudSearchQuery
+// Previous library name was
+//   +[GTLQueryCloudSearch queryForStatsQuerySearchapplicationsGetWithname:]
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger fromDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger fromDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger fromDateYear;
+
+/**
+ *  The resource id of the search application query stats, in the following
+ *  format: searchapplications/{application_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger toDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger toDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger toDateYear;
+
+/**
+ *  Fetches a @c GTLRCloudSearch_GetSearchApplicationQueryStatsResponse.
+ *
+ *  Get the query statistics for search application
+ *
+ *  @param name The resource id of the search application query stats, in the
+ *    following
+ *    format: searchapplications/{application_id}
+ *
+ *  @return GTLRCloudSearchQuery_StatsQuerySearchapplicationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the # of search sessions for the search application
+ *
+ *  Method: cloudsearch.stats.session.searchapplications.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStats
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStatsIndexing
+ */
+@interface GTLRCloudSearchQuery_StatsSessionSearchapplicationsGet : GTLRCloudSearchQuery
+// Previous library name was
+//   +[GTLQueryCloudSearch queryForStatsSessionSearchapplicationsGetWithname:]
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger fromDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger fromDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger fromDateYear;
+
+/**
+ *  The resource id of the search application session stats, in the following
+ *  format: searchapplications/{application_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger toDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger toDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger toDateYear;
+
+/**
+ *  Fetches a @c GTLRCloudSearch_GetSearchApplicationSessionStatsResponse.
+ *
+ *  Get the # of search sessions for the search application
+ *
+ *  @param name The resource id of the search application session stats, in the
+ *    following
+ *    format: searchapplications/{application_id}
+ *
+ *  @return GTLRCloudSearchQuery_StatsSessionSearchapplicationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the users statistics for search application
+ *
+ *  Method: cloudsearch.stats.user.searchapplications.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStats
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStatsIndexing
+ */
+@interface GTLRCloudSearchQuery_StatsUserSearchapplicationsGet : GTLRCloudSearchQuery
+// Previous library name was
+//   +[GTLQueryCloudSearch queryForStatsUserSearchapplicationsGetWithname:]
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger fromDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger fromDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger fromDateYear;
+
+/**
+ *  The resource id of the search application session stats, in the following
+ *  format: searchapplications/{application_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger toDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger toDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger toDateYear;
+
+/**
+ *  Fetches a @c GTLRCloudSearch_GetSearchApplicationUserStatsResponse.
+ *
+ *  Get the users statistics for search application
+ *
+ *  @param name The resource id of the search application session stats, in the
+ *    following
+ *    format: searchapplications/{application_id}
+ *
+ *  @return GTLRCloudSearchQuery_StatsUserSearchapplicationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 

@@ -375,6 +375,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Method: admin.channels.stop
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryCloudPlatform
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  *    @c kGTLRAuthScopeDirectoryDirectoryUserAlias
  *    @c kGTLRAuthScopeDirectoryDirectoryUserAliasReadonly
@@ -4169,6 +4170,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Method: directory.users.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryCloudPlatform
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  *    @c kGTLRAuthScopeDirectoryDirectoryUserReadonly
  */
@@ -4551,6 +4553,7 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Method: directory.users.watch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryCloudPlatform
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  *    @c kGTLRAuthScopeDirectoryDirectoryUserReadonly
  */

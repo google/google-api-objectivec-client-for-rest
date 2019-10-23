@@ -96,6 +96,15 @@ NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentL
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessApproval_Empty
+//
+
+@implementation GTLRAccessApproval_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessApproval_EnrolledService
 //
 
@@ -142,7 +151,7 @@ NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentL
 //
 
 @implementation GTLRAccessApproval_Settings
-@dynamic enrolledServices, name, notificationEmails;
+@dynamic enrolledAncestor, enrolledServices, name, notificationEmails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

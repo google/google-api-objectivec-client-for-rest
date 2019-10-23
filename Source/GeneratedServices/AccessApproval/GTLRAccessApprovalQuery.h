@@ -205,6 +205,44 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes the settings associated with a project, folder, or organization.
+ *  This will have the effect of disabling Access Approval for the project,
+ *  folder, or organization, but only if all ancestors also have Access
+ *  Approval disabled. If Access Approval is enabled at a higher level of the
+ *  hierarchy, then Access Approval will still be enabled at this level as
+ *  the settings are inherited.
+ *
+ *  Method: accessapproval.folders.deleteAccessApprovalSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
+ */
+@interface GTLRAccessApprovalQuery_FoldersDeleteAccessApprovalSettings : GTLRAccessApprovalQuery
+// Previous library name was
+//   +[GTLQueryAccessApproval queryForFoldersDeleteAccessApprovalSettingsWithname:]
+
+/** Name of the AccessApprovalSettings to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessApproval_Empty.
+ *
+ *  Deletes the settings associated with a project, folder, or organization.
+ *  This will have the effect of disabling Access Approval for the project,
+ *  folder, or organization, but only if all ancestors also have Access
+ *  Approval disabled. If Access Approval is enabled at a higher level of the
+ *  hierarchy, then Access Approval will still be enabled at this level as
+ *  the settings are inherited.
+ *
+ *  @param name Name of the AccessApprovalSettings to delete.
+ *
+ *  @return GTLRAccessApprovalQuery_FoldersDeleteAccessApprovalSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the settings associated with a project, folder, or organization.
  *
  *  Method: accessapproval.folders.getAccessApprovalSettings
@@ -256,8 +294,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applies to the settings. For the `FieldMask` definition,
- *  see
+ *  For the `FieldMask` definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *  If this field is left unset, only the notification_emails field will be
  *  updated.
@@ -453,6 +490,44 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes the settings associated with a project, folder, or organization.
+ *  This will have the effect of disabling Access Approval for the project,
+ *  folder, or organization, but only if all ancestors also have Access
+ *  Approval disabled. If Access Approval is enabled at a higher level of the
+ *  hierarchy, then Access Approval will still be enabled at this level as
+ *  the settings are inherited.
+ *
+ *  Method: accessapproval.organizations.deleteAccessApprovalSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
+ */
+@interface GTLRAccessApprovalQuery_OrganizationsDeleteAccessApprovalSettings : GTLRAccessApprovalQuery
+// Previous library name was
+//   +[GTLQueryAccessApproval queryForOrganizationsDeleteAccessApprovalSettingsWithname:]
+
+/** Name of the AccessApprovalSettings to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessApproval_Empty.
+ *
+ *  Deletes the settings associated with a project, folder, or organization.
+ *  This will have the effect of disabling Access Approval for the project,
+ *  folder, or organization, but only if all ancestors also have Access
+ *  Approval disabled. If Access Approval is enabled at a higher level of the
+ *  hierarchy, then Access Approval will still be enabled at this level as
+ *  the settings are inherited.
+ *
+ *  @param name Name of the AccessApprovalSettings to delete.
+ *
+ *  @return GTLRAccessApprovalQuery_OrganizationsDeleteAccessApprovalSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the settings associated with a project, folder, or organization.
  *
  *  Method: accessapproval.organizations.getAccessApprovalSettings
@@ -504,8 +579,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applies to the settings. For the `FieldMask` definition,
- *  see
+ *  For the `FieldMask` definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *  If this field is left unset, only the notification_emails field will be
  *  updated.
@@ -701,6 +775,44 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes the settings associated with a project, folder, or organization.
+ *  This will have the effect of disabling Access Approval for the project,
+ *  folder, or organization, but only if all ancestors also have Access
+ *  Approval disabled. If Access Approval is enabled at a higher level of the
+ *  hierarchy, then Access Approval will still be enabled at this level as
+ *  the settings are inherited.
+ *
+ *  Method: accessapproval.projects.deleteAccessApprovalSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
+ */
+@interface GTLRAccessApprovalQuery_ProjectsDeleteAccessApprovalSettings : GTLRAccessApprovalQuery
+// Previous library name was
+//   +[GTLQueryAccessApproval queryForProjectsDeleteAccessApprovalSettingsWithname:]
+
+/** Name of the AccessApprovalSettings to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessApproval_Empty.
+ *
+ *  Deletes the settings associated with a project, folder, or organization.
+ *  This will have the effect of disabling Access Approval for the project,
+ *  folder, or organization, but only if all ancestors also have Access
+ *  Approval disabled. If Access Approval is enabled at a higher level of the
+ *  hierarchy, then Access Approval will still be enabled at this level as
+ *  the settings are inherited.
+ *
+ *  @param name Name of the AccessApprovalSettings to delete.
+ *
+ *  @return GTLRAccessApprovalQuery_ProjectsDeleteAccessApprovalSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the settings associated with a project, folder, or organization.
  *
  *  Method: accessapproval.projects.getAccessApprovalSettings
@@ -752,8 +864,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applies to the settings. For the `FieldMask` definition,
- *  see
+ *  For the `FieldMask` definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *  If this field is left unset, only the notification_emails field will be
  *  updated.

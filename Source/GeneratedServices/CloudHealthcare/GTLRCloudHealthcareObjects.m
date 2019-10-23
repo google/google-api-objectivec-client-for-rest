@@ -176,12 +176,32 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_DeidentifyDicomStoreRequest
+//
+
+@implementation GTLRCloudHealthcare_DeidentifyDicomStoreRequest
+@dynamic config, destinationStore, filterConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_DeidentifyErrorDetails
 //
 
 @implementation GTLRCloudHealthcare_DeidentifyErrorDetails
 @dynamic failureResourceCount, failureStoreCount, successResourceCount,
          successStoreCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_DeidentifyFhirStoreRequest
+//
+
+@implementation GTLRCloudHealthcare_DeidentifyFhirStoreRequest
+@dynamic config, destinationStore, resourceFilter;
 @end
 
 
@@ -202,6 +222,16 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 @implementation GTLRCloudHealthcare_DicomConfig
 @dynamic filterProfile, keepList, removeList, skipIdRedaction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_DicomFilterConfig
+//
+
+@implementation GTLRCloudHealthcare_DicomFilterConfig
+@dynamic resourcePathsGcsUri;
 @end
 
 
@@ -303,6 +333,16 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_FhirFilter
+//
+
+@implementation GTLRCloudHealthcare_FhirFilter
+@dynamic resources;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_FhirStore
 //
 
@@ -341,6 +381,26 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DeidentifyDeidentifyDicomStoreSummary
+//
+
+@implementation GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DeidentifyDeidentifyDicomStoreSummary
+@dynamic failureResourceCount, successResourceCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DeidentifyDeidentifyFhirStoreSummary
+//
+
+@implementation GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DeidentifyDeidentifyFhirStoreSummary
+@dynamic successResourceCount;
 @end
 
 
@@ -952,6 +1012,24 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_ReplaceWithInfoTypeConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_Resources
+//
+
+@implementation GTLRCloudHealthcare_Resources
+@dynamic resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

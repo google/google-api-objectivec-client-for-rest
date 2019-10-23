@@ -511,7 +511,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForGroupsPatchWithObject:name:]
 
 /**
- *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  Output only. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  Group in the format: `groups/{group_id}`, where group_id is the unique ID
  *  assigned to the Group.
  *  Must be left blank while creating a Group.
@@ -531,7 +532,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Updates a Group.
  *
  *  @param object The @c GTLRCloudIdentity_Group to include in the query.
- *  @param name [Resource
+ *  @param name Output only. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    Group in the format: `groups/{group_id}`, where group_id is the unique ID
  *    assigned to the Group.

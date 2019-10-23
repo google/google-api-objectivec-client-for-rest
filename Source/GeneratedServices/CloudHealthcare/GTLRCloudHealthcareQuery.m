@@ -125,6 +125,31 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDeidentify
+
+@dynamic sourceStore;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_DeidentifyDicomStoreRequest *)object
+                    sourceStore:(NSString *)sourceStore {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"sourceStore" ];
+  NSString *pathURITemplate = @"v1beta1/{+sourceStore}:deidentify";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDeidentify *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.sourceStore = sourceStore;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
+  query.loggingName = @"healthcare.projects.locations.datasets.dicomStores.deidentify";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDelete
 
 @dynamic name;
@@ -827,6 +852,31 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDeidentify
+
+@dynamic sourceStore;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_DeidentifyFhirStoreRequest *)object
+                    sourceStore:(NSString *)sourceStore {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"sourceStore" ];
+  NSString *pathURITemplate = @"v1beta1/{+sourceStore}:deidentify";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDeidentify *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.sourceStore = sourceStore;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.deidentify";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDelete
 
 @dynamic name;
@@ -1046,7 +1096,11 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirHistory
 
-@dynamic at, count, name, page, since;
+@dynamic xPageToken, at, count, name, page, since;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"xPageToken" : @"_page_token" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

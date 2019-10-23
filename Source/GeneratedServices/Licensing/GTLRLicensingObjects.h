@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Enterprise License Manager API (licensing/v1)
+//   Licensing API (licensing/v1)
 // Description:
-//   Views and manages licenses for your domain.
+//   Licensing API to view and manage licenses for your domain
 // Documentation:
-//   https://developers.google.com/google-apps/licensing/
+//   https://developers.google.com/admin-sdk/licensing/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -28,7 +28,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Template for LiscenseAssignment Resource
+ *  Representation of a license assignment.
  */
 @interface GTLRLicensing_LicenseAssignment : GTLRObject
 
@@ -38,7 +38,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Identifies the resource as a LicenseAssignment. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Id of the product. */
+/**
+ *  A product's unique identifier. For more information about products in this
+ *  version of the API, see Product and SKU IDs.
+ */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /** Display Name of the product. */
@@ -47,20 +50,29 @@ NS_ASSUME_NONNULL_BEGIN
 /** Link to this page. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** Id of the sku of the product. */
+/**
+ *  A product SKU's unique identifier. For more information about available SKUs
+ *  in this version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *skuId;
 
 /** Display Name of the sku of the product. */
 @property(nonatomic, copy, nullable) NSString *skuName;
 
-/** Email id of the user. */
+/**
+ *  The user's current primary email address. If the user's email address
+ *  changes, use the new email address in your API requests. Since a userId is
+ *  subject to change, do not use a userId value as a key for persistent data.
+ *  This key could break if the current user's email address changes. If the
+ *  userId is suspended, the license status changes.
+ */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 
 
 /**
- *  Template for LicenseAssignment Insert request
+ *  Representation of a license assignment.
  */
 @interface GTLRLicensing_LicenseAssignmentInsert : GTLRObject
 
@@ -95,8 +107,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The continuation token, used to page through large result sets. Provide this
- *  value in a subsequent request to return the next page of results.
+ *  The token that you must submit in a subsequent request to retrieve
+ *  additional license results matching your query parameters. The maxResults
+ *  query string is related to the nextPageToken since maxResults determines how
+ *  many entries are returned on each next page.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

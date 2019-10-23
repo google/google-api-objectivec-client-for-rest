@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudOSLogin queryForUsersGetLoginProfileWithname:]
 
-/** The unique ID for the user in format `users/{user}`. */
+/** Required. The unique ID for the user in format `users/{user}`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The project ID of the Google Cloud Platform project. */
@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves the profile information used for logging in to a virtual machine
  *  on Google Compute Engine.
  *
- *  @param name The unique ID for the user in format `users/{user}`.
+ *  @param name Required. The unique ID for the user in format `users/{user}`.
  *
  *  @return GTLRCloudOSLoginQuery_UsersGetLoginProfile
  */
@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudOSLogin queryForUsersImportSshPublicKeyWithObject:parent:]
 
-/** The unique ID for the user in format `users/{user}`. */
+/** Required. The unique ID for the user in format `users/{user}`. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /** The project ID of the Google Cloud Platform project. */
@@ -104,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  login profile.
  *
  *  @param object The @c GTLRCloudOSLogin_SshPublicKey to include in the query.
- *  @param parent The unique ID for the user in format `users/{user}`.
+ *  @param parent Required. The unique ID for the user in format `users/{user}`.
  *
  *  @return GTLRCloudOSLoginQuery_UsersImportSshPublicKey
  */
@@ -127,7 +127,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudOSLogin queryForUsersProjectsDeleteWithname:]
 
 /**
- *  A reference to the POSIX account to update. POSIX accounts are identified
+ *  Required. A reference to the POSIX account to update. POSIX accounts are
+ *  identified
  *  by the project ID they are associated with. A reference to the POSIX
  *  account is in format `users/{user}/projects/{project}`.
  */
@@ -138,8 +139,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a POSIX account.
  *
- *  @param name A reference to the POSIX account to update. POSIX accounts are
- *    identified
+ *  @param name Required. A reference to the POSIX account to update. POSIX
+ *    accounts are identified
  *    by the project ID they are associated with. A reference to the POSIX
  *    account is in format `users/{user}/projects/{project}`.
  *
@@ -163,7 +164,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudOSLogin queryForUsersSshPublicKeysDeleteWithname:]
 
 /**
- *  The fingerprint of the public key to update. Public keys are identified by
+ *  Required. The fingerprint of the public key to update. Public keys are
+ *  identified by
  *  their SHA-256 fingerprint. The fingerprint of the public key is in format
  *  `users/{user}/sshPublicKeys/{fingerprint}`.
  */
@@ -174,8 +176,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes an SSH public key.
  *
- *  @param name The fingerprint of the public key to update. Public keys are
- *    identified by
+ *  @param name Required. The fingerprint of the public key to update. Public
+ *    keys are identified by
  *    their SHA-256 fingerprint. The fingerprint of the public key is in format
  *    `users/{user}/sshPublicKeys/{fingerprint}`.
  *
@@ -236,7 +238,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudOSLogin queryForUsersSshPublicKeysPatchWithObject:name:]
 
 /**
- *  The fingerprint of the public key to update. Public keys are identified by
+ *  Required. The fingerprint of the public key to update. Public keys are
+ *  identified by
  *  their SHA-256 fingerprint. The fingerprint of the public key is in format
  *  `users/{user}/sshPublicKeys/{fingerprint}`.
  */
@@ -256,8 +259,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  supports patch semantics.
  *
  *  @param object The @c GTLRCloudOSLogin_SshPublicKey to include in the query.
- *  @param name The fingerprint of the public key to update. Public keys are
- *    identified by
+ *  @param name Required. The fingerprint of the public key to update. Public
+ *    keys are identified by
  *    their SHA-256 fingerprint. The fingerprint of the public key is in format
  *    `users/{user}/sshPublicKeys/{fingerprint}`.
  *

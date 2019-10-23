@@ -39,6 +39,7 @@
 @class GTLRSheets_AutoResizeDimensionsRequest;
 @class GTLRSheets_BandedRange;
 @class GTLRSheets_BandingProperties;
+@class GTLRSheets_BaselineValueFormat;
 @class GTLRSheets_BasicChartAxis;
 @class GTLRSheets_BasicChartDomain;
 @class GTLRSheets_BasicChartSeries;
@@ -57,6 +58,7 @@
 @class GTLRSheets_CellData;
 @class GTLRSheets_CellFormat;
 @class GTLRSheets_ChartAxisViewWindowOptions;
+@class GTLRSheets_ChartCustomNumberFormatOptions;
 @class GTLRSheets_ChartData;
 @class GTLRSheets_ChartSourceRange;
 @class GTLRSheets_ChartSpec;
@@ -120,6 +122,7 @@
 @class GTLRSheets_InsertRangeRequest;
 @class GTLRSheets_InterpolationPoint;
 @class GTLRSheets_IterativeCalculationSettings;
+@class GTLRSheets_KeyValueFormat;
 @class GTLRSheets_LineStyle;
 @class GTLRSheets_ManualRule;
 @class GTLRSheets_ManualRuleGroup;
@@ -148,6 +151,7 @@
 @class GTLRSheets_Request;
 @class GTLRSheets_Response;
 @class GTLRSheets_RowData;
+@class GTLRSheets_ScorecardChartSpec;
 @class GTLRSheets_SetBasicFilterRequest;
 @class GTLRSheets_SetDataValidationRequest;
 @class GTLRSheets_Sheet;
@@ -224,6 +228,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_AppendDimensionRequest_Dimension_Dimens
  *  Value: "ROWS"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_AppendDimensionRequest_Dimension_Rows;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_BaselineValueFormat.comparisonType
+
+/**
+ *  Use absolute difference between key and baseline value.
+ *
+ *  Value: "ABSOLUTE_DIFFERENCE"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_AbsoluteDifference;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "COMPARISON_TYPE_UNDEFINED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_ComparisonTypeUndefined;
+/**
+ *  Use percentage difference between key and baseline value.
+ *
+ *  Value: "PERCENTAGE_DIFFERENCE"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_PercentageDifference;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BasicChartAxis.position
@@ -2399,6 +2425,74 @@ GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Var;
 GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Varp;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_ScorecardChartSpec.aggregateType
+
+/**
+ *  Average aggregate function.
+ *
+ *  Value: "AVERAGE"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Average;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "CHART_AGGREGATE_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_ChartAggregateTypeUnspecified;
+/**
+ *  Count aggregate function.
+ *
+ *  Value: "COUNT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Count;
+/**
+ *  Maximum aggregate function.
+ *
+ *  Value: "MAX"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Max;
+/**
+ *  Median aggregate function.
+ *
+ *  Value: "MEDIAN"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Median;
+/**
+ *  Minimum aggregate function.
+ *
+ *  Value: "MIN"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Min;
+/**
+ *  Sum aggregate function.
+ *
+ *  Value: "SUM"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Sum;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_ScorecardChartSpec.numberFormatSource
+
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "CHART_NUMBER_FORMAT_SOURCE_UNDEFINED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_ChartNumberFormatSourceUndefined;
+/**
+ *  Apply custom formatting as specified by ChartCustomNumberFormatOptions.
+ *
+ *  Value: "CUSTOM"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_Custom;
+/**
+ *  Inherit number formatting from data.
+ *
+ *  Value: "FROM_DATA"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_FromData;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_SheetProperties.sheetType
 
 /**
@@ -3028,6 +3122,58 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The second color that is alternating. (Required) */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *secondBandColor;
+
+@end
+
+
+/**
+ *  Formatting options for baseline value.
+ */
+@interface GTLRSheets_BaselineValueFormat : GTLRObject
+
+/**
+ *  The comparison type of key value with baseline value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_BaselineValueFormat_ComparisonType_AbsoluteDifference
+ *        Use absolute difference between key and baseline value. (Value:
+ *        "ABSOLUTE_DIFFERENCE")
+ *    @arg @c kGTLRSheets_BaselineValueFormat_ComparisonType_ComparisonTypeUndefined
+ *        Default value, do not use. (Value: "COMPARISON_TYPE_UNDEFINED")
+ *    @arg @c kGTLRSheets_BaselineValueFormat_ComparisonType_PercentageDifference
+ *        Use percentage difference between key and baseline value. (Value:
+ *        "PERCENTAGE_DIFFERENCE")
+ */
+@property(nonatomic, copy, nullable) NSString *comparisonType;
+
+/**
+ *  Description which is appended after the baseline value.
+ *  This field is optional.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Color to be used, in case baseline value represents a negative change for
+ *  key value. This field is optional.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *negativeColor;
+
+/**
+ *  Specifies the horizontal text positioning of baseline value.
+ *  This field is optional. If not specified, default positioning is used.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_TextPosition *position;
+
+/**
+ *  Color to be used, in case baseline value represents a positive change for
+ *  key value. This field is optional.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *positiveColor;
+
+/** Text formatting options for baseline value. */
+@property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 @end
 
@@ -4589,6 +4735,26 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 
 /**
+ *  Custom number formatting options for chart attributes.
+ */
+@interface GTLRSheets_ChartCustomNumberFormatOptions : GTLRObject
+
+/**
+ *  Custom prefix to be prepended to the chart attribute.
+ *  This field is optional.
+ */
+@property(nonatomic, copy, nullable) NSString *prefix;
+
+/**
+ *  Custom suffix to be appended to the chart attribute.
+ *  This field is optional.
+ */
+@property(nonatomic, copy, nullable) NSString *suffix;
+
+@end
+
+
+/**
  *  The data included in a domain or series.
  */
 @interface GTLRSheets_ChartData : GTLRObject
@@ -4699,6 +4865,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** A pie chart specification. */
 @property(nonatomic, strong, nullable) GTLRSheets_PieChartSpec *pieChart;
+
+/** A scorecard chart specification. */
+@property(nonatomic, strong, nullable) GTLRSheets_ScorecardChartSpec *scorecardChart;
 
 /** The subtitle of the chart. */
 @property(nonatomic, copy, nullable) NSString *subtitle;
@@ -6810,6 +6979,23 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 
 /**
+ *  Formatting options for key value.
+ */
+@interface GTLRSheets_KeyValueFormat : GTLRObject
+
+/**
+ *  Specifies the horizontal text positioning of key value.
+ *  This field is optional. If not specified, default positioning is used.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_TextPosition *position;
+
+/** Text formatting options for key value. */
+@property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
+
+@end
+
+
+/**
  *  Properties that describe the style of a line.
  */
 @interface GTLRSheets_LineStyle : GTLRObject
@@ -8000,6 +8186,91 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The values in the row, one per column. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_CellData *> *values;
+
+@end
+
+
+/**
+ *  A scorecard chart. Scorecard charts are used to highlight key performance
+ *  indicators, known as KPIs, on the spreadsheet. A scorecard chart can
+ *  represent things like total sales, average cost, or a top selling item. You
+ *  can specify a single data value, or aggregate over a range of data.
+ *  Percentage or absolute difference from a baseline value can be highlighted,
+ *  like changes over time.
+ */
+@interface GTLRSheets_ScorecardChartSpec : GTLRObject
+
+/**
+ *  The aggregation type for key and baseline chart data in scorecard chart.
+ *  This field is optional.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_ScorecardChartSpec_AggregateType_Average Average
+ *        aggregate function. (Value: "AVERAGE")
+ *    @arg @c kGTLRSheets_ScorecardChartSpec_AggregateType_ChartAggregateTypeUnspecified
+ *        Default value, do not use. (Value: "CHART_AGGREGATE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_ScorecardChartSpec_AggregateType_Count Count aggregate
+ *        function. (Value: "COUNT")
+ *    @arg @c kGTLRSheets_ScorecardChartSpec_AggregateType_Max Maximum aggregate
+ *        function. (Value: "MAX")
+ *    @arg @c kGTLRSheets_ScorecardChartSpec_AggregateType_Median Median
+ *        aggregate function. (Value: "MEDIAN")
+ *    @arg @c kGTLRSheets_ScorecardChartSpec_AggregateType_Min Minimum aggregate
+ *        function. (Value: "MIN")
+ *    @arg @c kGTLRSheets_ScorecardChartSpec_AggregateType_Sum Sum aggregate
+ *        function. (Value: "SUM")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregateType;
+
+/**
+ *  The data for scorecard baseline value.
+ *  This field is optional.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *baselineValueData;
+
+/**
+ *  Formatting options for baseline value.
+ *  This field is needed only if baseline_value_data field is specified.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_BaselineValueFormat *baselineValueFormat;
+
+/**
+ *  Custom formatting options for numeric key/baseline values in scorecard
+ *  chart. This field is used only when [number_format_source] field is set to
+ *  [ChartNumberFormatSource.CUSTOM]. This field is optional.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartCustomNumberFormatOptions *customFormatOptions;
+
+/** The data for scorecard key value. */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *keyValueData;
+
+/** Formatting options for key value. */
+@property(nonatomic, strong, nullable) GTLRSheets_KeyValueFormat *keyValueFormat;
+
+/**
+ *  The number format source used in the scorecard chart.
+ *  This field is optional.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_ScorecardChartSpec_NumberFormatSource_ChartNumberFormatSourceUndefined
+ *        Default value, do not use. (Value:
+ *        "CHART_NUMBER_FORMAT_SOURCE_UNDEFINED")
+ *    @arg @c kGTLRSheets_ScorecardChartSpec_NumberFormatSource_Custom Apply
+ *        custom formatting as specified by ChartCustomNumberFormatOptions.
+ *        (Value: "CUSTOM")
+ *    @arg @c kGTLRSheets_ScorecardChartSpec_NumberFormatSource_FromData Inherit
+ *        number formatting from data. (Value: "FROM_DATA")
+ */
+@property(nonatomic, copy, nullable) NSString *numberFormatSource;
+
+/**
+ *  Value to scale scorecard key and baseline value. For example, a factor of
+ *  10 can be used to divide all values in the chart by 10.
+ *  This field is optional.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleFactor;
 
 @end
 

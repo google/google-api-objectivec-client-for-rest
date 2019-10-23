@@ -85,6 +85,7 @@
 @class GTLRServiceConsumerManagement_UsageRule;
 @class GTLRServiceConsumerManagement_V1Beta1QuotaOverride;
 @class GTLRServiceConsumerManagement_V1Beta1QuotaOverride_Dimensions;
+@class GTLRServiceConsumerManagement_V1Beta1ServiceIdentity;
 @class GTLRServiceConsumerManagement_V1ServiceAccount;
 
 // Generated comments include content from the discovery document; avoid them
@@ -3951,6 +3952,19 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 
 /**
+ *  Response message for the `GenerateServiceIdentity` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceConsumerManagement_V1Beta1GenerateServiceIdentityResponse : GTLRObject
+
+/** ServiceIdentity that was created or retrieved. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_V1Beta1ServiceIdentity *identity;
+
+@end
+
+
+/**
  *  Response message for ImportProducerOverrides
  */
 @interface GTLRServiceConsumerManagement_V1Beta1ImportProducerOverridesResponse : GTLRObject
@@ -4055,6 +4069,34 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  Operation when that operation is done.
  */
 @interface GTLRServiceConsumerManagement_V1Beta1RefreshConsumerResponse : GTLRObject
+@end
+
+
+/**
+ *  A service identity in the Identity and Access Management API.
+ */
+@interface GTLRServiceConsumerManagement_V1Beta1ServiceIdentity : GTLRObject
+
+/** The email address of the service identity. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  P4 service identity resource name.
+ *  An example name would be:
+ *  `services/serviceconsumermanagement.googleapis.com/projects/123/serviceIdentities/default`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The P4 service identity configuration tag. This must be defined in
+ *  activation_grants. If not specified when creating the account, the tag is
+ *  set to "default".
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+/** The unique and stable id of the service identity. */
+@property(nonatomic, copy, nullable) NSString *uniqueId;
+
 @end
 
 

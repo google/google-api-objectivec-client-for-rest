@@ -341,7 +341,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDestroyWithObject:name:]
 
-/** The resource name of the CryptoKeyVersion to destroy. */
+/** Required. The resource name of the CryptoKeyVersion to destroy. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -360,7 +360,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  @param object The @c GTLRCloudKMS_DestroyCryptoKeyVersionRequest to include
  *    in the query.
- *  @param name The resource name of the CryptoKeyVersion to destroy.
+ *  @param name Required. The resource name of the CryptoKeyVersion to destroy.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDestroy
  */
@@ -382,7 +382,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGetWithname:]
 
-/** The name of the CryptoKeyVersion to get. */
+/** Required. The name of the CryptoKeyVersion to get. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -390,7 +390,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  Returns metadata for a given CryptoKeyVersion.
  *
- *  @param name The name of the CryptoKeyVersion to get.
+ *  @param name Required. The name of the CryptoKeyVersion to get.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGet
  */
@@ -415,7 +415,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGetPublicKeyWithname:]
 
 /**
- *  The name of the CryptoKeyVersion public key to
+ *  Required. The name of the CryptoKeyVersion public key to
  *  get.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -428,7 +428,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  ASYMMETRIC_SIGN or
  *  ASYMMETRIC_DECRYPT.
  *
- *  @param name The name of the CryptoKeyVersion public key to
+ *  @param name Required. The name of the CryptoKeyVersion public key to
  *    get.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGetPublicKey
@@ -509,7 +509,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional limit on the number of CryptoKeyVersions to
+ *  Optional. Optional limit on the number of CryptoKeyVersions to
  *  include in the response. Further CryptoKeyVersions can
  *  subsequently be obtained by including the
  *  ListCryptoKeyVersionsResponse.next_page_token in a subsequent request.
@@ -518,7 +518,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional pagination token, returned earlier via
+ *  Optional. Optional pagination token, returned earlier via
  *  ListCryptoKeyVersionsResponse.next_page_token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -584,7 +584,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required list of fields to be updated in this request.
+ *  Required. List of fields to be updated in this request.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -631,7 +631,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsRestoreWithObject:name:]
 
-/** The resource name of the CryptoKeyVersion to restore. */
+/** Required. The resource name of the CryptoKeyVersion to restore. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -646,7 +646,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  @param object The @c GTLRCloudKMS_RestoreCryptoKeyVersionRequest to include
  *    in the query.
- *  @param name The resource name of the CryptoKeyVersion to restore.
+ *  @param name Required. The resource name of the CryptoKeyVersion to restore.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsRestore
  */
@@ -750,7 +750,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysGetWithname:]
 
-/** The name of the CryptoKey to get. */
+/** Required. The name of the CryptoKey to get. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -759,7 +759,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Returns metadata for a given CryptoKey, as well as its
  *  primary CryptoKeyVersion.
  *
- *  @param name The name of the CryptoKey to get.
+ *  @param name Required. The name of the CryptoKey to get.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGet
  */
@@ -845,7 +845,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional limit on the number of CryptoKeys to include in the
+ *  Optional. Optional limit on the number of CryptoKeys to include in the
  *  response. Further CryptoKeys can subsequently be obtained by
  *  including the ListCryptoKeysResponse.next_page_token in a subsequent
  *  request. If unspecified, the server will pick an appropriate default.
@@ -853,7 +853,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional pagination token, returned earlier via
+ *  Optional. Optional pagination token, returned earlier via
  *  ListCryptoKeysResponse.next_page_token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -913,7 +913,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required list of fields to be updated in this request.
+ *  Required. List of fields to be updated in this request.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -938,6 +938,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.setIamPolicy
  *
@@ -960,6 +961,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  @param object The @c GTLRCloudKMS_SetIamPolicyRequest to include in the
  *    query.
@@ -1035,7 +1037,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysUpdatePrimaryVersionWithObject:name:]
 
-/** The resource name of the CryptoKey to update. */
+/** Required. The resource name of the CryptoKey to update. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1046,7 +1048,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  @param object The @c GTLRCloudKMS_UpdateCryptoKeyPrimaryVersionRequest to
  *    include in the query.
- *  @param name The resource name of the CryptoKey to update.
+ *  @param name Required. The resource name of the CryptoKey to update.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysUpdatePrimaryVersion
  */
@@ -1068,7 +1070,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsGetWithname:]
 
-/** The name of the KeyRing to get. */
+/** Required. The name of the KeyRing to get. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1076,7 +1078,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  Returns metadata for a given KeyRing.
  *
- *  @param name The name of the KeyRing to get.
+ *  @param name Required. The name of the KeyRing to get.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGet
  */
@@ -1188,7 +1190,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsGetWithname:]
 
-/** The name of the ImportJob to get. */
+/** Required. The name of the ImportJob to get. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1196,7 +1198,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  Returns metadata for a given ImportJob.
  *
- *  @param name The name of the ImportJob to get.
+ *  @param name Required. The name of the ImportJob to get.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGet
  */
@@ -1282,7 +1284,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional limit on the number of ImportJobs to include in the
+ *  Optional. Optional limit on the number of ImportJobs to include in the
  *  response. Further ImportJobs can subsequently be obtained by
  *  including the ListImportJobsResponse.next_page_token in a subsequent
  *  request. If unspecified, the server will pick an appropriate default.
@@ -1290,7 +1292,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional pagination token, returned earlier via
+ *  Optional. Optional pagination token, returned earlier via
  *  ListImportJobsResponse.next_page_token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1323,6 +1325,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  Method: cloudkms.projects.locations.keyRings.importJobs.setIamPolicy
  *
@@ -1345,6 +1348,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  @param object The @c GTLRCloudKMS_SetIamPolicyRequest to include in the
  *    query.
@@ -1436,7 +1440,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional limit on the number of KeyRings to include in the
+ *  Optional. Optional limit on the number of KeyRings to include in the
  *  response. Further KeyRings can subsequently be obtained by
  *  including the ListKeyRingsResponse.next_page_token in a subsequent
  *  request. If unspecified, the server will pick an appropriate default.
@@ -1444,7 +1448,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional pagination token, returned earlier via
+ *  Optional. Optional pagination token, returned earlier via
  *  ListKeyRingsResponse.next_page_token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1477,6 +1481,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  Method: cloudkms.projects.locations.keyRings.setIamPolicy
  *
@@ -1499,6 +1504,7 @@ GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  @param object The @c GTLRCloudKMS_SetIamPolicyRequest to include in the
  *    query.

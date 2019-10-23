@@ -932,7 +932,9 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Whether to set the 'keepForever' field in the new head revision. This is
- *  only applicable to files with binary content in Google Drive.
+ *  only applicable to files with binary content in Google Drive. Only 200
+ *  revisions for the file can be kept forever. If the limit is reached, try
+ *  deleting pinned revisions.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1001,7 +1003,9 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Whether to set the 'keepForever' field in the new head revision. This is
- *  only applicable to files with binary content in Google Drive.
+ *  only applicable to files with binary content in Google Drive. Only 200
+ *  revisions for the file can be kept forever. If the limit is reached, try
+ *  deleting pinned revisions.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1431,7 +1435,9 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Whether to set the 'keepForever' field in the new head revision. This is
- *  only applicable to files with binary content in Google Drive.
+ *  only applicable to files with binary content in Google Drive. Only 200
+ *  revisions for the file can be kept forever. If the limit is reached, try
+ *  deleting pinned revisions.
  *
  *  @note If not set, the documented server-side default will be false.
  */

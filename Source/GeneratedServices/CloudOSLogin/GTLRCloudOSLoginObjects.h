@@ -87,7 +87,7 @@ GTLR_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_
  */
 @interface GTLRCloudOSLogin_LoginProfile : GTLRObject
 
-/** A unique user ID. */
+/** Required. A unique user ID. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The list of POSIX accounts associated with the user. */

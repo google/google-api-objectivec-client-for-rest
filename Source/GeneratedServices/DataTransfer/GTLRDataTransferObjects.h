@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of all possible transfer parameters for this application. These
  *  parameters can be used to select the data of the user in this application to
- *  be transfered.
+ *  be transferred.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataTransfer_ApplicationTransferParam *> *transferParams;
 
@@ -77,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The transfer parameters for the application. These parameters are used to
- *  select the data which will get transfered in context of this application.
+ *  select the data which will get transferred in context of this application.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataTransfer_ApplicationTransferParam *> *applicationTransferParams;
 
@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  The value of the coressponding transfer parameter. eg: 'PRIVATE' or 'SHARED'
+ *  The value of the corresponding transfer parameter. eg: 'PRIVATE' or 'SHARED'
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *value;
 
@@ -160,10 +160,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Identifies the resource as a DataTransfer request. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** ID of the user to whom the data is being transfered. */
+/** ID of the user to whom the data is being transferred. */
 @property(nonatomic, copy, nullable) NSString *newOwnerUserId NS_RETURNS_NOT_RETAINED;
 
-/** ID of the user whose data is being transfered. */
+/** ID of the user whose data is being transferred. */
 @property(nonatomic, copy, nullable) NSString *oldOwnerUserId;
 
 /** Overall transfer status (Read-only). */

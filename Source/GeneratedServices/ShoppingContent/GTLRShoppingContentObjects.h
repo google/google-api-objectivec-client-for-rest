@@ -183,8 +183,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Account data. After the creation of a new account it may take a few minutes
- *  before it is fully operational. The methods delete, insert, patch, and
- *  update require the admin role.
+ *  before it is fully operational. The methods delete, insert, and update
+ *  require the admin role.
  */
 @interface GTLRShoppingContent_Account : GTLRObject
 
@@ -1840,6 +1840,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  The list of destinations to include for this target (corresponds to checked
  *  check boxes in Merchant Center). Default destinations are always included
  *  unless provided in excludedDestinations.
+ *  List of supported destinations (if available to the account):
+ *  - DisplayAds
+ *  - Shopping
+ *  - ShoppingActions
+ *  - SurfacesAcrossGoogle
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedDestinations;
 
@@ -2644,7 +2649,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Order. All methods require the order manager role.
+ *  Order. Production access (all methods) requires the order manager role.
+ *  Sandbox access does not.
  */
 @interface GTLRShoppingContent_Order : GTLRObject
 
@@ -3396,10 +3402,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderPromotionItem *> *applicableItems;
 
-/** Items which this promotion have been applied to. */
+/**
+ *  Items which this promotion have been applied to. Do not provide for
+ *  orders.createtestorder.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderPromotionItem *> *appliedItems;
 
-/** The party funding the promotion. */
+/**
+ *  Promotion end time in ISO 8601 format. Date, time, and offset required,
+ *  e.g., "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z".
+ */
+@property(nonatomic, copy, nullable) NSString *endTime;
+
+/**
+ *  The party funding the promotion. Only merchant is supported for
+ *  orders.createtestorder.
+ */
 @property(nonatomic, copy, nullable) NSString *funder;
 
 /**
@@ -3413,19 +3431,37 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *priceValue;
 
-/** A short title of the promotion to be shown on the checkout page. */
+/**
+ *  A short title of the promotion to be shown on the checkout page. Do not
+ *  provide for orders.createtestorder.
+ */
 @property(nonatomic, copy, nullable) NSString *shortTitle;
 
-/** The category of the promotion. */
+/**
+ *  Promotion start time in ISO 8601 format. Date, time, and offset required,
+ *  e.g., "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z".
+ */
+@property(nonatomic, copy, nullable) NSString *startTime;
+
+/**
+ *  The category of the promotion. Only moneyOff is supported for
+ *  orders.createtestorder.
+ */
 @property(nonatomic, copy, nullable) NSString *subtype;
 
-/** Estimated discount applied to tax (if allowed by law). */
+/**
+ *  Estimated discount applied to tax (if allowed by law). Do not provide for
+ *  orders.createtestorder.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxValue;
 
 /** The title of the promotion. */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** The scope of the promotion. */
+/**
+ *  The scope of the promotion. Only product is supported for
+ *  orders.createtestorder.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -3436,11 +3472,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrderPromotionItem : GTLRObject
 
+/**
+ *  The line item ID of a product. Do not provide for orders.createtestorder.
+ */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
+
+/** Offer ID of a product. Only for orders.createtestorder. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** orders.createtestorder. */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
- *  The quantity of the associated product.
+ *  The quantity of the associated product. Do not provide for
+ *  orders.createtestorder.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4000,6 +4045,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "mpx"
  *  - "uds"
  *  - "efw"
+ *  - "jd logistics"
  *  Acceptable values for FR are:
  *  - "colissimo"
  *  - "chronopost"
@@ -4009,6 +4055,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "colis prive"
  *  - "boxtal"
  *  - "geodis"
+ *  - "tnt"
+ *  - "la poste"
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
@@ -5316,7 +5364,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** Width of the item for shipping. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ProductShippingDimension *shippingWidth;
 
-/** Size of the item. */
+/**
+ *  Size of the item. Only one value is allowed. For variants with different
+ *  sizes, insert a separate product for each size with the same itemGroupId
+ *  value (see size definition).
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sizes;
 
 /** System in which the size is specified. Recommended for apparel items. */

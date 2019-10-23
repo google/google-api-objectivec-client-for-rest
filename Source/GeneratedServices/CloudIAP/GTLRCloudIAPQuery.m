@@ -43,6 +43,25 @@
 
 @end
 
+@implementation GTLRCloudIAPQuery_V1GetIapSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:iapSettings";
+  GTLRCloudIAPQuery_V1GetIapSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIAP_IapSettings class];
+  query.loggingName = @"iap.getIapSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudIAPQuery_V1SetIamPolicy
 
 @dynamic resource;
@@ -88,6 +107,31 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudIAP_TestIamPermissionsResponse class];
   query.loggingName = @"iap.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_V1UpdateIapSettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_IapSettings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:iapSettings";
+  GTLRCloudIAPQuery_V1UpdateIapSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIAP_IapSettings class];
+  query.loggingName = @"iap.updateIapSettings";
   return query;
 }
 

@@ -486,7 +486,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  A list of asset types of which to take a snapshot for. For example:
  *  "compute.googleapis.com/Disk". If specified, only matching assets will be
  *  returned. See [Introduction to Cloud Asset
- *  Inventory](https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/overview)
+ *  Inventory](https://cloud.google.com/asset-inventory/docs/overview)
  *  for all supported asset types.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assetTypes;
@@ -664,9 +664,9 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  if the value contains a ":". Values prefixed with "is:" are treated the
  *  same as values with no prefix.
  *  Ancestry subtrees must be in one of the following formats:
- *  - “projects/<project-id>”, e.g. “projects/tokyo-rain-123”
- *  - “folders/<folder-id>”, e.g. “folders/1234”
- *  - “organizations/<organization-id>”, e.g. “organizations/1234”
+ *  - "projects/<project-id>", e.g. "projects/tokyo-rain-123"
+ *  - "folders/<folder-id>", e.g. "folders/1234"
+ *  - "organizations/<organization-id>", e.g. "organizations/1234"
  *  The `supports_under` field of the associated `Constraint` defines whether
  *  ancestry prefixes can be used. You can set `allowed_values` and
  *  `denied_values` in the same `Policy` if `all_values` is
@@ -727,16 +727,16 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  `projects/bar` parented by `organizations/foo`:
  *  Example 1 (no inherited values):
  *  `organizations/foo` has a `Policy` with values:
- *  {allowed_values: “E1” allowed_values:”E2”}
+ *  {allowed_values: "E1" allowed_values:"E2"}
  *  `projects/bar` has `inherit_from_parent` `false` and values:
  *  {allowed_values: "E3" allowed_values: "E4"}
  *  The accepted values at `organizations/foo` are `E1`, `E2`.
  *  The accepted values at `projects/bar` are `E3`, and `E4`.
  *  Example 2 (inherited values):
  *  `organizations/foo` has a `Policy` with values:
- *  {allowed_values: “E1” allowed_values:”E2”}
+ *  {allowed_values: "E1" allowed_values:"E2"}
  *  `projects/bar` has a `Policy` with values:
- *  {value: “E3” value: ”E4” inherit_from_parent: true}
+ *  {value: "E3" value: "E4" inherit_from_parent: true}
  *  The accepted values at `organizations/foo` are `E1`, `E2`.
  *  The accepted values at `projects/bar` are `E1`, `E2`, `E3`, and `E4`.
  *  Example 3 (inheriting both allowed and denied values):
@@ -748,7 +748,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  The value accepted at `projects/bar` is `E2`.
  *  Example 4 (RestoreDefault):
  *  `organizations/foo` has a `Policy` with values:
- *  {allowed_values: “E1” allowed_values:”E2”}
+ *  {allowed_values: "E1" allowed_values:"E2"}
  *  `projects/bar` has a `Policy` with values:
  *  {RestoreDefault: {}}
  *  The accepted values at `organizations/foo` are `E1`, `E2`.
@@ -763,14 +763,14 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  `DENY`, none).
  *  Example 6 (ListConstraint allowing all):
  *  `organizations/foo` has a `Policy` with values:
- *  {allowed_values: “E1” allowed_values: ”E2”}
+ *  {allowed_values: "E1" allowed_values: "E2"}
  *  `projects/bar` has a `Policy` with:
  *  {all: ALLOW}
  *  The accepted values at `organizations/foo` are `E1`, E2`.
  *  Any value is accepted at `projects/bar`.
  *  Example 7 (ListConstraint allowing none):
  *  `organizations/foo` has a `Policy` with values:
- *  {allowed_values: “E1” allowed_values: ”E2”}
+ *  {allowed_values: "E1" allowed_values: "E2"}
  *  `projects/bar` has a `Policy` with:
  *  {all: DENY}
  *  The accepted values at `organizations/foo` are `E1`, E2`.
@@ -1132,7 +1132,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 /**
  *  Only allows requests from devices with a verified Chrome OS.
  *  Verifications includes requirements that the device is enterprise-managed,
- *  conformant to Dasher domain policies, and the caller has permission to call
+ *  conformant to domain policies, and the caller has permission to call
  *  the API targeted by the request.
  *
  *  Uses NSNumber of boolValue.
@@ -1356,7 +1356,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  {
  *  "bindings": [
  *  {
- *  "role": "role/resourcemanager.organizationAdmin",
+ *  "role": "roles/resourcemanager.organizationAdmin",
  *  "members": [
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",

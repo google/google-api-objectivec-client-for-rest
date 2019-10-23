@@ -619,10 +619,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
-/**
- *  The condition that is associated with this binding. This field is logged
- *  only for Cloud Audit Logging.
- */
+/** The condition that is associated with this binding. */
 @property(nonatomic, strong, nullable) GTLRIam_Expr *condition;
 
 /**
@@ -973,7 +970,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 /**
  *  The validation unit name, for instance
- *  “lintValidationUnits/ConditionComplexityCheck”.
+ *  "lintValidationUnits/ConditionComplexityCheck".
  */
 @property(nonatomic, copy, nullable) NSString *validationUnitName;
 
@@ -1163,7 +1160,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  {
  *  "bindings": [
  *  {
- *  "role": "role/resourcemanager.organizationAdmin",
+ *  "role": "roles/resourcemanager.organizationAdmin",
  *  "members": [
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",

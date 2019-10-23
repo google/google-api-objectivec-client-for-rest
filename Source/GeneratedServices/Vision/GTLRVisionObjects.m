@@ -699,12 +699,6 @@ NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_D
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Running = @"RUNNING";
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
-// GTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult.qualityOptimizationType
-NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult_QualityOptimizationType_Compression = @"COMPRESSION";
-NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult_QualityOptimizationType_Enhancement = @"ENHANCEMENT";
-NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult_QualityOptimizationType_QualityScore = @"QUALITY_SCORE";
-NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult_QualityOptimizationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
 // GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation.adult
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Likely = @"LIKELY";
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Possible = @"POSSIBLE";
@@ -3360,10 +3354,10 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 @implementation GTLRVision_GoogleCloudVisionV1p4beta1AnnotateImageResponse
 @dynamic context, cropHintsAnnotation, error, faceAnnotations,
-         fullTextAnnotation, imagePropertiesAnnotation, imageQualityAnnotation,
-         labelAnnotations, landmarkAnnotations, localizedObjectAnnotations,
-         logoAnnotations, productSearchResults, qualityOptimizationResult,
-         safeSearchAnnotation, textAnnotations, webDetection;
+         fullTextAnnotation, imagePropertiesAnnotation, labelAnnotations,
+         landmarkAnnotations, localizedObjectAnnotations, logoAnnotations,
+         productSearchResults, safeSearchAnnotation, textAnnotations,
+         webDetection;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3637,16 +3631,6 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRVision_GoogleCloudVisionV1p4beta1ImageQuality
-//
-
-@implementation GTLRVision_GoogleCloudVisionV1p4beta1ImageQuality
-@dynamic qualityScore;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRVision_GoogleCloudVisionV1p4beta1ImportProductSetsResponse
 //
 
@@ -3872,16 +3856,6 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult
-//
-
-@implementation GTLRVision_GoogleCloudVisionV1p4beta1QualityOptimizationResult
-@dynamic image, mimeType, qualityOptimizationType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRVision_GoogleCloudVisionV1p4beta1ReferenceImage
 //
 
@@ -3904,9 +3878,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation
-@dynamic adult, adultConfidence, medical, medicalConfidence, nsfwConfidence,
-         racy, racyConfidence, spoof, spoofConfidence, violence,
-         violenceConfidence;
+@dynamic adult, medical, racy, spoof, violence;
 @end
 
 
@@ -4656,9 +4628,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 //
 
 @implementation GTLRVision_SafeSearchAnnotation
-@dynamic adult, adultConfidence, medical, medicalConfidence, nsfwConfidence,
-         racy, racyConfidence, spoof, spoofConfidence, violence,
-         violenceConfidence;
+@dynamic adult, medical, racy, spoof, violence;
 @end
 
 

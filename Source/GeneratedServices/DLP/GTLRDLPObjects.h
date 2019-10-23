@@ -3912,27 +3912,6 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Request for the list of infoTypes.
- */
-@interface GTLRDLP_GooglePrivacyDlpV2ListInfoTypesRequest : GTLRObject
-
-/**
- *  Optional filter to only return infoTypes supported by certain parts of the
- *  API. Defaults to supported_by=INSPECT.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Optional BCP-47 language code for localized infoType friendly
- *  names. If omitted, or if localized strings are not available,
- *  en-US strings will be returned.
- */
-@property(nonatomic, copy, nullable) NSString *languageCode;
-
-@end
-
-
-/**
  *  Response to the ListInfoTypes request.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse : GTLRObject

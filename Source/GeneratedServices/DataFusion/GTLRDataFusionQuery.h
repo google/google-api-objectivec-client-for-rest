@@ -195,6 +195,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataFusion queryForProjectsLocationsInstancesGetIamPolicyWithresource:]
 
 /**
+ *  Optional. The policy format version to be returned.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Requests for policies with any conditional bindings must specify version 3.
+ *  Policies without any conditional bindings may specify any valid value or
+ *  leave the field unset.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
  *  REQUIRED: The resource for which the policy is being requested.
  *  See the operation documentation for the appropriate value for this field.
  */
@@ -362,6 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  Method: datafusion.projects.locations.instances.setIamPolicy
  *
@@ -383,6 +394,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  @param object The @c GTLRDataFusion_SetIamPolicyRequest to include in the
  *    query.

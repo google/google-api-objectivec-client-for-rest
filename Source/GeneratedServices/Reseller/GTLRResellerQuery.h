@@ -509,7 +509,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Cancel or transfer a subscription to direct.
+ *  Cancel, suspend, or transfer a subscription to direct.
  *
  *  Method: reseller.subscriptions.delete
  *
@@ -558,7 +558,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Cancel or transfer a subscription to direct.
+ *  Cancel, suspend, or transfer a subscription to direct.
  *
  *  @param customerId Either the customer's primary domain name or the
  *    customer's unique identifier. If using the domain name, we do not

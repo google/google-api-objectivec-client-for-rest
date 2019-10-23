@@ -934,6 +934,14 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, strong, nullable) NSNumber *enableInboundForwarding;
 
 /**
+ *  Controls whether logging is enabled for the networks bound to this policy.
+ *  Defaults to no logging if not set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableLogging;
+
+/**
  *  Unique identifier for the resource; defined by the server (output only).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').

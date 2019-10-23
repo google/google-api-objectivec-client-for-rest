@@ -77,7 +77,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesBindDeviceToGatewayWithObject:parent:]
 
 /**
- *  The name of the registry. For example,
+ *  Required. The name of the registry. For example,
  *  `projects/example-project/locations/us-central1/registries/my-registry`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -89,7 +89,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *
  *  @param object The @c GTLRCloudIot_BindDeviceToGatewayRequest to include in
  *    the query.
- *  @param parent The name of the registry. For example,
+ *  @param parent Required. The name of the registry. For example,
  *    `projects/example-project/locations/us-central1/registries/my-registry`.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesBindDeviceToGateway
@@ -113,7 +113,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesCreateWithObject:parent:]
 
 /**
- *  The project and cloud region where this device registry must be created.
+ *  Required. The project and cloud region where this device registry must be
+ *  created.
  *  For example, `projects/example-project/locations/us-central1`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -124,8 +125,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *  Creates a device registry that contains devices.
  *
  *  @param object The @c GTLRCloudIot_DeviceRegistry to include in the query.
- *  @param parent The project and cloud region where this device registry must
- *    be created.
+ *  @param parent Required. The project and cloud region where this device
+ *    registry must be created.
  *    For example, `projects/example-project/locations/us-central1`.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesCreate
@@ -149,7 +150,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDeleteWithname:]
 
 /**
- *  The name of the device registry. For example,
+ *  Required. The name of the device registry. For example,
  *  `projects/example-project/locations/us-central1/registries/my-registry`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -159,7 +160,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *
  *  Deletes a device registry configuration.
  *
- *  @param name The name of the device registry. For example,
+ *  @param name Required. The name of the device registry. For example,
  *    `projects/example-project/locations/us-central1/registries/my-registry`.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDelete
@@ -183,7 +184,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesConfigVersionsListWithname:]
 
 /**
- *  The name of the device. For example,
+ *  Required. The name of the device. For example,
  *  `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
  *  `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  */
@@ -202,7 +203,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *  Lists the last few versions of the device configuration in descending
  *  order (i.e.: newest first).
  *
- *  @param name The name of the device. For example,
+ *  @param name Required. The name of the device. For example,
  *    `projects/p0/locations/us-central1/registries/registry0/devices/device0`
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
@@ -227,7 +228,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesCreateWithObject:parent:]
 
 /**
- *  The name of the device registry where this device should be created.
+ *  Required. The name of the device registry where this device should be
+ *  created.
  *  For example,
  *  `projects/example-project/locations/us-central1/registries/my-registry`.
  */
@@ -239,8 +241,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *  Creates a device in a device registry.
  *
  *  @param object The @c GTLRCloudIot_Device to include in the query.
- *  @param parent The name of the device registry where this device should be
- *    created.
+ *  @param parent Required. The name of the device registry where this device
+ *    should be created.
  *    For example,
  *    `projects/example-project/locations/us-central1/registries/my-registry`.
  *
@@ -265,7 +267,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesDeleteWithname:]
 
 /**
- *  The name of the device. For example,
+ *  Required. The name of the device. For example,
  *  `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
  *  `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  */
@@ -276,7 +278,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *
  *  Deletes a device.
  *
- *  @param name The name of the device. For example,
+ *  @param name Required. The name of the device. For example,
  *    `projects/p0/locations/us-central1/registries/registry0/devices/device0`
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
@@ -309,7 +311,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 @property(nonatomic, copy, nullable) NSString *fieldMask;
 
 /**
- *  The name of the device. For example,
+ *  Required. The name of the device. For example,
  *  `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
  *  `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  */
@@ -320,7 +322,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *
  *  Gets details about a device.
  *
- *  @param name The name of the device. For example,
+ *  @param name Required. The name of the device. For example,
  *    `projects/p0/locations/us-central1/registries/registry0/devices/device0`
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
@@ -413,7 +415,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The device registry path. Required. For example,
+ *  Required. The device registry path. Required. For example,
  *  `projects/my-project/locations/us-central1/registries/my-registry`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -423,7 +425,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *
  *  List devices in a device registry.
  *
- *  @param parent The device registry path. Required. For example,
+ *  @param parent Required. The device registry path. Required. For example,
  *    `projects/my-project/locations/us-central1/registries/my-registry`.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesList
@@ -452,7 +454,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesModifyCloudToDeviceConfigWithObject:name:]
 
 /**
- *  The name of the device. For example,
+ *  Required. The name of the device. For example,
  *  `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
  *  `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  */
@@ -467,7 +469,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *
  *  @param object The @c GTLRCloudIot_ModifyCloudToDeviceConfigRequest to
  *    include in the query.
- *  @param name The name of the device. For example,
+ *  @param name Required. The name of the device. For example,
  *    `projects/p0/locations/us-central1/registries/registry0/devices/device0`
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
@@ -502,7 +504,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Only updates the `device` fields indicated by this mask.
+ *  Required. Only updates the `device` fields indicated by this mask.
  *  The field mask must not be empty, and it must not contain fields that
  *  are immutable or only set by the server.
  *  Mutable top-level fields: `credentials`, `blocked`, and `metadata`
@@ -556,7 +558,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesSendCommandToDeviceWithObject:name:]
 
 /**
- *  The name of the device. For example,
+ *  Required. The name of the device. For example,
  *  `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
  *  `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  */
@@ -581,7 +583,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *
  *  @param object The @c GTLRCloudIot_SendCommandToDeviceRequest to include in
  *    the query.
- *  @param name The name of the device. For example,
+ *  @param name Required. The name of the device. For example,
  *    `projects/p0/locations/us-central1/registries/registry0/devices/device0`
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
@@ -608,7 +610,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesStatesListWithname:]
 
 /**
- *  The name of the device. For example,
+ *  Required. The name of the device. For example,
  *  `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
  *  `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
  */
@@ -627,7 +629,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *  Lists the last few versions of the device state in descending order (i.e.:
  *  newest first).
  *
- *  @param name The name of the device. For example,
+ *  @param name Required. The name of the device. For example,
  *    `projects/p0/locations/us-central1/registries/registry0/devices/device0`
  *    or
  *    `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
@@ -652,7 +654,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGetWithname:]
 
 /**
- *  The name of the device registry. For example,
+ *  Required. The name of the device registry. For example,
  *  `projects/example-project/locations/us-central1/registries/my-registry`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -662,7 +664,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *
  *  Gets a device registry configuration.
  *
- *  @param name The name of the device registry. For example,
+ *  @param name Required. The name of the device registry. For example,
  *    `projects/example-project/locations/us-central1/registries/my-registry`.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGet
@@ -794,7 +796,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The device registry path. Required. For example,
+ *  Required. The device registry path. Required. For example,
  *  `projects/my-project/locations/us-central1/registries/my-registry`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -804,7 +806,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *
  *  List devices in a device registry.
  *
- *  @param parent The device registry path. Required. For example,
+ *  @param parent Required. The device registry path. Required. For example,
  *    `projects/my-project/locations/us-central1/registries/my-registry`.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesList
@@ -967,7 +969,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The project and cloud region path. For example,
+ *  Required. The project and cloud region path. For example,
  *  `projects/example-project/locations/us-central1`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -977,7 +979,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *
  *  Lists device registries.
  *
- *  @param parent The project and cloud region path. For example,
+ *  @param parent Required. The project and cloud region path. For example,
  *    `projects/example-project/locations/us-central1`.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesList
@@ -1010,7 +1012,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Only updates the `device_registry` fields indicated by this mask.
+ *  Required. Only updates the `device_registry` fields indicated by this mask.
  *  The field mask must not be empty, and it must not contain fields that
  *  are immutable or only set by the server.
  *  Mutable top-level fields: `event_notification_config`, `http_config`,
@@ -1130,7 +1132,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesUnbindDeviceFromGatewayWithObject:parent:]
 
 /**
- *  The name of the registry. For example,
+ *  Required. The name of the registry. For example,
  *  `projects/example-project/locations/us-central1/registries/my-registry`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1142,7 +1144,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGatewa
  *
  *  @param object The @c GTLRCloudIot_UnbindDeviceFromGatewayRequest to include
  *    in the query.
- *  @param parent The name of the registry. For example,
+ *  @param parent Required. The name of the registry. For example,
  *    `projects/example-project/locations/us-central1/registries/my-registry`.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesUnbindDeviceFromGateway

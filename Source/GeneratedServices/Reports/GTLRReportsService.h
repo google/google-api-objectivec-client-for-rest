@@ -7,7 +7,7 @@
 //   Fetches reports for the administrators of G Suite customers about the
 //   usage, collaboration, security, and risk for their users.
 // Documentation:
-//   https://developers.google.com/admin-sdk/reports/
+//   /admin-sdk/reports/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

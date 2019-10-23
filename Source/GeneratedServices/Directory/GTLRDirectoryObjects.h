@@ -627,7 +627,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  (Read-only) MAC address used by the Chromebook’s internal ethernet port, and
  *  for onboard network (ethernet) interface. The format is twelve (12)
  *  hexadecimal digits without any delimiter (uppercase letters). This is only
- *  relevant for Dell devices.
+ *  relevant for some devices.
  */
 @property(nonatomic, copy, nullable) NSString *ethernetMacAddress0;
 
@@ -653,7 +653,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *manufactureDate;
 
 /**
- *  Mobile Equipment identifier for the 3G mobile card in the Chromebook
+ *  Contains either the Mobile Equipment identifier (MEID) or the International
+ *  Mobile Equipment Identity (IMEI) for the 3G mobile card in the Chromebook
  *  (Read-only)
  */
 @property(nonatomic, copy, nullable) NSString *meid;

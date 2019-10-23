@@ -114,7 +114,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  See [Resource
  *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
  *  and [Resource Name
- *  Format](https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/resource-name-format)
+ *  Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
  *  for more info.
  *  The request becomes a no-op if the asset name list is empty, and the max
  *  size of the asset name list is 100 in one request.
@@ -122,7 +122,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assetNames;
 
 /**
- *  Required. The content type.
+ *  Optional. The content type.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAssetContentTypeContentTypeUnspecified Value

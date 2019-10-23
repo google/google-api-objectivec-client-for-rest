@@ -475,7 +475,8 @@
 
 @implementation GTLRAndroidPublisher_ProductPurchase
 @dynamic acknowledgementState, consumptionState, developerPayload, kind,
-         orderId, purchaseState, purchaseTimeMillis, purchaseType;
+         orderId, productId, purchaseState, purchaseTimeMillis, purchaseToken,
+         purchaseType;
 @end
 
 

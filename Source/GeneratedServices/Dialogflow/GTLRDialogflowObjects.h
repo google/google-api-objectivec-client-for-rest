@@ -20,6 +20,8 @@
 #endif
 
 @class GTLRDialogflow_GoogleCloudDialogflowV2Agent;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedConversationDataset;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters;
@@ -94,6 +96,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentBatch;
@@ -135,6 +139,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisRequestConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SynthesizeSpeechConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2TextInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams;
@@ -1164,6 +1171,34 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTraini
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata.state
+
+/**
+ *  The operation is done, either cancelled or completed.
+ *
+ *  Value: "DONE"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Done;
+/**
+ *  The operation has been created.
+ *
+ *  Value: "PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Pending;
+/**
+ *  The operation is currently running.
+ *
+ *  Value: "RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Running;
+/**
+ *  State unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig.audioEncoding
 
 /**
@@ -1378,6 +1413,58 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
+@end
+
+
+/**
+ *  Represents article answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer : GTLRObject
+
+/**
+ *  The name of answer record, in the format of
+ *  "projects/<Project ID>/answerRecords/<Answer Record ID>"
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  Article match confidence.
+ *  The system's confidence score that this article is a good match for this
+ *  converstation, as a value from 0.0 (completely uncertain) to 1.0
+ *  (completely certain).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  A map that contains metadata about the answer and the
+ *  document from which it originates.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata *metadata;
+
+/** Article snippets. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *snippets;
+
+/** The article title. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** The article URI. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A map that contains metadata about the answer and the
+ *  document from which it originates.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata : GTLRObject
 @end
 
 
@@ -4204,6 +4291,91 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
+ *  Represents answer from "frequently asked questions".
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer : GTLRObject
+
+/** The piece of text from the `source` knowledge base document. */
+@property(nonatomic, copy, nullable) NSString *answer;
+
+/**
+ *  The name of answer record, in the format of
+ *  "projects/<Project ID>/answerRecords/<Answer Record ID>"
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  The system's confidence score that this Knowledge answer is a good match
+ *  for this conversational query, range from 0.0 (completely uncertain)
+ *  to 1.0 (completely certain).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  A map that contains metadata about the answer and the
+ *  document from which it originates.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata *metadata;
+
+/** The corresponding FAQ question. */
+@property(nonatomic, copy, nullable) NSString *question;
+
+/**
+ *  Indicates which Knowledge Document this answer was extracted
+ *  from.
+ *  Format: `projects/<Project ID>/agent/knowledgeBases/<Knowledge Base
+ *  ID>/documents/<Document ID>`.
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
+ *  A map that contains metadata about the answer and the
+ *  document from which it originates.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Represents a notification sent to Cloud Pub/Sub subscribers for
+ *  human agent assistant events in a specific conversation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2HumanAgentAssistantEvent : GTLRObject
+
+/**
+ *  The conversation this notification refers to.
+ *  Format: `projects/<Project ID>/conversations/<Conversation ID>`.
+ */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/**
+ *  The participant that the suggestion is compiled for. And This field is used
+ *  to call Participants.ListSuggestions API. Format:
+ *  `projects/<Project ID>/conversations/<Conversation
+ *  ID>/participants/<Participant ID>`.
+ *  It will not be set in legacy workflow.
+ *  HumanAgentAssistantConfig.name for more
+ *  information.
+ */
+@property(nonatomic, copy, nullable) NSString *participant;
+
+/** The suggestion results payload that this notification refers to. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult *> *suggestionResults;
+
+@end
+
+
+/**
  *  The request message for Agents.ImportAgent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ImportAgentRequest : GTLRObject
@@ -5160,6 +5332,29 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
+ *  Metadata in google::longrunning::Operation for Knowledge operations.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata : GTLRObject
+
+/**
+ *  Output only. The current state of this operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Done
+ *        The operation is done, either cancelled or completed. (Value: "DONE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Pending
+ *        The operation has been created. (Value: "PENDING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Running
+ *        The operation is currently running. (Value: "RUNNING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_StateUnspecified
+ *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  The response message for Contexts.ListContexts.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5778,6 +5973,83 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  type in the same agent that will be overridden or supplemented.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The response message for [Participants.SuggestArticles]
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse : GTLRObject
+
+/** Articles ordered by score in descending order. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer *> *articleAnswers;
+
+/**
+ *  Number of messages prior to and including
+ *  last_conversation_message to compile the suggestion. It may be smaller
+ *  than the CompileSuggestionRequest.context_messages_count field in the
+ *  request if there aren't that many messages in the conversation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextSize;
+
+/**
+ *  The name of the latest conversation message used to compile
+ *  suggestion for.
+ *  Format: `projects/<Project ID>/conversations/<Conversation
+ *  ID>/messages/<Message ID>`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+@end
+
+
+/**
+ *  The request message for [Participants.SuggestFaqAnswers]
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse : GTLRObject
+
+/**
+ *  Number of messages prior to and including
+ *  last_conversation_message to compile the suggestion. It may be smaller
+ *  than the CompileSuggestionRequest.context_messages_count field in the
+ *  request if there aren't that many messages in the conversation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextSize;
+
+/** Answers extracted from FAQ documents. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer *> *faqAnswers;
+
+/**
+ *  The name of the latest conversation message used to compile
+ *  suggestion for.
+ *  Format: `projects/<Project ID>/conversations/<Conversation
+ *  ID>/messages/<Message ID>`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+@end
+
+
+/**
+ *  One response of different type of suggestion response which is used in
+ *  the response of Participants.AnalyzeContent and
+ *  Participants.AnalyzeContent, as well as HumanAgentAssistantEvent.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult : GTLRObject
+
+/** Error status if the request failed. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *error;
+
+/** SuggestArticlesResponse if request is for ARTICLE_SUGGESTION. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse *suggestArticlesResponse;
+
+/** SuggestFaqAnswersResponse if request is for FAQ_ANSWER. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse *suggestFaqAnswersResponse;
 
 @end
 

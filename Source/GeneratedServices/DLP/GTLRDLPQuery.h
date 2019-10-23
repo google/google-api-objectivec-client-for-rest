@@ -29,7 +29,6 @@
 @class GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest;
 @class GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest;
 @class GTLRDLP_GooglePrivacyDlpV2InspectContentRequest;
-@class GTLRDLP_GooglePrivacyDlpV2ListInfoTypesRequest;
 @class GTLRDLP_GooglePrivacyDlpV2RedactImageRequest;
 @class GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest;
 @class GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest;
@@ -122,14 +121,27 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
  *  learn more.
  *
- *  Method: dlp.locations.infoTypes
+ *  Method: dlp.locations.infoTypes.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
-@interface GTLRDLPQuery_LocationsInfoTypes : GTLRDLPQuery
+@interface GTLRDLPQuery_LocationsInfoTypesList : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForLocationsInfoTypesWithObject:location:]
+//   +[GTLQueryDLP queryForLocationsInfoTypesListWithlocation:]
+
+/**
+ *  Optional filter to only return infoTypes supported by certain parts of the
+ *  API. Defaults to supported_by=INSPECT.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional BCP-47 language code for localized infoType friendly
+ *  names. If omitted, or if localized strings are not available,
+ *  en-US strings will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  The geographic location to list info types. Reserved for future
@@ -144,16 +156,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
  *  learn more.
  *
- *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesRequest to
- *    include in the query.
  *  @param location The geographic location to list info types. Reserved for
  *    future
  *    extensions.
  *
- *  @return GTLRDLPQuery_LocationsInfoTypes
+ *  @return GTLRDLPQuery_LocationsInfoTypesList
  */
-+ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2ListInfoTypesRequest *)object
-                       location:(NSString *)location;
++ (instancetype)queryWithLocation:(NSString *)location;
 
 @end
 

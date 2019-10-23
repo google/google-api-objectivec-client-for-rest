@@ -7,7 +7,7 @@
 //   Fetches reports for the administrators of G Suite customers about the
 //   usage, collaboration, security, and risk for their users.
 // Documentation:
-//   https://developers.google.com/admin-sdk/reports/
+//   /admin-sdk/reports/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -28,6 +28,165 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// applicationName
+
+/**
+ *  The G Suite Access Transparency activity reports return information about
+ *  different types of Access Transparency activity events.
+ *
+ *  Value: "access_transparency"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameAccessTransparency;
+/**
+ *  The Admin console application's activity reports return account information
+ *  about different types of administrator activity events.
+ *
+ *  Value: "admin"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameAdmin;
+/**
+ *  The G Suite Calendar application's activity reports return information about
+ *  various Calendar activity events.
+ *
+ *  Value: "calendar"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameCalendar;
+/**
+ *  The Chat activity reports return information about various Chat activity
+ *  events.
+ *
+ *  Value: "chat"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameChat;
+/**
+ *  The Google Drive application's activity reports return information about
+ *  various Google Drive activity events. The Drive activity report is only
+ *  available for G Suite Business customers.
+ *
+ *  Value: "drive"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameDrive;
+/**
+ *  The Google Cloud Platform application's activity reports return information
+ *  about various GCP activity events.
+ *
+ *  Value: "gcp"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameGcp;
+/**
+ *  The Google+ application's activity reports return information about various
+ *  Google+ activity events.
+ *
+ *  Value: "gplus"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameGplus;
+/**
+ *  The Google Groups application's activity reports return information about
+ *  various Groups activity events.
+ *
+ *  Value: "groups"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameGroups;
+/**
+ *  The Enterprise Groups activity reports return information about various
+ *  Enterprise group activity events.
+ *
+ *  Value: "groups_enterprise"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameGroupsEnterprise;
+/**
+ *  The Jamboard activity reports return information about various Jamboard
+ *  activity events.
+ *
+ *  Value: "jamboard"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameJamboard;
+/**
+ *  The Login application's activity reports return account information about
+ *  different types of Login activity events.
+ *
+ *  Value: "login"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameLogin;
+/**
+ *  The Meet Audit activity report return information about different types of
+ *  Meet Audit activity events.
+ *
+ *  Value: "meet"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameMeet;
+/**
+ *  The Mobile Audit activity report return information about different types of
+ *  Mobile Audit activity events.
+ *
+ *  Value: "mobile"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameMobile;
+/**
+ *  The Rules activity report return information about different types of Rules
+ *  activity events.
+ *
+ *  Value: "rules"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameRules;
+/**
+ *  The SAML activity report return information about different types of SAML
+ *  activity events.
+ *
+ *  Value: "saml"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameSaml;
+/**
+ *  The Token application's activity reports return account information about
+ *  different types of Token activity events.
+ *
+ *  Value: "token"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameToken;
+/**
+ *  The User Accounts application's activity reports return account information
+ *  about different types of User Accounts activity events.
+ *
+ *  Value: "user_accounts"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsApplicationNameUserAccounts;
+
+// ----------------------------------------------------------------------------
+// entityKey
+
+/**
+ *  Returns activity events for all users.
+ *
+ *  Value: "all"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsEntityKeyAll;
+/**
+ *  Represents an app-specific identifier for the entity. For details on how to
+ *  obtain the entityKey for a particular entityType, see the Entities Usage
+ *  parameters reference guides.
+ *
+ *  Value: "entityKey"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsEntityKeyEntityKey;
+
+// ----------------------------------------------------------------------------
+// entityType
+
+/**
+ *  Returns a report on Google+ communities.
+ *
+ *  Value: "gplus_communities"
+ */
+GTLR_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other reports query classes.
  */
@@ -39,7 +198,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of activities for a specific customer and application.
+ *  Retrieves a list of activities for a specific customer's account and
+ *  application such as the Admin console application or the Google Drive
+ *  application. For more information, see the guides for administrator and
+ *  Google Drive activity reports. For more information about the activity
+ *  report's parameters, see the activity parameters reference guides.
  *
  *  Method: reports.activities.list
  *
@@ -51,65 +214,259 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryReports queryForActivitiesListWithuserKey:applicationName:]
 
 /**
- *  IP Address of host where the event was performed. Supports both IPv4 and
- *  IPv6 addresses.
+ *  The Internet Protocol (IP) Address of host where the event was performed.
+ *  This is an additional way to filter a report's summary using the IP address
+ *  of the user whose activity is being reported. This IP address may or may not
+ *  reflect the user's physical location. For example, the IP address can be the
+ *  user's proxy server's address or a virtual private network (VPN) address.
+ *  This parameter supports both IPv4 and IPv6 address versions.
  */
 @property(nonatomic, copy, nullable) NSString *actorIpAddress;
 
-/** Application name for which the events are to be retrieved. */
+/**
+ *  Application name for which the events are to be retrieved.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
+ *        Transparency activity reports return information about different types
+ *        of Access Transparency activity events. (Value: "access_transparency")
+ *    @arg @c kGTLRReportsApplicationNameAdmin The Admin console application's
+ *        activity reports return account information about different types of
+ *        administrator activity events. (Value: "admin")
+ *    @arg @c kGTLRReportsApplicationNameCalendar The G Suite Calendar
+ *        application's activity reports return information about various
+ *        Calendar activity events. (Value: "calendar")
+ *    @arg @c kGTLRReportsApplicationNameChat The Chat activity reports return
+ *        information about various Chat activity events. (Value: "chat")
+ *    @arg @c kGTLRReportsApplicationNameDrive The Google Drive application's
+ *        activity reports return information about various Google Drive
+ *        activity events. The Drive activity report is only available for G
+ *        Suite Business customers. (Value: "drive")
+ *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
+ *        application's activity reports return information about various GCP
+ *        activity events. (Value: "gcp")
+ *    @arg @c kGTLRReportsApplicationNameGplus The Google+ application's
+ *        activity reports return information about various Google+ activity
+ *        events. (Value: "gplus")
+ *    @arg @c kGTLRReportsApplicationNameGroups The Google Groups application's
+ *        activity reports return information about various Groups activity
+ *        events. (Value: "groups")
+ *    @arg @c kGTLRReportsApplicationNameGroupsEnterprise The Enterprise Groups
+ *        activity reports return information about various Enterprise group
+ *        activity events. (Value: "groups_enterprise")
+ *    @arg @c kGTLRReportsApplicationNameJamboard The Jamboard activity reports
+ *        return information about various Jamboard activity events. (Value:
+ *        "jamboard")
+ *    @arg @c kGTLRReportsApplicationNameLogin The Login application's activity
+ *        reports return account information about different types of Login
+ *        activity events. (Value: "login")
+ *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
+ *        return information about different types of Meet Audit activity
+ *        events. (Value: "meet")
+ *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
+ *        return information about different types of Mobile Audit activity
+ *        events. (Value: "mobile")
+ *    @arg @c kGTLRReportsApplicationNameRules The Rules activity report return
+ *        information about different types of Rules activity events. (Value:
+ *        "rules")
+ *    @arg @c kGTLRReportsApplicationNameSaml The SAML activity report return
+ *        information about different types of SAML activity events. (Value:
+ *        "saml")
+ *    @arg @c kGTLRReportsApplicationNameToken The Token application's activity
+ *        reports return account information about different types of Token
+ *        activity events. (Value: "token")
+ *    @arg @c kGTLRReportsApplicationNameUserAccounts The User Accounts
+ *        application's activity reports return account information about
+ *        different types of User Accounts activity events. (Value:
+ *        "user_accounts")
+ */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
-/** Represents the customer for which the data is to be fetched. */
+/** The unique ID of the customer to retrieve data for. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Return events which occurred at or before this time. */
+/**
+ *  Sets the end of the range of time shown in the report. The date is in the
+ *  RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The default value is
+ *  the approximate time of the API request. An API report has three basic time
+ *  concepts:
+ *  - Date of the API's request for a report: When the API created and retrieved
+ *  the report.
+ *  - Report's start time: The beginning of the timespan shown in the report.
+ *  The startTime must be before the endTime (if specified) and the current time
+ *  when the request is made, or the API returns an error.
+ *  - Report's end time: The end of the timespan shown in the report. For
+ *  example, the timespan of events summarized in a report can start in April
+ *  and end in May. The report itself can be requested in August. If the endTime
+ *  is not specified, the report returns all activities from the startTime until
+ *  the current time or the most recent 180 days if the startTime is more than
+ *  180 days in the past.
+ */
 @property(nonatomic, copy, nullable) NSString *endTime;
 
-/** Name of the event being queried. */
+/**
+ *  The name of the event being queried by the API. Each eventName is related to
+ *  a specific G Suite service or feature which the API organizes into types of
+ *  events. An example is the Google Calendar events in the Admin console
+ *  application's reports. The Calendar Settings type structure has all of the
+ *  Calendar eventName activities reported by the API. When an administrator
+ *  changes a Calendar setting, the API reports this activity in the Calendar
+ *  Settings type and eventName parameters. For more information about eventName
+ *  query strings and parameters, see the list of event names for various
+ *  applications above in applicationName.
+ */
 @property(nonatomic, copy, nullable) NSString *eventName;
 
 /**
- *  Event parameters in the form [parameter1 name][operator][parameter1
- *  value],[parameter2 name][operator][parameter2 value],...
+ *  The filters query string is a comma-separated list. The list is composed of
+ *  event parameters that are manipulated by relational operators. Event
+ *  parameters are in the form [parameter1 name][relational operator][parameter1
+ *  value],[parameter2 name][relational operator][parameter2 value],...
+ *  These event parameters are associated with a specific eventName. An empty
+ *  report is returned if the filtered request's parameter does not belong to
+ *  the eventName. For more information about eventName parameters, see the list
+ *  of event names for various applications above in applicationName.
+ *  In the following Admin Activity example, the <> operator is URL-encoded in
+ *  the request's query string (%3C%3E):
+ *  GET...&eventName=CHANGE_CALENDAR_SETTING
+ *  &filters=NEW_VALUE%3C%3EREAD_ONLY_ACCESS
+ *  In the following Drive example, the list can be a view or edit event's
+ *  doc_id parameter with a value that is manipulated by an 'equal to' (==) or
+ *  'not equal to' (<>) relational operator. In the first example, the report
+ *  returns each edited document's doc_id. In the second example, the report
+ *  returns each viewed document's doc_id that equals the value 12345 and does
+ *  not return any viewed document's which have a doc_id value of 98765. The <>
+ *  operator is URL-encoded in the request's query string (%3C%3E):
+ *  GET...&eventName=edit&filters=doc_id
+ *  GET...&eventName=view&filters=doc_id==12345,doc_id%3C%3E98765
+ *  The relational operators include:
+ *  - == - 'equal to'.
+ *  - <> - 'not equal to'. It is URL-encoded (%3C%3E).
+ *  - < - 'less than'. It is URL-encoded (%3C).
+ *  - <= - 'less than or equal to'. It is URL-encoded (%3C=).
+ *  - > - 'greater than'. It is URL-encoded (%3E).
+ *  - >= - 'greater than or equal to'. It is URL-encoded (%3E=).
+ *  Note: The API doesn't accept multiple values of a parameter. If a particular
+ *  parameter is supplied more than once in the API request, the API only
+ *  accepts the last value of that request parameter.
+ *  In addition, if an invalid request parameter is supplied in the API request,
+ *  the API ignores that request parameter and returns the response
+ *  corresponding to the remaining valid request parameters. If no parameters
+ *  are requested, all parameters are returned.
  */
 @property(nonatomic, copy, nullable) NSString *filters;
 
 /**
- *  Number of activity records to be shown in each page.
+ *  Determines how many activity records are shown on each response page. For
+ *  example, if the request sets maxResults=1 and the report has two activities,
+ *  the report has two pages. The response's nextPageToken property has the
+ *  token to the second page. The maxResults query string is optional in the
+ *  request. The default value is 1000.
  *
- *  @note The documented range is 1..1000.
+ *  @note If not set, the documented server-side default will be 1000 (from the
+ *        range 1..1000).
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  the organizational unit's(OU) ID to filter activities from users belonging
- *  to a specific OU or one of its sub-OU(s)
+ *  ID of the organizational unit to report on. Activity records will be shown
+ *  only for users who belong to the specified organizational unit. Data before
+ *  Dec 17, 2018 doesn't appear in the filtered results.
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitID;
 
-/** Token to specify next page. */
+/**
+ *  The token to specify next page. A report with multiple pages has a
+ *  nextPageToken property in the response. In your follow-on request getting
+ *  the next page of the report, enter the nextPageToken value in the pageToken
+ *  query string.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Return events which occurred at or after this time. */
+/**
+ *  Sets the beginning of the range of time shown in the report. The date is in
+ *  the RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The report
+ *  returns all activities from startTime until endTime. The startTime must be
+ *  before the endTime (if specified) and the current time when the request is
+ *  made, or the API returns an error.
+ */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
- *  Represents the profile id or the user email for which the data should be
- *  filtered. When 'all' is specified as the userKey, it returns usageReports
- *  for all users.
+ *  Represents the profile ID or the user email for which the data should be
+ *  filtered. Can be all for all information, or userKey for a user's unique G
+ *  Suite profile ID or their primary email address.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRReports_Activities.
  *
- *  Retrieves a list of activities for a specific customer and application.
+ *  Retrieves a list of activities for a specific customer's account and
+ *  application such as the Admin console application or the Google Drive
+ *  application. For more information, see the guides for administrator and
+ *  Google Drive activity reports. For more information about the activity
+ *  report's parameters, see the activity parameters reference guides.
  *
- *  @param userKey Represents the profile id or the user email for which the
- *    data should be filtered. When 'all' is specified as the userKey, it
- *    returns usageReports for all users.
+ *  @param userKey Represents the profile ID or the user email for which the
+ *    data should be filtered. Can be all for all information, or userKey for a
+ *    user's unique G Suite profile ID or their primary email address.
  *  @param applicationName Application name for which the events are to be
  *    retrieved.
+ *
+ *  Likely values for @c applicationName:
+ *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
+ *        Transparency activity reports return information about different types
+ *        of Access Transparency activity events. (Value: "access_transparency")
+ *    @arg @c kGTLRReportsApplicationNameAdmin The Admin console application's
+ *        activity reports return account information about different types of
+ *        administrator activity events. (Value: "admin")
+ *    @arg @c kGTLRReportsApplicationNameCalendar The G Suite Calendar
+ *        application's activity reports return information about various
+ *        Calendar activity events. (Value: "calendar")
+ *    @arg @c kGTLRReportsApplicationNameChat The Chat activity reports return
+ *        information about various Chat activity events. (Value: "chat")
+ *    @arg @c kGTLRReportsApplicationNameDrive The Google Drive application's
+ *        activity reports return information about various Google Drive
+ *        activity events. The Drive activity report is only available for G
+ *        Suite Business customers. (Value: "drive")
+ *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
+ *        application's activity reports return information about various GCP
+ *        activity events. (Value: "gcp")
+ *    @arg @c kGTLRReportsApplicationNameGplus The Google+ application's
+ *        activity reports return information about various Google+ activity
+ *        events. (Value: "gplus")
+ *    @arg @c kGTLRReportsApplicationNameGroups The Google Groups application's
+ *        activity reports return information about various Groups activity
+ *        events. (Value: "groups")
+ *    @arg @c kGTLRReportsApplicationNameGroupsEnterprise The Enterprise Groups
+ *        activity reports return information about various Enterprise group
+ *        activity events. (Value: "groups_enterprise")
+ *    @arg @c kGTLRReportsApplicationNameJamboard The Jamboard activity reports
+ *        return information about various Jamboard activity events. (Value:
+ *        "jamboard")
+ *    @arg @c kGTLRReportsApplicationNameLogin The Login application's activity
+ *        reports return account information about different types of Login
+ *        activity events. (Value: "login")
+ *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
+ *        return information about different types of Meet Audit activity
+ *        events. (Value: "meet")
+ *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
+ *        return information about different types of Mobile Audit activity
+ *        events. (Value: "mobile")
+ *    @arg @c kGTLRReportsApplicationNameRules The Rules activity report return
+ *        information about different types of Rules activity events. (Value:
+ *        "rules")
+ *    @arg @c kGTLRReportsApplicationNameSaml The SAML activity report return
+ *        information about different types of SAML activity events. (Value:
+ *        "saml")
+ *    @arg @c kGTLRReportsApplicationNameToken The Token application's activity
+ *        reports return account information about different types of Token
+ *        activity events. (Value: "token")
+ *    @arg @c kGTLRReportsApplicationNameUserAccounts The User Accounts
+ *        application's activity reports return account information about
+ *        different types of User Accounts activity events. (Value:
+ *        "user_accounts")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *
@@ -123,7 +480,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Push changes to activities
+ *  Start receiving notifications for account activities. For more information,
+ *  see Receiving Push Notifications.
  *
  *  Method: reports.activities.watch
  *
@@ -135,66 +493,257 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryReports queryForActivitiesWatchWithObject:userKey:applicationName:]
 
 /**
- *  IP Address of host where the event was performed. Supports both IPv4 and
- *  IPv6 addresses.
+ *  The Internet Protocol (IP) Address of host where the event was performed.
+ *  This is an additional way to filter a report's summary using the IP address
+ *  of the user whose activity is being reported. This IP address may or may not
+ *  reflect the user's physical location. For example, the IP address can be the
+ *  user's proxy server's address or a virtual private network (VPN) address.
+ *  This parameter supports both IPv4 and IPv6 address versions.
  */
 @property(nonatomic, copy, nullable) NSString *actorIpAddress;
 
-/** Application name for which the events are to be retrieved. */
+/**
+ *  Application name for which the events are to be retrieved.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
+ *        Transparency activity reports return information about different types
+ *        of Access Transparency activity events. (Value: "access_transparency")
+ *    @arg @c kGTLRReportsApplicationNameAdmin The Admin console application's
+ *        activity reports return account information about different types of
+ *        administrator activity events. (Value: "admin")
+ *    @arg @c kGTLRReportsApplicationNameCalendar The G Suite Calendar
+ *        application's activity reports return information about various
+ *        Calendar activity events. (Value: "calendar")
+ *    @arg @c kGTLRReportsApplicationNameChat The Chat activity reports return
+ *        information about various Chat activity events. (Value: "chat")
+ *    @arg @c kGTLRReportsApplicationNameDrive The Google Drive application's
+ *        activity reports return information about various Google Drive
+ *        activity events. The Drive activity report is only available for G
+ *        Suite Business customers. (Value: "drive")
+ *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
+ *        application's activity reports return information about various GCP
+ *        activity events. (Value: "gcp")
+ *    @arg @c kGTLRReportsApplicationNameGplus The Google+ application's
+ *        activity reports return information about various Google+ activity
+ *        events. (Value: "gplus")
+ *    @arg @c kGTLRReportsApplicationNameGroups The Google Groups application's
+ *        activity reports return information about various Groups activity
+ *        events. (Value: "groups")
+ *    @arg @c kGTLRReportsApplicationNameGroupsEnterprise The Enterprise Groups
+ *        activity reports return information about various Enterprise group
+ *        activity events. (Value: "groups_enterprise")
+ *    @arg @c kGTLRReportsApplicationNameJamboard The Jamboard activity reports
+ *        return information about various Jamboard activity events. (Value:
+ *        "jamboard")
+ *    @arg @c kGTLRReportsApplicationNameLogin The Login application's activity
+ *        reports return account information about different types of Login
+ *        activity events. (Value: "login")
+ *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
+ *        return information about different types of Meet Audit activity
+ *        events. (Value: "meet")
+ *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
+ *        return information about different types of Mobile Audit activity
+ *        events. (Value: "mobile")
+ *    @arg @c kGTLRReportsApplicationNameRules The Rules activity report return
+ *        information about different types of Rules activity events. (Value:
+ *        "rules")
+ *    @arg @c kGTLRReportsApplicationNameSaml The SAML activity report return
+ *        information about different types of SAML activity events. (Value:
+ *        "saml")
+ *    @arg @c kGTLRReportsApplicationNameToken The Token application's activity
+ *        reports return account information about different types of Token
+ *        activity events. (Value: "token")
+ *    @arg @c kGTLRReportsApplicationNameUserAccounts The User Accounts
+ *        application's activity reports return account information about
+ *        different types of User Accounts activity events. (Value:
+ *        "user_accounts")
+ */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
-/** Represents the customer for which the data is to be fetched. */
+/** The unique ID of the customer to retrieve data for. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Return events which occurred at or before this time. */
+/**
+ *  Sets the end of the range of time shown in the report. The date is in the
+ *  RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The default value is
+ *  the approximate time of the API request. An API report has three basic time
+ *  concepts:
+ *  - Date of the API's request for a report: When the API created and retrieved
+ *  the report.
+ *  - Report's start time: The beginning of the timespan shown in the report.
+ *  The startTime must be before the endTime (if specified) and the current time
+ *  when the request is made, or the API returns an error.
+ *  - Report's end time: The end of the timespan shown in the report. For
+ *  example, the timespan of events summarized in a report can start in April
+ *  and end in May. The report itself can be requested in August. If the endTime
+ *  is not specified, the report returns all activities from the startTime until
+ *  the current time or the most recent 180 days if the startTime is more than
+ *  180 days in the past.
+ */
 @property(nonatomic, copy, nullable) NSString *endTime;
 
-/** Name of the event being queried. */
+/**
+ *  The name of the event being queried by the API. Each eventName is related to
+ *  a specific G Suite service or feature which the API organizes into types of
+ *  events. An example is the Google Calendar events in the Admin console
+ *  application's reports. The Calendar Settings type structure has all of the
+ *  Calendar eventName activities reported by the API. When an administrator
+ *  changes a Calendar setting, the API reports this activity in the Calendar
+ *  Settings type and eventName parameters. For more information about eventName
+ *  query strings and parameters, see the list of event names for various
+ *  applications above in applicationName.
+ */
 @property(nonatomic, copy, nullable) NSString *eventName;
 
 /**
- *  Event parameters in the form [parameter1 name][operator][parameter1
- *  value],[parameter2 name][operator][parameter2 value],...
+ *  The filters query string is a comma-separated list. The list is composed of
+ *  event parameters that are manipulated by relational operators. Event
+ *  parameters are in the form [parameter1 name][relational operator][parameter1
+ *  value],[parameter2 name][relational operator][parameter2 value],...
+ *  These event parameters are associated with a specific eventName. An empty
+ *  report is returned if the filtered request's parameter does not belong to
+ *  the eventName. For more information about eventName parameters, see the list
+ *  of event names for various applications above in applicationName.
+ *  In the following Admin Activity example, the <> operator is URL-encoded in
+ *  the request's query string (%3C%3E):
+ *  GET...&eventName=CHANGE_CALENDAR_SETTING
+ *  &filters=NEW_VALUE%3C%3EREAD_ONLY_ACCESS
+ *  In the following Drive example, the list can be a view or edit event's
+ *  doc_id parameter with a value that is manipulated by an 'equal to' (==) or
+ *  'not equal to' (<>) relational operator. In the first example, the report
+ *  returns each edited document's doc_id. In the second example, the report
+ *  returns each viewed document's doc_id that equals the value 12345 and does
+ *  not return any viewed document's which have a doc_id value of 98765. The <>
+ *  operator is URL-encoded in the request's query string (%3C%3E):
+ *  GET...&eventName=edit&filters=doc_id
+ *  GET...&eventName=view&filters=doc_id==12345,doc_id%3C%3E98765
+ *  The relational operators include:
+ *  - == - 'equal to'.
+ *  - <> - 'not equal to'. It is URL-encoded (%3C%3E).
+ *  - < - 'less than'. It is URL-encoded (%3C).
+ *  - <= - 'less than or equal to'. It is URL-encoded (%3C=).
+ *  - > - 'greater than'. It is URL-encoded (%3E).
+ *  - >= - 'greater than or equal to'. It is URL-encoded (%3E=).
+ *  Note: The API doesn't accept multiple values of a parameter. If a particular
+ *  parameter is supplied more than once in the API request, the API only
+ *  accepts the last value of that request parameter.
+ *  In addition, if an invalid request parameter is supplied in the API request,
+ *  the API ignores that request parameter and returns the response
+ *  corresponding to the remaining valid request parameters. If no parameters
+ *  are requested, all parameters are returned.
  */
 @property(nonatomic, copy, nullable) NSString *filters;
 
 /**
- *  Number of activity records to be shown in each page.
+ *  Determines how many activity records are shown on each response page. For
+ *  example, if the request sets maxResults=1 and the report has two activities,
+ *  the report has two pages. The response's nextPageToken property has the
+ *  token to the second page. The maxResults query string is optional in the
+ *  request. The default value is 1000.
  *
- *  @note The documented range is 1..1000.
+ *  @note If not set, the documented server-side default will be 1000 (from the
+ *        range 1..1000).
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  the organizational unit's(OU) ID to filter activities from users belonging
- *  to a specific OU or one of its sub-OU(s)
+ *  ID of the organizational unit to report on. Activity records will be shown
+ *  only for users who belong to the specified organizational unit. Data before
+ *  Dec 17, 2018 doesn't appear in the filtered results.
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitID;
 
-/** Token to specify next page. */
+/**
+ *  The token to specify next page. A report with multiple pages has a
+ *  nextPageToken property in the response. In your follow-on request getting
+ *  the next page of the report, enter the nextPageToken value in the pageToken
+ *  query string.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Return events which occurred at or after this time. */
+/**
+ *  Sets the beginning of the range of time shown in the report. The date is in
+ *  the RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The report
+ *  returns all activities from startTime until endTime. The startTime must be
+ *  before the endTime (if specified) and the current time when the request is
+ *  made, or the API returns an error.
+ */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
- *  Represents the profile id or the user email for which the data should be
- *  filtered. When 'all' is specified as the userKey, it returns usageReports
- *  for all users.
+ *  Represents the profile ID or the user email for which the data should be
+ *  filtered. Can be all for all information, or userKey for a user's unique G
+ *  Suite profile ID or their primary email address.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRReports_Channel.
  *
- *  Push changes to activities
+ *  Start receiving notifications for account activities. For more information,
+ *  see Receiving Push Notifications.
  *
  *  @param object The @c GTLRReports_Channel to include in the query.
- *  @param userKey Represents the profile id or the user email for which the
- *    data should be filtered. When 'all' is specified as the userKey, it
- *    returns usageReports for all users.
+ *  @param userKey Represents the profile ID or the user email for which the
+ *    data should be filtered. Can be all for all information, or userKey for a
+ *    user's unique G Suite profile ID or their primary email address.
  *  @param applicationName Application name for which the events are to be
  *    retrieved.
+ *
+ *  Likely values for @c applicationName:
+ *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
+ *        Transparency activity reports return information about different types
+ *        of Access Transparency activity events. (Value: "access_transparency")
+ *    @arg @c kGTLRReportsApplicationNameAdmin The Admin console application's
+ *        activity reports return account information about different types of
+ *        administrator activity events. (Value: "admin")
+ *    @arg @c kGTLRReportsApplicationNameCalendar The G Suite Calendar
+ *        application's activity reports return information about various
+ *        Calendar activity events. (Value: "calendar")
+ *    @arg @c kGTLRReportsApplicationNameChat The Chat activity reports return
+ *        information about various Chat activity events. (Value: "chat")
+ *    @arg @c kGTLRReportsApplicationNameDrive The Google Drive application's
+ *        activity reports return information about various Google Drive
+ *        activity events. The Drive activity report is only available for G
+ *        Suite Business customers. (Value: "drive")
+ *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
+ *        application's activity reports return information about various GCP
+ *        activity events. (Value: "gcp")
+ *    @arg @c kGTLRReportsApplicationNameGplus The Google+ application's
+ *        activity reports return information about various Google+ activity
+ *        events. (Value: "gplus")
+ *    @arg @c kGTLRReportsApplicationNameGroups The Google Groups application's
+ *        activity reports return information about various Groups activity
+ *        events. (Value: "groups")
+ *    @arg @c kGTLRReportsApplicationNameGroupsEnterprise The Enterprise Groups
+ *        activity reports return information about various Enterprise group
+ *        activity events. (Value: "groups_enterprise")
+ *    @arg @c kGTLRReportsApplicationNameJamboard The Jamboard activity reports
+ *        return information about various Jamboard activity events. (Value:
+ *        "jamboard")
+ *    @arg @c kGTLRReportsApplicationNameLogin The Login application's activity
+ *        reports return account information about different types of Login
+ *        activity events. (Value: "login")
+ *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
+ *        return information about different types of Meet Audit activity
+ *        events. (Value: "meet")
+ *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
+ *        return information about different types of Mobile Audit activity
+ *        events. (Value: "mobile")
+ *    @arg @c kGTLRReportsApplicationNameRules The Rules activity report return
+ *        information about different types of Rules activity events. (Value:
+ *        "rules")
+ *    @arg @c kGTLRReportsApplicationNameSaml The SAML activity report return
+ *        information about different types of SAML activity events. (Value:
+ *        "saml")
+ *    @arg @c kGTLRReportsApplicationNameToken The Token application's activity
+ *        reports return account information about different types of Token
+ *        activity events. (Value: "token")
+ *    @arg @c kGTLRReportsApplicationNameUserAccounts The User Accounts
+ *        application's activity reports return account information about
+ *        different types of User Accounts activity events. (Value:
+ *        "user_accounts")
  *
  *  @return GTLRReportsQuery_ActivitiesWatch
  */
@@ -231,8 +780,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a report which is a collection of properties / statistics for a
- *  specific customer.
+ *  Retrieves a report which is a collection of properties and statistics for a
+ *  specific customer's account. For more information, see the Customers Usage
+ *  Report guide. For more information about the customer report's parameters,
+ *  see the Customers Usage parameters reference guides.
  *
  *  Method: reports.customerUsageReports.get
  *
@@ -243,32 +794,53 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryReports queryForCustomerUsageReportsGetWithdate:]
 
-/** Represents the customer for which the data is to be fetched. */
+/** The unique ID of the customer to retrieve data for. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Represents the date in yyyy-mm-dd format for which the data is to be
- *  fetched.
+ *  Represents the date the usage occurred. The timestamp is in the ISO 8601
+ *  format, yyyy-mm-dd. We recommend you use your account's time zone for this.
  */
 @property(nonatomic, copy, nullable) NSString *date;
 
-/** Token to specify next page. */
+/**
+ *  Token to specify next page. A report with multiple pages has a nextPageToken
+ *  property in the response. For your follow-on requests getting all of the
+ *  report's pages, enter the nextPageToken value in the pageToken query string.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Represents the application name, parameter name pairs to fetch in csv as
- *  app_name1:param_name1, app_name2:param_name2.
+ *  The parameters query string is a comma-separated list of event parameters
+ *  that refine a report's results. The parameter is associated with a specific
+ *  application. The application values for the Customers usage report include
+ *  accounts, app_maker, apps_scripts, calendar, classroom, cros, docs, gmail,
+ *  gplus, device_management, meet, and sites.
+ *  A parameters query string is in the CSV form of app_name1:param_name1,
+ *  app_name2:param_name2.
+ *  Note: The API doesn't accept multiple values of a parameter. If a particular
+ *  parameter is supplied more than once in the API request, the API only
+ *  accepts the last value of that request parameter.
+ *  In addition, if an invalid request parameter is supplied in the API request,
+ *  the API ignores that request parameter and returns the response
+ *  corresponding to the remaining valid request parameters.
+ *  An example of an invalid request parameter is one that does not belong to
+ *  the application. If no parameters are requested, all parameters are
+ *  returned.
  */
 @property(nonatomic, copy, nullable) NSString *parameters;
 
 /**
  *  Fetches a @c GTLRReports_UsageReports.
  *
- *  Retrieves a report which is a collection of properties / statistics for a
- *  specific customer.
+ *  Retrieves a report which is a collection of properties and statistics for a
+ *  specific customer's account. For more information, see the Customers Usage
+ *  Report guide. For more information about the customer report's parameters,
+ *  see the Customers Usage parameters reference guides.
  *
- *  @param date Represents the date in yyyy-mm-dd format for which the data is
- *    to be fetched.
+ *  @param date Represents the date the usage occurred. The timestamp is in the
+ *    ISO 8601 format, yyyy-mm-dd. We recommend you use your account's time zone
+ *    for this.
  *
  *  @return GTLRReportsQuery_CustomerUsageReportsGet
  */
@@ -277,8 +849,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a report which is a collection of properties / statistics for a
- *  set of objects.
+ *  Retrieves a report which is a collection of properties and statistics for
+ *  entities used by users within the account. For more information, see the
+ *  Entities Usage Report guide. For more information about the entities
+ *  report's parameters, see the Entities Usage parameters reference guides.
  *
  *  Method: reports.entityUsageReports.get
  *
@@ -289,47 +863,124 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryReports queryForEntityUsageReportsGetWithentityType:entityKey:date:]
 
-/** Represents the customer for which the data is to be fetched. */
+/** The unique ID of the customer to retrieve data for. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Represents the date in yyyy-mm-dd format for which the data is to be
- *  fetched.
+ *  Represents the date the usage occurred. The timestamp is in the ISO 8601
+ *  format, yyyy-mm-dd. We recommend you use your account's time zone for this.
  */
 @property(nonatomic, copy, nullable) NSString *date;
 
-/** Represents the key of object for which the data should be filtered. */
+/**
+ *  Represents the key of the object to filter the data with.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRReportsEntityKeyAll Returns activity events for all users.
+ *        (Value: "all")
+ *    @arg @c kGTLRReportsEntityKeyEntityKey Represents an app-specific
+ *        identifier for the entity. For details on how to obtain the entityKey
+ *        for a particular entityType, see the Entities Usage parameters
+ *        reference guides. (Value: "entityKey")
+ */
 @property(nonatomic, copy, nullable) NSString *entityKey;
 
-/** Type of object. Should be one of - gplus_communities. */
+/**
+ *  Represents the type of entity for the report.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRReportsEntityTypeGplusCommunities Returns a report on Google+
+ *        communities. (Value: "gplus_communities")
+ */
 @property(nonatomic, copy, nullable) NSString *entityType;
 
-/** Represents the set of filters including parameter operator value. */
+/**
+ *  The filters query string is a comma-separated list of an application's event
+ *  parameters where the parameter's value is manipulated by a relational
+ *  operator. The filters query string includes the name of the application
+ *  whose usage is returned in the report. The application values for the
+ *  Entities usage report include accounts, docs, and gmail.
+ *  Filters are in the form [application name]:[parameter name][relational
+ *  operator][parameter value],....
+ *  In this example, the <> 'not equal to' operator is URL-encoded in the
+ *  request's query string (%3C%3E):
+ *  GET
+ *  https://www.googleapis.com/admin/reports/v1/usage/gplus_communities/all/dates/2017-12-01
+ *  ?parameters=gplus:community_name,gplus:num_total_members
+ *  &filters=gplus:num_total_members>0
+ *  The relational operators include:
+ *  - == - 'equal to'.
+ *  - <> - 'not equal to'. It is URL-encoded (%3C%3E).
+ *  - < - 'less than'. It is URL-encoded (%3C).
+ *  - <= - 'less than or equal to'. It is URL-encoded (%3C=).
+ *  - > - 'greater than'. It is URL-encoded (%3E).
+ *  - >= - 'greater than or equal to'. It is URL-encoded (%3E=). Filters can
+ *  only be applied to numeric parameters.
+ */
 @property(nonatomic, copy, nullable) NSString *filters;
 
-/** Maximum number of results to return. Maximum allowed is 1000 */
+/**
+ *  Determines how many activity records are shown on each response page. For
+ *  example, if the request sets maxResults=1 and the report has two activities,
+ *  the report has two pages. The response's nextPageToken property has the
+ *  token to the second page.
+ *
+ *  @note If not set, the documented server-side default will be 1000 (from the
+ *        range 1..1000).
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
-/** Token to specify next page. */
+/**
+ *  Token to specify next page. A report with multiple pages has a nextPageToken
+ *  property in the response. In your follow-on request getting the next page of
+ *  the report, enter the nextPageToken value in the pageToken query string.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Represents the application name, parameter name pairs to fetch in csv as
- *  app_name1:param_name1, app_name2:param_name2.
+ *  The parameters query string is a comma-separated list of event parameters
+ *  that refine a report's results. The parameter is associated with a specific
+ *  application. The application values for the Entities usage report are only
+ *  gplus.
+ *  A parameter query string is in the CSV form of [app_name1:param_name1],
+ *  [app_name2:param_name2]....
+ *  Note: The API doesn't accept multiple values of a parameter. If a particular
+ *  parameter is supplied more than once in the API request, the API only
+ *  accepts the last value of that request parameter.
+ *  In addition, if an invalid request parameter is supplied in the API request,
+ *  the API ignores that request parameter and returns the response
+ *  corresponding to the remaining valid request parameters.
+ *  An example of an invalid request parameter is one that does not belong to
+ *  the application. If no parameters are requested, all parameters are
+ *  returned.
  */
 @property(nonatomic, copy, nullable) NSString *parameters;
 
 /**
  *  Fetches a @c GTLRReports_UsageReports.
  *
- *  Retrieves a report which is a collection of properties / statistics for a
- *  set of objects.
+ *  Retrieves a report which is a collection of properties and statistics for
+ *  entities used by users within the account. For more information, see the
+ *  Entities Usage Report guide. For more information about the entities
+ *  report's parameters, see the Entities Usage parameters reference guides.
  *
- *  @param entityType Type of object. Should be one of - gplus_communities.
- *  @param entityKey Represents the key of object for which the data should be
- *    filtered.
- *  @param date Represents the date in yyyy-mm-dd format for which the data is
- *    to be fetched.
+ *  @param entityType Represents the type of entity for the report.
+ *  @param entityKey Represents the key of the object to filter the data with.
+ *  @param date Represents the date the usage occurred. The timestamp is in the
+ *    ISO 8601 format, yyyy-mm-dd. We recommend you use your account's time zone
+ *    for this.
+ *
+ *  Likely values for @c entityType:
+ *    @arg @c kGTLRReportsEntityTypeGplusCommunities Returns a report on Google+
+ *        communities. (Value: "gplus_communities")
+ *
+ *  Likely values for @c entityKey:
+ *    @arg @c kGTLRReportsEntityKeyAll Returns activity events for all users.
+ *        (Value: "all")
+ *    @arg @c kGTLRReportsEntityKeyEntityKey Represents an app-specific
+ *        identifier for the entity. For details on how to obtain the entityKey
+ *        for a particular entityType, see the Entities Usage parameters
+ *        reference guides. (Value: "entityKey")
  *
  *  @return GTLRReportsQuery_EntityUsageReportsGet
  */
@@ -340,8 +991,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a report which is a collection of properties / statistics for a
- *  set of users.
+ *  Retrieves a report which is a collection of properties and statistics for a
+ *  set of users with the account. For more information, see the User Usage
+ *  Report guide. For more information about the user report's parameters, see
+ *  the Users Usage parameters reference guides.
  *
  *  Method: reports.userUsageReport.get
  *
@@ -352,52 +1005,106 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryReports queryForUserUsageReportGetWithuserKey:date:]
 
-/** Represents the customer for which the data is to be fetched. */
+/** The unique ID of the customer to retrieve data for. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Represents the date in yyyy-mm-dd format for which the data is to be
- *  fetched.
+ *  Represents the date the usage occurred. The timestamp is in the ISO 8601
+ *  format, yyyy-mm-dd. We recommend you use your account's time zone for this.
  */
 @property(nonatomic, copy, nullable) NSString *date;
 
-/** Represents the set of filters including parameter operator value. */
+/**
+ *  The filters query string is a comma-separated list of an application's event
+ *  parameters where the parameter's value is manipulated by a relational
+ *  operator. The filters query string includes the name of the application
+ *  whose usage is returned in the report. The application values for the Users
+ *  Usage Report include accounts, docs, and gmail.
+ *  Filters are in the form [application name]:[parameter name][relational
+ *  operator][parameter value],....
+ *  In this example, the <> 'not equal to' operator is URL-encoded in the
+ *  request's query string (%3C%3E):
+ *  GET
+ *  https://www.googleapis.com/admin/reports/v1/usage/users/all/dates/2013-03-03
+ *  ?parameters=accounts:last_login_time
+ *  &filters=accounts:last_login_time>2010-10-28T10:26:35.000Z
+ *  The relational operators include:
+ *  - == - 'equal to'.
+ *  - <> - 'not equal to'. It is URL-encoded (%3C%3E).
+ *  - < - 'less than'. It is URL-encoded (%3C).
+ *  - <= - 'less than or equal to'. It is URL-encoded (%3C=).
+ *  - > - 'greater than'. It is URL-encoded (%3E).
+ *  - >= - 'greater than or equal to'. It is URL-encoded (%3E=).
+ */
 @property(nonatomic, copy, nullable) NSString *filters;
 
-/** Maximum number of results to return. Maximum allowed is 1000 */
+/**
+ *  Determines how many activity records are shown on each response page. For
+ *  example, if the request sets maxResults=1 and the report has two activities,
+ *  the report has two pages. The response's nextPageToken property has the
+ *  token to the second page.
+ *  The maxResults query string is optional.
+ *
+ *  @note If not set, the documented server-side default will be 1000 (from the
+ *        range 1..1000).
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  the organizational unit's ID to filter usage parameters from users belonging
- *  to a specific OU or one of its sub-OU(s).
+ *  ID of the organizational unit to report on. User activity will be shown only
+ *  for users who belong to the specified organizational unit. Data before Dec
+ *  17, 2018 doesn't appear in the filtered results.
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitID;
 
-/** Token to specify next page. */
+/**
+ *  Token to specify next page. A report with multiple pages has a nextPageToken
+ *  property in the response. In your follow-on request getting the next page of
+ *  the report, enter the nextPageToken value in the pageToken query string.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Represents the application name, parameter name pairs to fetch in csv as
- *  app_name1:param_name1, app_name2:param_name2.
+ *  The parameters query string is a comma-separated list of event parameters
+ *  that refine a report's results. The parameter is associated with a specific
+ *  application. The application values for the Customers usage report include
+ *  accounts, app_maker, apps_scripts, calendar, classroom, cros, docs, gmail,
+ *  gplus, device_management, meet, and sites.
+ *  A parameters query string is in the CSV form of app_name1:param_name1,
+ *  app_name2:param_name2.
+ *  Note: The API doesn't accept multiple values of a parameter.
+ *  If a particular parameter is supplied more than once in the API request, the
+ *  API only accepts the last value of that request parameter. In addition, if
+ *  an invalid request parameter is supplied in the API request, the API ignores
+ *  that request parameter and returns the response corresponding to the
+ *  remaining valid request parameters.
+ *  An example of an invalid request parameter is one that does not belong to
+ *  the application. If no parameters are requested, all parameters are
+ *  returned.
  */
 @property(nonatomic, copy, nullable) NSString *parameters;
 
 /**
- *  Represents the profile id or the user email for which the data should be
- *  filtered.
+ *  Represents the profile ID or the user email for which the data should be
+ *  filtered. Can be all for all information, or userKey for a user's unique G
+ *  Suite profile ID or their primary email address.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRReports_UsageReports.
  *
- *  Retrieves a report which is a collection of properties / statistics for a
- *  set of users.
+ *  Retrieves a report which is a collection of properties and statistics for a
+ *  set of users with the account. For more information, see the User Usage
+ *  Report guide. For more information about the user report's parameters, see
+ *  the Users Usage parameters reference guides.
  *
- *  @param userKey Represents the profile id or the user email for which the
- *    data should be filtered.
- *  @param date Represents the date in yyyy-mm-dd format for which the data is
- *    to be fetched.
+ *  @param userKey Represents the profile ID or the user email for which the
+ *    data should be filtered. Can be all for all information, or userKey for a
+ *    user's unique G Suite profile ID or their primary email address.
+ *  @param date Represents the date the usage occurred. The timestamp is in the
+ *    ISO 8601 format, yyyy-mm-dd. We recommend you use your account's time zone
+ *    for this.
  *
  *  @return GTLRReportsQuery_UserUsageReportGet
  */

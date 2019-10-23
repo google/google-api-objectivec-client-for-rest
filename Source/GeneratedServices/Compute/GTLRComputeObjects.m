@@ -7076,7 +7076,12 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_HttpRouteRule
-@dynamic headerAction, matchRules, routeAction, service, urlRedirect;
+@dynamic descriptionProperty, headerAction, matchRules, priority, routeAction,
+         service, urlRedirect;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -9078,7 +9083,25 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_LogConfigCounterOptions
-@dynamic field, metric;
+@dynamic customFields, field, metric;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customFields" : [GTLRCompute_LogConfigCounterOptionsCustomField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_LogConfigCounterOptionsCustomField
+//
+
+@implementation GTLRCompute_LogConfigCounterOptionsCustomField
+@dynamic name, value;
 @end
 
 
@@ -12056,7 +12079,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_Route
 @dynamic creationTimestamp, descriptionProperty, destRange, identifier, kind,
-         name, network, nextHopGateway, nextHopInstance, nextHopIp,
+         name, network, nextHopGateway, nextHopIlb, nextHopInstance, nextHopIp,
          nextHopNetwork, nextHopPeering, nextHopVpnTunnel, priority, selfLink,
          tags, warnings;
 
@@ -12365,13 +12388,14 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_RouterNat
-@dynamic icmpIdleTimeoutSec, logConfig, minPortsPerVm, name,
+@dynamic drainNatIps, icmpIdleTimeoutSec, logConfig, minPortsPerVm, name,
          natIpAllocateOption, natIps, sourceSubnetworkIpRangesToNat,
          subnetworks, tcpEstablishedIdleTimeoutSec, tcpTransitoryIdleTimeoutSec,
          udpIdleTimeoutSec;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"drainNatIps" : [NSString class],
     @"natIps" : [NSString class],
     @"subnetworks" : [GTLRCompute_RouterNatSubnetworkToNat class]
   };
@@ -12512,13 +12536,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_RouterStatusNatStatus
-@dynamic autoAllocatedNatIps, minExtraNatIpsNeeded, name,
+@dynamic autoAllocatedNatIps, drainAutoAllocatedNatIps,
+         drainUserAllocatedNatIps, minExtraNatIpsNeeded, name,
          numVmEndpointsWithNatMappings, userAllocatedNatIpResources,
          userAllocatedNatIps;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"autoAllocatedNatIps" : [NSString class],
+    @"drainAutoAllocatedNatIps" : [NSString class],
+    @"drainUserAllocatedNatIps" : [NSString class],
     @"userAllocatedNatIpResources" : [NSString class],
     @"userAllocatedNatIps" : [NSString class]
   };
@@ -15117,10 +15144,12 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_VmEndpointNatMappingsInterfaceNatMappings
-@dynamic natIpPortRanges, numTotalNatPorts, sourceAliasIpRange, sourceVirtualIp;
+@dynamic drainNatIpPortRanges, natIpPortRanges, numTotalDrainNatPorts,
+         numTotalNatPorts, sourceAliasIpRange, sourceVirtualIp;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"drainNatIpPortRanges" : [NSString class],
     @"natIpPortRanges" : [NSString class]
   };
   return map;

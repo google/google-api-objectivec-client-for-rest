@@ -167,7 +167,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of accelerator types.
+ *  Retrieves an aggregated list of accelerator types. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.acceleratorTypes.aggregatedList
  *
@@ -235,7 +236,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_AcceleratorTypeAggregatedList.
  *
- *  Retrieves an aggregated list of accelerator types.
+ *  Retrieves an aggregated list of accelerator types. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -246,7 +248,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified accelerator type.
+ *  Returns the specified accelerator type. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.acceleratorTypes.get
  *
@@ -275,7 +278,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_AcceleratorType.
  *
- *  Returns the specified accelerator type.
+ *  Returns the specified accelerator type. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -291,6 +295,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of accelerator types available to the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.acceleratorTypes.list
  *
@@ -366,6 +371,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_AcceleratorTypeList.
  *
  *  Retrieves a list of accelerator types available to the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -382,7 +388,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of addresses.
+ *  Retrieves an aggregated list of addresses. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.addresses.aggregatedList
  *
@@ -450,7 +457,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_AddressAggregatedList.
  *
- *  Retrieves an aggregated list of addresses.
+ *  Retrieves an aggregated list of addresses. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -461,7 +469,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified address resource.
+ *  Deletes the specified address resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.addresses.delete
  *
@@ -499,7 +508,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified address resource.
+ *  Deletes the specified address resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -514,7 +524,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified address resource.
+ *  Returns the specified address resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.addresses.get
  *
@@ -539,7 +550,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Address.
  *
- *  Returns the specified address resource.
+ *  Returns the specified address resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -555,7 +567,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an address resource in the specified project by using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.addresses.insert
  *
@@ -591,7 +603,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates an address resource in the specified project by using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Address to include in the query.
  *  @param project Project ID for this request.
@@ -606,7 +618,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of addresses contained within the specified region.
+ *  Retrieves a list of addresses contained within the specified region. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.addresses.list
  *
@@ -677,7 +690,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_AddressList.
  *
- *  Retrieves a list of addresses contained within the specified region.
+ *  Retrieves a list of addresses contained within the specified region. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -694,7 +708,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of autoscalers.
+ *  Retrieves an aggregated list of autoscalers. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.autoscalers.aggregatedList
  *
@@ -762,7 +777,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_AutoscalerAggregatedList.
  *
- *  Retrieves an aggregated list of autoscalers.
+ *  Retrieves an aggregated list of autoscalers. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -773,7 +789,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified autoscaler.
+ *  Deletes the specified autoscaler. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.autoscalers.delete
  *
@@ -815,7 +832,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified autoscaler.
+ *  Deletes the specified autoscaler. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
@@ -831,7 +849,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified autoscaler resource. Gets a list of available
- *  autoscalers by making a list() request.
+ *  autoscalers by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.autoscalers.get
  *
@@ -861,7 +880,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Autoscaler.
  *
  *  Returns the specified autoscaler resource. Gets a list of available
- *  autoscalers by making a list() request.
+ *  autoscalers by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
@@ -877,7 +897,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an autoscaler in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.autoscalers.insert
  *
@@ -917,7 +937,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates an autoscaler in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Autoscaler to include in the query.
  *  @param project Project ID for this request.
@@ -932,7 +952,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of autoscalers contained within the specified zone.
+ *  Retrieves a list of autoscalers contained within the specified zone. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.autoscalers.list
  *
@@ -1007,7 +1028,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_AutoscalerList.
  *
- *  Retrieves a list of autoscalers contained within the specified zone.
+ *  Retrieves a list of autoscalers contained within the specified zone. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
@@ -1026,7 +1048,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates an autoscaler in the specified project using the data included in
  *  the request. This method supports PATCH semantics and uses the JSON merge
- *  patch format and processing rules.
+ *  patch format and processing rules. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.autoscalers.patch
  *
@@ -1070,7 +1093,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates an autoscaler in the specified project using the data included in
  *  the request. This method supports PATCH semantics and uses the JSON merge
- *  patch format and processing rules.
+ *  patch format and processing rules. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param object The @c GTLRCompute_Autoscaler to include in the query.
  *  @param project Project ID for this request.
@@ -1086,7 +1110,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates an autoscaler in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.autoscalers.update
  *
@@ -1129,7 +1153,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates an autoscaler in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Autoscaler to include in the query.
  *  @param project Project ID for this request.
@@ -1145,6 +1169,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Adds a key for validating requests with signed URLs for this backend bucket.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendBuckets.addSignedUrlKey
  *
@@ -1183,6 +1208,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Adds a key for validating requests with signed URLs for this backend bucket.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SignedUrlKey to include in the query.
  *  @param project Project ID for this request.
@@ -1198,7 +1224,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified BackendBucket resource.
+ *  Deletes the specified BackendBucket resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.backendBuckets.delete
  *
@@ -1233,7 +1260,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified BackendBucket resource.
+ *  Deletes the specified BackendBucket resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param backendBucket Name of the BackendBucket resource to delete.
@@ -1247,7 +1275,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes a key for validating requests with signed URLs for this backend
- *  bucket.
+ *  bucket. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendBuckets.deleteSignedUrlKey
  *
@@ -1289,7 +1317,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Deletes a key for validating requests with signed URLs for this backend
- *  bucket.
+ *  bucket. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param backendBucket Name of the BackendBucket resource to which the Signed
@@ -1306,7 +1334,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified BackendBucket resource. Gets a list of available
- *  backend buckets by making a list() request.
+ *  backend buckets by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.backendBuckets.get
  *
@@ -1329,7 +1358,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_BackendBucket.
  *
  *  Returns the specified BackendBucket resource. Gets a list of available
- *  backend buckets by making a list() request.
+ *  backend buckets by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param backendBucket Name of the BackendBucket resource to return.
@@ -1343,7 +1373,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a BackendBucket resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendBuckets.insert
  *
@@ -1376,7 +1406,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a BackendBucket resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_BackendBucket to include in the query.
  *  @param project Project ID for this request.
@@ -1390,7 +1420,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of BackendBucket resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendBuckets.list
  *
@@ -1459,7 +1489,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_BackendBucketList.
  *
  *  Retrieves the list of BackendBucket resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -1476,7 +1506,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates the specified BackendBucket resource with the data included in the
  *  request. This method supports PATCH semantics and uses the JSON merge patch
- *  format and processing rules.
+ *  format and processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendBuckets.patch
  *
@@ -1513,7 +1543,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates the specified BackendBucket resource with the data included in the
  *  request. This method supports PATCH semantics and uses the JSON merge patch
- *  format and processing rules.
+ *  format and processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_BackendBucket to include in the query.
  *  @param project Project ID for this request.
@@ -1529,7 +1559,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the specified BackendBucket resource with the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendBuckets.update
  *
@@ -1565,7 +1595,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified BackendBucket resource with the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_BackendBucket to include in the query.
  *  @param project Project ID for this request.
@@ -1581,7 +1611,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Adds a key for validating requests with signed URLs for this backend
- *  service.
+ *  service. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendServices.addSignedUrlKey
  *
@@ -1620,7 +1650,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Adds a key for validating requests with signed URLs for this backend
- *  service.
+ *  service. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SignedUrlKey to include in the query.
  *  @param project Project ID for this request.
@@ -1637,7 +1667,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of all BackendService resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.backendServices.aggregatedList
  *
@@ -1706,7 +1737,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_BackendServiceAggregatedList.
  *
  *  Retrieves the list of all BackendService resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Name of the project scoping this request.
  *
@@ -1717,7 +1749,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified BackendService resource.
+ *  Deletes the specified BackendService resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.backendServices.delete
  *
@@ -1752,7 +1785,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified BackendService resource.
+ *  Deletes the specified BackendService resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param backendService Name of the BackendService resource to delete.
@@ -1766,7 +1800,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes a key for validating requests with signed URLs for this backend
- *  service.
+ *  service. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendServices.deleteSignedUrlKey
  *
@@ -1808,7 +1842,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Deletes a key for validating requests with signed URLs for this backend
- *  service.
+ *  service. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param backendService Name of the BackendService resource to which the
@@ -1825,7 +1859,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified BackendService resource. Gets a list of available
- *  backend services.
+ *  backend services. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendServices.get
  *
@@ -1848,7 +1882,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_BackendService.
  *
  *  Returns the specified BackendService resource. Gets a list of available
- *  backend services.
+ *  backend services. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param backendService Name of the BackendService resource to return.
@@ -1861,7 +1895,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the most recent health check results for this BackendService.
+ *  Gets the most recent health check results for this BackendService. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendServices.getHealth
  *
@@ -1884,7 +1919,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_BackendServiceGroupHealth.
  *
- *  Gets the most recent health check results for this BackendService.
+ *  Gets the most recent health check results for this BackendService. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ResourceGroupReference to include in the
  *    query.
@@ -1904,7 +1940,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a BackendService resource in the specified project using the data
  *  included in the request. There are several restrictions and guidelines to
  *  keep in mind when creating a backend service. Read Restrictions and
- *  Guidelines for more information.
+ *  Guidelines for more information. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendServices.insert
  *
@@ -1939,7 +1975,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a BackendService resource in the specified project using the data
  *  included in the request. There are several restrictions and guidelines to
  *  keep in mind when creating a backend service. Read Restrictions and
- *  Guidelines for more information.
+ *  Guidelines for more information. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -1953,7 +1989,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of BackendService resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendServices.list
  *
@@ -2022,7 +2058,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_BackendServiceList.
  *
  *  Retrieves the list of BackendService resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -2041,7 +2077,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  request. There are several restrictions and guidelines to keep in mind when
  *  updating a backend service. Read Restrictions and Guidelines for more
  *  information. This method supports PATCH semantics and uses the JSON merge
- *  patch format and processing rules.
+ *  patch format and processing rules. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.backendServices.patch
  *
@@ -2080,7 +2117,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  request. There are several restrictions and guidelines to keep in mind when
  *  updating a backend service. Read Restrictions and Guidelines for more
  *  information. This method supports PATCH semantics and uses the JSON merge
- *  patch format and processing rules.
+ *  patch format and processing rules. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -2095,7 +2133,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the security policy for the specified backend service.
+ *  Sets the security policy for the specified backend service. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendServices.setSecurityPolicy
  *
@@ -2133,7 +2172,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets the security policy for the specified backend service.
+ *  Sets the security policy for the specified backend service. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SecurityPolicyReference to include in the
  *    query.
@@ -2153,7 +2193,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the specified BackendService resource with the data included in the
  *  request. There are several restrictions and guidelines to keep in mind when
  *  updating a backend service. Read Restrictions and Guidelines for more
- *  information.
+ *  information. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.backendServices.update
  *
@@ -2191,7 +2231,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the specified BackendService resource with the data included in the
  *  request. There are several restrictions and guidelines to keep in mind when
  *  updating a backend service. Read Restrictions and Guidelines for more
- *  information.
+ *  information. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -2207,7 +2247,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Adds existing resource policies to a disk. You can only add one policy which
- *  will be applied to this disk for scheduling snapshot creation.
+ *  will be applied to this disk for scheduling snapshot creation. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.disks.addResourcePolicies
  *
@@ -2250,7 +2291,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Adds existing resource policies to a disk. You can only add one policy which
- *  will be applied to this disk for scheduling snapshot creation.
+ *  will be applied to this disk for scheduling snapshot creation. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_DisksAddResourcePoliciesRequest to include
  *    in the query.
@@ -2268,7 +2310,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of persistent disks.
+ *  Retrieves an aggregated list of persistent disks. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.disks.aggregatedList
  *
@@ -2336,7 +2379,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_DiskAggregatedList.
  *
- *  Retrieves an aggregated list of persistent disks.
+ *  Retrieves an aggregated list of persistent disks. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -2347,7 +2391,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a snapshot of a specified persistent disk.
+ *  Creates a snapshot of a specified persistent disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.disks.createSnapshot
  *
@@ -2396,7 +2441,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Creates a snapshot of a specified persistent disk.
+ *  Creates a snapshot of a specified persistent disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Snapshot to include in the query.
  *  @param project Project ID for this request.
@@ -2416,7 +2462,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes the specified persistent disk. Deleting a disk removes its data
  *  permanently and is irreversible. However, deleting a disk does not delete
  *  any snapshots previously made from the disk. You must separately delete
- *  snapshots.
+ *  snapshots. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.disks.delete
  *
@@ -2461,7 +2507,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes the specified persistent disk. Deleting a disk removes its data
  *  permanently and is irreversible. However, deleting a disk does not delete
  *  any snapshots previously made from the disk. You must separately delete
- *  snapshots.
+ *  snapshots. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -2477,7 +2523,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns a specified persistent disk. Gets a list of available persistent
- *  disks by making a list() request.
+ *  disks by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.disks.get
  *
@@ -2507,7 +2554,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Disk.
  *
  *  Returns a specified persistent disk. Gets a list of available persistent
- *  disks by making a list() request.
+ *  disks by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -2523,7 +2571,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.disks.getIamPolicy
  *
@@ -2553,7 +2601,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -2572,7 +2620,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  request. You can create a disk with a sourceImage, a sourceSnapshot, or
  *  create an empty 500 GB data disk by omitting all properties. You can also
  *  create a disk that is larger than the default size by specifying the sizeGb
- *  property.
+ *  property. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.disks.insert
  *
@@ -2618,7 +2666,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  request. You can create a disk with a sourceImage, a sourceSnapshot, or
  *  create an empty 500 GB data disk by omitting all properties. You can also
  *  create a disk that is larger than the default size by specifying the sizeGb
- *  property.
+ *  property. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Disk to include in the query.
  *  @param project Project ID for this request.
@@ -2634,6 +2682,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of persistent disks contained within the specified zone.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.disks.list
  *
@@ -2709,6 +2758,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_DiskList.
  *
  *  Retrieves a list of persistent disks contained within the specified zone.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -2725,7 +2775,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Removes resource policies from a disk.
+ *  Removes resource policies from a disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.disks.removeResourcePolicies
  *
@@ -2767,7 +2818,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Removes resource policies from a disk.
+ *  Removes resource policies from a disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_DisksRemoveResourcePoliciesRequest to
  *    include in the query.
@@ -2786,7 +2838,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Resizes the specified persistent disk. You can only increase the size of the
- *  disk.
+ *  disk. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.disks.resize
  *
@@ -2829,7 +2881,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Resizes the specified persistent disk. You can only increase the size of the
- *  disk.
+ *  disk. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_DisksResizeRequest to include in the query.
  *  @param project Project ID for this request.
@@ -2847,7 +2899,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.disks.setIamPolicy
  *
@@ -2876,7 +2928,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ZoneSetPolicyRequest to include in the
  *    query.
@@ -2895,7 +2947,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the labels on a disk. To learn more about labels, read the Labeling
- *  Resources documentation.
+ *  Resources documentation. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.disks.setLabels
  *
@@ -2938,7 +2990,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Sets the labels on a disk. To learn more about labels, read the Labeling
- *  Resources documentation.
+ *  Resources documentation. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ZoneSetLabelsRequest to include in the
  *    query.
@@ -2956,7 +3008,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.disks.testIamPermissions
  *
@@ -2985,7 +3038,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -3003,7 +3057,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of disk types.
+ *  Retrieves an aggregated list of disk types. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.diskTypes.aggregatedList
  *
@@ -3071,7 +3126,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_DiskTypeAggregatedList.
  *
- *  Retrieves an aggregated list of disk types.
+ *  Retrieves an aggregated list of disk types. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -3083,7 +3139,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified disk type. Gets a list of available disk types by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.diskTypes.get
  *
@@ -3113,7 +3169,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_DiskType.
  *
  *  Returns the specified disk type. Gets a list of available disk types by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -3128,7 +3184,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of disk types available to the specified project.
+ *  Retrieves a list of disk types available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.diskTypes.list
  *
@@ -3203,7 +3260,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_DiskTypeList.
  *
- *  Retrieves a list of disk types available to the specified project.
+ *  Retrieves a list of disk types available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -3220,7 +3278,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified externalVpnGateway.
+ *  Deletes the specified externalVpnGateway. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.externalVpnGateways.delete
  *
@@ -3255,7 +3314,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified externalVpnGateway.
+ *  Deletes the specified externalVpnGateway. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param externalVpnGateway Name of the externalVpnGateways to delete.
@@ -3269,7 +3329,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified externalVpnGateway. Get a list of available
- *  externalVpnGateways by making a list() request.
+ *  externalVpnGateways by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.externalVpnGateways.get
  *
@@ -3292,7 +3353,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_ExternalVpnGateway.
  *
  *  Returns the specified externalVpnGateway. Get a list of available
- *  externalVpnGateways by making a list() request.
+ *  externalVpnGateways by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param externalVpnGateway Name of the externalVpnGateway to return.
@@ -3306,7 +3368,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a ExternalVpnGateway in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.externalVpnGateways.insert
  *
@@ -3339,7 +3401,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a ExternalVpnGateway in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ExternalVpnGateway to include in the query.
  *  @param project Project ID for this request.
@@ -3353,6 +3415,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of ExternalVpnGateway available to the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.externalVpnGateways.list
  *
@@ -3421,6 +3484,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_ExternalVpnGatewayList.
  *
  *  Retrieves the list of ExternalVpnGateway available to the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -3436,7 +3500,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the labels on an ExternalVpnGateway. To learn more about labels, read
- *  the Labeling Resources documentation.
+ *  the Labeling Resources documentation. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.externalVpnGateways.setLabels
  *
@@ -3458,7 +3523,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Sets the labels on an ExternalVpnGateway. To learn more about labels, read
- *  the Labeling Resources documentation.
+ *  the Labeling Resources documentation. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_GlobalSetLabelsRequest to include in the
  *    query.
@@ -3474,7 +3540,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.externalVpnGateways.testIamPermissions
  *
@@ -3496,7 +3563,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -3512,7 +3580,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified firewall.
+ *  Deletes the specified firewall. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.firewalls.delete
  *
@@ -3547,7 +3615,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified firewall.
+ *  Deletes the specified firewall. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param firewall Name of the firewall rule to delete.
@@ -3560,7 +3628,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified firewall.
+ *  Returns the specified firewall. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.firewalls.get
  *
@@ -3582,7 +3650,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Firewall.
  *
- *  Returns the specified firewall.
+ *  Returns the specified firewall. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param firewall Name of the firewall rule to return.
@@ -3596,7 +3664,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a firewall rule in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.firewalls.insert
  *
@@ -3629,7 +3697,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a firewall rule in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Firewall to include in the query.
  *  @param project Project ID for this request.
@@ -3642,7 +3710,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the list of firewall rules available to the specified project.
+ *  Retrieves the list of firewall rules available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.firewalls.list
  *
@@ -3710,7 +3779,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_FirewallList.
  *
- *  Retrieves the list of firewall rules available to the specified project.
+ *  Retrieves the list of firewall rules available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -3727,7 +3797,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates the specified firewall rule with the data included in the request.
  *  This method supports PATCH semantics and uses the JSON merge patch format
- *  and processing rules.
+ *  and processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.firewalls.patch
  *
@@ -3764,7 +3834,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates the specified firewall rule with the data included in the request.
  *  This method supports PATCH semantics and uses the JSON merge patch format
- *  and processing rules.
+ *  and processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Firewall to include in the query.
  *  @param project Project ID for this request.
@@ -3780,8 +3850,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the specified firewall rule with the data included in the request.
- *  The PUT method can only update the following fields of firewall rule:
- *  allowed, description, sourceRanges, sourceTags, targetTags.
+ *  Note that all fields will be updated if using PUT, even fields that are not
+ *  specified. To update individual fields, please use PATCH instead. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.firewalls.update
  *
@@ -3817,8 +3888,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified firewall rule with the data included in the request.
- *  The PUT method can only update the following fields of firewall rule:
- *  allowed, description, sourceRanges, sourceTags, targetTags.
+ *  Note that all fields will be updated if using PUT, even fields that are not
+ *  specified. To update individual fields, please use PATCH instead. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Firewall to include in the query.
  *  @param project Project ID for this request.
@@ -3833,7 +3905,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of forwarding rules.
+ *  Retrieves an aggregated list of forwarding rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.forwardingRules.aggregatedList
  *
@@ -3901,7 +3974,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ForwardingRuleAggregatedList.
  *
- *  Retrieves an aggregated list of forwarding rules.
+ *  Retrieves an aggregated list of forwarding rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -3912,7 +3986,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified ForwardingRule resource.
+ *  Deletes the specified ForwardingRule resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.forwardingRules.delete
  *
@@ -3950,7 +4025,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified ForwardingRule resource.
+ *  Deletes the specified ForwardingRule resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -3965,7 +4041,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified ForwardingRule resource.
+ *  Returns the specified ForwardingRule resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.forwardingRules.get
  *
@@ -3990,7 +4067,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ForwardingRule.
  *
- *  Returns the specified ForwardingRule resource.
+ *  Returns the specified ForwardingRule resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -4006,7 +4084,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a ForwardingRule resource in the specified project and region using
- *  the data included in the request.
+ *  the data included in the request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.forwardingRules.insert
  *
@@ -4042,7 +4121,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a ForwardingRule resource in the specified project and region using
- *  the data included in the request.
+ *  the data included in the request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param object The @c GTLRCompute_ForwardingRule to include in the query.
  *  @param project Project ID for this request.
@@ -4058,7 +4138,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of ForwardingRule resources available to the specified
- *  project and region.
+ *  project and region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.forwardingRules.list
  *
@@ -4130,7 +4210,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_ForwardingRuleList.
  *
  *  Retrieves a list of ForwardingRule resources available to the specified
- *  project and region.
+ *  project and region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -4148,7 +4228,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Changes target URL for forwarding rule. The new target should be of the same
- *  type as the old target.
+ *  type as the old target. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.forwardingRules.setTarget
  *
@@ -4187,7 +4267,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Changes target URL for forwarding rule. The new target should be of the same
- *  type as the old target.
+ *  type as the old target. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetReference to include in the query.
  *  @param project Project ID for this request.
@@ -4205,7 +4285,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified address resource.
+ *  Deletes the specified address resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.globalAddresses.delete
  *
@@ -4240,7 +4321,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified address resource.
+ *  Deletes the specified address resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param address Name of the address resource to delete.
@@ -4254,7 +4336,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified address resource. Gets a list of available addresses
- *  by making a list() request.
+ *  by making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.globalAddresses.get
  *
@@ -4277,7 +4359,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Address.
  *
  *  Returns the specified address resource. Gets a list of available addresses
- *  by making a list() request.
+ *  by making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param address Name of the address resource to return.
@@ -4291,7 +4373,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an address resource in the specified project by using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.globalAddresses.insert
  *
@@ -4324,7 +4406,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates an address resource in the specified project by using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Address to include in the query.
  *  @param project Project ID for this request.
@@ -4337,7 +4419,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of global addresses.
+ *  Retrieves a list of global addresses. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.globalAddresses.list
  *
@@ -4405,7 +4488,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_AddressList.
  *
- *  Retrieves a list of global addresses.
+ *  Retrieves a list of global addresses. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -4420,7 +4504,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified GlobalForwardingRule resource.
+ *  Deletes the specified GlobalForwardingRule resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.globalForwardingRules.delete
  *
@@ -4455,7 +4540,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified GlobalForwardingRule resource.
+ *  Deletes the specified GlobalForwardingRule resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param forwardingRule Name of the ForwardingRule resource to delete.
@@ -4469,7 +4555,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified GlobalForwardingRule resource. Gets a list of
- *  available forwarding rules by making a list() request.
+ *  available forwarding rules by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.globalForwardingRules.get
  *
@@ -4492,7 +4579,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_ForwardingRule.
  *
  *  Returns the specified GlobalForwardingRule resource. Gets a list of
- *  available forwarding rules by making a list() request.
+ *  available forwarding rules by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param forwardingRule Name of the ForwardingRule resource to return.
@@ -4506,7 +4594,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a GlobalForwardingRule resource in the specified project using the
- *  data included in the request.
+ *  data included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.globalForwardingRules.insert
  *
@@ -4539,7 +4627,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a GlobalForwardingRule resource in the specified project using the
- *  data included in the request.
+ *  data included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ForwardingRule to include in the query.
  *  @param project Project ID for this request.
@@ -4553,7 +4641,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of GlobalForwardingRule resources available to the
- *  specified project.
+ *  specified project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.globalForwardingRules.list
  *
@@ -4622,7 +4710,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_ForwardingRuleList.
  *
  *  Retrieves a list of GlobalForwardingRule resources available to the
- *  specified project.
+ *  specified project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -4638,7 +4726,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Changes target URL for the GlobalForwardingRule resource. The new target
- *  should be of the same type as the old target.
+ *  should be of the same type as the old target. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.globalForwardingRules.setTarget
  *
@@ -4674,7 +4763,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Changes target URL for the GlobalForwardingRule resource. The new target
- *  should be of the same type as the old target.
+ *  should be of the same type as the old target. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetReference to include in the query.
  *  @param project Project ID for this request.
@@ -4690,7 +4780,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of all operations.
+ *  Retrieves an aggregated list of all operations. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.globalOperations.aggregatedList
  *
@@ -4758,7 +4849,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_OperationAggregatedList.
  *
- *  Retrieves an aggregated list of all operations.
+ *  Retrieves an aggregated list of all operations. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -4769,7 +4861,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified Operations resource.
+ *  Deletes the specified Operations resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.globalOperations.delete
  *
@@ -4791,7 +4884,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes the specified Operations resource.
+ *  Deletes the specified Operations resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param operation Name of the Operations resource to delete.
@@ -4805,7 +4899,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the specified Operations resource. Gets a list of operations by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.globalOperations.get
  *
@@ -4828,7 +4922,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Retrieves the specified Operations resource. Gets a list of operations by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param operation Name of the Operations resource to return.
@@ -4842,7 +4936,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of Operation resources contained within the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.globalOperations.list
  *
@@ -4911,7 +5005,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_OperationList.
  *
  *  Retrieves a list of Operation resources contained within the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -4927,7 +5021,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of all HealthCheck resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.healthChecks.aggregatedList
  *
@@ -4996,7 +5091,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_HealthChecksAggregatedList.
  *
  *  Retrieves the list of all HealthCheck resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Name of the project scoping this request.
  *
@@ -5007,7 +5103,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified HealthCheck resource.
+ *  Deletes the specified HealthCheck resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.healthChecks.delete
  *
@@ -5042,7 +5139,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified HealthCheck resource.
+ *  Deletes the specified HealthCheck resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param healthCheck Name of the HealthCheck resource to delete.
@@ -5056,7 +5154,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified HealthCheck resource. Gets a list of available health
- *  checks by making a list() request.
+ *  checks by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.healthChecks.get
  *
@@ -5079,7 +5178,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_HealthCheck.
  *
  *  Returns the specified HealthCheck resource. Gets a list of available health
- *  checks by making a list() request.
+ *  checks by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param healthCheck Name of the HealthCheck resource to return.
@@ -5093,7 +5193,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a HealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.healthChecks.insert
  *
@@ -5126,7 +5226,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a HealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_HealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -5140,7 +5240,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of HealthCheck resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.healthChecks.list
  *
@@ -5209,7 +5309,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_HealthCheckList.
  *
  *  Retrieves the list of HealthCheck resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -5226,7 +5326,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates a HealthCheck resource in the specified project using the data
  *  included in the request. This method supports PATCH semantics and uses the
- *  JSON merge patch format and processing rules.
+ *  JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.healthChecks.patch
  *
@@ -5263,7 +5364,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates a HealthCheck resource in the specified project using the data
  *  included in the request. This method supports PATCH semantics and uses the
- *  JSON merge patch format and processing rules.
+ *  JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_HealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -5279,7 +5381,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a HealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.healthChecks.update
  *
@@ -5315,7 +5417,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates a HealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_HealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -5330,7 +5432,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified HttpHealthCheck resource.
+ *  Deletes the specified HttpHealthCheck resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.httpHealthChecks.delete
  *
@@ -5365,7 +5468,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified HttpHealthCheck resource.
+ *  Deletes the specified HttpHealthCheck resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param httpHealthCheck Name of the HttpHealthCheck resource to delete.
@@ -5379,7 +5483,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified HttpHealthCheck resource. Gets a list of available
- *  HTTP health checks by making a list() request.
+ *  HTTP health checks by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.httpHealthChecks.get
  *
@@ -5402,7 +5507,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_HttpHealthCheck.
  *
  *  Returns the specified HttpHealthCheck resource. Gets a list of available
- *  HTTP health checks by making a list() request.
+ *  HTTP health checks by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param httpHealthCheck Name of the HttpHealthCheck resource to return.
@@ -5416,7 +5522,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a HttpHealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.httpHealthChecks.insert
  *
@@ -5449,7 +5555,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a HttpHealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_HttpHealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -5463,7 +5569,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of HttpHealthCheck resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.httpHealthChecks.list
  *
@@ -5532,7 +5638,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_HttpHealthCheckList.
  *
  *  Retrieves the list of HttpHealthCheck resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -5549,7 +5655,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates a HttpHealthCheck resource in the specified project using the data
  *  included in the request. This method supports PATCH semantics and uses the
- *  JSON merge patch format and processing rules.
+ *  JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.httpHealthChecks.patch
  *
@@ -5586,7 +5693,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates a HttpHealthCheck resource in the specified project using the data
  *  included in the request. This method supports PATCH semantics and uses the
- *  JSON merge patch format and processing rules.
+ *  JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_HttpHealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -5602,7 +5710,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a HttpHealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.httpHealthChecks.update
  *
@@ -5638,7 +5746,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates a HttpHealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_HttpHealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -5653,7 +5761,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified HttpsHealthCheck resource.
+ *  Deletes the specified HttpsHealthCheck resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.httpsHealthChecks.delete
  *
@@ -5688,7 +5797,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified HttpsHealthCheck resource.
+ *  Deletes the specified HttpsHealthCheck resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param httpsHealthCheck Name of the HttpsHealthCheck resource to delete.
@@ -5702,7 +5812,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified HttpsHealthCheck resource. Gets a list of available
- *  HTTPS health checks by making a list() request.
+ *  HTTPS health checks by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.httpsHealthChecks.get
  *
@@ -5725,7 +5836,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_HttpsHealthCheck.
  *
  *  Returns the specified HttpsHealthCheck resource. Gets a list of available
- *  HTTPS health checks by making a list() request.
+ *  HTTPS health checks by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param httpsHealthCheck Name of the HttpsHealthCheck resource to return.
@@ -5739,7 +5851,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a HttpsHealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.httpsHealthChecks.insert
  *
@@ -5772,7 +5884,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a HttpsHealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_HttpsHealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -5786,7 +5898,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of HttpsHealthCheck resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.httpsHealthChecks.list
  *
@@ -5855,7 +5967,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_HttpsHealthCheckList.
  *
  *  Retrieves the list of HttpsHealthCheck resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -5872,7 +5984,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates a HttpsHealthCheck resource in the specified project using the data
  *  included in the request. This method supports PATCH semantics and uses the
- *  JSON merge patch format and processing rules.
+ *  JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.httpsHealthChecks.patch
  *
@@ -5909,7 +6022,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates a HttpsHealthCheck resource in the specified project using the data
  *  included in the request. This method supports PATCH semantics and uses the
- *  JSON merge patch format and processing rules.
+ *  JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_HttpsHealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -5925,7 +6039,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a HttpsHealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.httpsHealthChecks.update
  *
@@ -5961,7 +6075,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates a HttpsHealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_HttpsHealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -5976,7 +6090,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified image.
+ *  Deletes the specified image. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.images.delete
  *
@@ -6011,7 +6125,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified image.
+ *  Deletes the specified image. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param image Name of the image resource to delete.
@@ -6026,6 +6140,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the deprecation status of an image.
  *  If an empty request body is given, clears the deprecation status instead.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.images.deprecate
  *
@@ -6062,6 +6177,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the deprecation status of an image.
  *  If an empty request body is given, clears the deprecation status instead.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_DeprecationStatus to include in the query.
  *  @param project Project ID for this request.
@@ -6077,7 +6193,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified image. Gets a list of available images by making a
- *  list() request.
+ *  list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.images.get
  *
@@ -6100,7 +6216,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Image.
  *
  *  Returns the specified image. Gets a list of available images by making a
- *  list() request.
+ *  list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param image Name of the image resource to return.
@@ -6114,7 +6230,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the latest image that is part of an image family and is not
- *  deprecated.
+ *  deprecated. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.images.getFromFamily
  *
@@ -6137,7 +6253,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Image.
  *
  *  Returns the latest image that is part of an image family and is not
- *  deprecated.
+ *  deprecated. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param family Name of the image family to search for.
@@ -6151,7 +6267,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.images.getIamPolicy
  *
@@ -6174,7 +6290,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param resource Name or id of the resource for this request.
@@ -6188,7 +6304,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an image in the specified project using the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.images.insert
  *
@@ -6227,7 +6343,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates an image in the specified project using the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Image to include in the query.
  *  @param project Project ID for this request.
@@ -6245,7 +6361,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  does not get any images that belong to other projects, including
  *  publicly-available images, like Debian 8. If you want to get a list of
  *  publicly-available images, use this method to make a request to the
- *  respective image project, such as debian-cloud or windows-cloud.
+ *  respective image project, such as debian-cloud or windows-cloud. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.images.list
  *
@@ -6318,7 +6435,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  does not get any images that belong to other projects, including
  *  publicly-available images, like Debian 8. If you want to get a list of
  *  publicly-available images, use this method to make a request to the
- *  respective image project, such as debian-cloud or windows-cloud.
+ *  respective image project, such as debian-cloud or windows-cloud. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -6334,7 +6452,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.images.setIamPolicy
  *
@@ -6356,7 +6474,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
  *    query.
@@ -6373,7 +6491,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the labels on an image. To learn more about labels, read the Labeling
- *  Resources documentation.
+ *  Resources documentation. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.images.setLabels
  *
@@ -6395,7 +6513,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Sets the labels on an image. To learn more about labels, read the Labeling
- *  Resources documentation.
+ *  Resources documentation. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_GlobalSetLabelsRequest to include in the
  *    query.
@@ -6411,7 +6529,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.images.testIamPermissions
  *
@@ -6433,7 +6552,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -6461,6 +6581,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.abandonInstances
  *
@@ -6514,6 +6635,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c
  *    GTLRCompute_InstanceGroupManagersAbandonInstancesRequest to include in the
@@ -6533,7 +6655,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the list of managed instance groups and groups them by zone.
+ *  Retrieves the list of managed instance groups and groups them by zone. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.aggregatedList
  *
@@ -6601,7 +6724,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupManagerAggregatedList.
  *
- *  Retrieves the list of managed instance groups and groups them by zone.
+ *  Retrieves the list of managed instance groups and groups them by zone. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -6614,7 +6738,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes the specified managed instance group and all of the instances in
  *  that group. Note that the instance group must not belong to a backend
- *  service. Read Deleting an instance group for more information.
+ *  service. Read Deleting an instance group for more information. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.delete
  *
@@ -6658,7 +6783,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes the specified managed instance group and all of the instances in
  *  that group. Note that the instance group must not belong to a backend
- *  service. Read Deleting an instance group for more information.
+ *  service. Read Deleting an instance group for more information. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -6686,6 +6812,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.deleteInstances
  *
@@ -6738,6 +6865,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceGroupManagersDeleteInstancesRequest
  *    to include in the query.
@@ -6757,7 +6885,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns all of the details about the specified managed instance group. Gets
- *  a list of available managed instance groups by making a list() request.
+ *  a list of available managed instance groups by making a list() request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.get
  *
@@ -6787,7 +6916,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InstanceGroupManager.
  *
  *  Returns all of the details about the specified managed instance group. Gets
- *  a list of available managed instance groups by making a list() request.
+ *  a list of available managed instance groups by making a list() request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -6810,7 +6940,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  created. You must separately verify the status of the individual instances
  *  with the listmanagedinstances method.
  *  A managed instance group can have up to 1000 VM instances per group. Please
- *  contact Cloud Support if you need an increase in this limit.
+ *  contact Cloud Support if you need an increase in this limit. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.insert
  *
@@ -6856,7 +6987,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  created. You must separately verify the status of the individual instances
  *  with the listmanagedinstances method.
  *  A managed instance group can have up to 1000 VM instances per group. Please
- *  contact Cloud Support if you need an increase in this limit.
+ *  contact Cloud Support if you need an increase in this limit. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
  *    query.
@@ -6874,7 +7006,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of managed instance groups that are contained within the
- *  specified project and zone.
+ *  specified project and zone. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.list
  *
@@ -6950,7 +7082,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InstanceGroupManagerList.
  *
  *  Retrieves a list of managed instance groups that are contained within the
- *  specified project and zone.
+ *  specified project and zone. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -6972,7 +7104,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  the list has a currentAction, which indicates the action that the managed
  *  instance group is performing on the instance. For example, if the group is
  *  still creating an instance, the currentAction is CREATING. If a previous
- *  action failed, the list displays the errors for that failed action.
+ *  action failed, the list displays the errors for that failed action. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.listManagedInstances
  *
@@ -7054,7 +7187,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  the list has a currentAction, which indicates the action that the managed
  *  instance group is performing on the instance. For example, if the group is
  *  still creating an instance, the currentAction is CREATING. If a previous
- *  action failed, the list displays the errors for that failed action.
+ *  action failed, the list displays the errors for that failed action. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -7075,7 +7209,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  if the instances in the group are still in the process of being patched. You
  *  must separately verify the status of the individual instances with the
  *  listManagedInstances method. This method supports PATCH semantics and uses
- *  the JSON merge patch format and processing rules.
+ *  the JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.patch
  *
@@ -7122,7 +7257,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  if the instances in the group are still in the process of being patched. You
  *  must separately verify the status of the individual instances with the
  *  listManagedInstances method. This method supports PATCH semantics and uses
- *  the JSON merge patch format and processing rules.
+ *  the JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
  *    query.
@@ -7151,6 +7287,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.recreateInstances
  *
@@ -7202,6 +7339,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c
  *    GTLRCompute_InstanceGroupManagersRecreateInstancesRequest to include in
@@ -7236,7 +7374,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  This list is subject to change.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
+ *  duration has elapsed before the VM instance is removed or deleted. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.resize
  *
@@ -7300,7 +7439,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  This list is subject to change.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
+ *  duration has elapsed before the VM instance is removed or deleted. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -7322,7 +7462,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Specifies the instance template to use when creating new instances in this
  *  group. The templates for existing instances in the group do not change
- *  unless you recreate them.
+ *  unless you recreate them. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.setInstanceTemplate
  *
@@ -7366,7 +7506,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Specifies the instance template to use when creating new instances in this
  *  group. The templates for existing instances in the group do not change
- *  unless you recreate them.
+ *  unless you recreate them. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c
  *    GTLRCompute_InstanceGroupManagersSetInstanceTemplateRequest to include in
@@ -7391,7 +7531,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  instances in the managed instance group. This operation is marked DONE when
  *  you make the request even if the instances have not yet been added to their
  *  target pools. The change might take some time to apply to all of the
- *  instances in the group depending on the size of the group.
+ *  instances in the group depending on the size of the group. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroupManagers.setTargetPools
  *
@@ -7438,7 +7579,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  instances in the managed instance group. This operation is marked DONE when
  *  you make the request even if the instances have not yet been added to their
  *  target pools. The change might take some time to apply to all of the
- *  instances in the group depending on the size of the group.
+ *  instances in the group depending on the size of the group. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceGroupManagersSetTargetPoolsRequest
  *    to include in the query.
@@ -7459,7 +7601,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Adds a list of instances to the specified instance group. All of the
  *  instances in the instance group must be in the same network/subnetwork. Read
- *  Adding instances for more information.
+ *  Adding instances for more information. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroups.addInstances
  *
@@ -7503,7 +7646,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Adds a list of instances to the specified instance group. All of the
  *  instances in the instance group must be in the same network/subnetwork. Read
- *  Adding instances for more information.
+ *  Adding instances for more information. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceGroupsAddInstancesRequest to
  *    include in the query.
@@ -7523,7 +7667,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the list of instance groups and sorts them by zone.
+ *  Retrieves the list of instance groups and sorts them by zone. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroups.aggregatedList
  *
@@ -7591,7 +7736,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupAggregatedList.
  *
- *  Retrieves the list of instance groups and sorts them by zone.
+ *  Retrieves the list of instance groups and sorts them by zone. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -7604,7 +7750,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes the specified instance group. The instances in the group are not
  *  deleted. Note that instance group must not belong to a backend service. Read
- *  Deleting an instance group for more information.
+ *  Deleting an instance group for more information. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroups.delete
  *
@@ -7648,7 +7795,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes the specified instance group. The instances in the group are not
  *  deleted. Note that instance group must not belong to a backend service. Read
- *  Deleting an instance group for more information.
+ *  Deleting an instance group for more information. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the instance group is
@@ -7665,7 +7813,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified instance group. Gets a list of available instance
- *  groups by making a list() request.
+ *  groups by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.instanceGroups.get
  *
@@ -7695,7 +7844,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InstanceGroup.
  *
  *  Returns the specified instance group. Gets a list of available instance
- *  groups by making a list() request.
+ *  groups by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the instance group is
@@ -7712,7 +7862,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an instance group in the specified project using the parameters that
- *  are included in the request.
+ *  are included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroups.insert
  *
@@ -7752,7 +7902,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates an instance group in the specified project using the parameters that
- *  are included in the request.
+ *  are included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceGroup to include in the query.
  *  @param project Project ID for this request.
@@ -7769,7 +7919,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of instance groups that are located in the specified
- *  project and zone.
+ *  project and zone. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroups.list
  *
@@ -7845,7 +7995,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InstanceGroupList.
  *
  *  Retrieves the list of instance groups that are located in the specified
- *  project and zone.
+ *  project and zone. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the instance group is
@@ -7863,7 +8013,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the instances in the specified instance group.
+ *  Lists the instances in the specified instance group. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroups.listInstances
  *
@@ -7944,7 +8095,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupsListInstances.
  *
- *  Lists the instances in the specified instance group.
+ *  Lists the instances in the specified instance group. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceGroupsListInstancesRequest to
  *    include in the query.
@@ -7972,7 +8124,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  not delete those instances.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
- *  duration before the VM instance is removed or deleted.
+ *  duration before the VM instance is removed or deleted. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroups.removeInstances
  *
@@ -8021,7 +8174,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  not delete those instances.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
- *  duration before the VM instance is removed or deleted.
+ *  duration before the VM instance is removed or deleted. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceGroupsRemoveInstancesRequest to
  *    include in the query.
@@ -8041,7 +8195,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the named ports for the specified instance group.
+ *  Sets the named ports for the specified instance group. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instanceGroups.setNamedPorts
  *
@@ -8083,7 +8238,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets the named ports for the specified instance group.
+ *  Sets the named ports for the specified instance group. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceGroupsSetNamedPortsRequest to
  *    include in the query.
@@ -8103,7 +8259,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Adds an access config to an instance's network interface.
+ *  Adds an access config to an instance's network interface. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.addAccessConfig
  *
@@ -8148,7 +8305,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Adds an access config to an instance's network interface.
+ *  Adds an access config to an instance's network interface. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_AccessConfig to include in the query.
  *  @param project Project ID for this request.
@@ -8169,7 +8327,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves aggregated list of all of the instances in your project across all
- *  regions and zones.
+ *  regions and zones. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.aggregatedList
  *
@@ -8238,7 +8396,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InstanceAggregatedList.
  *
  *  Retrieves aggregated list of all of the instances in your project across all
- *  regions and zones.
+ *  regions and zones. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -8252,7 +8410,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Attaches an existing Disk resource to an instance. You must first create the
  *  disk before you can attach it. It is not possible to create and attach a
  *  disk at the same time. For more information, read Adding a persistent disk
- *  to your instance.
+ *  to your instance. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.attachDisk
  *
@@ -8303,7 +8461,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Attaches an existing Disk resource to an instance. You must first create the
  *  disk before you can attach it. It is not possible to create and attach a
  *  disk at the same time. For more information, read Adding a persistent disk
- *  to your instance.
+ *  to your instance. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_AttachedDisk to include in the query.
  *  @param project Project ID for this request.
@@ -8321,7 +8479,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes the specified Instance resource. For more information, see Stopping
- *  or Deleting an Instance.
+ *  or Deleting an Instance. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.delete
  *
@@ -8364,7 +8522,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Deletes the specified Instance resource. For more information, see Stopping
- *  or Deleting an Instance.
+ *  or Deleting an Instance. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -8379,7 +8537,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an access config from an instance's network interface.
+ *  Deletes an access config from an instance's network interface. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.deleteAccessConfig
  *
@@ -8427,7 +8586,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes an access config from an instance's network interface.
+ *  Deletes an access config from an instance's network interface. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -8446,7 +8606,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Detaches a disk from an instance.
+ *  Detaches a disk from an instance. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.instances.detachDisk
  *
@@ -8494,7 +8655,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Detaches a disk from an instance.
+ *  Detaches a disk from an instance. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -8513,7 +8675,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified Instance resource. Gets a list of available instances
- *  by making a list() request.
+ *  by making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.get
  *
@@ -8543,7 +8705,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Instance.
  *
  *  Returns the specified Instance resource. Gets a list of available instances
- *  by making a list() request.
+ *  by making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -8558,7 +8720,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified guest attributes entry.
+ *  Returns the specified guest attributes entry. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instances.getGuestAttributes
  *
@@ -8593,7 +8756,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_GuestAttributes.
  *
- *  Returns the specified guest attributes entry.
+ *  Returns the specified guest attributes entry. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -8609,7 +8773,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.getIamPolicy
  *
@@ -8639,7 +8803,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -8654,7 +8818,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the last 1 MB of serial port output from the specified instance.
+ *  Returns the last 1 MB of serial port output from the specified instance. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.getSerialPortOutput
  *
@@ -8699,7 +8864,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_SerialPortOutput.
  *
- *  Returns the last 1 MB of serial port output from the specified instance.
+ *  Returns the last 1 MB of serial port output from the specified instance. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -8714,7 +8880,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the Shielded Instance Identity of an instance
+ *  Returns the Shielded Instance Identity of an instance (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instances.getShieldedInstanceIdentity
  *
@@ -8743,7 +8910,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ShieldedInstanceIdentity.
  *
- *  Returns the Shielded Instance Identity of an instance
+ *  Returns the Shielded Instance Identity of an instance (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -8759,7 +8927,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an instance resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.insert
  *
@@ -8810,7 +8978,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates an instance resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Instance to include in the query.
  *  @param project Project ID for this request.
@@ -8825,7 +8993,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the list of instances contained within the specified zone.
+ *  Retrieves the list of instances contained within the specified zone. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.list
  *
@@ -8900,7 +9069,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InstanceList.
  *
- *  Retrieves the list of instances contained within the specified zone.
+ *  Retrieves the list of instances contained within the specified zone. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -8918,7 +9088,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of referrers to instances contained within the specified
- *  zone. For more information, read Viewing Referrers to VM Instances.
+ *  zone. For more information, read Viewing Referrers to VM Instances. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.listReferrers
  *
@@ -9000,7 +9171,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InstanceListReferrers.
  *
  *  Retrieves the list of referrers to instances contained within the specified
- *  zone. For more information, read Viewing Referrers to VM Instances.
+ *  zone. For more information, read Viewing Referrers to VM Instances. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -9021,7 +9193,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Performs a reset on the instance. This is a hard reset the VM does not do a
- *  graceful shutdown. For more information, see Resetting an instance.
+ *  graceful shutdown. For more information, see Resetting an instance. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.reset
  *
@@ -9064,7 +9237,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Performs a reset on the instance. This is a hard reset the VM does not do a
- *  graceful shutdown. For more information, see Resetting an instance.
+ *  graceful shutdown. For more information, see Resetting an instance. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -9079,7 +9253,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets deletion protection on the instance.
+ *  Sets deletion protection on the instance. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instances.setDeletionProtection
  *
@@ -9128,7 +9303,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets deletion protection on the instance.
+ *  Sets deletion protection on the instance. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -9143,7 +9319,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the auto-delete flag for a disk attached to an instance.
+ *  Sets the auto-delete flag for a disk attached to an instance. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.setDiskAutoDelete
  *
@@ -9194,7 +9371,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets the auto-delete flag for a disk attached to an instance.
+ *  Sets the auto-delete flag for a disk attached to an instance. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -9216,7 +9394,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.setIamPolicy
  *
@@ -9245,7 +9423,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ZoneSetPolicyRequest to include in the
  *    query.
@@ -9264,7 +9442,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets labels on an instance. To learn more about labels, read the Labeling
- *  Resources documentation.
+ *  Resources documentation. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.setLabels
  *
@@ -9307,7 +9485,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Sets labels on an instance. To learn more about labels, read the Labeling
- *  Resources documentation.
+ *  Resources documentation. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstancesSetLabelsRequest to include in the
  *    query.
@@ -9326,7 +9504,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Changes the number and/or type of accelerator for a stopped instance to the
- *  values specified in the request.
+ *  values specified in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.setMachineResources
  *
@@ -9369,7 +9547,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Changes the number and/or type of accelerator for a stopped instance to the
- *  values specified in the request.
+ *  values specified in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstancesSetMachineResourcesRequest to
  *    include in the query.
@@ -9388,7 +9566,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Changes the machine type for a stopped instance to the machine type
- *  specified in the request.
+ *  specified in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.setMachineType
  *
@@ -9431,7 +9609,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Changes the machine type for a stopped instance to the machine type
- *  specified in the request.
+ *  specified in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstancesSetMachineTypeRequest to include
  *    in the query.
@@ -9450,7 +9628,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets metadata for the specified instance to the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.setMetadata
  *
@@ -9493,7 +9671,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Sets metadata for the specified instance to the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Metadata to include in the query.
  *  @param project Project ID for this request.
@@ -9512,7 +9690,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Changes the minimum CPU platform that this instance should use. This method
  *  can only be called on a stopped instance. For more information, read
- *  Specifying a Minimum CPU Platform.
+ *  Specifying a Minimum CPU Platform. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.instances.setMinCpuPlatform
  *
@@ -9556,7 +9735,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Changes the minimum CPU platform that this instance should use. This method
  *  can only be called on a stopped instance. For more information, read
- *  Specifying a Minimum CPU Platform.
+ *  Specifying a Minimum CPU Platform. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param object The @c GTLRCompute_InstancesSetMinCpuPlatformRequest to
  *    include in the query.
@@ -9574,7 +9754,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets an instance's scheduling options.
+ *  Sets an instance's scheduling options. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instances.setScheduling
  *
@@ -9616,7 +9797,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets an instance's scheduling options.
+ *  Sets an instance's scheduling options. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Scheduling to include in the query.
  *  @param project Project ID for this request.
@@ -9634,7 +9816,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the service account on the instance. For more information, read
- *  Changing the service account and access scopes for an instance.
+ *  Changing the service account and access scopes for an instance. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.setServiceAccount
  *
@@ -9677,7 +9860,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Sets the service account on the instance. For more information, read
- *  Changing the service account and access scopes for an instance.
+ *  Changing the service account and access scopes for an instance. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstancesSetServiceAccountRequest to
  *    include in the query.
@@ -9697,7 +9881,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the Shielded Instance integrity policy for an instance. You can only
  *  use this method on a running instance. This method supports PATCH semantics
- *  and uses the JSON merge patch format and processing rules.
+ *  and uses the JSON merge patch format and processing rules. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.setShieldedInstanceIntegrityPolicy
  *
@@ -9741,7 +9926,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the Shielded Instance integrity policy for an instance. You can only
  *  use this method on a running instance. This method supports PATCH semantics
- *  and uses the JSON merge patch format and processing rules.
+ *  and uses the JSON merge patch format and processing rules. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ShieldedInstanceIntegrityPolicy to include
  *    in the query.
@@ -9760,7 +9946,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets network tags for the specified instance to the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.setTags
  *
@@ -9803,7 +9989,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Sets network tags for the specified instance to the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Tags to include in the query.
  *  @param project Project ID for this request.
@@ -9820,7 +10006,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Simulates a maintenance event on the instance.
+ *  Simulates a maintenance event on the instance. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instances.simulateMaintenanceEvent
  *
@@ -9848,7 +10035,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Simulates a maintenance event on the instance.
+ *  Simulates a maintenance event on the instance. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -9864,7 +10052,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts an instance that was stopped using the instances().stop method. For
- *  more information, see Restart an instance.
+ *  more information, see Restart an instance. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instances.start
  *
@@ -9907,7 +10096,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Starts an instance that was stopped using the instances().stop method. For
- *  more information, see Restart an instance.
+ *  more information, see Restart an instance. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -9923,7 +10113,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts an instance that was stopped using the instances().stop method. For
- *  more information, see Restart an instance.
+ *  more information, see Restart an instance. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instances.startWithEncryptionKey
  *
@@ -9966,7 +10157,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Starts an instance that was stopped using the instances().stop method. For
- *  more information, see Restart an instance.
+ *  more information, see Restart an instance. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstancesStartWithEncryptionKeyRequest to
  *    include in the query.
@@ -9989,7 +10181,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  usage charges while they are stopped. However, resources that the VM is
  *  using, such as persistent disks and static IP addresses, will continue to be
  *  charged until they are deleted. For more information, see Stopping an
- *  instance.
+ *  instance. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.stop
  *
@@ -10036,7 +10228,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  usage charges while they are stopped. However, resources that the VM is
  *  using, such as persistent disks and static IP addresses, will continue to be
  *  charged until they are deleted. For more information, see Stopping an
- *  instance.
+ *  instance. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -10051,7 +10243,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.testIamPermissions
  *
@@ -10080,7 +10273,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -10100,7 +10294,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates the specified access config from an instance's network interface
  *  with the data included in the request. This method supports PATCH semantics
- *  and uses the JSON merge patch format and processing rules.
+ *  and uses the JSON merge patch format and processing rules. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.updateAccessConfig
  *
@@ -10147,7 +10342,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates the specified access config from an instance's network interface
  *  with the data included in the request. This method supports PATCH semantics
- *  and uses the JSON merge patch format and processing rules.
+ *  and uses the JSON merge patch format and processing rules. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_AccessConfig to include in the query.
  *  @param project Project ID for this request.
@@ -10169,7 +10365,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates the Display config for a VM instance. You can only use this method
  *  on a stopped VM instance. This method supports PATCH semantics and uses the
- *  JSON merge patch format and processing rules.
+ *  JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instances.updateDisplayDevice
  *
@@ -10213,7 +10410,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates the Display config for a VM instance. You can only use this method
  *  on a stopped VM instance. This method supports PATCH semantics and uses the
- *  JSON merge patch format and processing rules.
+ *  JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_DisplayDevice to include in the query.
  *  @param project Project ID for this request.
@@ -10231,7 +10429,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates an instance's network interface. This method follows PATCH
- *  semantics.
+ *  semantics. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instances.updateNetworkInterface
  *
@@ -10277,7 +10475,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates an instance's network interface. This method follows PATCH
- *  semantics.
+ *  semantics. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NetworkInterface to include in the query.
  *  @param project Project ID for this request.
@@ -10298,7 +10496,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates the Shielded Instance config for an instance. You can only use this
  *  method on a stopped instance. This method supports PATCH semantics and uses
- *  the JSON merge patch format and processing rules.
+ *  the JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instances.updateShieldedInstanceConfig
  *
@@ -10342,7 +10541,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates the Shielded Instance config for an instance. You can only use this
  *  method on a stopped instance. This method supports PATCH semantics and uses
- *  the JSON merge patch format and processing rules.
+ *  the JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ShieldedInstanceConfig to include in the
  *    query.
@@ -10362,7 +10562,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes the specified instance template. Deleting an instance template is
  *  permanent and cannot be undone. It is not possible to delete templates that
- *  are already in use by a managed instance group.
+ *  are already in use by a managed instance group. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instanceTemplates.delete
  *
@@ -10399,7 +10600,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes the specified instance template. Deleting an instance template is
  *  permanent and cannot be undone. It is not possible to delete templates that
- *  are already in use by a managed instance group.
+ *  are already in use by a managed instance group. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param instanceTemplate The name of the instance template to delete.
@@ -10413,7 +10615,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified instance template. Gets a list of available instance
- *  templates by making a list() request.
+ *  templates by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.instanceTemplates.get
  *
@@ -10436,7 +10639,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InstanceTemplate.
  *
  *  Returns the specified instance template. Gets a list of available instance
- *  templates by making a list() request.
+ *  templates by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param instanceTemplate The name of the instance template.
@@ -10450,7 +10654,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceTemplates.getIamPolicy
  *
@@ -10473,7 +10677,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param resource Name or id of the resource for this request.
@@ -10489,7 +10693,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates an instance template in the specified project using the data that is
  *  included in the request. If you are creating a new template to update an
  *  existing instance group, your new instance template must use the same
- *  network or, if applicable, the same subnetwork as the original template.
+ *  network or, if applicable, the same subnetwork as the original template. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceTemplates.insert
  *
@@ -10524,7 +10729,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates an instance template in the specified project using the data that is
  *  included in the request. If you are creating a new template to update an
  *  existing instance group, your new instance template must use the same
- *  network or, if applicable, the same subnetwork as the original template.
+ *  network or, if applicable, the same subnetwork as the original template. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceTemplate to include in the query.
  *  @param project Project ID for this request.
@@ -10538,7 +10744,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of instance templates that are contained within the
- *  specified project.
+ *  specified project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceTemplates.list
  *
@@ -10607,7 +10813,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InstanceTemplateList.
  *
  *  Retrieves a list of instance templates that are contained within the
- *  specified project.
+ *  specified project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -10623,7 +10829,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceTemplates.setIamPolicy
  *
@@ -10645,7 +10851,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
  *    query.
@@ -10661,7 +10867,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.instanceTemplates.testIamPermissions
  *
@@ -10683,7 +10890,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -10699,7 +10907,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of interconnect attachments.
+ *  Retrieves an aggregated list of interconnect attachments. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.interconnectAttachments.aggregatedList
  *
@@ -10767,7 +10976,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InterconnectAttachmentAggregatedList.
  *
- *  Retrieves an aggregated list of interconnect attachments.
+ *  Retrieves an aggregated list of interconnect attachments. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -10778,7 +10988,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified interconnect attachment.
+ *  Deletes the specified interconnect attachment. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.interconnectAttachments.delete
  *
@@ -10816,7 +11027,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified interconnect attachment.
+ *  Deletes the specified interconnect attachment. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -10831,7 +11043,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified interconnect attachment.
+ *  Returns the specified interconnect attachment. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.interconnectAttachments.get
  *
@@ -10856,7 +11069,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InterconnectAttachment.
  *
- *  Returns the specified interconnect attachment.
+ *  Returns the specified interconnect attachment. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -10872,7 +11086,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an InterconnectAttachment in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.interconnectAttachments.insert
  *
@@ -10908,7 +11122,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates an InterconnectAttachment in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InterconnectAttachment to include in the
  *    query.
@@ -10925,7 +11139,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of interconnect attachments contained within the
- *  specified region.
+ *  specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.interconnectAttachments.list
  *
@@ -10997,7 +11211,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InterconnectAttachmentList.
  *
  *  Retrieves the list of interconnect attachments contained within the
- *  specified region.
+ *  specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -11016,7 +11230,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates the specified interconnect attachment with the data included in the
  *  request. This method supports PATCH semantics and uses the JSON merge patch
- *  format and processing rules.
+ *  format and processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.interconnectAttachments.patch
  *
@@ -11056,7 +11270,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates the specified interconnect attachment with the data included in the
  *  request. This method supports PATCH semantics and uses the JSON merge patch
- *  format and processing rules.
+ *  format and processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InterconnectAttachment to include in the
  *    query.
@@ -11075,7 +11289,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the details for the specified interconnect location. Gets a list of
- *  available interconnect locations by making a list() request.
+ *  available interconnect locations by making a list() request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.interconnectLocations.get
  *
@@ -11098,7 +11313,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InterconnectLocation.
  *
  *  Returns the details for the specified interconnect location. Gets a list of
- *  available interconnect locations by making a list() request.
+ *  available interconnect locations by making a list() request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param interconnectLocation Name of the interconnect location to return.
@@ -11112,7 +11328,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of interconnect locations available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.interconnectLocations.list
  *
@@ -11181,7 +11397,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_InterconnectLocationList.
  *
  *  Retrieves the list of interconnect locations available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -11196,7 +11412,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified interconnect.
+ *  Deletes the specified interconnect. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.interconnects.delete
  *
@@ -11231,7 +11448,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified interconnect.
+ *  Deletes the specified interconnect. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param interconnect Name of the interconnect to delete.
@@ -11245,7 +11463,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified interconnect. Get a list of available interconnects by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.interconnects.get
  *
@@ -11268,7 +11486,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Interconnect.
  *
  *  Returns the specified interconnect. Get a list of available interconnects by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param interconnect Name of the interconnect to return.
@@ -11281,7 +11499,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the interconnectDiagnostics for the specified interconnect.
+ *  Returns the interconnectDiagnostics for the specified interconnect. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.interconnects.getDiagnostics
  *
@@ -11303,7 +11522,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InterconnectsGetDiagnosticsResponse.
  *
- *  Returns the interconnectDiagnostics for the specified interconnect.
+ *  Returns the interconnectDiagnostics for the specified interconnect. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param interconnect Name of the interconnect resource to query.
@@ -11317,7 +11537,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a Interconnect in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.interconnects.insert
  *
@@ -11350,7 +11570,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a Interconnect in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Interconnect to include in the query.
  *  @param project Project ID for this request.
@@ -11363,7 +11583,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the list of interconnect available to the specified project.
+ *  Retrieves the list of interconnect available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.interconnects.list
  *
@@ -11431,7 +11652,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InterconnectList.
  *
- *  Retrieves the list of interconnect available to the specified project.
+ *  Retrieves the list of interconnect available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -11448,7 +11670,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates the specified interconnect with the data included in the request.
  *  This method supports PATCH semantics and uses the JSON merge patch format
- *  and processing rules.
+ *  and processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.interconnects.patch
  *
@@ -11485,7 +11707,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates the specified interconnect with the data included in the request.
  *  This method supports PATCH semantics and uses the JSON merge patch format
- *  and processing rules.
+ *  and processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Interconnect to include in the query.
  *  @param project Project ID for this request.
@@ -11501,7 +11723,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Return a specified license code. License codes are mirrored across all
- *  projects that have permissions to read the License Code.
+ *  projects that have permissions to read the License Code. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.licenseCodes.get
  *
@@ -11524,7 +11747,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_LicenseCode.
  *
  *  Return a specified license code. License codes are mirrored across all
- *  projects that have permissions to read the License Code.
+ *  projects that have permissions to read the License Code. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param licenseCode Number corresponding to the License code resource to
@@ -11538,7 +11762,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.licenseCodes.testIamPermissions
  *
@@ -11560,7 +11785,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -11576,7 +11802,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified license.
+ *  Deletes the specified license. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.licenses.delete
  *
@@ -11611,7 +11837,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified license.
+ *  Deletes the specified license. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param license Name of the license resource to delete.
@@ -11624,7 +11850,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified License resource.
+ *  Returns the specified License resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.licenses.get
  *
@@ -11646,7 +11873,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_License.
  *
- *  Returns the specified License resource.
+ *  Returns the specified License resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param license Name of the License resource to return.
@@ -11660,7 +11888,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.licenses.getIamPolicy
  *
@@ -11683,7 +11911,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param resource Name or id of the resource for this request.
@@ -11696,7 +11924,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Create a License resource in the specified project.
+ *  Create a License resource in the specified project. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.licenses.insert
  *
@@ -11731,7 +11960,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Create a License resource in the specified project.
+ *  Create a License resource in the specified project. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_License to include in the query.
  *  @param project Project ID for this request.
@@ -11749,7 +11979,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  licenses attached to publicly-available images, like Debian 9. If you want
  *  to get a list of publicly-available licenses, use this method to make a
  *  request to the respective image project, such as debian-cloud or
- *  windows-cloud.
+ *  windows-cloud. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.licenses.list
  *
@@ -11822,7 +12052,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  licenses attached to publicly-available images, like Debian 9. If you want
  *  to get a list of publicly-available licenses, use this method to make a
  *  request to the respective image project, such as debian-cloud or
- *  windows-cloud.
+ *  windows-cloud. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -11838,7 +12068,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.licenses.setIamPolicy
  *
@@ -11860,7 +12090,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
  *    query.
@@ -11876,7 +12106,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.licenses.testIamPermissions
  *
@@ -11898,7 +12129,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -11914,7 +12146,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of machine types.
+ *  Retrieves an aggregated list of machine types. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.machineTypes.aggregatedList
  *
@@ -11982,7 +12215,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_MachineTypeAggregatedList.
  *
- *  Retrieves an aggregated list of machine types.
+ *  Retrieves an aggregated list of machine types. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -11994,7 +12228,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified machine type. Gets a list of available machine types
- *  by making a list() request.
+ *  by making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.machineTypes.get
  *
@@ -12024,7 +12258,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_MachineType.
  *
  *  Returns the specified machine type. Gets a list of available machine types
- *  by making a list() request.
+ *  by making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -12039,7 +12273,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of machine types available to the specified project.
+ *  Retrieves a list of machine types available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.machineTypes.list
  *
@@ -12114,7 +12349,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_MachineTypeList.
  *
- *  Retrieves a list of machine types available to the specified project.
+ *  Retrieves a list of machine types available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -12131,7 +12367,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the list of network endpoint groups and sorts them by zone.
+ *  Retrieves the list of network endpoint groups and sorts them by zone. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networkEndpointGroups.aggregatedList
  *
@@ -12199,7 +12436,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupAggregatedList.
  *
- *  Retrieves the list of network endpoint groups and sorts them by zone.
+ *  Retrieves the list of network endpoint groups and sorts them by zone. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -12211,6 +12449,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Attach a list of network endpoints to the specified network endpoint group.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networkEndpointGroups.attachNetworkEndpoints
  *
@@ -12257,6 +12496,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Attach a list of network endpoints to the specified network endpoint group.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NetworkEndpointGroupsAttachEndpointsRequest
  *    to include in the query.
@@ -12279,7 +12519,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes the specified network endpoint group. The network endpoints in the
  *  NEG and the VM instances they belong to are not terminated when the NEG is
  *  deleted. Note that the NEG cannot be deleted if there are backend services
- *  referencing it.
+ *  referencing it. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networkEndpointGroups.delete
  *
@@ -12328,7 +12568,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes the specified network endpoint group. The network endpoints in the
  *  NEG and the VM instances they belong to are not terminated when the NEG is
  *  deleted. Note that the NEG cannot be deleted if there are backend services
- *  referencing it.
+ *  referencing it. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the network endpoint group is
@@ -12346,7 +12586,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Detach a list of network endpoints from the specified network endpoint
- *  group.
+ *  group. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networkEndpointGroups.detachNetworkEndpoints
  *
@@ -12393,7 +12633,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Detach a list of network endpoints from the specified network endpoint
- *  group.
+ *  group. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NetworkEndpointGroupsDetachEndpointsRequest
  *    to include in the query.
@@ -12414,7 +12654,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified network endpoint group. Gets a list of available
- *  network endpoint groups by making a list() request.
+ *  network endpoint groups by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.networkEndpointGroups.get
  *
@@ -12445,7 +12686,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_NetworkEndpointGroup.
  *
  *  Returns the specified network endpoint group. Gets a list of available
- *  network endpoint groups by making a list() request.
+ *  network endpoint groups by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the network endpoint group is
@@ -12463,7 +12705,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a network endpoint group in the specified project using the
- *  parameters that are included in the request.
+ *  parameters that are included in the request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.networkEndpointGroups.insert
  *
@@ -12504,7 +12747,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a network endpoint group in the specified project using the
- *  parameters that are included in the request.
+ *  parameters that are included in the request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NetworkEndpointGroup to include in the
  *    query.
@@ -12522,7 +12766,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of network endpoint groups that are located in the
- *  specified project and zone.
+ *  specified project and zone. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networkEndpointGroups.list
  *
@@ -12599,7 +12843,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupList.
  *
  *  Retrieves the list of network endpoint groups that are located in the
- *  specified project and zone.
+ *  specified project and zone. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the network endpoint group is
@@ -12617,7 +12861,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the network endpoints in the specified network endpoint group.
+ *  Lists the network endpoints in the specified network endpoint group. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networkEndpointGroups.listNetworkEndpoints
  *
@@ -12699,7 +12944,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints.
  *
- *  Lists the network endpoints in the specified network endpoint group.
+ *  Lists the network endpoints in the specified network endpoint group. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NetworkEndpointGroupsListEndpointsRequest
  *    to include in the query.
@@ -12724,7 +12970,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networkEndpointGroups.testIamPermissions
  *
@@ -12753,7 +13000,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -12771,7 +13019,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Adds a peering to the specified network.
+ *  Adds a peering to the specified network. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.networks.addPeering
  *
@@ -12806,7 +13055,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Adds a peering to the specified network.
+ *  Adds a peering to the specified network. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NetworksAddPeeringRequest to include in the
  *    query.
@@ -12822,7 +13072,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified network.
+ *  Deletes the specified network. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networks.delete
  *
@@ -12857,7 +13107,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified network.
+ *  Deletes the specified network. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param network Name of the network to delete.
@@ -12871,7 +13121,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified network. Gets a list of available networks by making a
- *  list() request.
+ *  list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networks.get
  *
@@ -12894,7 +13144,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Network.
  *
  *  Returns the specified network. Gets a list of available networks by making a
- *  list() request.
+ *  list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param network Name of the network to return.
@@ -12908,7 +13158,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a network in the specified project using the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networks.insert
  *
@@ -12941,7 +13191,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a network in the specified project using the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Network to include in the query.
  *  @param project Project ID for this request.
@@ -12954,7 +13204,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the list of networks available to the specified project.
+ *  Retrieves the list of networks available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networks.list
  *
@@ -13022,7 +13273,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_NetworkList.
  *
- *  Retrieves the list of networks available to the specified project.
+ *  Retrieves the list of networks available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -13038,7 +13290,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Patches the specified network with the data included in the request. Only
- *  the following fields can be modified: routingConfig.routingMode.
+ *  the following fields can be modified: routingConfig.routingMode. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networks.patch
  *
@@ -13074,7 +13327,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified network with the data included in the request. Only
- *  the following fields can be modified: routingConfig.routingMode.
+ *  the following fields can be modified: routingConfig.routingMode. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Network to include in the query.
  *  @param project Project ID for this request.
@@ -13089,7 +13343,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Removes a peering from the specified network.
+ *  Removes a peering from the specified network. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.networks.removePeering
  *
@@ -13124,7 +13379,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Removes a peering from the specified network.
+ *  Removes a peering from the specified network. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NetworksRemovePeeringRequest to include in
  *    the query.
@@ -13140,7 +13396,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Switches the network mode from auto subnet mode to custom subnet mode.
+ *  Switches the network mode from auto subnet mode to custom subnet mode. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networks.switchToCustomMode
  *
@@ -13175,7 +13432,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Switches the network mode from auto subnet mode to custom subnet mode.
+ *  Switches the network mode from auto subnet mode to custom subnet mode. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param network Name of the network to be updated.
@@ -13191,6 +13449,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the specified network peering with the data included in the request
  *  Only the following fields can be modified:
  *  NetworkPeering.export_custom_routes, and NetworkPeering.import_custom_routes
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.networks.updatePeering
  *
@@ -13228,6 +13487,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the specified network peering with the data included in the request
  *  Only the following fields can be modified:
  *  NetworkPeering.export_custom_routes, and NetworkPeering.import_custom_routes
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NetworksUpdatePeeringRequest to include in
  *    the query.
@@ -13244,7 +13504,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Adds specified number of nodes to the node group.
+ *  Adds specified number of nodes to the node group. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.nodeGroups.addNodes
  *
@@ -13286,7 +13547,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Adds specified number of nodes to the node group.
+ *  Adds specified number of nodes to the node group. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NodeGroupsAddNodesRequest to include in the
  *    query.
@@ -13305,7 +13567,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes
- *  for more details about each group.
+ *  for more details about each group. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.nodeGroups.aggregatedList
  *
@@ -13374,7 +13637,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_NodeGroupAggregatedList.
  *
  *  Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes
- *  for more details about each group.
+ *  for more details about each group. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *
@@ -13385,7 +13649,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified NodeGroup resource.
+ *  Deletes the specified NodeGroup resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.nodeGroups.delete
  *
@@ -13427,7 +13692,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified NodeGroup resource.
+ *  Deletes the specified NodeGroup resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -13442,7 +13708,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes specified nodes from the node group.
+ *  Deletes specified nodes from the node group. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.nodeGroups.deleteNodes
  *
@@ -13484,7 +13751,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes specified nodes from the node group.
+ *  Deletes specified nodes from the node group. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NodeGroupsDeleteNodesRequest to include in
  *    the query.
@@ -13504,7 +13772,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Returns the specified NodeGroup. Get a list of available NodeGroups by
  *  making a list() request. Note: the "nodes" field should not be used. Use
- *  nodeGroups.listNodes instead.
+ *  nodeGroups.listNodes instead. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeGroups.get
  *
@@ -13535,7 +13803,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns the specified NodeGroup. Get a list of available NodeGroups by
  *  making a list() request. Note: the "nodes" field should not be used. Use
- *  nodeGroups.listNodes instead.
+ *  nodeGroups.listNodes instead. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -13551,7 +13819,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeGroups.getIamPolicy
  *
@@ -13581,7 +13849,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -13597,7 +13865,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a NodeGroup resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeGroups.insert
  *
@@ -13640,7 +13908,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a NodeGroup resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NodeGroup to include in the query.
  *  @param project Project ID for this request.
@@ -13658,7 +13926,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of node groups available to the specified project. Note:
- *  use nodeGroups.listNodes for more details about each group.
+ *  use nodeGroups.listNodes for more details about each group. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeGroups.list
  *
@@ -13734,7 +14003,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_NodeGroupList.
  *
  *  Retrieves a list of node groups available to the specified project. Note:
- *  use nodeGroups.listNodes for more details about each group.
+ *  use nodeGroups.listNodes for more details about each group. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -13751,7 +14021,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists nodes in the node group.
+ *  Lists nodes in the node group. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeGroups.listNodes
  *
@@ -13829,7 +14099,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_NodeGroupsListNodes.
  *
- *  Lists nodes in the node group.
+ *  Lists nodes in the node group. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -13850,7 +14120,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeGroups.setIamPolicy
  *
@@ -13879,7 +14149,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ZoneSetPolicyRequest to include in the
  *    query.
@@ -13897,7 +14167,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the node template of the node group.
+ *  Updates the node template of the node group. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.nodeGroups.setNodeTemplate
  *
@@ -13939,7 +14210,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Updates the node template of the node group.
+ *  Updates the node template of the node group. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NodeGroupsSetNodeTemplateRequest to include
  *    in the query.
@@ -13957,7 +14229,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeGroups.testIamPermissions
  *
@@ -13986,7 +14259,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -14004,7 +14278,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of node templates.
+ *  Retrieves an aggregated list of node templates. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.nodeTemplates.aggregatedList
  *
@@ -14072,7 +14347,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_NodeTemplateAggregatedList.
  *
- *  Retrieves an aggregated list of node templates.
+ *  Retrieves an aggregated list of node templates. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -14083,7 +14359,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified NodeTemplate resource.
+ *  Deletes the specified NodeTemplate resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.nodeTemplates.delete
  *
@@ -14121,7 +14398,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified NodeTemplate resource.
+ *  Deletes the specified NodeTemplate resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region The name of the region for this request.
@@ -14137,7 +14415,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified node template. Gets a list of available node templates
- *  by making a list() request.
+ *  by making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeTemplates.get
  *
@@ -14163,7 +14441,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_NodeTemplate.
  *
  *  Returns the specified node template. Gets a list of available node templates
- *  by making a list() request.
+ *  by making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region The name of the region for this request.
@@ -14179,7 +14457,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeTemplates.getIamPolicy
  *
@@ -14205,7 +14483,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region The name of the region for this request.
@@ -14221,7 +14499,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a NodeTemplate resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeTemplates.insert
  *
@@ -14257,7 +14535,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a NodeTemplate resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_NodeTemplate to include in the query.
  *  @param project Project ID for this request.
@@ -14272,7 +14550,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of node templates available to the specified project.
+ *  Retrieves a list of node templates available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeTemplates.list
  *
@@ -14343,7 +14622,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_NodeTemplateList.
  *
- *  Retrieves a list of node templates available to the specified project.
+ *  Retrieves a list of node templates available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region The name of the region for this request.
@@ -14361,7 +14641,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeTemplates.setIamPolicy
  *
@@ -14386,7 +14666,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_RegionSetPolicyRequest to include in the
  *    query.
@@ -14404,7 +14684,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeTemplates.testIamPermissions
  *
@@ -14429,7 +14710,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -14447,7 +14729,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of node types.
+ *  Retrieves an aggregated list of node types. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.nodeTypes.aggregatedList
  *
@@ -14515,7 +14798,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_NodeTypeAggregatedList.
  *
- *  Retrieves an aggregated list of node types.
+ *  Retrieves an aggregated list of node types. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -14527,7 +14811,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified node type. Gets a list of available node types by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeTypes.get
  *
@@ -14557,7 +14841,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_NodeType.
  *
  *  Returns the specified node type. Gets a list of available node types by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -14572,7 +14856,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of node types available to the specified project.
+ *  Retrieves a list of node types available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.nodeTypes.list
  *
@@ -14647,7 +14932,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_NodeTypeList.
  *
- *  Retrieves a list of node types available to the specified project.
+ *  Retrieves a list of node types available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -14664,7 +14950,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Disable this project as a shared VPC host project.
+ *  Disable this project as a shared VPC host project. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.projects.disableXpnHost
  *
@@ -14696,7 +14983,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Disable this project as a shared VPC host project.
+ *  Disable this project as a shared VPC host project. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -14708,7 +14996,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Disable a service resource (also known as service project) associated with
- *  this host project.
+ *  this host project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.projects.disableXpnResource
  *
@@ -14741,7 +15029,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Disable a service resource (also known as service project) associated with
- *  this host project.
+ *  this host project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ProjectsDisableXpnResourceRequest to
  *    include in the query.
@@ -14755,7 +15043,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Enable this project as a shared VPC host project.
+ *  Enable this project as a shared VPC host project. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.projects.enableXpnHost
  *
@@ -14787,7 +15076,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Enable this project as a shared VPC host project.
+ *  Enable this project as a shared VPC host project. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -14800,6 +15090,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Enable service resource (a.k.a service project) for a host project, so that
  *  subnets in the host project can be used by instances in the service project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.projects.enableXpnResource
  *
@@ -14833,6 +15124,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Enable service resource (a.k.a service project) for a host project, so that
  *  subnets in the host project can be used by instances in the service project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ProjectsEnableXpnResourceRequest to include
  *    in the query.
@@ -14846,7 +15138,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified Project resource.
+ *  Returns the specified Project resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.projects.get
  *
@@ -14865,7 +15158,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Project.
  *
- *  Returns the specified Project resource.
+ *  Returns the specified Project resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -14877,7 +15171,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the shared VPC host project that this project links to. May be empty if
- *  no link exists.
+ *  no link exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.projects.getXpnHost
  *
@@ -14896,7 +15190,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Project.
  *
  *  Gets the shared VPC host project that this project links to. May be empty if
- *  no link exists.
+ *  no link exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -14908,7 +15202,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets service resources (a.k.a service project) associated with this host
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.projects.getXpnResources
  *
@@ -14976,7 +15270,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_ProjectsGetXpnResources.
  *
  *  Gets service resources (a.k.a service project) associated with this host
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -14992,6 +15286,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists all shared VPC host projects visible to the user in an organization.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.projects.listXpnHosts
  *
@@ -15059,6 +15354,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_XpnHostList.
  *
  *  Lists all shared VPC host projects visible to the user in an organization.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ProjectsListXpnHostsRequest to include in
  *    the query.
@@ -15076,7 +15372,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Moves a persistent disk from one zone to another.
+ *  Moves a persistent disk from one zone to another. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.projects.moveDisk
  *
@@ -15108,7 +15405,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Moves a persistent disk from one zone to another.
+ *  Moves a persistent disk from one zone to another. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_DiskMoveRequest to include in the query.
  *  @param project Project ID for this request.
@@ -15122,7 +15420,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Moves an instance and its attached persistent disks from one zone to
- *  another.
+ *  another. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.projects.moveInstance
  *
@@ -15155,7 +15453,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Moves an instance and its attached persistent disks from one zone to
- *  another.
+ *  another. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceMoveRequest to include in the
  *    query.
@@ -15170,7 +15468,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets metadata common to all instances within the specified project using the
- *  data included in the request.
+ *  data included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.projects.setCommonInstanceMetadata
  *
@@ -15203,7 +15501,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Sets metadata common to all instances within the specified project using the
- *  data included in the request.
+ *  data included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Metadata to include in the query.
  *  @param project Project ID for this request.
@@ -15218,7 +15516,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the default network tier of the project. The default network tier is
  *  used when an address/forwardingRule/instance is created without specifying
- *  the network tier field.
+ *  the network tier field. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.projects.setDefaultNetworkTier
  *
@@ -15252,7 +15550,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the default network tier of the project. The default network tier is
  *  used when an address/forwardingRule/instance is created without specifying
- *  the network tier field.
+ *  the network tier field. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ProjectsSetDefaultNetworkTierRequest to
  *    include in the query.
@@ -15268,7 +15566,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Enables the usage export feature and sets the usage export bucket where
  *  reports are stored. If you provide an empty request body using this method,
- *  the usage export feature will be disabled.
+ *  the usage export feature will be disabled. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.projects.setUsageExportBucket
  *
@@ -15305,7 +15604,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Enables the usage export feature and sets the usage export bucket where
  *  reports are stored. If you provide an empty request body using this method,
- *  the usage export feature will be disabled.
+ *  the usage export feature will be disabled. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_UsageExportLocation to include in the
  *    query.
@@ -15319,7 +15619,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified autoscaler.
+ *  Deletes the specified autoscaler. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.regionAutoscalers.delete
  *
@@ -15357,7 +15658,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified autoscaler.
+ *  Deletes the specified autoscaler. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -15372,7 +15674,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified autoscaler.
+ *  Returns the specified autoscaler. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.regionAutoscalers.get
  *
@@ -15397,7 +15700,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Autoscaler.
  *
- *  Returns the specified autoscaler.
+ *  Returns the specified autoscaler. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -15413,7 +15717,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an autoscaler in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionAutoscalers.insert
  *
@@ -15449,7 +15753,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates an autoscaler in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Autoscaler to include in the query.
  *  @param project Project ID for this request.
@@ -15464,7 +15768,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of autoscalers contained within the specified region.
+ *  Retrieves a list of autoscalers contained within the specified region. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionAutoscalers.list
  *
@@ -15535,7 +15840,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_RegionAutoscalerList.
  *
- *  Retrieves a list of autoscalers contained within the specified region.
+ *  Retrieves a list of autoscalers contained within the specified region. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -15554,7 +15860,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates an autoscaler in the specified project using the data included in
  *  the request. This method supports PATCH semantics and uses the JSON merge
- *  patch format and processing rules.
+ *  patch format and processing rules. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.regionAutoscalers.patch
  *
@@ -15594,7 +15901,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates an autoscaler in the specified project using the data included in
  *  the request. This method supports PATCH semantics and uses the JSON merge
- *  patch format and processing rules.
+ *  patch format and processing rules. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param object The @c GTLRCompute_Autoscaler to include in the query.
  *  @param project Project ID for this request.
@@ -15610,7 +15918,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates an autoscaler in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionAutoscalers.update
  *
@@ -15649,7 +15957,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates an autoscaler in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Autoscaler to include in the query.
  *  @param project Project ID for this request.
@@ -15664,7 +15972,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified regional BackendService resource.
+ *  Deletes the specified regional BackendService resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionBackendServices.delete
  *
@@ -15702,7 +16011,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified regional BackendService resource.
+ *  Deletes the specified regional BackendService resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -15717,7 +16027,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified regional BackendService resource.
+ *  Returns the specified regional BackendService resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionBackendServices.get
  *
@@ -15742,7 +16053,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_BackendService.
  *
- *  Returns the specified regional BackendService resource.
+ *  Returns the specified regional BackendService resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -15758,6 +16070,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the most recent health check results for this regional BackendService.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionBackendServices.getHealth
  *
@@ -15782,6 +16095,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_BackendServiceGroupHealth.
  *
  *  Gets the most recent health check results for this regional BackendService.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ResourceGroupReference to include in the
  *    query.
@@ -15803,7 +16117,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a regional BackendService resource in the specified project using
  *  the data included in the request. There are several restrictions and
  *  guidelines to keep in mind when creating a regional backend service. Read
- *  Restrictions and Guidelines for more information.
+ *  Restrictions and Guidelines for more information. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionBackendServices.insert
  *
@@ -15841,7 +16156,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a regional BackendService resource in the specified project using
  *  the data included in the request. There are several restrictions and
  *  guidelines to keep in mind when creating a regional backend service. Read
- *  Restrictions and Guidelines for more information.
+ *  Restrictions and Guidelines for more information. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -15857,7 +16173,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of regional BackendService resources available to the
- *  specified project in the given region.
+ *  specified project in the given region. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionBackendServices.list
  *
@@ -15929,7 +16246,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_BackendServiceList.
  *
  *  Retrieves the list of regional BackendService resources available to the
- *  specified project in the given region.
+ *  specified project in the given region. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -15950,7 +16268,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  included in the request. There are several restrictions and guidelines to
  *  keep in mind when updating a backend service. Read Restrictions and
  *  Guidelines for more information. This method supports PATCH semantics and
- *  uses the JSON merge patch format and processing rules.
+ *  uses the JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionBackendServices.patch
  *
@@ -15992,7 +16311,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  included in the request. There are several restrictions and guidelines to
  *  keep in mind when updating a backend service. Read Restrictions and
  *  Guidelines for more information. This method supports PATCH semantics and
- *  uses the JSON merge patch format and processing rules.
+ *  uses the JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -16012,7 +16332,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the specified regional BackendService resource with the data
  *  included in the request. There are several restrictions and guidelines to
  *  keep in mind when updating a backend service. Read Restrictions and
- *  Guidelines for more information.
+ *  Guidelines for more information. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionBackendServices.update
  *
@@ -16053,7 +16373,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the specified regional BackendService resource with the data
  *  included in the request. There are several restrictions and guidelines to
  *  keep in mind when updating a backend service. Read Restrictions and
- *  Guidelines for more information.
+ *  Guidelines for more information. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -16070,7 +16390,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of commitments.
+ *  Retrieves an aggregated list of commitments. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionCommitments.aggregatedList
  *
@@ -16138,7 +16459,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_CommitmentAggregatedList.
  *
- *  Retrieves an aggregated list of commitments.
+ *  Retrieves an aggregated list of commitments. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -16150,7 +16472,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified commitment resource. Gets a list of available
- *  commitments by making a list() request.
+ *  commitments by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionCommitments.get
  *
@@ -16176,7 +16499,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Commitment.
  *
  *  Returns the specified commitment resource. Gets a list of available
- *  commitments by making a list() request.
+ *  commitments by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -16192,7 +16516,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a commitment in the specified project using the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionCommitments.insert
  *
@@ -16228,7 +16552,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a commitment in the specified project using the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Commitment to include in the query.
  *  @param project Project ID for this request.
@@ -16243,7 +16567,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of commitments contained within the specified region.
+ *  Retrieves a list of commitments contained within the specified region. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionCommitments.list
  *
@@ -16314,7 +16639,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_CommitmentList.
  *
- *  Retrieves a list of commitments contained within the specified region.
+ *  Retrieves a list of commitments contained within the specified region. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -16333,6 +16659,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Adds existing resource policies to a regional disk. You can only add one
  *  policy which will be applied to this disk for scheduling snapshot creation.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionDisks.addResourcePolicies
  *
@@ -16372,6 +16699,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Adds existing resource policies to a regional disk. You can only add one
  *  policy which will be applied to this disk for scheduling snapshot creation.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_RegionDisksAddResourcePoliciesRequest to
  *    include in the query.
@@ -16389,7 +16717,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a snapshot of this regional disk.
+ *  Creates a snapshot of this regional disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionDisks.createSnapshot
  *
@@ -16427,7 +16756,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Creates a snapshot of this regional disk.
+ *  Creates a snapshot of this regional disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Snapshot to include in the query.
  *  @param project Project ID for this request.
@@ -16447,7 +16777,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes the specified regional persistent disk. Deleting a regional disk
  *  removes all the replicas of its data permanently and is irreversible.
  *  However, deleting a disk does not delete any snapshots previously made from
- *  the disk. You must separately delete snapshots.
+ *  the disk. You must separately delete snapshots. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionDisks.delete
  *
@@ -16488,7 +16819,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes the specified regional persistent disk. Deleting a regional disk
  *  removes all the replicas of its data permanently and is irreversible.
  *  However, deleting a disk does not delete any snapshots previously made from
- *  the disk. You must separately delete snapshots.
+ *  the disk. You must separately delete snapshots. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -16503,7 +16835,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a specified regional persistent disk.
+ *  Returns a specified regional persistent disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionDisks.get
  *
@@ -16528,7 +16861,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Disk.
  *
- *  Returns a specified regional persistent disk.
+ *  Returns a specified regional persistent disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -16544,7 +16878,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a persistent regional disk in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionDisks.insert
  *
@@ -16583,7 +16917,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a persistent regional disk in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Disk to include in the query.
  *  @param project Project ID for this request.
@@ -16599,7 +16933,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of persistent disks contained within the specified
- *  region.
+ *  region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionDisks.list
  *
@@ -16671,7 +17005,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_DiskList.
  *
  *  Retrieves the list of persistent disks contained within the specified
- *  region.
+ *  region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -16688,7 +17022,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Removes resource policies from a regional disk.
+ *  Removes resource policies from a regional disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionDisks.removeResourcePolicies
  *
@@ -16726,7 +17061,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Removes resource policies from a regional disk.
+ *  Removes resource policies from a regional disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_RegionDisksRemoveResourcePoliciesRequest to
  *    include in the query.
@@ -16744,7 +17080,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Resizes the specified regional persistent disk.
+ *  Resizes the specified regional persistent disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionDisks.resize
  *
@@ -16782,7 +17119,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Resizes the specified regional persistent disk.
+ *  Resizes the specified regional persistent disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_RegionDisksResizeRequest to include in the
  *    query.
@@ -16800,7 +17138,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the labels on the target regional disk.
+ *  Sets the labels on the target regional disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionDisks.setLabels
  *
@@ -16838,7 +17177,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets the labels on the target regional disk.
+ *  Sets the labels on the target regional disk. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_RegionSetLabelsRequest to include in the
  *    query.
@@ -16856,7 +17196,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionDisks.testIamPermissions
  *
@@ -16881,7 +17222,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -16900,7 +17242,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified regional disk type. Gets a list of available disk
- *  types by making a list() request.
+ *  types by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.regionDiskTypes.get
  *
@@ -16926,7 +17269,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_DiskType.
  *
  *  Returns the specified regional disk type. Gets a list of available disk
- *  types by making a list() request.
+ *  types by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param region The name of the region for this request.
@@ -16942,6 +17286,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of regional disk types available to the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionDiskTypes.list
  *
@@ -17013,6 +17358,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_RegionDiskTypeList.
  *
  *  Retrieves a list of regional disk types available to the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region The name of the region for this request.
@@ -17029,7 +17375,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified HealthCheck resource.
+ *  Deletes the specified HealthCheck resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionHealthChecks.delete
  *
@@ -17067,7 +17414,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified HealthCheck resource.
+ *  Deletes the specified HealthCheck resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -17083,7 +17431,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified HealthCheck resource. Gets a list of available health
- *  checks by making a list() request.
+ *  checks by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.regionHealthChecks.get
  *
@@ -17109,7 +17458,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_HealthCheck.
  *
  *  Returns the specified HealthCheck resource. Gets a list of available health
- *  checks by making a list() request.
+ *  checks by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -17125,7 +17475,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a HealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionHealthChecks.insert
  *
@@ -17161,7 +17511,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a HealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_HealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -17177,7 +17527,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of HealthCheck resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionHealthChecks.list
  *
@@ -17249,7 +17599,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_HealthCheckList.
  *
  *  Retrieves the list of HealthCheck resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -17268,7 +17618,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates a HealthCheck resource in the specified project using the data
  *  included in the request. This method supports PATCH semantics and uses the
- *  JSON merge patch format and processing rules.
+ *  JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionHealthChecks.patch
  *
@@ -17308,7 +17659,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates a HealthCheck resource in the specified project using the data
  *  included in the request. This method supports PATCH semantics and uses the
- *  JSON merge patch format and processing rules.
+ *  JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_HealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -17326,7 +17678,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a HealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionHealthChecks.update
  *
@@ -17365,7 +17717,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates a HealthCheck resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_HealthCheck to include in the query.
  *  @param project Project ID for this request.
@@ -17394,6 +17746,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroupManagers.abandonInstances
  *
@@ -17443,6 +17796,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c
  *    GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest to include
@@ -17462,7 +17816,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes the specified managed instance group and all of the instances in
- *  that group.
+ *  that group. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroupManagers.delete
  *
@@ -17501,7 +17855,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Deletes the specified managed instance group and all of the instances in
- *  that group.
+ *  that group. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -17528,6 +17882,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroupManagers.deleteInstances
  *
@@ -17577,6 +17932,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c
  *    GTLRCompute_RegionInstanceGroupManagersDeleteInstancesRequest to include
@@ -17595,7 +17951,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns all of the details about the specified managed instance group.
+ *  Returns all of the details about the specified managed instance group. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroupManagers.get
  *
@@ -17620,7 +17977,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupManager.
  *
- *  Returns all of the details about the specified managed instance group.
+ *  Returns all of the details about the specified managed instance group. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -17641,7 +17999,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  the group is created even if the instances in the group have not yet been
  *  created. You must separately verify the status of the individual instances
  *  with the listmanagedinstances method.
- *  A regional managed instance group can contain up to 2000 instances.
+ *  A regional managed instance group can contain up to 2000 instances. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroupManagers.insert
  *
@@ -17682,7 +18041,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  the group is created even if the instances in the group have not yet been
  *  created. You must separately verify the status of the individual instances
  *  with the listmanagedinstances method.
- *  A regional managed instance group can contain up to 2000 instances.
+ *  A regional managed instance group can contain up to 2000 instances. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
  *    query.
@@ -17699,7 +18059,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of managed instance groups that are contained within the
- *  specified region.
+ *  specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroupManagers.list
  *
@@ -17771,7 +18131,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_RegionInstanceGroupManagerList.
  *
  *  Retrieves the list of managed instance groups that are contained within the
- *  specified region.
+ *  specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -17790,7 +18150,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Lists the instances in the managed instance group and instances that are
  *  scheduled to be created. The list includes any current actions that the
- *  group has scheduled for its instances.
+ *  group has scheduled for its instances. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroupManagers.listManagedInstances
  *
@@ -17866,7 +18227,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists the instances in the managed instance group and instances that are
  *  scheduled to be created. The list includes any current actions that the
- *  group has scheduled for its instances.
+ *  group has scheduled for its instances. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -17886,7 +18248,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  if the instances in the group are still in the process of being patched. You
  *  must separately verify the status of the individual instances with the
  *  listmanagedinstances method. This method supports PATCH semantics and uses
- *  the JSON merge patch format and processing rules.
+ *  the JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroupManagers.patch
  *
@@ -17929,7 +18292,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  if the instances in the group are still in the process of being patched. You
  *  must separately verify the status of the individual instances with the
  *  listmanagedinstances method. This method supports PATCH semantics and uses
- *  the JSON merge patch format and processing rules.
+ *  the JSON merge patch format and processing rules. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
  *    query.
@@ -17957,6 +18321,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroupManagers.recreateInstances
  *
@@ -18004,6 +18369,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_RegionInstanceGroupManagersRecreateRequest
  *    to include in the query.
@@ -18030,7 +18396,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  method.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
+ *  duration has elapsed before the VM instance is removed or deleted. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroupManagers.resize
  *
@@ -18080,7 +18447,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  method.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
+ *  duration has elapsed before the VM instance is removed or deleted. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -18099,7 +18467,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the instance template to use when creating new instances or recreating
- *  instances in this group. Existing instances are not affected.
+ *  instances in this group. Existing instances are not affected. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroupManagers.setInstanceTemplate
  *
@@ -18138,7 +18507,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Sets the instance template to use when creating new instances or recreating
- *  instances in this group. Existing instances are not affected.
+ *  instances in this group. Existing instances are not affected. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c
  *    GTLRCompute_RegionInstanceGroupManagersSetTemplateRequest to include in
@@ -18158,7 +18528,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Modifies the target pools to which all new instances in this group are
- *  assigned. Existing instances in the group are not affected.
+ *  assigned. Existing instances in the group are not affected. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroupManagers.setTargetPools
  *
@@ -18197,7 +18568,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Modifies the target pools to which all new instances in this group are
- *  assigned. Existing instances in the group are not affected.
+ *  assigned. Existing instances in the group are not affected. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c
  *    GTLRCompute_RegionInstanceGroupManagersSetTargetPoolsRequest to include in
@@ -18216,7 +18588,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the specified instance group resource.
+ *  Returns the specified instance group resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroups.get
  *
@@ -18241,7 +18614,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_InstanceGroup.
  *
- *  Returns the specified instance group resource.
+ *  Returns the specified instance group resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -18257,7 +18631,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of instance group resources contained within the
- *  specified region.
+ *  specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroups.list
  *
@@ -18329,7 +18703,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_RegionInstanceGroupList.
  *
  *  Retrieves the list of instance group resources contained within the
- *  specified region.
+ *  specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -18348,7 +18722,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Lists the instances in the specified instance group and displays information
  *  about the named ports. Depending on the specified options, this method can
- *  list all instances or only the instances that are running.
+ *  list all instances or only the instances that are running. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroups.listInstances
  *
@@ -18426,7 +18801,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists the instances in the specified instance group and displays information
  *  about the named ports. Depending on the specified options, this method can
- *  list all instances or only the instances that are running.
+ *  list all instances or only the instances that are running. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_RegionInstanceGroupsListInstancesRequest to
  *    include in the query.
@@ -18449,7 +18825,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the named ports for the specified regional instance group.
+ *  Sets the named ports for the specified regional instance group. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionInstanceGroups.setNamedPorts
  *
@@ -18489,7 +18866,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets the named ports for the specified regional instance group.
+ *  Sets the named ports for the specified regional instance group. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_RegionInstanceGroupsSetNamedPortsRequest to
  *    include in the query.
@@ -18508,7 +18886,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified region-specific Operations resource.
+ *  Deletes the specified region-specific Operations resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionOperations.delete
  *
@@ -18533,7 +18912,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes the specified region-specific Operations resource.
+ *  Deletes the specified region-specific Operations resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -18548,7 +18928,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the specified region-specific Operations resource.
+ *  Retrieves the specified region-specific Operations resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionOperations.get
  *
@@ -18573,7 +18954,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Retrieves the specified region-specific Operations resource.
+ *  Retrieves the specified region-specific Operations resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -18589,7 +18971,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of Operation resources contained within the specified
- *  region.
+ *  region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionOperations.list
  *
@@ -18661,7 +19043,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_OperationList.
  *
  *  Retrieves a list of Operation resources contained within the specified
- *  region.
+ *  region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -18679,7 +19061,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified Region resource. Gets a list of available regions by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regions.get
  *
@@ -18702,7 +19084,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Region.
  *
  *  Returns the specified Region resource. Gets a list of available regions by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region resource to return.
@@ -18716,6 +19098,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of region resources available to the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regions.list
  *
@@ -18784,6 +19167,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_RegionList.
  *
  *  Retrieves the list of region resources available to the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -18798,7 +19182,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified SslCertificate resource in the region.
+ *  Deletes the specified SslCertificate resource in the region. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionSslCertificates.delete
  *
@@ -18836,7 +19221,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified SslCertificate resource in the region.
+ *  Deletes the specified SslCertificate resource in the region. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -18852,7 +19238,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified SslCertificate resource in the specified region. Get a
- *  list of available SSL certificates by making a list() request.
+ *  list of available SSL certificates by making a list() request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionSslCertificates.get
  *
@@ -18878,7 +19265,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_SslCertificate.
  *
  *  Returns the specified SslCertificate resource in the specified region. Get a
- *  list of available SSL certificates by making a list() request.
+ *  list of available SSL certificates by making a list() request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -18894,7 +19282,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a SslCertificate resource in the specified project and region using
- *  the data included in the request
+ *  the data included in the request (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionSslCertificates.insert
  *
@@ -18930,7 +19318,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a SslCertificate resource in the specified project and region using
- *  the data included in the request
+ *  the data included in the request (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SslCertificate to include in the query.
  *  @param project Project ID for this request.
@@ -18946,7 +19334,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of SslCertificate resources available to the specified
- *  project in the specified region.
+ *  project in the specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionSslCertificates.list
  *
@@ -19018,7 +19406,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_SslCertificateList.
  *
  *  Retrieves the list of SslCertificate resources available to the specified
- *  project in the specified region.
+ *  project in the specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -19035,7 +19423,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified TargetHttpProxy resource.
+ *  Deletes the specified TargetHttpProxy resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionTargetHttpProxies.delete
  *
@@ -19073,7 +19462,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified TargetHttpProxy resource.
+ *  Deletes the specified TargetHttpProxy resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -19089,7 +19479,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified TargetHttpProxy resource in the specified region. Gets
- *  a list of available target HTTP proxies by making a list() request.
+ *  a list of available target HTTP proxies by making a list() request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionTargetHttpProxies.get
  *
@@ -19115,7 +19506,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetHttpProxy.
  *
  *  Returns the specified TargetHttpProxy resource in the specified region. Gets
- *  a list of available target HTTP proxies by making a list() request.
+ *  a list of available target HTTP proxies by making a list() request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -19131,7 +19523,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a TargetHttpProxy resource in the specified project and region using
- *  the data included in the request.
+ *  the data included in the request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.regionTargetHttpProxies.insert
  *
@@ -19167,7 +19560,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a TargetHttpProxy resource in the specified project and region using
- *  the data included in the request.
+ *  the data included in the request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param object The @c GTLRCompute_TargetHttpProxy to include in the query.
  *  @param project Project ID for this request.
@@ -19183,7 +19577,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of TargetHttpProxy resources available to the specified
- *  project in the specified region.
+ *  project in the specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionTargetHttpProxies.list
  *
@@ -19255,7 +19649,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetHttpProxyList.
  *
  *  Retrieves the list of TargetHttpProxy resources available to the specified
- *  project in the specified region.
+ *  project in the specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -19272,7 +19666,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes the URL map for TargetHttpProxy.
+ *  Changes the URL map for TargetHttpProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionTargetHttpProxies.setUrlMap
  *
@@ -19310,7 +19705,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Changes the URL map for TargetHttpProxy.
+ *  Changes the URL map for TargetHttpProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_UrlMapReference to include in the query.
  *  @param project Project ID for this request.
@@ -19327,7 +19723,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified TargetHttpsProxy resource.
+ *  Deletes the specified TargetHttpsProxy resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionTargetHttpsProxies.delete
  *
@@ -19365,7 +19762,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified TargetHttpsProxy resource.
+ *  Deletes the specified TargetHttpsProxy resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -19381,7 +19779,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified TargetHttpsProxy resource in the specified region.
- *  Gets a list of available target HTTP proxies by making a list() request.
+ *  Gets a list of available target HTTP proxies by making a list() request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionTargetHttpsProxies.get
  *
@@ -19407,7 +19806,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetHttpsProxy.
  *
  *  Returns the specified TargetHttpsProxy resource in the specified region.
- *  Gets a list of available target HTTP proxies by making a list() request.
+ *  Gets a list of available target HTTP proxies by making a list() request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -19423,7 +19823,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a TargetHttpsProxy resource in the specified project and region
- *  using the data included in the request.
+ *  using the data included in the request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionTargetHttpsProxies.insert
  *
@@ -19459,7 +19860,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a TargetHttpsProxy resource in the specified project and region
- *  using the data included in the request.
+ *  using the data included in the request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetHttpsProxy to include in the query.
  *  @param project Project ID for this request.
@@ -19475,7 +19877,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of TargetHttpsProxy resources available to the specified
- *  project in the specified region.
+ *  project in the specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionTargetHttpsProxies.list
  *
@@ -19547,7 +19949,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetHttpsProxyList.
  *
  *  Retrieves the list of TargetHttpsProxy resources available to the specified
- *  project in the specified region.
+ *  project in the specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -19564,7 +19966,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Replaces SslCertificates for TargetHttpsProxy.
+ *  Replaces SslCertificates for TargetHttpsProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionTargetHttpsProxies.setSslCertificates
  *
@@ -19605,7 +20008,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Replaces SslCertificates for TargetHttpsProxy.
+ *  Replaces SslCertificates for TargetHttpsProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c
  *    GTLRCompute_RegionTargetHttpsProxiesSetSslCertificatesRequest to include
@@ -19625,7 +20029,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes the URL map for TargetHttpsProxy.
+ *  Changes the URL map for TargetHttpsProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionTargetHttpsProxies.setUrlMap
  *
@@ -19663,7 +20068,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Changes the URL map for TargetHttpsProxy.
+ *  Changes the URL map for TargetHttpsProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_UrlMapReference to include in the query.
  *  @param project Project ID for this request.
@@ -19680,7 +20086,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified UrlMap resource.
+ *  Deletes the specified UrlMap resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.regionUrlMaps.delete
  *
@@ -19710,7 +20117,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified UrlMap resource.
+ *  Deletes the specified UrlMap resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -19726,7 +20134,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified UrlMap resource. Gets a list of available URL maps by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionUrlMaps.get
  *
@@ -19752,7 +20160,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_UrlMap.
  *
  *  Returns the specified UrlMap resource. Gets a list of available URL maps by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -19768,7 +20176,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a UrlMap resource in the specified project using the data included
- *  in the request.
+ *  in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionUrlMaps.insert
  *
@@ -19796,7 +20204,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a UrlMap resource in the specified project using the data included
- *  in the request.
+ *  in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_UrlMap to include in the query.
  *  @param project Project ID for this request.
@@ -19812,7 +20220,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of UrlMap resources available to the specified project in
- *  the specified region.
+ *  the specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionUrlMaps.list
  *
@@ -19884,7 +20292,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_UrlMapList.
  *
  *  Retrieves the list of UrlMap resources available to the specified project in
- *  the specified region.
+ *  the specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -19903,7 +20311,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Patches the specified UrlMap resource with the data included in the request.
  *  This method supports PATCH semantics and uses JSON merge patch format and
- *  processing rules.
+ *  processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionUrlMaps.patch
  *
@@ -19935,7 +20343,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Patches the specified UrlMap resource with the data included in the request.
  *  This method supports PATCH semantics and uses JSON merge patch format and
- *  processing rules.
+ *  processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_UrlMap to include in the query.
  *  @param project Project ID for this request.
@@ -19953,6 +20361,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the specified UrlMap resource with the data included in the request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionUrlMaps.update
  *
@@ -19983,6 +20392,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified UrlMap resource with the data included in the request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_UrlMap to include in the query.
  *  @param project Project ID for this request.
@@ -20001,6 +20411,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Runs static validation for the UrlMap. In particular, the tests of the
  *  provided UrlMap will be run. Calling this method does NOT create the UrlMap.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.regionUrlMaps.validate
  *
@@ -20026,6 +20437,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Runs static validation for the UrlMap. In particular, the tests of the
  *  provided UrlMap will be run. Calling this method does NOT create the UrlMap.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_RegionUrlMapsValidateRequest to include in
  *    the query.
@@ -20043,7 +20455,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of reservations.
+ *  Retrieves an aggregated list of reservations. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.reservations.aggregatedList
  *
@@ -20111,7 +20524,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ReservationAggregatedList.
  *
- *  Retrieves an aggregated list of reservations.
+ *  Retrieves an aggregated list of reservations. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -20122,7 +20536,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified reservation.
+ *  Deletes the specified reservation. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.reservations.delete
  *
@@ -20164,7 +20579,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified reservation.
+ *  Deletes the specified reservation. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
@@ -20179,7 +20595,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves information about the specified reservation.
+ *  Retrieves information about the specified reservation. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.reservations.get
  *
@@ -20208,7 +20625,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Reservation.
  *
- *  Retrieves information about the specified reservation.
+ *  Retrieves information about the specified reservation. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
@@ -20224,7 +20642,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.reservations.getIamPolicy
  *
@@ -20254,7 +20672,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -20270,7 +20688,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new reservation. For more information, read Reserving zonal
- *  resources.
+ *  resources. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.reservations.insert
  *
@@ -20310,7 +20728,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a new reservation. For more information, read Reserving zonal
- *  resources.
+ *  resources. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Reservation to include in the query.
  *  @param project Project ID for this request.
@@ -20326,7 +20744,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A list of all the reservations that have been configured for the specified
- *  project in specified zone.
+ *  project in specified zone. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.reservations.list
  *
@@ -20402,7 +20820,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_ReservationList.
  *
  *  A list of all the reservations that have been configured for the specified
- *  project in specified zone.
+ *  project in specified zone. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
@@ -20420,7 +20838,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Resizes the reservation (applicable to standalone reservations only). For
- *  more information, read Modifying reservations.
+ *  more information, read Modifying reservations. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.reservations.resize
  *
@@ -20463,7 +20882,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Resizes the reservation (applicable to standalone reservations only). For
- *  more information, read Modifying reservations.
+ *  more information, read Modifying reservations. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ReservationsResizeRequest to include in the
  *    query.
@@ -20482,7 +20902,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.reservations.setIamPolicy
  *
@@ -20511,7 +20931,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ZoneSetPolicyRequest to include in the
  *    query.
@@ -20529,7 +20949,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.reservations.testIamPermissions
  *
@@ -20558,7 +20979,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -20576,7 +20998,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of resource policies.
+ *  Retrieves an aggregated list of resource policies. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.resourcePolicies.aggregatedList
  *
@@ -20644,7 +21067,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ResourcePolicyAggregatedList.
  *
- *  Retrieves an aggregated list of resource policies.
+ *  Retrieves an aggregated list of resource policies. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -20655,7 +21079,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified resource policy.
+ *  Deletes the specified resource policy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.resourcePolicies.delete
  *
@@ -20693,7 +21118,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified resource policy.
+ *  Deletes the specified resource policy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -20708,7 +21134,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves all information of the specified resource policy.
+ *  Retrieves all information of the specified resource policy. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.resourcePolicies.get
  *
@@ -20733,7 +21160,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ResourcePolicy.
  *
- *  Retrieves all information of the specified resource policy.
+ *  Retrieves all information of the specified resource policy. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -20749,7 +21177,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.resourcePolicies.getIamPolicy
  *
@@ -20775,7 +21203,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region The name of the region for this request.
@@ -20790,7 +21218,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new resource policy.
+ *  Creates a new resource policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.resourcePolicies.insert
  *
@@ -20825,7 +21253,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Creates a new resource policy.
+ *  Creates a new resource policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_ResourcePolicy to include in the query.
  *  @param project Project ID for this request.
@@ -20841,7 +21269,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A list all the resource policies that have been configured for the specified
- *  project in specified region.
+ *  project in specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.resourcePolicies.list
  *
@@ -20913,7 +21341,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_ResourcePolicyList.
  *
  *  A list all the resource policies that have been configured for the specified
- *  project in specified region.
+ *  project in specified region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -20931,7 +21359,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.resourcePolicies.setIamPolicy
  *
@@ -20956,7 +21384,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_RegionSetPolicyRequest to include in the
  *    query.
@@ -20974,7 +21402,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.resourcePolicies.testIamPermissions
  *
@@ -20999,7 +21428,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -21017,7 +21447,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of routers.
+ *  Retrieves an aggregated list of routers. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.routers.aggregatedList
  *
@@ -21085,7 +21516,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_RouterAggregatedList.
  *
- *  Retrieves an aggregated list of routers.
+ *  Retrieves an aggregated list of routers. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -21096,7 +21528,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified Router resource.
+ *  Deletes the specified Router resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.routers.delete
  *
@@ -21134,7 +21567,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified Router resource.
+ *  Deletes the specified Router resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -21150,7 +21584,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified Router resource. Gets a list of available routers by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.routers.get
  *
@@ -21176,7 +21610,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Router.
  *
  *  Returns the specified Router resource. Gets a list of available routers by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -21191,7 +21625,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves runtime Nat mapping information of VM endpoints.
+ *  Retrieves runtime Nat mapping information of VM endpoints. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.routers.getNatMappingInfo
  *
@@ -21268,7 +21703,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_VmEndpointNatMappingsList.
  *
- *  Retrieves runtime Nat mapping information of VM endpoints.
+ *  Retrieves runtime Nat mapping information of VM endpoints. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -21288,7 +21724,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves runtime information of the specified router.
+ *  Retrieves runtime information of the specified router. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.routers.getRouterStatus
  *
@@ -21313,7 +21750,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_RouterStatusResponse.
  *
- *  Retrieves runtime information of the specified router.
+ *  Retrieves runtime information of the specified router. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -21329,7 +21767,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a Router resource in the specified project and region using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.routers.insert
  *
@@ -21365,7 +21803,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a Router resource in the specified project and region using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Router to include in the query.
  *  @param project Project ID for this request.
@@ -21380,7 +21818,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of Router resources available to the specified project.
+ *  Retrieves a list of Router resources available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.routers.list
  *
@@ -21451,7 +21890,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_RouterList.
  *
- *  Retrieves a list of Router resources available to the specified project.
+ *  Retrieves a list of Router resources available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -21470,7 +21910,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Patches the specified Router resource with the data included in the request.
  *  This method supports PATCH semantics and uses JSON merge patch format and
- *  processing rules.
+ *  processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.routers.patch
  *
@@ -21510,7 +21950,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Patches the specified Router resource with the data included in the request.
  *  This method supports PATCH semantics and uses JSON merge patch format and
- *  processing rules.
+ *  processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Router to include in the query.
  *  @param project Project ID for this request.
@@ -21528,7 +21968,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Preview fields auto-generated during router create and update operations.
- *  Calling this method does NOT create or update the router.
+ *  Calling this method does NOT create or update the router. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.routers.preview
  *
@@ -21554,7 +21995,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_RoutersPreviewResponse.
  *
  *  Preview fields auto-generated during router create and update operations.
- *  Calling this method does NOT create or update the router.
+ *  Calling this method does NOT create or update the router. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Router to include in the query.
  *  @param project Project ID for this request.
@@ -21574,7 +22016,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the specified Router resource with the data included in the request.
  *  This method conforms to PUT semantics, which requests that the state of the
  *  target resource be created or replaced with the state defined by the
- *  representation enclosed in the request message payload.
+ *  representation enclosed in the request message payload. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.routers.update
  *
@@ -21615,7 +22058,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the specified Router resource with the data included in the request.
  *  This method conforms to PUT semantics, which requests that the state of the
  *  target resource be created or replaced with the state defined by the
- *  representation enclosed in the request message payload.
+ *  representation enclosed in the request message payload. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Router to include in the query.
  *  @param project Project ID for this request.
@@ -21632,7 +22076,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified Route resource.
+ *  Deletes the specified Route resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.routes.delete
  *
@@ -21667,7 +22112,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified Route resource.
+ *  Deletes the specified Route resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param route Name of the Route resource to delete.
@@ -21681,7 +22127,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified Route resource. Gets a list of available routes by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.routes.get
  *
@@ -21704,7 +22150,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Route.
  *
  *  Returns the specified Route resource. Gets a list of available routes by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param route Name of the Route resource to return.
@@ -21718,7 +22164,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a Route resource in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.routes.insert
  *
@@ -21751,7 +22197,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a Route resource in the specified project using the data included in
- *  the request.
+ *  the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Route to include in the query.
  *  @param project Project ID for this request.
@@ -21765,6 +22211,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of Route resources available to the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.routes.list
  *
@@ -21833,6 +22280,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_RouteList.
  *
  *  Retrieves the list of Route resources available to the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -21847,7 +22295,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Inserts a rule into a security policy.
+ *  Inserts a rule into a security policy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.securityPolicies.addRule
  *
@@ -21868,7 +22317,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Inserts a rule into a security policy.
+ *  Inserts a rule into a security policy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SecurityPolicyRule to include in the query.
  *  @param project Project ID for this request.
@@ -21883,7 +22333,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified policy.
+ *  Deletes the specified policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.securityPolicies.delete
  *
@@ -21918,7 +22368,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified policy.
+ *  Deletes the specified policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param securityPolicy Name of the security policy to delete.
@@ -21931,7 +22381,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List all of the ordered rules present in a single specified policy.
+ *  List all of the ordered rules present in a single specified policy. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.securityPolicies.get
  *
@@ -21953,7 +22404,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_SecurityPolicy.
  *
- *  List all of the ordered rules present in a single specified policy.
+ *  List all of the ordered rules present in a single specified policy. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param securityPolicy Name of the security policy to get.
@@ -21966,7 +22418,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a rule at the specified priority.
+ *  Gets a rule at the specified priority. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.securityPolicies.getRule
  *
@@ -21991,7 +22444,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_SecurityPolicyRule.
  *
- *  Gets a rule at the specified priority.
+ *  Gets a rule at the specified priority. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param securityPolicy Name of the security policy to which the queried rule
@@ -22006,7 +22460,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new policy in the specified project using the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.securityPolicies.insert
  *
@@ -22039,7 +22493,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a new policy in the specified project using the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SecurityPolicy to include in the query.
  *  @param project Project ID for this request.
@@ -22053,6 +22507,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  List all the policies that have been configured for the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.securityPolicies.list
  *
@@ -22121,6 +22576,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_SecurityPolicyList.
  *
  *  List all the policies that have been configured for the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -22135,7 +22591,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Patches the specified policy with the data included in the request.
+ *  Patches the specified policy with the data included in the request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.securityPolicies.patch
  *
@@ -22170,7 +22627,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Patches the specified policy with the data included in the request.
+ *  Patches the specified policy with the data included in the request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SecurityPolicy to include in the query.
  *  @param project Project ID for this request.
@@ -22185,7 +22643,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Patches a rule at the specified priority.
+ *  Patches a rule at the specified priority. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.securityPolicies.patchRule
  *
@@ -22209,7 +22668,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Patches a rule at the specified priority.
+ *  Patches a rule at the specified priority. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SecurityPolicyRule to include in the query.
  *  @param project Project ID for this request.
@@ -22224,7 +22684,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a rule at the specified priority.
+ *  Deletes a rule at the specified priority. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.securityPolicies.removeRule
  *
@@ -22248,7 +22709,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes a rule at the specified priority.
+ *  Deletes a rule at the specified priority. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param securityPolicy Name of the security policy to update.
@@ -22265,7 +22727,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  snapshot might not necessarily delete all the data on that snapshot. If any
  *  data on the snapshot that is marked for deletion is needed for subsequent
  *  snapshots, the data will be moved to the next corresponding snapshot.
- *  For more information, see Deleting snapshots.
+ *  For more information, see Deleting snapshots. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.snapshots.delete
  *
@@ -22304,7 +22767,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  snapshot might not necessarily delete all the data on that snapshot. If any
  *  data on the snapshot that is marked for deletion is needed for subsequent
  *  snapshots, the data will be moved to the next corresponding snapshot.
- *  For more information, see Deleting snapshots.
+ *  For more information, see Deleting snapshots. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param snapshot Name of the Snapshot resource to delete.
@@ -22318,7 +22782,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified Snapshot resource. Gets a list of available snapshots
- *  by making a list() request.
+ *  by making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.snapshots.get
  *
@@ -22341,7 +22805,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Snapshot.
  *
  *  Returns the specified Snapshot resource. Gets a list of available snapshots
- *  by making a list() request.
+ *  by making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param snapshot Name of the Snapshot resource to return.
@@ -22355,7 +22819,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.snapshots.getIamPolicy
  *
@@ -22378,7 +22842,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param resource Name or id of the resource for this request.
@@ -22392,7 +22856,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of Snapshot resources contained within the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.snapshots.list
  *
@@ -22461,7 +22925,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_SnapshotList.
  *
  *  Retrieves the list of Snapshot resources contained within the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -22477,7 +22941,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.snapshots.setIamPolicy
  *
@@ -22499,7 +22963,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
  *    query.
@@ -22516,7 +22980,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the labels on a snapshot. To learn more about labels, read the Labeling
- *  Resources documentation.
+ *  Resources documentation. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.snapshots.setLabels
  *
@@ -22538,7 +23002,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Sets the labels on a snapshot. To learn more about labels, read the Labeling
- *  Resources documentation.
+ *  Resources documentation. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_GlobalSetLabelsRequest to include in the
  *    query.
@@ -22554,7 +23018,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.snapshots.testIamPermissions
  *
@@ -22576,7 +23041,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -22593,7 +23059,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of all SslCertificate resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.sslCertificates.aggregatedList
  *
@@ -22662,7 +23129,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_SslCertificateAggregatedList.
  *
  *  Retrieves the list of all SslCertificate resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Name of the project scoping this request.
  *
@@ -22673,7 +23141,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified SslCertificate resource.
+ *  Deletes the specified SslCertificate resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.sslCertificates.delete
  *
@@ -22708,7 +23177,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified SslCertificate resource.
+ *  Deletes the specified SslCertificate resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param sslCertificate Name of the SslCertificate resource to delete.
@@ -22722,7 +23192,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified SslCertificate resource. Gets a list of available SSL
- *  certificates by making a list() request.
+ *  certificates by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.sslCertificates.get
  *
@@ -22745,7 +23216,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_SslCertificate.
  *
  *  Returns the specified SslCertificate resource. Gets a list of available SSL
- *  certificates by making a list() request.
+ *  certificates by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param sslCertificate Name of the SslCertificate resource to return.
@@ -22759,7 +23231,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a SslCertificate resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.sslCertificates.insert
  *
@@ -22792,7 +23264,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a SslCertificate resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SslCertificate to include in the query.
  *  @param project Project ID for this request.
@@ -22806,7 +23278,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of SslCertificate resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.sslCertificates.list
  *
@@ -22875,7 +23347,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_SslCertificateList.
  *
  *  Retrieves the list of SslCertificate resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -22892,7 +23364,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes the specified SSL policy. The SSL policy resource can be deleted
  *  only if it is not in use by any TargetHttpsProxy or TargetSslProxy
- *  resources.
+ *  resources. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.sslPolicies.delete
  *
@@ -22932,7 +23404,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes the specified SSL policy. The SSL policy resource can be deleted
  *  only if it is not in use by any TargetHttpsProxy or TargetSslProxy
- *  resources.
+ *  resources. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param sslPolicy Name of the SSL policy to delete. The name must be 1-63
@@ -22946,7 +23418,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all of the ordered rules present in a single specified policy.
+ *  Lists all of the ordered rules present in a single specified policy. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.sslPolicies.get
  *
@@ -22971,7 +23444,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_SslPolicy.
  *
- *  Lists all of the ordered rules present in a single specified policy.
+ *  Lists all of the ordered rules present in a single specified policy. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param sslPolicy Name of the SSL policy to update. The name must be 1-63
@@ -22986,7 +23460,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified SSL policy resource. Gets a list of available SSL
- *  policies by making a list() request.
+ *  policies by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.sslPolicies.insert
  *
@@ -23019,7 +23494,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Returns the specified SSL policy resource. Gets a list of available SSL
- *  policies by making a list() request.
+ *  policies by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param object The @c GTLRCompute_SslPolicy to include in the query.
  *  @param project Project ID for this request.
@@ -23033,7 +23509,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists all the SSL policies that have been configured for the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.sslPolicies.list
  *
@@ -23102,7 +23578,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_SslPoliciesList.
  *
  *  Lists all the SSL policies that have been configured for the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -23118,7 +23594,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists all features that can be specified in the SSL policy when using custom
- *  profile.
+ *  profile. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.sslPolicies.listAvailableFeatures
  *
@@ -23187,7 +23663,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_SslPoliciesListAvailableFeaturesResponse.
  *
  *  Lists all features that can be specified in the SSL policy when using custom
- *  profile.
+ *  profile. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -23198,7 +23674,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Patches the specified SSL policy with the data included in the request.
+ *  Patches the specified SSL policy with the data included in the request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.sslPolicies.patch
  *
@@ -23236,7 +23713,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Patches the specified SSL policy with the data included in the request.
+ *  Patches the specified SSL policy with the data included in the request. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SslPolicy to include in the query.
  *  @param project Project ID for this request.
@@ -23252,7 +23730,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of subnetworks.
+ *  Retrieves an aggregated list of subnetworks. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.subnetworks.aggregatedList
  *
@@ -23320,7 +23799,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_SubnetworkAggregatedList.
  *
- *  Retrieves an aggregated list of subnetworks.
+ *  Retrieves an aggregated list of subnetworks. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -23331,7 +23811,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified subnetwork.
+ *  Deletes the specified subnetwork. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.subnetworks.delete
  *
@@ -23369,7 +23850,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified subnetwork.
+ *  Deletes the specified subnetwork. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -23384,7 +23866,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Expands the IP CIDR range of the subnetwork to a specified value.
+ *  Expands the IP CIDR range of the subnetwork to a specified value. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.subnetworks.expandIpCidrRange
  *
@@ -23422,7 +23905,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Expands the IP CIDR range of the subnetwork to a specified value.
+ *  Expands the IP CIDR range of the subnetwork to a specified value. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SubnetworksExpandIpCidrRangeRequest to
  *    include in the query.
@@ -23441,7 +23925,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified subnetwork. Gets a list of available subnetworks
- *  list() request.
+ *  list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.subnetworks.get
  *
@@ -23467,7 +23951,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Subnetwork.
  *
  *  Returns the specified subnetwork. Gets a list of available subnetworks
- *  list() request.
+ *  list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -23483,7 +23967,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.subnetworks.getIamPolicy
  *
@@ -23509,7 +23993,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region The name of the region for this request.
@@ -23525,7 +24009,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a subnetwork in the specified project using the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.subnetworks.insert
  *
@@ -23561,7 +24045,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a subnetwork in the specified project using the data included in the
- *  request.
+ *  request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Subnetwork to include in the query.
  *  @param project Project ID for this request.
@@ -23576,7 +24060,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves a list of subnetworks available to the specified project.
+ *  Retrieves a list of subnetworks available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.subnetworks.list
  *
@@ -23647,7 +24132,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_SubnetworkList.
  *
- *  Retrieves a list of subnetworks available to the specified project.
+ *  Retrieves a list of subnetworks available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -23666,7 +24152,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Retrieves an aggregated list of all usable subnetworks in the project. The
  *  list contains all of the subnetworks in the project and the subnetworks that
- *  were shared by a Shared VPC host project.
+ *  were shared by a Shared VPC host project. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.subnetworks.listUsable
  *
@@ -23736,7 +24223,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieves an aggregated list of all usable subnetworks in the project. The
  *  list contains all of the subnetworks in the project and the subnetworks that
- *  were shared by a Shared VPC host project.
+ *  were shared by a Shared VPC host project. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -23754,7 +24242,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Patches the specified subnetwork with the data included in the request. Only
  *  certain fields can up updated with a patch request as indicated in the field
  *  descriptions. You must specify the current fingeprint of the subnetwork
- *  resource being patched.
+ *  resource being patched. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.subnetworks.patch
  *
@@ -23795,7 +24283,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Patches the specified subnetwork with the data included in the request. Only
  *  certain fields can up updated with a patch request as indicated in the field
  *  descriptions. You must specify the current fingeprint of the subnetwork
- *  resource being patched.
+ *  resource being patched. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_Subnetwork to include in the query.
  *  @param project Project ID for this request.
@@ -23813,7 +24301,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.subnetworks.setIamPolicy
  *
@@ -23838,7 +24326,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_RegionSetPolicyRequest to include in the
  *    query.
@@ -23857,7 +24345,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Set whether VMs in this subnet can access Google services without assigning
- *  external IP addresses through Private Google Access.
+ *  external IP addresses through Private Google Access. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.subnetworks.setPrivateIpGoogleAccess
  *
@@ -23896,7 +24385,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Set whether VMs in this subnet can access Google services without assigning
- *  external IP addresses through Private Google Access.
+ *  external IP addresses through Private Google Access. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest
  *    to include in the query.
@@ -23914,7 +24404,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.subnetworks.testIamPermissions
  *
@@ -23939,7 +24430,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -23958,7 +24450,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of all TargetHttpProxy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.targetHttpProxies.aggregatedList
  *
@@ -24027,7 +24520,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetHttpProxyAggregatedList.
  *
  *  Retrieves the list of all TargetHttpProxy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Name of the project scoping this request.
  *
@@ -24038,7 +24532,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified TargetHttpProxy resource.
+ *  Deletes the specified TargetHttpProxy resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpProxies.delete
  *
@@ -24073,7 +24568,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified TargetHttpProxy resource.
+ *  Deletes the specified TargetHttpProxy resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param targetHttpProxy Name of the TargetHttpProxy resource to delete.
@@ -24087,7 +24583,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified TargetHttpProxy resource. Gets a list of available
- *  target HTTP proxies by making a list() request.
+ *  target HTTP proxies by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpProxies.get
  *
@@ -24110,7 +24607,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetHttpProxy.
  *
  *  Returns the specified TargetHttpProxy resource. Gets a list of available
- *  target HTTP proxies by making a list() request.
+ *  target HTTP proxies by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param targetHttpProxy Name of the TargetHttpProxy resource to return.
@@ -24124,7 +24622,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a TargetHttpProxy resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpProxies.insert
  *
@@ -24157,7 +24655,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a TargetHttpProxy resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetHttpProxy to include in the query.
  *  @param project Project ID for this request.
@@ -24171,7 +24669,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of TargetHttpProxy resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpProxies.list
  *
@@ -24240,7 +24738,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetHttpProxyList.
  *
  *  Retrieves the list of TargetHttpProxy resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -24255,7 +24753,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes the URL map for TargetHttpProxy.
+ *  Changes the URL map for TargetHttpProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpProxies.setUrlMap
  *
@@ -24290,7 +24789,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Changes the URL map for TargetHttpProxy.
+ *  Changes the URL map for TargetHttpProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_UrlMapReference to include in the query.
  *  @param project Project ID for this request.
@@ -24306,7 +24806,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of all TargetHttpsProxy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.targetHttpsProxies.aggregatedList
  *
@@ -24375,7 +24876,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetHttpsProxyAggregatedList.
  *
  *  Retrieves the list of all TargetHttpsProxy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Name of the project scoping this request.
  *
@@ -24386,7 +24888,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified TargetHttpsProxy resource.
+ *  Deletes the specified TargetHttpsProxy resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpsProxies.delete
  *
@@ -24421,7 +24924,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified TargetHttpsProxy resource.
+ *  Deletes the specified TargetHttpsProxy resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param targetHttpsProxy Name of the TargetHttpsProxy resource to delete.
@@ -24435,7 +24939,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified TargetHttpsProxy resource. Gets a list of available
- *  target HTTPS proxies by making a list() request.
+ *  target HTTPS proxies by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpsProxies.get
  *
@@ -24458,7 +24963,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetHttpsProxy.
  *
  *  Returns the specified TargetHttpsProxy resource. Gets a list of available
- *  target HTTPS proxies by making a list() request.
+ *  target HTTPS proxies by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param targetHttpsProxy Name of the TargetHttpsProxy resource to return.
@@ -24472,7 +24978,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a TargetHttpsProxy resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpsProxies.insert
  *
@@ -24505,7 +25011,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a TargetHttpsProxy resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetHttpsProxy to include in the query.
  *  @param project Project ID for this request.
@@ -24519,7 +25025,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of TargetHttpsProxy resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpsProxies.list
  *
@@ -24588,7 +25094,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetHttpsProxyList.
  *
  *  Retrieves the list of TargetHttpsProxy resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -24603,7 +25109,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the QUIC override policy for TargetHttpsProxy.
+ *  Sets the QUIC override policy for TargetHttpsProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpsProxies.setQuicOverride
  *
@@ -24641,7 +25148,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets the QUIC override policy for TargetHttpsProxy.
+ *  Sets the QUIC override policy for TargetHttpsProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest to
  *    include in the query.
@@ -24658,7 +25166,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Replaces SslCertificates for TargetHttpsProxy.
+ *  Replaces SslCertificates for TargetHttpsProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpsProxies.setSslCertificates
  *
@@ -24696,7 +25205,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Replaces SslCertificates for TargetHttpsProxy.
+ *  Replaces SslCertificates for TargetHttpsProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetHttpsProxiesSetSslCertificatesRequest
  *    to include in the query.
@@ -24716,7 +25226,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Sets the SSL policy for TargetHttpsProxy. The SSL policy specifies the
  *  server-side support for SSL features. This affects connections between
  *  clients and the HTTPS proxy load balancer. They do not affect the connection
- *  between the load balancer and the backends.
+ *  between the load balancer and the backends. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpsProxies.setSslPolicy
  *
@@ -24757,7 +25268,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Sets the SSL policy for TargetHttpsProxy. The SSL policy specifies the
  *  server-side support for SSL features. This affects connections between
  *  clients and the HTTPS proxy load balancer. They do not affect the connection
- *  between the load balancer and the backends.
+ *  between the load balancer and the backends. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SslPolicyReference to include in the query.
  *  @param project Project ID for this request.
@@ -24774,7 +25286,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes the URL map for TargetHttpsProxy.
+ *  Changes the URL map for TargetHttpsProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetHttpsProxies.setUrlMap
  *
@@ -24809,7 +25322,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Changes the URL map for TargetHttpsProxy.
+ *  Changes the URL map for TargetHttpsProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_UrlMapReference to include in the query.
  *  @param project Project ID for this request.
@@ -24825,7 +25339,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of target instances.
+ *  Retrieves an aggregated list of target instances. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetInstances.aggregatedList
  *
@@ -24893,7 +25408,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TargetInstanceAggregatedList.
  *
- *  Retrieves an aggregated list of target instances.
+ *  Retrieves an aggregated list of target instances. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -24904,7 +25420,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified TargetInstance resource.
+ *  Deletes the specified TargetInstance resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetInstances.delete
  *
@@ -24946,7 +25463,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified TargetInstance resource.
+ *  Deletes the specified TargetInstance resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone scoping this request.
@@ -24962,7 +25480,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified TargetInstance resource. Gets a list of available
- *  target instances by making a list() request.
+ *  target instances by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetInstances.get
  *
@@ -24992,7 +25511,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetInstance.
  *
  *  Returns the specified TargetInstance resource. Gets a list of available
- *  target instances by making a list() request.
+ *  target instances by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone scoping this request.
@@ -25008,7 +25528,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a TargetInstance resource in the specified project and zone using
- *  the data included in the request.
+ *  the data included in the request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.targetInstances.insert
  *
@@ -25048,7 +25569,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a TargetInstance resource in the specified project and zone using
- *  the data included in the request.
+ *  the data included in the request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param object The @c GTLRCompute_TargetInstance to include in the query.
  *  @param project Project ID for this request.
@@ -25064,7 +25586,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of TargetInstance resources available to the specified
- *  project and zone.
+ *  project and zone. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetInstances.list
  *
@@ -25140,7 +25662,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetInstanceList.
  *
  *  Retrieves a list of TargetInstance resources available to the specified
- *  project and zone.
+ *  project and zone. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone scoping this request.
@@ -25157,7 +25679,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Adds health check URLs to a target pool.
+ *  Adds health check URLs to a target pool. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetPools.addHealthCheck
  *
@@ -25195,7 +25718,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Adds health check URLs to a target pool.
+ *  Adds health check URLs to a target pool. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetPoolsAddHealthCheckRequest to include
  *    in the query.
@@ -25213,7 +25737,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Adds an instance to a target pool.
+ *  Adds an instance to a target pool. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.targetPools.addInstance
  *
@@ -25251,7 +25776,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Adds an instance to a target pool.
+ *  Adds an instance to a target pool. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param object The @c GTLRCompute_TargetPoolsAddInstanceRequest to include in
  *    the query.
@@ -25269,7 +25795,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of target pools.
+ *  Retrieves an aggregated list of target pools. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetPools.aggregatedList
  *
@@ -25337,7 +25864,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TargetPoolAggregatedList.
  *
- *  Retrieves an aggregated list of target pools.
+ *  Retrieves an aggregated list of target pools. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -25348,7 +25876,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified target pool.
+ *  Deletes the specified target pool. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.targetPools.delete
  *
@@ -25386,7 +25915,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified target pool.
+ *  Deletes the specified target pool. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -25402,7 +25932,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified target pool. Gets a list of available target pools by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetPools.get
  *
@@ -25428,7 +25958,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetPool.
  *
  *  Returns the specified target pool. Gets a list of available target pools by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -25444,7 +25974,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the most recent health check results for each IP for the instance that
- *  is referenced by the given target pool.
+ *  is referenced by the given target pool. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetPools.getHealth
  *
@@ -25470,7 +26001,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetPoolInstanceHealth.
  *
  *  Gets the most recent health check results for each IP for the instance that
- *  is referenced by the given target pool.
+ *  is referenced by the given target pool. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_InstanceReference to include in the query.
  *  @param project Project ID for this request.
@@ -25489,7 +26021,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a target pool in the specified project and region using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetPools.insert
  *
@@ -25525,7 +26057,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a target pool in the specified project and region using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetPool to include in the query.
  *  @param project Project ID for this request.
@@ -25541,7 +26073,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of target pools available to the specified project and
- *  region.
+ *  region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetPools.list
  *
@@ -25613,7 +26145,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetPoolList.
  *
  *  Retrieves a list of target pools available to the specified project and
- *  region.
+ *  region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -25630,7 +26162,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Removes health check URL from a target pool.
+ *  Removes health check URL from a target pool. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetPools.removeHealthCheck
  *
@@ -25668,7 +26201,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Removes health check URL from a target pool.
+ *  Removes health check URL from a target pool. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetPoolsRemoveHealthCheckRequest to
  *    include in the query.
@@ -25686,7 +26220,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Removes instance URL from a target pool.
+ *  Removes instance URL from a target pool. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetPools.removeInstance
  *
@@ -25724,7 +26259,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Removes instance URL from a target pool.
+ *  Removes instance URL from a target pool. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetPoolsRemoveInstanceRequest to include
  *    in the query.
@@ -25742,7 +26278,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes a backup target pool's configurations.
+ *  Changes a backup target pool's configurations. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetPools.setBackup
  *
@@ -25783,7 +26320,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Changes a backup target pool's configurations.
+ *  Changes a backup target pool's configurations. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetReference to include in the query.
  *  @param project Project ID for this request.
@@ -25800,7 +26338,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified TargetSslProxy resource.
+ *  Deletes the specified TargetSslProxy resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetSslProxies.delete
  *
@@ -25835,7 +26374,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified TargetSslProxy resource.
+ *  Deletes the specified TargetSslProxy resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param targetSslProxy Name of the TargetSslProxy resource to delete.
@@ -25849,7 +26389,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified TargetSslProxy resource. Gets a list of available
- *  target SSL proxies by making a list() request.
+ *  target SSL proxies by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetSslProxies.get
  *
@@ -25872,7 +26413,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetSslProxy.
  *
  *  Returns the specified TargetSslProxy resource. Gets a list of available
- *  target SSL proxies by making a list() request.
+ *  target SSL proxies by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param targetSslProxy Name of the TargetSslProxy resource to return.
@@ -25886,7 +26428,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a TargetSslProxy resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetSslProxies.insert
  *
@@ -25919,7 +26461,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a TargetSslProxy resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetSslProxy to include in the query.
  *  @param project Project ID for this request.
@@ -25933,7 +26475,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of TargetSslProxy resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetSslProxies.list
  *
@@ -26002,7 +26544,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetSslProxyList.
  *
  *  Retrieves the list of TargetSslProxy resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -26017,7 +26559,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes the BackendService for TargetSslProxy.
+ *  Changes the BackendService for TargetSslProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetSslProxies.setBackendService
  *
@@ -26055,7 +26598,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Changes the BackendService for TargetSslProxy.
+ *  Changes the BackendService for TargetSslProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetSslProxiesSetBackendServiceRequest to
  *    include in the query.
@@ -26072,7 +26616,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes the ProxyHeaderType for TargetSslProxy.
+ *  Changes the ProxyHeaderType for TargetSslProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetSslProxies.setProxyHeader
  *
@@ -26107,7 +26652,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Changes the ProxyHeaderType for TargetSslProxy.
+ *  Changes the ProxyHeaderType for TargetSslProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetSslProxiesSetProxyHeaderRequest to
  *    include in the query.
@@ -26124,7 +26670,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes SslCertificates for TargetSslProxy.
+ *  Changes SslCertificates for TargetSslProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetSslProxies.setSslCertificates
  *
@@ -26162,7 +26709,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Changes SslCertificates for TargetSslProxy.
+ *  Changes SslCertificates for TargetSslProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetSslProxiesSetSslCertificatesRequest
  *    to include in the query.
@@ -26182,7 +26730,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Sets the SSL policy for TargetSslProxy. The SSL policy specifies the
  *  server-side support for SSL features. This affects connections between
  *  clients and the SSL proxy load balancer. They do not affect the connection
- *  between the load balancer and the backends.
+ *  between the load balancer and the backends. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetSslProxies.setSslPolicy
  *
@@ -26223,7 +26772,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Sets the SSL policy for TargetSslProxy. The SSL policy specifies the
  *  server-side support for SSL features. This affects connections between
  *  clients and the SSL proxy load balancer. They do not affect the connection
- *  between the load balancer and the backends.
+ *  between the load balancer and the backends. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_SslPolicyReference to include in the query.
  *  @param project Project ID for this request.
@@ -26240,7 +26790,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified TargetTcpProxy resource.
+ *  Deletes the specified TargetTcpProxy resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetTcpProxies.delete
  *
@@ -26275,7 +26826,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified TargetTcpProxy resource.
+ *  Deletes the specified TargetTcpProxy resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param targetTcpProxy Name of the TargetTcpProxy resource to delete.
@@ -26289,7 +26841,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified TargetTcpProxy resource. Gets a list of available
- *  target TCP proxies by making a list() request.
+ *  target TCP proxies by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetTcpProxies.get
  *
@@ -26312,7 +26865,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetTcpProxy.
  *
  *  Returns the specified TargetTcpProxy resource. Gets a list of available
- *  target TCP proxies by making a list() request.
+ *  target TCP proxies by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param targetTcpProxy Name of the TargetTcpProxy resource to return.
@@ -26326,7 +26880,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a TargetTcpProxy resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetTcpProxies.insert
  *
@@ -26359,7 +26913,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a TargetTcpProxy resource in the specified project using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetTcpProxy to include in the query.
  *  @param project Project ID for this request.
@@ -26373,7 +26927,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of TargetTcpProxy resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetTcpProxies.list
  *
@@ -26442,7 +26996,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetTcpProxyList.
  *
  *  Retrieves the list of TargetTcpProxy resources available to the specified
- *  project.
+ *  project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -26457,7 +27011,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes the BackendService for TargetTcpProxy.
+ *  Changes the BackendService for TargetTcpProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetTcpProxies.setBackendService
  *
@@ -26495,7 +27050,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Changes the BackendService for TargetTcpProxy.
+ *  Changes the BackendService for TargetTcpProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetTcpProxiesSetBackendServiceRequest to
  *    include in the query.
@@ -26512,7 +27068,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes the ProxyHeaderType for TargetTcpProxy.
+ *  Changes the ProxyHeaderType for TargetTcpProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetTcpProxies.setProxyHeader
  *
@@ -26547,7 +27104,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Changes the ProxyHeaderType for TargetTcpProxy.
+ *  Changes the ProxyHeaderType for TargetTcpProxy. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetTcpProxiesSetProxyHeaderRequest to
  *    include in the query.
@@ -26564,7 +27122,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of target VPN gateways.
+ *  Retrieves an aggregated list of target VPN gateways. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetVpnGateways.aggregatedList
  *
@@ -26632,7 +27191,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TargetVpnGatewayAggregatedList.
  *
- *  Retrieves an aggregated list of target VPN gateways.
+ *  Retrieves an aggregated list of target VPN gateways. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -26643,7 +27203,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified target VPN gateway.
+ *  Deletes the specified target VPN gateway. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetVpnGateways.delete
  *
@@ -26681,7 +27242,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified target VPN gateway.
+ *  Deletes the specified target VPN gateway. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -26697,7 +27259,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified target VPN gateway. Gets a list of available target
- *  VPN gateways by making a list() request.
+ *  VPN gateways by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.targetVpnGateways.get
  *
@@ -26723,7 +27286,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetVpnGateway.
  *
  *  Returns the specified target VPN gateway. Gets a list of available target
- *  VPN gateways by making a list() request.
+ *  VPN gateways by making a list() request. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -26739,7 +27303,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a target VPN gateway in the specified project and region using the
- *  data included in the request.
+ *  data included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetVpnGateways.insert
  *
@@ -26775,7 +27339,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a target VPN gateway in the specified project and region using the
- *  data included in the request.
+ *  data included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TargetVpnGateway to include in the query.
  *  @param project Project ID for this request.
@@ -26791,7 +27355,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of target VPN gateways available to the specified project
- *  and region.
+ *  and region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.targetVpnGateways.list
  *
@@ -26863,7 +27427,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_TargetVpnGatewayList.
  *
  *  Retrieves a list of target VPN gateways available to the specified project
- *  and region.
+ *  and region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -26881,7 +27445,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of all UrlMap resources, regional and global, available
- *  to the specified project.
+ *  to the specified project. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.urlMaps.aggregatedList
  *
@@ -26950,7 +27514,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_UrlMapsAggregatedList.
  *
  *  Retrieves the list of all UrlMap resources, regional and global, available
- *  to the specified project.
+ *  to the specified project. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Name of the project scoping this request.
  *
@@ -26961,7 +27525,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified UrlMap resource.
+ *  Deletes the specified UrlMap resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.urlMaps.delete
  *
@@ -26996,7 +27561,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified UrlMap resource.
+ *  Deletes the specified UrlMap resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param urlMap Name of the UrlMap resource to delete.
@@ -27010,7 +27576,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified UrlMap resource. Gets a list of available URL maps by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.urlMaps.get
  *
@@ -27033,7 +27599,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_UrlMap.
  *
  *  Returns the specified UrlMap resource. Gets a list of available URL maps by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param urlMap Name of the UrlMap resource to return.
@@ -27047,7 +27613,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a UrlMap resource in the specified project using the data included
- *  in the request.
+ *  in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.urlMaps.insert
  *
@@ -27080,7 +27646,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a UrlMap resource in the specified project using the data included
- *  in the request.
+ *  in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_UrlMap to include in the query.
  *  @param project Project ID for this request.
@@ -27094,7 +27660,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Initiates a cache invalidation operation, invalidating the specified path,
- *  scoped to the specified UrlMap.
+ *  scoped to the specified UrlMap. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.urlMaps.invalidateCache
  *
@@ -27130,7 +27696,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Initiates a cache invalidation operation, invalidating the specified path,
- *  scoped to the specified UrlMap.
+ *  scoped to the specified UrlMap. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_CacheInvalidationRule to include in the
  *    query.
@@ -27147,6 +27713,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves the list of UrlMap resources available to the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.urlMaps.list
  *
@@ -27215,6 +27782,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_UrlMapList.
  *
  *  Retrieves the list of UrlMap resources available to the specified project.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -27231,7 +27799,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Patches the specified UrlMap resource with the data included in the request.
  *  This method supports PATCH semantics and uses the JSON merge patch format
- *  and processing rules.
+ *  and processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.urlMaps.patch
  *
@@ -27268,7 +27836,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Patches the specified UrlMap resource with the data included in the request.
  *  This method supports PATCH semantics and uses the JSON merge patch format
- *  and processing rules.
+ *  and processing rules. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_UrlMap to include in the query.
  *  @param project Project ID for this request.
@@ -27284,6 +27852,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the specified UrlMap resource with the data included in the request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.urlMaps.update
  *
@@ -27319,6 +27888,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified UrlMap resource with the data included in the request.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_UrlMap to include in the query.
  *  @param project Project ID for this request.
@@ -27335,6 +27905,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Runs static validation for the UrlMap. In particular, the tests of the
  *  provided UrlMap will be run. Calling this method does NOT create the UrlMap.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.urlMaps.validate
  *
@@ -27357,6 +27928,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Runs static validation for the UrlMap. In particular, the tests of the
  *  provided UrlMap will be run. Calling this method does NOT create the UrlMap.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_UrlMapsValidateRequest to include in the
  *    query.
@@ -27372,7 +27944,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of VPN gateways.
+ *  Retrieves an aggregated list of VPN gateways. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.vpnGateways.aggregatedList
  *
@@ -27440,7 +28013,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_VpnGatewayAggregatedList.
  *
- *  Retrieves an aggregated list of VPN gateways.
+ *  Retrieves an aggregated list of VPN gateways. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -27451,7 +28025,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified VPN gateway.
+ *  Deletes the specified VPN gateway. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.vpnGateways.delete
  *
@@ -27489,7 +28064,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified VPN gateway.
+ *  Deletes the specified VPN gateway. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -27505,7 +28081,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified VPN gateway. Gets a list of available VPN gateways by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.vpnGateways.get
  *
@@ -27531,7 +28107,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_VpnGateway.
  *
  *  Returns the specified VPN gateway. Gets a list of available VPN gateways by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -27546,7 +28122,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the status for the specified VPN gateway.
+ *  Returns the status for the specified VPN gateway. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.vpnGateways.getStatus
  *
@@ -27571,7 +28148,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_VpnGatewaysGetStatusResponse.
  *
- *  Returns the status for the specified VPN gateway.
+ *  Returns the status for the specified VPN gateway. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -27587,7 +28165,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a VPN gateway in the specified project and region using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.vpnGateways.insert
  *
@@ -27623,7 +28201,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a VPN gateway in the specified project and region using the data
- *  included in the request.
+ *  included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_VpnGateway to include in the query.
  *  @param project Project ID for this request.
@@ -27639,7 +28217,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of VPN gateways available to the specified project and
- *  region.
+ *  region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.vpnGateways.list
  *
@@ -27711,7 +28289,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_VpnGatewayList.
  *
  *  Retrieves a list of VPN gateways available to the specified project and
- *  region.
+ *  region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -27729,7 +28307,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the labels on a VpnGateway. To learn more about labels, read the
- *  Labeling Resources documentation.
+ *  Labeling Resources documentation. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.vpnGateways.setLabels
  *
@@ -27768,7 +28347,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Sets the labels on a VpnGateway. To learn more about labels, read the
- *  Labeling Resources documentation.
+ *  Labeling Resources documentation. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param object The @c GTLRCompute_RegionSetLabelsRequest to include in the
  *    query.
@@ -27786,7 +28366,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.vpnGateways.testIamPermissions
  *
@@ -27811,7 +28392,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -27829,7 +28411,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an aggregated list of VPN tunnels.
+ *  Retrieves an aggregated list of VPN tunnels. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.vpnTunnels.aggregatedList
  *
@@ -27897,7 +28480,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_VpnTunnelAggregatedList.
  *
- *  Retrieves an aggregated list of VPN tunnels.
+ *  Retrieves an aggregated list of VPN tunnels. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *
@@ -27908,7 +28492,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified VpnTunnel resource.
+ *  Deletes the specified VpnTunnel resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  Method: compute.vpnTunnels.delete
  *
@@ -27946,7 +28531,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified VpnTunnel resource.
+ *  Deletes the specified VpnTunnel resource. (== suppress_warning
+ *  http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -27962,7 +28548,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified VpnTunnel resource. Gets a list of available VPN
- *  tunnels by making a list() request.
+ *  tunnels by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  Method: compute.vpnTunnels.get
  *
@@ -27988,7 +28575,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_VpnTunnel.
  *
  *  Returns the specified VpnTunnel resource. Gets a list of available VPN
- *  tunnels by making a list() request.
+ *  tunnels by making a list() request. (== suppress_warning http-rest-shadowed
+ *  ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -28004,7 +28592,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a VpnTunnel resource in the specified project and region using the
- *  data included in the request.
+ *  data included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.vpnTunnels.insert
  *
@@ -28040,7 +28628,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a VpnTunnel resource in the specified project and region using the
- *  data included in the request.
+ *  data included in the request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param object The @c GTLRCompute_VpnTunnel to include in the query.
  *  @param project Project ID for this request.
@@ -28056,7 +28644,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of VpnTunnel resources contained in the specified project
- *  and region.
+ *  and region. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.vpnTunnels.list
  *
@@ -28128,7 +28716,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_VpnTunnelList.
  *
  *  Retrieves a list of VpnTunnel resources contained in the specified project
- *  and region.
+ *  and region. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -28145,7 +28733,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified zone-specific Operations resource.
+ *  Deletes the specified zone-specific Operations resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.zoneOperations.delete
  *
@@ -28174,7 +28763,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes the specified zone-specific Operations resource.
+ *  Deletes the specified zone-specific Operations resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
@@ -28189,7 +28779,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the specified zone-specific Operations resource.
+ *  Retrieves the specified zone-specific Operations resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.zoneOperations.get
  *
@@ -28218,7 +28809,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Retrieves the specified zone-specific Operations resource.
+ *  Retrieves the specified zone-specific Operations resource. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
@@ -28234,6 +28826,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Retrieves a list of Operation resources contained within the specified zone.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.zoneOperations.list
  *
@@ -28309,6 +28902,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_OperationList.
  *
  *  Retrieves a list of Operation resources contained within the specified zone.
+ *  (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for request.
@@ -28326,7 +28920,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the specified Zone resource. Gets a list of available zones by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.zones.get
  *
@@ -28353,7 +28947,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCompute_Zone.
  *
  *  Returns the specified Zone resource. Gets a list of available zones by
- *  making a list() request.
+ *  making a list() request. (== suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone resource to return.
@@ -28366,7 +28960,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves the list of Zone resources available to the specified project.
+ *  Retrieves the list of Zone resources available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  Method: compute.zones.list
  *
@@ -28434,7 +29029,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCompute_ZoneList.
  *
- *  Retrieves the list of Zone resources available to the specified project.
+ *  Retrieves the list of Zone resources available to the specified project. (==
+ *  suppress_warning http-rest-shadowed ==)
  *
  *  @param project Project ID for this request.
  *

@@ -649,7 +649,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest : GTLRObject
 
-/** Requested video annotation features. */
+/** Required. Requested video annotation features. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *features;
 
 /**
@@ -677,14 +677,14 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
 /**
- *  Optional cloud region where annotation should take place. Supported cloud
+ *  Optional. Cloud region where annotation should take place. Supported cloud
  *  regions: `us-east1`, `us-west1`, `europe-west1`, `asia-east1`. If no region
  *  is specified, a region will be determined based on video file location.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional location where the output (in JSON format) should be stored.
+ *  Optional. Location where the output (in JSON format) should be stored.
  *  Currently, only [Google Cloud Storage](https://cloud.google.com/storage/)
  *  URIs are supported, which must be specified in the following format:
  *  `gs://bucket-id/object-id` (other URI formats return
@@ -1066,10 +1066,10 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechRecognitionAlternative *> *alternatives;
 
 /**
- *  Output only. The
- *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the
- *  language in this result. This language code was detected to have the most
- *  likelihood of being spoken in the audio.
+ *  Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+ *  language tag of
+ *  the language in this result. This language code was detected to have the
+ *  most likelihood of being spoken in the audio.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2071,10 +2071,10 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1SpeechRecognitionAlternative *> *alternatives;
 
 /**
- *  Output only. The
- *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the
- *  language in this result. This language code was detected to have the most
- *  likelihood of being spoken in the audio.
+ *  Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+ *  language tag of
+ *  the language in this result. This language code was detected to have the
+ *  most likelihood of being spoken in the audio.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2696,10 +2696,10 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechRecognitionAlternative *> *alternatives;
 
 /**
- *  Output only. The
- *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the
- *  language in this result. This language code was detected to have the most
- *  likelihood of being spoken in the audio.
+ *  Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+ *  language tag of
+ *  the language in this result. This language code was detected to have the
+ *  most likelihood of being spoken in the audio.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -3374,10 +3374,10 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechRecognitionAlternative *> *alternatives;
 
 /**
- *  Output only. The
- *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the
- *  language in this result. This language code was detected to have the most
- *  likelihood of being spoken in the audio.
+ *  Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+ *  language tag of
+ *  the language in this result. This language code was detected to have the
+ *  most likelihood of being spoken in the audio.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -3770,7 +3770,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechContext : GTLRObject
 
 /**
- *  *Optional* A list of strings containing words and phrases "hints" so that
+ *  Optional. A list of strings containing words and phrases "hints" so that
  *  the speech recognition is more likely to recognize them. This can be used
  *  to improve the accuracy for specific words and phrases, for example, if
  *  specific commands are typically spoken by the user. This can also be used
@@ -3826,10 +3826,10 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechRecognitionAlternative *> *alternatives;
 
 /**
- *  Output only. The
- *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag of the
- *  language in this result. This language code was detected to have the most
- *  likelihood of being spoken in the audio.
+ *  Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+ *  language tag of
+ *  the language in this result. This language code was detected to have the
+ *  most likelihood of being spoken in the audio.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -3842,7 +3842,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscriptionConfig : GTLRObject
 
 /**
- *  *Optional* For file formats, such as MXF or MKV, supporting multiple audio
+ *  Optional. For file formats, such as MXF or MKV, supporting multiple audio
  *  tracks, specify up to two tracks. Default: track 0.
  *
  *  Uses NSNumber of intValue.
@@ -3850,8 +3850,8 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *audioTracks;
 
 /**
- *  *Optional*
- *  If set, specifies the estimated number of speakers in the conversation.
+ *  Optional. If set, specifies the estimated number of speakers in the
+ *  conversation.
  *  If not set, defaults to '2'.
  *  Ignored unless enable_speaker_diarization is set to true.
  *
@@ -3860,7 +3860,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSNumber *diarizationSpeakerCount;
 
 /**
- *  *Optional* If 'true', adds punctuation to recognition result hypotheses.
+ *  Optional. If 'true', adds punctuation to recognition result hypotheses.
  *  This feature is only available in select languages. Setting this for
  *  requests in other languages has no effect at all. The default 'false' value
  *  does not add punctuation to result hypotheses. NOTE: "This is currently
@@ -3872,7 +3872,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSNumber *enableAutomaticPunctuation;
 
 /**
- *  *Optional* If 'true', enables speaker detection for each recognized word in
+ *  Optional. If 'true', enables speaker detection for each recognized word in
  *  the top alternative of the recognition result using a speaker_tag provided
  *  in the WordInfo.
  *  Note: When this is true, we send all the words from the beginning of the
@@ -3885,7 +3885,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSNumber *enableSpeakerDiarization;
 
 /**
- *  *Optional* If `true`, the top result includes a list of words and the
+ *  Optional. If `true`, the top result includes a list of words and the
  *  confidence for those words. If `false`, no word-level confidence
  *  information is returned. The default is `false`.
  *
@@ -3894,7 +3894,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSNumber *enableWordConfidence;
 
 /**
- *  *Optional* If set to `true`, the server will attempt to filter out
+ *  Optional. If set to `true`, the server will attempt to filter out
  *  profanities, replacing all but the initial character in each filtered word
  *  with asterisks, e.g. "f***". If set to `false` or omitted, profanities
  *  won't be filtered out.
@@ -3904,7 +3904,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSNumber *filterProfanity;
 
 /**
- *  *Required* The language of the supplied audio as a
+ *  Required. *Required* The language of the supplied audio as a
  *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.
  *  Example: "en-US".
  *  See [Language Support](https://cloud.google.com/speech/docs/languages)
@@ -3913,7 +3913,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  *Optional* Maximum number of recognition hypotheses to be returned.
+ *  Optional. Maximum number of recognition hypotheses to be returned.
  *  Specifically, the maximum number of `SpeechRecognitionAlternative` messages
  *  within each `SpeechTranscription`. The server may return fewer than
  *  `max_alternatives`. Valid values are `0`-`30`. A value of `0` or `1` will
@@ -3923,7 +3923,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSNumber *maxAlternatives;
 
-/** *Optional* A means to provide context to assist the speech recognition. */
+/** Optional. A means to provide context to assist the speech recognition. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechContext *> *speechContexts;
 
 @end
