@@ -657,11 +657,11 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
-@dynamic autoScaling, createTime, deploymentUri, descriptionProperty,
-         errorMessage, ETag, framework, isDefault, labels, lastUseTime,
-         machineType, manualScaling, name, packageUris, predictionClass,
-         pythonVersion, requestLoggingConfig, runtimeVersion, serviceAccount,
-         state;
+@dynamic acceleratorConfig, autoScaling, createTime, deploymentUri,
+         descriptionProperty, errorMessage, ETag, framework, isDefault, labels,
+         lastUseTime, machineType, manualScaling, name, packageUris,
+         predictionClass, pythonVersion, requestLoggingConfig, runtimeVersion,
+         serviceAccount, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

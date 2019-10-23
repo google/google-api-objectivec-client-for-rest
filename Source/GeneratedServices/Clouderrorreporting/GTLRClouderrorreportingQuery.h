@@ -100,7 +100,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 //   +[GTLQueryClouderrorreporting queryForProjectsDeleteEventsWithprojectName:]
 
 /**
- *  [Required] The resource name of the Google Cloud Platform project. Written
+ *  Required. The resource name of the Google Cloud Platform project. Written
  *  as `projects/` plus the
  *  [Google Cloud Platform project
  *  ID](https://support.google.com/cloud/answer/6158840).
@@ -113,7 +113,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *
  *  Deletes all error events of a given project.
  *
- *  @param projectName [Required] The resource name of the Google Cloud Platform
+ *  @param projectName Required. The resource name of the Google Cloud Platform
  *    project. Written
  *    as `projects/` plus the
  *    [Google Cloud Platform project
@@ -138,17 +138,17 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 // Previous library name was
 //   +[GTLQueryClouderrorreporting queryForProjectsEventsListWithprojectName:]
 
-/** [Required] The group for which events shall be returned. */
+/** Required. The group for which events shall be returned. */
 @property(nonatomic, copy, nullable) NSString *groupId;
 
-/** [Optional] The maximum number of results to return per response. */
+/** Optional. The maximum number of results to return per response. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** [Optional] A `next_page_token` provided by a previous response. */
+/** Optional. A `next_page_token` provided by a previous response. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  [Required] The resource name of the Google Cloud Platform project. Written
+ *  Required. The resource name of the Google Cloud Platform project. Written
  *  as `projects/` plus the
  *  [Google Cloud Platform project
  *  ID](https://support.google.com/cloud/answer/6158840).
@@ -157,19 +157,19 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 @property(nonatomic, copy, nullable) NSString *projectName;
 
 /**
- *  [Optional] The exact value to match against
+ *  Optional. The exact value to match against
  *  [`ServiceContext.resource_type`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.resource_type).
  */
 @property(nonatomic, copy, nullable) NSString *serviceFilterResourceType;
 
 /**
- *  [Optional] The exact value to match against
+ *  Optional. The exact value to match against
  *  [`ServiceContext.service`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.service).
  */
 @property(nonatomic, copy, nullable) NSString *serviceFilterService;
 
 /**
- *  [Optional] The exact value to match against
+ *  Optional. The exact value to match against
  *  [`ServiceContext.version`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.version).
  */
 @property(nonatomic, copy, nullable) NSString *serviceFilterVersion;
@@ -198,7 +198,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *
  *  Lists the specified events.
  *
- *  @param projectName [Required] The resource name of the Google Cloud Platform
+ *  @param projectName Required. The resource name of the Google Cloud Platform
  *    project. Written
  *    as `projects/` plus the
  *    [Google Cloud Platform project
@@ -234,7 +234,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 //   +[GTLQueryClouderrorreporting queryForProjectsEventsReportWithObject:projectName:]
 
 /**
- *  [Required] The resource name of the Google Cloud Platform project. Written
+ *  Required. The resource name of the Google Cloud Platform project. Written
  *  as `projects/` plus the
  *  [Google Cloud Platform project
  *  ID](https://support.google.com/cloud/answer/6158840). Example:
@@ -255,7 +255,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *
  *  @param object The @c GTLRClouderrorreporting_ReportedErrorEvent to include
  *    in the query.
- *  @param projectName [Required] The resource name of the Google Cloud Platform
+ *  @param projectName Required. The resource name of the Google Cloud Platform
  *    project. Written
  *    as `projects/` plus the
  *    [Google Cloud Platform project
@@ -282,7 +282,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 //   +[GTLQueryClouderrorreporting queryForProjectsGroupsGetWithgroupName:]
 
 /**
- *  [Required] The group resource name. Written as
+ *  Required. The group resource name. Written as
  *  <code>projects/<var>projectID</var>/groups/<var>group_name</var></code>.
  *  Call
  *  <a href="/error-reporting/reference/rest/v1beta1/projects.groupStats/list">
@@ -297,7 +297,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *
  *  Get the specified group.
  *
- *  @param groupName [Required] The group resource name. Written as
+ *  @param groupName Required. The group resource name. Written as
  *    <code>projects/<var>projectID</var>/groups/<var>group_name</var></code>.
  *    Call
  *    <a href="/error-reporting/reference/rest/v1beta1/projects.groupStats/list">
@@ -324,7 +324,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 //   +[GTLQueryClouderrorreporting queryForProjectsGroupStatsListWithprojectName:]
 
 /**
- *  [Optional] The alignment of the timed counts to be returned.
+ *  Optional. The alignment of the timed counts to be returned.
  *  Default is `ALIGNMENT_EQUAL_AT_END`.
  *
  *  Likely values:
@@ -338,16 +338,16 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 @property(nonatomic, copy, nullable) NSString *alignment;
 
 /**
- *  [Optional] Time where the timed counts shall be aligned if rounded
+ *  Optional. Time where the timed counts shall be aligned if rounded
  *  alignment is chosen. Default is 00:00 UTC.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *alignmentTime;
 
-/** [Optional] List all <code>ErrorGroupStats</code> with these IDs. */
+/** Optional. List all <code>ErrorGroupStats</code> with these IDs. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *groupId;
 
 /**
- *  [Optional] The sort order in which the results are returned.
+ *  Optional. The sort order in which the results are returned.
  *  Default is `COUNT_DESC`.
  *
  *  Likely values:
@@ -362,20 +362,20 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 @property(nonatomic, copy, nullable) NSString *order;
 
 /**
- *  [Optional] The maximum number of results to return per response.
+ *  Optional. The maximum number of results to return per response.
  *  Default is 20.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  [Optional] A `next_page_token` provided by a previous response. To view
+ *  Optional. A `next_page_token` provided by a previous response. To view
  *  additional results, pass this token along with the identical query
  *  parameters as the first request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  [Required] The resource name of the Google Cloud Platform project. Written
+ *  Required. The resource name of the Google Cloud Platform project. Written
  *  as <code>projects/</code> plus the
  *  <a href="https://support.google.com/cloud/answer/6158840">Google Cloud
  *  Platform project ID</a>.
@@ -384,25 +384,25 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 @property(nonatomic, copy, nullable) NSString *projectName;
 
 /**
- *  [Optional] The exact value to match against
+ *  Optional. The exact value to match against
  *  [`ServiceContext.resource_type`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.resource_type).
  */
 @property(nonatomic, copy, nullable) NSString *serviceFilterResourceType;
 
 /**
- *  [Optional] The exact value to match against
+ *  Optional. The exact value to match against
  *  [`ServiceContext.service`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.service).
  */
 @property(nonatomic, copy, nullable) NSString *serviceFilterService;
 
 /**
- *  [Optional] The exact value to match against
+ *  Optional. The exact value to match against
  *  [`ServiceContext.version`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.version).
  */
 @property(nonatomic, copy, nullable) NSString *serviceFilterVersion;
 
 /**
- *  [Optional] The preferred duration for a single returned `TimedCount`.
+ *  Optional. The preferred duration for a single returned `TimedCount`.
  *  If not set, no timed counts are returned.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timedCountDuration;
@@ -431,7 +431,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *
  *  Lists the specified groups.
  *
- *  @param projectName [Required] The resource name of the Google Cloud Platform
+ *  @param projectName Required. The resource name of the Google Cloud Platform
  *    project. Written
  *    as <code>projects/</code> plus the
  *    <a href="https://support.google.com/cloud/answer/6158840">Google Cloud

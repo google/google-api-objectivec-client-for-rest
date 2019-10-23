@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Aggregates data of a certain type or stream into buckets divided by a given
  *  type of boundary. Multiple data sets of multiple types and from multiple
- *  sources can be aggreated into exactly one bucket type per request.
+ *  sources can be aggregated into exactly one bucket type per request.
  *
  *  Method: fitness.users.dataset.aggregate
  *
@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Aggregates data of a certain type or stream into buckets divided by a given
  *  type of boundary. Multiple data sets of multiple types and from multiple
- *  sources can be aggreated into exactly one bucket type per request.
+ *  sources can be aggregated into exactly one bucket type per request.
  *
  *  @param object The @c GTLRFitness_AggregateRequest to include in the query.
  *  @param userId Aggregate data for the person identified. Use me to indicate

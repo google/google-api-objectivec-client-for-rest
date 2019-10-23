@@ -23,6 +23,9 @@
 @class GTLRCloudSearch_BooleanPropertyOptions;
 @class GTLRCloudSearch_CompositeFilter;
 @class GTLRCloudSearch_CustomerIndexStats;
+@class GTLRCloudSearch_CustomerQueryStats;
+@class GTLRCloudSearch_CustomerSessionStats;
+@class GTLRCloudSearch_CustomerUserStats;
 @class GTLRCloudSearch_DataSource;
 @class GTLRCloudSearch_DataSourceIndexStats;
 @class GTLRCloudSearch_DataSourceRestriction;
@@ -94,6 +97,7 @@
 @class GTLRCloudSearch_PropertyDefinition;
 @class GTLRCloudSearch_PropertyDisplayOptions;
 @class GTLRCloudSearch_PushItem;
+@class GTLRCloudSearch_QueryCountByStatus;
 @class GTLRCloudSearch_QueryInterpretation;
 @class GTLRCloudSearch_QueryInterpretationOptions;
 @class GTLRCloudSearch_QueryOperator;
@@ -111,6 +115,9 @@
 @class GTLRCloudSearch_Schema;
 @class GTLRCloudSearch_ScoringConfig;
 @class GTLRCloudSearch_SearchApplication;
+@class GTLRCloudSearch_SearchApplicationQueryStats;
+@class GTLRCloudSearch_SearchApplicationSessionStats;
+@class GTLRCloudSearch_SearchApplicationUserStats;
 @class GTLRCloudSearch_SearchQualityMetadata;
 @class GTLRCloudSearch_SearchResult;
 @class GTLRCloudSearch_Snippet;
@@ -896,6 +903,29 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Interpretation
 GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_Replace;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_QueryInterpretation.reason
+
+/**
+ *  The following values are returned only when interpretation type is
+ *  REPLACE.
+ *  The search results are replaced by ones which are retrieved through a
+ *  much broader version of the query since no results were found for the
+ *  user query. Interpreted query will be empty for the following case.
+ *
+ *  Value: "NO_RESULTS_FOUND_FOR_USER_QUERY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_NoResultsFoundForUserQuery;
+/**
+ *  Natural language interpretation of the query is used to fetch the search
+ *  results.
+ *
+ *  Value: "QUERY_HAS_NATURAL_LANGUAGE_INTENT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_QueryHasNaturalLanguageIntent;
+/** Value: "UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_QueryOperator.type
 
 /** Value: "BOOLEAN" */
@@ -1199,6 +1229,78 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 /** Number of items aggregrated by status code. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_ItemCountByStatus *> *itemCountByStatus;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_CustomerQueryStats
+ */
+@interface GTLRCloudSearch_CustomerQueryStats : GTLRObject
+
+/**
+ *  Date for which query stats were calculated. Stats calculated on the next
+ *  day close to midnight are returned.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_QueryCountByStatus *> *queryCountByStatus;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_CustomerSessionStats
+ */
+@interface GTLRCloudSearch_CustomerSessionStats : GTLRObject
+
+/**
+ *  Date for which session stats were calculated. Stats calculated on the next
+ *  day close to midnight are returned.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
+
+/**
+ *  The count of search sessions on the day
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *searchSessionsCount;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_CustomerUserStats
+ */
+@interface GTLRCloudSearch_CustomerUserStats : GTLRObject
+
+/**
+ *  Date for which session stats were calculated. Stats calculated on the next
+ *  day close to midnight are returned.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
+
+/**
+ *  The count of unique active users in the past one day
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *oneDayActiveUsersCount;
+
+/**
+ *  The count of unique active users in the past seven days
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sevenDaysActiveUsersCount;
+
+/**
+ *  The count of unique active users in the past thirty days
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thirtyDaysActiveUsersCount;
 
 @end
 
@@ -1987,6 +2089,36 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 
 /**
+ *  GTLRCloudSearch_GetCustomerQueryStatsResponse
+ */
+@interface GTLRCloudSearch_GetCustomerQueryStatsResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_CustomerQueryStats *> *stats;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_GetCustomerSessionStatsResponse
+ */
+@interface GTLRCloudSearch_GetCustomerSessionStatsResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_CustomerSessionStats *> *stats;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_GetCustomerUserStatsResponse
+ */
+@interface GTLRCloudSearch_GetCustomerUserStatsResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_CustomerUserStats *> *stats;
+
+@end
+
+
+/**
  *  GTLRCloudSearch_GetDataSourceIndexStatsResponse
  */
 @interface GTLRCloudSearch_GetDataSourceIndexStatsResponse : GTLRObject
@@ -1995,6 +2127,36 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  Summary of indexed item counts, one for each day in the requested range.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_DataSourceIndexStats *> *stats;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_GetSearchApplicationQueryStatsResponse
+ */
+@interface GTLRCloudSearch_GetSearchApplicationQueryStatsResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_SearchApplicationQueryStats *> *stats;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_GetSearchApplicationSessionStatsResponse
+ */
+@interface GTLRCloudSearch_GetSearchApplicationSessionStatsResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_SearchApplicationSessionStats *> *stats;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_GetSearchApplicationUserStatsResponse
+ */
+@interface GTLRCloudSearch_GetSearchApplicationUserStatsResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_SearchApplicationUserStats *> *stats;
 
 @end
 
@@ -3747,6 +3909,28 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 
 /**
+ *  GTLRCloudSearch_QueryCountByStatus
+ */
+@interface GTLRCloudSearch_QueryCountByStatus : GTLRObject
+
+/**
+ *  count
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  This represents the http status code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *statusCode;
+
+@end
+
+
+/**
  *  GTLRCloudSearch_QueryInterpretation
  */
 @interface GTLRCloudSearch_QueryInterpretation : GTLRObject
@@ -3776,6 +3960,27 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  */
 @property(nonatomic, copy, nullable) NSString *interpretedQuery;
 
+/**
+ *  The reason for interpretation of the query. This field will not be
+ *  UNSPECIFIED if the interpretation type is not NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_NoResultsFoundForUserQuery
+ *        The following values are returned only when interpretation type is
+ *        REPLACE.
+ *        The search results are replaced by ones which are retrieved through a
+ *        much broader version of the query since no results were found for the
+ *        user query. Interpreted query will be empty for the following case.
+ *        (Value: "NO_RESULTS_FOUND_FOR_USER_QUERY")
+ *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_QueryHasNaturalLanguageIntent
+ *        Natural language interpretation of the query is used to fetch the
+ *        search
+ *        results. (Value: "QUERY_HAS_NATURAL_LANGUAGE_INTENT")
+ *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_Unspecified Value
+ *        "UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
 @end
 
 
@@ -3792,6 +3997,16 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableNlInterpretation;
+
+/**
+ *  Enable this flag to turn off all internal optimizations like natural
+ *  language (NL) interpretation of queries, supplemental result retrieval,
+ *  and usage of synonyms including custom ones.
+ *  Nl interpretation will be disabled if either one of the two flags is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableVerbatimMode;
 
 @end
 
@@ -3991,10 +4206,13 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  For more information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  *  For translations.
+ *  Set this field using the language set in browser or for the page. In the
+ *  event that the user's language preference is known, set this field to the
+ *  known user language.
  *  When specified, the documents in search results are biased towards the
  *  specified language.
- *  Suggest API does not use this parameter. It autocompletes only based on
- *  characters in the query.
+ *  The suggest API does not use this parameter. Instead, suggest autocompletes
+ *  only based on characters in the query.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -4257,6 +4475,78 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 /** Configuration for a sources specified in data_source_restrictions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_SourceConfig *> *sourceConfig;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_SearchApplicationQueryStats
+ */
+@interface GTLRCloudSearch_SearchApplicationQueryStats : GTLRObject
+
+/**
+ *  Date for which query stats were calculated. Stats calculated on the next
+ *  day close to midnight are returned.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_QueryCountByStatus *> *queryCountByStatus;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_SearchApplicationSessionStats
+ */
+@interface GTLRCloudSearch_SearchApplicationSessionStats : GTLRObject
+
+/**
+ *  Date for which session stats were calculated. Stats calculated on the next
+ *  day close to midnight are returned.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
+
+/**
+ *  The count of search sessions on the day
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *searchSessionsCount;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_SearchApplicationUserStats
+ */
+@interface GTLRCloudSearch_SearchApplicationUserStats : GTLRObject
+
+/**
+ *  Date for which session stats were calculated. Stats calculated on the next
+ *  day close to midnight are returned.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
+
+/**
+ *  The count of unique active users in the past one day
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *oneDayActiveUsersCount;
+
+/**
+ *  The count of unique active users in the past seven days
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sevenDaysActiveUsersCount;
+
+/**
+ *  The count of unique active users in the past thirty days
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thirtyDaysActiveUsersCount;
 
 @end
 

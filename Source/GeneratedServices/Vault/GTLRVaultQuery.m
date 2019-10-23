@@ -697,3 +697,22 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 }
 
 @end
+
+@implementation GTLRVaultQuery_OperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVaultQuery_OperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVault_Empty class];
+  query.loggingName = @"vault.operations.delete";
+  return query;
+}
+
+@end

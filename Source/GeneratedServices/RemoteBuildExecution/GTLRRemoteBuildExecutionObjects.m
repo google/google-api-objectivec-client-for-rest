@@ -659,7 +659,9 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandDurations
-@dynamic dockerPrep, download, execution, isoPrepDone, overall, stdout, upload;
+@dynamic dockerPrep, dockerPrepStartTime, download, downloadStartTime,
+         execStartTime, execution, isoPrepDone, overall, stdout, upload,
+         uploadStartTime;
 @end
 
 

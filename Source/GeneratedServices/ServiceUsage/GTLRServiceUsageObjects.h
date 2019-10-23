@@ -42,6 +42,7 @@
 @class GTLRServiceUsage_Enum;
 @class GTLRServiceUsage_EnumValue;
 @class GTLRServiceUsage_Field;
+@class GTLRServiceUsage_GoogleApiServiceusageV1beta1ServiceIdentity;
 @class GTLRServiceUsage_GoogleApiServiceusageV1Service;
 @class GTLRServiceUsage_GoogleApiServiceusageV1ServiceConfig;
 @class GTLRServiceUsage_Http;
@@ -334,6 +335,23 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_
  *  Value: "IDENTITY_STATE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_IdentityStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse.state
+
+/**
+ *  Service identity has been created and can be used.
+ *
+ *  Value: "ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse_State_Active;
+/**
+ *  Default service identity state. This value is used if the state is
+ *  omitted.
+ *
+ *  Value: "IDENTITY_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse_State_IdentityStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_GoogleApiServiceusageV1Service.state
@@ -1901,6 +1919,54 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /** Configuration controlling usage of this service. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_Usage *usage;
+
+@end
+
+
+/**
+ *  Response message for getting service identity.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse : GTLRObject
+
+/**
+ *  Service identity that service producer can use to access consumer
+ *  resources. If exists is true, it contains email and unique_id. If exists is
+ *  false, it contains pre-constructed email and empty unique_id.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_GoogleApiServiceusageV1beta1ServiceIdentity *identity;
+
+/**
+ *  Service identity state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse_State_Active
+ *        Service identity has been created and can be used. (Value: "ACTIVE")
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse_State_IdentityStateUnspecified
+ *        Default service identity state. This value is used if the state is
+ *        omitted. (Value: "IDENTITY_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Service identity for a service. This is the identity that service producer
+ *  should use to access consumer resources.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV1beta1ServiceIdentity : GTLRObject
+
+/**
+ *  The email address of the service account that a service producer would use
+ *  to access consumer resources.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  The unique and stable id of the service account.
+ *  https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts#ServiceAccount
+ */
+@property(nonatomic, copy, nullable) NSString *uniqueId;
 
 @end
 

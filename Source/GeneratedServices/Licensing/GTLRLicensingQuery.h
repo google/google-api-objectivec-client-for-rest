@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Enterprise License Manager API (licensing/v1)
+//   Licensing API (licensing/v1)
 // Description:
-//   Views and manages licenses for your domain.
+//   Licensing API to view and manage licenses for your domain
 // Documentation:
-//   https://developers.google.com/google-apps/licensing/
+//   https://developers.google.com/admin-sdk/licensing/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Revoke License.
+ *  Revoke a license.
  *
  *  Method: licensing.licenseAssignments.delete
  *
@@ -50,24 +50,44 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryLicensing queryForLicenseAssignmentsDeleteWithproductId:skuId:userId:]
 
-/** Name for product */
+/**
+ *  A product's unique identifier. For more information about products in this
+ *  version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/** Name for sku */
+/**
+ *  A product SKU's unique identifier. For more information about available SKUs
+ *  in this version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *skuId;
 
-/** email id or unique Id of the user */
+/**
+ *  The user's current primary email address. If the user's email address
+ *  changes, use the new email address in your API requests.
+ *  Since a userId is subject to change, do not use a userId value as a key for
+ *  persistent data. This key could break if the current user's email address
+ *  changes.
+ *  If the userId is suspended, the license status changes.
+ */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Revoke License.
+ *  Revoke a license.
  *
- *  @param productId Name for product
- *  @param skuId Name for sku
- *  @param userId email id or unique Id of the user
+ *  @param productId A product's unique identifier. For more information about
+ *    products in this version of the API, see Products and SKUs.
+ *  @param skuId A product SKU's unique identifier. For more information about
+ *    available SKUs in this version of the API, see Products and SKUs.
+ *  @param userId The user's current primary email address. If the user's email
+ *    address changes, use the new email address in your API requests.
+ *    Since a userId is subject to change, do not use a userId value as a key
+ *    for persistent data. This key could break if the current user's email
+ *    address changes.
+ *    If the userId is suspended, the license status changes.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsDelete
  */
@@ -78,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get license assignment of a particular product and sku for a user
+ *  Get a specific user's license by product SKU.
  *
  *  Method: licensing.licenseAssignments.get
  *
@@ -89,23 +109,43 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryLicensing queryForLicenseAssignmentsGetWithproductId:skuId:userId:]
 
-/** Name for product */
+/**
+ *  A product's unique identifier. For more information about products in this
+ *  version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/** Name for sku */
+/**
+ *  A product SKU's unique identifier. For more information about available SKUs
+ *  in this version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *skuId;
 
-/** email id or unique Id of the user */
+/**
+ *  The user's current primary email address. If the user's email address
+ *  changes, use the new email address in your API requests.
+ *  Since a userId is subject to change, do not use a userId value as a key for
+ *  persistent data. This key could break if the current user's email address
+ *  changes.
+ *  If the userId is suspended, the license status changes.
+ */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignment.
  *
- *  Get license assignment of a particular product and sku for a user
+ *  Get a specific user's license by product SKU.
  *
- *  @param productId Name for product
- *  @param skuId Name for sku
- *  @param userId email id or unique Id of the user
+ *  @param productId A product's unique identifier. For more information about
+ *    products in this version of the API, see Products and SKUs.
+ *  @param skuId A product SKU's unique identifier. For more information about
+ *    available SKUs in this version of the API, see Products and SKUs.
+ *  @param userId The user's current primary email address. If the user's email
+ *    address changes, use the new email address in your API requests.
+ *    Since a userId is subject to change, do not use a userId value as a key
+ *    for persistent data. This key could break if the current user's email
+ *    address changes.
+ *    If the userId is suspended, the license status changes.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsGet
  */
@@ -116,7 +156,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Assign License.
+ *  Assign a license.
  *
  *  Method: licensing.licenseAssignments.insert
  *
@@ -127,21 +167,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryLicensing queryForLicenseAssignmentsInsertWithObject:productId:skuId:]
 
-/** Name for product */
+/**
+ *  A product's unique identifier. For more information about products in this
+ *  version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/** Name for sku */
+/**
+ *  A product SKU's unique identifier. For more information about available SKUs
+ *  in this version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *skuId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignment.
  *
- *  Assign License.
+ *  Assign a license.
  *
  *  @param object The @c GTLRLicensing_LicenseAssignmentInsert to include in the
  *    query.
- *  @param productId Name for product
- *  @param skuId Name for sku
+ *  @param productId A product's unique identifier. For more information about
+ *    products in this version of the API, see Products and SKUs.
+ *  @param skuId A product SKU's unique identifier. For more information about
+ *    available SKUs in this version of the API, see Products and SKUs.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsInsert
  */
@@ -152,7 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List license assignments for given product of the customer.
+ *  List all users assigned licenses for a specific product SKU.
  *
  *  Method: licensing.licenseAssignments.listForProduct
  *
@@ -164,13 +212,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLicensing queryForLicenseAssignmentsListForProductWithproductId:customerId:]
 
 /**
- *  CustomerId represents the customer for whom licenseassignments are queried
+ *  Customer's customerId. A previous version of this API accepted the primary
+ *  domain name as a value for this field.
+ *  If the customer is suspended, the server returns an error.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Maximum number of campaigns to return at one time. Must be positive.
- *  Optional. Default value is 100.
+ *  The maxResults query string determines how many entries are returned on each
+ *  page of a large response. This is an optional parameter. The value must be a
+ *  positive number.
  *
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
@@ -178,22 +229,29 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  Token to fetch the next page.Optional. By default server will return first
- *  page
+ *  Token to fetch the next page of data. The maxResults query string is related
+ *  to the pageToken since maxResults determines how many entries are returned
+ *  on each page. This is an optional query string. If not specified, the server
+ *  returns the first page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Name for product */
+/**
+ *  A product's unique identifier. For more information about products in this
+ *  version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignmentList.
  *
- *  List license assignments for given product of the customer.
+ *  List all users assigned licenses for a specific product SKU.
  *
- *  @param productId Name for product
- *  @param customerId CustomerId represents the customer for whom
- *    licenseassignments are queried
+ *  @param productId A product's unique identifier. For more information about
+ *    products in this version of the API, see Products and SKUs.
+ *  @param customerId Customer's customerId. A previous version of this API
+ *    accepted the primary domain name as a value for this field.
+ *    If the customer is suspended, the server returns an error.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsListForProduct
  *
@@ -207,7 +265,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List license assignments for given product and sku of the customer.
+ *  List all users assigned licenses for a specific product SKU.
  *
  *  Method: licensing.licenseAssignments.listForProductAndSku
  *
@@ -219,13 +277,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLicensing queryForLicenseAssignmentsListForProductAndSkuWithproductId:skuId:customerId:]
 
 /**
- *  CustomerId represents the customer for whom licenseassignments are queried
+ *  Customer's customerId. A previous version of this API accepted the primary
+ *  domain name as a value for this field.
+ *  If the customer is suspended, the server returns an error.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Maximum number of campaigns to return at one time. Must be positive.
- *  Optional. Default value is 100.
+ *  The maxResults query string determines how many entries are returned on each
+ *  page of a large response. This is an optional parameter. The value must be a
+ *  positive number.
  *
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
@@ -233,26 +294,37 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  Token to fetch the next page.Optional. By default server will return first
- *  page
+ *  Token to fetch the next page of data. The maxResults query string is related
+ *  to the pageToken since maxResults determines how many entries are returned
+ *  on each page. This is an optional query string. If not specified, the server
+ *  returns the first page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Name for product */
+/**
+ *  A product's unique identifier. For more information about products in this
+ *  version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/** Name for sku */
+/**
+ *  A product SKU's unique identifier. For more information about available SKUs
+ *  in this version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *skuId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignmentList.
  *
- *  List license assignments for given product and sku of the customer.
+ *  List all users assigned licenses for a specific product SKU.
  *
- *  @param productId Name for product
- *  @param skuId Name for sku
- *  @param customerId CustomerId represents the customer for whom
- *    licenseassignments are queried
+ *  @param productId A product's unique identifier. For more information about
+ *    products in this version of the API, see Products and SKUs.
+ *  @param skuId A product SKU's unique identifier. For more information about
+ *    available SKUs in this version of the API, see Products and SKUs.
+ *  @param customerId Customer's customerId. A previous version of this API
+ *    accepted the primary domain name as a value for this field.
+ *    If the customer is suspended, the server returns an error.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsListForProductAndSku
  *
@@ -267,7 +339,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Assign License. This method supports patch semantics.
+ *  Reassign a user's product SKU with a different SKU in the same product. This
+ *  method supports patch semantics.
  *
  *  Method: licensing.licenseAssignments.patch
  *
@@ -278,25 +351,46 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryLicensing queryForLicenseAssignmentsPatchWithObject:productId:skuId:userId:]
 
-/** Name for product */
+/**
+ *  A product's unique identifier. For more information about products in this
+ *  version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/** Name for sku for which license would be revoked */
+/**
+ *  A product SKU's unique identifier. For more information about available SKUs
+ *  in this version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *skuId;
 
-/** email id or unique Id of the user */
+/**
+ *  The user's current primary email address. If the user's email address
+ *  changes, use the new email address in your API requests.
+ *  Since a userId is subject to change, do not use a userId value as a key for
+ *  persistent data. This key could break if the current user's email address
+ *  changes.
+ *  If the userId is suspended, the license status changes.
+ */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignment.
  *
- *  Assign License. This method supports patch semantics.
+ *  Reassign a user's product SKU with a different SKU in the same product. This
+ *  method supports patch semantics.
  *
  *  @param object The @c GTLRLicensing_LicenseAssignment to include in the
  *    query.
- *  @param productId Name for product
- *  @param skuId Name for sku for which license would be revoked
- *  @param userId email id or unique Id of the user
+ *  @param productId A product's unique identifier. For more information about
+ *    products in this version of the API, see Products and SKUs.
+ *  @param skuId A product SKU's unique identifier. For more information about
+ *    available SKUs in this version of the API, see Products and SKUs.
+ *  @param userId The user's current primary email address. If the user's email
+ *    address changes, use the new email address in your API requests.
+ *    Since a userId is subject to change, do not use a userId value as a key
+ *    for persistent data. This key could break if the current user's email
+ *    address changes.
+ *    If the userId is suspended, the license status changes.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsPatch
  */
@@ -308,7 +402,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Assign License.
+ *  Reassign a user's product SKU with a different SKU in the same product.
  *
  *  Method: licensing.licenseAssignments.update
  *
@@ -319,25 +413,45 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryLicensing queryForLicenseAssignmentsUpdateWithObject:productId:skuId:userId:]
 
-/** Name for product */
+/**
+ *  A product's unique identifier. For more information about products in this
+ *  version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/** Name for sku for which license would be revoked */
+/**
+ *  A product SKU's unique identifier. For more information about available SKUs
+ *  in this version of the API, see Products and SKUs.
+ */
 @property(nonatomic, copy, nullable) NSString *skuId;
 
-/** email id or unique Id of the user */
+/**
+ *  The user's current primary email address. If the user's email address
+ *  changes, use the new email address in your API requests.
+ *  Since a userId is subject to change, do not use a userId value as a key for
+ *  persistent data. This key could break if the current user's email address
+ *  changes.
+ *  If the userId is suspended, the license status changes.
+ */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignment.
  *
- *  Assign License.
+ *  Reassign a user's product SKU with a different SKU in the same product.
  *
  *  @param object The @c GTLRLicensing_LicenseAssignment to include in the
  *    query.
- *  @param productId Name for product
- *  @param skuId Name for sku for which license would be revoked
- *  @param userId email id or unique Id of the user
+ *  @param productId A product's unique identifier. For more information about
+ *    products in this version of the API, see Products and SKUs.
+ *  @param skuId A product SKU's unique identifier. For more information about
+ *    available SKUs in this version of the API, see Products and SKUs.
+ *  @param userId The user's current primary email address. If the user's email
+ *    address changes, use the new email address in your API requests.
+ *    Since a userId is subject to change, do not use a userId value as a key
+ *    for persistent data. This key could break if the current user's email
+ *    address changes.
+ *    If the userId is suspended, the license status changes.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsUpdate
  */

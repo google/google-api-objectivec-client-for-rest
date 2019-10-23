@@ -295,7 +295,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
- *  be deleted.
+ *  be deleted. Entries received after the delete operation with a timestamp
+ *  before the operation will be deleted.
  *
  *  Method: logging.billingAccounts.logs.delete
  *
@@ -325,7 +326,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
- *  be deleted.
+ *  be deleted. Entries received after the delete operation with a timestamp
+ *  before the operation will be deleted.
  *
  *  @param logName Required. The resource name of the log to delete:
  *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
@@ -1333,7 +1335,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
- *  be deleted.
+ *  be deleted. Entries received after the delete operation with a timestamp
+ *  before the operation will be deleted.
  *
  *  Method: logging.folders.logs.delete
  *
@@ -1363,7 +1366,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
- *  be deleted.
+ *  be deleted. Entries received after the delete operation with a timestamp
+ *  before the operation will be deleted.
  *
  *  @param logName Required. The resource name of the log to delete:
  *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
@@ -1806,7 +1810,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
- *  be deleted.
+ *  be deleted. Entries received after the delete operation with a timestamp
+ *  before the operation will be deleted.
  *
  *  Method: logging.logs.delete
  *
@@ -1836,7 +1841,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
- *  be deleted.
+ *  be deleted. Entries received after the delete operation with a timestamp
+ *  before the operation will be deleted.
  *
  *  @param logName Required. The resource name of the log to delete:
  *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
@@ -2208,7 +2214,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
- *  be deleted.
+ *  be deleted. Entries received after the delete operation with a timestamp
+ *  before the operation will be deleted.
  *
  *  Method: logging.organizations.logs.delete
  *
@@ -2238,7 +2245,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
- *  be deleted.
+ *  be deleted. Entries received after the delete operation with a timestamp
+ *  before the operation will be deleted.
  *
  *  @param logName Required. The resource name of the log to delete:
  *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
@@ -2929,7 +2937,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
- *  be deleted.
+ *  be deleted. Entries received after the delete operation with a timestamp
+ *  before the operation will be deleted.
  *
  *  Method: logging.projects.logs.delete
  *
@@ -2959,7 +2968,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
- *  be deleted.
+ *  be deleted. Entries received after the delete operation with a timestamp
+ *  before the operation will be deleted.
  *
  *  @param logName Required. The resource name of the log to delete:
  *    "projects/[PROJECT_ID]/logs/[LOG_ID]"

@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRCloudIAP_GetIamPolicyRequest;
+@class GTLRCloudIAP_IapSettings;
 @class GTLRCloudIAP_SetIamPolicyRequest;
 @class GTLRCloudIAP_TestIamPermissionsRequest;
 
@@ -78,6 +79,40 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudIAP_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets the IAP settings on a particular IAP protected resource.
+ *
+ *  Method: iap.getIapSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_V1GetIapSettings : GTLRCloudIAPQuery
+// Previous library name was
+//   +[GTLQueryCloudIAP queryForGetIapSettingsWithname:]
+
+/**
+ *  Required. The resource name for which to retrieve the settings.
+ *  Authorization: Requires the `getSettings` permission for the associated
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_IapSettings.
+ *
+ *  Gets the IAP settings on a particular IAP protected resource.
+ *
+ *  @param name Required. The resource name for which to retrieve the settings.
+ *    Authorization: Requires the `getSettings` permission for the associated
+ *    resource.
+ *
+ *  @return GTLRCloudIAPQuery_V1GetIapSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -162,6 +197,47 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudIAP_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Updates the IAP settings on a particular IAP protected resource. It
+ *  replaces all fields unless the `update_mask` is set.
+ *
+ *  Method: iap.updateIapSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIAPCloudPlatform
+ */
+@interface GTLRCloudIAPQuery_V1UpdateIapSettings : GTLRCloudIAPQuery
+// Previous library name was
+//   +[GTLQueryCloudIAP queryForUpdateIapSettingsWithObject:name:]
+
+/** Required. The resource name of the IAP protected resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The field mask specifying which IAP settings should be updated.
+ *  If omitted, the all of the settings are updated. See
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudIAP_IapSettings.
+ *
+ *  Updates the IAP settings on a particular IAP protected resource. It
+ *  replaces all fields unless the `update_mask` is set.
+ *
+ *  @param object The @c GTLRCloudIAP_IapSettings to include in the query.
+ *  @param name Required. The resource name of the IAP protected resource.
+ *
+ *  @return GTLRCloudIAPQuery_V1UpdateIapSettings
+ */
++ (instancetype)queryWithObject:(GTLRCloudIAP_IapSettings *)object
+                           name:(NSString *)name;
 
 @end
 

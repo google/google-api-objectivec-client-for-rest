@@ -48,6 +48,7 @@ NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_DuplicateScanName 
 NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_FailedToAuthenticateToTarget = @"FAILED_TO_AUTHENTICATE_TO_TARGET";
 NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_FindingTypeUnspecified = @"FINDING_TYPE_UNSPECIFIED";
 NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ForbiddenToScanCompute = @"FORBIDDEN_TO_SCAN_COMPUTE";
+NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ForbiddenUpdateToManagedScan = @"FORBIDDEN_UPDATE_TO_MANAGED_SCAN";
 NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_InternalError = @"INTERNAL_ERROR";
 NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_InvalidFieldValue = @"INVALID_FIELD_VALUE";
 NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_MalformedFilter = @"MALFORMED_FILTER";

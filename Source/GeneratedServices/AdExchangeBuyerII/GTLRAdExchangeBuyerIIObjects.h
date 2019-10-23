@@ -2246,7 +2246,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 /** The number of bids for which the buyer was billed. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *billedImpressions;
 
-/** The number of bids that won an impression. */
+/** The number of bids that won the auction. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *impressionsWon;
 
 /**

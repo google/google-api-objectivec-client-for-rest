@@ -333,18 +333,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRClouderrorreporting_ReportedErrorEvent : GTLRObject
 
-/** [Optional] A description of the context in which the error occurred. */
+/** Optional. A description of the context in which the error occurred. */
 @property(nonatomic, strong, nullable) GTLRClouderrorreporting_ErrorContext *context;
 
 /**
- *  [Optional] Time when the event occurred.
+ *  Optional. Time when the event occurred.
  *  If not provided, the time when the event was received by the
  *  Error Reporting system will be used.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
 /**
- *  [Required] The error message.
+ *  Required. The error message.
  *  If no `context.reportLocation` is provided, the message must contain a
  *  header (typically consisting of the exception type name and an error
  *  message) and an exception stack trace in one of the supported programming
@@ -370,7 +370,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *message;
 
-/** [Required] The service context in which this error has occurred. */
+/** Required. The service context in which this error has occurred. */
 @property(nonatomic, strong, nullable) GTLRClouderrorreporting_ServiceContext *serviceContext;
 
 @end

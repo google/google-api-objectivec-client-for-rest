@@ -420,7 +420,8 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 
 @implementation GTLRDns_Policy
 @dynamic alternativeNameServerConfig, descriptionProperty,
-         enableInboundForwarding, identifier, kind, name, networks;
+         enableInboundForwarding, enableLogging, identifier, kind, name,
+         networks;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

@@ -736,7 +736,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  string will be unchanged. The $(VAR_NAME) syntax can be escaped with a
  *  double $$, ie: $$(VAR_NAME). Escaped references will never be expanded,
  *  regardless of whether the variable exists or not.
- *  Cannot be updated.
  *  More info:
  *  https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
  */
@@ -749,7 +748,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  Cloud Run fully managed: supported
  *  Cloud Run for Anthos: supported
  *  List of environment variables to set in the container.
- *  Cannot be updated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_EnvVar *> *env;
 
@@ -782,7 +780,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  Image pull policy.
  *  One of Always, Never, IfNotPresent.
  *  Defaults to Always if :latest tag is specified, or IfNotPresent otherwise.
- *  Cannot be updated.
  *  More info:
  *  https://kubernetes.io/docs/concepts/containers/images#updating-images
  */
@@ -794,7 +791,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  Cloud Run for Anthos: supported
  *  Periodic probe of container liveness.
  *  Container will be restarted if the probe fails.
- *  Cannot be updated.
  *  More info:
  *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
  */
@@ -816,7 +812,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  DOES NOT prevent that port from being exposed. Any port which is
  *  listening on the default "0.0.0.0" address inside a container will be
  *  accessible from the network.
- *  Cannot be updated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_ContainerPort *> *ports;
 
@@ -826,7 +821,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  Cloud Run for Anthos: supported
  *  Periodic probe of container service readiness.
  *  Container will be removed from service endpoints if the probe fails.
- *  Cannot be updated.
  *  More info:
  *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
  */
@@ -837,7 +831,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  Cloud Run fully managed: supported
  *  Cloud Run for Anthos: supported
  *  Compute Resources required by this container.
- *  Cannot be updated.
  *  More info:
  *  https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
  */
@@ -864,7 +857,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  message. Will be truncated by the node if greater than 4096 bytes. The
  *  total message length across all containers will be limited to 12kb.
  *  Defaults to /dev/termination-log.
- *  Cannot be updated.
  */
 @property(nonatomic, copy, nullable) NSString *terminationMessagePath;
 
@@ -886,7 +878,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  Cloud Run fully managed: not supported
  *  Cloud Run for Anthos: supported
  *  Pod volumes to mount into the container's filesystem.
- *  Cannot be updated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_VolumeMount *> *volumeMounts;
 
@@ -897,7 +888,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  Container's working directory.
  *  If not specified, the container runtime's default will be used, which
  *  might be configured in the container image.
- *  Cannot be updated.
  */
 @property(nonatomic, copy, nullable) NSString *workingDir;
 

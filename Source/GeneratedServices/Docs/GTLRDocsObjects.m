@@ -18,6 +18,14 @@ NSString * const kGTLRDocs_AutoText_Type_PageCount       = @"PAGE_COUNT";
 NSString * const kGTLRDocs_AutoText_Type_PageNumber      = @"PAGE_NUMBER";
 NSString * const kGTLRDocs_AutoText_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDocs_CreateFooterRequest.type
+NSString * const kGTLRDocs_CreateFooterRequest_Type_Default    = @"DEFAULT";
+NSString * const kGTLRDocs_CreateFooterRequest_Type_HeaderFooterTypeUnspecified = @"HEADER_FOOTER_TYPE_UNSPECIFIED";
+
+// GTLRDocs_CreateHeaderRequest.type
+NSString * const kGTLRDocs_CreateHeaderRequest_Type_Default    = @"DEFAULT";
+NSString * const kGTLRDocs_CreateHeaderRequest_Type_HeaderFooterTypeUnspecified = @"HEADER_FOOTER_TYPE_UNSPECIFIED";
+
 // GTLRDocs_CreateParagraphBulletsRequest.bulletPreset
 NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletArrow3dCircleSquare = @"BULLET_ARROW3D_CIRCLE_SQUARE";
 NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletArrowDiamondDisc = @"BULLET_ARROW_DIAMOND_DISC";
@@ -352,6 +360,46 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
   return [GTLRDocs_SuggestedTextStyle class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_CreateFooterRequest
+//
+
+@implementation GTLRDocs_CreateFooterRequest
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_CreateFooterResponse
+//
+
+@implementation GTLRDocs_CreateFooterResponse
+@dynamic footerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_CreateHeaderRequest
+//
+
+@implementation GTLRDocs_CreateHeaderRequest
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_CreateHeaderResponse
+//
+
+@implementation GTLRDocs_CreateHeaderResponse
+@dynamic headerId;
 @end
 
 
@@ -1590,15 +1638,26 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_ReplaceNamedRangeContentRequest
+//
+
+@implementation GTLRDocs_ReplaceNamedRangeContentRequest
+@dynamic namedRangeId, namedRangeName, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_Request
 //
 
 @implementation GTLRDocs_Request
-@dynamic createNamedRange, createParagraphBullets, deleteContentRange,
-         deleteNamedRange, deleteParagraphBullets, deletePositionedObject,
-         deleteTableColumn, deleteTableRow, insertInlineImage, insertPageBreak,
-         insertTable, insertTableColumn, insertTableRow, insertText,
-         mergeTableCells, replaceAllText, replaceImage, unmergeTableCells,
+@dynamic createFooter, createHeader, createNamedRange, createParagraphBullets,
+         deleteContentRange, deleteNamedRange, deleteParagraphBullets,
+         deletePositionedObject, deleteTableColumn, deleteTableRow,
+         insertInlineImage, insertPageBreak, insertTable, insertTableColumn,
+         insertTableRow, insertText, mergeTableCells, replaceAllText,
+         replaceImage, replaceNamedRangeContent, unmergeTableCells,
          updateDocumentStyle, updateParagraphStyle, updateTableCellStyle,
          updateTableColumnProperties, updateTableRowStyle, updateTextStyle;
 @end
@@ -1610,8 +1669,8 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_Response
-@dynamic createNamedRange, insertInlineImage, insertInlineSheetsChart,
-         replaceAllText;
+@dynamic createFooter, createHeader, createNamedRange, insertInlineImage,
+         insertInlineSheetsChart, replaceAllText;
 @end
 
 

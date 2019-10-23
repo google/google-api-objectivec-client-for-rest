@@ -589,7 +589,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 /**
  *  Only allows requests from devices with a verified Chrome OS.
  *  Verifications includes requirements that the device is enterprise-managed,
- *  conformant to Dasher domain policies, and the caller has permission to call
+ *  conformant to domain policies, and the caller has permission to call
  *  the API targeted by the request.
  *
  *  Uses NSNumber of boolValue.

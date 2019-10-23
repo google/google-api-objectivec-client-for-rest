@@ -145,6 +145,11 @@ NSString * const kGTLRDataflow_NameAndKind_Kind_Or           = @"OR";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Set          = @"SET";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Sum          = @"SUM";
 
+// GTLRDataflow_RuntimeEnvironment.ipConfiguration
+NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPrivate = @"WORKER_IP_PRIVATE";
+NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPublic = @"WORKER_IP_PUBLIC";
+NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpUnspecified = @"WORKER_IP_UNSPECIFIED";
+
 // GTLRDataflow_SdkVersion.sdkSupportStatus
 NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Deprecated = @"DEPRECATED";
 NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Stale = @"STALE";
@@ -1580,8 +1585,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_RuntimeEnvironment
 @dynamic additionalExperiments, additionalUserLabels, bypassTempDirValidation,
-         kmsKeyName, machineType, maxWorkers, network, numWorkers,
-         serviceAccountEmail, subnetwork, tempLocation, usePrivateIps,
+         ipConfiguration, kmsKeyName, machineType, maxWorkers, network,
+         numWorkers, serviceAccountEmail, subnetwork, tempLocation,
          workerRegion, workerZone, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

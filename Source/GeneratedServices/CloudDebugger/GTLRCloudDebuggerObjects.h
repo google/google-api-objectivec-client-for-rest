@@ -723,7 +723,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_RegisterDebuggeeRequest : GTLRObject
 
 /**
- *  Debuggee information to register.
+ *  Required. Debuggee information to register.
  *  The fields `project`, `uniquifier`, `description` and `agent_version`
  *  of the debuggee must be set.
  */
@@ -909,7 +909,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_UpdateActiveBreakpointRequest : GTLRObject
 
 /**
- *  Updated breakpoint information.
+ *  Required. Updated breakpoint information.
  *  The field `id` must be set.
  *  The agent must echo all Breakpoint specification fields in the update.
  */

@@ -822,7 +822,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 
 /**
  *  Optional. A filter that chooses which log entries to return. See Advanced
- *  Logs Filters. Only log entries that match the filter are returned. An empty
+ *  Logs Queries. Only log entries that match the filter are returned. An empty
  *  filter matches all log entries in the resources listed in resource_names.
  *  Referencing a parent resource that is not listed in resource_names will
  *  cause the filter to return no results. The maximum length of the filter is
@@ -1577,6 +1577,9 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  */
 @property(nonatomic, copy, nullable) NSString *destination;
 
+/** Do not use. This field is ignored. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
 /**
  *  Optional. An advanced logs filter. The only exported log entries are those
  *  that are in the resource owning the sink and that match the filter. For
@@ -1625,6 +1628,9 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *        "VERSION_FORMAT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *outputVersionFormat;
+
+/** Do not use. This field is ignored. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Output only. The last update timestamp of the sink.This field may not be
@@ -1741,6 +1747,14 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  */
 @property(nonatomic, copy, nullable) NSString *metricKind;
 
+/**
+ *  Read-only. If present, then a time series, which is identified partially by
+ *  a metric type and a MonitoredResourceDescriptor, that is associated with
+ *  this metric type can only be associated with one of the monitored resource
+ *  types listed here.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *monitoredResourceTypes;
+
 /** The resource name of the metric descriptor. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1847,8 +1861,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 @property(nonatomic, strong, nullable) GTLRDuration *ingestDelay;
 
 /**
- *  Deprecated. Please use the MetricDescriptor.launch_stage instead. The launch
- *  stage of the metric definition.
+ *  Deprecated. Must use the MetricDescriptor.launch_stage instead.
  *
  *  Likely values:
  *    @arg @c kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Alpha Alpha is a

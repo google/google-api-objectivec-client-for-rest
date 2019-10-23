@@ -1408,6 +1408,16 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_V1Beta1GenerateServiceIdentityResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1Beta1GenerateServiceIdentityResponse
+@dynamic identity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_V1Beta1ImportProducerOverridesResponse
 //
 
@@ -1454,6 +1464,16 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 //
 
 @implementation GTLRServiceConsumerManagement_V1Beta1RefreshConsumerResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1Beta1ServiceIdentity
+//
+
+@implementation GTLRServiceConsumerManagement_V1Beta1ServiceIdentity
+@dynamic email, name, tag, uniqueId;
 @end
 
 

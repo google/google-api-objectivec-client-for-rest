@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudShell_Environment.size
+NSString * const kGTLRCloudShell_Environment_Size_Boosted      = @"BOOSTED";
+NSString * const kGTLRCloudShell_Environment_Size_Default      = @"DEFAULT";
+NSString * const kGTLRCloudShell_Environment_Size_VmSizeUnspecified = @"VM_SIZE_UNSPECIFIED";
+
 // GTLRCloudShell_Environment.state
 NSString * const kGTLRCloudShell_Environment_State_Disabled    = @"DISABLED";
 NSString * const kGTLRCloudShell_Environment_State_Running     = @"RUNNING";
@@ -58,8 +63,8 @@ NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_UnarchivingDisk 
 //
 
 @implementation GTLRCloudShell_Environment
-@dynamic dockerImage, identifier, name, publicKeys, sshHost, sshPort,
-         sshUsername, state, webHost;
+@dynamic dockerImage, identifier, name, publicKeys, size, sshHost, sshPort,
+         sshUsername, state, vmSizeExpireTime, webHost;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

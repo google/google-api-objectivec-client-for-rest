@@ -3581,6 +3581,7 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeStorageCloudPlatform
  *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
  *    @c kGTLRAuthScopeStorageDevstorageReadOnly
  */
 @interface GTLRStorageQuery_ProjectsHmacKeysGet : GTLRStorageQuery

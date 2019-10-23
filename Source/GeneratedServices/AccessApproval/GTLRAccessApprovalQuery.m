@@ -106,6 +106,25 @@
 
 @end
 
+@implementation GTLRAccessApprovalQuery_FoldersDeleteAccessApprovalSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRAccessApprovalQuery_FoldersDeleteAccessApprovalSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessApproval_Empty class];
+  query.loggingName = @"accessapproval.folders.deleteAccessApprovalSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRAccessApprovalQuery_FoldersGetAccessApprovalSettings
 
 @dynamic name;
@@ -238,6 +257,25 @@
 
 @end
 
+@implementation GTLRAccessApprovalQuery_OrganizationsDeleteAccessApprovalSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRAccessApprovalQuery_OrganizationsDeleteAccessApprovalSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessApproval_Empty class];
+  query.loggingName = @"accessapproval.organizations.deleteAccessApprovalSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRAccessApprovalQuery_OrganizationsGetAccessApprovalSettings
 
 @dynamic name;
@@ -365,6 +403,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRAccessApproval_ListApprovalRequestsResponse class];
   query.loggingName = @"accessapproval.projects.approvalRequests.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessApprovalQuery_ProjectsDeleteAccessApprovalSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRAccessApprovalQuery_ProjectsDeleteAccessApprovalSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessApproval_Empty class];
+  query.loggingName = @"accessapproval.projects.deleteAccessApprovalSettings";
   return query;
 }
 

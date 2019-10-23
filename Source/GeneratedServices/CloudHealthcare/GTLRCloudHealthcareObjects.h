@@ -27,11 +27,13 @@
 @class GTLRCloudHealthcare_DateShiftConfig;
 @class GTLRCloudHealthcare_DeidentifyConfig;
 @class GTLRCloudHealthcare_DicomConfig;
+@class GTLRCloudHealthcare_DicomFilterConfig;
 @class GTLRCloudHealthcare_DicomStore;
 @class GTLRCloudHealthcare_DicomStore_Labels;
 @class GTLRCloudHealthcare_ErrorDetail;
 @class GTLRCloudHealthcare_Expr;
 @class GTLRCloudHealthcare_FhirConfig;
+@class GTLRCloudHealthcare_FhirFilter;
 @class GTLRCloudHealthcare_FhirStore;
 @class GTLRCloudHealthcare_FhirStore_Labels;
 @class GTLRCloudHealthcare_FieldMetadata;
@@ -62,6 +64,7 @@
 @class GTLRCloudHealthcare_ProgressCounter;
 @class GTLRCloudHealthcare_RedactConfig;
 @class GTLRCloudHealthcare_ReplaceWithInfoTypeConfig;
+@class GTLRCloudHealthcare_Resources;
 @class GTLRCloudHealthcare_SchemaConfig;
 @class GTLRCloudHealthcare_Segment;
 @class GTLRCloudHealthcare_Segment_Fields;
@@ -554,6 +557,33 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
+ *  Creates a new DICOM store with sensitive information de-identified.
+ */
+@interface GTLRCloudHealthcare_DeidentifyDicomStoreRequest : GTLRObject
+
+/** De-identify configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
+
+/**
+ *  The name of the DICOM store to create and write the redacted data to.
+ *  For example,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
+ *  * The destination dataset must exist.
+ *  * The source dataset and destination dataset must both reside in the same
+ *  project. De-identifying data across multiple projects is not supported.
+ *  * The destination DICOM store must not exist.
+ *  * The caller must have the necessary permissions to create the destination
+ *  DICOM store.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationStore;
+
+/** Filter configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_DicomFilterConfig *filterConfig;
+
+@end
+
+
+/**
  *  Contains the status of the Deidentify operation.
  */
 @interface GTLRCloudHealthcare_DeidentifyErrorDetails : GTLRObject
@@ -585,6 +615,36 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *successStoreCount;
+
+@end
+
+
+/**
+ *  Creates a new FHIR store with sensitive information de-identified.
+ */
+@interface GTLRCloudHealthcare_DeidentifyFhirStoreRequest : GTLRObject
+
+/** Deidentify configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
+
+/**
+ *  The name of the FHIR store to create and write the redacted data to.
+ *  For example,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *  * The destination dataset must exist.
+ *  * The source dataset and destination dataset must both reside in the same
+ *  project. De-identifying data across multiple projects is not supported.
+ *  * The destination FHIR store must not exist.
+ *  * The caller must have the necessary permissions to create the destination
+ *  FHIR store.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationStore;
+
+/**
+ *  A filter specifying the resources to include in the output. If not
+ *  specified, all resources are included in the output.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_FhirFilter *resourceFilter;
 
 @end
 
@@ -671,6 +731,27 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skipIdRedaction;
+
+@end
+
+
+/**
+ *  Specifies the filter configuration for DICOM resources.
+ */
+@interface GTLRCloudHealthcare_DicomFilterConfig : GTLRObject
+
+/**
+ *  The Cloud Storage location of the filter configuration file.
+ *  The `gcs_uri` must be in the format `gs://bucket/path/to/object`.
+ *  The filter configuration file must contain a list of resource paths
+ *  separated by newline characters (\\n or \\r\\n). Each resource path
+ *  must be in the format
+ *  "/studies/{studyUID}[/series/{seriesUID}[/instances/{instanceUID}]]"
+ *  The Cloud Healthcare API service account must have the
+ *  `roles/storage.objectViewer` Cloud IAM role for this Cloud Storage
+ *  location.
+ */
+@property(nonatomic, copy, nullable) NSString *resourcePathsGcsUri;
 
 @end
 
@@ -869,6 +950,20 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
+ *  Filter configuration.
+ */
+@interface GTLRCloudHealthcare_FhirFilter : GTLRObject
+
+/**
+ *  List of resources to include in the output. If this list is empty or
+ *  not specified, all resources are included in the output.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_Resources *resources;
+
+@end
+
+
+/**
  *  Represents a FHIR store.
  */
 @interface GTLRCloudHealthcare_FhirStore : GTLRObject
@@ -1004,6 +1099,43 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
+ *  Contains a summary of the DeidentifyDicomStore operation.
+ */
+@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DeidentifyDeidentifyDicomStoreSummary : GTLRObject
+
+/**
+ *  Number of objects that processing failed for.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failureResourceCount;
+
+/**
+ *  Number of objects successfully processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successResourceCount;
+
+@end
+
+
+/**
+ *  Contains a summary of the DeidentifyFhirStore operation.
+ */
+@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DeidentifyDeidentifyFhirStoreSummary : GTLRObject
+
+/**
+ *  Number of resources successfully processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successResourceCount;
+
+@end
+
+
+/**
  *  The BigQuery table where the server writes the output.
  */
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DicomBigQueryDestination : GTLRObject
@@ -1119,9 +1251,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /**
  *  Response when errors occur while exporting resources.
  *  This structure is included in the
- *  error details to describe the
- *  detailed outcome. It is only included when the operation finishes with
- *  errors.
+ *  error
+ *  details to describe the detailed outcome. It is
+ *  only included when the operation finishes with errors.
  */
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestExportResourcesErrorDetails : GTLRObject
 
@@ -1229,9 +1361,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /**
  *  Error response of importing resources.
  *  This structure will be included in the
- *  error details to describe the
- *  detailed error. It will only be included when the operation finishes with
- *  some failure.
+ *  error
+ *  details to describe the detailed error. It will
+ *  only be included when the operation finishes with some failure.
  */
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestImportResourcesErrorDetails : GTLRObject
 
@@ -2078,27 +2210,35 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources.
- *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
- *  `members` to a `role`, where the members can be user accounts, Google
- *  groups,
- *  Google domains, and service accounts. A `role` is a named list of
- *  permissions
- *  defined by IAM.
+ *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
+ *  `members` to a single `role`. Members can be user accounts, service
+ *  accounts,
+ *  Google groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions (defined by IAM or configured by users). A `binding` can
+ *  optionally specify a `condition`, which is a logic expression that further
+ *  constrains the role binding based on attributes about the request and/or
+ *  target resource.
  *  **JSON Example**
  *  {
  *  "bindings": [
  *  {
- *  "role": "roles/owner",
+ *  "role": "roles/resourcemanager.organizationAdmin",
  *  "members": [
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",
  *  "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com"
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
  *  ]
  *  },
  *  {
- *  "role": "roles/viewer",
- *  "members": ["user:sean\@example.com"]
+ *  "role": "roles/resourcemanager.organizationViewer",
+ *  "members": ["user:eve\@example.com"],
+ *  "condition": {
+ *  "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020",
+ *  "expression": "request.time <
+ *  timestamp('2020-10-01T00:00:00.000Z')",
+ *  }
  *  }
  *  ]
  *  }
@@ -2108,11 +2248,15 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  - user:mike\@example.com
  *  - group:admins\@example.com
  *  - domain:google.com
- *  - serviceAccount:my-other-app\@appspot.gserviceaccount.com
- *  role: roles/owner
+ *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
+ *  role: roles/resourcemanager.organizationAdmin
  *  - members:
- *  - user:sean\@example.com
- *  role: roles/viewer
+ *  - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer
+ *  condition:
+ *  title: expirable access
+ *  description: Does not grant access after Sep 2020
+ *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
  *  For a description of IAM and its features, see the
  *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
@@ -2122,7 +2266,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`.
+ *  Associates a list of `members` to a `role`. Optionally may specify a
+ *  `condition` that determines when binding is in effect.
  *  `bindings` with no members will result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Binding *> *bindings;
@@ -2136,7 +2281,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten.
+ *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
+ *  'setIamPolicy' will not fail even if either of incoming or stored policy
+ *  does not meet the version requirements.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2147,9 +2294,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Specifies the format of the policy.
  *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
  *  rejected.
- *  Policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset.
+ *  Operations affecting conditional bindings must specify version 3. This can
+ *  be either setting a conditional policy, modifying a conditional binding,
+ *  or removing a conditional binding from the stored conditional policy.
+ *  Operations on non-conditional policies may specify any valid value or
+ *  leave the field unset.
+ *  If no etag is provided in the call to `setIamPolicy`, any version
+ *  compliance checks on the incoming and/or stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2202,6 +2353,17 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  [PERSON_NAME]." The TRANSFORM action is equivalent to redacting.
  */
 @interface GTLRCloudHealthcare_ReplaceWithInfoTypeConfig : GTLRObject
+@end
+
+
+/**
+ *  A list of FHIR resources.
+ */
+@interface GTLRCloudHealthcare_Resources : GTLRObject
+
+/** List of resources IDs. For example, "Patient/1234". */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
 @end
 
 

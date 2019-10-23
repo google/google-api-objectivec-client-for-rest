@@ -1552,7 +1552,17 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @end
 
 /**
- *  Stops a running instance.
+ *  Stops a running instance.The instance might be automatically recreated based
+ *  on the scaling settings of the version. For more information, see "How
+ *  Instances are Managed" (standard environment
+ *  (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed)
+ *  | flexible environment
+ *  (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To
+ *  ensure that instances are not re-created and avoid getting billed, you can
+ *  stop all instances within the target version by changing the serving status
+ *  of the version to 'STOPPEDwith the
+ *  [apps.services.versions.patch`](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch)
+ *  method.
  *
  *  Method: appengine.apps.services.versions.instances.delete
  *
@@ -1581,7 +1591,17 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 /**
  *  Fetches a @c GTLRAppengine_Operation.
  *
- *  Stops a running instance.
+ *  Stops a running instance.The instance might be automatically recreated based
+ *  on the scaling settings of the version. For more information, see "How
+ *  Instances are Managed" (standard environment
+ *  (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed)
+ *  | flexible environment
+ *  (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To
+ *  ensure that instances are not re-created and avoid getting billed, you can
+ *  stop all instances within the target version by changing the serving status
+ *  of the version to 'STOPPEDwith the
+ *  [apps.services.versions.patch`](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch)
+ *  method.
  *
  *  @param appsId Part of `name`. Name of the resource requested. Example:
  *    apps/myapp/services/default/versions/v1/instances/instance-1.

@@ -7,11 +7,44 @@
 //   Fetches reports for the administrators of G Suite customers about the
 //   usage, collaboration, security, and risk for their users.
 // Documentation:
-//   https://developers.google.com/admin-sdk/reports/
+//   /admin-sdk/reports/
 
 #import "GTLRReportsQuery.h"
 
 #import "GTLRReportsObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// applicationName
+NSString * const kGTLRReportsApplicationNameAccessTransparency = @"access_transparency";
+NSString * const kGTLRReportsApplicationNameAdmin              = @"admin";
+NSString * const kGTLRReportsApplicationNameCalendar           = @"calendar";
+NSString * const kGTLRReportsApplicationNameChat               = @"chat";
+NSString * const kGTLRReportsApplicationNameDrive              = @"drive";
+NSString * const kGTLRReportsApplicationNameGcp                = @"gcp";
+NSString * const kGTLRReportsApplicationNameGplus              = @"gplus";
+NSString * const kGTLRReportsApplicationNameGroups             = @"groups";
+NSString * const kGTLRReportsApplicationNameGroupsEnterprise   = @"groups_enterprise";
+NSString * const kGTLRReportsApplicationNameJamboard           = @"jamboard";
+NSString * const kGTLRReportsApplicationNameLogin              = @"login";
+NSString * const kGTLRReportsApplicationNameMeet               = @"meet";
+NSString * const kGTLRReportsApplicationNameMobile             = @"mobile";
+NSString * const kGTLRReportsApplicationNameRules              = @"rules";
+NSString * const kGTLRReportsApplicationNameSaml               = @"saml";
+NSString * const kGTLRReportsApplicationNameToken              = @"token";
+NSString * const kGTLRReportsApplicationNameUserAccounts       = @"user_accounts";
+
+// entityKey
+NSString * const kGTLRReportsEntityKeyAll       = @"all";
+NSString * const kGTLRReportsEntityKeyEntityKey = @"entityKey";
+
+// entityType
+NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
 
 @implementation GTLRReportsQuery
 

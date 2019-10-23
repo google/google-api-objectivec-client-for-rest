@@ -849,6 +849,96 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @end
 
+@implementation GTLRCloudSearchQuery_StatsGetQuery
+
+@dynamic fromDateDay, fromDateMonth, fromDateYear, toDateDay, toDateMonth,
+         toDateYear;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"fromDateDay" : @"fromDate.day",
+    @"fromDateMonth" : @"fromDate.month",
+    @"fromDateYear" : @"fromDate.year",
+    @"toDateDay" : @"toDate.day",
+    @"toDateMonth" : @"toDate.month",
+    @"toDateYear" : @"toDate.year"
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/stats/query";
+  GTLRCloudSearchQuery_StatsGetQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudSearch_GetCustomerQueryStatsResponse class];
+  query.loggingName = @"cloudsearch.stats.getQuery";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSearchQuery_StatsGetSession
+
+@dynamic fromDateDay, fromDateMonth, fromDateYear, toDateDay, toDateMonth,
+         toDateYear;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"fromDateDay" : @"fromDate.day",
+    @"fromDateMonth" : @"fromDate.month",
+    @"fromDateYear" : @"fromDate.year",
+    @"toDateDay" : @"toDate.day",
+    @"toDateMonth" : @"toDate.month",
+    @"toDateYear" : @"toDate.year"
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/stats/session";
+  GTLRCloudSearchQuery_StatsGetSession *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudSearch_GetCustomerSessionStatsResponse class];
+  query.loggingName = @"cloudsearch.stats.getSession";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSearchQuery_StatsGetUser
+
+@dynamic fromDateDay, fromDateMonth, fromDateYear, toDateDay, toDateMonth,
+         toDateYear;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"fromDateDay" : @"fromDate.day",
+    @"fromDateMonth" : @"fromDate.month",
+    @"fromDateYear" : @"fromDate.year",
+    @"toDateDay" : @"toDate.day",
+    @"toDateMonth" : @"toDate.month",
+    @"toDateYear" : @"toDate.year"
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/stats/user";
+  GTLRCloudSearchQuery_StatsGetUser *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudSearch_GetCustomerUserStatsResponse class];
+  query.loggingName = @"cloudsearch.stats.getUser";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSearchQuery_StatsIndexDatasourcesGet
 
 @dynamic fromDateDay, fromDateMonth, fromDateYear, name, toDateDay, toDateMonth,
@@ -876,6 +966,102 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
   query.name = name;
   query.expectedObjectClass = [GTLRCloudSearch_GetDataSourceIndexStatsResponse class];
   query.loggingName = @"cloudsearch.stats.index.datasources.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSearchQuery_StatsQuerySearchapplicationsGet
+
+@dynamic fromDateDay, fromDateMonth, fromDateYear, name, toDateDay, toDateMonth,
+         toDateYear;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"fromDateDay" : @"fromDate.day",
+    @"fromDateMonth" : @"fromDate.month",
+    @"fromDateYear" : @"fromDate.year",
+    @"toDateDay" : @"toDate.day",
+    @"toDateMonth" : @"toDate.month",
+    @"toDateYear" : @"toDate.year"
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/stats/query/{+name}";
+  GTLRCloudSearchQuery_StatsQuerySearchapplicationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSearch_GetSearchApplicationQueryStatsResponse class];
+  query.loggingName = @"cloudsearch.stats.query.searchapplications.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSearchQuery_StatsSessionSearchapplicationsGet
+
+@dynamic fromDateDay, fromDateMonth, fromDateYear, name, toDateDay, toDateMonth,
+         toDateYear;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"fromDateDay" : @"fromDate.day",
+    @"fromDateMonth" : @"fromDate.month",
+    @"fromDateYear" : @"fromDate.year",
+    @"toDateDay" : @"toDate.day",
+    @"toDateMonth" : @"toDate.month",
+    @"toDateYear" : @"toDate.year"
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/stats/session/{+name}";
+  GTLRCloudSearchQuery_StatsSessionSearchapplicationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSearch_GetSearchApplicationSessionStatsResponse class];
+  query.loggingName = @"cloudsearch.stats.session.searchapplications.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSearchQuery_StatsUserSearchapplicationsGet
+
+@dynamic fromDateDay, fromDateMonth, fromDateYear, name, toDateDay, toDateMonth,
+         toDateYear;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"fromDateDay" : @"fromDate.day",
+    @"fromDateMonth" : @"fromDate.month",
+    @"fromDateYear" : @"fromDate.year",
+    @"toDateDay" : @"toDate.day",
+    @"toDateMonth" : @"toDate.month",
+    @"toDateYear" : @"toDate.year"
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/stats/user/{+name}";
+  GTLRCloudSearchQuery_StatsUserSearchapplicationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSearch_GetSearchApplicationUserStatsResponse class];
+  query.loggingName = @"cloudsearch.stats.user.searchapplications.get";
   return query;
 }
 

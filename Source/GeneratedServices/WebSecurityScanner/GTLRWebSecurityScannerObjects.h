@@ -240,6 +240,12 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_Findin
  */
 GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ForbiddenToScanCompute;
 /**
+ *  User tries to update managed scan
+ *
+ *  Value: "FORBIDDEN_UPDATE_TO_MANAGED_SCAN"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ForbiddenUpdateToManagedScan;
+/**
  *  Indicates an internal server error.
  *  Please DO NOT USE THIS ERROR CODE unless the root cause is truly unknown.
  *
@@ -1190,6 +1196,9 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName
  *        for
  *        Google Compute Engine Scanning Alpha access. (Value:
  *        "FORBIDDEN_TO_SCAN_COMPUTE")
+ *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_ForbiddenUpdateToManagedScan
+ *        User tries to update managed scan (Value:
+ *        "FORBIDDEN_UPDATE_TO_MANAGED_SCAN")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_InternalError
  *        Indicates an internal server error.
  *        Please DO NOT USE THIS ERROR CODE unless the root cause is truly

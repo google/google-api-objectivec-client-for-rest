@@ -250,6 +250,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  Method: binaryauthorization.projects.attestors.setIamPolicy
  *
@@ -271,6 +272,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  @param object The @c GTLRBinaryAuthorization_SetIamPolicyRequest to include
  *    in the query.
@@ -460,6 +462,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  Method: binaryauthorization.projects.policy.setIamPolicy
  *
@@ -481,6 +484,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  @param object The @c GTLRBinaryAuthorization_SetIamPolicyRequest to include
  *    in the query.

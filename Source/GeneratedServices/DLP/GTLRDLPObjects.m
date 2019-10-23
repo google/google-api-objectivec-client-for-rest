@@ -1634,16 +1634,6 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDLP_GooglePrivacyDlpV2ListInfoTypesRequest
-//
-
-@implementation GTLRDLP_GooglePrivacyDlpV2ListInfoTypesRequest
-@dynamic filter, languageCode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse
 //
 

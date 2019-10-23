@@ -1711,8 +1711,8 @@
 //
 
 @implementation GTLRShoppingContent_OrderPromotion
-@dynamic applicableItems, appliedItems, funder, merchantPromotionId, priceValue,
-         shortTitle, subtype, taxValue, title, type;
+@dynamic applicableItems, appliedItems, endTime, funder, merchantPromotionId,
+         priceValue, shortTitle, startTime, subtype, taxValue, title, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1731,7 +1731,7 @@
 //
 
 @implementation GTLRShoppingContent_OrderPromotionItem
-@dynamic lineItemId, productId, quantity;
+@dynamic lineItemId, offerId, productId, quantity;
 @end
 
 

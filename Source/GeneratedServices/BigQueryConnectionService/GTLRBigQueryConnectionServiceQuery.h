@@ -202,7 +202,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsListWithparent:]
 
-/** Maximum number of results to return. */
+/** Maximum number of results per page. */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /** Page token. */
@@ -280,6 +280,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  Method: bigqueryconnection.projects.locations.connections.setIamPolicy
  *
@@ -302,6 +303,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
  *
  *  @param object The @c GTLRBigQueryConnectionService_SetIamPolicyRequest to
  *    include in the query.

@@ -898,6 +898,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The order id associated with the purchase of the inapp product. */
 @property(nonatomic, copy, nullable) NSString *orderId;
 
+/** The inapp product SKU. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
 /**
  *  The purchase state of the order. Possible values are:
  *  - Purchased
@@ -915,6 +918,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *purchaseTimeMillis;
+
+/** The purchase token generated to identify this purchase. */
+@property(nonatomic, copy, nullable) NSString *purchaseToken;
 
 /**
  *  The type of purchase of the inapp product. This field is only set if this

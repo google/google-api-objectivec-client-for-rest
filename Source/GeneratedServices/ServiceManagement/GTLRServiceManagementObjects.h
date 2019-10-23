@@ -1777,7 +1777,8 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceManagement_DisableServiceRequest : GTLRObject
 
 /**
- *  The identity of consumer resource which service disablement will be
+ *  Required. The identity of consumer resource which service disablement will
+ *  be
  *  applied to.
  *  The Google Service Management implementation accepts the following
  *  forms:
@@ -1787,6 +1788,13 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *consumerId;
 
+@end
+
+
+/**
+ *  Operation payload for DisableService method.
+ */
+@interface GTLRServiceManagement_DisableServiceResponse : GTLRObject
 @end
 
 
@@ -1927,7 +1935,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceManagement_EnableServiceRequest : GTLRObject
 
 /**
- *  The identity of consumer resource which service enablement will be
+ *  Required. The identity of consumer resource which service enablement will be
  *  applied to.
  *  The Google Service Management implementation accepts the following
  *  forms:
@@ -1937,6 +1945,13 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *consumerId;
 
+@end
+
+
+/**
+ *  Operation payload for EnableService method.
+ */
+@interface GTLRServiceManagement_EnableServiceResponse : GTLRObject
 @end
 
 
@@ -2219,7 +2234,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceManagement_GenerateConfigReportRequest : GTLRObject
 
 /**
- *  Service configuration for which we want to generate the report.
+ *  Required. Service configuration for which we want to generate the report.
  *  For this version of API, the supported types are
  *  google.api.servicemanagement.v1.ConfigRef,
  *  google.api.servicemanagement.v1.ConfigSource,
@@ -2228,7 +2243,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRServiceManagement_GenerateConfigReportRequest_NewConfig *newConfig NS_RETURNS_NOT_RETAINED;
 
 /**
- *  Service configuration against which the comparison will be done.
+ *  Optional. Service configuration against which the comparison will be done.
  *  For this version of API, the supported types are
  *  google.api.servicemanagement.v1.ConfigRef,
  *  google.api.servicemanagement.v1.ConfigSource,
@@ -2240,7 +2255,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Service configuration for which we want to generate the report.
+ *  Required. Service configuration for which we want to generate the report.
  *  For this version of API, the supported types are
  *  google.api.servicemanagement.v1.ConfigRef,
  *  google.api.servicemanagement.v1.ConfigSource,
@@ -2256,7 +2271,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Service configuration against which the comparison will be done.
+ *  Optional. Service configuration against which the comparison will be done.
  *  For this version of API, the supported types are
  *  google.api.servicemanagement.v1.ConfigRef,
  *  google.api.servicemanagement.v1.ConfigSource,
@@ -3069,6 +3084,15 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *metricKind;
 
+/**
+ *  Read-only. If present, then a time
+ *  series, which is identified partially by
+ *  a metric type and a MonitoredResourceDescriptor, that is associated
+ *  with this metric type can only be associated with one of the monitored
+ *  resource types listed here.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *monitoredResourceTypes;
+
 /** The resource name of the metric descriptor. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3181,8 +3205,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRDuration *ingestDelay;
 
 /**
- *  Deprecated. Please use the MetricDescriptor.launch_stage instead.
- *  The launch stage of the metric definition.
+ *  Deprecated. Must use the MetricDescriptor.launch_stage instead.
  *
  *  Likely values:
  *    @arg @c kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Alpha
@@ -3768,27 +3791,35 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 /**
  *  Defines an Identity and Access Management (IAM) policy. It is used to
  *  specify access control policies for Cloud Platform resources.
- *  A `Policy` consists of a list of `bindings`. A `binding` binds a list of
- *  `members` to a `role`, where the members can be user accounts, Google
- *  groups,
- *  Google domains, and service accounts. A `role` is a named list of
- *  permissions
- *  defined by IAM.
+ *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
+ *  `members` to a single `role`. Members can be user accounts, service
+ *  accounts,
+ *  Google groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions (defined by IAM or configured by users). A `binding` can
+ *  optionally specify a `condition`, which is a logic expression that further
+ *  constrains the role binding based on attributes about the request and/or
+ *  target resource.
  *  **JSON Example**
  *  {
  *  "bindings": [
  *  {
- *  "role": "roles/owner",
+ *  "role": "roles/resourcemanager.organizationAdmin",
  *  "members": [
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",
  *  "domain:google.com",
- *  "serviceAccount:my-other-app\@appspot.gserviceaccount.com"
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
  *  ]
  *  },
  *  {
- *  "role": "roles/viewer",
- *  "members": ["user:sean\@example.com"]
+ *  "role": "roles/resourcemanager.organizationViewer",
+ *  "members": ["user:eve\@example.com"],
+ *  "condition": {
+ *  "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020",
+ *  "expression": "request.time <
+ *  timestamp('2020-10-01T00:00:00.000Z')",
+ *  }
  *  }
  *  ]
  *  }
@@ -3798,11 +3829,15 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  - user:mike\@example.com
  *  - group:admins\@example.com
  *  - domain:google.com
- *  - serviceAccount:my-other-app\@appspot.gserviceaccount.com
- *  role: roles/owner
+ *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
+ *  role: roles/resourcemanager.organizationAdmin
  *  - members:
- *  - user:sean\@example.com
- *  role: roles/viewer
+ *  - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer
+ *  condition:
+ *  title: expirable access
+ *  description: Does not grant access after Sep 2020
+ *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
  *  For a description of IAM and its features, see the
  *  [IAM developer's guide](https://cloud.google.com/iam/docs).
  */
@@ -3812,7 +3847,8 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`.
+ *  Associates a list of `members` to a `role`. Optionally may specify a
+ *  `condition` that determines when binding is in effect.
  *  `bindings` with no members will result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Binding *> *bindings;
@@ -3826,7 +3862,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten.
+ *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
+ *  'setIamPolicy' will not fail even if either of incoming or stored policy
+ *  does not meet the version requirements.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -3837,9 +3875,13 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  Specifies the format of the policy.
  *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
  *  rejected.
- *  Policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset.
+ *  Operations affecting conditional bindings must specify version 3. This can
+ *  be either setting a conditional policy, modifying a conditional binding,
+ *  or removing a conditional binding from the stored conditional policy.
+ *  Operations on non-conditional policies may specify any valid value or
+ *  leave the field unset.
+ *  If no etag is provided in the call to `setIamPolicy`, any version
+ *  compliance checks on the incoming and/or stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4045,7 +4087,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRServiceManagement_DeleteServiceStrategy *deleteServiceStrategy;
 
 /**
- *  Optional unique identifier of this Rollout. Only lower case letters, digits
+ *  Optional. Unique identifier of this Rollout. Only lower case letters, digits
  *  and '-' are allowed.
  *  If not specified by client, the server will generate one. The generated id
  *  will have the form of <date><revision number>, where "date" is the create
@@ -4408,7 +4450,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  */
 @interface GTLRServiceManagement_SubmitConfigSourceRequest : GTLRObject
 
-/** The source configuration for the service. */
+/** Required. The source configuration for the service. */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_ConfigSource *configSource;
 
 /**
@@ -4558,7 +4600,7 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 /**
  *  Strategy that specifies how clients of Google Service Controller want to
  *  send traffic to use different config versions. This is generally
- *  used by API proxy to split traffic based on your configured precentage for
+ *  used by API proxy to split traffic based on your configured percentage for
  *  each config version.
  *  One example of how to gradually rollout a new service configuration using
  *  this

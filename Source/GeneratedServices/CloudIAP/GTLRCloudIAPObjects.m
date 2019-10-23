@@ -12,6 +12,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIAP_AccessSettings
+//
+
+@implementation GTLRCloudIAP_AccessSettings
+@dynamic corsSettings, gcipSettings, oauthSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_ApplicationSettings
+//
+
+@implementation GTLRCloudIAP_ApplicationSettings
+@dynamic csmSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIAP_Binding
 //
 
@@ -30,6 +50,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIAP_CorsSettings
+//
+
+@implementation GTLRCloudIAP_CorsSettings
+@dynamic allowHttpOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_CsmSettings
+//
+
+@implementation GTLRCloudIAP_CsmSettings
+@dynamic rctokenAud;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIAP_Expr
 //
 
@@ -38,6 +78,24 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_GcipSettings
+//
+
+@implementation GTLRCloudIAP_GcipSettings
+@dynamic loginPageUri, tenantIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tenantIds" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -60,6 +118,26 @@
 
 @implementation GTLRCloudIAP_GetPolicyOptions
 @dynamic requestedPolicyVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_IapSettings
+//
+
+@implementation GTLRCloudIAP_IapSettings
+@dynamic accessSettings, applicationSettings, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_OAuthSettings
+//
+
+@implementation GTLRCloudIAP_OAuthSettings
+@dynamic loginHint;
 @end
 
 

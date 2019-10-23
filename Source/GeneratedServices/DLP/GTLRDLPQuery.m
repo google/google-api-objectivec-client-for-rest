@@ -49,26 +49,20 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @end
 
-@implementation GTLRDLPQuery_LocationsInfoTypes
+@implementation GTLRDLPQuery_LocationsInfoTypesList
 
-@dynamic location;
+@dynamic filter, languageCode, location;
 
-+ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2ListInfoTypesRequest *)object
-                       location:(NSString *)location {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
++ (instancetype)queryWithLocation:(NSString *)location {
   NSArray *pathParams = @[ @"location" ];
   NSString *pathURITemplate = @"v2/locations/{location}/infoTypes";
-  GTLRDLPQuery_LocationsInfoTypes *query =
+  GTLRDLPQuery_LocationsInfoTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
+                               HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
   query.location = location;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse class];
-  query.loggingName = @"dlp.locations.infoTypes";
+  query.loggingName = @"dlp.locations.infoTypes.list";
   return query;
 }
 

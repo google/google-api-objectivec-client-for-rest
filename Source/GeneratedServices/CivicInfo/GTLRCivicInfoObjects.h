@@ -1218,14 +1218,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  startLatE7
  *
- *  Uses NSNumber of longLongValue.
+ *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startLatE7;
 
 /**
  *  startLngE7
  *
- *  Uses NSNumber of longLongValue.
+ *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startLngE7;
 

@@ -738,6 +738,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Represents a hardware accelerator request config.
+ *  Note that the AcceleratorConfig could be used in both Jobs and Versions.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig : GTLRObject
 
@@ -2303,6 +2304,9 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version : GTLRObject
 
+/** Accelerator config for GPU serving. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig *acceleratorConfig;
+
 /**
  *  Automatically scale the number of nodes used to serve the model in
  *  response to increases and decreases in traffic. Care should be
@@ -2729,7 +2733,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  {
  *  "bindings": [
  *  {
- *  "role": "role/resourcemanager.organizationAdmin",
+ *  "role": "roles/resourcemanager.organizationAdmin",
  *  "members": [
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",

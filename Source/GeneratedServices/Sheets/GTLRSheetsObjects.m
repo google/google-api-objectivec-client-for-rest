@@ -18,6 +18,11 @@ NSString * const kGTLRSheets_AppendDimensionRequest_Dimension_Columns = @"COLUMN
 NSString * const kGTLRSheets_AppendDimensionRequest_Dimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
 NSString * const kGTLRSheets_AppendDimensionRequest_Dimension_Rows = @"ROWS";
 
+// GTLRSheets_BaselineValueFormat.comparisonType
+NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_AbsoluteDifference = @"ABSOLUTE_DIFFERENCE";
+NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_ComparisonTypeUndefined = @"COMPARISON_TYPE_UNDEFINED";
+NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_PercentageDifference = @"PERCENTAGE_DIFFERENCE";
+
 // GTLRSheets_BasicChartAxis.position
 NSString * const kGTLRSheets_BasicChartAxis_Position_BasicChartAxisPositionUnspecified = @"BASIC_CHART_AXIS_POSITION_UNSPECIFIED";
 NSString * const kGTLRSheets_BasicChartAxis_Position_BottomAxis = @"BOTTOM_AXIS";
@@ -414,6 +419,20 @@ NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Sum  = @"SUM";
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Var  = @"VAR";
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Varp = @"VARP";
 
+// GTLRSheets_ScorecardChartSpec.aggregateType
+NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Average = @"AVERAGE";
+NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_ChartAggregateTypeUnspecified = @"CHART_AGGREGATE_TYPE_UNSPECIFIED";
+NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Count = @"COUNT";
+NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Max = @"MAX";
+NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Median = @"MEDIAN";
+NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Min = @"MIN";
+NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Sum = @"SUM";
+
+// GTLRSheets_ScorecardChartSpec.numberFormatSource
+NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_ChartNumberFormatSourceUndefined = @"CHART_NUMBER_FORMAT_SOURCE_UNDEFINED";
+NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_Custom = @"CUSTOM";
+NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_FromData = @"FROM_DATA";
+
 // GTLRSheets_SheetProperties.sheetType
 NSString * const kGTLRSheets_SheetProperties_SheetType_Grid    = @"GRID";
 NSString * const kGTLRSheets_SheetProperties_SheetType_Object  = @"OBJECT";
@@ -693,6 +712,22 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_BandingProperties
 @dynamic firstBandColor, footerColor, headerColor, secondBandColor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_BaselineValueFormat
+//
+
+@implementation GTLRSheets_BaselineValueFormat
+@dynamic comparisonType, descriptionProperty, negativeColor, position,
+         positiveColor, textFormat;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -1171,6 +1206,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_ChartCustomNumberFormatOptions
+//
+
+@implementation GTLRSheets_ChartCustomNumberFormatOptions
+@dynamic prefix, suffix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_ChartData
 //
 
@@ -1205,8 +1250,9 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 @implementation GTLRSheets_ChartSpec
 @dynamic altText, backgroundColor, basicChart, bubbleChart, candlestickChart,
          fontName, hiddenDimensionStrategy, histogramChart, maximized, orgChart,
-         pieChart, subtitle, subtitleTextFormat, subtitleTextPosition, title,
-         titleTextFormat, titleTextPosition, treemapChart, waterfallChart;
+         pieChart, scorecardChart, subtitle, subtitleTextFormat,
+         subtitleTextPosition, title, titleTextFormat, titleTextPosition,
+         treemapChart, waterfallChart;
 @end
 
 
@@ -1959,6 +2005,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_KeyValueFormat
+//
+
+@implementation GTLRSheets_KeyValueFormat
+@dynamic position, textFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_LineStyle
 //
 
@@ -2349,6 +2405,18 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_ScorecardChartSpec
+//
+
+@implementation GTLRSheets_ScorecardChartSpec
+@dynamic aggregateType, baselineValueData, baselineValueFormat,
+         customFormatOptions, keyValueData, keyValueFormat, numberFormatSource,
+         scaleFactor;
 @end
 
 

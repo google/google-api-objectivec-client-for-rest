@@ -137,8 +137,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the auto domain mapping being deleted. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the auto domain mapping being deleted.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -155,9 +156,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete an auto domain mapping.
  *
- *  @param name The name of the auto domain mapping being deleted. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the auto domain mapping being deleted.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesAutodomainmappingsDelete
  */
@@ -178,8 +179,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesAutodomainmappingsGetWithname:]
 
 /**
- *  The name of the auto domain mapping being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the auto domain mapping being retrieved.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -188,9 +190,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about an auto domain mapping.
  *
- *  @param name The name of the auto domain mapping being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the auto domain mapping being retrieved.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesAutodomainmappingsGet
  */
@@ -287,8 +289,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesAutodomainmappingsReplaceAutoDomainMappingWithObject:name:]
 
 /**
- *  The name of the auto domain mapping being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the auto domain mapping being retrieved.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -303,9 +306,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_AutoDomainMapping to include in the query.
- *  @param name The name of the auto domain mapping being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the auto domain mapping being retrieved.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesAutodomainmappingsReplaceAutoDomainMapping
  */
@@ -327,8 +330,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesConfigurationsCreateWithObject:parent:]
 
 /**
- *  The project ID or project number in which this configuration should be
- *  created.
+ *  The namespace in which the configuration should be created.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -338,9 +342,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Create a configuration.
  *
  *  @param object The @c GTLRCloudRun_Configuration to include in the query.
- *  @param parent The project ID or project number in which this configuration
- *    should be
- *    created.
+ *  @param parent The namespace in which the configuration should be created.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesConfigurationsCreate
  */
@@ -371,8 +375,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the configuration being deleted. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the configuration to delete.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -392,8 +397,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  calling this, any route referencing the configuration (or revision
  *  from the configuration) must be deleted.
  *
- *  @param name The name of the configuration being deleted. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the configuration to delete.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesConfigurationsDelete
  */
@@ -414,8 +420,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesConfigurationsGetWithname:]
 
 /**
- *  The name of the configuration being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the configuration to retrieve.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -424,9 +431,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a configuration.
  *
- *  @param name The name of the configuration being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the configuration to retrieve.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesConfigurationsGet
  */
@@ -473,8 +480,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The project ID or project number from which the configurations should be
- *  listed.
+ *  The namespace from which the configurations should be listed.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -495,9 +503,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List configurations.
  *
- *  @param parent The project ID or project number from which the configurations
- *    should be
- *    listed.
+ *  @param parent The namespace from which the configurations should be listed.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesConfigurationsList
  */
@@ -523,8 +531,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesConfigurationsReplaceConfigurationWithObject:name:]
 
 /**
- *  The name of the configuration being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the configuration being replaced.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -539,9 +548,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_Configuration to include in the query.
- *  @param name The name of the configuration being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the configuration being replaced.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesConfigurationsReplaceConfiguration
  */
@@ -563,8 +572,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesDomainmappingsCreateWithObject:parent:]
 
 /**
- *  The project ID or project number in which this domain mapping should be
- *  created.
+ *  The namespace in which the domain mapping should be created.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -574,9 +584,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Create a new domain mapping.
  *
  *  @param object The @c GTLRCloudRun_DomainMapping to include in the query.
- *  @param parent The project ID or project number in which this domain mapping
- *    should be
- *    created.
+ *  @param parent The namespace in which the domain mapping should be created.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesDomainmappingsCreate
  */
@@ -604,8 +614,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the domain mapping being deleted. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the domain mapping to delete.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -622,8 +633,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete a domain mapping.
  *
- *  @param name The name of the domain mapping being deleted. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the domain mapping to delete.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesDomainmappingsDelete
  */
@@ -644,8 +656,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesDomainmappingsGetWithname:]
 
 /**
- *  The name of the domain mapping being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the domain mapping to retrieve.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -654,9 +667,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a domain mapping.
  *
- *  @param name The name of the domain mapping being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the domain mapping to retrieve.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesDomainmappingsGet
  */
@@ -703,8 +716,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The project ID or project number from which the domain mappings should be
- *  listed.
+ *  The namespace from which the domain mappings should be listed.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -725,9 +739,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List domain mappings.
  *
- *  @param parent The project ID or project number from which the domain
- *    mappings should be
- *    listed.
+ *  @param parent The namespace from which the domain mappings should be listed.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesDomainmappingsList
  */
@@ -753,8 +767,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesDomainmappingsReplaceDomainMappingWithObject:name:]
 
 /**
- *  The name of the domain mapping being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the domain mapping being retrieved.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -769,9 +784,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_DomainMapping to include in the query.
- *  @param name The name of the domain mapping being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the domain mapping being retrieved.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesDomainmappingsReplaceDomainMapping
  */
@@ -799,8 +814,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the revision being deleted. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the revision to delete.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -817,8 +833,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete a revision.
  *
- *  @param name The name of the revision being deleted. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the revision to delete.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRevisionsDelete
  */
@@ -839,8 +856,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesRevisionsGetWithname:]
 
 /**
- *  The name of the revision being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the revision to retrieve.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -849,8 +867,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a revision.
  *
- *  @param name The name of the revision being retrieved. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the revision to retrieve.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRevisionsGet
  */
@@ -897,7 +916,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The project ID or project number from which the revisions should be listed.
+ *  The namespace from which the revisions should be listed.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -918,8 +939,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List revisions.
  *
- *  @param parent The project ID or project number from which the revisions
- *    should be listed.
+ *  @param parent The namespace from which the revisions should be listed.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRevisionsList
  */
@@ -939,7 +961,11 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudRun queryForNamespacesRoutesCreateWithObject:parent:]
 
-/** The project ID or project number in which this route should be created. */
+/**
+ *  The namespace in which the route should be created.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -948,8 +974,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Create a route.
  *
  *  @param object The @c GTLRCloudRun_Route to include in the query.
- *  @param parent The project ID or project number in which this route should be
- *    created.
+ *  @param parent The namespace in which the route should be created.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRoutesCreate
  */
@@ -978,8 +1005,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the route being deleted. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the route to delete.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -997,8 +1025,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Delete a route.
  *  This will cause the route to stop serving traffic.
  *
- *  @param name The name of the route being deleted. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the route to delete.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRoutesDelete
  */
@@ -1019,8 +1048,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesRoutesGetWithname:]
 
 /**
- *  The name of the route being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the route to retrieve.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1029,8 +1059,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a route.
  *
- *  @param name The name of the route being retrieved. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the route to retrieve.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRoutesGet
  */
@@ -1077,7 +1108,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The project ID or project number from which the routes should be listed.
+ *  The namespace from which the routes should be listed.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1098,8 +1131,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List routes.
  *
- *  @param parent The project ID or project number from which the routes should
- *    be listed.
+ *  @param parent The namespace from which the routes should be listed.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRoutesList
  */
@@ -1125,8 +1159,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesRoutesReplaceRouteWithObject:name:]
 
 /**
- *  The name of the route being replaced. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the route being replaced.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1141,8 +1176,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_Route to include in the query.
- *  @param name The name of the route being replaced. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the route being replaced.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRoutesReplaceRoute
  */
@@ -1164,7 +1200,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesServicesCreateWithObject:parent:]
 
 /**
- *  The project ID or project number in which this service should be created.
+ *  The namespace in which the service should be created.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1174,8 +1212,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Create a service.
  *
  *  @param object The @c GTLRCloudRun_Service to include in the query.
- *  @param parent The project ID or project number in which this service should
- *    be created.
+ *  @param parent The namespace in which the service should be created.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesServicesCreate
  */
@@ -1205,8 +1244,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the service being deleted. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the service to delete.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1225,8 +1265,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  This will cause the Service to stop serving traffic and will delete the
  *  child entities like Routes, Configurations and Revisions.
  *
- *  @param name The name of the service being deleted. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the service to delete.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesServicesDelete
  */
@@ -1247,8 +1288,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesServicesGetWithname:]
 
 /**
- *  The name of the service being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the service to retrieve.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1257,8 +1299,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a service.
  *
- *  @param name The name of the service being retrieved. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the service to retrieve.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesServicesGet
  */
@@ -1305,7 +1348,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The project ID or project number from which the services should be listed.
+ *  The namespace from which the services should be listed.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1326,8 +1371,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List services.
  *
- *  @param parent The project ID or project number from which the services
- *    should be listed.
+ *  @param parent The namespace from which the services should be listed.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesServicesList
  */
@@ -1353,8 +1399,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesServicesReplaceServiceWithObject:name:]
 
 /**
- *  The name of the service being replaced. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the service being replaced.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1369,8 +1416,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_Service to include in the query.
- *  @param name The name of the service being replaced. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the service being replaced.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesServicesReplaceService
  */
@@ -1472,8 +1520,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the auto domain mapping being deleted. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the auto domain mapping being deleted.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1490,9 +1539,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete an auto domain mapping.
  *
- *  @param name The name of the auto domain mapping being deleted. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the auto domain mapping being deleted.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsDelete
  */
@@ -1513,8 +1562,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsAutodomainmappingsGetWithname:]
 
 /**
- *  The name of the auto domain mapping being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the auto domain mapping being retrieved.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1523,9 +1573,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about an auto domain mapping.
  *
- *  @param name The name of the auto domain mapping being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the auto domain mapping being retrieved.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsGet
  */
@@ -1622,8 +1672,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsAutodomainmappingsReplaceAutoDomainMappingWithObject:name:]
 
 /**
- *  The name of the auto domain mapping being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the auto domain mapping being retrieved.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1638,9 +1689,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_AutoDomainMapping to include in the query.
- *  @param name The name of the auto domain mapping being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the auto domain mapping being retrieved.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsReplaceAutoDomainMapping
  */
@@ -1662,8 +1713,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsConfigurationsCreateWithObject:parent:]
 
 /**
- *  The project ID or project number in which this configuration should be
- *  created.
+ *  The namespace in which the configuration should be created.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1673,9 +1725,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Create a configuration.
  *
  *  @param object The @c GTLRCloudRun_Configuration to include in the query.
- *  @param parent The project ID or project number in which this configuration
- *    should be
- *    created.
+ *  @param parent The namespace in which the configuration should be created.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsConfigurationsCreate
  */
@@ -1706,8 +1758,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the configuration being deleted. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the configuration to delete.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1727,8 +1780,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  calling this, any route referencing the configuration (or revision
  *  from the configuration) must be deleted.
  *
- *  @param name The name of the configuration being deleted. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the configuration to delete.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsConfigurationsDelete
  */
@@ -1749,8 +1803,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsConfigurationsGetWithname:]
 
 /**
- *  The name of the configuration being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the configuration to retrieve.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1759,9 +1814,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a configuration.
  *
- *  @param name The name of the configuration being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the configuration to retrieve.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsConfigurationsGet
  */
@@ -1808,8 +1863,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The project ID or project number from which the configurations should be
- *  listed.
+ *  The namespace from which the configurations should be listed.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1830,9 +1886,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List configurations.
  *
- *  @param parent The project ID or project number from which the configurations
- *    should be
- *    listed.
+ *  @param parent The namespace from which the configurations should be listed.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsConfigurationsList
  */
@@ -1858,8 +1914,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsConfigurationsReplaceConfigurationWithObject:name:]
 
 /**
- *  The name of the configuration being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the configuration being replaced.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1874,9 +1931,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_Configuration to include in the query.
- *  @param name The name of the configuration being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the configuration being replaced.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsConfigurationsReplaceConfiguration
  */
@@ -1898,8 +1955,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsDomainmappingsCreateWithObject:parent:]
 
 /**
- *  The project ID or project number in which this domain mapping should be
- *  created.
+ *  The namespace in which the domain mapping should be created.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1909,9 +1967,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Create a new domain mapping.
  *
  *  @param object The @c GTLRCloudRun_DomainMapping to include in the query.
- *  @param parent The project ID or project number in which this domain mapping
- *    should be
- *    created.
+ *  @param parent The namespace in which the domain mapping should be created.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsDomainmappingsCreate
  */
@@ -1939,8 +1997,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the domain mapping being deleted. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the domain mapping to delete.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1957,8 +2016,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete a domain mapping.
  *
- *  @param name The name of the domain mapping being deleted. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the domain mapping to delete.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsDomainmappingsDelete
  */
@@ -1979,8 +2039,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsDomainmappingsGetWithname:]
 
 /**
- *  The name of the domain mapping being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the domain mapping to retrieve.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1989,9 +2050,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a domain mapping.
  *
- *  @param name The name of the domain mapping being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the domain mapping to retrieve.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsDomainmappingsGet
  */
@@ -2038,8 +2099,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The project ID or project number from which the domain mappings should be
- *  listed.
+ *  The namespace from which the domain mappings should be listed.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2060,9 +2122,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List domain mappings.
  *
- *  @param parent The project ID or project number from which the domain
- *    mappings should be
- *    listed.
+ *  @param parent The namespace from which the domain mappings should be listed.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsDomainmappingsList
  */
@@ -2088,8 +2150,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsDomainmappingsReplaceDomainMappingWithObject:name:]
 
 /**
- *  The name of the domain mapping being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the domain mapping being retrieved.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2104,9 +2167,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_DomainMapping to include in the query.
- *  @param name The name of the domain mapping being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the domain mapping being retrieved.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsDomainmappingsReplaceDomainMapping
  */
@@ -2203,8 +2266,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the revision being deleted. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the revision to delete.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2221,8 +2285,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete a revision.
  *
- *  @param name The name of the revision being deleted. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the revision to delete.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRevisionsDelete
  */
@@ -2243,8 +2308,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsRevisionsGetWithname:]
 
 /**
- *  The name of the revision being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the revision to retrieve.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2253,8 +2319,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a revision.
  *
- *  @param name The name of the revision being retrieved. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the revision to retrieve.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRevisionsGet
  */
@@ -2301,7 +2368,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The project ID or project number from which the revisions should be listed.
+ *  The namespace from which the revisions should be listed.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2322,8 +2391,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List revisions.
  *
- *  @param parent The project ID or project number from which the revisions
- *    should be listed.
+ *  @param parent The namespace from which the revisions should be listed.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRevisionsList
  */
@@ -2343,7 +2413,11 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudRun queryForProjectsLocationsRoutesCreateWithObject:parent:]
 
-/** The project ID or project number in which this route should be created. */
+/**
+ *  The namespace in which the route should be created.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2352,8 +2426,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Create a route.
  *
  *  @param object The @c GTLRCloudRun_Route to include in the query.
- *  @param parent The project ID or project number in which this route should be
- *    created.
+ *  @param parent The namespace in which the route should be created.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRoutesCreate
  */
@@ -2382,8 +2457,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the route being deleted. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the route to delete.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2401,8 +2477,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Delete a route.
  *  This will cause the route to stop serving traffic.
  *
- *  @param name The name of the route being deleted. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the route to delete.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRoutesDelete
  */
@@ -2423,8 +2500,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsRoutesGetWithname:]
 
 /**
- *  The name of the route being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the route to retrieve.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2433,8 +2511,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a route.
  *
- *  @param name The name of the route being retrieved. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the route to retrieve.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRoutesGet
  */
@@ -2481,7 +2560,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The project ID or project number from which the routes should be listed.
+ *  The namespace from which the routes should be listed.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2502,8 +2583,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List routes.
  *
- *  @param parent The project ID or project number from which the routes should
- *    be listed.
+ *  @param parent The namespace from which the routes should be listed.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRoutesList
  */
@@ -2529,8 +2611,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsRoutesReplaceRouteWithObject:name:]
 
 /**
- *  The name of the route being replaced. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the route being replaced.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2545,8 +2628,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_Route to include in the query.
- *  @param name The name of the route being replaced. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the route being replaced.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRoutesReplaceRoute
  */
@@ -2568,7 +2652,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsServicesCreateWithObject:parent:]
 
 /**
- *  The project ID or project number in which this service should be created.
+ *  The namespace in which the service should be created.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2578,8 +2664,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Create a service.
  *
  *  @param object The @c GTLRCloudRun_Service to include in the query.
- *  @param parent The project ID or project number in which this service should
- *    be created.
+ *  @param parent The namespace in which the service should be created.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesCreate
  */
@@ -2609,8 +2696,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the service being deleted. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the service to delete.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2629,8 +2717,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  This will cause the Service to stop serving traffic and will delete the
  *  child entities like Routes, Configurations and Revisions.
  *
- *  @param name The name of the service being deleted. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the service to delete.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesDelete
  */
@@ -2651,8 +2740,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsServicesGetWithname:]
 
 /**
- *  The name of the service being retrieved. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the service to retrieve.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2661,8 +2751,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a service.
  *
- *  @param name The name of the service being retrieved. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the service to retrieve.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesGet
  */
@@ -2754,7 +2845,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The project ID or project number from which the services should be listed.
+ *  The namespace from which the services should be listed.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2775,8 +2868,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List services.
  *
- *  @param parent The project ID or project number from which the services
- *    should be listed.
+ *  @param parent The namespace from which the services should be listed.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesList
  */
@@ -2802,8 +2896,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsServicesReplaceServiceWithObject:name:]
 
 /**
- *  The name of the service being replaced. If needed, replace
- *  {namespace_id} with the project ID.
+ *  The name of the service being replaced.
+ *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *  or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2818,8 +2913,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_Service to include in the query.
- *  @param name The name of the service being replaced. If needed, replace
- *    {namespace_id} with the project ID.
+ *  @param name The name of the service being replaced.
+ *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
+ *    or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesReplaceService
  */
