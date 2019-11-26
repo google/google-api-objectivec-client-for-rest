@@ -430,7 +430,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *anchor;
 
-/** The user who created the comment. */
+/**
+ *  The author of the comment. The author's email address and permission ID will
+ *  not be populated.
+ */
 @property(nonatomic, strong, nullable) GTLRDrive_User *author;
 
 /**
@@ -1835,7 +1838,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *deleted;
 
-/** A displayable name for users, groups or domains. */
+/**
+ *  The "pretty" name of the value of the permission. The following is a list of
+ *  examples for each type of permission:
+ *  - user - User's full name, as defined for their Google account, such as "Joe
+ *  Smith."
+ *  - group - Name of the Google Group, such as "The Company Administrators."
+ *  - domain - String domain name, such as "thecompany.com."
+ *  - anyone - No displayName is present.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** The domain to which this permission refers. */
@@ -1855,7 +1866,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The ID of this permission. This is a unique identifier for the grantee, and
- *  is published in User resources as permissionId.
+ *  is published in User resources as permissionId. IDs should be treated as
+ *  opaque values.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1897,7 +1909,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  - user
  *  - group
  *  - domain
- *  - anyone
+ *  - anyone When creating a permission, if type is user or group, you must
+ *  provide an emailAddress for the user or group. When type is domain, you must
+ *  provide a domain. There isn't extra information required for a anyone type.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2017,7 +2031,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
-/** The user who created the reply. */
+/**
+ *  The author of the reply. The author's email address and permission ID will
+ *  not be populated.
+ */
 @property(nonatomic, strong, nullable) GTLRDrive_User *author;
 
 /**

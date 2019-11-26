@@ -219,3 +219,28 @@
 }
 
 @end
+
+@implementation GTLRServiceNetworkingQuery_ServicesValidate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_ValidateConsumerConfigRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:validate";
+  GTLRServiceNetworkingQuery_ServicesValidate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_ValidateConsumerConfigResponse class];
+  query.loggingName = @"servicenetworking.services.validate";
+  return query;
+}
+
+@end

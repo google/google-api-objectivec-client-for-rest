@@ -44,6 +44,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Aborted = @"ABORT
 NSString * const kGTLRStorageTransfer_TransferOperation_Status_Failed = @"FAILED";
 NSString * const kGTLRStorageTransfer_TransferOperation_Status_InProgress = @"IN_PROGRESS";
 NSString * const kGTLRStorageTransfer_TransferOperation_Status_Paused = @"PAUSED";
+NSString * const kGTLRStorageTransfer_TransferOperation_Status_Queued = @"QUEUED";
 NSString * const kGTLRStorageTransfer_TransferOperation_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCESS";
 

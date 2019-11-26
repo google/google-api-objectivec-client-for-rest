@@ -29,6 +29,7 @@
 @class GTLRServiceNetworking_Billing;
 @class GTLRServiceNetworking_BillingDestination;
 @class GTLRServiceNetworking_Connection;
+@class GTLRServiceNetworking_ConsumerProject;
 @class GTLRServiceNetworking_Context;
 @class GTLRServiceNetworking_ContextRule;
 @class GTLRServiceNetworking_Control;
@@ -66,6 +67,7 @@
 @class GTLRServiceNetworking_Quota;
 @class GTLRServiceNetworking_QuotaLimit;
 @class GTLRServiceNetworking_QuotaLimit_Values;
+@class GTLRServiceNetworking_RangeReservation;
 @class GTLRServiceNetworking_SourceContext;
 @class GTLRServiceNetworking_SourceInfo;
 @class GTLRServiceNetworking_SourceInfo_SourceFiles_Item;
@@ -629,6 +631,85 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto2;
  */
 GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 
+// ----------------------------------------------------------------------------
+// GTLRServiceNetworking_ValidateConsumerConfigResponse.validationError
+
+/**
+ *  The consumer project is not a service project for
+ *  the specified host project.
+ *
+ *  Value: "CONSUMER_PROJECT_NOT_SERVICE_PROJECT"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ConsumerProjectNotServiceProject;
+/**
+ *  The host project associated with the consumer project
+ *  was not found.
+ *
+ *  Value: "HOST_PROJECT_NOT_FOUND"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_HostProjectNotFound;
+/**
+ *  The network provided by the consumer does not exist.
+ *
+ *  Value: "NETWORK_NOT_FOUND"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotFound;
+/**
+ *  The consumer project is a service project, and network is a shared VPC,
+ *  but the network is not in the host project of this consumer project.
+ *
+ *  Value: "NETWORK_NOT_IN_CONSUMERS_HOST_PROJECT"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotInConsumersHostProject;
+/**
+ *  The network is a regular VPC but the network is not in the consumer's
+ *  project.
+ *
+ *  Value: "NETWORK_NOT_IN_CONSUMERS_PROJECT"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotInConsumersProject;
+/**
+ *  The network has not been peered with the producer org.
+ *
+ *  Value: "NETWORK_NOT_PEERED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotPeered;
+/**
+ *  The peering was created and later deleted.
+ *
+ *  Value: "NETWORK_PEERING_DELETED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkPeeringDeleted;
+/**
+ *  The IP ranges were reserved but deleted later.
+ *
+ *  Value: "RANGES_DELETED_LATER"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesDeletedLater;
+/**
+ *  The reserved IP ranges do not have enough space to create
+ *  a subnet of desired size.
+ *
+ *  Value: "RANGES_EXHAUSTED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesExhausted;
+/**
+ *  The IP ranges were not reserved.
+ *
+ *  Value: "RANGES_NOT_RESERVED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesNotReserved;
+/** Value: "SERVICE_NETWORKING_NOT_ENABLED" */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled;
+/** Value: "VALIDATION_ERROR_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationErrorUnspecified;
+/**
+ *  In case none of the validations are requested.
+ *
+ *  Value: "VALIDATION_NOT_REQUESTED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationNotRequested;
+
 /**
  *  Request to create a subnetwork in a previously peered service network.
  */
@@ -654,7 +735,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *consumerNetwork;
 
 /**
- *  An optional description of the subnet.
+ *  Optional. Description of the subnet.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1140,6 +1221,24 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
  *  the following format: `services/{service name}`.
  */
 @property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Represents a consumer project.
+ */
+@interface GTLRServiceNetworking_ConsumerProject : GTLRObject
+
+/**
+ *  Required. Project number of the consumer that is launching the service
+ *  instance. It
+ *  can own the network that is peered with Google or, be a service project in
+ *  an XPN where the host project has the network.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *projectNum;
 
 @end
 
@@ -3222,16 +3321,35 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Represents a range reservation.
+ */
+@interface GTLRServiceNetworking_RangeReservation : GTLRObject
+
+/**
+ *  Required. The size of the desired subnet. Use usual CIDR range notation. For
+ *  example,
+ *  '30' to find unused x.x.x.x/30 CIDR range. The goal is to determine if one
+ *  of the allocated ranges has enough free space for a subnet of the requested
+ *  size.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ipPrefixLength;
+
+@end
+
+
+/**
  *  Request to search for an unused range within allocated ranges.
  */
 @interface GTLRServiceNetworking_SearchRangeRequest : GTLRObject
 
 /**
- *  Required. The prefix length of the IP range.
- *  Use usual CIDR range notation.
- *  For example, '30' to find unused x.x.x.x/30 CIDR range.
- *  Actual range will be determined using allocated range for the consumer
- *  peered network and returned in the result.
+ *  Required. The prefix length of the IP range. Use usual CIDR range notation.
+ *  For
+ *  example, '30' to find unused x.x.x.x/30 CIDR range. Actual range will be
+ *  determined using allocated range for the consumer peered network and
+ *  returned in the result.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3240,10 +3358,8 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 /**
  *  Network name in the consumer project. This network must have been
  *  already peered with a shared VPC network using CreateConnection
- *  method.
- *  Must be in a form 'projects/{project}/global/networks/{network}'.
- *  {project} is a project number, as in '12345'
- *  {network} is network name.
+ *  method. Must be in a form 'projects/{project}/global/networks/{network}'.
+ *  {project} is a project number, as in '12345' {network} is network name.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -3338,8 +3454,9 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 
 /**
  *  A unique ID for a specific instance of this message, typically assigned
- *  by the client for tracking purpose. If empty, the server may choose to
- *  generate one instead. Must be no longer than 60 characters.
+ *  by the client for tracking purpose. Must be no longer than 63 characters
+ *  and only lower case letters, digits, '.', '_' and '-' are allowed. If
+ *  empty, the server may choose to generate one instead.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -3734,6 +3851,108 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skipServiceControl;
+
+@end
+
+
+/**
+ *  GTLRServiceNetworking_ValidateConsumerConfigRequest
+ */
+@interface GTLRServiceNetworking_ValidateConsumerConfigRequest : GTLRObject
+
+/**
+ *  Required. The network that the consumer is using to connect with services.
+ *  Must be in
+ *  the form of projects/{project}/global/networks/{network} {project} is a
+ *  project number, as in '12345' {network} is network name.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerNetwork;
+
+/**
+ *  NETWORK_NOT_IN_CONSUMERS_PROJECT, NETWORK_NOT_IN_CONSUMERS_HOST_PROJECT,
+ *  and HOST_PROJECT_NOT_FOUND are done when consumer_project is provided.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_ConsumerProject *consumerProject;
+
+/**
+ *  RANGES_EXHAUSTED, RANGES_EXHAUSTED, and RANGES_DELETED_LATER are done
+ *  when range_reservation is provided.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_RangeReservation *rangeReservation;
+
+/**
+ *  The validations will be performed in the order listed in the
+ *  ValidationError enum. The first failure will return. If a validation is not
+ *  requested, then the next one will be performed.
+ *  SERVICE_NETWORKING_NOT_ENABLED and NETWORK_NOT_PEERED checks are performed
+ *  for all requests where validation is requested. NETWORK_NOT_FOUND and
+ *  NETWORK_DISCONNECTED checks are done for requests that have
+ *  validate_network set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateNetwork;
+
+@end
+
+
+/**
+ *  GTLRServiceNetworking_ValidateConsumerConfigResponse
+ */
+@interface GTLRServiceNetworking_ValidateConsumerConfigResponse : GTLRObject
+
+/**
+ *  isValid
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isValid;
+
+/**
+ *  validationError
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ConsumerProjectNotServiceProject
+ *        The consumer project is not a service project for
+ *        the specified host project. (Value:
+ *        "CONSUMER_PROJECT_NOT_SERVICE_PROJECT")
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_HostProjectNotFound
+ *        The host project associated with the consumer project
+ *        was not found. (Value: "HOST_PROJECT_NOT_FOUND")
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotFound
+ *        The network provided by the consumer does not exist. (Value:
+ *        "NETWORK_NOT_FOUND")
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotInConsumersHostProject
+ *        The consumer project is a service project, and network is a shared
+ *        VPC,
+ *        but the network is not in the host project of this consumer project.
+ *        (Value: "NETWORK_NOT_IN_CONSUMERS_HOST_PROJECT")
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotInConsumersProject
+ *        The network is a regular VPC but the network is not in the consumer's
+ *        project. (Value: "NETWORK_NOT_IN_CONSUMERS_PROJECT")
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotPeered
+ *        The network has not been peered with the producer org. (Value:
+ *        "NETWORK_NOT_PEERED")
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkPeeringDeleted
+ *        The peering was created and later deleted. (Value:
+ *        "NETWORK_PEERING_DELETED")
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesDeletedLater
+ *        The IP ranges were reserved but deleted later. (Value:
+ *        "RANGES_DELETED_LATER")
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesExhausted
+ *        The reserved IP ranges do not have enough space to create
+ *        a subnet of desired size. (Value: "RANGES_EXHAUSTED")
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesNotReserved
+ *        The IP ranges were not reserved. (Value: "RANGES_NOT_RESERVED")
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled
+ *        Value "SERVICE_NETWORKING_NOT_ENABLED"
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationErrorUnspecified
+ *        Value "VALIDATION_ERROR_UNSPECIFIED"
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationNotRequested
+ *        In case none of the validations are requested. (Value:
+ *        "VALIDATION_NOT_REQUESTED")
+ */
+@property(nonatomic, copy, nullable) NSString *validationError;
 
 @end
 

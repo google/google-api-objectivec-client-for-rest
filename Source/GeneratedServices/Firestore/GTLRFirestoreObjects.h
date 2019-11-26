@@ -106,6 +106,13 @@ GTLR_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUnspecifi
  */
 GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContains;
 /**
+ *  Contains any. Requires that the field is an array and
+ *  `value` is a non-empty ArrayValue with at most 10 values.
+ *
+ *  Value: "ARRAY_CONTAINS_ANY"
+ */
+GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContainsAny;
+/**
  *  Equal.
  *
  *  Value: "EQUAL"
@@ -124,6 +131,13 @@ GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThan;
  *  Value: "GREATER_THAN_OR_EQUAL"
  */
 GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual;
+/**
+ *  In. Requires that `value` is a non-empty ArrayValue with at most 10
+ *  values.
+ *
+ *  Value: "IN"
+ */
+GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_In;
 /**
  *  Less than. Requires that the field come first in `order_by`.
  *
@@ -1106,12 +1120,19 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Likely values:
  *    @arg @c kGTLRFirestore_FieldFilter_Op_ArrayContains Contains. Requires
  *        that the field is an array. (Value: "ARRAY_CONTAINS")
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_ArrayContainsAny Contains any.
+ *        Requires that the field is an array and
+ *        `value` is a non-empty ArrayValue with at most 10 values. (Value:
+ *        "ARRAY_CONTAINS_ANY")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_Equal Equal. (Value: "EQUAL")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_GreaterThan Greater than. Requires
  *        that the field come first in `order_by`. (Value: "GREATER_THAN")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual Greater than or
  *        equal. Requires that the field come first in
  *        `order_by`. (Value: "GREATER_THAN_OR_EQUAL")
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_In In. Requires that `value` is a
+ *        non-empty ArrayValue with at most 10
+ *        values. (Value: "IN")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_LessThan Less than. Requires that
  *        the field come first in `order_by`. (Value: "LESS_THAN")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_LessThanOrEqual Less than or equal.

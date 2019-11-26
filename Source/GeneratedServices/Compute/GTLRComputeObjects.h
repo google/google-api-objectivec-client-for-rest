@@ -1193,6 +1193,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MinEquals
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MissingCustomMetricDataPoints;
 /** Value: "MISSING_LOAD_BALANCING_DATA_POINTS" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MissingLoadBalancingDataPoints;
+/** Value: "MODE_OFF" */
+GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ModeOff;
 /** Value: "MORE_THAN_ONE_BACKEND_SERVICE" */
 GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MoreThanOneBackendService;
 /** Value: "NOT_ENOUGH_QUOTA_AVAILABLE" */
@@ -5347,6 +5349,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InterconnectAttachmentsPe
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InterconnectAttachmentsTotalMbps;
 /** Value: "INTERCONNECTS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Interconnects;
+/** Value: "INTERCONNECT_TOTAL_GBPS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InterconnectTotalGbps;
 /** Value: "INTERNAL_ADDRESSES" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InternalAddresses;
 /** Value: "IN_USE_ADDRESSES" */
@@ -9978,7 +9982,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) GTLRCompute_AllocationSpecificSKUAllocationReservedInstanceProperties *instanceProperties;
 
 /**
- *  [OutputOnly] Indicates how many instances are in use.
+ *  [Output Only] Indicates how many instances are in use.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -10409,7 +10413,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  [Output Only] The status of the autoscaler configuration.
+ *  [Output Only] The status of the autoscaler configuration. Current set of
+ *  possible values: PENDING: Autoscaler backend hasn't read new/updated
+ *  configuration DELETING: Configuration is being deleted ACTIVE: Configuration
+ *  is acknowledged to be effective. Some warnings might or might not be present
+ *  in the status_details field. ERROR: Configuration has errors. Actionable for
+ *  users. Details are present in the status_details field. New values might be
+ *  added in the future.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Autoscaler_Status_Active Value "ACTIVE"
@@ -10846,7 +10856,39 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *message;
 
 /**
- *  The type of error returned.
+ *  The type of error, warning or notice returned. Current set of possible
+ *  values: ALL_INSTANCES_UNHEALTHY (WARNING): All instances in the instance
+ *  group are unhealthy (not in RUNNING state). BACKEND_SERVICE_DOES_NOT_EXIST
+ *  (ERROR): There is no backend service attached to the instance group.
+ *  CAPPED_AT_MAX_NUM_REPLICAS (WARNING): Autoscaler recommends size bigger than
+ *  maxNumReplicas. CUSTOM_METRIC_DATA_POINTS_TOO_SPARSE (WARNING): The custom
+ *  metric samples are not exported often enough to be a credible base for
+ *  autoscaling. CUSTOM_METRIC_INVALID (ERROR): The custom metric that was
+ *  specified does not exist or does not have the necessary labels.
+ *  MIN_EQUALS_MAX (WARNING): The minNumReplicas is equal to maxNumReplicas.
+ *  This means the autoscaler cannot add or remove instances from the instance
+ *  group. MISSING_CUSTOM_METRIC_DATA_POINTS (WARNING): The autoscaler did not
+ *  receive any data from the custom metric configured for autoscaling.
+ *  MISSING_LOAD_BALANCING_DATA_POINTS (WARNING): The autoscaler is configured
+ *  to scale based on a load balancing signal but the instance group has not
+ *  received any requests from the load balancer. MODE_OFF (WARNING):
+ *  Autoscaling is turned off. The number of instances in the group won't change
+ *  automatically. The autoscaling configuration is preserved. MODE_ONLY_UP
+ *  (WARNING): Autoscaling is in the "Autoscale only up" mode. Instances in the
+ *  group will be only added. MORE_THAN_ONE_BACKEND_SERVICE (ERROR): The
+ *  instance group cannot be autoscaled because it has more than one backend
+ *  service attached to it. NOT_ENOUGH_QUOTA_AVAILABLE (ERROR): Exceeded quota
+ *  for necessary resources, such as CPU, number of instances and so on.
+ *  REGION_RESOURCE_STOCKOUT (ERROR): Showed only for regional autoscalers:
+ *  there is a resource stockout in the chosen region.
+ *  SCALING_TARGET_DOES_NOT_EXIST (ERROR): The target to be scaled does not
+ *  exist. UNSUPPORTED_MAX_RATE_LOAD_BALANCING_CONFIGURATION (ERROR):
+ *  Autoscaling does not work with an HTTP/S load balancer that has been
+ *  configured for maxRate. ZONE_RESOURCE_STOCKOUT (ERROR): For zonal
+ *  autoscalers: there is a resource stockout in the chosen zone. For regional
+ *  autoscalers: in at least one of the zones you're using there is a resource
+ *  stockout. New values might be added in the future. Some of the values might
+ *  not be available in all API versions.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_AllInstancesUnhealthy
@@ -10865,6 +10907,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        Value "MISSING_CUSTOM_METRIC_DATA_POINTS"
  *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_MissingLoadBalancingDataPoints
  *        Value "MISSING_LOAD_BALANCING_DATA_POINTS"
+ *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_ModeOff Value "MODE_OFF"
  *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_MoreThanOneBackendService
  *        Value "MORE_THAN_ONE_BACKEND_SERVICE"
  *    @arg @c kGTLRCompute_AutoscalerStatusDetails_Type_NotEnoughQuotaAvailable
@@ -11441,7 +11484,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) GTLRCompute_BackendServiceCdnPolicy *cdnPolicy;
 
 /**
- *  Settings controlling the volume of connections to a backend service.
+ *  Settings controlling the volume of connections to a backend service. If not
+ *  set, this feature is considered disabled.
  *  This field is applicable to either:
  *  - A regional backend service with the service_protocol set to HTTP, HTTPS,
  *  or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED.
@@ -11609,8 +11653,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Settings controlling eviction of unhealthy hosts from the load balancing
- *  pool. This field is applicable to either:
+ *  Settings controlling the eviction of unhealthy hosts from the load balancing
+ *  pool for the backend service. If not set, this feature is considered
+ *  disabled.
+ *  This field is applicable to either:
  *  - A regional backend service with the service_protocol set to HTTP, HTTPS,
  *  or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED.
  *  - A global backend service with the load_balancing_scheme set to
@@ -12297,34 +12343,34 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_CircuitBreakers : GTLRObject
 
 /**
- *  The maximum number of connections to the backend cluster. If not specified,
- *  the default is 1024.
+ *  The maximum number of connections to the backend service. If not specified,
+ *  there is no limit.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxConnections;
 
 /**
- *  The maximum number of pending requests allowed to the backend cluster. If
- *  not specified, the default is 1024.
+ *  The maximum number of pending requests allowed to the backend service. If
+ *  not specified, there is no limit.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxPendingRequests;
 
 /**
- *  The maximum number of parallel requests that allowed to the backend cluster.
- *  If not specified, the default is 1024.
+ *  The maximum number of parallel requests that allowed to the backend service.
+ *  If not specified, there is no limit.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxRequests;
 
 /**
- *  Maximum requests for a single backend connection. This parameter is
- *  respected by both the HTTP/1.1 and HTTP/2 implementations. If not specified,
- *  there is no limit. Setting this parameter to 1 will effectively disable keep
- *  alive.
+ *  Maximum requests for a single connection to the backend service. This
+ *  parameter is respected by both the HTTP/1.1 and HTTP/2 implementations. If
+ *  not specified, there is no limit. Setting this parameter to 1 will
+ *  effectively disable keep alive.
  *
  *  Uses NSNumber of intValue.
  */
@@ -12332,7 +12378,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  The maximum number of parallel retries allowed to the backend cluster. If
- *  not specified, the default is 3.
+ *  not specified, the default is 1.
  *
  *  Uses NSNumber of intValue.
  */
@@ -13760,7 +13806,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @interface GTLRCompute_DisksAddResourcePoliciesRequest : GTLRObject
 
-/** Resource policies to be added to this disk. */
+/**
+ *  Resource policies to be added to this disk. Currently you can only specify
+ *  one policy here.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourcePolicies;
 
 @end
@@ -17411,13 +17460,19 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_HttpRetryPolicy : GTLRObject
 
 /**
- *  Specifies the allowed number retries. This number must be > 0.
+ *  Specifies the allowed number retries. This number must be > 0. If not
+ *  specified, defaults to 1.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numRetries;
 
-/** Specifies a non-zero timeout per retry attempt. */
+/**
+ *  Specifies a non-zero timeout per retry attempt.
+ *  If not specified, will use the timeout set in HttpRouteAction. If timeout in
+ *  HttpRouteAction is not set, will use the largest timeout among all backend
+ *  services associated with the route.
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_Duration *perTryTimeout;
 
 /**
@@ -17487,9 +17542,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  Specifies the timeout for the selected route. Timeout is computed from the
- *  time the request is has been fully processed (i.e. end-of-stream) up until
- *  the response has been completely processed. Timeout includes all retries.
- *  If not specified, the default value is 15 seconds.
+ *  time the request has been fully processed (i.e. end-of-stream) up until the
+ *  response has been completely processed. Timeout includes all retries.
+ *  If not specified, will use the largest timeout among all backend services
+ *  associated with the route.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_Duration *timeout;
 
@@ -23319,10 +23375,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  authority selector is present; or - "" (empty string), resulting in a
  *  counter with no fields.
  *  Examples: counter { metric: "/debug_access_count" field: "iam_principal" }
- *  ==> increment counter /iam/policy/backend_debug_access_count
- *  {iam_principal=[value of IAMContext.principal]}
- *  At this time we do not support multiple field names (though this may be
- *  supported in the future).
+ *  ==> increment counter /iam/policy/debug_access_count {iam_principal=[value
+ *  of IAMContext.principal]}
+ *  TODO(b/141846426): Consider supporting "authority" and "iam_principal"
+ *  fields in the same counter.
  */
 @interface GTLRCompute_LogConfigCounterOptions : GTLRObject
 
@@ -24344,6 +24400,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  Represents a collection of network endpoints.
+ *  For more information read Setting up network endpoint groups in load
+ *  balancing. (== resource_for v1.networkEndpointGroups ==) (== resource_for
+ *  beta.networkEndpointGroups ==)
  */
 @interface GTLRCompute_NetworkEndpointGroup : GTLRObject
 
@@ -25425,7 +25484,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  instances physically separated from instances in other projects, or to group
  *  your instances together on the same host hardware. For more information,
  *  read Sole-tenant nodes. (== resource_for beta.nodeGroups ==) (==
- *  resource_for v1.nodeGroups ==) NextID: 15
+ *  resource_for v1.nodeGroups ==) NextID: 16
  */
 @interface GTLRCompute_NodeGroup : GTLRObject
 
@@ -27815,15 +27874,15 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
- *  Settings controlling eviction of unhealthy hosts from the load balancing
- *  pool.
+ *  Settings controlling the eviction of unhealthy hosts from the load balancing
+ *  pool for the backend service.
  */
 @interface GTLRCompute_OutlierDetection : GTLRObject
 
 /**
- *  The base time that a host is ejected for. The real time is equal to the base
- *  time multiplied by the number of times the host has been ejected. Defaults
- *  to 30000ms or 30s.
+ *  The base time that a host is ejected for. The real ejection time is equal to
+ *  the base ejection time multiplied by the number of times the host has been
+ *  ejected. Defaults to 30000ms or 30s.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_Duration *baseEjectionTime;
 
@@ -27839,7 +27898,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  The number of consecutive gateway failures (502, 503, 504 status or
  *  connection errors that are mapped to one of those status codes) before a
- *  consecutive gateway failure ejection occurs. Defaults to 5.
+ *  consecutive gateway failure ejection occurs. Defaults to 3.
  *
  *  Uses NSNumber of intValue.
  */
@@ -27848,7 +27907,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  The percentage chance that a host will be actually ejected when an outlier
  *  status is detected through consecutive 5xx. This setting can be used to
- *  disable ejection or to ramp it up slowly. Defaults to 100.
+ *  disable ejection or to ramp it up slowly. Defaults to 0.
  *
  *  Uses NSNumber of intValue.
  */
@@ -27857,7 +27916,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  The percentage chance that a host will be actually ejected when an outlier
  *  status is detected through consecutive gateway failures. This setting can be
- *  used to disable ejection or to ramp it up slowly. Defaults to 0.
+ *  used to disable ejection or to ramp it up slowly. Defaults to 100.
  *
  *  Uses NSNumber of intValue.
  */
@@ -27874,14 +27933,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  Time interval between ejection sweep analysis. This can result in both new
- *  ejections as well as hosts being returned to service. Defaults to 10
- *  seconds.
+ *  ejections as well as hosts being returned to service. Defaults to 1 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_Duration *interval;
 
 /**
  *  Maximum percentage of hosts in the load balancing pool for the backend
- *  service that can be ejected. Defaults to 10%.
+ *  service that can be ejected. Defaults to 50%.
  *
  *  Uses NSNumber of intValue.
  */
@@ -28405,6 +28463,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_InterconnectAttachmentsTotalMbps Value
  *        "INTERCONNECT_ATTACHMENTS_TOTAL_MBPS"
  *    @arg @c kGTLRCompute_Quota_Metric_Interconnects Value "INTERCONNECTS"
+ *    @arg @c kGTLRCompute_Quota_Metric_InterconnectTotalGbps Value
+ *        "INTERCONNECT_TOTAL_GBPS"
  *    @arg @c kGTLRCompute_Quota_Metric_InternalAddresses Value
  *        "INTERNAL_ADDRESSES"
  *    @arg @c kGTLRCompute_Quota_Metric_InUseAddresses Value "IN_USE_ADDRESSES"
@@ -29726,8 +29786,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @interface GTLRCompute_Reservation : GTLRObject
 
 /**
- *  [OutputOnly] Full or partial URL to a parent commitment. This field displays
- *  for reservations that are tied to a commitment.
+ *  [Output Only] Full or partial URL to a parent commitment. This field
+ *  displays for reservations that are tied to a commitment.
  */
 @property(nonatomic, copy, nullable) NSString *commitment;
 
@@ -32050,8 +32110,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSNumber *enable;
 
 /**
- *  Specifies the desired filtering of logs on this NAT. If unspecified, logs
- *  are exported for all connections handled by this NAT.
+ *  Specify the desired filtering of logs on this NAT. If unspecified, logs are
+ *  exported for all connections handled by this NAT. This option can take one
+ *  of the following values:
+ *  - ERRORS_ONLY: Export logs only for connection failures.
+ *  - TRANSLATIONS_ONLY: Export logs only for successful connections.
+ *  - ALL: Export logs for all connections, successful and unsuccessful.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_RouterNatLogConfig_Filter_All Value "ALL"
@@ -32298,13 +32362,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  A list of IPs auto-allocated for NAT that are in drain mode. Example:
- *  ["1.1.1.1", ?179.12.26.133?].
+ *  ["1.1.1.1", "179.12.26.133"].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *drainAutoAllocatedNatIps;
 
 /**
  *  A list of IPs user-allocated for NAT that are in drain mode. Example:
- *  ["1.1.1.1", ?179.12.26.133?].
+ *  ["1.1.1.1", "179.12.26.133"].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *drainUserAllocatedNatIps;
 
@@ -32912,7 +32976,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @interface GTLRCompute_ShieldedInstanceIdentity : GTLRObject
 
-/** An Endorsement Key (EK) issued to the Shielded Instance's vTPM. */
+/**
+ *  An Endorsement Key (EK) made by the RSA 2048 algorithm issued to the
+ *  Shielded Instance's vTPM.
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_ShieldedInstanceIdentityEntry *encryptionKey;
 
 /**
@@ -32921,7 +32988,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** An Attestation Key (AK) issued to the Shielded Instance's vTPM. */
+/**
+ *  An Attestation Key (AK) made by the RSA 2048 algorithm issued to the
+ *  Shielded Instance's vTPM.
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_ShieldedInstanceIdentityEntry *signingKey;
 
 @end
@@ -33010,7 +33080,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  [Output Only] Size of the snapshot, specified in GB.
+ *  [Output Only] Size of the source disk, specified in GB.
  *
  *  Uses NSNumber of longLongValue.
  */

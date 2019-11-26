@@ -28,6 +28,16 @@ NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_Basic = @"BASIC"
 NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_Full = @"FULL";
 NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_ViewUnspecified = @"VIEW_UNSPECIFIED";
 
+// GTLRCloudTasks_HttpRequest.httpMethod
+NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Delete = @"DELETE";
+NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Get    = @"GET";
+NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Head   = @"HEAD";
+NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_HttpMethodUnspecified = @"HTTP_METHOD_UNSPECIFIED";
+NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Options = @"OPTIONS";
+NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Patch  = @"PATCH";
+NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Post   = @"POST";
+NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Put    = @"PUT";
+
 // GTLRCloudTasks_Queue.state
 NSString * const kGTLRCloudTasks_Queue_State_Disabled         = @"DISABLED";
 NSString * const kGTLRCloudTasks_Queue_State_Paused           = @"PAUSED";
@@ -162,6 +172,30 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTasks_HttpRequest
+//
+
+@implementation GTLRCloudTasks_HttpRequest
+@dynamic body, headers, httpMethod, oauthToken, oidcToken, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_HttpRequest_Headers
+//
+
+@implementation GTLRCloudTasks_HttpRequest_Headers
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTasks_ListLocationsResponse
 //
 
@@ -261,6 +295,26 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_OAuthToken
+//
+
+@implementation GTLRCloudTasks_OAuthToken
+@dynamic scope, serviceAccountEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_OidcToken
+//
+
+@implementation GTLRCloudTasks_OidcToken
+@dynamic audience, serviceAccountEmail;
 @end
 
 
@@ -403,7 +457,8 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 @implementation GTLRCloudTasks_Task
 @dynamic appEngineHttpRequest, createTime, dispatchCount, dispatchDeadline,
-         firstAttempt, lastAttempt, name, responseCount, scheduleTime, view;
+         firstAttempt, httpRequest, lastAttempt, name, responseCount,
+         scheduleTime, view;
 @end
 
 

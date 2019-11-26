@@ -206,8 +206,6 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 @implementation GTLRPeopleServiceQuery_PeopleCreateContact
 
-@dynamic parent;
-
 + (instancetype)queryWithObject:(GTLRPeopleService_Person *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");

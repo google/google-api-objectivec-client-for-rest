@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Machine Learning Engine (ml/v1)
+//   AI Platform Training & Prediction API (ml/v1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:
@@ -25,10 +25,12 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1IntegratedGradientsAttribution;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_Labels;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Location;
@@ -41,6 +43,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1SampledShapleyAttribution;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version;
@@ -738,7 +741,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Represents a hardware accelerator request config.
- *  Note that the AcceleratorConfig could be used in both Jobs and Versions.
+ *  Note that the AcceleratorConfig can be used in both Jobs and Versions.
+ *  Learn more about [accelerators for training](/ml-engine/docs/using-gpus) and
+ *  [accelerators for online
+ *  prediction](/ml-engine/docs/machine-types-online-prediction#gpus).
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig : GTLRObject
 
@@ -795,9 +801,18 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  increased load as well as scale back as traffic drops, always maintaining
  *  at least `min_nodes`. You will be charged for the time in which additional
  *  nodes are used.
- *  If not specified, `min_nodes` defaults to 0, in which case, when traffic
- *  to a model stops (and after a cool-down period), nodes will be shut down
- *  and no charges will be incurred until traffic to the model resumes.
+ *  If `min_nodes` is not specified and AutoScaling is used with a [legacy
+ *  (MLS1) machine type](/ml-engine/docs/machine-types-online-prediction),
+ *  `min_nodes` defaults to 0, in which case, when traffic to a model stops
+ *  (and after a cool-down period), nodes will be shut down and no charges will
+ *  be incurred until traffic to the model resumes.
+ *  If `min_nodes` is not specified and AutoScaling is used with a [Compute
+ *  Engine (N1) machine type](/ml-engine/docs/machine-types-online-prediction),
+ *  `min_nodes` defaults to 1. `min_nodes` must be at least 1 for use with a
+ *  Compute Engine machine type.
+ *  Note that you cannot use AutoScaling if your version uses
+ *  [GPUs](#Version.FIELDS.accelerator_config). Instead, you must use
+ *  ManualScaling.
  *  You can set `min_nodes` when creating the model version, and you can also
  *  update `min_nodes` for an existing version:
  *  <pre>
@@ -809,7 +824,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  }
  *  </pre>
  *  HTTP request:
- *  <pre>
+ *  <pre style="max-width: 626px;">
  *  PATCH
  *  https://ml.googleapis.com/v1/{name=projects/ * /models/ * /versions/
  *  *}?update_mask=autoScaling.minNodes
@@ -890,6 +905,36 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /** The service account Cloud ML uses to run on TPU node. */
 @property(nonatomic, copy, nullable) NSString *tpuServiceAccount;
+
+@end
+
+
+/**
+ *  Request for explanations to be issued against a trained model.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplainRequest : GTLRObject
+
+/**
+ *  Required.
+ *  The explanation request body.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleApiHttpBody *httpBody;
+
+@end
+
+
+/**
+ *  Message holding configuration options for explaining model predictions.
+ *  Currently, the only supported mechanism to explain a model's prediction is
+ *  through attributing its output back to its inputs which is essentially a
+ *  credit assignment task. We support multiple attribution methods, some
+ *  specific to particular frameworks like Tensorflow and XGBoost.
+ *  Next idx: 7.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1IntegratedGradientsAttribution *integratedGradientsAttribution;
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1SampledShapleyAttribution *sampledShapleyAttribution;
 
 @end
 
@@ -1124,6 +1169,25 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  study guid and resume the study.
  */
 @property(nonatomic, copy, nullable) NSString *resumePreviousJobId;
+
+@end
+
+
+/**
+ *  Attributes credit by computing the Aumann-Shapley value taking advantage
+ *  of the model's fully differentiable structure. Refer to this paper for
+ *  more details: http://proceedings.mlr.press/v70/sundararajan17a.html
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1IntegratedGradientsAttribution : GTLRObject
+
+/**
+ *  Number of steps for approximating the path integral.
+ *  A good value to start is 50 and gradually increase until the
+ *  sum to diff property is met within the desired error range.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numIntegralSteps;
 
 @end
 
@@ -1917,6 +1981,24 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
+ *  An attribution method that approximates Shapley values for features that
+ *  contribute to the label being predicted. A sampling strategy is used to
+ *  approximate the value rather than considering all subsets of features.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1SampledShapleyAttribution : GTLRObject
+
+/**
+ *  The number of feature permutations to consider when approximating the
+ *  shapley values.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numPaths;
+
+@end
+
+
+/**
  *  Request message for the SetDefaultVersion request.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1SetDefaultVersionRequest : GTLRObject
@@ -1964,92 +2046,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Optional. Specifies the type of virtual machine to use for your training
- *  job's master worker.
+ *  job's master worker. You must specify this field when `scaleTier` is set to
+ *  `CUSTOM`.
+ *  You can use certain Compute Engine machine types directly in this field.
  *  The following types are supported:
- *  <dl>
- *  <dt>standard</dt>
- *  <dd>
- *  A basic machine configuration suitable for training simple models with
- *  small to moderate datasets.
- *  </dd>
- *  <dt>large_model</dt>
- *  <dd>
- *  A machine with a lot of memory, specially suited for parameter servers
- *  when your model is large (having many hidden layers or layers with very
- *  large numbers of nodes).
- *  </dd>
- *  <dt>complex_model_s</dt>
- *  <dd>
- *  A machine suitable for the master and workers of the cluster when your
- *  model requires more computation than the standard machine can handle
- *  satisfactorily.
- *  </dd>
- *  <dt>complex_model_m</dt>
- *  <dd>
- *  A machine with roughly twice the number of cores and roughly double the
- *  memory of <i>complex_model_s</i>.
- *  </dd>
- *  <dt>complex_model_l</dt>
- *  <dd>
- *  A machine with roughly twice the number of cores and roughly double the
- *  memory of <i>complex_model_m</i>.
- *  </dd>
- *  <dt>standard_gpu</dt>
- *  <dd>
- *  A machine equivalent to <i>standard</i> that
- *  also includes a single NVIDIA Tesla K80 GPU. See more about
- *  <a href="/ml-engine/docs/tensorflow/using-gpus">using GPUs to
- *  train your model</a>.
- *  </dd>
- *  <dt>complex_model_m_gpu</dt>
- *  <dd>
- *  A machine equivalent to <i>complex_model_m</i> that also includes
- *  four NVIDIA Tesla K80 GPUs.
- *  </dd>
- *  <dt>complex_model_l_gpu</dt>
- *  <dd>
- *  A machine equivalent to <i>complex_model_l</i> that also includes
- *  eight NVIDIA Tesla K80 GPUs.
- *  </dd>
- *  <dt>standard_p100</dt>
- *  <dd>
- *  A machine equivalent to <i>standard</i> that
- *  also includes a single NVIDIA Tesla P100 GPU.
- *  </dd>
- *  <dt>complex_model_m_p100</dt>
- *  <dd>
- *  A machine equivalent to <i>complex_model_m</i> that also includes
- *  four NVIDIA Tesla P100 GPUs.
- *  </dd>
- *  <dt>standard_v100</dt>
- *  <dd>
- *  A machine equivalent to <i>standard</i> that
- *  also includes a single NVIDIA Tesla V100 GPU.
- *  </dd>
- *  <dt>large_model_v100</dt>
- *  <dd>
- *  A machine equivalent to <i>large_model</i> that
- *  also includes a single NVIDIA Tesla V100 GPU.
- *  </dd>
- *  <dt>complex_model_m_v100</dt>
- *  <dd>
- *  A machine equivalent to <i>complex_model_m</i> that
- *  also includes four NVIDIA Tesla V100 GPUs.
- *  </dd>
- *  <dt>complex_model_l_v100</dt>
- *  <dd>
- *  A machine equivalent to <i>complex_model_l</i> that
- *  also includes eight NVIDIA Tesla V100 GPUs.
- *  </dd>
- *  <dt>cloud_tpu</dt>
- *  <dd>
- *  A TPU VM including one Cloud TPU. See more about
- *  <a href="/ml-engine/docs/tensorflow/using-tpus">using TPUs to train
- *  your model</a>.
- *  </dd>
- *  </dl>
- *  You may also use certain Compute Engine machine types directly in this
- *  field. The following types are supported:
  *  - `n1-standard-4`
  *  - `n1-standard-8`
  *  - `n1-standard-16`
@@ -2067,9 +2067,29 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  - `n1-highcpu-32`
  *  - `n1-highcpu-64`
  *  - `n1-highcpu-96`
- *  See more about [using Compute Engine machine
- *  types](/ml-engine/docs/tensorflow/machine-types#compute-engine-machine-types).
- *  You must set this value when `scaleTier` is set to `CUSTOM`.
+ *  Learn more about [using Compute Engine machine
+ *  types](/ml-engine/docs/machine-types#compute-engine-machine-types).
+ *  Alternatively, you can use the following legacy machine types:
+ *  - `standard`
+ *  - `large_model`
+ *  - `complex_model_s`
+ *  - `complex_model_m`
+ *  - `complex_model_l`
+ *  - `standard_gpu`
+ *  - `complex_model_m_gpu`
+ *  - `complex_model_l_gpu`
+ *  - `standard_p100`
+ *  - `complex_model_m_p100`
+ *  - `standard_v100`
+ *  - `large_model_v100`
+ *  - `complex_model_m_v100`
+ *  - `complex_model_l_v100`
+ *  Learn more about [using legacy machine
+ *  types](/ml-engine/docs/machine-types#legacy-machine-types).
+ *  Finally, if you want to use a TPU for training, specify `cloud_tpu` in this
+ *  field. Learn more about the [special configuration options for training
+ *  with
+ *  TPUs](/ml-engine/docs/tensorflow/using-tpus#configuring_a_custom_tpu_machine).
  */
 @property(nonatomic, copy, nullable) NSString *masterType;
 
@@ -2112,8 +2132,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  The supported values are the same as those described in the entry for
  *  `master_type`.
  *  This value must be consistent with the category of machine type that
- *  `masterType` uses. In other words, both must be AI Platform machine
- *  types or both must be Compute Engine machine types.
+ *  `masterType` uses. In other words, both must be Compute Engine machine
+ *  types or both must be legacy machine types.
  *  This value must be present when `scaleTier` is set to `CUSTOM` and
  *  `parameter_server_count` is greater than zero.
  */
@@ -2195,6 +2215,15 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *scaleTier;
 
 /**
+ *  Optional. Use 'chief' instead of 'master' in TF_CONFIG when Custom
+ *  Container is used and evaluator is not specified.
+ *  Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useChiefInTfConfig;
+
+/**
  *  Optional. The configuration for workers.
  *  You should only set `workerConfig.acceleratorConfig` if `workerType` is set
  *  to a Compute Engine machine type. [Learn about restrictions on accelerator
@@ -2225,8 +2254,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  The supported values are the same as those described in the entry for
  *  `masterType`.
  *  This value must be consistent with the category of machine type that
- *  `masterType` uses. In other words, both must be AI Platform machine
- *  types or both must be Compute Engine machine types.
+ *  `masterType` uses. In other words, both must be Compute Engine machine
+ *  types or both must be legacy machine types.
  *  If you use `cloud_tpu` for this value, see special instructions for
  *  [configuring a custom TPU
  *  machine](/ml-engine/docs/tensorflow/using-tpus#configuring_a_custom_tpu_machine).
@@ -2304,7 +2333,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version : GTLRObject
 
-/** Accelerator config for GPU serving. */
+/**
+ *  Optional. Accelerator config for using GPUs for online prediction (beta).
+ *  Only specify this field if you have specified a Compute Engine (N1) machine
+ *  type in the `machineType` field. Learn more about [using GPUs for online
+ *  prediction](/ml-engine/docs/machine-types-online-prediction#gpus).
+ */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig *acceleratorConfig;
 
 /**
@@ -2312,6 +2346,9 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  response to increases and decreases in traffic. Care should be
  *  taken to ramp up traffic according to the model's ability to scale
  *  or you will start seeing increases in latency and 429 response codes.
+ *  Note that you cannot use AutoScaling if your version uses
+ *  [GPUs](#Version.FIELDS.accelerator_config). Instead, you must use specify
+ *  `manual_scaling`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling *autoScaling;
 
@@ -2358,6 +2395,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  Optional. Configures explainability features on the model's version.
+ *  Some explanation features require additional metadata to be loaded
+ *  as part of the model payload.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig *explanationConfig;
+
+/**
  *  Optional. The machine learning framework AI Platform uses to train
  *  this version of the model. Valid values are `TENSORFLOW`, `SCIKIT_LEARN`,
  *  `XGBOOST`. If you do not specify a framework, AI Platform
@@ -2366,6 +2410,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  of the model to 1.4 or greater.
  *  Do **not** specify a framework if you're deploying a [custom
  *  prediction routine](/ml-engine/docs/tensorflow/custom-prediction-routines).
+ *  If you specify a [Compute Engine (N1) machine
+ *  type](/ml-engine/docs/machine-types-online-prediction) in the
+ *  `machineType` field, you must specify `TENSORFLOW`
+ *  for the framework.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified
@@ -2404,19 +2452,29 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Optional. The type of machine on which to serve the model. Currently only
- *  applies to online prediction service.
- *  <dl>
- *  <dt>mls1-c1-m2</dt>
- *  <dd>
- *  The <b>default</b> machine type, with 1 core and 2 GB RAM. The deprecated
- *  name for this machine type is "mls1-highmem-1".
- *  </dd>
- *  <dt>mls1-c4-m2</dt>
- *  <dd>
- *  In <b>Beta</b>. This machine type has 4 cores and 2 GB RAM. The
- *  deprecated name for this machine type is "mls1-highcpu-4".
- *  </dd>
- *  </dl>
+ *  applies to online prediction service. If this field is not specified, it
+ *  defaults to `mls1-c1-m2`.
+ *  Online prediction supports the following machine types:
+ *  * `mls1-c1-m2`
+ *  * `mls1-c4-m2`
+ *  * `n1-standard-2`
+ *  * `n1-standard-4`
+ *  * `n1-standard-8`
+ *  * `n1-standard-16`
+ *  * `n1-standard-32`
+ *  * `n1-highmem-2`
+ *  * `n1-highmem-4`
+ *  * `n1-highmem-8`
+ *  * `n1-highmem-16`
+ *  * `n1-highmem-32`
+ *  * `n1-highcpu-2`
+ *  * `n1-highcpu-4`
+ *  * `n1-highcpu-8`
+ *  * `n1-highcpu-16`
+ *  * `n1-highcpu-32`
+ *  `mls1-c1-m2` is generally available. All other machine types are available
+ *  in beta. Learn more about the [differences between machine
+ *  types](/ml-engine/docs/machine-types-online-prediction).
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
@@ -2461,9 +2519,11 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Specify this field if and only if you are deploying a [custom prediction
  *  routine (beta)](/ml-engine/docs/tensorflow/custom-prediction-routines).
  *  If you specify this field, you must set
- *  [`runtimeVersion`](#Version.FIELDS.runtime_version) to 1.4 or greater.
+ *  [`runtimeVersion`](#Version.FIELDS.runtime_version) to 1.4 or greater and
+ *  you must set `machineType` to a [legacy (MLS1)
+ *  machine type](/ml-engine/docs/machine-types-online-prediction).
  *  The following code sample provides the Predictor interface:
- *  ```py
+ *  <pre style="max-width: 626px;">
  *  class Predictor(object):
  *  """Interface for constructing custom predictors."""
  *  def predict(self, instances, **kwargs):
@@ -2491,7 +2551,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  An instance implementing this Predictor class.
  *  """
  *  raise NotImplementedError()
- *  ```
+ *  </pre>
  *  Learn more about [the Predictor interface and custom prediction
  *  routines](/ml-engine/docs/tensorflow/custom-prediction-routines).
  */
@@ -2793,8 +2853,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
  *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
- *  'setIamPolicy' will not fail even if either of incoming or stored policy
- *  does not meet the version requirements.
+ *  'setIamPolicy' will not fail even if the incoming policy version does not
+ *  meet the requirements for modifying the stored policy.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2807,11 +2867,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  rejected.
  *  Operations affecting conditional bindings must specify version 3. This can
  *  be either setting a conditional policy, modifying a conditional binding,
- *  or removing a conditional binding from the stored conditional policy.
+ *  or removing a binding (conditional or unconditional) from the stored
+ *  conditional policy.
  *  Operations on non-conditional policies may specify any valid value or
  *  leave the field unset.
- *  If no etag is provided in the call to `setIamPolicy`, any version
- *  compliance checks on the incoming and/or stored policy is skipped.
+ *  If no etag is provided in the call to `setIamPolicy`, version compliance
+ *  checks against the stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */

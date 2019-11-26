@@ -83,6 +83,8 @@
 @class GTLRDataproc_SoftwareConfig_Properties;
 @class GTLRDataproc_SparkJob;
 @class GTLRDataproc_SparkJob_Properties;
+@class GTLRDataproc_SparkRJob;
+@class GTLRDataproc_SparkRJob_Properties;
 @class GTLRDataproc_SparkSqlJob;
 @class GTLRDataproc_SparkSqlJob_Properties;
 @class GTLRDataproc_SparkSqlJob_ScriptVariables;
@@ -1509,9 +1511,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @interface GTLRDataproc_InstanceGroupConfig : GTLRObject
 
 /**
- *  Optional. The Compute Engine accelerator configuration for these
- *  instances.Beta Feature: This feature is still under development. It may be
- *  changed before final release.
+ *  Optional. The Compute Engine accelerator configuration for these instances.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_AcceleratorConfig *> *accelerators;
 
@@ -1553,6 +1553,12 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  manages this group. This is only used for preemptible instance groups.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_ManagedGroupConfig *managedGroupConfig;
+
+/**
+ *  Optional. Specifies the minimum cpu platform for the Instance Group. See
+ *  Cloud Dataproc&rarr;Minimum CPU Platform.
+ */
+@property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
 /**
  *  Optional. The number of VM instances in the instance group. For master
@@ -1676,6 +1682,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /** Job is a Spark job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkJob *sparkJob;
+
+/** Job is a SparkR job. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkRJob *sparkRJob;
 
 /** Job is a SparkSql job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkSqlJob *sparkSqlJob;
@@ -2479,7 +2488,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  {
  *  "bindings": [
  *  {
- *  "role": "role/resourcemanager.organizationAdmin",
+ *  "role": "roles/resourcemanager.organizationAdmin",
  *  "members": [
  *  "user:mike\@example.com",
  *  "group:admins\@example.com",
@@ -2824,6 +2833,67 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *        fetch them all at once.
  */
 @interface GTLRDataproc_SparkJob_Properties : GTLRObject
+@end
+
+
+/**
+ *  A Cloud Dataproc job for running Apache SparkR
+ *  (https://spark.apache.org/docs/latest/sparkr.html) applications on YARN.
+ */
+@interface GTLRDataproc_SparkRJob : GTLRObject
+
+/**
+ *  Optional. HCFS URIs of archives to be extracted in the working directory of
+ *  Spark drivers and tasks. Supported file types: .jar, .tar, .tar.gz, .tgz,
+ *  and .zip.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *archiveUris;
+
+/**
+ *  Optional. The arguments to pass to the driver. Do not include arguments,
+ *  such as --conf, that can be set as job properties, since a collision may
+ *  occur that causes an incorrect job submission.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Optional. HCFS URIs of files to be copied to the working directory of R
+ *  drivers and distributed tasks. Useful for naively parallel tasks.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileUris;
+
+/** Optional. The runtime log config for job execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_LoggingConfig *loggingConfig;
+
+/**
+ *  Required. The HCFS URI of the main R file to use as the driver. Must be a .R
+ *  file.
+ */
+@property(nonatomic, copy, nullable) NSString *mainRFileUri;
+
+/**
+ *  Optional. A mapping of property names to values, used to configure SparkR.
+ *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  overwritten. Can include properties set in
+ *  /etc/spark/conf/spark-defaults.conf and classes in user code.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkRJob_Properties *properties;
+
+@end
+
+
+/**
+ *  Optional. A mapping of property names to values, used to configure SparkR.
+ *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  overwritten. Can include properties set in
+ *  /etc/spark/conf/spark-defaults.conf and classes in user code.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_SparkRJob_Properties : GTLRObject
 @end
 
 

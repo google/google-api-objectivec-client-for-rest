@@ -58,6 +58,12 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impac
  */
 GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Cost;
 /**
+ *  Indicates a potential increase or decrease in manageability.
+ *
+ *  Value: "MANAGEABILITY"
+ */
+GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Manageability;
+/**
  *  Indicates a potential increase or decrease in performance.
  *
  *  Value: "PERFORMANCE"
@@ -152,6 +158,9 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
  *        "CATEGORY_UNSPECIFIED")
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Cost
  *        Indicates a potential increase or decrease in cost. (Value: "COST")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Manageability
+ *        Indicates a potential increase or decrease in manageability. (Value:
+ *        "MANAGEABILITY")
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Performance
  *        Indicates a potential increase or decrease in performance. (Value:
  *        "PERFORMANCE")
@@ -298,7 +307,7 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
 
 /**
  *  Type of this operation. Contains one of 'and', 'remove', 'replace', 'move',
- *  'copy', 'test' and custom operations. This field is case-insensitive and
+ *  'copy', 'test' and 'custom' operations. This field is case-insensitive and
  *  always populated.
  */
 @property(nonatomic, copy, nullable) NSString *action;

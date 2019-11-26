@@ -278,6 +278,12 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_Applicatio
 // GTLRAndroidManagement_ApplicationReport.state
 
 /**
+ *  App state is unspecified
+ *
+ *  Value: "APPLICATION_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_State_ApplicationStateUnspecified;
+/**
  *  App is installed on the device
  *
  *  Value: "INSTALLED"
@@ -1752,6 +1758,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Application state.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationReport_State_ApplicationStateUnspecified
+ *        App state is unspecified (Value: "APPLICATION_STATE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_ApplicationReport_State_Installed App is
  *        installed on the device (Value: "INSTALLED")
  *    @arg @c kGTLRAndroidManagement_ApplicationReport_State_Removed App was
@@ -3879,7 +3887,11 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PasswordRequirements *> *passwordPolicies;
 
-/** Password requirements. DEPRECATED - Use password_policies */
+/**
+ *  Password requirements. The field
+ *  password_requirements.require_password_unlock must not be set. DEPRECATED -
+ *  Use password_policies.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PasswordRequirements *passwordRequirements;
 
 /**

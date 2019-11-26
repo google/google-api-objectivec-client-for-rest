@@ -253,6 +253,28 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseHosting_ListVersionsResponse
+//
+
+@implementation GTLRFirebaseHosting_ListVersionsResponse
+@dynamic nextPageToken, versions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"versions" : [GTLRFirebaseHosting_Version class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"versions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseHosting_PopulateVersionFilesRequest
 //
 
@@ -290,6 +312,16 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseHosting_PreviewConfig
+//
+
+@implementation GTLRFirebaseHosting_PreviewConfig
+@dynamic active, expireTime;
 @end
 
 
@@ -361,7 +393,8 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 
 @implementation GTLRFirebaseHosting_Version
 @dynamic config, createTime, createUser, deleteTime, deleteUser, fileCount,
-         finalizeTime, finalizeUser, labels, name, status, versionBytes;
+         finalizeTime, finalizeUser, labels, name, preview, status,
+         versionBytes;
 @end
 
 

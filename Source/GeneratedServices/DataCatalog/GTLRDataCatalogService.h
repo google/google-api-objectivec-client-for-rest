@@ -2,11 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google App State API (appstate/v1)
+//   Google Cloud Data Catalog API (datacatalog/v1beta1)
 // Description:
-//   The Google App State API.
+//   A fully managed and highly scalable data discovery and metadata management
+//   service.
 // Documentation:
-//   https://developers.google.com/games/services/web/api/states
+//   https://cloud.google.com/data-catalog/docs/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -29,27 +30,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage your data for this application
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
- *  Value "https://www.googleapis.com/auth/appstate"
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppState;
+GTLR_EXTERN NSString * const kGTLRAuthScopeDataCatalogCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRAppStateService
+//   GTLRDataCatalogService
 //
 
 /**
- *  Service for executing Google App State API queries.
+ *  Service for executing Google Cloud Data Catalog API queries.
  *
- *  The Google App State API.
+ *  A fully managed and highly scalable data discovery and metadata management
+ *  service.
  */
-@interface GTLRAppStateService : GTLRService
+@interface GTLRDataCatalogService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRAppStateQuery.h. The query can the be sent with GTLRService's execute
+// GTLRDataCatalogQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

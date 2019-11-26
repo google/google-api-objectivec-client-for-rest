@@ -144,6 +144,54 @@
 
 @end
 
+@implementation GTLRDatastoreQuery_ProjectsIndexesCreate
+
+@dynamic projectId;
+
++ (instancetype)queryWithObject:(GTLRDatastore_GoogleDatastoreAdminV1Index *)object
+                      projectId:(NSString *)projectId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/indexes";
+  GTLRDatastoreQuery_ProjectsIndexesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRDatastore_GoogleLongrunningOperation class];
+  query.loggingName = @"datastore.projects.indexes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatastoreQuery_ProjectsIndexesDelete
+
+@dynamic indexId, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                           indexId:(NSString *)indexId {
+  NSArray *pathParams = @[
+    @"indexId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/indexes/{indexId}";
+  GTLRDatastoreQuery_ProjectsIndexesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.indexId = indexId;
+  query.expectedObjectClass = [GTLRDatastore_GoogleLongrunningOperation class];
+  query.loggingName = @"datastore.projects.indexes.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatastoreQuery_ProjectsIndexesGet
 
 @dynamic indexId, projectId;

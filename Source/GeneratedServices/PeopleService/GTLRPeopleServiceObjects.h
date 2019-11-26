@@ -322,7 +322,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, copy, nullable) NSString *extendedAddress;
 
 /**
- *  The read-only type of the address translated and formatted in the viewer's
+ *  Output only. The type of the address translated and formatted in the
+ *  viewer's
  *  account locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedType;
@@ -469,14 +470,15 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The read-only name translated and formatted in the viewer's account locale
+ *  Output only. The name translated and formatted in the viewer's account
+ *  locale
  *  or the `Accept-Language` HTTP header locale for system groups names.
  *  Group names set by the owner are the same as name.
  */
 @property(nonatomic, copy, nullable) NSString *formattedName;
 
 /**
- *  The read-only contact group type.
+ *  Output only. The contact group type.
  *
  *  Likely values:
  *    @arg @c kGTLRPeopleService_ContactGroup_GroupType_GroupTypeUnspecified
@@ -489,7 +491,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, copy, nullable) NSString *groupType;
 
 /**
- *  The total number of contacts in the group irrespective of max members in
+ *  Output only. The total number of contacts in the group irrespective of max
+ *  members in
  *  specified in the request.
  *
  *  Uses NSNumber of intValue.
@@ -497,14 +500,15 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, strong, nullable) NSNumber *memberCount;
 
 /**
- *  The list of contact person resource names that are members of the contact
+ *  Output only. The list of contact person resource names that are members of
+ *  the contact
  *  group. The field is not populated for LIST requests and can only be updated
  *  through the
  *  [ModifyContactGroupMembers](/people/api/rest/v1/contactgroups/members/modify).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *memberResourceNames;
 
-/** Metadata about the contact group. */
+/** Output only. Metadata about the contact group. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_ContactGroupMetadata *metadata;
 
 /**
@@ -527,7 +531,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @interface GTLRPeopleService_ContactGroupMembership : GTLRObject
 
-/** The read-only contact group ID for the contact group membership. */
+/** Output only. The contact group ID for the contact group membership. */
 @property(nonatomic, copy, nullable) NSString *contactGroupId;
 
 /**
@@ -544,12 +548,13 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  The read-only metadata about a contact group.
+ *  The metadata about a contact group.
  */
 @interface GTLRPeopleService_ContactGroupMetadata : GTLRObject
 
 /**
- *  True if the contact group resource has been deleted. Populated only for
+ *  Output only. True if the contact group resource has been deleted. Populated
+ *  only for
  *  [`ListContactGroups`](/people/api/rest/v1/contactgroups/list) requests
  *  that include a sync token.
  *
@@ -557,7 +562,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @property(nonatomic, strong, nullable) NSNumber *deleted;
 
-/** The time the group was last updated. */
+/** Output only. The time the group was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -581,7 +586,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  A person's read-only cover photo. A large image shown on the person's
+ *  A person's cover photo. A large image shown on the person's
  *  profile page that represents who they are or what they care about.
  */
 @interface GTLRPeopleService_CoverPhoto : GTLRObject
@@ -610,7 +615,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @interface GTLRPeopleService_CreateContactGroupRequest : GTLRObject
 
-/** The contact group to create. */
+/** Required. The contact group to create. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_ContactGroup *contactGroup;
 
 @end
@@ -674,7 +679,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  A read-only G Suite Domain membership.
+ *  A G Suite Domain membership.
  */
 @interface GTLRPeopleService_DomainMembership : GTLRObject
 
@@ -697,7 +702,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The read-only type of the email address translated and formatted in the
+ *  Output only. The type of the email address translated and formatted in the
  *  viewer's account locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedType;
@@ -742,7 +747,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, strong, nullable) GTLRPeopleService_Date *date;
 
 /**
- *  The read-only type of the event translated and formatted in the
+ *  Output only. The type of the event translated and formatted in the
  *  viewer's account locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedType;
@@ -778,7 +783,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, strong, nullable) GTLRPeopleService_Source *source;
 
 /**
- *  True if the field is verified; false if the field is unverified. A
+ *  Output only. True if the field is verified; false if the field is
+ *  unverified. A
  *  verified field is typically a name, email address, phone number, or
  *  website that has been confirmed to be owned by the person.
  *
@@ -795,7 +801,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_Gender : GTLRObject
 
 /**
- *  The read-only value of the gender translated and formatted in the viewer's
+ *  Output only. The value of the gender translated and formatted in the
+ *  viewer's
  *  account locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedValue;
@@ -833,13 +840,13 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_ImClient : GTLRObject
 
 /**
- *  The read-only protocol of the IM client formatted in the viewer's account
+ *  Output only. The protocol of the IM client formatted in the viewer's account
  *  locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedProtocol;
 
 /**
- *  The read-only type of the IM client translated and formatted in the
+ *  Output only. The type of the IM client translated and formatted in the
  *  viewer's account locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedType;
@@ -994,7 +1001,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The contact group membership. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_ContactGroupMembership *contactGroupMembership;
 
-/** The read-only domain membership. */
+/** Output only. The domain membership. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_DomainMembership *domainMembership;
 
 /** Metadata about the membership. */
@@ -1011,14 +1018,14 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_ModifyContactGroupMembersRequest : GTLRObject
 
 /**
- *  The resource names of the contact people to add in the form of in the form
+ *  The resource names of the contact people to add in the form of
  *  `people/`<var>person_id</var>.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNamesToAdd;
 
 /**
- *  The resource names of the contact people to remove in the form of in the
- *  form of `people/`<var>person_id</var>.
+ *  The resource names of the contact people to remove in the form of
+ *  `people/`<var>person_id</var>.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNamesToRemove;
 
@@ -1048,13 +1055,14 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_Name : GTLRObject
 
 /**
- *  The read-only display name formatted according to the locale specified by
+ *  Output only. The display name formatted according to the locale specified by
  *  the viewer's account or the `Accept-Language` HTTP header.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The read-only display name with the last name first formatted according to
+ *  Output only. The display name with the last name first formatted according
+ *  to
  *  the locale specified by the viewer's account or the
  *  `Accept-Language` HTTP header.
  */
@@ -1173,7 +1181,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, strong, nullable) GTLRPeopleService_Date *endDate;
 
 /**
- *  The read-only type of the organization translated and formatted in the
+ *  Output only. The type of the organization translated and formatted in the
  *  viewer's account locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedType;
@@ -1229,8 +1237,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Address *> *addresses;
 
 /**
- *  **DEPRECATED** (Please use `person.ageRanges` instead)**
- *  The person's read-only age range.
+ *  Output only. **DEPRECATED** (Please use `person.ageRanges` instead)**
+ *  The person's age range.
  *
  *  Likely values:
  *    @arg @c kGTLRPeopleService_Person_AgeRange_AgeRangeUnspecified
@@ -1244,7 +1252,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @property(nonatomic, copy, nullable) NSString *ageRange;
 
-/** The person's read-only age ranges. */
+/** Output only. The person's age ranges. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_AgeRangeType *> *ageRanges;
 
 /** The person's biographies. */
@@ -1256,7 +1264,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's bragging rights. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_BraggingRights *> *braggingRights;
 
-/** The person's read-only cover photos. */
+/** Output only. The person's cover photos. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_CoverPhoto *> *coverPhotos;
 
 /** The person's email addresses. */
@@ -1286,7 +1294,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's group memberships. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Membership *> *memberships;
 
-/** Read-only metadata about the person. */
+/** Output only. Metadata about the person. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_PersonMetadata *metadata;
 
 /** The person's names. */
@@ -1304,16 +1312,16 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's phone numbers. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_PhoneNumber *> *phoneNumbers;
 
-/** The person's read-only photos. */
+/** Output only. The person's photos. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Photo *> *photos;
 
 /** The person's relations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Relation *> *relations;
 
-/** The person's read-only relationship interests. */
+/** Output only. The person's relationship interests. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_RelationshipInterest *> *relationshipInterests;
 
-/** The person's read-only relationship statuses. */
+/** Output only. The person's relationship statuses. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_RelationshipStatus *> *relationshipStatuses;
 
 /** The person's residences. */
@@ -1332,7 +1340,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's skills. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Skill *> *skills;
 
-/** The person's read-only taglines. */
+/** Output only. The person's taglines. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Tagline *> *taglines;
 
 /** The person's associated URLs. */
@@ -1345,12 +1353,13 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  The read-only metadata about a person.
+ *  The metadata about a person.
  */
 @interface GTLRPeopleService_PersonMetadata : GTLRObject
 
 /**
- *  True if the person resource has been deleted. Populated only for
+ *  Output only. True if the person resource has been deleted. Populated only
+ *  for
  *  [`connections.list`](/people/api/rest/v1/people.connections/list) requests
  *  that include a sync token.
  *
@@ -1358,11 +1367,11 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @property(nonatomic, strong, nullable) NSNumber *deleted;
 
-/** Resource names of people linked to this resource. */
+/** Output only. Resource names of people linked to this resource. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *linkedPeopleResourceNames;
 
 /**
- *  **DEPRECATED** (Please use
+ *  Output only. **DEPRECATED** (Please use
  *  `person.metadata.sources.profileMetadata.objectType` instead)
  *  The type of the person object.
  *
@@ -1377,7 +1386,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, copy, nullable) NSString *objectType;
 
 /**
- *  Any former resource names this person has had. Populated only for
+ *  Output only. Any former resource names this person has had. Populated only
+ *  for
  *  [`connections.list`](/people/api/rest/v1/people.connections/list) requests
  *  that include a sync token.
  *  The resource name may change when adding or removing fields that link a
@@ -1430,14 +1440,14 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_PhoneNumber : GTLRObject
 
 /**
- *  The read-only canonicalized [ITU-T
+ *  Output only. The canonicalized [ITU-T
  *  E.164](https://law.resource.org/pub/us/cfr/ibr/004/itu-t.E.164.1.2008.pdf)
  *  form of the phone number.
  */
 @property(nonatomic, copy, nullable) NSString *canonicalForm;
 
 /**
- *  The read-only type of the phone number translated and formatted in the
+ *  Output only. The type of the phone number translated and formatted in the
  *  viewer's account locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedType;
@@ -1470,7 +1480,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  A person's read-only photo. A picture shown next to the person's name to
+ *  A person's photo. A picture shown next to the person's name to
  *  help others recognize the person.
  */
 @interface GTLRPeopleService_Photo : GTLRObject
@@ -1499,12 +1509,12 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  The read-only metadata about a profile.
+ *  The metadata about a profile.
  */
 @interface GTLRPeopleService_ProfileMetadata : GTLRObject
 
 /**
- *  The profile object type.
+ *  Output only. The profile object type.
  *
  *  Likely values:
  *    @arg @c kGTLRPeopleService_ProfileMetadata_ObjectType_ObjectTypeUnspecified
@@ -1516,7 +1526,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @property(nonatomic, copy, nullable) NSString *objectType;
 
-/** The user types. */
+/** Output only. The user types. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *userTypes;
 
 @end
@@ -1528,8 +1538,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_Relation : GTLRObject
 
 /**
- *  The type of the relation translated and formatted in the viewer's account
- *  locale or the locale specified in the Accept-Language HTTP header.
+ *  Output only. The type of the relation translated and formatted in the
+ *  viewer's
+ *  account locale or the locale specified in the Accept-Language HTTP header.
  */
 @property(nonatomic, copy, nullable) NSString *formattedType;
 
@@ -1563,14 +1574,14 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  A person's read-only relationship interest .
+ *  A person's relationship interest .
  */
 @interface GTLRPeopleService_RelationshipInterest : GTLRObject
 
 /**
- *  The value of the relationship interest translated and formatted in the
- *  viewer's account locale or the locale specified in the Accept-Language
- *  HTTP header.
+ *  Output only. The value of the relationship interest translated and formatted
+ *  in the viewer's account locale or the locale specified in the
+ *  Accept-Language HTTP header.
  */
 @property(nonatomic, copy, nullable) NSString *formattedValue;
 
@@ -1591,12 +1602,13 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  A person's read-only relationship status.
+ *  A person's relationship status.
  */
 @interface GTLRPeopleService_RelationshipStatus : GTLRObject
 
 /**
- *  The read-only value of the relationship status translated and formatted in
+ *  Output only. The value of the relationship status translated and formatted
+ *  in
  *  the viewer's account locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedValue;
@@ -1651,7 +1663,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_SipAddress : GTLRObject
 
 /**
- *  The read-only type of the SIP address translated and formatted in the
+ *  Output only. The type of the SIP address translated and formatted in the
  *  viewer's account locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedType;
@@ -1713,7 +1725,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  **Only populated in `person.metadata.sources`.**
+ *  Output only. **Only populated in `person.metadata.sources`.**
  *  Metadata about a source of type PROFILE.
  */
 @property(nonatomic, strong, nullable) GTLRPeopleService_ProfileMetadata *profileMetadata;
@@ -1742,7 +1754,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  **Only populated in `person.metadata.sources`.**
+ *  Output only. **Only populated in `person.metadata.sources`.**
  *  Last update timestamp of this source.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -1796,7 +1808,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  A read-only brief one-line description of the person.
+ *  A brief one-line description of the person.
  */
 @interface GTLRPeopleService_Tagline : GTLRObject
 
@@ -1815,7 +1827,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @interface GTLRPeopleService_UpdateContactGroupRequest : GTLRObject
 
-/** The contact group to update. */
+/** Required. The contact group to update. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_ContactGroup *contactGroup;
 
 @end
@@ -1828,10 +1840,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_UpdateContactPhotoRequest : GTLRObject
 
 /**
- *  **Optional.** Not specifying any fields will skip the post mutate read.
- *  A field mask to restrict which fields on the person are
- *  returned. Multiple fields can be specified by separating them with commas.
- *  Valid values are:
+ *  Optional. A field mask to restrict which fields on the person are returned.
+ *  Multiple
+ *  fields can be specified by separating them with commas. Defaults to empty
+ *  if not set, which will skip the post mutate get. Valid values are:
  *  * addresses
  *  * ageRanges
  *  * biographies
@@ -1867,7 +1879,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, copy, nullable) NSString *personFields;
 
 /**
- *  Raw photo bytes
+ *  Required. Raw photo bytes
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1897,7 +1909,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_Url : GTLRObject
 
 /**
- *  The read-only type of the URL translated and formatted in the viewer's
+ *  Output only. The type of the URL translated and formatted in the viewer's
  *  account locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedType;

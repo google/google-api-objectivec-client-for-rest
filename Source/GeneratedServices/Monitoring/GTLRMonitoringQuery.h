@@ -31,6 +31,8 @@
 @class GTLRMonitoring_MetricDescriptor;
 @class GTLRMonitoring_NotificationChannel;
 @class GTLRMonitoring_SendNotificationChannelVerificationCodeRequest;
+@class GTLRMonitoring_Service;
+@class GTLRMonitoring_ServiceLevelObjective;
 @class GTLRMonitoring_UptimeCheckConfig;
 @class GTLRMonitoring_VerifyNotificationChannelRequest;
 
@@ -121,10 +123,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignSum;
 // ----------------------------------------------------------------------------
 // view
 
+/** Value: "EXPLICIT" */
+GTLR_EXTERN NSString * const kGTLRMonitoringViewExplicit;
 /** Value: "FULL" */
 GTLR_EXTERN NSString * const kGTLRMonitoringViewFull;
 /** Value: "HEADERS" */
 GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
+/** Value: "VIEW_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -1689,8 +1695,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Unsupported: must be left blank. The points in each time series are returned
- *  in reverse time order.
+ *  Unsupported: must be left blank. The points in each time series are
+ *  currently returned in reverse time order (most recent to oldest).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1949,6 +1955,456 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_UptimeCheckConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Create a Service.
+ *
+ *  Method: monitoring.services.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ */
+@interface GTLRMonitoringQuery_ServicesCreate : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForServicesCreateWithObject:parent:]
+
+/**
+ *  Resource name of the parent workspace. Of the form projects/{project_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The Service id to use for this Service. If omitted, an id will be
+ *  generated instead. Must match the pattern a-z0-9-+
+ */
+@property(nonatomic, copy, nullable) NSString *serviceId;
+
+/**
+ *  Fetches a @c GTLRMonitoring_Service.
+ *
+ *  Create a Service.
+ *
+ *  @param object The @c GTLRMonitoring_Service to include in the query.
+ *  @param parent Resource name of the parent workspace. Of the form
+ *    projects/{project_id}.
+ *
+ *  @return GTLRMonitoringQuery_ServicesCreate
+ */
++ (instancetype)queryWithObject:(GTLRMonitoring_Service *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Soft delete this Service.
+ *
+ *  Method: monitoring.services.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ */
+@interface GTLRMonitoringQuery_ServicesDelete : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForServicesDeleteWithname:]
+
+/**
+ *  Resource name of the Service to delete. Of the form
+ *  projects/{project_id}/service/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMonitoring_Empty.
+ *
+ *  Soft delete this Service.
+ *
+ *  @param name Resource name of the Service to delete. Of the form
+ *    projects/{project_id}/service/{service_id}.
+ *
+ *  @return GTLRMonitoringQuery_ServicesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the named Service.
+ *
+ *  Method: monitoring.services.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_ServicesGet : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForServicesGetWithname:]
+
+/**
+ *  Resource name of the Service. Of the form
+ *  projects/{project_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMonitoring_Service.
+ *
+ *  Get the named Service.
+ *
+ *  @param name Resource name of the Service. Of the form
+ *    projects/{project_id}/services/{service_id}.
+ *
+ *  @return GTLRMonitoringQuery_ServicesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List Services for this workspace.
+ *
+ *  Method: monitoring.services.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_ServicesList : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForServicesListWithparent:]
+
+/**
+ *  A filter specifying what Services to return. The filter currently supports
+ *  the following fields:
+ *  - `identifier_case`
+ *  - `app_engine.module_id`
+ *  - `cloud_endpoints.service`
+ *  - `cluster_istio.location`
+ *  - `cluster_istio.cluster_name`
+ *  - `cluster_istio.service_namespace`
+ *  - `cluster_istio.service_name`
+ *  identifier_case refers to which option in the identifier oneof is populated.
+ *  For example, the filter identifier_case = "CUSTOM" would match all services
+ *  with a value for the custom field. Valid options are "CUSTOM", "APP_ENGINE",
+ *  "CLOUD_ENDPOINTS", and "CLUSTER_ISTIO".
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A non-negative number that is the maximum number of results to return. When
+ *  0, use default page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If this field is not empty then it must contain the nextPageToken value
+ *  returned by a previous call to this method. Using this field causes the
+ *  method to return additional results from the previous method call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Resource name of the parent Workspace. Of the form projects/{project_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMonitoring_ListServicesResponse.
+ *
+ *  List Services for this workspace.
+ *
+ *  @param parent Resource name of the parent Workspace. Of the form
+ *    projects/{project_id}.
+ *
+ *  @return GTLRMonitoringQuery_ServicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update this Service.
+ *
+ *  Method: monitoring.services.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ */
+@interface GTLRMonitoringQuery_ServicesPatch : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForServicesPatchWithObject:name:]
+
+/**
+ *  Resource name for this Service. Of the form
+ *  projects/{project_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A set of field paths defining which fields to use for the update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRMonitoring_Service.
+ *
+ *  Update this Service.
+ *
+ *  @param object The @c GTLRMonitoring_Service to include in the query.
+ *  @param name Resource name for this Service. Of the form
+ *    projects/{project_id}/services/{service_id}.
+ *
+ *  @return GTLRMonitoringQuery_ServicesPatch
+ */
++ (instancetype)queryWithObject:(GTLRMonitoring_Service *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Create a ServiceLevelObjective for the given Service.
+ *
+ *  Method: monitoring.services.serviceLevelObjectives.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ */
+@interface GTLRMonitoringQuery_ServicesServiceLevelObjectivesCreate : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesCreateWithObject:parent:]
+
+/**
+ *  Resource name of the parent Service. Of the form
+ *  projects/{project_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The ServiceLevelObjective id to use for this
+ *  ServiceLevelObjective. If omitted, an id will be generated instead. Must
+ *  match the pattern a-z0-9-+
+ */
+@property(nonatomic, copy, nullable) NSString *serviceLevelObjectiveId;
+
+/**
+ *  Fetches a @c GTLRMonitoring_ServiceLevelObjective.
+ *
+ *  Create a ServiceLevelObjective for the given Service.
+ *
+ *  @param object The @c GTLRMonitoring_ServiceLevelObjective to include in the
+ *    query.
+ *  @param parent Resource name of the parent Service. Of the form
+ *    projects/{project_id}/services/{service_id}.
+ *
+ *  @return GTLRMonitoringQuery_ServicesServiceLevelObjectivesCreate
+ */
++ (instancetype)queryWithObject:(GTLRMonitoring_ServiceLevelObjective *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete the given ServiceLevelObjective.
+ *
+ *  Method: monitoring.services.serviceLevelObjectives.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ */
+@interface GTLRMonitoringQuery_ServicesServiceLevelObjectivesDelete : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesDeleteWithname:]
+
+/**
+ *  Resource name of the ServiceLevelObjective to delete. Of the form
+ *  projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMonitoring_Empty.
+ *
+ *  Delete the given ServiceLevelObjective.
+ *
+ *  @param name Resource name of the ServiceLevelObjective to delete. Of the
+ *    form
+ *    projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ *
+ *  @return GTLRMonitoringQuery_ServicesServiceLevelObjectivesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a ServiceLevelObjective by name.
+ *
+ *  Method: monitoring.services.serviceLevelObjectives.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_ServicesServiceLevelObjectivesGet : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesGetWithname:]
+
+/**
+ *  Resource name of the ServiceLevelObjective to get. Of the form
+ *  projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  View of the ServiceLevelObjective to return. If DEFAULT, return the
+ *  ServiceLevelObjective as originally defined. If EXPLICIT and the
+ *  ServiceLevelObjective is defined in terms of a BasicSli, replace the
+ *  BasicSli with a RequestBasedSli spelling out how the SLI is computed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoringViewViewUnspecified Value "VIEW_UNSPECIFIED"
+ *    @arg @c kGTLRMonitoringViewFull Value "FULL"
+ *    @arg @c kGTLRMonitoringViewExplicit Value "EXPLICIT"
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRMonitoring_ServiceLevelObjective.
+ *
+ *  Get a ServiceLevelObjective by name.
+ *
+ *  @param name Resource name of the ServiceLevelObjective to get. Of the form
+ *    projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ *
+ *  @return GTLRMonitoringQuery_ServicesServiceLevelObjectivesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List the ServiceLevelObjectives for the given Service.
+ *
+ *  Method: monitoring.services.serviceLevelObjectives.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_ServicesServiceLevelObjectivesList : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesListWithparent:]
+
+/** A filter specifying what ServiceLevelObjectives to return. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A non-negative number that is the maximum number of results to return. When
+ *  0, use default page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If this field is not empty then it must contain the nextPageToken value
+ *  returned by a previous call to this method. Using this field causes the
+ *  method to return additional results from the previous method call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Resource name of the parent Service. Of the form
+ *  projects/{project_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  View of the ServiceLevelObjectives to return. If DEFAULT, return each
+ *  ServiceLevelObjective as originally defined. If EXPLICIT and the
+ *  ServiceLevelObjective is defined in terms of a BasicSli, replace the
+ *  BasicSli with a RequestBasedSli spelling out how the SLI is computed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoringViewViewUnspecified Value "VIEW_UNSPECIFIED"
+ *    @arg @c kGTLRMonitoringViewFull Value "FULL"
+ *    @arg @c kGTLRMonitoringViewExplicit Value "EXPLICIT"
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRMonitoring_ListServiceLevelObjectivesResponse.
+ *
+ *  List the ServiceLevelObjectives for the given Service.
+ *
+ *  @param parent Resource name of the parent Service. Of the form
+ *    projects/{project_id}/services/{service_id}.
+ *
+ *  @return GTLRMonitoringQuery_ServicesServiceLevelObjectivesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update the given ServiceLevelObjective.
+ *
+ *  Method: monitoring.services.serviceLevelObjectives.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ */
+@interface GTLRMonitoringQuery_ServicesServiceLevelObjectivesPatch : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesPatchWithObject:name:]
+
+/**
+ *  Resource name for this ServiceLevelObjective. Of the form
+ *  projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A set of field paths defining which fields to use for the update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRMonitoring_ServiceLevelObjective.
+ *
+ *  Update the given ServiceLevelObjective.
+ *
+ *  @param object The @c GTLRMonitoring_ServiceLevelObjective to include in the
+ *    query.
+ *  @param name Resource name for this ServiceLevelObjective. Of the form
+ *    projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ *
+ *  @return GTLRMonitoringQuery_ServicesServiceLevelObjectivesPatch
+ */
++ (instancetype)queryWithObject:(GTLRMonitoring_ServiceLevelObjective *)object
                            name:(NSString *)name;
 
 @end

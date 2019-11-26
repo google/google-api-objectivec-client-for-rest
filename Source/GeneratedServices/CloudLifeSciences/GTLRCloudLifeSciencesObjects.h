@@ -288,7 +288,8 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown;
  *  By default, after an action fails, no further actions are run. This flag
  *  indicates that this action must be run even if the pipeline has already
  *  failed. This is useful for actions that copy output files off of the VM
- *  or for debugging.
+ *  or for debugging. Note that no actions will be run if image prefetching
+ *  fails.
  *
  *  Uses NSNumber of boolValue.
  */

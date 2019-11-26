@@ -21,6 +21,8 @@
 
 @class GTLRContainer_AcceleratorConfig;
 @class GTLRContainer_AddonsConfig;
+@class GTLRContainer_AuthenticatorGroupsConfig;
+@class GTLRContainer_AutoprovisioningNodePoolDefaults;
 @class GTLRContainer_AutoUpgradeOptions;
 @class GTLRContainer_BigQueryDestination;
 @class GTLRContainer_BinaryAuthorization;
@@ -28,6 +30,7 @@
 @class GTLRContainer_ClientCertificateConfig;
 @class GTLRContainer_Cluster;
 @class GTLRContainer_Cluster_ResourceLabels;
+@class GTLRContainer_ClusterAutoscaling;
 @class GTLRContainer_ClusterUpdate;
 @class GTLRContainer_ConsumptionMeteringConfig;
 @class GTLRContainer_DailyMaintenanceWindow;
@@ -57,12 +60,14 @@
 @class GTLRContainer_NodeTaint;
 @class GTLRContainer_Operation;
 @class GTLRContainer_PrivateClusterConfig;
+@class GTLRContainer_ResourceLimit;
 @class GTLRContainer_ResourceUsageExportConfig;
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
 @class GTLRContainer_ShieldedInstanceConfig;
 @class GTLRContainer_StatusCondition;
 @class GTLRContainer_UsableSubnetwork;
 @class GTLRContainer_UsableSubnetworkSecondaryRange;
+@class GTLRContainer_VerticalPodAutoscaling;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -557,6 +562,49 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 
 /**
+ *  Configuration for returning group information from authenticators.
+ */
+@interface GTLRContainer_AuthenticatorGroupsConfig : GTLRObject
+
+/**
+ *  Whether this cluster should return group membership lookups
+ *  during authentication using a group of security groups.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The name of the security group-of-groups to be used. Only relevant
+ *  if enabled = true.
+ */
+@property(nonatomic, copy, nullable) NSString *securityGroup;
+
+@end
+
+
+/**
+ *  AutoprovisioningNodePoolDefaults contains defaults for a node pool created
+ *  by NAP.
+ */
+@interface GTLRContainer_AutoprovisioningNodePoolDefaults : GTLRObject
+
+/**
+ *  Scopes that are used by NAP when creating node pools. If oauth_scopes are
+ *  specified, service_account should be empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *oauthScopes;
+
+/**
+ *  The Google Cloud Platform Service Account to be used by the node VMs. If
+ *  service_account is specified, scopes should be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+@end
+
+
+/**
  *  AutoUpgradeOptions defines the set of options for the user to control how
  *  the Auto Upgrades will proceed.
  */
@@ -679,6 +727,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /** Configurations for the various addons available to run in the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *addonsConfig;
+
+/** Configuration controlling RBAC group membership information. */
+@property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *authenticatorGroupsConfig;
+
+/** Cluster-level autoscaling configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_ClusterAutoscaling *autoscaling;
 
 /** Configuration for Binary Authorization. */
 @property(nonatomic, strong, nullable) GTLRContainer_BinaryAuthorization *binaryAuthorization;
@@ -832,7 +886,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  The logging service the cluster should use to write logs.
  *  Currently available options:
  *  * "logging.googleapis.com/kubernetes" - the Google Cloud Logging
- *  service with Kubernetes-native resource model in Stackdriver
+ *  service with Kubernetes-native resource model
  *  * `logging.googleapis.com` - the Google Cloud Logging service.
  *  * `none` - no logs will be exported from the cluster.
  *  * if left as an empty string,`logging.googleapis.com` will be used.
@@ -865,7 +919,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /**
  *  The name of this cluster. The name must be unique within this project
- *  and zone, and can be up to 40 characters with the following restrictions:
+ *  and location (e.g. zone or region), and can be up to 40 characters with
+ *  the following restrictions:
  *  * Lowercase letters, numbers, and hyphens only.
  *  * Must start with a letter.
  *  * Must end with a number or a letter.
@@ -992,6 +1047,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  */
 @property(nonatomic, copy, nullable) NSString *tpuIpv4CidrBlock;
 
+/** Cluster-level Vertical Pod Autoscaling configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_VerticalPodAutoscaling *verticalPodAutoscaling;
+
 /**
  *  [Output only] The name of the Google Compute Engine
  *  [zone](/compute/docs/zones#available) in which the cluster
@@ -1019,6 +1077,42 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 
 /**
+ *  ClusterAutoscaling contains global, per-cluster information
+ *  required by Cluster Autoscaler to automatically adjust
+ *  the size of the cluster and create/delete
+ *  node pools based on the current needs.
+ */
+@interface GTLRContainer_ClusterAutoscaling : GTLRObject
+
+/**
+ *  The list of Google Compute Engine [zones](/compute/docs/zones#available)
+ *  in which the NodePool's nodes can be created by NAP.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *autoprovisioningLocations;
+
+/**
+ *  AutoprovisioningNodePoolDefaults contains defaults for a node pool
+ *  created by NAP.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_AutoprovisioningNodePoolDefaults *autoprovisioningNodePoolDefaults;
+
+/**
+ *  Enables automatic node pool creation and deletion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableNodeAutoprovisioning;
+
+/**
+ *  Contains global constraints regarding minimum and maximum
+ *  amount of resources in the cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_ResourceLimit *> *resourceLimits;
+
+@end
+
+
+/**
  *  ClusterUpdate describes an update to the cluster. Exactly one update can
  *  be applied to a cluster with each request, so at most one field can be
  *  provided.
@@ -1030,6 +1124,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /** The desired configuration options for the Binary Authorization feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_BinaryAuthorization *desiredBinaryAuthorization;
+
+/** Cluster-level autoscaling configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_ClusterAutoscaling *desiredClusterAutoscaling;
 
 /** Configuration of etcd encryption. */
 @property(nonatomic, strong, nullable) GTLRContainer_DatabaseEncryption *desiredDatabaseEncryption;
@@ -1057,7 +1154,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  The logging service the cluster should use to write logs.
  *  Currently available options:
  *  * "logging.googleapis.com/kubernetes" - the Google Cloud Logging
- *  service with Kubernetes-native resource model in Stackdriver
+ *  service with Kubernetes-native resource model
  *  * "logging.googleapis.com" - the Google Cloud Logging service
  *  * "none" - no logs will be exported from the cluster
  */
@@ -1084,7 +1181,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  The monitoring service the cluster should use to write metrics.
  *  Currently available options:
  *  * "monitoring.googleapis.com/kubernetes" - the Google Cloud Monitoring
- *  service with Kubernetes-native resource model in Stackdriver
+ *  service with Kubernetes-native resource model
  *  * "monitoring.googleapis.com" - the Google Cloud Monitoring service
  *  * "none" - no metrics will be exported from the cluster
  */
@@ -1121,6 +1218,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /** The desired configuration for exporting resource usage. */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *desiredResourceUsageExportConfig;
+
+/** Cluster-level Vertical Pod Autoscaling configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_VerticalPodAutoscaling *desiredVerticalPodAutoscaling;
 
 @end
 
@@ -2258,6 +2358,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 @interface GTLRContainer_NodePoolAutoscaling : GTLRObject
 
 /**
+ *  Can this node pool be deleted automatically.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoprovisioned;
+
+/**
  *  Is autoscaling enabled for this node pool.
  *
  *  Uses NSNumber of boolValue.
@@ -2468,6 +2575,32 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /** Output only. The external IP address of this cluster's master endpoint. */
 @property(nonatomic, copy, nullable) NSString *publicEndpoint;
+
+@end
+
+
+/**
+ *  Contains information about amount of some resource in the cluster.
+ *  For memory, value should be in GB.
+ */
+@interface GTLRContainer_ResourceLimit : GTLRObject
+
+/**
+ *  Maximum amount of the resource in the cluster.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximum;
+
+/**
+ *  Minimum amount of the resource in the cluster.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimum;
+
+/** Resource name "cpu", "memory" or gpu-specific string. */
+@property(nonatomic, copy, nullable) NSString *resourceType;
 
 @end
 
@@ -2924,7 +3057,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  The monitoring service the cluster should use to write metrics.
  *  Currently available options:
  *  * "monitoring.googleapis.com/kubernetes" - the Google Cloud Monitoring
- *  service with Kubernetes-native resource model in Stackdriver
+ *  service with Kubernetes-native resource model
  *  * "monitoring.googleapis.com" - the Google Cloud Monitoring service
  *  * "none" - no metrics will be exported from the cluster
  */
@@ -3478,6 +3611,23 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *        denotes that this range is unclaimed by any cluster. (Value: "UNUSED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  VerticalPodAutoscaling contains global, per-cluster information
+ *  required by Vertical Pod Autoscaler to automatically adjust
+ *  the resources of pods controlled by it.
+ */
+@interface GTLRContainer_VerticalPodAutoscaling : GTLRObject
+
+/**
+ *  Enables vertical pod autoscaling.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 

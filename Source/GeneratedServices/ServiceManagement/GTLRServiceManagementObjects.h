@@ -3863,8 +3863,8 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
  *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
- *  'setIamPolicy' will not fail even if either of incoming or stored policy
- *  does not meet the version requirements.
+ *  'setIamPolicy' will not fail even if the incoming policy version does not
+ *  meet the requirements for modifying the stored policy.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -3877,11 +3877,12 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  rejected.
  *  Operations affecting conditional bindings must specify version 3. This can
  *  be either setting a conditional policy, modifying a conditional binding,
- *  or removing a conditional binding from the stored conditional policy.
+ *  or removing a binding (conditional or unconditional) from the stored
+ *  conditional policy.
  *  Operations on non-conditional policies may specify any valid value or
  *  leave the field unset.
- *  If no etag is provided in the call to `setIamPolicy`, any version
- *  compliance checks on the incoming and/or stored policy is skipped.
+ *  If no etag is provided in the call to `setIamPolicy`, version compliance
+ *  checks against the stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4087,8 +4088,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRServiceManagement_DeleteServiceStrategy *deleteServiceStrategy;
 
 /**
- *  Optional. Unique identifier of this Rollout. Only lower case letters, digits
- *  and '-' are allowed.
+ *  Optional. Unique identifier of this Rollout. Must be no longer than 63
+ *  characters
+ *  and only lower case letters, digits, '.', '_' and '-' are allowed.
  *  If not specified by client, the server will generate one. The generated id
  *  will have the form of <date><revision number>, where "date" is the create
  *  date in ISO 8601 format. "revision number" is a monotonically increasing
@@ -4223,8 +4225,9 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
 
 /**
  *  A unique ID for a specific instance of this message, typically assigned
- *  by the client for tracking purpose. If empty, the server may choose to
- *  generate one instead. Must be no longer than 60 characters.
+ *  by the client for tracking purpose. Must be no longer than 63 characters
+ *  and only lower case letters, digits, '.', '_' and '-' are allowed. If
+ *  empty, the server may choose to generate one instead.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */

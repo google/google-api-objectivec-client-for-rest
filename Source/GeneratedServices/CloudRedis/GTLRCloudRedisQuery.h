@@ -353,14 +353,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  If not specified, a default value of 1000 will be used by the service.
  *  Regardless of the page_size value, the response may include a partial list
  *  and a caller should only rely on response's
- *  next_page_token
+ *  `next_page_token`
  *  to determine if there are more instances left to be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The next_page_token value returned from a previous List request,
- *  if any.
+ *  The `next_page_token` value returned from a previous
+ *  ListInstances request, if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -418,8 +418,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Note: Redis instances are managed and addressed at regional level so
  *  location_id here refers to a GCP region; however, users may choose which
  *  specific zone (or collection of zones for cross-zone instances) an instance
- *  should be provisioned in. Refer to [location_id] and
- *  [alternative_location_id] fields for more details.
+ *  should be provisioned in. Refer to location_id and
+ *  alternative_location_id fields for more details.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -453,8 +453,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    location_id here refers to a GCP region; however, users may choose which
  *    specific zone (or collection of zones for cross-zone instances) an
  *    instance
- *    should be provisioned in. Refer to [location_id] and
- *    [alternative_location_id] fields for more details.
+ *    should be provisioned in. Refer to location_id and
+ *    alternative_location_id fields for more details.
  *
  *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesPatch
  */

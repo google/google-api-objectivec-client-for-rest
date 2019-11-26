@@ -317,47 +317,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCivicInfo_LivegraphBacktraceRecordInfo
-//
-
-@implementation GTLRCivicInfo_LivegraphBacktraceRecordInfo
-@dynamic dataSourcePublishMsec, expId, expInfo, isRecon, isWlmThrottled,
-         numberOfTriples, priority, process, proxyReceiveMsec, proxySentMsec,
-         recordId, shouldMonitorLatency, subscriberReceiveMsec,
-         topicBuildFinishMsec, topicBuildStartMsec, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_LivegraphBacktraceRecordInfoExpInfo
-//
-
-@implementation GTLRCivicInfo_LivegraphBacktraceRecordInfoExpInfo
-@dynamic deletedIns;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"deletedIns" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_MessageSet
-//
-
-@implementation GTLRCivicInfo_MessageSet
-@dynamic recordMessageSetExt;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCivicInfo_Office
 //
 
@@ -405,7 +364,7 @@
 //
 
 @implementation GTLRCivicInfo_PointProto
-@dynamic latE7, lngE7, metadata, temporaryData;
+@dynamic latE7, lngE7, metadata;
 @end
 
 

@@ -193,13 +193,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudBuild queryForProjectsBuildsCancelWithObject:projectId:identifier:]
 
 /**
- *  ID of the build.
+ *  Required. ID of the build.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** ID of the project. */
+/** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -209,8 +209,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudBuild_CancelBuildRequest to include in the
  *    query.
- *  @param projectId ID of the project.
- *  @param identifier ID of the build.
+ *  @param projectId Required. ID of the project.
+ *  @param identifier Required. ID of the build.
  *
  *  @return GTLRCloudBuildQuery_ProjectsBuildsCancel
  */
@@ -235,7 +235,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudBuild queryForProjectsBuildsCreateWithObject:projectId:]
 
-/** ID of the project. */
+/** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -247,7 +247,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `SUCCESS` or `FAILURE`).
  *
  *  @param object The @c GTLRCloudBuild_Build to include in the query.
- *  @param projectId ID of the project.
+ *  @param projectId Required. ID of the project.
  *
  *  @return GTLRCloudBuildQuery_ProjectsBuildsCreate
  */
@@ -271,13 +271,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudBuild queryForProjectsBuildsGetWithprojectId:identifier:]
 
 /**
- *  ID of the build.
+ *  Required. ID of the build.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** ID of the project. */
+/** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -287,8 +287,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  The `Build` that is returned includes its status (such as `SUCCESS`,
  *  `FAILURE`, or `WORKING`), and timing information.
  *
- *  @param projectId ID of the project.
- *  @param identifier ID of the build.
+ *  @param projectId Required. ID of the project.
+ *  @param identifier Required. ID of the build.
  *
  *  @return GTLRCloudBuildQuery_ProjectsBuildsGet
  */
@@ -320,7 +320,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Token to provide to skip to a particular spot in the list. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** ID of the project. */
+/** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -330,7 +330,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Previously requested builds may still be in-progress, or may have finished
  *  successfully or unsuccessfully.
  *
- *  @param projectId ID of the project.
+ *  @param projectId Required. ID of the project.
  *
  *  @return GTLRCloudBuildQuery_ProjectsBuildsList
  *
@@ -374,13 +374,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudBuild queryForProjectsBuildsRetryWithObject:projectId:identifier:]
 
 /**
- *  Build ID of the original build.
+ *  Required. Build ID of the original build.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** ID of the project. */
+/** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -409,8 +409,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudBuild_RetryBuildRequest to include in the
  *    query.
- *  @param projectId ID of the project.
- *  @param identifier Build ID of the original build.
+ *  @param projectId Required. ID of the project.
+ *  @param identifier Required. Build ID of the original build.
  *
  *  @return GTLRCloudBuildQuery_ProjectsBuildsRetry
  */
@@ -433,7 +433,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudBuild queryForProjectsTriggersCreateWithObject:projectId:]
 
-/** ID of the project for which to configure automatic builds. */
+/** Required. ID of the project for which to configure automatic builds. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -443,7 +443,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  This API is experimental.
  *
  *  @param object The @c GTLRCloudBuild_BuildTrigger to include in the query.
- *  @param projectId ID of the project for which to configure automatic builds.
+ *  @param projectId Required. ID of the project for which to configure
+ *    automatic builds.
  *
  *  @return GTLRCloudBuildQuery_ProjectsTriggersCreate
  */
@@ -465,10 +466,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudBuild queryForProjectsTriggersDeleteWithprojectId:triggerId:]
 
-/** ID of the project that owns the trigger. */
+/** Required. ID of the project that owns the trigger. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** ID of the `BuildTrigger` to delete. */
+/** Required. ID of the `BuildTrigger` to delete. */
 @property(nonatomic, copy, nullable) NSString *triggerId;
 
 /**
@@ -477,8 +478,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a `BuildTrigger` by its project ID and trigger ID.
  *  This API is experimental.
  *
- *  @param projectId ID of the project that owns the trigger.
- *  @param triggerId ID of the `BuildTrigger` to delete.
+ *  @param projectId Required. ID of the project that owns the trigger.
+ *  @param triggerId Required. ID of the `BuildTrigger` to delete.
  *
  *  @return GTLRCloudBuildQuery_ProjectsTriggersDelete
  */
@@ -500,10 +501,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudBuild queryForProjectsTriggersGetWithprojectId:triggerId:]
 
-/** ID of the project that owns the trigger. */
+/** Required. ID of the project that owns the trigger. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** ID of the `BuildTrigger` to get. */
+/** Required. Identifier (`id` or `name`) of the `BuildTrigger` to get. */
 @property(nonatomic, copy, nullable) NSString *triggerId;
 
 /**
@@ -512,8 +513,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns information about a `BuildTrigger`.
  *  This API is experimental.
  *
- *  @param projectId ID of the project that owns the trigger.
- *  @param triggerId ID of the `BuildTrigger` to get.
+ *  @param projectId Required. ID of the project that owns the trigger.
+ *  @param triggerId Required. Identifier (`id` or `name`) of the `BuildTrigger`
+ *    to get.
  *
  *  @return GTLRCloudBuildQuery_ProjectsTriggersGet
  */
@@ -541,7 +543,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Token to provide to skip to a particular spot in the list. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** ID of the project for which to list BuildTriggers. */
+/** Required. ID of the project for which to list BuildTriggers. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -550,7 +552,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists existing `BuildTrigger`s.
  *  This API is experimental.
  *
- *  @param projectId ID of the project for which to list BuildTriggers.
+ *  @param projectId Required. ID of the project for which to list
+ *    BuildTriggers.
  *
  *  @return GTLRCloudBuildQuery_ProjectsTriggersList
  *
@@ -575,10 +578,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudBuild queryForProjectsTriggersPatchWithObject:projectId:triggerId:]
 
-/** ID of the project that owns the trigger. */
+/** Required. ID of the project that owns the trigger. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** ID of the `BuildTrigger` to update. */
+/** Required. ID of the `BuildTrigger` to update. */
 @property(nonatomic, copy, nullable) NSString *triggerId;
 
 /**
@@ -588,8 +591,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  This API is experimental.
  *
  *  @param object The @c GTLRCloudBuild_BuildTrigger to include in the query.
- *  @param projectId ID of the project that owns the trigger.
- *  @param triggerId ID of the `BuildTrigger` to update.
+ *  @param projectId Required. ID of the project that owns the trigger.
+ *  @param triggerId Required. ID of the `BuildTrigger` to update.
  *
  *  @return GTLRCloudBuildQuery_ProjectsTriggersPatch
  */
@@ -611,10 +614,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudBuild queryForProjectsTriggersRunWithObject:projectId:triggerId:]
 
-/** ID of the project. */
+/** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** ID of the trigger. */
+/** Required. ID of the trigger. */
 @property(nonatomic, copy, nullable) NSString *triggerId;
 
 /**
@@ -623,8 +626,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Runs a `BuildTrigger` at a particular source revision.
  *
  *  @param object The @c GTLRCloudBuild_RepoSource to include in the query.
- *  @param projectId ID of the project.
- *  @param triggerId ID of the trigger.
+ *  @param projectId Required. ID of the project.
+ *  @param triggerId Required. ID of the trigger.
  *
  *  @return GTLRCloudBuildQuery_ProjectsTriggersRun
  */

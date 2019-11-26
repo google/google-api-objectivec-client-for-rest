@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Machine Learning Engine (ml/v1)
+//   AI Platform Training & Prediction API (ml/v1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:
@@ -236,6 +236,26 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplainRequest
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplainRequest
+@dynamic httpBody;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig
+@dynamic integratedGradientsAttribution, sampledShapleyAttribution;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMachineLearningEngine_GoogleCloudMlV1GetConfigResponse
 //
 
@@ -304,6 +324,16 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1IntegratedGradientsAttribution
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1IntegratedGradientsAttribution
+@dynamic numIntegralSteps;
 @end
 
 
@@ -602,6 +632,16 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1SampledShapleyAttribution
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1SampledShapleyAttribution
+@dynamic numPaths;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMachineLearningEngine_GoogleCloudMlV1SetDefaultVersionRequest
 //
 
@@ -618,7 +658,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 @dynamic args, hyperparameters, jobDir, masterConfig, masterType, packageUris,
          parameterServerConfig, parameterServerCount, parameterServerType,
          pythonModule, pythonVersion, region, runtimeVersion, scaleTier,
-         workerConfig, workerCount, workerType;
+         useChiefInTfConfig, workerConfig, workerCount, workerType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -658,10 +698,10 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
 @dynamic acceleratorConfig, autoScaling, createTime, deploymentUri,
-         descriptionProperty, errorMessage, ETag, framework, isDefault, labels,
-         lastUseTime, machineType, manualScaling, name, packageUris,
-         predictionClass, pythonVersion, requestLoggingConfig, runtimeVersion,
-         serviceAccount, state;
+         descriptionProperty, errorMessage, ETag, explanationConfig, framework,
+         isDefault, labels, lastUseTime, machineType, manualScaling, name,
+         packageUris, predictionClass, pythonVersion, requestLoggingConfig,
+         runtimeVersion, serviceAccount, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

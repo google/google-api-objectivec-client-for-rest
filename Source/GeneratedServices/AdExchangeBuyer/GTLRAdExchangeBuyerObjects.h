@@ -2012,6 +2012,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languages;
 
 /**
+ *  The maximum QPS allocated to this pretargeting configuration, used for
+ *  pretargeting-level QPS limits. By default, this is not set, which indicates
+ *  that there is no QPS limit at the configuration level (a global or
+ *  account-level limit may still be imposed).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximumQps;
+
+/**
  *  Requests where the predicted viewability is below the specified decile will
  *  not match. E.g. if the buyer sets this value to 5, requests from slots where
  *  the predicted viewability is below 50% will not match. If the predicted

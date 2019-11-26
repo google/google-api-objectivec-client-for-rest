@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.3)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.4)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -28,10 +28,10 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"dfareporting/v3.3/";
+    self.servicePath = @"dfareporting/v3.4/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch/dfareporting/v3.3";
+    self.batchPath = @"batch/dfareporting/v3.4";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
@@ -56,11 +56,13 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
     @"dfareporting#advertiserGroupsListResponse" : [GTLRDfareporting_AdvertiserGroupsListResponse class],
     @"dfareporting#advertiserLandingPagesListResponse" : [GTLRDfareporting_AdvertiserLandingPagesListResponse class],
     @"dfareporting#advertisersListResponse" : [GTLRDfareporting_AdvertisersListResponse class],
+    @"dfareporting#annotateClickEvent" : [GTLRDfareporting_AnnotateClickEvent class],
     @"dfareporting#browser" : [GTLRDfareporting_Browser class],
     @"dfareporting#browsersListResponse" : [GTLRDfareporting_BrowsersListResponse class],
     @"dfareporting#campaign" : [GTLRDfareporting_Campaign class],
     @"dfareporting#campaignCreativeAssociation" : [GTLRDfareporting_CampaignCreativeAssociation class],
     @"dfareporting#campaignCreativeAssociationsListResponse" : [GTLRDfareporting_CampaignCreativeAssociationsListResponse class],
+    @"dfareporting#campaignManagerIds" : [GTLRDfareporting_CampaignManagerIds class],
     @"dfareporting#campaignsListResponse" : [GTLRDfareporting_CampaignsListResponse class],
     @"dfareporting#changeLog" : [GTLRDfareporting_ChangeLog class],
     @"dfareporting#changeLogsListResponse" : [GTLRDfareporting_ChangeLogsListResponse class],
@@ -91,8 +93,14 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
     @"dfareporting#creativeGroupsListResponse" : [GTLRDfareporting_CreativeGroupsListResponse class],
     @"dfareporting#creativesListResponse" : [GTLRDfareporting_CreativesListResponse class],
     @"dfareporting#crossDimensionReachReportCompatibleFields" : [GTLRDfareporting_CrossDimensionReachReportCompatibleFields class],
+    @"dfareporting#customEvent" : [GTLRDfareporting_CustomEvent class],
+    @"dfareporting#customEventError" : [GTLRDfareporting_CustomEventError class],
+    @"dfareporting#customEventsBatchInsertRequest" : [GTLRDfareporting_CustomEventsBatchInsertRequest class],
+    @"dfareporting#customEventsBatchInsertResponse" : [GTLRDfareporting_CustomEventsBatchInsertResponse class],
+    @"dfareporting#customEventStatus" : [GTLRDfareporting_CustomEventStatus class],
     @"dfareporting#customFloodlightVariable" : [GTLRDfareporting_CustomFloodlightVariable class],
     @"dfareporting#customRichMediaEvents" : [GTLRDfareporting_CustomRichMediaEvents class],
+    @"dfareporting#customVariables" : [GTLRDfareporting_CustomVariables class],
     @"dfareporting#dateRange" : [GTLRDfareporting_DateRange class],
     @"dfareporting#deepLink" : [GTLRDfareporting_DeepLink class],
     @"dfareporting#dimension" : [GTLRDfareporting_Dimension class],
@@ -102,6 +110,7 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
     @"dfareporting#dimensionValueRequest" : [GTLRDfareporting_DimensionValueRequest class],
     @"dfareporting#directorySite" : [GTLRDfareporting_DirectorySite class],
     @"dfareporting#directorySitesListResponse" : [GTLRDfareporting_DirectorySitesListResponse class],
+    @"dfareporting#dV3Ids" : [GTLRDfareporting_DV3Ids class],
     @"dfareporting#dynamicTargetingKey" : [GTLRDfareporting_DynamicTargetingKey class],
     @"dfareporting#dynamicTargetingKeysListResponse" : [GTLRDfareporting_DynamicTargetingKeysListResponse class],
     @"dfareporting#encryptionInfo" : [GTLRDfareporting_EncryptionInfo class],
@@ -117,6 +126,7 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
     @"dfareporting#floodlightConfiguration" : [GTLRDfareporting_FloodlightConfiguration class],
     @"dfareporting#floodlightConfigurationsListResponse" : [GTLRDfareporting_FloodlightConfigurationsListResponse class],
     @"dfareporting#floodlightReportCompatibleFields" : [GTLRDfareporting_FloodlightReportCompatibleFields class],
+    @"dfareporting#insertEvent" : [GTLRDfareporting_InsertEvent class],
     @"dfareporting#inventoryItem" : [GTLRDfareporting_InventoryItem class],
     @"dfareporting#inventoryItemsListResponse" : [GTLRDfareporting_InventoryItemsListResponse class],
     @"dfareporting#landingPage" : [GTLRDfareporting_LandingPage class],

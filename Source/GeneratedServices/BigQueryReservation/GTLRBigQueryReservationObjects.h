@@ -32,21 +32,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  The metadata for operation returned from
- *  ReservationService.CreateCapacityCommitment.
- */
-@interface GTLRBigQueryReservation_CreateCapacityCommitmentMetadata : GTLRObject
-
-/**
- *  Resource name of the capacity commitment that is being created. E.g.,
- *  projects/myproject/locations/US/capacityCommitments/123
- */
-@property(nonatomic, copy, nullable) NSString *capacityCommitment;
-
-@end
-
-
-/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:

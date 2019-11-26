@@ -294,6 +294,13 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_InPro
  */
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Paused;
 /**
+ *  Execution is temporarily delayed by the system. No user action is
+ *  required.
+ *
+ *  Value: "QUEUED"
+ */
+GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Queued;
+/**
  *  Zero is an illegal value.
  *
  *  Value: "STATUS_UNSPECIFIED"
@@ -1212,6 +1219,9 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *        progress. (Value: "IN_PROGRESS")
  *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Paused Paused.
  *        (Value: "PAUSED")
+ *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Queued Execution is
+ *        temporarily delayed by the system. No user action is
+ *        required. (Value: "QUEUED")
  *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_StatusUnspecified
  *        Zero is an illegal value. (Value: "STATUS_UNSPECIFIED")
  *    @arg @c kGTLRStorageTransfer_TransferOperation_Status_Success Completed

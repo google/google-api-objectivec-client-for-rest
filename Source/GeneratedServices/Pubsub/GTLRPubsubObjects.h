@@ -342,7 +342,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPubsub_Message : GTLRObject
 
-/** Optional attributes for this message. */
+/**
+ *  Attributes for this message. If this field is empty, the message must
+ *  contain non-empty data.
+ */
 @property(nonatomic, strong, nullable) GTLRPubsub_Message_Attributes *attributes;
 
 /**
@@ -373,7 +376,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Optional attributes for this message.
+ *  Attributes for this message. If this field is empty, the message must
+ *  contain non-empty data.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -544,8 +548,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
  *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
- *  'setIamPolicy' will not fail even if either of incoming or stored policy
- *  does not meet the version requirements.
+ *  'setIamPolicy' will not fail even if the incoming policy version does not
+ *  meet the requirements for modifying the stored policy.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -558,11 +562,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  rejected.
  *  Operations affecting conditional bindings must specify version 3. This can
  *  be either setting a conditional policy, modifying a conditional binding,
- *  or removing a conditional binding from the stored conditional policy.
+ *  or removing a binding (conditional or unconditional) from the stored
+ *  conditional policy.
  *  Operations on non-conditional policies may specify any valid value or
  *  leave the field unset.
- *  If no etag is provided in the call to `setIamPolicy`, any version
- *  compliance checks on the incoming and/or stored policy is skipped.
+ *  If no etag is provided in the call to `setIamPolicy`, version compliance
+ *  checks against the stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */

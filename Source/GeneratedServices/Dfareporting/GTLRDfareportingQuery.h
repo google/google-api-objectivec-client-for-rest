@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.3)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.4)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -33,6 +33,7 @@
 @class GTLRDfareporting_CreativeField;
 @class GTLRDfareporting_CreativeFieldValue;
 @class GTLRDfareporting_CreativeGroup;
+@class GTLRDfareporting_CustomEventsBatchInsertRequest;
 @class GTLRDfareporting_DimensionValueRequest;
 @class GTLRDfareporting_DirectorySite;
 @class GTLRDfareporting_DynamicTargetingKey;
@@ -2639,7 +2640,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  Select only change logs whose change time is before the specified
+ *  Select only change logs whose change time is after the specified
  *  minChangeTime.The time should be formatted as an RFC3339 date/time string.
  *  For example, for 10:54 PM on July 18th, 2015, in the America/New York time
  *  zone, the format is "2015-07-18T22:54:00-04:00". In other words, the year,
@@ -4421,6 +4422,37 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @return GTLRDfareportingQuery_CreativesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Creative *)object
+                      profileId:(long long)profileId;
+
+@end
+
+/**
+ *  Inserts custom events.
+ *
+ *  Method: dfareporting.customEvents.batchinsert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDdmconversions
+ */
+@interface GTLRDfareportingQuery_CustomEventsBatchinsert : GTLRDfareportingQuery
+// Previous library name was
+//   +[GTLQueryDfareporting queryForCustomEventsBatchinsertWithObject:profileId:]
+
+/** User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_CustomEventsBatchInsertResponse.
+ *
+ *  Inserts custom events.
+ *
+ *  @param object The @c GTLRDfareporting_CustomEventsBatchInsertRequest to
+ *    include in the query.
+ *  @param profileId User profile ID associated with this request.
+ *
+ *  @return GTLRDfareportingQuery_CustomEventsBatchinsert
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_CustomEventsBatchInsertRequest *)object
                       profileId:(long long)profileId;
 
 @end
@@ -8777,41 +8809,6 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *        information.
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
-
-@end
-
-/**
- *  Updates a report. This method supports patch semantics.
- *
- *  Method: dfareporting.reports.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareporting
- */
-@interface GTLRDfareportingQuery_ReportsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForReportsPatchWithObject:profileId:reportId:]
-
-/** The DFA user profile ID. */
-@property(nonatomic, assign) long long profileId;
-
-/** The ID of the report. */
-@property(nonatomic, assign) long long reportId;
-
-/**
- *  Fetches a @c GTLRDfareporting_Report.
- *
- *  Updates a report. This method supports patch semantics.
- *
- *  @param object The @c GTLRDfareporting_Report to include in the query.
- *  @param profileId The DFA user profile ID.
- *  @param reportId The ID of the report.
- *
- *  @return GTLRDfareportingQuery_ReportsPatch
- */
-+ (instancetype)queryWithObject:(GTLRDfareporting_Report *)object
-                      profileId:(long long)profileId
-                       reportId:(long long)reportId;
 
 @end
 

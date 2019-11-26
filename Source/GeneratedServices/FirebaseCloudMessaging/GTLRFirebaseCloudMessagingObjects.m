@@ -38,7 +38,7 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 //
 
 @implementation GTLRFirebaseCloudMessaging_AndroidConfig
-@dynamic collapseKey, data, fcmOptions, notification, priority,
+@dynamic collapseKey, data, directBootOk, fcmOptions, notification, priority,
          restrictedPackageName, ttl;
 @end
 
@@ -272,5 +272,5 @@ NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Visi
 //
 
 @implementation GTLRFirebaseCloudMessaging_WebpushFcmOptions
-@dynamic link;
+@dynamic analyticsLabel, link;
 @end

@@ -20,6 +20,7 @@
 @class GTLRHomeGraphService_AgentOtherDeviceId;
 @class GTLRHomeGraphService_Device;
 @class GTLRHomeGraphService_Device_Attributes;
+@class GTLRHomeGraphService_Device_CustomData;
 @class GTLRHomeGraphService_DeviceInfo;
 @class GTLRHomeGraphService_DeviceNames;
 @class GTLRHomeGraphService_QueryRequestInput;
@@ -81,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Custom JSON data provided by the manufacturer and attached to QUERY and
  *  EXECUTE requests in AoG.
  */
-@property(nonatomic, copy, nullable) NSString *customData;
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_Device_CustomData *customData;
 
 /** Device manufacturer, model, hardware version, and software version. */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_DeviceInfo *deviceInfo;
@@ -99,6 +100,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  device, etc.
  */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_DeviceNames *name;
+
+/**
+ *  Indicates whether the device is capable of sending notifications. This
+ *  field will be set by the agent (partner) on an incoming SYNC. If a device
+ *  is not capable of generating notifications, the partner should set this
+ *  flag to false. If a partner is not capable of calling
+ *  ReportStateAndNotification to send notifications to Google, the partner
+ *  should set this flag to false. If there is a user setting in the partner
+ *  app to enable notifications and it is turned off, the partner should set
+ *  this flag to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *notificationSupportedByAgent;
 
 /**
  *  IDs of other devices associated with this device. This is used to
@@ -147,6 +162,19 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRHomeGraphService_Device_Attributes : GTLRObject
+@end
+
+
+/**
+ *  Custom JSON data provided by the manufacturer and attached to QUERY and
+ *  EXECUTE requests in AoG.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRHomeGraphService_Device_CustomData : GTLRObject
 @end
 
 

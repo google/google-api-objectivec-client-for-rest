@@ -3479,6 +3479,21 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVision_GoogleCloudVisionV1p4beta1Celebrity
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p4beta1Celebrity
+@dynamic descriptionProperty, displayName, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVision_GoogleCloudVisionV1p4beta1ColorInfo
 //
 
@@ -3565,13 +3580,14 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 @implementation GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation
 @dynamic angerLikelihood, blurredLikelihood, boundingPoly, detectionConfidence,
          fdBoundingPoly, headwearLikelihood, joyLikelihood,
-         landmarkingConfidence, landmarks, panAngle, rollAngle,
-         sorrowLikelihood, surpriseLikelihood, tiltAngle,
+         landmarkingConfidence, landmarks, panAngle, recognitionResult,
+         rollAngle, sorrowLikelihood, surpriseLikelihood, tiltAngle,
          underExposedLikelihood;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"landmarks" : [GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark class]
+    @"landmarks" : [GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark class],
+    @"recognitionResult" : [GTLRVision_GoogleCloudVisionV1p4beta1FaceRecognitionResult class]
   };
   return map;
 }
@@ -3586,6 +3602,16 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 @implementation GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark
 @dynamic position, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_GoogleCloudVisionV1p4beta1FaceRecognitionResult
+//
+
+@implementation GTLRVision_GoogleCloudVisionV1p4beta1FaceRecognitionResult
+@dynamic celebrity, confidence;
 @end
 
 

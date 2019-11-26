@@ -983,6 +983,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, copy, nullable) NSString *principalEmail;
 
 /**
+ *  String representation of identity of requesting party.
+ *  Populated for both first and third party identities.
+ */
+@property(nonatomic, copy, nullable) NSString *principalSubject;
+
+/**
  *  Identity delegation history of an authenticated service account that makes
  *  the request. It contains information on the real authorities that try to
  *  access GCP resources by delegating on a service account. When multiple
@@ -2146,16 +2152,6 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  check will be performed.
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_QuotaProperties *quotaProperties;
-
-/**
- *  DO NOT USE. This field is deprecated, use "resources" field instead.
- *  The resource name of the parent of a resource in the resource hierarchy.
- *  This can be in one of the following formats:
- *  - “projects/<project-id or project-number>”
- *  - “folders/<folder-id>”
- *  - “organizations/<organization-id>”
- */
-@property(nonatomic, copy, nullable) NSString *resourceContainer;
 
 /**
  *  The resources that are involved in the operation.

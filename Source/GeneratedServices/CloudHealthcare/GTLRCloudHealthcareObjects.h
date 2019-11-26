@@ -1090,8 +1090,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  field[x]) we use two separate components. For example,
  *  "deceasedAge.unit" is matched by "Deceased.Age.unit".
  *  Supported types are: AdministrativeGenderCode, Code, Date, DateTime,
- *  Decimal, HumanName, Id, LanguageCode, Markdown, MimeTypeCode, Oid,
- *  String, Uri, Uuid, Xhtml.
+ *  Decimal, HumanName, Id, LanguageCode, Markdown, Oid, String, Uri, Uuid,
+ *  Xhtml.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
@@ -2282,8 +2282,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
  *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
- *  'setIamPolicy' will not fail even if either of incoming or stored policy
- *  does not meet the version requirements.
+ *  'setIamPolicy' will not fail even if the incoming policy version does not
+ *  meet the requirements for modifying the stored policy.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2296,11 +2296,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  rejected.
  *  Operations affecting conditional bindings must specify version 3. This can
  *  be either setting a conditional policy, modifying a conditional binding,
- *  or removing a conditional binding from the stored conditional policy.
+ *  or removing a binding (conditional or unconditional) from the stored
+ *  conditional policy.
  *  Operations on non-conditional policies may specify any valid value or
  *  leave the field unset.
- *  If no etag is provided in the call to `setIamPolicy`, any version
- *  compliance checks on the incoming and/or stored policy is skipped.
+ *  If no etag is provided in the call to `setIamPolicy`, version compliance
+ *  checks against the stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2378,7 +2379,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  schema. For example, `concept` in the CodeSystem resource is a recursive
  *  structure; when the depth is 2, the CodeSystem table will have a column
  *  called `concept.concept` but not `concept.concept.concept`. If not
- *  specified or set to 0, the server will use the default value 2.
+ *  specified or set to 0, the server will use the default value 2. The
+ *  maximum depth allowed is 5.
  *
  *  Uses NSNumber of longLongValue.
  */

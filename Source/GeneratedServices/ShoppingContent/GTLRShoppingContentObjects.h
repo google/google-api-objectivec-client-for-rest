@@ -2811,10 +2811,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
 /**
- *  The reason for the cancellation. Orders that are cancelled with a
- *  noInventory reason will lead to the removal of the product from Shopping
- *  Actions until you make an update to that product. This will not affect your
- *  Shopping ads.
+ *  The reason for the cancellation. Orders that are canceled with a noInventory
+ *  reason will lead to the removal of the product from Shopping Actions until
+ *  you make an update to that product. This will not affect your Shopping ads.
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -4045,7 +4044,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "mpx"
  *  - "uds"
  *  - "efw"
- *  - "jd logistics"
+ *  - "yunexpress"
+ *  - "china post"
+ *  - "china ems"
+ *  - "singapore post"
+ *  - "pos malaysia"
+ *  - "postnl"
+ *  - "ptt"
+ *  - "eub"
+ *  - "chukou1"
  *  Acceptable values for FR are:
  *  - "colissimo"
  *  - "chronopost"
@@ -4057,6 +4064,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "geodis"
  *  - "tnt"
  *  - "la poste"
+ *  - "ups"
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
@@ -4099,8 +4107,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_OrderShipmentLineItemShipment : GTLRObject
 
 /**
- *  The ID of the line item that is shipped. Either lineItemId or productId is
- *  required.
+ *  The ID of the line item that is shipped. This value is assigned by Google
+ *  when an order is created. Either lineItemId or productId is required.
  */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
 

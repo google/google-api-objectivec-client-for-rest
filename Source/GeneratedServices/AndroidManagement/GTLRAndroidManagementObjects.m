@@ -56,6 +56,7 @@ NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_Syst
 NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_SystemAppUpdatedVersion = @"SYSTEM_APP_UPDATED_VERSION";
 
 // GTLRAndroidManagement_ApplicationReport.state
+NSString * const kGTLRAndroidManagement_ApplicationReport_State_ApplicationStateUnspecified = @"APPLICATION_STATE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_ApplicationReport_State_Installed = @"INSTALLED";
 NSString * const kGTLRAndroidManagement_ApplicationReport_State_Removed = @"REMOVED";
 

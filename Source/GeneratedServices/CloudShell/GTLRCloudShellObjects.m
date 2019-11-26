@@ -64,7 +64,7 @@ NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_UnarchivingDisk 
 
 @implementation GTLRCloudShell_Environment
 @dynamic dockerImage, identifier, name, publicKeys, size, sshHost, sshPort,
-         sshUsername, state, vmSizeExpireTime, webHost;
+         sshUsername, state, vmSizeExpireTime, webHost, webPorts;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -72,7 +72,8 @@ NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_UnarchivingDisk 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"publicKeys" : [GTLRCloudShell_PublicKey class]
+    @"publicKeys" : [GTLRCloudShell_PublicKey class],
+    @"webPorts" : [NSNumber class]
   };
   return map;
 }

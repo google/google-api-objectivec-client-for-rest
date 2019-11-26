@@ -386,6 +386,29 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_OriginUnspecif
 GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_UserProvided;
 
 // ----------------------------------------------------------------------------
+// GTLRIam_ServiceAccountKey.keyType
+
+/**
+ *  Unspecified key type. The presence of this in the
+ *  message will immediately result in an error.
+ *
+ *  Value: "KEY_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyType_KeyTypeUnspecified;
+/**
+ *  System-managed keys (managed and rotated by Google).
+ *
+ *  Value: "SYSTEM_MANAGED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyType_SystemManaged;
+/**
+ *  User-managed keys (managed and rotated by the user).
+ *
+ *  Value: "USER_MANAGED"
+ */
+GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyType_UserManaged;
+
+// ----------------------------------------------------------------------------
 // GTLRIam_ServiceAccountKey.privateKeyType
 
 /**
@@ -1088,6 +1111,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 
 /**
  *  A brief description of what this Permission is used for.
+ *  This permission can ONLY be used in predefined roles.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1097,7 +1121,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  This permission can ONLY be used in predefined roles.
+ *  onlyInPredefinedRoles
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1220,8 +1244,8 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
  *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
- *  'setIamPolicy' will not fail even if either of incoming or stored policy
- *  does not meet the version requirements.
+ *  'setIamPolicy' will not fail even if the incoming policy version does not
+ *  meet the requirements for modifying the stored policy.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1234,11 +1258,12 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *  rejected.
  *  Operations affecting conditional bindings must specify version 3. This can
  *  be either setting a conditional policy, modifying a conditional binding,
- *  or removing a conditional binding from the stored conditional policy.
+ *  or removing a binding (conditional or unconditional) from the stored
+ *  conditional policy.
  *  Operations on non-conditional policies may specify any valid value or
  *  leave the field unset.
- *  If no etag is provided in the call to `setIamPolicy`, any version
- *  compliance checks on the incoming and/or stored policy is skipped.
+ *  If no etag is provided in the call to `setIamPolicy`, version compliance
+ *  checks against the stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1607,6 +1632,21 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspe
  *        by user. (Value: "USER_PROVIDED")
  */
 @property(nonatomic, copy, nullable) NSString *keyOrigin;
+
+/**
+ *  The key type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIam_ServiceAccountKey_KeyType_KeyTypeUnspecified Unspecified
+ *        key type. The presence of this in the
+ *        message will immediately result in an error. (Value:
+ *        "KEY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRIam_ServiceAccountKey_KeyType_SystemManaged System-managed
+ *        keys (managed and rotated by Google). (Value: "SYSTEM_MANAGED")
+ *    @arg @c kGTLRIam_ServiceAccountKey_KeyType_UserManaged User-managed keys
+ *        (managed and rotated by the user). (Value: "USER_MANAGED")
+ */
+@property(nonatomic, copy, nullable) NSString *keyType;
 
 /**
  *  The resource name of the service account key in the following format

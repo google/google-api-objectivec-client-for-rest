@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Machine Learning Engine (ml/v1)
+//   AI Platform Training & Prediction API (ml/v1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:
@@ -41,7 +41,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudMachineLearningEngineCloudPlatfo
 //
 
 /**
- *  Service for executing Cloud Machine Learning Engine queries.
+ *  Service for executing AI Platform Training & Prediction API queries.
  *
  *  An API to enable creating and using machine learning models.
  */

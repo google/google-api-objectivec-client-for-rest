@@ -454,68 +454,6 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @end
 
-@implementation GTLRGamesQuery_QuestMilestonesClaim
-
-@dynamic milestoneId, questId, requestId;
-
-+ (instancetype)queryWithQuestId:(NSString *)questId
-                     milestoneId:(NSString *)milestoneId
-                       requestId:(long long)requestId {
-  NSArray *pathParams = @[
-    @"milestoneId", @"questId"
-  ];
-  NSString *pathURITemplate = @"quests/{questId}/milestones/{milestoneId}/claim";
-  GTLRGamesQuery_QuestMilestonesClaim *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.questId = questId;
-  query.milestoneId = milestoneId;
-  query.requestId = requestId;
-  query.loggingName = @"games.questMilestones.claim";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_QuestsAccept
-
-@dynamic language, questId;
-
-+ (instancetype)queryWithQuestId:(NSString *)questId {
-  NSArray *pathParams = @[ @"questId" ];
-  NSString *pathURITemplate = @"quests/{questId}/accept";
-  GTLRGamesQuery_QuestsAccept *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.questId = questId;
-  query.expectedObjectClass = [GTLRGames_Quest class];
-  query.loggingName = @"games.quests.accept";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_QuestsList
-
-@dynamic language, maxResults, pageToken, playerId;
-
-+ (instancetype)queryWithPlayerId:(NSString *)playerId {
-  NSArray *pathParams = @[ @"playerId" ];
-  NSString *pathURITemplate = @"players/{playerId}/quests";
-  GTLRGamesQuery_QuestsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.playerId = playerId;
-  query.expectedObjectClass = [GTLRGames_QuestListResponse class];
-  query.loggingName = @"games.quests.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRGamesQuery_RevisionsCheck
 
 @dynamic clientRevision;

@@ -38,6 +38,7 @@
 @class GTLRSecurityCommandCenter_Operation_Metadata;
 @class GTLRSecurityCommandCenter_Operation_Response;
 @class GTLRSecurityCommandCenter_Policy;
+@class GTLRSecurityCommandCenter_Resource;
 @class GTLRSecurityCommandCenter_SecurityCenterProperties;
 @class GTLRSecurityCommandCenter_SecurityMarks;
 @class GTLRSecurityCommandCenter_SecurityMarks_Marks;
@@ -300,7 +301,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  The relative resource name of this asset. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
- *  "organizations/123/assets/456".
+ *  "organizations/{organization_id}/assets/{asset_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -579,10 +580,11 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 /**
  *  Cloud Security Command Center (Cloud SCC) finding.
- *  A finding is a record of assessment data (security, risk, health or privacy)
- *  ingested into Cloud SCC for presentation, notification, analysis,
- *  policy testing, and enforcement. For example, an XSS vulnerability in an
- *  App Engine application is a finding.
+ *  A finding is a record of assessment data like security, risk, health, or
+ *  privacy, that is ingested into Cloud SCC for presentation, notification,
+ *  analysis, policy testing, and enforcement. For example, a
+ *  cross-site scripting (XSS) vulnerability in an App Engine application is a
+ *  finding.
  */
 @interface GTLRSecurityCommandCenter_Finding : GTLRObject
 
@@ -614,7 +616,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  The relative resource name of this finding. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
- *  "organizations/123/sources/456/findings/789"
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -623,14 +625,16 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  This field is immutable after creation time.
  *  For example:
- *  "organizations/123/sources/456"
+ *  "organizations/{organization_id}/sources/{source_id}"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The full resource name of the Google Cloud Platform (GCP) resource this
- *  finding is for. See:
+ *  For findings on Google Cloud Platform (GCP) resources, the full resource
+ *  name of the GCP resource this finding is for. See:
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ *  When the finding is for a non-GCP resource, the resourceName can be a
+ *  customer or partner defined string.
  *  This field is immutable after creation time.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
@@ -1231,6 +1235,9 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 /** Finding matching the search request. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Finding *finding;
 
+/** Output only. Resource that is associated with this finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Resource *resource;
+
 /**
  *  State change of the finding between the points in time.
  *
@@ -1411,7 +1418,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  The relative resource name of the settings. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
- *  "organizations/123/organizationSettings".
+ *  "organizations/{organization_id}/organizationSettings".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1493,8 +1500,8 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
  *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
- *  'setIamPolicy' will not fail even if either of incoming or stored policy
- *  does not meet the version requirements.
+ *  'setIamPolicy' will not fail even if the incoming policy version does not
+ *  meet the requirements for modifying the stored policy.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1507,15 +1514,43 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  rejected.
  *  Operations affecting conditional bindings must specify version 3. This can
  *  be either setting a conditional policy, modifying a conditional binding,
- *  or removing a conditional binding from the stored conditional policy.
+ *  or removing a binding (conditional or unconditional) from the stored
+ *  conditional policy.
  *  Operations on non-conditional policies may specify any valid value or
  *  leave the field unset.
- *  If no etag is provided in the call to `setIamPolicy`, any version
- *  compliance checks on the incoming and/or stored policy is skipped.
+ *  If no etag is provided in the call to `setIamPolicy`, version compliance
+ *  checks against the stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Information related to the Google Cloud Platform (GCP) resource that is
+ *  associated with this finding.
+ */
+@interface GTLRSecurityCommandCenter_Resource : GTLRObject
+
+/**
+ *  The full resource name of the resource. See:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The human readable name of resource's parent. */
+@property(nonatomic, copy, nullable) NSString *parentDisplayName;
+
+/** The full resource name of resource's parent. */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/** The human readable name of project that the resource belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectDisplayName;
+
+/** The full resource name of project that the resource belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectName;
 
 @end
 
@@ -1578,10 +1613,10 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 /**
  *  Mutable user specified security marks belonging to the parent resource.
  *  Constraints are as follows:
- *  - Keys and values are treated as case insensitive
- *  - Keys must be between 1 - 256 characters (inclusive)
- *  - Keys must be letters, numbers, underscores, or dashes
- *  - Values have leading and trailing whitespace trimmed, remaining
+ *  * Keys and values are treated as case insensitive
+ *  * Keys must be between 1 - 256 characters (inclusive)
+ *  * Keys must be letters, numbers, underscores, or dashes
+ *  * Values have leading and trailing whitespace trimmed, remaining
  *  characters must be between 1 - 4096 characters (inclusive)
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecurityMarks_Marks *marks;
@@ -1590,8 +1625,8 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  The relative resource name of the SecurityMarks. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Examples:
- *  "organizations/123/assets/456/securityMarks"
- *  "organizations/123/sources/456/findings/789/securityMarks".
+ *  "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1601,10 +1636,10 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 /**
  *  Mutable user specified security marks belonging to the parent resource.
  *  Constraints are as follows:
- *  - Keys and values are treated as case insensitive
- *  - Keys must be between 1 - 256 characters (inclusive)
- *  - Keys must be letters, numbers, underscores, or dashes
- *  - Values have leading and trailing whitespace trimmed, remaining
+ *  * Keys and values are treated as case insensitive
+ *  * Keys must be between 1 - 256 characters (inclusive)
+ *  * Keys must be letters, numbers, underscores, or dashes
+ *  * Values have leading and trailing whitespace trimmed, remaining
  *  characters must be between 1 - 4096 characters (inclusive)
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -1673,18 +1708,19 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 /**
  *  Cloud Security Command Center's (Cloud SCC) finding source. A finding source
  *  is an entity or a mechanism that can produce a finding. A source is like a
- *  container of findings that come from the same scanner, logger, monitor, etc.
+ *  container of findings that come from the same scanner, logger, monitor, and
+ *  other tools.
  */
 @interface GTLRSecurityCommandCenter_Source : GTLRObject
 
 /**
  *  The description of the source (max of 1024 characters).
  *  Example:
- *  "Cloud Security Scanner is a web security scanner for common
+ *  "Web Security Scanner is a web security scanner for common
  *  vulnerabilities in App Engine applications. It can automatically
  *  scan and detect four common vulnerabilities, including cross-site-scripting
  *  (XSS), Flash injection, mixed content (HTTP in HTTPS), and
- *  outdated/insecure libraries."
+ *  outdated or insecure libraries."
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1703,7 +1739,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  The relative resource name of this source. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
- *  "organizations/123/sources/456"
+ *  "organizations/{organization_id}/sources/{source_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

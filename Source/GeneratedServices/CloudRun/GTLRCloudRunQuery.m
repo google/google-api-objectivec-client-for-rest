@@ -38,162 +38,6 @@
 
 @end
 
-@implementation GTLRCloudRunQuery_NamespacesAutodomainmappingsCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_AutoDomainMapping *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"apis/domains.cloudrun.com/v1/{+parent}/autodomainmappings";
-  GTLRCloudRunQuery_NamespacesAutodomainmappingsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRun_AutoDomainMapping class];
-  query.loggingName = @"run.namespaces.autodomainmappings.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_NamespacesAutodomainmappingsDelete
-
-@dynamic apiVersion, kind, name, propagationPolicy;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"apis/domains.cloudrun.com/v1/{+name}";
-  GTLRCloudRunQuery_NamespacesAutodomainmappingsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_Status class];
-  query.loggingName = @"run.namespaces.autodomainmappings.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_NamespacesAutodomainmappingsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"apis/domains.cloudrun.com/v1/{+name}";
-  GTLRCloudRunQuery_NamespacesAutodomainmappingsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_AutoDomainMapping class];
-  query.loggingName = @"run.namespaces.autodomainmappings.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_NamespacesAutodomainmappingsList
-
-@dynamic continueProperty, fieldSelector, includeUninitialized, labelSelector,
-         limit, parent, resourceVersion, watch;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"continueProperty" : @"continue" };
-}
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"apis/domains.cloudrun.com/v1/{+parent}/autodomainmappings";
-  GTLRCloudRunQuery_NamespacesAutodomainmappingsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRun_ListAutoDomainMappingsResponse class];
-  query.loggingName = @"run.namespaces.autodomainmappings.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_NamespacesAutodomainmappingsReplaceAutoDomainMapping
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_AutoDomainMapping *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"apis/domains.cloudrun.com/v1/{+name}";
-  GTLRCloudRunQuery_NamespacesAutodomainmappingsReplaceAutoDomainMapping *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_AutoDomainMapping class];
-  query.loggingName = @"run.namespaces.autodomainmappings.replaceAutoDomainMapping";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_NamespacesConfigurationsCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_Configuration *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"apis/serving.knative.dev/v1/{+parent}/configurations";
-  GTLRCloudRunQuery_NamespacesConfigurationsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRun_Configuration class];
-  query.loggingName = @"run.namespaces.configurations.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_NamespacesConfigurationsDelete
-
-@dynamic apiVersion, kind, name, propagationPolicy;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"apis/serving.knative.dev/v1/{+name}";
-  GTLRCloudRunQuery_NamespacesConfigurationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_Status class];
-  query.loggingName = @"run.namespaces.configurations.delete";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudRunQuery_NamespacesConfigurationsGet
 
 @dynamic name;
@@ -232,31 +76,6 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudRun_ListConfigurationsResponse class];
   query.loggingName = @"run.namespaces.configurations.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_NamespacesConfigurationsReplaceConfiguration
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_Configuration *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"apis/serving.knative.dev/v1/{+name}";
-  GTLRCloudRunQuery_NamespacesConfigurationsReplaceConfiguration *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_Configuration class];
-  query.loggingName = @"run.namespaces.configurations.replaceConfiguration";
   return query;
 }
 
@@ -349,31 +168,6 @@
 
 @end
 
-@implementation GTLRCloudRunQuery_NamespacesDomainmappingsReplaceDomainMapping
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_DomainMapping *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"apis/domains.cloudrun.com/v1/{+name}";
-  GTLRCloudRunQuery_NamespacesDomainmappingsReplaceDomainMapping *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_DomainMapping class];
-  query.loggingName = @"run.namespaces.domainmappings.replaceDomainMapping";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudRunQuery_NamespacesRevisionsDelete
 
 @dynamic apiVersion, kind, name, propagationPolicy;
@@ -436,50 +230,6 @@
 
 @end
 
-@implementation GTLRCloudRunQuery_NamespacesRoutesCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_Route *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"apis/serving.knative.dev/v1/{+parent}/routes";
-  GTLRCloudRunQuery_NamespacesRoutesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRun_Route class];
-  query.loggingName = @"run.namespaces.routes.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_NamespacesRoutesDelete
-
-@dynamic apiVersion, kind, name, propagationPolicy;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"apis/serving.knative.dev/v1/{+name}";
-  GTLRCloudRunQuery_NamespacesRoutesDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_Status class];
-  query.loggingName = @"run.namespaces.routes.delete";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudRunQuery_NamespacesRoutesGet
 
 @dynamic name;
@@ -518,31 +268,6 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudRun_ListRoutesResponse class];
   query.loggingName = @"run.namespaces.routes.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_NamespacesRoutesReplaceRoute
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_Route *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"apis/serving.knative.dev/v1/{+name}";
-  GTLRCloudRunQuery_NamespacesRoutesReplaceRoute *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_Route class];
-  query.loggingName = @"run.namespaces.routes.replaceRoute";
   return query;
 }
 
@@ -679,162 +404,6 @@
 
 @end
 
-@implementation GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_AutoDomainMapping *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/autodomainmappings";
-  GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRun_AutoDomainMapping class];
-  query.loggingName = @"run.projects.locations.autodomainmappings.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsDelete
-
-@dynamic apiVersion, kind, name, propagationPolicy;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_Status class];
-  query.loggingName = @"run.projects.locations.autodomainmappings.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_AutoDomainMapping class];
-  query.loggingName = @"run.projects.locations.autodomainmappings.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsList
-
-@dynamic continueProperty, fieldSelector, includeUninitialized, labelSelector,
-         limit, parent, resourceVersion, watch;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"continueProperty" : @"continue" };
-}
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/autodomainmappings";
-  GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRun_ListAutoDomainMappingsResponse class];
-  query.loggingName = @"run.projects.locations.autodomainmappings.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsReplaceAutoDomainMapping
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_AutoDomainMapping *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudRunQuery_ProjectsLocationsAutodomainmappingsReplaceAutoDomainMapping *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_AutoDomainMapping class];
-  query.loggingName = @"run.projects.locations.autodomainmappings.replaceAutoDomainMapping";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_ProjectsLocationsConfigurationsCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_Configuration *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/configurations";
-  GTLRCloudRunQuery_ProjectsLocationsConfigurationsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRun_Configuration class];
-  query.loggingName = @"run.projects.locations.configurations.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_ProjectsLocationsConfigurationsDelete
-
-@dynamic apiVersion, kind, name, propagationPolicy;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudRunQuery_ProjectsLocationsConfigurationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_Status class];
-  query.loggingName = @"run.projects.locations.configurations.delete";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudRunQuery_ProjectsLocationsConfigurationsGet
 
 @dynamic name;
@@ -873,31 +442,6 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudRun_ListConfigurationsResponse class];
   query.loggingName = @"run.projects.locations.configurations.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_ProjectsLocationsConfigurationsReplaceConfiguration
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_Configuration *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudRunQuery_ProjectsLocationsConfigurationsReplaceConfiguration *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_Configuration class];
-  query.loggingName = @"run.projects.locations.configurations.replaceConfiguration";
   return query;
 }
 
@@ -985,31 +529,6 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudRun_ListDomainMappingsResponse class];
   query.loggingName = @"run.projects.locations.domainmappings.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_ProjectsLocationsDomainmappingsReplaceDomainMapping
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_DomainMapping *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudRunQuery_ProjectsLocationsDomainmappingsReplaceDomainMapping *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_DomainMapping class];
-  query.loggingName = @"run.projects.locations.domainmappings.replaceDomainMapping";
   return query;
 }
 
@@ -1115,50 +634,6 @@
 
 @end
 
-@implementation GTLRCloudRunQuery_ProjectsLocationsRoutesCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_Route *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/routes";
-  GTLRCloudRunQuery_ProjectsLocationsRoutesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudRun_Route class];
-  query.loggingName = @"run.projects.locations.routes.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_ProjectsLocationsRoutesDelete
-
-@dynamic apiVersion, kind, name, propagationPolicy;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudRunQuery_ProjectsLocationsRoutesDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_Status class];
-  query.loggingName = @"run.projects.locations.routes.delete";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudRunQuery_ProjectsLocationsRoutesGet
 
 @dynamic name;
@@ -1197,31 +672,6 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudRun_ListRoutesResponse class];
   query.loggingName = @"run.projects.locations.routes.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudRunQuery_ProjectsLocationsRoutesReplaceRoute
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudRun_Route *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudRunQuery_ProjectsLocationsRoutesReplaceRoute *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_Route class];
-  query.loggingName = @"run.projects.locations.routes.replaceRoute";
   return query;
 }
 

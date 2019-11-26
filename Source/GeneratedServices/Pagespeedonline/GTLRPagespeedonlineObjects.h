@@ -81,6 +81,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  A numeric value that has a meaning specific to the audit, e.g. the number of
+ *  nodes in the DOM or the timestamp of a specific load event. More information
+ *  can be found in the audit details, if present.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numericValue;
+
+/**
  *  score
  *
  *  Can be any valid JSON type.

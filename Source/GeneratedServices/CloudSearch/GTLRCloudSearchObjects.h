@@ -56,11 +56,6 @@
 @class GTLRCloudSearch_Filter;
 @class GTLRCloudSearch_FilterOptions;
 @class GTLRCloudSearch_FreshnessOptions;
-@class GTLRCloudSearch_GmailActionRestrict;
-@class GTLRCloudSearch_GmailAttachmentRestrict;
-@class GTLRCloudSearch_GmailFolderRestrict;
-@class GTLRCloudSearch_GmailIntelligentRestrict;
-@class GTLRCloudSearch_GmailTimeRestrict;
 @class GTLRCloudSearch_GSuitePrincipal;
 @class GTLRCloudSearch_HtmlOperatorOptions;
 @class GTLRCloudSearch_HtmlPropertyOptions;
@@ -274,253 +269,6 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking
  *  Value: "NO_ORDER"
  */
 GTLR_EXTERN NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_NoOrder;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_GmailActionRestrict.type
-
-/**
- *  label:mute
- *
- *  Value: "MUTED"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailActionRestrict_Type_Muted;
-/**
- *  is:read
- *
- *  Value: "READ"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailActionRestrict_Type_Read;
-/**
- *  label:^io_re
- *
- *  Value: "REPLIED_TO"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailActionRestrict_Type_RepliedTo;
-/**
- *  is:unread
- *
- *  Value: "UNREAD"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailActionRestrict_Type_Unread;
-/** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailActionRestrict_Type_Unspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_GmailAttachmentRestrict.type
-
-/**
- *  has:attachment
- *
- *  Value: "HAS_ATTACHMENT"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasAttachment;
-/**
- *  has:document
- *
- *  Value: "HAS_DOCUMENT"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasDocument;
-/**
- *  has:drive
- *
- *  Value: "HAS_DRIVE"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasDrive;
-/**
- *  filename:pdf
- *
- *  Value: "HAS_PDF"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasPdf;
-/**
- *  has photos (changes to filename:(jpg OR jpeg OR png) when typed)
- *
- *  Value: "HAS_PHOTO"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasPhoto;
-/**
- *  has:presentation
- *
- *  Value: "HAS_PRESENTATION"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasPresentation;
-/**
- *  has:spreadsheet
- *
- *  Value: "HAS_SPREADSHEET"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasSpreadsheet;
-/**
- *  has:youtube
- *
- *  Value: "HAS_YOUTUBE"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasYoutube;
-/** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailAttachmentRestrict_Type_Unspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_GmailFolderRestrict.type
-
-/**
- *  label:chats
- *
- *  Value: "CHATS"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailFolderRestrict_Type_Chats;
-/**
- *  in:draft
- *
- *  Value: "IN_DRAFT"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailFolderRestrict_Type_InDraft;
-/**
- *  in:sent
- *
- *  Value: "IN_SENT"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailFolderRestrict_Type_InSent;
-/**
- *  in:trash
- *
- *  Value: "IN_TRASH"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailFolderRestrict_Type_InTrash;
-/** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailFolderRestrict_Type_Unspecified;
-/**
- *  label:<user generated>
- *
- *  Value: "USER_GENERATED_LABEL"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailFolderRestrict_Type_UserGeneratedLabel;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_GmailIntelligentRestrict.type
-
-/**
- *  label:^cob_sm_busreservation
- *
- *  Value: "BUS_RESERVATION"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_BusReservation;
-/**
- *  label:^cob_sm_rentalcarreservation
- *
- *  Value: "CAR_RESERVATION"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_CarReservation;
-/**
- *  label:^cob_sm_flightreservation
- *
- *  Value: "FLIGHT_RESERVATION"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_FlightReservation;
-/**
- *  category:forums
- *
- *  Value: "FORUMS"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_Forums;
-/**
- *  is:important
- *
- *  Value: "IMPORTANT"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_Important;
-/**
- *  label:^cob_sm_lodgingreservation
- *
- *  Value: "LODGING_RESERVATION"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_LodgingReservation;
-/**
- *  category:promotions
- *
- *  Value: "PROMOTIONS"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_Promotions;
-/**
- *  category:social
- *
- *  Value: "SOCIAL"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_Social;
-/** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_Unspecified;
-/**
- *  category:updates
- *
- *  Value: "UPDATES"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailIntelligentRestrict_Type_Updates;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSearch_GmailTimeRestrict.type
-
-/**
- *  This will read as something like "From November" and will have operator
- *  before:X after:Y
- *
- *  Value: "FROM_CERTAIN_MONTH"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_FromCertainMonth;
-/**
- *  newer_than:30d
- *
- *  Value: "FROM_THIS_MONTH"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_FromThisMonth;
-/**
- *  newer_than:7d
- *
- *  Value: "FROM_THIS_WEEK"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_FromThisWeek;
-/**
- *  newer_than:1d
- *
- *  Value: "FROM_TODAY"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_FromToday;
-/**
- *  newer_than:2d older_than:1d
- *
- *  Value: "FROM_YESTERDAY"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_FromYesterday;
-/**
- *  older_than:30d
- *
- *  Value: "OLDER_THAN_A_MONTH"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanAMonth;
-/**
- *  older_than:7d
- *
- *  Value: "OLDER_THAN_A_WEEK"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanAWeek;
-/**
- *  older_than:1y
- *
- *  Value: "OLDER_THAN_ONE_YEAR"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanOneYear;
-/**
- *  older_than:1d
- *
- *  Value: "OLDER_THAN_TODAY"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanToday;
-/**
- *  older_than:2d
- *
- *  Value: "OLDER_THAN_YESTERDAY"
- */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanYesterday;
-/** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_GmailTimeRestrict_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_IndexItemRequest.mode
@@ -905,16 +653,16 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Interpretation
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_QueryInterpretation.reason
 
-/**
- *  The following values are returned only when interpretation type is
- *  REPLACE.
- *  The search results are replaced by ones which are retrieved through a
- *  much broader version of the query since no results were found for the
- *  user query. Interpreted query will be empty for the following case.
- *
- *  Value: "NO_RESULTS_FOUND_FOR_USER_QUERY"
- */
+/** Value: "NO_RESULTS_FOUND_FOR_USER_QUERY" */
 GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_NoResultsFoundForUserQuery;
+/**
+ *  A much broader version of the query is used to retrieve the search
+ *  results since enough results were not found for the user query.
+ *  Interpreted query will be empty for this case.
+ *
+ *  Value: "NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_NotEnoughResultsFoundForUserQuery;
 /**
  *  Natural language interpretation of the query is used to fetch the search
  *  results.
@@ -2162,165 +1910,6 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 
 /**
- *  Gmail Action restricts (i.e. read/replied/snoozed).
- */
-@interface GTLRCloudSearch_GmailActionRestrict : GTLRObject
-
-/**
- *  type
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_GmailActionRestrict_Type_Muted label:mute (Value:
- *        "MUTED")
- *    @arg @c kGTLRCloudSearch_GmailActionRestrict_Type_Read is:read (Value:
- *        "READ")
- *    @arg @c kGTLRCloudSearch_GmailActionRestrict_Type_RepliedTo label:^io_re
- *        (Value: "REPLIED_TO")
- *    @arg @c kGTLRCloudSearch_GmailActionRestrict_Type_Unread is:unread (Value:
- *        "UNREAD")
- *    @arg @c kGTLRCloudSearch_GmailActionRestrict_Type_Unspecified Value
- *        "UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Gmail Attachment restricts (i.e. has:attachment, has:drive, filename:pdf).
- */
-@interface GTLRCloudSearch_GmailAttachmentRestrict : GTLRObject
-
-/**
- *  type
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasAttachment
- *        has:attachment (Value: "HAS_ATTACHMENT")
- *    @arg @c kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasDocument
- *        has:document (Value: "HAS_DOCUMENT")
- *    @arg @c kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasDrive has:drive
- *        (Value: "HAS_DRIVE")
- *    @arg @c kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasPdf filename:pdf
- *        (Value: "HAS_PDF")
- *    @arg @c kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasPhoto has photos
- *        (changes to filename:(jpg OR jpeg OR png) when typed) (Value:
- *        "HAS_PHOTO")
- *    @arg @c kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasPresentation
- *        has:presentation (Value: "HAS_PRESENTATION")
- *    @arg @c kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasSpreadsheet
- *        has:spreadsheet (Value: "HAS_SPREADSHEET")
- *    @arg @c kGTLRCloudSearch_GmailAttachmentRestrict_Type_HasYoutube
- *        has:youtube (Value: "HAS_YOUTUBE")
- *    @arg @c kGTLRCloudSearch_GmailAttachmentRestrict_Type_Unspecified Value
- *        "UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Gmail Folder restricts (i.e. in Drafts/Sent/Chats/User Generated Labels).
- */
-@interface GTLRCloudSearch_GmailFolderRestrict : GTLRObject
-
-/**
- *  type
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_GmailFolderRestrict_Type_Chats label:chats
- *        (Value: "CHATS")
- *    @arg @c kGTLRCloudSearch_GmailFolderRestrict_Type_InDraft in:draft (Value:
- *        "IN_DRAFT")
- *    @arg @c kGTLRCloudSearch_GmailFolderRestrict_Type_InSent in:sent (Value:
- *        "IN_SENT")
- *    @arg @c kGTLRCloudSearch_GmailFolderRestrict_Type_InTrash in:trash (Value:
- *        "IN_TRASH")
- *    @arg @c kGTLRCloudSearch_GmailFolderRestrict_Type_Unspecified Value
- *        "UNSPECIFIED"
- *    @arg @c kGTLRCloudSearch_GmailFolderRestrict_Type_UserGeneratedLabel
- *        label:<user generated> (Value: "USER_GENERATED_LABEL")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Gmail Intelligent restricts (i.e. smartlabels, important).
- */
-@interface GTLRCloudSearch_GmailIntelligentRestrict : GTLRObject
-
-/**
- *  type
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_GmailIntelligentRestrict_Type_BusReservation
- *        label:^cob_sm_busreservation (Value: "BUS_RESERVATION")
- *    @arg @c kGTLRCloudSearch_GmailIntelligentRestrict_Type_CarReservation
- *        label:^cob_sm_rentalcarreservation (Value: "CAR_RESERVATION")
- *    @arg @c kGTLRCloudSearch_GmailIntelligentRestrict_Type_FlightReservation
- *        label:^cob_sm_flightreservation (Value: "FLIGHT_RESERVATION")
- *    @arg @c kGTLRCloudSearch_GmailIntelligentRestrict_Type_Forums
- *        category:forums (Value: "FORUMS")
- *    @arg @c kGTLRCloudSearch_GmailIntelligentRestrict_Type_Important
- *        is:important (Value: "IMPORTANT")
- *    @arg @c kGTLRCloudSearch_GmailIntelligentRestrict_Type_LodgingReservation
- *        label:^cob_sm_lodgingreservation (Value: "LODGING_RESERVATION")
- *    @arg @c kGTLRCloudSearch_GmailIntelligentRestrict_Type_Promotions
- *        category:promotions (Value: "PROMOTIONS")
- *    @arg @c kGTLRCloudSearch_GmailIntelligentRestrict_Type_Social
- *        category:social (Value: "SOCIAL")
- *    @arg @c kGTLRCloudSearch_GmailIntelligentRestrict_Type_Unspecified Value
- *        "UNSPECIFIED"
- *    @arg @c kGTLRCloudSearch_GmailIntelligentRestrict_Type_Updates
- *        category:updates (Value: "UPDATES")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Gmail Time restricts (i.e. received today, this week).
- */
-@interface GTLRCloudSearch_GmailTimeRestrict : GTLRObject
-
-/**
- *  type
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSearch_GmailTimeRestrict_Type_FromCertainMonth This will
- *        read as something like "From November" and will have operator
- *        before:X after:Y (Value: "FROM_CERTAIN_MONTH")
- *    @arg @c kGTLRCloudSearch_GmailTimeRestrict_Type_FromThisMonth
- *        newer_than:30d (Value: "FROM_THIS_MONTH")
- *    @arg @c kGTLRCloudSearch_GmailTimeRestrict_Type_FromThisWeek newer_than:7d
- *        (Value: "FROM_THIS_WEEK")
- *    @arg @c kGTLRCloudSearch_GmailTimeRestrict_Type_FromToday newer_than:1d
- *        (Value: "FROM_TODAY")
- *    @arg @c kGTLRCloudSearch_GmailTimeRestrict_Type_FromYesterday
- *        newer_than:2d older_than:1d (Value: "FROM_YESTERDAY")
- *    @arg @c kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanAMonth
- *        older_than:30d (Value: "OLDER_THAN_A_MONTH")
- *    @arg @c kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanAWeek
- *        older_than:7d (Value: "OLDER_THAN_A_WEEK")
- *    @arg @c kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanOneYear
- *        older_than:1y (Value: "OLDER_THAN_ONE_YEAR")
- *    @arg @c kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanToday
- *        older_than:1d (Value: "OLDER_THAN_TODAY")
- *    @arg @c kGTLRCloudSearch_GmailTimeRestrict_Type_OlderThanYesterday
- *        older_than:2d (Value: "OLDER_THAN_YESTERDAY")
- *    @arg @c kGTLRCloudSearch_GmailTimeRestrict_Type_Unspecified Value
- *        "UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
  *  GTLRCloudSearch_GSuitePrincipal
  */
 @interface GTLRCloudSearch_GSuitePrincipal : GTLRObject
@@ -3553,7 +3142,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 
 /**
  *  Maximum number of items to return.
- *  <br />The maximum and the default value is 1000
+ *  <br />The maximum value is 100 and the default value is 20.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3966,12 +3555,12 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_NoResultsFoundForUserQuery
- *        The following values are returned only when interpretation type is
- *        REPLACE.
- *        The search results are replaced by ones which are retrieved through a
- *        much broader version of the query since no results were found for the
- *        user query. Interpreted query will be empty for the following case.
- *        (Value: "NO_RESULTS_FOUND_FOR_USER_QUERY")
+ *        Value "NO_RESULTS_FOUND_FOR_USER_QUERY"
+ *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_NotEnoughResultsFoundForUserQuery
+ *        A much broader version of the query is used to retrieve the search
+ *        results since enough results were not found for the user query.
+ *        Interpreted query will be empty for this case. (Value:
+ *        "NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY")
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_QueryHasNaturalLanguageIntent
  *        Natural language interpretation of the query is used to fetch the
  *        search
@@ -4275,14 +3864,6 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DriveMimeTypeRestrict *driveMimeTypeRestrict;
 
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DriveTimeSpanRestrict *driveTimeSpanRestrict;
-@property(nonatomic, strong, nullable) GTLRCloudSearch_GmailActionRestrict *gmailActionRestrict;
-@property(nonatomic, strong, nullable) GTLRCloudSearch_GmailAttachmentRestrict *gmailAttachmentRestrict;
-
-/** Gmail Types. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_GmailFolderRestrict *gmailFolderRestrict;
-
-@property(nonatomic, strong, nullable) GTLRCloudSearch_GmailIntelligentRestrict *gmailIntelligentRestrict;
-@property(nonatomic, strong, nullable) GTLRCloudSearch_GmailTimeRestrict *gmailTimeRestrict;
 
 /** The search restrict (e.g. "after:2017-09-11 before:2017-09-12"). */
 @property(nonatomic, copy, nullable) NSString *searchOperator;
@@ -5049,10 +4630,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 @interface GTLRCloudSearch_SuggestRequest : GTLRObject
 
 /**
- *  The sources to use for suggestions. If not specified, all data sources
- *  from the current search application are used.
- *  Suggestions are based on Gmail titles. Suggestions from third party sources
- *  are not available.
+ *  The sources to use for suggestions. If not specified, the data sources
+ *  are taken from the current search application.
+ *  NOTE: Suggestions are supported only for third party data sources and
+ *  people (i.e. PredefinedSource.PERSON).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_DataSourceRestriction *> *dataSourceRestrictions;
 

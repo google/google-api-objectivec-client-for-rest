@@ -581,7 +581,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_InstanceGroupConfig
 @dynamic accelerators, diskConfig, imageUri, instanceNames, isPreemptible,
-         machineTypeUri, managedGroupConfig, numInstances;
+         machineTypeUri, managedGroupConfig, minCpuPlatform, numInstances;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -626,7 +626,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_Job
 @dynamic driverControlFilesUri, driverOutputResourceUri, hadoopJob, hiveJob,
          jobUuid, labels, pigJob, placement, pysparkJob, reference, scheduling,
-         sparkJob, sparkSqlJob, status, statusHistory, yarnApplications;
+         sparkJob, sparkRJob, sparkSqlJob, status, statusHistory,
+         yarnApplications;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1198,6 +1199,40 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_SparkJob_Properties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkRJob
+//
+
+@implementation GTLRDataproc_SparkRJob
+@dynamic archiveUris, args, fileUris, loggingConfig, mainRFileUri, properties;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"archiveUris" : [NSString class],
+    @"args" : [NSString class],
+    @"fileUris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkRJob_Properties
+//
+
+@implementation GTLRDataproc_SparkRJob_Properties
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

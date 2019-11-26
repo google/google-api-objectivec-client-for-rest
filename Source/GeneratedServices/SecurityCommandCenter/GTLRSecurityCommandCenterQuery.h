@@ -302,8 +302,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  The relative resource name of the SecurityMarks. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Examples:
- *  "organizations/123/assets/456/securityMarks"
- *  "organizations/123/sources/456/findings/789/securityMarks".
+ *  "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -334,8 +334,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The relative resource name of the SecurityMarks. See:
  *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *    Examples:
- *    "organizations/123/assets/456/securityMarks"
- *    "organizations/123/sources/456/findings/789/securityMarks".
+ *    "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+ *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsAssetsUpdateSecurityMarks
  */
@@ -632,7 +632,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Filters an organization or source's findings and groups them by their
  *  specified properties.
  *  To group across all sources provide a `-` as the source id.
- *  Example: /v1/organizations/123/sources/-/findings
+ *  Example: /v1/organizations/{organization_id}/sources/-/findings
  *
  *  Method: securitycenter.organizations.sources.findings.group
  *
@@ -647,7 +647,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. Name of the source to groupBy. Its format is
  *  "organizations/[organization_id]/sources/[source_id]". To groupBy across
  *  all sources provide a source_id of `-`. For example:
- *  organizations/123/sources/-
+ *  organizations/{organization_id}/sources/-
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -657,14 +657,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Filters an organization or source's findings and groups them by their
  *  specified properties.
  *  To group across all sources provide a `-` as the source id.
- *  Example: /v1/organizations/123/sources/-/findings
+ *  Example: /v1/organizations/{organization_id}/sources/-/findings
  *
  *  @param object The @c GTLRSecurityCommandCenter_GroupFindingsRequest to
  *    include in the query.
  *  @param parent Required. Name of the source to groupBy. Its format is
  *    "organizations/[organization_id]/sources/[source_id]". To groupBy across
  *    all sources provide a source_id of `-`. For example:
- *    organizations/123/sources/-
+ *    organizations/{organization_id}/sources/-
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsGroup
  */
@@ -676,7 +676,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Lists an organization or source's findings.
  *  To list across all sources provide a `-` as the source id.
- *  Example: /v1/organizations/123/sources/-/findings
+ *  Example: /v1/organizations/{organization_id}/sources/-/findings
  *
  *  Method: securitycenter.organizations.sources.findings.list
  *
@@ -794,7 +794,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. Name of the source the findings belong to. Its format is
  *  "organizations/[organization_id]/sources/[source_id]". To list across all
  *  sources provide a source_id of `-`. For example:
- *  organizations/123/sources/-
+ *  organizations/{organization_id}/sources/-
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -811,13 +811,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists an organization or source's findings.
  *  To list across all sources provide a `-` as the source id.
- *  Example: /v1/organizations/123/sources/-/findings
+ *  Example: /v1/organizations/{organization_id}/sources/-/findings
  *
  *  @param parent Required. Name of the source the findings belong to. Its
  *    format is
  *    "organizations/[organization_id]/sources/[source_id]". To list across all
  *    sources provide a source_id of `-`. For example:
- *    organizations/123/sources/-
+ *    organizations/{organization_id}/sources/-
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsList
  *
@@ -846,7 +846,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The relative resource name of this finding. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
- *  "organizations/123/sources/456/findings/789"
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -873,7 +873,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The relative resource name of this finding. See:
  *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *    Example:
- *    "organizations/123/sources/456/findings/789"
+ *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsPatch
  */
@@ -898,7 +898,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The relative resource name of the finding. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
- *  "organizations/123/sources/456/finding/789".
+ *  "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -912,7 +912,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. The relative resource name of the finding. See:
  *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *    Example:
- *    "organizations/123/sources/456/finding/789".
+ *    "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsSetState
  */
@@ -937,8 +937,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  The relative resource name of the SecurityMarks. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Examples:
- *  "organizations/123/assets/456/securityMarks"
- *  "organizations/123/sources/456/findings/789/securityMarks".
+ *  "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -969,8 +969,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The relative resource name of the SecurityMarks. See:
  *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *    Examples:
- *    "organizations/123/assets/456/securityMarks"
- *    "organizations/123/sources/456/findings/789/securityMarks".
+ *    "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+ *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsUpdateSecurityMarks
  */
@@ -1114,7 +1114,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The relative resource name of this source. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
- *  "organizations/123/sources/456"
+ *  "organizations/{organization_id}/sources/{source_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1136,7 +1136,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The relative resource name of this source. See:
  *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *    Example:
- *    "organizations/123/sources/456"
+ *    "organizations/{organization_id}/sources/{source_id}"
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesPatch
  */
@@ -1233,7 +1233,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The relative resource name of the settings. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *  Example:
- *  "organizations/123/organizationSettings".
+ *  "organizations/{organization_id}/organizationSettings".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1255,7 +1255,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The relative resource name of the settings. See:
  *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
  *    Example:
- *    "organizations/123/organizationSettings".
+ *    "organizations/{organization_id}/organizationSettings".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsUpdateOrganizationSettings
  */

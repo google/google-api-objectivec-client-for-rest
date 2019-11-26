@@ -290,6 +290,25 @@ NSString * const kGTLRFirebaseHostingStatusStatusUnspecified = @"STATUS_UNSPECIF
 
 @end
 
+@implementation GTLRFirebaseHostingQuery_SitesVersionsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/versions";
+  GTLRFirebaseHostingQuery_SitesVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_ListVersionsResponse class];
+  query.loggingName = @"firebasehosting.sites.versions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseHostingQuery_SitesVersionsPatch
 
 @dynamic name, updateMask;

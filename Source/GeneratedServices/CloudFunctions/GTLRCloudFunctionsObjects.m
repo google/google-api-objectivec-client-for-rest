@@ -250,11 +250,12 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 //
 
 @implementation GTLRCloudFunctions_ListFunctionsResponse
-@dynamic functions, nextPageToken;
+@dynamic functions, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"functions" : [GTLRCloudFunctions_CloudFunction class]
+    @"functions" : [GTLRCloudFunctions_CloudFunction class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

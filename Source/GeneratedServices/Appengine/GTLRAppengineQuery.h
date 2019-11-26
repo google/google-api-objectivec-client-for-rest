@@ -1560,8 +1560,8 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To
  *  ensure that instances are not re-created and avoid getting billed, you can
  *  stop all instances within the target version by changing the serving status
- *  of the version to 'STOPPEDwith the
- *  [apps.services.versions.patch`](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch)
+ *  of the version to STOPPED with the apps.services.versions.patch
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch)
  *  method.
  *
  *  Method: appengine.apps.services.versions.instances.delete
@@ -1599,8 +1599,8 @@ GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To
  *  ensure that instances are not re-created and avoid getting billed, you can
  *  stop all instances within the target version by changing the serving status
- *  of the version to 'STOPPEDwith the
- *  [apps.services.versions.patch`](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch)
+ *  of the version to STOPPED with the apps.services.versions.patch
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch)
  *  method.
  *
  *  @param appsId Part of `name`. Name of the resource requested. Example:

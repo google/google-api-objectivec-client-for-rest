@@ -309,6 +309,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** The ID of the player. */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
+@property(nonatomic, copy, nullable) NSString *playerStattus;
+
 /**
  *  The player's profile settings. Controls whether or not the player's profile
  *  is visible to other players.
@@ -402,23 +404,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *profileVisible;
-
-@end
-
-
-/**
- *  This is a JSON template for multiple quests reset all request.
- */
-@interface GTLRGamesManagement_QuestsResetMultipleForAllRequest : GTLRObject
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesManagement#questsResetMultipleForAllRequest.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The IDs of quests to reset. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *questIds;
 
 @end
 

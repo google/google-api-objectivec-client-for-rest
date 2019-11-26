@@ -336,7 +336,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
 /**
  *  Optional. Only applicable to STANDARD_HA tier which protects the instance
  *  against zonal failures by provisioning it across two zones. If provided, it
- *  must be a different zone from the one provided in [location_id].
+ *  must be a different zone from the one provided in location_id.
  */
 @property(nonatomic, copy, nullable) NSString *alternativeLocationId;
 
@@ -353,9 +353,9 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
 
 /**
  *  Output only. The current zone where the Redis endpoint is placed. For Basic
- *  Tier instances, this will always be the same as the [location_id]
+ *  Tier instances, this will always be the same as the location_id
  *  provided by the user at creation time. For Standard Tier instances,
- *  this can be either [location_id] or [alternative_location_id] and can
+ *  this can be either location_id or alternative_location_id and can
  *  change after a failover event.
  */
 @property(nonatomic, copy, nullable) NSString *currentLocationId;
@@ -376,8 +376,8 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  *  Optional. The zone where the instance will be provisioned. If not provided,
  *  the service will choose a zone for the instance. For STANDARD_HA tier,
  *  instances will be created across two zones for protection against zonal
- *  failures. If [alternative_location_id] is also provided, it must be
- *  different from [location_id].
+ *  failures. If alternative_location_id is also provided, it must be
+ *  different from location_id.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
@@ -395,8 +395,8 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  *  Note: Redis instances are managed and addressed at regional level so
  *  location_id here refers to a GCP region; however, users may choose which
  *  specific zone (or collection of zones for cross-zone instances) an instance
- *  should be provisioned in. Refer to [location_id] and
- *  [alternative_location_id] fields for more details.
+ *  should be provisioned in. Refer to location_id and
+ *  alternative_location_id fields for more details.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -546,10 +546,10 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  *  If the `location_id` in the parent field of the request is "-", all regions
  *  available to the project are queried, and the results aggregated.
  *  If in such an aggregated query a location is unavailable, a dummy Redis
- *  entry is included in the response with the "name" field set to a value of
- *  the form projects/{project_id}/locations/{location_id}/instances/- and the
- *  "status" field set to ERROR and "status_message" field set to "location not
- *  available for ListInstances".
+ *  entry is included in the response with the `name` field set to a value of
+ *  the form `projects/{project_id}/locations/{location_id}/instances/`- and
+ *  the `status` field set to ERROR and `status_message` field set to "location
+ *  not available for ListInstances".
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.

@@ -489,7 +489,22 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_RepoSource
-@dynamic branchName, commitSha, dir, projectId, repoName, tagName;
+@dynamic branchName, commitSha, dir, projectId, repoName, substitutions,
+         tagName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_RepoSource_Substitutions
+//
+
+@implementation GTLRCloudBuild_RepoSource_Substitutions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

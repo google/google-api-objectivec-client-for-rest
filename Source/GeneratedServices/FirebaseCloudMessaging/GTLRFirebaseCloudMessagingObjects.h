@@ -175,6 +175,15 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Vis
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_AndroidConfig_Data *data;
 
+/**
+ *  If set to true, messages will be allowed to be delivered to the app while
+ *  the device is in direct boot mode. See [Support Direct Boot
+ *  mode](https://developer.android.com/training/articles/direct-boot).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *directBootOk;
+
 /** Options for features provided by the FCM SDK for Android. */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_AndroidFcmOptions *fcmOptions;
 
@@ -990,6 +999,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Vis
  *  Options for features provided by the FCM SDK for Web.
  */
 @interface GTLRFirebaseCloudMessaging_WebpushFcmOptions : GTLRObject
+
+/** Label associated with the message's analytics data. */
+@property(nonatomic, copy, nullable) NSString *analyticsLabel;
 
 /**
  *  The link to open when the user clicks on the notification.

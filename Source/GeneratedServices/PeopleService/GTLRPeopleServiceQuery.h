@@ -74,10 +74,14 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 // Previous library name was
 //   +[GTLQueryPeopleService queryForContactGroupsBatchGet]
 
-/** Specifies the maximum number of members to return for each group. */
+/**
+ *  Optional. Specifies the maximum number of members to return for each group.
+ *  Defaults
+ *  to 0 if not set, which will return zero members.
+ */
 @property(nonatomic, assign) NSInteger maxMembers;
 
-/** The resource names of the contact groups to get. */
+/** Required. The resource names of the contact groups to get. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
 /**
@@ -131,10 +135,12 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 // Previous library name was
 //   +[GTLQueryPeopleService queryForContactGroupsDeleteWithresourceName:]
 
-/** Set to true to also delete the contacts in the specified group. */
+/**
+ *  Optional. Set to true to also delete the contacts in the specified group.
+ */
 @property(nonatomic, assign) BOOL deleteContacts;
 
-/** The resource name of the contact group to delete. */
+/** Required. The resource name of the contact group to delete. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
@@ -143,7 +149,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Delete an existing contact group owned by the authenticated user by
  *  specifying a contact group resource name.
  *
- *  @param resourceName The resource name of the contact group to delete.
+ *  @param resourceName Required. The resource name of the contact group to
+ *    delete.
  *
  *  @return GTLRPeopleServiceQuery_ContactGroupsDelete
  */
@@ -165,10 +172,14 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 // Previous library name was
 //   +[GTLQueryPeopleService queryForContactGroupsGetWithresourceName:]
 
-/** Specifies the maximum number of members to return. */
+/**
+ *  Optional. Specifies the maximum number of members to return. Defaults to 0
+ *  if not
+ *  set, which will return zero members.
+ */
 @property(nonatomic, assign) NSInteger maxMembers;
 
-/** The resource name of the contact group to get. */
+/** Required. The resource name of the contact group to get. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
@@ -177,7 +188,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Get a specific contact group owned by the authenticated user by specifying
  *  a contact group resource name.
  *
- *  @param resourceName The resource name of the contact group to get.
+ *  @param resourceName Required. The resource name of the contact group to get.
  *
  *  @return GTLRPeopleServiceQuery_ContactGroupsGet
  */
@@ -199,7 +210,11 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 // Previous library name was
 //   +[GTLQueryPeopleService queryForContactGroupsList]
 
-/** The maximum number of resources to return. */
+/**
+ *  Optional. The maximum number of resources to return. Valid values are
+ *  between 1 and
+ *  1000, inclusive. Defaults to 30 if not set or set to 0.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -247,7 +262,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 // Previous library name was
 //   +[GTLQueryPeopleService queryForContactGroupsMembersModifyWithObject:resourceName:]
 
-/** The resource name of the contact group to modify. */
+/** Required. The resource name of the contact group to modify. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
@@ -261,7 +276,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *
  *  @param object The @c GTLRPeopleService_ModifyContactGroupMembersRequest to
  *    include in the query.
- *  @param resourceName The resource name of the contact group to modify.
+ *  @param resourceName Required. The resource name of the contact group to
+ *    modify.
  *
  *  @return GTLRPeopleServiceQuery_ContactGroupsMembersModify
  */
@@ -325,8 +341,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 //   +[GTLQueryPeopleService queryForPeopleConnectionsListWithresourceName:]
 
 /**
- *  The number of connections to include in the response. Valid values are
- *  between 1 and 2000, inclusive. Defaults to 100.
+ *  Optional. The number of connections to include in the response. Valid values
+ *  are
+ *  between 1 and 2000, inclusive. Defaults to 100 if not set or set to 0.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -334,9 +351,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  **Required.** A field mask to restrict which fields on each person are
- *  returned. Multiple fields can be specified by separating them with commas.
- *  Valid values are:
+ *  Required. A field mask to restrict which fields on each person are returned.
+ *  Multiple
+ *  fields can be specified by separating them with commas. Valid values are:
  *  * addresses
  *  * ageRanges
  *  * biographies
@@ -372,9 +389,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *personFields;
 
 /**
- *  **Required.** Comma-separated list of person fields to be included in the
- *  response. Each path should start with `person.`: for example,
- *  `person.names` or `person.photos`.
+ *  Required. Comma-separated list of person fields to be included in the
+ *  response. Each
+ *  path should start with `person.`: for example, `person.names` or
+ *  `person.photos`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -388,7 +406,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  */
 @property(nonatomic, assign) BOOL requestSyncToken;
 
-/** The resource name to return connections for. Only `people/me` is valid. */
+/**
+ *  Required. The resource name to return connections for. Only `people/me` is
+ *  valid.
+ */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
@@ -422,8 +443,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
- *  @param resourceName The resource name to return connections for. Only
- *    `people/me` is valid.
+ *  @param resourceName Required. The resource name to return connections for.
+ *    Only `people/me` is valid.
  *
  *  @return GTLRPeopleServiceQuery_PeopleConnectionsList
  *
@@ -446,9 +467,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @interface GTLRPeopleServiceQuery_PeopleCreateContact : GTLRPeopleServiceQuery
 // Previous library name was
 //   +[GTLQueryPeopleService queryForPeopleCreateContactWithObject:]
-
-/** The resource name of the owning person resource. */
-@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRPeopleService_Person.
@@ -475,7 +493,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 // Previous library name was
 //   +[GTLQueryPeopleService queryForPeopleDeleteContactWithresourceName:]
 
-/** The resource name of the contact to delete. */
+/** Required. The resource name of the contact to delete. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
@@ -483,7 +501,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *
  *  Delete a contact person. Any non-contact data will not be deleted.
  *
- *  @param resourceName The resource name of the contact to delete.
+ *  @param resourceName Required. The resource name of the contact to delete.
  *
  *  @return GTLRPeopleServiceQuery_PeopleDeleteContact
  */
@@ -504,10 +522,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 //   +[GTLQueryPeopleService queryForPeopleDeleteContactPhotoWithresourceName:]
 
 /**
- *  **Optional.** Not specifying any fields will skip the post mutate read.
- *  A field mask to restrict which fields on the person are
- *  returned. Multiple fields can be specified by separating them with commas.
- *  Valid values are:
+ *  Optional. A field mask to restrict which fields on the person are returned.
+ *  Multiple
+ *  fields can be specified by separating them with commas. Defaults to empty
+ *  if not set, which will skip the post mutate get. Valid values are:
  *  * addresses
  *  * ageRanges
  *  * biographies
@@ -542,7 +560,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  */
 @property(nonatomic, copy, nullable) NSString *personFields;
 
-/** The resource name of the contact whose photo will be deleted. */
+/** Required. The resource name of the contact whose photo will be deleted. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
@@ -550,8 +568,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *
  *  Delete a contact's photo.
  *
- *  @param resourceName The resource name of the contact whose photo will be
- *    deleted.
+ *  @param resourceName Required. The resource name of the contact whose photo
+ *    will be deleted.
  *
  *  @return GTLRPeopleServiceQuery_PeopleDeleteContactPhoto
  */
@@ -582,9 +600,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 //   +[GTLQueryPeopleService queryForPeopleGetWithresourceName:]
 
 /**
- *  **Required.** A field mask to restrict which fields on the person are
- *  returned. Multiple fields can be specified by separating them with commas.
- *  Valid values are:
+ *  Required. A field mask to restrict which fields on the person are returned.
+ *  Multiple
+ *  fields can be specified by separating them with commas. Valid values are:
  *  * addresses
  *  * ageRanges
  *  * biographies
@@ -620,16 +638,17 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *personFields;
 
 /**
- *  **Required.** Comma-separated list of person fields to be included in the
- *  response. Each path should start with `person.`: for example,
- *  `person.names` or `person.photos`.
+ *  Required. Comma-separated list of person fields to be included in the
+ *  response. Each
+ *  path should start with `person.`: for example, `person.names` or
+ *  `person.photos`.
  *
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /**
- *  The resource name of the person to provide information about.
+ *  Required. The resource name of the person to provide information about.
  *  - To get information about the authenticated user, specify `people/me`.
  *  - To get information about a google account, specify
  *  `people/`<var>account_id</var>.
@@ -647,8 +666,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
- *  @param resourceName The resource name of the person to provide information
- *    about.
+ *  @param resourceName Required. The resource name of the person to provide
+ *    information about.
  *    - To get information about the authenticated user, specify `people/me`.
  *    - To get information about a google account, specify
  *    `people/`<var>account_id</var>.
@@ -686,9 +705,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 //   +[GTLQueryPeopleService queryForPeopleGetBatchGet]
 
 /**
- *  **Required.** A field mask to restrict which fields on each person are
- *  returned. Multiple fields can be specified by separating them with commas.
- *  Valid values are:
+ *  Required. A field mask to restrict which fields on each person are returned.
+ *  Multiple
+ *  fields can be specified by separating them with commas. Valid values are:
  *  * addresses
  *  * ageRanges
  *  * biographies
@@ -724,16 +743,17 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *personFields;
 
 /**
- *  **Required.** Comma-separated list of person fields to be included in the
- *  response. Each path should start with `person.`: for example,
- *  `person.names` or `person.photos`.
+ *  Required. Comma-separated list of person fields to be included in the
+ *  response. Each
+ *  path should start with `person.`: for example, `person.names` or
+ *  `person.photos`.
  *
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /**
- *  The resource names of the people to provide information about.
+ *  Required. The resource names of the people to provide information about.
  *  - To get information about the authenticated user, specify `people/me`.
  *  - To get information about a google account, specify
  *  `people/`<var>account_id</var>.
@@ -790,8 +810,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
- *  **Required.** A field mask to restrict which fields on the person are
- *  updated. Multiple fields can be specified by separating them with commas.
+ *  Required. A field mask to restrict which fields on the person are updated.
+ *  Multiple
+ *  fields can be specified by separating them with commas.
  *  All updated fields will be replaced. Valid values are:
  *  * addresses
  *  * biographies
@@ -859,7 +880,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 // Previous library name was
 //   +[GTLQueryPeopleService queryForPeopleUpdateContactPhotoWithObject:resourceName:]
 
-/** Person resource name */
+/** Required. Person resource name */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
@@ -869,7 +890,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *
  *  @param object The @c GTLRPeopleService_UpdateContactPhotoRequest to include
  *    in the query.
- *  @param resourceName Person resource name
+ *  @param resourceName Required. Person resource name
  *
  *  @return GTLRPeopleServiceQuery_PeopleUpdateContactPhoto
  */

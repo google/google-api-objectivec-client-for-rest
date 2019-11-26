@@ -23,6 +23,7 @@
 @class GTLRServiceNetworking_CancelOperationRequest;
 @class GTLRServiceNetworking_Connection;
 @class GTLRServiceNetworking_SearchRangeRequest;
+@class GTLRServiceNetworking_ValidateConsumerConfigRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -474,9 +475,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceNetworking queryForServicesSearchRangeWithObject:parent:]
 
 /**
- *  Required. This is in a form services/{service}.
- *  {service} the name of the private access management service, for example
- *  'service-peering.example.com'.
+ *  Required. This is in a form services/{service}. {service} the name of the
+ *  private
+ *  access management service, for example 'service-peering.example.com'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -494,13 +495,59 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceNetworking_SearchRangeRequest to include in
  *    the query.
- *  @param parent Required. This is in a form services/{service}.
- *    {service} the name of the private access management service, for example
- *    'service-peering.example.com'.
+ *  @param parent Required. This is in a form services/{service}. {service} the
+ *    name of the private
+ *    access management service, for example 'service-peering.example.com'.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesSearchRange
  */
 + (instancetype)queryWithObject:(GTLRServiceNetworking_SearchRangeRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Service producers use this method to validate if the consumer provided
+ *  network, project and the requested range is valid. This allows them to use
+ *  a fail-fast mechanism for consumer requests, and not have to wait for
+ *  AddSubnetwork operation completion to determine if user request is invalid.
+ *
+ *  Method: servicenetworking.services.validate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesValidate : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForServicesValidateWithObject:parent:]
+
+/**
+ *  Required. This is in a form services/{service} where {service} is the name
+ *  of the
+ *  private access management service. For example
+ *  'service-peering.example.com'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_ValidateConsumerConfigResponse.
+ *
+ *  Service producers use this method to validate if the consumer provided
+ *  network, project and the requested range is valid. This allows them to use
+ *  a fail-fast mechanism for consumer requests, and not have to wait for
+ *  AddSubnetwork operation completion to determine if user request is invalid.
+ *
+ *  @param object The @c GTLRServiceNetworking_ValidateConsumerConfigRequest to
+ *    include in the query.
+ *  @param parent Required. This is in a form services/{service} where {service}
+ *    is the name of the
+ *    private access management service. For example
+ *    'service-peering.example.com'.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesValidate
+ */
++ (instancetype)queryWithObject:(GTLRServiceNetworking_ValidateConsumerConfigRequest *)object
                          parent:(NSString *)parent;
 
 @end

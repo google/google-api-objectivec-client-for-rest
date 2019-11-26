@@ -12,16 +12,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigQueryReservation_CreateCapacityCommitmentMetadata
-//
-
-@implementation GTLRBigQueryReservation_CreateCapacityCommitmentMetadata
-@dynamic capacityCommitment;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBigQueryReservation_Empty
 //
 

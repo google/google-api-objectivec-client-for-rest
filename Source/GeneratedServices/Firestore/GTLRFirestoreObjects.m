@@ -20,9 +20,11 @@ NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUnspecified = @"OPERA
 
 // GTLRFirestore_FieldFilter.op
 NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContains   = @"ARRAY_CONTAINS";
+NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContainsAny = @"ARRAY_CONTAINS_ANY";
 NSString * const kGTLRFirestore_FieldFilter_Op_Equal           = @"EQUAL";
 NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThan     = @"GREATER_THAN";
 NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual = @"GREATER_THAN_OR_EQUAL";
+NSString * const kGTLRFirestore_FieldFilter_Op_In              = @"IN";
 NSString * const kGTLRFirestore_FieldFilter_Op_LessThan        = @"LESS_THAN";
 NSString * const kGTLRFirestore_FieldFilter_Op_LessThanOrEqual = @"LESS_THAN_OR_EQUAL";
 NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";

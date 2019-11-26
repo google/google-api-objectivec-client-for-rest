@@ -965,8 +965,8 @@
 @dynamic billingId, configId, configName, creativeType, dimensions,
          excludedContentLabels, excludedGeoCriteriaIds, excludedPlacements,
          excludedUserLists, excludedVerticals, geoCriteriaIds, isActive, kind,
-         languages, minimumViewabilityDecile, mobileCarriers, mobileDevices,
-         mobileOperatingSystemVersions, placements, platforms,
+         languages, maximumQps, minimumViewabilityDecile, mobileCarriers,
+         mobileDevices, mobileOperatingSystemVersions, placements, platforms,
          supportedCreativeAttributes, userIdentifierDataRequired, userLists,
          vendorTypes, verticals, videoPlayerSizes;
 

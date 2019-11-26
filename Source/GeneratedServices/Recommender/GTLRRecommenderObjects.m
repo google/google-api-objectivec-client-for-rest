@@ -14,6 +14,7 @@
 // GTLRRecommender_GoogleCloudRecommenderV1beta1Impact.category
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_CategoryUnspecified = @"CATEGORY_UNSPECIFIED";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Cost = @"COST";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Manageability = @"MANAGEABILITY";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Performance = @"PERFORMANCE";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Security = @"SECURITY";
 

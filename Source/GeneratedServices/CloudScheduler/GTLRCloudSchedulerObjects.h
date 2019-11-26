@@ -868,7 +868,10 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  */
 @interface GTLRCloudScheduler_PubsubMessage : GTLRObject
 
-/** Optional attributes for this message. */
+/**
+ *  Attributes for this message. If this field is empty, the message must
+ *  contain non-empty data.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudScheduler_PubsubMessage_Attributes *attributes;
 
 /**
@@ -899,7 +902,8 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 
 /**
- *  Optional attributes for this message.
+ *  Attributes for this message. If this field is empty, the message must
+ *  contain non-empty data.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

@@ -123,6 +123,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog;
 @class GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToPubSub;
+@class GTLRDLP_GooglePrivacyDlpV2PublishToStackdriver;
 @class GTLRDLP_GooglePrivacyDlpV2QuasiId;
 @class GTLRDLP_GooglePrivacyDlpV2QuasiIdentifierField;
 @class GTLRDLP_GooglePrivacyDlpV2QuasiIdField;
@@ -817,7 +818,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExt
 /** Value: "TIME_PART_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_TimePartUnspecified;
 /**
- *  [1-52]
+ *  [1-53]
  *
  *  Value: "WEEK_OF_YEAR"
  */
@@ -898,6 +899,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /** Publish summary to Cloud Security Command Center (Alpha). */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc *publishSummaryToCscc;
+
+/** Enable Stackdriver metric dlp.googleapis.com/finding_count. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToStackdriver *publishToStackdriver;
 
 /** Publish a notification to a pubsub topic. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToPubSub *pubSub;
@@ -1285,17 +1289,18 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2CharacterMaskConfig : GTLRObject
 
 /**
- *  When masking a string, items in this list will be skipped when replacing.
- *  For example, if your string is 555-555-5555 and you ask us to skip `-` and
- *  mask 5 chars with * we would produce ***-*55-5555.
+ *  When masking a string, items in this list will be skipped when replacing
+ *  characters. For example, if the input string is `555-555-5555` and you
+ *  instruct Cloud DLP to skip `-` and mask 5 characters with `*`, Cloud DLP
+ *  returns `***-**5-5555`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2CharsToIgnore *> *charactersToIgnore;
 
 /**
- *  Character to mask the sensitive values&mdash;for example, "*" for an
- *  alphabetic string such as name, or "0" for a numeric string such as ZIP
- *  code or credit card number. String must have length 1. If not supplied, we
- *  will default to "*" for strings, 0 for digits.
+ *  Character to use to mask the sensitive values&mdash;for example, `*` for an
+ *  alphabetic string such as a name, or `0` for a numeric string such as ZIP
+ *  code or credit card number. This string must have a length of 1. If not
+ *  supplied, this value defaults to `*` for strings, and `0` for digits.
  */
 @property(nonatomic, copy, nullable) NSString *maskingCharacter;
 
@@ -1309,10 +1314,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Mask characters in reverse order. For example, if `masking_character` is
- *  '0', number_to_mask is 14, and `reverse_order` is false, then
- *  1234-5678-9012-3456 -> 00000000000000-3456
- *  If `masking_character` is '*', `number_to_mask` is 3, and `reverse_order`
- *  is true, then 12345 -> 12***
+ *  `0`, `number_to_mask` is `14`, and `reverse_order` is `false`, then the
+ *  input string `1234-5678-9012-3456` is masked as `00000000000000-3456`.
+ *  If `masking_character` is `*`, `number_to_mask` is `3`, and `reverse_order`
+ *  is `true`, then the string `12345` is masked as `12***`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1675,6 +1680,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate *deidentifyTemplate;
 
 /**
+ *  The geographic location to store the deidentification template. Reserved
+ *  for future extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
  *  The template id can contain uppercase and lowercase letters,
  *  numbers, and hyphens; that is, it must match the regular
  *  expression: `[a-zA-Z\\\\d-_]+`. The maximum length is 100
@@ -1702,6 +1713,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
+/**
+ *  The geographic location to store and process the job. Reserved for
+ *  future extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RiskAnalysisJobConfig *riskJob;
 
 @end
@@ -1714,6 +1731,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /** The InspectTemplate to create. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectTemplate *inspectTemplate;
+
+/**
+ *  The geographic location to store the inspection template. Reserved for
+ *  future extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
  *  The template id can contain uppercase and lowercase letters,
@@ -1735,6 +1758,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2JobTrigger *jobTrigger;
 
 /**
+ *  The geographic location to store the job trigger. Reserved for
+ *  future extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
  *  The trigger id can contain uppercase and lowercase letters,
  *  numbers, and hyphens; that is, it must match the regular
  *  expression: `[a-zA-Z\\\\d-_]+`. The maximum length is 100
@@ -1752,6 +1781,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /** Configuration of the storedInfoType to create. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig *config;
+
+/**
+ *  The geographic location to store the stored infoType. Reserved for
+ *  future extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
  *  The storedInfoType ID can contain uppercase and lowercase letters,
@@ -1919,14 +1954,14 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  that the FFX mode natively supports. This happens before/after
  *  encryption/decryption.
  *  Each character listed must appear only once.
- *  Number of characters must be in the range [2, 62].
+ *  Number of characters must be in the range [2, 95].
  *  This must be encoded as ASCII.
  *  The order of characters does not matter.
  */
 @property(nonatomic, copy, nullable) NSString *customAlphabet;
 
 /**
- *  The native way to select the alphabet. Must be in the range [2, 62].
+ *  The native way to select the alphabet. Must be in the range [2, 95].
  *
  *  Uses NSNumber of intValue.
  */
@@ -2078,14 +2113,15 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Points to the field that contains the context, for example, an entity id.
- *  If set, must also set method. If set, shift will be consistent for the
+ *  If set, must also set cryptoKey. If set, shift will be consistent for the
  *  given context.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *context;
 
 /**
  *  Causes the shift to be computed based on this key and the context. This
- *  results in the same shift for the same context and crypto_key.
+ *  results in the same shift for the same context and crypto_key. If
+ *  set, must also set context. Can only be applied to table items.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoKey *cryptoKey;
 
@@ -2217,7 +2253,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  The geographic location to process de-identification. Reserved for future
  *  extensions.
  */
-@property(nonatomic, copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *locationId;
 
 @end
 
@@ -2237,12 +2273,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  The DeidentifyTemplates contains instructions on how to deidentify content.
+ *  DeidentifyTemplates contains instructions on how to de-identify content.
  *  See https://cloud.google.com/dlp/docs/concepts-templates to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate : GTLRObject
 
-/** The creation timestamp of a inspectTemplate, output only field. */
+/** The creation timestamp of an inspectTemplate, output only field. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** ///////////// // The core content of the template // /////////////// */
@@ -2266,7 +2302,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The last update timestamp of a inspectTemplate, output only field. */
+/** The last update timestamp of an inspectTemplate, output only field. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -3147,7 +3183,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  The geographic location to process content inspection. Reserved for future
  *  extensions.
  */
-@property(nonatomic, copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *locationId;
 
 @end
 
@@ -3265,7 +3301,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InspectTemplate : GTLRObject
 
-/** The creation timestamp of a inspectTemplate, output only field. */
+/** The creation timestamp of an inspectTemplate, output only field. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -3291,7 +3327,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The last update timestamp of a inspectTemplate, output only field. */
+/** The last update timestamp of an inspectTemplate, output only field. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -4288,6 +4324,16 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  Enable Stackdriver metric dlp.googleapis.com/finding_count. This
+ *  will publish a metric to stack driver on each infotype requested and
+ *  how many findings were found for it. CustomDetectors will be bucketed
+ *  as 'Custom' under the Stackdriver label 'info_type'.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PublishToStackdriver : GTLRObject
+@end
+
+
+/**
  *  A column with a semantic tag attached.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2QuasiId : GTLRObject
@@ -4488,6 +4534,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /** Configuration for the inspector. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
 
+/**
+ *  The geographic location to process the request. Reserved for future
+ *  extensions.
+ */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
 @end
 
 
@@ -4564,7 +4616,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  The geographic location to process content reidentification. Reserved for
  *  future extensions.
  */
-@property(nonatomic, copy, nullable) NSString *location;
+@property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
  *  Configuration for the re-identification of the content item.
@@ -4798,7 +4850,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Configuration for a StoredInfoType.
+ *  Configuration for stored infoT types. All fields and subfield are provided
+ *  by the user. For more information, see
+ *  https://cloud.google.com/dlp/docs/creating-custom-infotypes.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig : GTLRObject
 
@@ -5040,7 +5094,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_TimePartUnspecified
  *        Value "TIME_PART_UNSPECIFIED"
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_WeekOfYear
- *        [1-52] (Value: "WEEK_OF_YEAR")
+ *        [1-53] (Value: "WEEK_OF_YEAR")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_Year
  *        [0-9999] (Value: "YEAR")
  */

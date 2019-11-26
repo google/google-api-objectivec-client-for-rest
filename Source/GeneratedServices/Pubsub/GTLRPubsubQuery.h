@@ -82,13 +82,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSnapshotsCreateWithObject:name:]
 
 /**
- *  Optional user-provided name for this snapshot.
- *  If the name is not provided in the request, the server will assign a random
- *  name for this snapshot on the same project as the subscription.
- *  Note that for REST API requests, you must specify a name. See the
- *  <a href="https://cloud.google.com/pubsub/docs/admin#resource_names">
- *  resource name rules</a>.
- *  Format is `projects/{project}/snapshots/{snap}`.
+ *  User-provided name for this snapshot. If the name is not provided in the
+ *  request, the server will assign a random name for this snapshot on the same
+ *  project as the subscription. Note that for REST API requests, you must
+ *  specify a name. See the
+ *  <a 
+ href="https://cloud.google.com/pubsub/docs/admin#resource_names">
+ *  resource
+ *  name rules</a>. Format is `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -116,14 +117,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRPubsub_CreateSnapshotRequest to include in the
  *    query.
- *  @param name Optional user-provided name for this snapshot.
- *    If the name is not provided in the request, the server will assign a
- *    random
- *    name for this snapshot on the same project as the subscription.
- *    Note that for REST API requests, you must specify a name. See the
- *    <a href="https://cloud.google.com/pubsub/docs/admin#resource_names">
- *    resource name rules</a>.
- *    Format is `projects/{project}/snapshots/{snap}`.
+ *  @param name User-provided name for this snapshot. If the name is not
+ *    provided in the
+ *    request, the server will assign a random name for this snapshot on the
+ *    same
+ *    project as the subscription. Note that for REST API requests, you must
+ *    specify a name. See the
+ *    <a 
+ href="https://cloud.google.com/pubsub/docs/admin#resource_names">
+ *    resource
+ *    name rules</a>. Format is `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsCreate
  */

@@ -22,6 +22,7 @@
 @class GTLRAndroidPublisher_ApkBinary;
 @class GTLRAndroidPublisher_Bundle;
 @class GTLRAndroidPublisher_Comment;
+@class GTLRAndroidPublisher_Control;
 @class GTLRAndroidPublisher_CountryTargeting;
 @class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
@@ -37,6 +38,8 @@
 @class GTLRAndroidPublisher_IntroductoryPriceInfo;
 @class GTLRAndroidPublisher_Listing;
 @class GTLRAndroidPublisher_LocalizedText;
+@class GTLRAndroidPublisher_MendelSampling;
+@class GTLRAndroidPublisher_ModRange;
 @class GTLRAndroidPublisher_MonthDay;
 @class GTLRAndroidPublisher_PageInfo;
 @class GTLRAndroidPublisher_Price;
@@ -233,6 +236,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** A comment from a user. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_UserComment *userComment;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_Control
+ */
+@interface GTLRAndroidPublisher_Control : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ModRange *> *modRanges;
+
+/**
+ *  versionCodes
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *versionCodes;
 
 @end
 
@@ -787,6 +807,52 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The text in the given `language`. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_MendelSampling
+ */
+@interface GTLRAndroidPublisher_MendelSampling : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ModRange *> *modRanges;
+
+/**
+ *  modulus
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *modulus;
+
+/**
+ *  salt
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *salt;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_ModRange
+ */
+@interface GTLRAndroidPublisher_ModRange : GTLRObject
+
+/**
+ *  end
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *end;
+
+/**
+ *  start
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *start;
 
 @end
 
@@ -1445,6 +1511,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidPublisher_TrackRelease : GTLRObject
 
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Control *> *controls;
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_CountryTargeting *countryTargeting;
 
 /**
@@ -1456,6 +1523,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The description of what is new in the app in this release. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_LocalizedText *> *releaseNotes;
+
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_MendelSampling *sampling;
 
 /** The desired status of this release. */
 @property(nonatomic, copy, nullable) NSString *status;

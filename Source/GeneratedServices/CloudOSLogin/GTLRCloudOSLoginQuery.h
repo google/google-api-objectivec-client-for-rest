@@ -201,7 +201,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudOSLogin queryForUsersSshPublicKeysGetWithname:]
 
 /**
- *  The fingerprint of the public key to retrieve. Public keys are identified
+ *  Required. The fingerprint of the public key to retrieve. Public keys are
+ *  identified
  *  by their SHA-256 fingerprint. The fingerprint of the public key is in
  *  format `users/{user}/sshPublicKeys/{fingerprint}`.
  */
@@ -212,8 +213,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieves an SSH public key.
  *
- *  @param name The fingerprint of the public key to retrieve. Public keys are
- *    identified
+ *  @param name Required. The fingerprint of the public key to retrieve. Public
+ *    keys are identified
  *    by their SHA-256 fingerprint. The fingerprint of the public key is in
  *    format `users/{user}/sshPublicKeys/{fingerprint}`.
  *

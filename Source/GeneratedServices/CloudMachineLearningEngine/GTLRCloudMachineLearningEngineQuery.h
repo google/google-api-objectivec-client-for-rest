@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Machine Learning Engine (ml/v1)
+//   AI Platform Training & Prediction API (ml/v1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:
@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1CancelJobRequest;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplainRequest;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictRequest;
@@ -41,6 +42,49 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Performs explanation on the data in the request.
+ *  AI Platform implements a custom `explain` verb on top of an HTTP POST
+ *  method. <p>For details of the request and response format, see the **guide
+ *  to the [explain request format](/ml-engine/docs/v1/explain-request)**.
+ *
+ *  Method: ml.projects.explain
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_ProjectsExplain : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForProjectsExplainWithObject:name:]
+
+/**
+ *  Required. The resource name of a model or a version.
+ *  Authorization: requires the `predict` permission on the specified resource.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleApiHttpBody.
+ *
+ *  Performs explanation on the data in the request.
+ *  AI Platform implements a custom `explain` verb on top of an HTTP POST
+ *  method. <p>For details of the request and response format, see the **guide
+ *  to the [explain request format](/ml-engine/docs/v1/explain-request)**.
+ *
+ *  @param object The @c
+ *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplainRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of a model or a version.
+ *    Authorization: requires the `predict` permission on the specified
+ *    resource.
+ *
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsExplain
+ */
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplainRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1068,11 +1112,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  For example, to change the description of a version to "foo", the
  *  `update_mask` parameter would be specified as `description`, and the
  *  `PATCH` request body would specify the new value, as follows:
+ *  ```
  *  {
  *  "description": "foo"
  *  }
- *  Currently the only supported update mask fields are `description` and
- *  `autoScaling.minNodes`.
+ *  ```
+ *  Currently the only supported update mask fields are `description`,
+ *  `autoScaling.minNodes`, and `manualScaling.nodes`. However, you can only
+ *  update `manualScaling.nodes` if the version uses a [Compute Engine (N1)
+ *  machine type](/ml-engine/docs/machine-types-online-prediction).
  *
  *  String format is a comma-separated list of fields.
  */

@@ -198,7 +198,8 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Unar
 @property(nonatomic, copy, nullable) NSString *dockerImage;
 
 /**
- *  Output only. The environment's identifier, which is always "default".
+ *  Output only. The environment's identifier, unique among the user's
+ *  environments.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -289,6 +290,14 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Unar
  *  connections with the environment.
  */
 @property(nonatomic, copy, nullable) NSString *webHost;
+
+/**
+ *  Output only. Ports to which clients can connect to initiate HTTPS or WSS
+ *  connections with the environment.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *webPorts;
 
 @end
 

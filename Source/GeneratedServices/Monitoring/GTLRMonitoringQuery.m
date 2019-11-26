@@ -58,8 +58,10 @@ NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignStddev = @"ALIGN
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignSum = @"ALIGN_SUM";
 
 // view
-NSString * const kGTLRMonitoringViewFull    = @"FULL";
-NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
+NSString * const kGTLRMonitoringViewExplicit        = @"EXPLICIT";
+NSString * const kGTLRMonitoringViewFull            = @"FULL";
+NSString * const kGTLRMonitoringViewHeaders         = @"HEADERS";
+NSString * const kGTLRMonitoringViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -846,6 +848,220 @@ NSString * const kGTLRMonitoringViewHeaders = @"HEADERS";
   query.name = name;
   query.expectedObjectClass = [GTLRMonitoring_UptimeCheckConfig class];
   query.loggingName = @"monitoring.projects.uptimeCheckConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ServicesCreate
+
+@dynamic parent, serviceId;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_Service *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/services";
+  GTLRMonitoringQuery_ServicesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMonitoring_Service class];
+  query.loggingName = @"monitoring.services.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ServicesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ServicesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Empty class];
+  query.loggingName = @"monitoring.services.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ServicesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ServicesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Service class];
+  query.loggingName = @"monitoring.services.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ServicesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/services";
+  GTLRMonitoringQuery_ServicesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMonitoring_ListServicesResponse class];
+  query.loggingName = @"monitoring.services.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ServicesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_Service *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ServicesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Service class];
+  query.loggingName = @"monitoring.services.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ServicesServiceLevelObjectivesCreate
+
+@dynamic parent, serviceLevelObjectiveId;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_ServiceLevelObjective *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/serviceLevelObjectives";
+  GTLRMonitoringQuery_ServicesServiceLevelObjectivesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMonitoring_ServiceLevelObjective class];
+  query.loggingName = @"monitoring.services.serviceLevelObjectives.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ServicesServiceLevelObjectivesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ServicesServiceLevelObjectivesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Empty class];
+  query.loggingName = @"monitoring.services.serviceLevelObjectives.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ServicesServiceLevelObjectivesGet
+
+@dynamic name, view;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ServicesServiceLevelObjectivesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_ServiceLevelObjective class];
+  query.loggingName = @"monitoring.services.serviceLevelObjectives.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ServicesServiceLevelObjectivesList
+
+@dynamic filter, pageSize, pageToken, parent, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/serviceLevelObjectives";
+  GTLRMonitoringQuery_ServicesServiceLevelObjectivesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMonitoring_ListServiceLevelObjectivesResponse class];
+  query.loggingName = @"monitoring.services.serviceLevelObjectives.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ServicesServiceLevelObjectivesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_ServiceLevelObjective *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ServicesServiceLevelObjectivesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_ServiceLevelObjective class];
+  query.loggingName = @"monitoring.services.serviceLevelObjectives.patch";
   return query;
 }
 

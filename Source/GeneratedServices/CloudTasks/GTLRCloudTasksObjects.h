@@ -25,9 +25,13 @@
 @class GTLRCloudTasks_Binding;
 @class GTLRCloudTasks_Expr;
 @class GTLRCloudTasks_GetPolicyOptions;
+@class GTLRCloudTasks_HttpRequest;
+@class GTLRCloudTasks_HttpRequest_Headers;
 @class GTLRCloudTasks_Location;
 @class GTLRCloudTasks_Location_Labels;
 @class GTLRCloudTasks_Location_Metadata;
+@class GTLRCloudTasks_OAuthToken;
+@class GTLRCloudTasks_OidcToken;
 @class GTLRCloudTasks_Policy;
 @class GTLRCloudTasks_Queue;
 @class GTLRCloudTasks_RateLimits;
@@ -128,6 +132,58 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_Full
  *  Value: "VIEW_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_ViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudTasks_HttpRequest.httpMethod
+
+/**
+ *  HTTP DELETE
+ *
+ *  Value: "DELETE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Delete;
+/**
+ *  HTTP GET
+ *
+ *  Value: "GET"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Get;
+/**
+ *  HTTP HEAD
+ *
+ *  Value: "HEAD"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Head;
+/**
+ *  HTTP method unspecified
+ *
+ *  Value: "HTTP_METHOD_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_HttpMethodUnspecified;
+/**
+ *  HTTP OPTIONS
+ *
+ *  Value: "OPTIONS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Options;
+/**
+ *  HTTP PATCH
+ *
+ *  Value: "PATCH"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Patch;
+/**
+ *  HTTP POST
+ *
+ *  Value: "POST"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Post;
+/**
+ *  HTTP PUT
+ *
+ *  Value: "PUT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Put;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTasks_Queue.state
@@ -756,6 +812,157 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 
 /**
+ *  HTTP request.
+ *  The task will be pushed to the worker as an HTTP request. If the worker
+ *  or the redirected worker acknowledges the task by returning a successful
+ *  HTTP
+ *  response code ([`200` - `299`]), the task will removed from the queue. If
+ *  any other HTTP response code is returned or no response is received, the
+ *  task will be retried according to the following:
+ *  * User-specified throttling: retry configuration,
+ *  rate limits, and the queue's state.
+ *  * System throttling: To prevent the worker from overloading, Cloud Tasks may
+ *  temporarily reduce the queue's effective rate. User-specified settings
+ *  will not be changed.
+ *  System throttling happens because:
+ *  * Cloud Tasks backs off on all errors. Normally the backoff specified in
+ *  rate limits will be used. But if the worker returns
+ *  `429` (Too Many Requests), `503` (Service Unavailable), or the rate of
+ *  errors is high, Cloud Tasks will use a higher backoff rate. The retry
+ *  specified in the `Retry-After` HTTP response header is considered.
+ *  * To prevent traffic spikes and to smooth sudden large traffic spikes,
+ *  dispatches ramp up slowly when the queue is newly created or idle and
+ *  if large numbers of tasks suddenly become available to dispatch (due to
+ *  spikes in create task rates, the queue being unpaused, or many tasks
+ *  that are scheduled at the same time).
+ */
+@interface GTLRCloudTasks_HttpRequest : GTLRObject
+
+/**
+ *  HTTP request body.
+ *  A request body is allowed only if the
+ *  HTTP method is POST, PUT, or PATCH. It is an
+ *  error to set body on a task with an incompatible HttpMethod.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *body;
+
+/**
+ *  HTTP request headers.
+ *  This map contains the header field names and values.
+ *  Headers can be set when the
+ *  task is created.
+ *  These headers represent a subset of the headers that will accompany the
+ *  task's HTTP request. Some HTTP request headers will be ignored or replaced.
+ *  A partial list of headers that will be ignored or replaced is:
+ *  * Host: This will be computed by Cloud Tasks and derived from
+ *  HttpRequest.url.
+ *  * Content-Length: This will be computed by Cloud Tasks.
+ *  * User-Agent: This will be set to `"Google-Cloud-Tasks"`.
+ *  * X-Google-*: Google use only.
+ *  * X-AppEngine-*: Google use only.
+ *  `Content-Type` won't be set by Cloud Tasks. You can explicitly set
+ *  `Content-Type` to a media type when the
+ *  task is created.
+ *  For example, `Content-Type` can be set to `"application/octet-stream"` or
+ *  `"application/json"`.
+ *  Headers which can have multiple values (according to RFC2616) can be
+ *  specified using comma-separated values.
+ *  The size of the headers must be less than 80KB.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_HttpRequest_Headers *headers;
+
+/**
+ *  The HTTP method to use for the request. The default is POST.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTasks_HttpRequest_HttpMethod_Delete HTTP DELETE (Value:
+ *        "DELETE")
+ *    @arg @c kGTLRCloudTasks_HttpRequest_HttpMethod_Get HTTP GET (Value: "GET")
+ *    @arg @c kGTLRCloudTasks_HttpRequest_HttpMethod_Head HTTP HEAD (Value:
+ *        "HEAD")
+ *    @arg @c kGTLRCloudTasks_HttpRequest_HttpMethod_HttpMethodUnspecified HTTP
+ *        method unspecified (Value: "HTTP_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTasks_HttpRequest_HttpMethod_Options HTTP OPTIONS
+ *        (Value: "OPTIONS")
+ *    @arg @c kGTLRCloudTasks_HttpRequest_HttpMethod_Patch HTTP PATCH (Value:
+ *        "PATCH")
+ *    @arg @c kGTLRCloudTasks_HttpRequest_HttpMethod_Post HTTP POST (Value:
+ *        "POST")
+ *    @arg @c kGTLRCloudTasks_HttpRequest_HttpMethod_Put HTTP PUT (Value: "PUT")
+ */
+@property(nonatomic, copy, nullable) NSString *httpMethod;
+
+/**
+ *  If specified, an
+ *  [OAuth token](https://developers.google.com/identity/protocols/OAuth2)
+ *  will be generated and attached as an `Authorization` header in the HTTP
+ *  request.
+ *  This type of authorization should generally only be used when calling
+ *  Google APIs hosted on *.googleapis.com.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_OAuthToken *oauthToken;
+
+/**
+ *  If specified, an
+ *  [OIDC](https://developers.google.com/identity/protocols/OpenIDConnect)
+ *  token will be generated and attached as an `Authorization` header in the
+ *  HTTP request.
+ *  This type of authorization can be used for many scenarios, including
+ *  calling Cloud Run, or endpoints where you intend to validate the token
+ *  yourself.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_OidcToken *oidcToken;
+
+/**
+ *  Required. The full url path that the request will be sent to.
+ *  This string must begin with either "http://" or "https://". Some examples
+ *  are: `http://acme.com` and `https://acme.com/sales:8080`. Cloud Tasks will
+ *  encode some characters for safety and compatibility. The maximum allowed
+ *  URL length is 2083 characters after encoding.
+ *  The `Location` header response from a redirect response [`300` - `399`]
+ *  may be followed. The redirect is not counted as a separate attempt.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  HTTP request headers.
+ *  This map contains the header field names and values.
+ *  Headers can be set when the
+ *  task is created.
+ *  These headers represent a subset of the headers that will accompany the
+ *  task's HTTP request. Some HTTP request headers will be ignored or replaced.
+ *  A partial list of headers that will be ignored or replaced is:
+ *  * Host: This will be computed by Cloud Tasks and derived from
+ *  HttpRequest.url.
+ *  * Content-Length: This will be computed by Cloud Tasks.
+ *  * User-Agent: This will be set to `"Google-Cloud-Tasks"`.
+ *  * X-Google-*: Google use only.
+ *  * X-AppEngine-*: Google use only.
+ *  `Content-Type` won't be set by Cloud Tasks. You can explicitly set
+ *  `Content-Type` to a media type when the
+ *  task is created.
+ *  For example, `Content-Type` can be set to `"application/octet-stream"` or
+ *  `"application/json"`.
+ *  Headers which can have multiple values (according to RFC2616) can be
+ *  specified using comma-separated values.
+ *  The size of the headers must be less than 80KB.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudTasks_HttpRequest_Headers : GTLRObject
+@end
+
+
+/**
  *  The response message for Locations.ListLocations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -902,6 +1109,61 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 
 /**
+ *  Contains information needed for generating an
+ *  [OAuth token](https://developers.google.com/identity/protocols/OAuth2).
+ *  This type of authorization should generally only be used when calling Google
+ *  APIs hosted on *.googleapis.com.
+ */
+@interface GTLRCloudTasks_OAuthToken : GTLRObject
+
+/**
+ *  OAuth scope to be used for generating OAuth access token.
+ *  If not specified, "https://www.googleapis.com/auth/cloud-platform"
+ *  will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  [Service account email](https://cloud.google.com/iam/docs/service-accounts)
+ *  to be used for generating OAuth token.
+ *  The service account must be within the same project as the queue. The
+ *  caller must have iam.serviceAccounts.actAs permission for the service
+ *  account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+@end
+
+
+/**
+ *  Contains information needed for generating an
+ *  [OpenID Connect
+ *  token](https://developers.google.com/identity/protocols/OpenIDConnect).
+ *  This type of authorization can be used for many scenarios, including
+ *  calling Cloud Run, or endpoints where you intend to validate the token
+ *  yourself.
+ */
+@interface GTLRCloudTasks_OidcToken : GTLRObject
+
+/**
+ *  Audience to be used when generating OIDC token. If not specified, the URI
+ *  specified in target will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *audience;
+
+/**
+ *  [Service account email](https://cloud.google.com/iam/docs/service-accounts)
+ *  to be used for generating OIDC token.
+ *  The service account must be within the same project as the queue. The
+ *  caller must have iam.serviceAccounts.actAs permission for the service
+ *  account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+@end
+
+
+/**
  *  Request message for PauseQueue.
  */
 @interface GTLRCloudTasks_PauseQueueRequest : GTLRObject
@@ -980,8 +1242,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
  *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
- *  'setIamPolicy' will not fail even if either of incoming or stored policy
- *  does not meet the version requirements.
+ *  'setIamPolicy' will not fail even if the incoming policy version does not
+ *  meet the requirements for modifying the stored policy.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -994,11 +1256,12 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  rejected.
  *  Operations affecting conditional bindings must specify version 3. This can
  *  be either setting a conditional policy, modifying a conditional binding,
- *  or removing a conditional binding from the stored conditional policy.
+ *  or removing a binding (conditional or unconditional) from the stored
+ *  conditional policy.
  *  Operations on non-conditional policies may specify any valid value or
  *  leave the field unset.
- *  If no etag is provided in the call to `setIamPolicy`, any version
- *  compliance checks on the incoming and/or stored policy is skipped.
+ *  If no etag is provided in the call to `setIamPolicy`, version compliance
+ *  checks against the stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1026,6 +1289,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  task-level app_engine_routing.
  *  These settings apply only to
  *  App Engine tasks in this queue.
+ *  Http tasks are not affected.
  *  If set, `app_engine_routing_override` is used for all
  *  App Engine tasks in the queue, no matter what the
  *  setting is for the
@@ -1463,6 +1727,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  worker. For example, if the worker is stuck, it may not react to cancelled
  *  requests.
  *  The default and maximum values depend on the type of request:
+ *  * For HTTP tasks, the default is 10 minutes. The deadline
+ *  must be in the interval [15 seconds, 30 minutes].
  *  * For App Engine tasks, 0 indicates that the
  *  request has the default deadline. The default deadline depends on the
  *  [scaling
@@ -1487,6 +1753,12 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  The other Attempt information is not retained by Cloud Tasks.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_Attempt *firstAttempt;
+
+/**
+ *  HTTP request that is sent to the worker.
+ *  An HTTP task is a task that has HttpRequest set.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_HttpRequest *httpRequest;
 
 /** Output only. The status of the task's last attempt. */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_Attempt *lastAttempt;

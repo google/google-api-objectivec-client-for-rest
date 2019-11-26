@@ -176,6 +176,7 @@
 @class GTLRVision_GoogleCloudVisionV1p4beta1AsyncAnnotateFileResponse;
 @class GTLRVision_GoogleCloudVisionV1p4beta1Block;
 @class GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly;
+@class GTLRVision_GoogleCloudVisionV1p4beta1Celebrity;
 @class GTLRVision_GoogleCloudVisionV1p4beta1ColorInfo;
 @class GTLRVision_GoogleCloudVisionV1p4beta1CropHint;
 @class GTLRVision_GoogleCloudVisionV1p4beta1CropHintsAnnotation;
@@ -183,6 +184,7 @@
 @class GTLRVision_GoogleCloudVisionV1p4beta1EntityAnnotation;
 @class GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation;
 @class GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark;
+@class GTLRVision_GoogleCloudVisionV1p4beta1FaceRecognitionResult;
 @class GTLRVision_GoogleCloudVisionV1p4beta1GcsDestination;
 @class GTLRVision_GoogleCloudVisionV1p4beta1GcsSource;
 @class GTLRVision_GoogleCloudVisionV1p4beta1ImageAnnotationContext;
@@ -10886,6 +10888,30 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 
 
 /**
+ *  A Celebrity is a group of Faces with an identity.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1Celebrity : GTLRObject
+
+/**
+ *  The Celebrity's description.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The Celebrity's display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The resource name of the preloaded Celebrity. Has the format
+ *  `builtin/{mid}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Color information consists of RGB channels, score, and the fraction of
  *  the image that the color occupies in the image.
  */
@@ -11170,6 +11196,14 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
 @property(nonatomic, strong, nullable) NSNumber *panAngle;
 
 /**
+ *  Additional recognition information. Only computed if
+ *  image_context.face_recognition_params is provided, **and** a match is found
+ *  to a Celebrity in the input CelebritySet. This field is
+ *  sorted in order of decreasing confidence values.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1FaceRecognitionResult *> *recognitionResult;
+
+/**
  *  Roll angle, which indicates the amount of clockwise/anti-clockwise rotation
  *  of the face relative to the image vertical about the axis perpendicular to
  *  the face. Range [-180,180].
@@ -11331,6 +11365,24 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlik
  *        Upper lip. (Value: "UPPER_LIP")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Information about a face's identity.
+ */
+@interface GTLRVision_GoogleCloudVisionV1p4beta1FaceRecognitionResult : GTLRObject
+
+/** The Celebrity that this face was matched to. */
+@property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1Celebrity *celebrity;
+
+/**
+ *  Recognition confidence. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
 
 @end
 
