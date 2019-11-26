@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.3)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.4)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -2398,6 +2398,31 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @end
 
+@implementation GTLRDfareportingQuery_CustomEventsBatchinsert
+
+@dynamic profileId;
+
++ (instancetype)queryWithObject:(GTLRDfareporting_CustomEventsBatchInsertRequest *)object
+                      profileId:(long long)profileId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"profileId" ];
+  NSString *pathURITemplate = @"userprofiles/{profileId}/customEvents/batchinsert";
+  GTLRDfareportingQuery_CustomEventsBatchinsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.profileId = profileId;
+  query.expectedObjectClass = [GTLRDfareporting_CustomEventsBatchInsertResponse class];
+  query.loggingName = @"dfareporting.customEvents.batchinsert";
+  return query;
+}
+
+@end
+
 @implementation GTLRDfareportingQuery_DimensionValuesQuery
 
 @dynamic maxResults, pageToken, profileId;
@@ -4649,35 +4674,6 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   query.profileId = profileId;
   query.expectedObjectClass = [GTLRDfareporting_ReportList class];
   query.loggingName = @"dfareporting.reports.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRDfareportingQuery_ReportsPatch
-
-@dynamic profileId, reportId;
-
-+ (instancetype)queryWithObject:(GTLRDfareporting_Report *)object
-                      profileId:(long long)profileId
-                       reportId:(long long)reportId {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[
-    @"profileId", @"reportId"
-  ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/reports/{reportId}";
-  GTLRDfareportingQuery_ReportsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.profileId = profileId;
-  query.reportId = reportId;
-  query.expectedObjectClass = [GTLRDfareporting_Report class];
-  query.loggingName = @"dfareporting.reports.patch";
   return query;
 }
 

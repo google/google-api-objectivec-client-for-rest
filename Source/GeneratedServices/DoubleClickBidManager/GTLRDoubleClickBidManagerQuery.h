@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DoubleClick Bid Manager API (doubleclickbidmanager/v1)
+//   DoubleClick Bid Manager API (doubleclickbidmanager/v1.1)
 // Description:
 //   API for viewing and managing your reports in DoubleClick Bid Manager.
 // Documentation:
@@ -189,11 +189,24 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDoubleClickBidManager queryForQueriesListqueries]
 
 /**
+ *  Maximum number of results per page. Must be between 1 and 100. Defaults to
+ *  100 if unspecified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional pagination token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
  *  Fetches a @c GTLRDoubleClickBidManager_ListQueriesResponse.
  *
  *  Retrieves stored queries.
  *
  *  @return GTLRDoubleClickBidManagerQuery_QueriesListqueries
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)query;
 
@@ -243,6 +256,15 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDoubleClickBidManager queryForReportsListreportsWithqueryId:]
 
+/**
+ *  Maximum number of results per page. Must be between 1 and 100. Defaults to
+ *  100 if unspecified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional pagination token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
 /** Query ID with which the reports are associated. */
 @property(nonatomic, assign) long long queryId;
 
@@ -254,6 +276,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param queryId Query ID with which the reports are associated.
  *
  *  @return GTLRDoubleClickBidManagerQuery_ReportsListreports
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithQueryId:(long long)queryId;
 

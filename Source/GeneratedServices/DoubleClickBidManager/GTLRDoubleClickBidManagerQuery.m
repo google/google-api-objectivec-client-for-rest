@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DoubleClick Bid Manager API (doubleclickbidmanager/v1)
+//   DoubleClick Bid Manager API (doubleclickbidmanager/v1.1)
 // Description:
 //   API for viewing and managing your reports in DoubleClick Bid Manager.
 // Documentation:
@@ -117,6 +117,8 @@
 
 @implementation GTLRDoubleClickBidManagerQuery_QueriesListqueries
 
+@dynamic pageSize, pageToken;
+
 + (instancetype)query {
   NSString *pathURITemplate = @"queries";
   GTLRDoubleClickBidManagerQuery_QueriesListqueries *query =
@@ -156,7 +158,7 @@
 
 @implementation GTLRDoubleClickBidManagerQuery_ReportsListreports
 
-@dynamic queryId;
+@dynamic pageSize, pageToken, queryId;
 
 + (instancetype)queryWithQueryId:(long long)queryId {
   NSArray *pathParams = @[ @"queryId" ];

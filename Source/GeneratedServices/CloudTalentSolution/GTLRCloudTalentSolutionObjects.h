@@ -53,7 +53,11 @@
 @class GTLRCloudTalentSolution_Location;
 @class GTLRCloudTalentSolution_LocationFilter;
 @class GTLRCloudTalentSolution_MatchingJob;
+@class GTLRCloudTalentSolution_MendelDebugInput_NamespacedDebugInput;
 @class GTLRCloudTalentSolution_Money;
+@class GTLRCloudTalentSolution_NamespacedDebugInput;
+@class GTLRCloudTalentSolution_NamespacedDebugInput_ForcedFlags;
+@class GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts;
 @class GTLRCloudTalentSolution_NumericBucketingOption;
 @class GTLRCloudTalentSolution_NumericBucketingResult;
 @class GTLRCloudTalentSolution_PostalAddress;
@@ -3100,6 +3104,17 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
+/**
+ *  The language code of query. For example, "en-US". This field helps to
+ *  better interpret the query.
+ *  If a value isn't specified, the query language code is automatically
+ *  detected, which may not be accurate.
+ *  Language code should be in BCP-47 format, such as "en-US" or "sr-Latn".
+ *  For more information, see
+ *  [Tags for Identifying Languages](https://tools.ietf.org/html/bcp47).
+ */
+@property(nonatomic, copy, nullable) NSString *queryLanguageCode;
+
 @end
 
 
@@ -3376,6 +3391,48 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
 
 
 /**
+ *  Message representing input to a Mendel server for debug forcing.
+ *  See go/mendel-debug-forcing for more details.
+ *  Next ID: 2
+ */
+@interface GTLRCloudTalentSolution_MendelDebugInput : GTLRObject
+
+/**
+ *  When a request spans multiple servers, a MendelDebugInput may travel with
+ *  the request and take effect in all the servers. This field is a map of
+ *  namespaces to NamespacedMendelDebugInput protos. In a single server, up to
+ *  two NamespacedMendelDebugInput protos are applied:
+ *  1. NamespacedMendelDebugInput with the global namespace (key == "").
+ *  2. NamespacedMendelDebugInput with the server's namespace.
+ *  When both NamespacedMendelDebugInput protos are present, they are merged.
+ *  See go/mendel-debug-forcing for more details.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_MendelDebugInput_NamespacedDebugInput *namespacedDebugInput;
+
+@end
+
+
+/**
+ *  When a request spans multiple servers, a MendelDebugInput may travel with
+ *  the request and take effect in all the servers. This field is a map of
+ *  namespaces to NamespacedMendelDebugInput protos. In a single server, up to
+ *  two NamespacedMendelDebugInput protos are applied:
+ *  1. NamespacedMendelDebugInput with the global namespace (key == "").
+ *  2. NamespacedMendelDebugInput with the server's namespace.
+ *  When both NamespacedMendelDebugInput protos are present, they are merged.
+ *  See go/mendel-debug-forcing for more details.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudTalentSolution_NamespacedDebugInput. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudTalentSolution_MendelDebugInput_NamespacedDebugInput : GTLRObject
+@end
+
+
+/**
  *  Represents an amount of money with its currency type.
  */
 @interface GTLRCloudTalentSolution_Money : GTLRObject
@@ -3403,6 +3460,161 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMo
  */
 @property(nonatomic, strong, nullable) NSNumber *units;
 
+@end
+
+
+/**
+ *  Next ID: 15
+ */
+@interface GTLRCloudTalentSolution_NamespacedDebugInput : GTLRObject
+
+/**
+ *  Set of experiment names to be absolutely forced.
+ *  These experiments will be forced without evaluating the conditions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *absolutelyForcedExpNames;
+
+/**
+ *  Set of experiment ids to be absolutely forced.
+ *  These ids will be forced without evaluating the conditions.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *absolutelyForcedExps;
+
+/**
+ *  Set of experiment tags to be absolutely forced.
+ *  The experiments with these tags will be forced without evaluating the
+ *  conditions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *absolutelyForcedExpTags;
+
+/**
+ *  Set of experiment names to be conditionally forced.
+ *  These experiments will be forced only if their conditions and their
+ *  parent domain's conditions are true.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *conditionallyForcedExpNames;
+
+/**
+ *  Set of experiment ids to be conditionally forced.
+ *  These ids will be forced only if their conditions and their parent
+ *  domain's conditions are true.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *conditionallyForcedExps;
+
+/**
+ *  Set of experiment tags to be conditionally forced.
+ *  The experiments with these tags will be forced only if their conditions
+ *  and their parent domain's conditions are true.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *conditionallyForcedExpTags;
+
+/**
+ *  If true, disable automatic enrollment selection (at all diversion
+ *  points). Automatic enrollment selection means experiment selection
+ *  process based on the experiment's automatic enrollment condition. This
+ *  does not disable selection of forced experiments.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableAutomaticEnrollmentSelection;
+
+/**
+ *  Set of experiment names to be disabled.
+ *  If an experiment is disabled, it is never selected nor forced.
+ *  If an aggregate experiment is disabled, its partitions are disabled
+ *  together. If an experiment with an enrollment is disabled, the enrollment
+ *  is disabled together. If a name corresponds to a domain, the domain
+ *  itself and all descendant experiments and domains are disabled together.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *disableExpNames;
+
+/**
+ *  Set of experiment ids to be disabled.
+ *  If an experiment is disabled, it is never selected nor forced.
+ *  If an aggregate experiment is disabled, its partitions are disabled
+ *  together. If an experiment with an enrollment is disabled, the enrollment
+ *  is disabled together. If an ID corresponds to a domain, the domain itself
+ *  and all descendant experiments and domains are disabled together.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *disableExps;
+
+/**
+ *  Set of experiment tags to be disabled. All experiments that are tagged
+ *  with one or more of these tags are disabled.
+ *  If an experiment is disabled, it is never selected nor forced.
+ *  If an aggregate experiment is disabled, its partitions are disabled
+ *  together. If an experiment with an enrollment is disabled, the enrollment
+ *  is disabled together.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *disableExpTags;
+
+/**
+ *  If true, disable manual enrollment selection (at all diversion points).
+ *  Manual enrollment selection means experiment selection process based on
+ *  the request's manual enrollment states (a.k.a. opt-in experiments).
+ *  This does not disable selection of forced experiments.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableManualEnrollmentSelection;
+
+/**
+ *  If true, disable organic experiment selection (at all diversion points).
+ *  Organic selection means experiment selection process based on traffic
+ *  allocation and diversion condition evaluation.
+ *  This does not disable selection of forced experiments.
+ *  This is useful in cases when it is not known whether experiment selection
+ *  behavior is responsible for a error or breakage. Disabling organic
+ *  selection may help to isolate the cause of a given problem.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableOrganicSelection;
+
+/**
+ *  Flags to force in a particular experiment state.
+ *  Map from flag name to flag value.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_NamespacedDebugInput_ForcedFlags *forcedFlags;
+
+/**
+ *  Rollouts to force in a particular experiment state.
+ *  Map from rollout name to rollout value.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts *forcedRollouts;
+
+@end
+
+
+/**
+ *  Flags to force in a particular experiment state.
+ *  Map from flag name to flag value.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudTalentSolution_NamespacedDebugInput_ForcedFlags : GTLRObject
+@end
+
+
+/**
+ *  Rollouts to force in a particular experiment state.
+ *  Map from rollout name to rollout value.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of boolValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts : GTLRObject
 @end
 
 

@@ -941,16 +941,6 @@ GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForServicesRolloutsCreateWithObject:serviceName:]
 
 /**
- *  Unimplemented. Do not use this feature until this comment is removed.
- *  The rollout id that rollout to be created based on.
- *  Rollout should be constructed based on current successful rollout, this
- *  field indicates the current successful rollout id that new rollout based on
- *  to construct, if current successful rollout changed when server receives
- *  the request, request will be rejected for safety.
- */
-@property(nonatomic, copy, nullable) NSString *baseRolloutId;
-
-/**
  *  Required. The name of the service. See the
  *  [overview](/service-management/overview)
  *  for naming requirements. For example: `example.googleapis.com`.

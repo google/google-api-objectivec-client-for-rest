@@ -415,7 +415,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The Folder’s parent's resource name.
+ *  Required. The Folder’s parent's resource name.
  *  Updates to the folder's parent must be performed via
  *  MoveFolder.
  */
@@ -561,7 +561,6 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 /**
  *  A pagination token returned from a previous call to `ListFolders`
  *  that indicates from where listing should continue.
- *  This field is optional.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -574,7 +573,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 @interface GTLRCloudResourceManager_MoveFolderRequest : GTLRObject
 
 /**
- *  The resource name of the Folder or Organization to reparent
+ *  Required. The resource name of the Folder or Organization to reparent
  *  the folder under.
  *  Must be of the form `folders/{folder_id}` or `organizations/{org_id}`.
  */
@@ -803,17 +802,16 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 @interface GTLRCloudResourceManager_SearchFoldersRequest : GTLRObject
 
 /**
- *  The maximum number of folders to return in the response.
- *  This field is optional.
+ *  Optional. The maximum number of folders to return in the response.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  A pagination token returned from a previous call to `SearchFolders`
+ *  Optional. A pagination token returned from a previous call to
+ *  `SearchFolders`
  *  that indicates from where search should continue.
- *  This field is optional.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -865,7 +863,6 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 /**
  *  A pagination token returned from a previous call to `SearchFolders`
  *  that indicates from where searching should continue.
- *  This field is optional.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

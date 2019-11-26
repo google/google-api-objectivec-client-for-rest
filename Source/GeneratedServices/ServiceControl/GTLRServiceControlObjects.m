@@ -281,8 +281,9 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 //
 
 @implementation GTLRServiceControl_AuthenticationInfo
-@dynamic authoritySelector, principalEmail, serviceAccountDelegationInfo,
-         serviceAccountKeyName, thirdPartyPrincipal;
+@dynamic authoritySelector, principalEmail, principalSubject,
+         serviceAccountDelegationInfo, serviceAccountKeyName,
+         thirdPartyPrincipal;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -650,8 +651,8 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 
 @implementation GTLRServiceControl_Operation
 @dynamic consumerId, endTime, importance, labels, logEntries, metricValueSets,
-         operationId, operationName, quotaProperties, resourceContainer,
-         resources, startTime, userLabels;
+         operationId, operationName, quotaProperties, resources, startTime,
+         userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -934,7 +934,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRCalendar_Event_Creator *creator;
 
 /**
- *  Description of the event. Optional.
+ *  Description of the event. Can contain HTML. Optional.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */

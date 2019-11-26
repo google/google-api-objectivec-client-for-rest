@@ -169,6 +169,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatus
 /**
  *  The response had no bids for the specified account, though it may have
  *  included bids on behalf of other accounts.
+ *  Applies if:
+ *  1. Request is on behalf of a bidder and an account filter is present.
+ *  2. Request is on behalf of a child seat.
  *
  *  Value: "RESPONSES_WITHOUT_BIDS_FOR_ACCOUNT"
  */
@@ -176,7 +179,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatus
 /**
  *  The response had no bids for the specified deal, though it may have
  *  included bids on other deals on behalf of the account to which the deal
- *  belongs.
+ *  belongs. If request is on behalf of a bidder and an account filter is not
+ *  present, this also includes responses that have bids on behalf of
+ *  accounts other than the account to which the deal belongs.
  *
  *  Value: "RESPONSES_WITHOUT_BIDS_FOR_DEAL"
  */
@@ -2291,13 +2296,20 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  *        The response had no bids. (Value: "RESPONSES_WITHOUT_BIDS")
  *    @arg @c kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBidsForAccount
  *        The response had no bids for the specified account, though it may have
- *        included bids on behalf of other accounts. (Value:
+ *        included bids on behalf of other accounts.
+ *        Applies if:
+ *        1. Request is on behalf of a bidder and an account filter is present.
+ *        2. Request is on behalf of a child seat. (Value:
  *        "RESPONSES_WITHOUT_BIDS_FOR_ACCOUNT")
  *    @arg @c kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBidsForDeal
  *        The response had no bids for the specified deal, though it may have
  *        included bids on other deals on behalf of the account to which the
  *        deal
- *        belongs. (Value: "RESPONSES_WITHOUT_BIDS_FOR_DEAL")
+ *        belongs. If request is on behalf of a bidder and an account filter is
+ *        not
+ *        present, this also includes responses that have bids on behalf of
+ *        accounts other than the account to which the deal belongs. (Value:
+ *        "RESPONSES_WITHOUT_BIDS_FOR_DEAL")
  *    @arg @c kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_StatusUnspecified
  *        A placeholder for an undefined status.
  *        This value will never be returned in responses. (Value:

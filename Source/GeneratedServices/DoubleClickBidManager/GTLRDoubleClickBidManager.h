@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DoubleClick Bid Manager API (doubleclickbidmanager/v1)
+//   DoubleClick Bid Manager API (doubleclickbidmanager/v1.1)
 // Description:
 //   API for viewing and managing your reports in DoubleClick Bid Manager.
 // Documentation:

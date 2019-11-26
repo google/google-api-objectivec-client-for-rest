@@ -149,7 +149,7 @@
 @implementation GTLRGamesManagement_Player
 @dynamic avatarImageUrl, bannerUrlLandscape, bannerUrlPortrait, displayName,
          experienceInfo, kind, lastPlayedWith, name, originalPlayerId, playerId,
-         profileSettings, title;
+         playerStattus, profileSettings, title;
 @end
 
 
@@ -206,28 +206,6 @@
 
 @implementation GTLRGamesManagement_ProfileSettings
 @dynamic kind, profileVisible;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGamesManagement_QuestsResetMultipleForAllRequest
-//
-
-@implementation GTLRGamesManagement_QuestsResetMultipleForAllRequest
-@dynamic kind, questIds;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"questIds" : @"quest_ids" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"quest_ids" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 

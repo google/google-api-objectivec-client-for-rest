@@ -94,6 +94,9 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationResults;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1WordInfo;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Celebrity;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1CelebrityRecognitionAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1CelebrityTrack;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1DetectedAttribute;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentAnnotation;
@@ -107,6 +110,7 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedVertex;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1RecognizedCelebrity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechRecognitionAlternative;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechTranscription;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1StreamingVideoAnnotationResults;
@@ -536,6 +540,12 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress.feature
 
+/**
+ *  Celebrity recognition.
+ *
+ *  Value: "CELEBRITY_RECOGNITION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_CelebrityRecognition;
 /**
  *  Explicit content detection.
  *
@@ -2994,6 +3004,62 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  Celebrity definition.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Celebrity : GTLRObject
+
+/**
+ *  Textual description of additional information about the celebrity, if
+ *  applicable.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The celebrity name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The resource name of the celebrity. Have the format
+ *  `video-intelligence/kg-mid` indicates a celebrity from preloaded gallery.
+ *  kg-mid is the id in Google knowledge graph, which is unique for the
+ *  celebrity.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Celebrity recognition annotation per video.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1CelebrityRecognitionAnnotation : GTLRObject
+
+/**
+ *  The tracks detected from the input video, including recognized celebrities
+ *  and other detected faces in the video.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1CelebrityTrack *> *celebrityTracks;
+
+@end
+
+
+/**
+ *  The annotation result of a celebrity face track. RecognizedCelebrity field
+ *  could be empty if the face track does not have any matched celebrities.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1CelebrityTrack : GTLRObject
+
+/** Top N match of the celebrities for the face in this track. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1RecognizedCelebrity *> *celebrities;
+
+/** A track of a person's face. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Track *faceTrack;
+
+@end
+
+
+/**
  *  A generic detected attribute represented by name in string format.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1DetectedAttribute : GTLRObject
@@ -3331,6 +3397,24 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  The recognized celebrity with confidence score.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1RecognizedCelebrity : GTLRObject
+
+/** The recognized celebrity. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Celebrity *celebrity;
+
+/**
+ *  Recognition confidence. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+@end
+
+
+/**
  *  Alternative hypotheses (a.k.a. n-best list).
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechRecognitionAlternative : GTLRObject
@@ -3487,8 +3571,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
- *  For tracking related features, such as LOGO_RECOGNITION, FACE_DETECTION,
- *  CELEBRITY_RECOGNITION, PERSON_DETECTION.
+ *  For tracking related features.
  *  An object at time_offset with attributes, and located with
  *  normalized_bounding_box.
  */
@@ -3543,6 +3626,8 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  one features.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_CelebrityRecognition
+ *        Celebrity recognition. (Value: "CELEBRITY_RECOGNITION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ExplicitContentDetection
  *        Explicit content detection. (Value: "EXPLICIT_CONTENT_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_FeatureUnspecified
@@ -3596,6 +3681,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Annotation results for a single video.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationResults : GTLRObject
+
+/** Celebrity recognition annotations. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1CelebrityRecognitionAnnotation *celebrityRecognitionAnnotations;
 
 /**
  *  If set, indicates an error. Note that for a single `AnnotateVideoRequest`

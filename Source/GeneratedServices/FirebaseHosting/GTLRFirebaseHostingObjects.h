@@ -30,6 +30,7 @@
 @class GTLRFirebaseHosting_Header;
 @class GTLRFirebaseHosting_Header_Headers;
 @class GTLRFirebaseHosting_PopulateVersionFilesRequest_Files;
+@class GTLRFirebaseHosting_PreviewConfig;
 @class GTLRFirebaseHosting_Redirect;
 @class GTLRFirebaseHosting_Release;
 @class GTLRFirebaseHosting_Rewrite;
@@ -701,6 +702,30 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 
 
 /**
+ *  GTLRFirebaseHosting_ListVersionsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "versions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRFirebaseHosting_ListVersionsResponse : GTLRCollectionObject
+
+/** The pagination token, if more results exist */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of versions, if any exist.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseHosting_Version *> *versions;
+
+@end
+
+
+/**
  *  GTLRFirebaseHosting_PopulateVersionFilesRequest
  */
 @interface GTLRFirebaseHosting_PopulateVersionFilesRequest : GTLRObject
@@ -749,6 +774,29 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
  *  using a forward slash and the hash of the file appended to the end.
  */
 @property(nonatomic, copy, nullable) NSString *uploadUrl;
+
+@end
+
+
+/**
+ *  Version preview configuration. If active and unexpired,
+ *  this version will be accessible via a custom URL even
+ *  if it is not the currently released version.
+ */
+@interface GTLRFirebaseHosting_PreviewConfig : GTLRObject
+
+/**
+ *  If true, preview URLs are enabled for this version.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *active;
+
+/**
+ *  Indicates the expiration time for previewing this
+ *  version; preview URL requests received after this time will 404.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 @end
 
@@ -1030,6 +1078,14 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
  *  [`CreateVersion`](../sites.versions/create) endpoint.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Version preview configuration for the site version. This configuration
+ *  specfies whether previewing is enabled for this site version. Version
+ *  previews allow you to preview your site at a custom URL before
+ *  releasing it as the live version.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseHosting_PreviewConfig *preview;
 
 /**
  *  The deploy status of a version.

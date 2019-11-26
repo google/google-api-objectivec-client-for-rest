@@ -831,7 +831,8 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 @implementation GTLRCloudTalentSolution_JobQuery
 @dynamic commuteFilter, companyDisplayNames, companyNames, compensationFilter,
          customAttributeFilter, disableSpellCheck, employmentTypes,
-         jobCategories, languageCodes, locationFilters, publishTimeRange, query;
+         jobCategories, languageCodes, locationFilters, publishTimeRange, query,
+         queryLanguageCode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -934,11 +935,94 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTalentSolution_MendelDebugInput
+//
+
+@implementation GTLRCloudTalentSolution_MendelDebugInput
+@dynamic namespacedDebugInput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_MendelDebugInput_NamespacedDebugInput
+//
+
+@implementation GTLRCloudTalentSolution_MendelDebugInput_NamespacedDebugInput
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudTalentSolution_NamespacedDebugInput class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTalentSolution_Money
 //
 
 @implementation GTLRCloudTalentSolution_Money
 @dynamic currencyCode, nanos, units;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_NamespacedDebugInput
+//
+
+@implementation GTLRCloudTalentSolution_NamespacedDebugInput
+@dynamic absolutelyForcedExpNames, absolutelyForcedExps,
+         absolutelyForcedExpTags, conditionallyForcedExpNames,
+         conditionallyForcedExps, conditionallyForcedExpTags,
+         disableAutomaticEnrollmentSelection, disableExpNames, disableExps,
+         disableExpTags, disableManualEnrollmentSelection,
+         disableOrganicSelection, forcedFlags, forcedRollouts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"absolutelyForcedExpNames" : [NSString class],
+    @"absolutelyForcedExps" : [NSNumber class],
+    @"absolutelyForcedExpTags" : [NSString class],
+    @"conditionallyForcedExpNames" : [NSString class],
+    @"conditionallyForcedExps" : [NSNumber class],
+    @"conditionallyForcedExpTags" : [NSString class],
+    @"disableExpNames" : [NSString class],
+    @"disableExps" : [NSNumber class],
+    @"disableExpTags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_NamespacedDebugInput_ForcedFlags
+//
+
+@implementation GTLRCloudTalentSolution_NamespacedDebugInput_ForcedFlags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts
+//
+
+@implementation GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
 @end
 
 

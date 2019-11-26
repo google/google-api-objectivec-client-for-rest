@@ -198,7 +198,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2Action
 @dynamic jobNotificationEmails, publishFindingsToCloudDataCatalog,
-         publishSummaryToCscc, pubSub, saveFindings;
+         publishSummaryToCscc, publishToStackdriver, pubSub, saveFindings;
 @end
 
 
@@ -551,7 +551,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest
-@dynamic deidentifyTemplate, templateId;
+@dynamic deidentifyTemplate, locationId, templateId;
 @end
 
 
@@ -561,7 +561,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest
-@dynamic inspectJob, jobId, riskJob;
+@dynamic inspectJob, jobId, locationId, riskJob;
 @end
 
 
@@ -571,7 +571,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
-@dynamic inspectTemplate, templateId;
+@dynamic inspectTemplate, locationId, templateId;
 @end
 
 
@@ -581,7 +581,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest
-@dynamic jobTrigger, triggerId;
+@dynamic jobTrigger, locationId, triggerId;
 @end
 
 
@@ -591,7 +591,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
-@dynamic config, storedInfoTypeId;
+@dynamic config, locationId, storedInfoTypeId;
 @end
 
 
@@ -712,7 +712,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest
 @dynamic deidentifyConfig, deidentifyTemplateName, inspectConfig,
-         inspectTemplateName, item, location;
+         inspectTemplateName, item, locationId;
 @end
 
 
@@ -1161,7 +1161,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InspectContentRequest
-@dynamic inspectConfig, inspectTemplateName, item, location;
+@dynamic inspectConfig, inspectTemplateName, item, locationId;
 @end
 
 
@@ -1868,6 +1868,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2PublishToStackdriver
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2PublishToStackdriver
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2QuasiId
 //
 
@@ -1998,7 +2007,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2RedactImageRequest
-@dynamic byteItem, imageRedactionConfigs, includeFindings, inspectConfig;
+@dynamic byteItem, imageRedactionConfigs, includeFindings, inspectConfig,
+         locationId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2044,7 +2054,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest
-@dynamic inspectConfig, inspectTemplateName, item, location, reidentifyConfig,
+@dynamic inspectConfig, inspectTemplateName, item, locationId, reidentifyConfig,
          reidentifyTemplateName;
 @end
 

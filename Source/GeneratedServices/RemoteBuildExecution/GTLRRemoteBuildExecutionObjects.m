@@ -823,6 +823,16 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateInstanceRequest
+//
+
+@implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateInstanceRequest
+@dynamic loggingEnabled, name, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateWorkerPoolRequest
 //
 

@@ -33,6 +33,8 @@
 @class GTLRSheets_AddProtectedRangeResponse;
 @class GTLRSheets_AddSheetRequest;
 @class GTLRSheets_AddSheetResponse;
+@class GTLRSheets_AddSlicerRequest;
+@class GTLRSheets_AddSlicerResponse;
 @class GTLRSheets_AppendCellsRequest;
 @class GTLRSheets_AppendDimensionRequest;
 @class GTLRSheets_AutoFillRequest;
@@ -156,6 +158,8 @@
 @class GTLRSheets_SetDataValidationRequest;
 @class GTLRSheets_Sheet;
 @class GTLRSheets_SheetProperties;
+@class GTLRSheets_Slicer;
+@class GTLRSheets_SlicerSpec;
 @class GTLRSheets_SortRangeRequest;
 @class GTLRSheets_SortSpec;
 @class GTLRSheets_SourceAndDestination;
@@ -187,6 +191,7 @@
 @class GTLRSheets_UpdateNamedRangeRequest;
 @class GTLRSheets_UpdateProtectedRangeRequest;
 @class GTLRSheets_UpdateSheetPropertiesRequest;
+@class GTLRSheets_UpdateSlicerSpecRequest;
 @class GTLRSheets_UpdateSpreadsheetPropertiesRequest;
 @class GTLRSheets_UpdateValuesByDataFilterResponse;
 @class GTLRSheets_UpdateValuesResponse;
@@ -2515,6 +2520,34 @@ GTLR_EXTERN NSString * const kGTLRSheets_SheetProperties_SheetType_Object;
 GTLR_EXTERN NSString * const kGTLRSheets_SheetProperties_SheetType_SheetTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_SlicerSpec.horizontalAlignment
+
+/**
+ *  The text is explicitly aligned to the center of the cell.
+ *
+ *  Value: "CENTER"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Center;
+/**
+ *  The horizontal alignment is not specified. Do not use this.
+ *
+ *  Value: "HORIZONTAL_ALIGN_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_HorizontalAlignUnspecified;
+/**
+ *  The text is explicitly aligned to the left of the cell.
+ *
+ *  Value: "LEFT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Left;
+/**
+ *  The text is explicitly aligned to the right of the cell.
+ *
+ *  Value: "RIGHT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Right;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_SortSpec.sortOrder
 
 /**
@@ -2921,6 +2954,34 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The properties of the newly added sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_SheetProperties *properties;
+
+@end
+
+
+/**
+ *  Adds a slicer to a sheet in the spreadsheet.
+ */
+@interface GTLRSheets_AddSlicerRequest : GTLRObject
+
+/**
+ *  The slicer that should be added to the spreadsheet, including
+ *  the position where it should be placed. The slicerId field is optional; if
+ *  one is not set, an id
+ *  will be randomly generated. (It is an error to specify the ID
+ *  of a slicer that already exists.)
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Slicer *slicer;
+
+@end
+
+
+/**
+ *  The result of adding a slicer to a spreadsheet.
+ */
+@interface GTLRSheets_AddSlicerResponse : GTLRObject
+
+/** The newly added slicer. */
+@property(nonatomic, strong, nullable) GTLRSheets_Slicer *slicer;
 
 @end
 
@@ -6271,13 +6332,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /**
  *  A condition that must be true for values to be shown.
- *  (This does not override hiddenValues -- if a value is listed there,
+ *  (This does not override hidden_values -- if a value is listed there,
  *  it will still be hidden.)
  */
 @property(nonatomic, strong, nullable) GTLRSheets_BooleanCondition *condition;
 
 /** Values that should be hidden. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *hiddenValues;
+
+/**
+ *  The background fill color to filter by; only cells with this fill color are
+ *  shown. Mutually exclusive with all other filter criteria. Requests to set
+ *  this field will fail with a 400 error if any other filter criteria field is
+ *  set.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *visibleBackgroundColor;
+
+/**
+ *  The text color to filter by; only cells with this text color are shown.
+ *  Mutually exclusive with all other filter criteria. Requests to set this
+ *  field will fail with a 400 error if any other filter criteria field is set.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *visibleForegroundColor;
 
 @end
 
@@ -7955,6 +8031,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /** Adds a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddSheetRequest *addSheet;
 
+/** Adds a slicer. */
+@property(nonatomic, strong, nullable) GTLRSheets_AddSlicerRequest *addSlicer;
+
 /** Appends cells after the last row with data in a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_AppendCellsRequest *appendCells;
 
@@ -8108,6 +8187,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /** Updates a sheet's properties. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateSheetPropertiesRequest *updateSheetProperties;
 
+/** Updates a slicer's specifications. */
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateSlicerSpecRequest *updateSlicerSpec;
+
 /** Updates the spreadsheet's properties. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateSpreadsheetPropertiesRequest *updateSpreadsheetProperties;
 
@@ -8139,6 +8221,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** A reply from adding a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddSheetResponse *addSheet;
+
+/** A reply from adding a slicer. */
+@property(nonatomic, strong, nullable) GTLRSheets_AddSlicerResponse *addSlicer;
 
 /** A reply from creating a developer metadata entry. */
 @property(nonatomic, strong, nullable) GTLRSheets_CreateDeveloperMetadataResponse *createDeveloperMetadata;
@@ -8230,14 +8315,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /**
  *  Formatting options for baseline value.
- *  This field is needed only if baseline_value_data field is specified.
+ *  This field is needed only if baseline_value_data is specified.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_BaselineValueFormat *baselineValueFormat;
 
 /**
  *  Custom formatting options for numeric key/baseline values in scorecard
- *  chart. This field is used only when [number_format_source] field is set to
- *  [ChartNumberFormatSource.CUSTOM]. This field is optional.
+ *  chart. This field is used only when number_format_source is set to
+ *  CUSTOM. This field is optional.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartCustomNumberFormatOptions *customFormatOptions;
 
@@ -8387,6 +8472,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DimensionGroup *> *rowGroups;
 
+/** The slicers on this sheet. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_Slicer *> *slicers;
+
 @end
 
 
@@ -8465,6 +8553,86 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 
 /**
+ *  A slicer in a sheet.
+ */
+@interface GTLRSheets_Slicer : GTLRObject
+
+/**
+ *  The position of the slicer. Note that slicer can be positioned only on
+ *  existing sheet. Also, width and height of slicer can be automatically
+ *  adjusted to keep it within permitted limits.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_EmbeddedObjectPosition *position;
+
+/**
+ *  The ID of the slicer.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *slicerId;
+
+/** The specification of the slicer. */
+@property(nonatomic, strong, nullable) GTLRSheets_SlicerSpec *spec;
+
+@end
+
+
+/**
+ *  The specifications of a slicer.
+ */
+@interface GTLRSheets_SlicerSpec : GTLRObject
+
+/**
+ *  True if the filter should apply to pivot tables.
+ *  If not set, default to `True`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *applyToPivotTables;
+
+/** The background color of the slicer. */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor;
+
+/**
+ *  The column index in the data table on which the filter is applied to.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *columnIndex;
+
+/** The data range of the slicer. */
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *dataRange;
+
+/** The filtering criteria of the slicer. */
+@property(nonatomic, strong, nullable) GTLRSheets_FilterCriteria *filterCriteria;
+
+/**
+ *  The horizontal alignment of title in the slicer.
+ *  If unspecified, defaults to `LEFT`
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_SlicerSpec_HorizontalAlignment_Center The text is
+ *        explicitly aligned to the center of the cell. (Value: "CENTER")
+ *    @arg @c kGTLRSheets_SlicerSpec_HorizontalAlignment_HorizontalAlignUnspecified
+ *        The horizontal alignment is not specified. Do not use this. (Value:
+ *        "HORIZONTAL_ALIGN_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_SlicerSpec_HorizontalAlignment_Left The text is
+ *        explicitly aligned to the left of the cell. (Value: "LEFT")
+ *    @arg @c kGTLRSheets_SlicerSpec_HorizontalAlignment_Right The text is
+ *        explicitly aligned to the right of the cell. (Value: "RIGHT")
+ */
+@property(nonatomic, copy, nullable) NSString *horizontalAlignment;
+
+/** The text format of title in the slicer. */
+@property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
+
+/** The title of the slicer. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
  *  Sorts data in rows based on a sort order per column.
  */
 @interface GTLRSheets_SortRangeRequest : GTLRObject
@@ -8487,11 +8655,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @interface GTLRSheets_SortSpec : GTLRObject
 
 /**
+ *  The background fill color to sort by. Mutually exclusive with sorting by
+ *  text color. Requests to set this field will fail with a 400 error if
+ *  foreground color is also set.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor;
+
+/**
  *  The dimension the sort should be applied to.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dimensionIndex;
+
+/**
+ *  The text color to sort by. Mutually exclusive with sorting by background
+ *  fill color. Requests to set this field will fail with a 400 error if
+ *  background color is also set.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *foregroundColor;
 
 /**
  *  The order data should be sorted.
@@ -9385,6 +9567,35 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The properties to update. */
 @property(nonatomic, strong, nullable) GTLRSheets_SheetProperties *properties;
+
+@end
+
+
+/**
+ *  Updates a slicer’s specifications.
+ *  (This does not move or resize a slicer. To move or resize a slicer use
+ *  UpdateEmbeddedObjectPositionRequest.
+ */
+@interface GTLRSheets_UpdateSlicerSpecRequest : GTLRObject
+
+/**
+ *  The fields that should be updated. At least one field must be specified.
+ *  The root `SlicerSpec` is implied and should not be specified. A single "*"`
+ *  can be used as short-hand for listing every field.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/**
+ *  The id of the slicer to update.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *slicerId;
+
+/** The specification to apply to the slicer. */
+@property(nonatomic, strong, nullable) GTLRSheets_SlicerSpec *spec;
 
 @end
 

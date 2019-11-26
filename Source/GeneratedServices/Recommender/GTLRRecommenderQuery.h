@@ -138,12 +138,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Mark the Recommendation State as Claimed. Users can use this method to
+ *  Marks the Recommendation State as Claimed. Users can use this method to
  *  indicate to the Recommender API that they are starting to apply the
  *  recommendation themselves. This stops the recommendation content from being
- *  updated.
- *  MarkRecommendationClaimed can be applied to recommendations in CLAIMED,
- *  SUCCEEDED, FAILED, or ACTIVE state.
+ *  updated. Associated insights are frozen and placed in the ACCEPTED state.
+ *  MarkRecommendationClaimed can be applied to recommendations in CLAIMED or
+ *  ACTIVE state.
  *  Requires the recommender.*.update IAM permission for the specified
  *  recommender.
  *
@@ -162,12 +162,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1beta1Recommendation.
  *
- *  Mark the Recommendation State as Claimed. Users can use this method to
+ *  Marks the Recommendation State as Claimed. Users can use this method to
  *  indicate to the Recommender API that they are starting to apply the
  *  recommendation themselves. This stops the recommendation content from being
- *  updated.
- *  MarkRecommendationClaimed can be applied to recommendations in CLAIMED,
- *  SUCCEEDED, FAILED, or ACTIVE state.
+ *  updated. Associated insights are frozen and placed in the ACCEPTED state.
+ *  MarkRecommendationClaimed can be applied to recommendations in CLAIMED or
+ *  ACTIVE state.
  *  Requires the recommender.*.update IAM permission for the specified
  *  recommender.
  *
@@ -184,10 +184,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Mark the Recommendation State as Failed. Users can use this method to
+ *  Marks the Recommendation State as Failed. Users can use this method to
  *  indicate to the Recommender API that they have applied the recommendation
  *  themselves, and the operation failed. This stops the recommendation content
- *  from being updated.
+ *  from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state.
  *  MarkRecommendationFailed can be applied to recommendations in ACTIVE,
  *  CLAIMED, SUCCEEDED, or FAILED state.
  *  Requires the recommender.*.update IAM permission for the specified
@@ -208,10 +209,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1beta1Recommendation.
  *
- *  Mark the Recommendation State as Failed. Users can use this method to
+ *  Marks the Recommendation State as Failed. Users can use this method to
  *  indicate to the Recommender API that they have applied the recommendation
  *  themselves, and the operation failed. This stops the recommendation content
- *  from being updated.
+ *  from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state.
  *  MarkRecommendationFailed can be applied to recommendations in ACTIVE,
  *  CLAIMED, SUCCEEDED, or FAILED state.
  *  Requires the recommender.*.update IAM permission for the specified
@@ -230,10 +232,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Mark the Recommendation State as Succeeded. Users can use this method to
+ *  Marks the Recommendation State as Succeeded. Users can use this method to
  *  indicate to the Recommender API that they have applied the recommendation
  *  themselves, and the operation was successful. This stops the recommendation
- *  content from being updated.
+ *  content from being updated. Associated insights are frozen and placed in
+ *  the ACCEPTED state.
  *  MarkRecommendationSucceeded can be applied to recommendations in ACTIVE,
  *  CLAIMED, SUCCEEDED, or FAILED state.
  *  Requires the recommender.*.update IAM permission for the specified
@@ -254,10 +257,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1beta1Recommendation.
  *
- *  Mark the Recommendation State as Succeeded. Users can use this method to
+ *  Marks the Recommendation State as Succeeded. Users can use this method to
  *  indicate to the Recommender API that they have applied the recommendation
  *  themselves, and the operation was successful. This stops the recommendation
- *  content from being updated.
+ *  content from being updated. Associated insights are frozen and placed in
+ *  the ACCEPTED state.
  *  MarkRecommendationSucceeded can be applied to recommendations in ACTIVE,
  *  CLAIMED, SUCCEEDED, or FAILED state.
  *  Requires the recommender.*.update IAM permission for the specified

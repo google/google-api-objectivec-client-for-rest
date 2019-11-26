@@ -438,6 +438,12 @@ NSString * const kGTLRSheets_SheetProperties_SheetType_Grid    = @"GRID";
 NSString * const kGTLRSheets_SheetProperties_SheetType_Object  = @"OBJECT";
 NSString * const kGTLRSheets_SheetProperties_SheetType_SheetTypeUnspecified = @"SHEET_TYPE_UNSPECIFIED";
 
+// GTLRSheets_SlicerSpec.horizontalAlignment
+NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Center = @"CENTER";
+NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_HorizontalAlignUnspecified = @"HORIZONTAL_ALIGN_UNSPECIFIED";
+NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Left = @"LEFT";
+NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Right = @"RIGHT";
+
 // GTLRSheets_SortSpec.sortOrder
 NSString * const kGTLRSheets_SortSpec_SortOrder_Ascending      = @"ASCENDING";
 NSString * const kGTLRSheets_SortSpec_SortOrder_Descending     = @"DESCENDING";
@@ -634,6 +640,26 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_AddSheetResponse
 @dynamic properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_AddSlicerRequest
+//
+
+@implementation GTLRSheets_AddSlicerRequest
+@dynamic slicer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_AddSlicerResponse
+//
+
+@implementation GTLRSheets_AddSlicerResponse
+@dynamic slicer;
 @end
 
 
@@ -1779,7 +1805,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_FilterCriteria
-@dynamic condition, hiddenValues;
+@dynamic condition, hiddenValues, visibleBackgroundColor,
+         visibleForegroundColor;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2355,21 +2382,21 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_Request
 @dynamic addBanding, addChart, addConditionalFormatRule, addDimensionGroup,
-         addFilterView, addNamedRange, addProtectedRange, addSheet, appendCells,
-         appendDimension, autoFill, autoResizeDimensions, clearBasicFilter,
-         copyPaste, createDeveloperMetadata, cutPaste, deleteBanding,
-         deleteConditionalFormatRule, deleteDeveloperMetadata, deleteDimension,
-         deleteDimensionGroup, deleteDuplicates, deleteEmbeddedObject,
-         deleteFilterView, deleteNamedRange, deleteProtectedRange, deleteRange,
-         deleteSheet, duplicateFilterView, duplicateSheet, findReplace,
-         insertDimension, insertRange, mergeCells, moveDimension, pasteData,
-         randomizeRange, repeatCell, setBasicFilter, setDataValidation,
-         sortRange, textToColumns, trimWhitespace, unmergeCells, updateBanding,
-         updateBorders, updateCells, updateChartSpec,
-         updateConditionalFormatRule, updateDeveloperMetadata,
+         addFilterView, addNamedRange, addProtectedRange, addSheet, addSlicer,
+         appendCells, appendDimension, autoFill, autoResizeDimensions,
+         clearBasicFilter, copyPaste, createDeveloperMetadata, cutPaste,
+         deleteBanding, deleteConditionalFormatRule, deleteDeveloperMetadata,
+         deleteDimension, deleteDimensionGroup, deleteDuplicates,
+         deleteEmbeddedObject, deleteFilterView, deleteNamedRange,
+         deleteProtectedRange, deleteRange, deleteSheet, duplicateFilterView,
+         duplicateSheet, findReplace, insertDimension, insertRange, mergeCells,
+         moveDimension, pasteData, randomizeRange, repeatCell, setBasicFilter,
+         setDataValidation, sortRange, textToColumns, trimWhitespace,
+         unmergeCells, updateBanding, updateBorders, updateCells,
+         updateChartSpec, updateConditionalFormatRule, updateDeveloperMetadata,
          updateDimensionGroup, updateDimensionProperties,
          updateEmbeddedObjectPosition, updateFilterView, updateNamedRange,
-         updateProtectedRange, updateSheetProperties,
+         updateProtectedRange, updateSheetProperties, updateSlicerSpec,
          updateSpreadsheetProperties;
 @end
 
@@ -2381,7 +2408,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_Response
 @dynamic addBanding, addChart, addDimensionGroup, addFilterView, addNamedRange,
-         addProtectedRange, addSheet, createDeveloperMetadata,
+         addProtectedRange, addSheet, addSlicer, createDeveloperMetadata,
          deleteConditionalFormatRule, deleteDeveloperMetadata,
          deleteDimensionGroup, deleteDuplicates, duplicateFilterView,
          duplicateSheet, findReplace, trimWhitespace,
@@ -2484,7 +2511,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 @implementation GTLRSheets_Sheet
 @dynamic bandedRanges, basicFilter, charts, columnGroups, conditionalFormats,
          data, developerMetadata, filterViews, merges, properties,
-         protectedRanges, rowGroups;
+         protectedRanges, rowGroups, slicers;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2497,7 +2524,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
     @"filterViews" : [GTLRSheets_FilterView class],
     @"merges" : [GTLRSheets_GridRange class],
     @"protectedRanges" : [GTLRSheets_ProtectedRange class],
-    @"rowGroups" : [GTLRSheets_DimensionGroup class]
+    @"rowGroups" : [GTLRSheets_DimensionGroup class],
+    @"slicers" : [GTLRSheets_Slicer class]
   };
   return map;
 }
@@ -2513,6 +2541,27 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 @implementation GTLRSheets_SheetProperties
 @dynamic gridProperties, hidden, index, rightToLeft, sheetId, sheetType,
          tabColor, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_Slicer
+//
+
+@implementation GTLRSheets_Slicer
+@dynamic position, slicerId, spec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_SlicerSpec
+//
+
+@implementation GTLRSheets_SlicerSpec
+@dynamic applyToPivotTables, backgroundColor, columnIndex, dataRange,
+         filterCriteria, horizontalAlignment, textFormat, title;
 @end
 
 
@@ -2540,7 +2589,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_SortSpec
-@dynamic dimensionIndex, sortOrder;
+@dynamic backgroundColor, dimensionIndex, foregroundColor, sortOrder;
 @end
 
 
@@ -2869,6 +2918,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_UpdateSheetPropertiesRequest
 @dynamic fields, properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_UpdateSlicerSpecRequest
+//
+
+@implementation GTLRSheets_UpdateSlicerSpecRequest
+@dynamic fields, slicerId, spec;
 @end
 
 

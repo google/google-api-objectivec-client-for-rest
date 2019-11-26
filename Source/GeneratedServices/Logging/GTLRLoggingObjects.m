@@ -473,9 +473,14 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 //
 
 @implementation GTLRLogging_LogSink
-@dynamic bigqueryOptions, createTime, destination, endTime, filter,
-         includeChildren, name, outputVersionFormat, startTime, updateTime,
-         writerIdentity;
+@dynamic bigqueryOptions, createTime, descriptionProperty, destination,
+         disabled, endTime, filter, includeChildren, name, outputVersionFormat,
+         startTime, updateTime, writerIdentity;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

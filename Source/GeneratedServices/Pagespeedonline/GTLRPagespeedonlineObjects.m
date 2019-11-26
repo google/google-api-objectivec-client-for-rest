@@ -18,7 +18,7 @@
 
 @implementation GTLRPagespeedonline_LighthouseAuditResultV5
 @dynamic descriptionProperty, details, displayValue, errorMessage, explanation,
-         identifier, score, scoreDisplayMode, title, warnings;
+         identifier, numericValue, score, scoreDisplayMode, title, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

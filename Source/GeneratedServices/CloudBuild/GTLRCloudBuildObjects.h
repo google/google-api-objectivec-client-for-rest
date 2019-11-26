@@ -37,6 +37,7 @@
 @class GTLRCloudBuild_PullRequestFilter;
 @class GTLRCloudBuild_PushFilter;
 @class GTLRCloudBuild_RepoSource;
+@class GTLRCloudBuild_RepoSource_Substitutions;
 @class GTLRCloudBuild_Results;
 @class GTLRCloudBuild_Secret;
 @class GTLRCloudBuild_Secret_SecretEnv;
@@ -877,6 +878,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
 /**
  *  GitHubEventsConfig describes the configuration of a trigger that creates
  *  a build whenever a GitHub event is received.
+ *  Mutually exclusive with `trigger_template`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_GitHubEventsConfig *github;
 
@@ -923,6 +925,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
  *  Branch and tag names in trigger templates are interpreted as regular
  *  expressions. Any branch or tag change that matches that regular expression
  *  will trigger a build.
+ *  Mutually exclusive with `github`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource *triggerTemplate;
 
@@ -1297,11 +1300,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/**
- *  Name of the Cloud Source Repository. If omitted, the name "default" is
- *  assumed.
- */
+/** Required. Name of the Cloud Source Repository. */
 @property(nonatomic, copy, nullable) NSString *repoName;
+
+/**
+ *  Substitutions to use in a triggered build.
+ *  Should only be used with RunBuildTrigger
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource_Substitutions *substitutions;
 
 /**
  *  Regex matching tags to build.
@@ -1310,6 +1316,19 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
  */
 @property(nonatomic, copy, nullable) NSString *tagName;
 
+@end
+
+
+/**
+ *  Substitutions to use in a triggered build.
+ *  Should only be used with RunBuildTrigger
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBuild_RepoSource_Substitutions : GTLRObject
 @end
 
 

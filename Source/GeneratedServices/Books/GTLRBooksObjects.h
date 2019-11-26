@@ -1636,9 +1636,26 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBooks_Series_Series_Item : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *bannerImageUrl;
+
+/**
+ *  eligibleForSubscription
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *eligibleForSubscription;
+
 @property(nonatomic, copy, nullable) NSString *imageUrl;
+
+/**
+ *  isComplete
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isComplete;
+
 @property(nonatomic, copy, nullable) NSString *seriesId;
 @property(nonatomic, copy, nullable) NSString *seriesType;
+@property(nonatomic, copy, nullable) NSString *subscriptionId;
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end

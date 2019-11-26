@@ -23,9 +23,6 @@
 @class GTLRCloudRun_AuditConfig;
 @class GTLRCloudRun_AuditLogConfig;
 @class GTLRCloudRun_AuthorizedDomain;
-@class GTLRCloudRun_AutoDomainMapping;
-@class GTLRCloudRun_AutoDomainMappingSpec;
-@class GTLRCloudRun_AutoDomainMappingStatus;
 @class GTLRCloudRun_Binding;
 @class GTLRCloudRun_ConfigMapEnvSource;
 @class GTLRCloudRun_ConfigMapKeySelector;
@@ -122,32 +119,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_AuditLogConfig_LogType_DataWrite;
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudRun_AuditLogConfig_LogType_LogTypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudRun_AutoDomainMappingSpec.certificateMode
-
-/**
- *  Automatically provisions an HTTPS certificate via LetsEncrypt.
- *
- *  Value: "AUTOMATIC"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRun_AutoDomainMappingSpec_CertificateMode_Automatic;
-/** Value: "CERTIFICATE_MODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudRun_AutoDomainMappingSpec_CertificateMode_CertificateModeUnspecified;
-/**
- *  Do not provision an HTTPS certificate.
- *
- *  Value: "NONE"
- */
-GTLR_EXTERN NSString * const kGTLRCloudRun_AutoDomainMappingSpec_CertificateMode_None;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudRun_AutoDomainMappingSpec.expansionType
-
-/** Value: "EXPANSION_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudRun_AutoDomainMappingSpec_ExpansionType_ExpansionTypeUnspecified;
-/** Value: "PREFIX" */
-GTLR_EXTERN NSString * const kGTLRCloudRun_AutoDomainMappingSpec_ExpansionType_Prefix;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRun_DomainMappingSpec.certificateMode
@@ -334,104 +305,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  Example: `apps/myapp/authorizedDomains/example.com`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  Resource to hold the state and status of a user's auto domain mapping.
- */
-@interface GTLRCloudRun_AutoDomainMapping : GTLRObject
-
-/** The API version for this call such as "serving.knative.dev/v1". */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** The kind of resource, in this case "AutoDomainMapping". */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Metadata associated with this BuildTemplate. */
-@property(nonatomic, strong, nullable) GTLRCloudRun_ObjectMeta *metadata;
-
-/** The spec for this AutoDomainMapping. */
-@property(nonatomic, strong, nullable) GTLRCloudRun_AutoDomainMappingSpec *spec;
-
-/** The current status of the AutoDomainMapping. */
-@property(nonatomic, strong, nullable) GTLRCloudRun_AutoDomainMappingStatus *status;
-
-@end
-
-
-/**
- *  The desired state of the Auto Domain Mapping.
- */
-@interface GTLRCloudRun_AutoDomainMappingSpec : GTLRObject
-
-/**
- *  The mode of the certificate.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudRun_AutoDomainMappingSpec_CertificateMode_Automatic
- *        Automatically provisions an HTTPS certificate via LetsEncrypt. (Value:
- *        "AUTOMATIC")
- *    @arg @c kGTLRCloudRun_AutoDomainMappingSpec_CertificateMode_CertificateModeUnspecified
- *        Value "CERTIFICATE_MODE_UNSPECIFIED"
- *    @arg @c kGTLRCloudRun_AutoDomainMappingSpec_CertificateMode_None Do not
- *        provision an HTTPS certificate. (Value: "NONE")
- */
-@property(nonatomic, copy, nullable) NSString *certificateMode;
-
-/**
- *  The type of expansion for the auto auto domain mapping.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudRun_AutoDomainMappingSpec_ExpansionType_ExpansionTypeUnspecified
- *        Value "EXPANSION_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRCloudRun_AutoDomainMappingSpec_ExpansionType_Prefix Value
- *        "PREFIX"
- */
-@property(nonatomic, copy, nullable) NSString *expansionType;
-
-/**
- *  If set, the mapping will override any mapping set before this spec was set.
- *  It is recommended that the user leaves this empty to receive an error
- *  warning about a potential conflict and only set it once the respective UI
- *  has given such a warning.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *forceOverride;
-
-@end
-
-
-/**
- *  The current state of the Domain Mapping.
- */
-@interface GTLRCloudRun_AutoDomainMappingStatus : GTLRObject
-
-/**
- *  Array of observed AutoDomainMappingConditions, indicating the current state
- *  of the AutoDomainMapping.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV1Condition *> *conditions;
-
-/**
- *  ObservedGeneration is the 'Generation' of the AutoDomainMapping that
- *  was last processed by the controller.
- *  Clients polling for completed reconciliation should poll until
- *  observedGeneration = metadata.generation and the Ready condition's status
- *  is True or False.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *observedGeneration;
-
-/**
- *  The resource records required to configure this domain mapping. These
- *  records must be added to the domain's DNS configuration in order to
- *  serve the application via this domain mapping.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_ResourceRecord *> *resourceRecords;
 
 @end
 
@@ -903,9 +776,9 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
 
 /**
  *  (Optional)
- *  Cloud Run fully managed: not supported
+ *  Cloud Run fully managed: supported
  *  Cloud Run for Anthos: supported
- *  Number of port to expose on the pod's IP address.
+ *  Port number the container listens on.
  *  This must be a valid port number, 0 < x < 65536.
  *
  *  Uses NSNumber of intValue.
@@ -1420,37 +1293,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  ListAutoDomainMappingsResponse is a list of AutoDomainMapping resources.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRCloudRun_ListAutoDomainMappingsResponse : GTLRCollectionObject
-
-/** The API version for this call such as "serving.knative.dev/v1". */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/**
- *  List of AutoDomainMappings.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_AutoDomainMapping *> *items;
-
-/** The kind of this resource, in this case "AutoDomainMappingList". */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Metadata associated with this AutoDomainMapping list. */
-@property(nonatomic, strong, nullable) GTLRCloudRun_ListMeta *metadata;
-
-/** Locations that could not be reached. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -2121,8 +1963,8 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  ensure that their change will be applied to the same version of the policy.
  *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
  *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
- *  'setIamPolicy' will not fail even if either of incoming or stored policy
- *  does not meet the version requirements.
+ *  'setIamPolicy' will not fail even if the incoming policy version does not
+ *  meet the requirements for modifying the stored policy.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2135,11 +1977,12 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  rejected.
  *  Operations affecting conditional bindings must specify version 3. This can
  *  be either setting a conditional policy, modifying a conditional binding,
- *  or removing a conditional binding from the stored conditional policy.
+ *  or removing a binding (conditional or unconditional) from the stored
+ *  conditional policy.
  *  Operations on non-conditional policies may specify any valid value or
  *  leave the field unset.
- *  If no etag is provided in the call to `setIamPolicy`, any version
- *  compliance checks on the incoming and/or stored policy is skipped.
+ *  If no etag is provided in the call to `setIamPolicy`, version compliance
+ *  checks against the stored policy is skipped.
  *
  *  Uses NSNumber of intValue.
  */

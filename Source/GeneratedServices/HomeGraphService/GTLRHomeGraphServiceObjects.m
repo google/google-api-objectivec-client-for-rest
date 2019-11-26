@@ -39,8 +39,9 @@
 //
 
 @implementation GTLRHomeGraphService_Device
-@dynamic attributes, customData, deviceInfo, identifier, name, otherDeviceIds,
-         roomHint, structureHint, traits, type, willReportState;
+@dynamic attributes, customData, deviceInfo, identifier, name,
+         notificationSupportedByAgent, otherDeviceIds, roomHint, structureHint,
+         traits, type, willReportState;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -63,6 +64,20 @@
 //
 
 @implementation GTLRHomeGraphService_Device_Attributes
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_Device_CustomData
+//
+
+@implementation GTLRHomeGraphService_Device_CustomData
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

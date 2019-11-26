@@ -117,6 +117,34 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_AuthenticatorGroupsConfig
+//
+
+@implementation GTLRContainer_AuthenticatorGroupsConfig
+@dynamic enabled, securityGroup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_AutoprovisioningNodePoolDefaults
+//
+
+@implementation GTLRContainer_AutoprovisioningNodePoolDefaults
+@dynamic oauthScopes, serviceAccount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"oauthScopes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_AutoUpgradeOptions
 //
 
@@ -191,8 +219,9 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 //
 
 @implementation GTLRContainer_Cluster
-@dynamic addonsConfig, binaryAuthorization, clusterIpv4Cidr, conditions,
-         createTime, currentMasterVersion, currentNodeCount, currentNodeVersion,
+@dynamic addonsConfig, authenticatorGroupsConfig, autoscaling,
+         binaryAuthorization, clusterIpv4Cidr, conditions, createTime,
+         currentMasterVersion, currentNodeCount, currentNodeVersion,
          databaseEncryption, defaultMaxPodsConstraint, descriptionProperty,
          enableKubernetesAlpha, enableTpu, endpoint, expireTime,
          initialClusterVersion, initialNodeCount, instanceGroupUrls,
@@ -202,7 +231,7 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
          networkConfig, networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePools,
          privateClusterConfig, resourceLabels, resourceUsageExportConfig,
          selfLink, servicesIpv4Cidr, status, statusMessage, subnetwork,
-         tpuIpv4CidrBlock, zoneProperty;
+         tpuIpv4CidrBlock, verticalPodAutoscaling, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -241,17 +270,37 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_ClusterAutoscaling
+//
+
+@implementation GTLRContainer_ClusterAutoscaling
+@dynamic autoprovisioningLocations, autoprovisioningNodePoolDefaults,
+         enableNodeAutoprovisioning, resourceLimits;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"autoprovisioningLocations" : [NSString class],
+    @"resourceLimits" : [GTLRContainer_ResourceLimit class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_ClusterUpdate
 //
 
 @implementation GTLRContainer_ClusterUpdate
 @dynamic desiredAddonsConfig, desiredBinaryAuthorization,
-         desiredDatabaseEncryption, desiredImageType,
+         desiredClusterAutoscaling, desiredDatabaseEncryption, desiredImageType,
          desiredIntraNodeVisibilityConfig, desiredLocations,
          desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
          desiredMasterVersion, desiredMonitoringService,
          desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
-         desiredResourceUsageExportConfig;
+         desiredResourceUsageExportConfig, desiredVerticalPodAutoscaling;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -739,7 +788,7 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 //
 
 @implementation GTLRContainer_NodePoolAutoscaling
-@dynamic enabled, maxNodeCount, minNodeCount;
+@dynamic autoprovisioned, enabled, maxNodeCount, minNodeCount;
 @end
 
 
@@ -786,6 +835,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 @implementation GTLRContainer_PrivateClusterConfig
 @dynamic enablePrivateEndpoint, enablePrivateNodes, masterIpv4CidrBlock,
          privateEndpoint, publicEndpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ResourceLimit
+//
+
+@implementation GTLRContainer_ResourceLimit
+@dynamic maximum, minimum, resourceType;
 @end
 
 
@@ -1144,4 +1203,14 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_UsableSubnetworkSecondaryRange
 @dynamic ipCidrRange, rangeName, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_VerticalPodAutoscaling
+//
+
+@implementation GTLRContainer_VerticalPodAutoscaling
+@dynamic enabled;
 @end

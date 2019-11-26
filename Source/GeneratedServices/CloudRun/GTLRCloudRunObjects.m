@@ -20,15 +20,6 @@ NSString * const kGTLRCloudRun_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRCloudRun_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudRun_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
-// GTLRCloudRun_AutoDomainMappingSpec.certificateMode
-NSString * const kGTLRCloudRun_AutoDomainMappingSpec_CertificateMode_Automatic = @"AUTOMATIC";
-NSString * const kGTLRCloudRun_AutoDomainMappingSpec_CertificateMode_CertificateModeUnspecified = @"CERTIFICATE_MODE_UNSPECIFIED";
-NSString * const kGTLRCloudRun_AutoDomainMappingSpec_CertificateMode_None = @"NONE";
-
-// GTLRCloudRun_AutoDomainMappingSpec.expansionType
-NSString * const kGTLRCloudRun_AutoDomainMappingSpec_ExpansionType_ExpansionTypeUnspecified = @"EXPANSION_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudRun_AutoDomainMappingSpec_ExpansionType_Prefix = @"PREFIX";
-
 // GTLRCloudRun_DomainMappingSpec.certificateMode
 NSString * const kGTLRCloudRun_DomainMappingSpec_CertificateMode_Automatic = @"AUTOMATIC";
 NSString * const kGTLRCloudRun_DomainMappingSpec_CertificateMode_CertificateModeUnspecified = @"CERTIFICATE_MODE_UNSPECIFIED";
@@ -96,52 +87,6 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_AutoDomainMapping
-//
-
-@implementation GTLRCloudRun_AutoDomainMapping
-@dynamic apiVersion, kind, metadata, spec, status;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_AutoDomainMappingSpec
-//
-
-@implementation GTLRCloudRun_AutoDomainMappingSpec
-@dynamic certificateMode, expansionType, forceOverride;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_AutoDomainMappingStatus
-//
-
-@implementation GTLRCloudRun_AutoDomainMappingStatus
-@dynamic conditions, observedGeneration, resourceRecords;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRCloudRun_GoogleCloudRunV1Condition class],
-    @"resourceRecords" : [GTLRCloudRun_ResourceRecord class]
-  };
-  return map;
 }
 
 @end
@@ -476,31 +421,6 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 + (NSString *)collectionItemsKey {
   return @"domains";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ListAutoDomainMappingsResponse
-//
-
-@implementation GTLRCloudRun_ListAutoDomainMappingsResponse
-@dynamic apiVersion, items, kind, metadata, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudRun_AutoDomainMapping class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
 }
 
 @end

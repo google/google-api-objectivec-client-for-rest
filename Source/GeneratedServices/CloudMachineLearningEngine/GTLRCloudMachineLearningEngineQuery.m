@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Machine Learning Engine (ml/v1)
+//   AI Platform Training & Prediction API (ml/v1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:
@@ -15,6 +15,31 @@
 @implementation GTLRCloudMachineLearningEngineQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsExplain
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplainRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:explain";
+  GTLRCloudMachineLearningEngineQuery_ProjectsExplain *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleApiHttpBody class];
+  query.loggingName = @"ml.projects.explain";
+  return query;
+}
 
 @end
 

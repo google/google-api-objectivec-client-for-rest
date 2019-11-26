@@ -20,8 +20,7 @@
 #endif
 
 @class GTLRDialogflow_GoogleCloudDialogflowV2Agent;
-@class GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer;
-@class GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2AnnotatedMessagePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedConversationDataset;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters;
@@ -96,8 +95,6 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput_Parameters;
-@class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer;
-@class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentBatch;
@@ -107,24 +104,35 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBasicCard;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBasicCardButton;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBasicCardButtonOpenUriAction;
+@class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard;
+@class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem;
+@class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageCard;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageCardButton;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageCarouselSelect;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageCarouselSelectItem;
+@class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageImage;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageLinkOutSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageListSelect;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageListSelectItem;
+@class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent;
+@class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContentResponseMediaObject;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageQuickReplies;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageSelectItemInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageSimpleResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageSimpleResponses;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageSuggestion;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageSuggestions;
+@class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageTableCard;
+@class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageTableCardCell;
+@class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageTableCardRow;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageText;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentParameter;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrasePart;
+@class GTLRDialogflow_GoogleCloudDialogflowV2Message;
+@class GTLRDialogflow_GoogleCloudDialogflowV2MessageAnnotation;
 @class GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig;
@@ -139,9 +147,6 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisRequestConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType;
-@class GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse;
-@class GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse;
-@class GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SynthesizeSpeechConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2TextInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams;
@@ -807,6 +812,57 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Session
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent.type
+
+/**
+ *  An existing conversation has closed. This is fired when a telephone call
+ *  is terminated, or a conversation is closed via the API.
+ *
+ *  Value: "CONVERSATION_FINISHED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationFinished;
+/**
+ *  A new conversation has been opened. This is fired when a telephone call
+ *  is answered, or a conversation is created via the API.
+ *
+ *  Value: "CONVERSATION_STARTED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationStarted;
+/**
+ *  An existing conversation has received notification from Dialogflow that
+ *  human intervention is required.
+ *
+ *  Value: "HUMAN_INTERVENTION_NEEDED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_HumanInterventionNeeded;
+/**
+ *  An existing conversation has received a new message, either from API or
+ *  telephony. It is configured in
+ *  ConversationProfile.new_message_event_notification_config
+ *
+ *  Value: "NEW_MESSAGE"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_NewMessage;
+/**
+ *  Type not set.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_TypeUnspecified;
+/**
+ *  Unrecoverable error during a telephone call.
+ *  In general non-recoverable errors only occur if something was
+ *  misconfigured in the ConversationProfile corresponding to the call. After
+ *  a non-recoverable error, Dialogflow may stop responding.
+ *  We don't fire this event:
+ *  * in an API call because we can directly return the error, or,
+ *  * when we can recover from an error.
+ *
+ *  Value: "UNRECOVERABLE_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_UnrecoverableError;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2EntityType.autoExpansionMode
 
 /**
@@ -1143,6 +1199,116 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessag
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Viber;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard.imageDisplayOptions
+
+/**
+ *  Pad the gaps between image and image frame with a blurred copy of the
+ *  same image.
+ *
+ *  Value: "BLURRED_BACKGROUND"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_BlurredBackground;
+/**
+ *  Image is scaled such that the image width and height match or exceed
+ *  the container dimensions. This may crop the top and bottom of the
+ *  image if the scaled image height is greater than the container
+ *  height, or crop the left and right of the image if the scaled image
+ *  width is greater than the container width. This is similar to "Zoom
+ *  Mode" on a widescreen TV when playing a 4:3 video.
+ *
+ *  Value: "CROPPED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped;
+/**
+ *  Fill the gaps between the image and the image container with gray
+ *  bars.
+ *
+ *  Value: "GRAY"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray;
+/**
+ *  Fill the gaps between the image and the image container with gray
+ *  bars.
+ *
+ *  Value: "IMAGE_DISPLAY_OPTIONS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_ImageDisplayOptionsUnspecified;
+/**
+ *  Fill the gaps between the image and the image container with white
+ *  bars.
+ *
+ *  Value: "WHITE"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_White;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction.urlTypeHint
+
+/**
+ *  Url would be an amp action
+ *
+ *  Value: "AMP_ACTION"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction;
+/**
+ *  URL that points directly to AMP content, or to a canonical URL
+ *  which refers to AMP content via <link rel="amphtml">.
+ *
+ *  Value: "AMP_CONTENT"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpContent;
+/**
+ *  Unspecified
+ *
+ *  Value: "URL_TYPE_HINT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_UrlTypeHintUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties.horizontalAlignment
+
+/**
+ *  Text is centered in the column.
+ *
+ *  Value: "CENTER"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_Center;
+/**
+ *  Text is aligned to the leading edge of the column.
+ *
+ *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_HorizontalAlignmentUnspecified;
+/**
+ *  Text is aligned to the leading edge of the column.
+ *
+ *  Value: "LEADING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_Leading;
+/**
+ *  Text is aligned to the trailing edge of the column.
+ *
+ *  Value: "TRAILING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_Trailing;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent.mediaType
+
+/**
+ *  Response media type is audio.
+ *
+ *  Value: "AUDIO"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent_MediaType_Audio;
+/**
+ *  Unspecified.
+ *
+ *  Value: "RESPONSE_MEDIA_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent_MediaType_ResponseMediaTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase.type
 
 /**
@@ -1171,32 +1337,33 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTraini
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata.state
+// GTLRDialogflow_GoogleCloudDialogflowV2Message.participantRole
 
 /**
- *  The operation is done, either cancelled or completed.
+ *  Participant is an automated agent, such as a Dialogflow agent.
  *
- *  Value: "DONE"
+ *  Value: "AUTOMATED_AGENT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Done;
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_AutomatedAgent;
 /**
- *  The operation has been created.
+ *  Participant is an end user that has called or chatted with
+ *  Dialogflow services.
  *
- *  Value: "PENDING"
+ *  Value: "END_USER"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Pending;
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_EndUser;
 /**
- *  The operation is currently running.
+ *  Participant is a human agent.
  *
- *  Value: "RUNNING"
+ *  Value: "HUMAN_AGENT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Running;
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_HumanAgent;
 /**
- *  State unspecified.
+ *  Participant role not set.
  *
- *  Value: "STATE_UNSPECIFIED"
+ *  Value: "ROLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_StateUnspecified;
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_RoleUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig.audioEncoding
@@ -1209,7 +1376,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOpe
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingLinear16;
 /**
- *  MP3 audio.
+ *  MP3 audio at 32kbps.
  *
  *  Value: "OUTPUT_AUDIO_ENCODING_MP3"
  */
@@ -1417,54 +1584,39 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Represents article answer.
+ *  Represents a part of a message possibly annotated with an entity. The part
+ *  can be an entity or purely a part of the message between two entities or
+ *  message start/end.
  */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer : GTLRObject
+@interface GTLRDialogflow_GoogleCloudDialogflowV2AnnotatedMessagePart : GTLRObject
 
 /**
- *  The name of answer record, in the format of
- *  "projects/<Project ID>/answerRecords/<Answer Record ID>"
+ *  The [Dialogflow system entity
+ *  type](https://cloud.google.com/dialogflow/docs/reference/system-entities)
+ *  of this message part. If this is empty, Dialogflow could not annotate the
+ *  phrase part with a system entity.
  */
-@property(nonatomic, copy, nullable) NSString *answerRecord;
+@property(nonatomic, copy, nullable) NSString *entityType;
 
 /**
- *  Article match confidence.
- *  The system's confidence score that this article is a good match for this
- *  converstation, as a value from 0.0 (completely uncertain) to 1.0
- *  (completely certain).
+ *  The [Dialogflow system entity formatted value
+ *  ](https://cloud.google.com/dialogflow/docs/reference/system-entities) of
+ *  this message part. For example for a system entity of type
+ *  `\@sys.unit-currency`, this may contain:
+ *  <pre>
+ *  {
+ *  "amount": 5,
+ *  "currency": "USD"
+ *  }
+ *  </pre>
  *
- *  Uses NSNumber of floatValue.
+ *  Can be any valid JSON type.
  */
-@property(nonatomic, strong, nullable) NSNumber *confidence;
+@property(nonatomic, strong, nullable) id formattedValue;
 
-/**
- *  A map that contains metadata about the answer and the
- *  document from which it originates.
- */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata *metadata;
+/** A part of a message possibly annotated with an entity. */
+@property(nonatomic, copy, nullable) NSString *text;
 
-/** Article snippets. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *snippets;
-
-/** The article title. */
-@property(nonatomic, copy, nullable) NSString *title;
-
-/** The article URI. */
-@property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  A map that contains metadata about the answer and the
- *  document from which it originates.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata : GTLRObject
 @end
 
 
@@ -2092,10 +2244,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, copy, nullable) NSString *parentFollowupIntentName;
 
 /**
- *  Optional. The priority of this intent. Higher numbers represent higher
- *  priorities. If this is zero or unspecified, we use the default
- *  priority 500000.
- *  Negative numbers mean that the intent is disabled.
+ *  The priority of this intent. Higher numbers represent higher
+ *  priorities.
+ *  - If the supplied value is unspecified or 0, the service
+ *  translates the value to 500,000, which corresponds to the
+ *  `Normal` priority in the console.
+ *  - If the supplied value is negative, the intent is ignored
+ *  in runtime detect intent requests.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2654,6 +2809,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageListSelectItem *> *items;
+
+/** Optional. Subtitle of the list. */
+@property(nonatomic, copy, nullable) NSString *subtitle;
 
 /** Optional. The overall title of the list. */
 @property(nonatomic, copy, nullable) NSString *title;
@@ -4028,6 +4186,69 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
+ *  Represents a notification sent to Cloud Pub/Sub subscribers for conversation
+ *  lifecycle events.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent : GTLRObject
+
+/**
+ *  The unique identifier of the conversation this notification
+ *  refers to.
+ *  Format: `projects/<Project ID>/conversations/<Conversation ID>`.
+ */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/**
+ *  More detailed information about an error. Only set for type
+ *  UNRECOVERABLE_ERROR_IN_PHONE_CALL.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *errorStatus;
+
+/** Payload of NEW_MESSAGE event. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2Message *newMessagePayload NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  The type of the event that this notification refers to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationFinished
+ *        An existing conversation has closed. This is fired when a telephone
+ *        call
+ *        is terminated, or a conversation is closed via the API. (Value:
+ *        "CONVERSATION_FINISHED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationStarted
+ *        A new conversation has been opened. This is fired when a telephone
+ *        call
+ *        is answered, or a conversation is created via the API. (Value:
+ *        "CONVERSATION_STARTED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_HumanInterventionNeeded
+ *        An existing conversation has received notification from Dialogflow
+ *        that
+ *        human intervention is required. (Value: "HUMAN_INTERVENTION_NEEDED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_NewMessage
+ *        An existing conversation has received a new message, either from API
+ *        or
+ *        telephony. It is configured in
+ *        ConversationProfile.new_message_event_notification_config (Value:
+ *        "NEW_MESSAGE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_TypeUnspecified
+ *        Type not set. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_UnrecoverableError
+ *        Unrecoverable error during a telephone call.
+ *        In general non-recoverable errors only occur if something was
+ *        misconfigured in the ConversationProfile corresponding to the call.
+ *        After
+ *        a non-recoverable error, Dialogflow may stop responding.
+ *        We don't fire this event:
+ *        * in an API call because we can directly return the error, or,
+ *        * when we can recover from an error. (Value: "UNRECOVERABLE_ERROR")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  The request to detect user's intent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest : GTLRObject
@@ -4291,91 +4512,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Represents answer from "frequently asked questions".
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer : GTLRObject
-
-/** The piece of text from the `source` knowledge base document. */
-@property(nonatomic, copy, nullable) NSString *answer;
-
-/**
- *  The name of answer record, in the format of
- *  "projects/<Project ID>/answerRecords/<Answer Record ID>"
- */
-@property(nonatomic, copy, nullable) NSString *answerRecord;
-
-/**
- *  The system's confidence score that this Knowledge answer is a good match
- *  for this conversational query, range from 0.0 (completely uncertain)
- *  to 1.0 (completely certain).
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *confidence;
-
-/**
- *  A map that contains metadata about the answer and the
- *  document from which it originates.
- */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata *metadata;
-
-/** The corresponding FAQ question. */
-@property(nonatomic, copy, nullable) NSString *question;
-
-/**
- *  Indicates which Knowledge Document this answer was extracted
- *  from.
- *  Format: `projects/<Project ID>/agent/knowledgeBases/<Knowledge Base
- *  ID>/documents/<Document ID>`.
- */
-@property(nonatomic, copy, nullable) NSString *source;
-
-@end
-
-
-/**
- *  A map that contains metadata about the answer and the
- *  document from which it originates.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata : GTLRObject
-@end
-
-
-/**
- *  Represents a notification sent to Cloud Pub/Sub subscribers for
- *  human agent assistant events in a specific conversation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2HumanAgentAssistantEvent : GTLRObject
-
-/**
- *  The conversation this notification refers to.
- *  Format: `projects/<Project ID>/conversations/<Conversation ID>`.
- */
-@property(nonatomic, copy, nullable) NSString *conversation;
-
-/**
- *  The participant that the suggestion is compiled for. And This field is used
- *  to call Participants.ListSuggestions API. Format:
- *  `projects/<Project ID>/conversations/<Conversation
- *  ID>/participants/<Participant ID>`.
- *  It will not be set in legacy workflow.
- *  HumanAgentAssistantConfig.name for more
- *  information.
- */
-@property(nonatomic, copy, nullable) NSString *participant;
-
-/** The suggestion results payload that this notification refers to. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult *> *suggestionResults;
-
-@end
-
-
-/**
  *  The request message for Agents.ImportAgent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ImportAgentRequest : GTLRObject
@@ -4634,9 +4770,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Optional. The priority of this intent. Higher numbers represent higher
- *  priorities. If this is zero or unspecified, we use the default
- *  priority 500000.
- *  Negative numbers mean that the intent is disabled.
+ *  priorities.
+ *  - If the supplied value is unspecified or 0, the service
+ *  translates the value to 500,000, which corresponds to the
+ *  `Normal` priority in the console.
+ *  - If the supplied value is negative, the intent is ignored
+ *  in runtime detect intent requests.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4723,6 +4862,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /** The basic card response for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBasicCard *basicCard;
 
+/** Browse carousel card for Actions on Google. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard *browseCarouselCard;
+
 /** The card response. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageCard *card;
 
@@ -4737,6 +4879,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /** The list card response for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageListSelect *listSelect;
+
+/** The media content card for Actions on Google. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent *mediaContent;
 
 /**
  *  Returns a response containing a custom, platform-specific payload.
@@ -4841,6 +4986,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /** The suggestion chips for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageSuggestions *suggestions;
 
+/** Table card for Actions on Google. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageTableCard *tableCard;
+
 /** The text response. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageText *text;
 
@@ -4905,6 +5053,112 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /** Required. The HTTP or HTTPS scheme URI. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Browse Carousel Card for Actions on Google.
+ *  https://developers.google.com/actions/assistant/responses#browsing_carousel
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard : GTLRCollectionObject
+
+/**
+ *  Optional. Settings for displaying the image. Applies to every image in
+ *  items.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_BlurredBackground
+ *        Pad the gaps between image and image frame with a blurred copy of the
+ *        same image. (Value: "BLURRED_BACKGROUND")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped
+ *        Image is scaled such that the image width and height match or exceed
+ *        the container dimensions. This may crop the top and bottom of the
+ *        image if the scaled image height is greater than the container
+ *        height, or crop the left and right of the image if the scaled image
+ *        width is greater than the container width. This is similar to "Zoom
+ *        Mode" on a widescreen TV when playing a 4:3 video. (Value: "CROPPED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray
+ *        Fill the gaps between the image and the image container with gray
+ *        bars. (Value: "GRAY")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_ImageDisplayOptionsUnspecified
+ *        Fill the gaps between the image and the image container with gray
+ *        bars. (Value: "IMAGE_DISPLAY_OPTIONS_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_White
+ *        Fill the gaps between the image and the image container with white
+ *        bars. (Value: "WHITE")
+ */
+@property(nonatomic, copy, nullable) NSString *imageDisplayOptions;
+
+/**
+ *  Required. List of items in the Browse Carousel Card. Minimum of two
+ *  items, maximum of ten.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem *> *items;
+
+@end
+
+
+/**
+ *  Browsing carousel tile
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem : GTLRObject
+
+/**
+ *  Optional. Description of the carousel item. Maximum of four lines of
+ *  text.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Text that appears at the bottom of the Browse Carousel
+ *  Card. Maximum of one line of text.
+ */
+@property(nonatomic, copy, nullable) NSString *footer;
+
+/** Optional. Hero image for the carousel item. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageImage *image;
+
+/** Required. Action to present to the user. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction *openUriAction;
+
+/** Required. Title of the carousel item. Maximum of two lines of text. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Actions on Google action to open a given url.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction : GTLRObject
+
+/** Required. URL */
+@property(nonatomic, copy, nullable) NSString *url;
+
+/**
+ *  Optional. Specifies the type of viewer that is used when opening
+ *  the URL. Defaults to opening via web browser.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction
+ *        Url would be an amp action (Value: "AMP_ACTION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpContent
+ *        URL that points directly to AMP content, or to a canonical URL
+ *        which refers to AMP content via <link rel="amphtml">. (Value:
+ *        "AMP_CONTENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_UrlTypeHintUnspecified
+ *        Unspecified (Value: "URL_TYPE_HINT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *urlTypeHint;
 
 @end
 
@@ -4990,6 +5244,34 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
+ *  Column properties for TableCard.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties : GTLRObject
+
+/** Required. Column heading. */
+@property(nonatomic, copy, nullable) NSString *header;
+
+/**
+ *  Optional. Defines text alignment for all cells in this column.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_Center
+ *        Text is centered in the column. (Value: "CENTER")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_HorizontalAlignmentUnspecified
+ *        Text is aligned to the leading edge of the column. (Value:
+ *        "HORIZONTAL_ALIGNMENT_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_Leading
+ *        Text is aligned to the leading edge of the column. (Value: "LEADING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_Trailing
+ *        Text is aligned to the trailing edge of the column. (Value:
+ *        "TRAILING")
+ */
+@property(nonatomic, copy, nullable) NSString *horizontalAlignment;
+
+@end
+
+
+/**
  *  The image response message.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageImage : GTLRObject
@@ -5040,6 +5322,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageListSelectItem *> *items;
 
+/** Optional. Subtitle of the list. */
+@property(nonatomic, copy, nullable) NSString *subtitle;
+
 /** Optional. The overall title of the list. */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -5066,6 +5351,55 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /** Required. The title of the list item. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  The media content card for Actions on Google.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent : GTLRObject
+
+/** Required. List of media objects. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContentResponseMediaObject *> *mediaObjects;
+
+/**
+ *  Optional. What type of media is the content (ie "audio").
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent_MediaType_Audio
+ *        Response media type is audio. (Value: "AUDIO")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent_MediaType_ResponseMediaTypeUnspecified
+ *        Unspecified. (Value: "RESPONSE_MEDIA_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mediaType;
+
+@end
+
+
+/**
+ *  Response media object for media content card.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContentResponseMediaObject : GTLRObject
+
+/** Required. Url where the media is stored. */
+@property(nonatomic, copy, nullable) NSString *contentUrl;
+
+/**
+ *  Optional. Description of media card.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Icon to display above media content. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageImage *icon;
+
+/** Optional. Image to display above media content. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageImage *largeImage;
+
+/** Required. Name of media card. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -5162,6 +5496,61 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /** Required. The list of suggested replies. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageSuggestion *> *suggestions;
+
+@end
+
+
+/**
+ *  Table card for Actions on Google.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageTableCard : GTLRObject
+
+/** Optional. List of buttons for the card. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBasicCardButton *> *buttons;
+
+/** Optional. Display properties for the columns in this table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties *> *columnProperties;
+
+/** Optional. Image which should be displayed on the card. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageImage *image;
+
+/** Optional. Rows in this table of data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageTableCardRow *> *rows;
+
+/** Optional. Subtitle to the title. */
+@property(nonatomic, copy, nullable) NSString *subtitle;
+
+/** Required. Title of the card. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Cell of TableCardRow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageTableCardCell : GTLRObject
+
+/** Required. Text in this cell. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Row of TableCard.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageTableCardRow : GTLRObject
+
+/** Optional. List of cells that make up this row. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageTableCardCell *> *cells;
+
+/**
+ *  Optional. Whether to add a visual divider after this row.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dividerAfter;
 
 @end
 
@@ -5332,29 +5721,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Metadata in google::longrunning::Operation for Knowledge operations.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata : GTLRObject
-
-/**
- *  Output only. The current state of this operation.
- *
- *  Likely values:
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Done
- *        The operation is done, either cancelled or completed. (Value: "DONE")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Pending
- *        The operation has been created. (Value: "PENDING")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Running
- *        The operation is currently running. (Value: "RUNNING")
- *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_StateUnspecified
- *        State unspecified. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
  *  The response message for Contexts.ListContexts.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5467,6 +5833,79 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
+ *  Represents a message posted into a conversation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2Message : GTLRObject
+
+/** Required. The message content. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** Output only. The time when the message was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The message language.
+ *  This should be a [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+ *  language tag. Example: "en-US".
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Output only. The annotation for the message. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2MessageAnnotation *messageAnnotation;
+
+/**
+ *  The unique identifier of the message.
+ *  Format: `projects/<Project ID>/conversations/<Conversation
+ *  ID>/messages/<Message ID>`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The participant that sends this message. */
+@property(nonatomic, copy, nullable) NSString *participant;
+
+/**
+ *  Output only. The role of the participant.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_AutomatedAgent
+ *        Participant is an automated agent, such as a Dialogflow agent. (Value:
+ *        "AUTOMATED_AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_EndUser
+ *        Participant is an end user that has called or chatted with
+ *        Dialogflow services. (Value: "END_USER")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_HumanAgent
+ *        Participant is a human agent. (Value: "HUMAN_AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_RoleUnspecified
+ *        Participant role not set. (Value: "ROLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *participantRole;
+
+@end
+
+
+/**
+ *  Represents the result of annotation for the message.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2MessageAnnotation : GTLRObject
+
+/**
+ *  Indicates whether the text message contains entities.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containEntities;
+
+/**
+ *  The collection of annotated message parts ordered by their
+ *  position in the message. You can recover the annotated message by
+ *  concatenating [AnnotatedMessagePart.text].
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2AnnotatedMessagePart *> *parts;
+
+@end
+
+
+/**
  *  Represents the contents of the original request that was passed to
  *  the `[Streaming]DetectIntent` call.
  */
@@ -5541,7 +5980,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *        Audio content returned as LINEAR16 also contains a WAV header. (Value:
  *        "OUTPUT_AUDIO_ENCODING_LINEAR_16")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3
- *        MP3 audio. (Value: "OUTPUT_AUDIO_ENCODING_MP3")
+ *        MP3 audio at 32kbps. (Value: "OUTPUT_AUDIO_ENCODING_MP3")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingOggOpus
  *        Opus encoded audio wrapped in an ogg container. The result will be a
  *        file which can be played natively on Android, and in browsers (at
@@ -5978,83 +6417,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  The response message for [Participants.SuggestArticles]
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse : GTLRObject
-
-/** Articles ordered by score in descending order. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer *> *articleAnswers;
-
-/**
- *  Number of messages prior to and including
- *  last_conversation_message to compile the suggestion. It may be smaller
- *  than the CompileSuggestionRequest.context_messages_count field in the
- *  request if there aren't that many messages in the conversation.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *contextSize;
-
-/**
- *  The name of the latest conversation message used to compile
- *  suggestion for.
- *  Format: `projects/<Project ID>/conversations/<Conversation
- *  ID>/messages/<Message ID>`.
- */
-@property(nonatomic, copy, nullable) NSString *latestMessage;
-
-@end
-
-
-/**
- *  The request message for [Participants.SuggestFaqAnswers]
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse : GTLRObject
-
-/**
- *  Number of messages prior to and including
- *  last_conversation_message to compile the suggestion. It may be smaller
- *  than the CompileSuggestionRequest.context_messages_count field in the
- *  request if there aren't that many messages in the conversation.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *contextSize;
-
-/** Answers extracted from FAQ documents. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer *> *faqAnswers;
-
-/**
- *  The name of the latest conversation message used to compile
- *  suggestion for.
- *  Format: `projects/<Project ID>/conversations/<Conversation
- *  ID>/messages/<Message ID>`.
- */
-@property(nonatomic, copy, nullable) NSString *latestMessage;
-
-@end
-
-
-/**
- *  One response of different type of suggestion response which is used in
- *  the response of Participants.AnalyzeContent and
- *  Participants.AnalyzeContent, as well as HumanAgentAssistantEvent.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult : GTLRObject
-
-/** Error status if the request failed. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *error;
-
-/** SuggestArticlesResponse if request is for ARTICLE_SUGGESTION. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse *suggestArticlesResponse;
-
-/** SuggestFaqAnswersResponse if request is for FAQ_ANSWER. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse *suggestFaqAnswersResponse;
-
-@end
-
-
-/**
  *  Configuration of how speech should be synthesized.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SynthesizeSpeechConfig : GTLRObject
@@ -6141,7 +6503,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Optional. The name of the voice. If not set, the service will choose a
- *  voice based on the other parameters such as language_code and gender.
+ *  voice based on the other parameters such as language_code and
+ *  ssml_gender.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

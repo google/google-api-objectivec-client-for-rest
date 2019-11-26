@@ -106,6 +106,21 @@ NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_
 NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
+// GTLRServiceNetworking_ValidateConsumerConfigResponse.validationError
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ConsumerProjectNotServiceProject = @"CONSUMER_PROJECT_NOT_SERVICE_PROJECT";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_HostProjectNotFound = @"HOST_PROJECT_NOT_FOUND";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotFound = @"NETWORK_NOT_FOUND";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotInConsumersHostProject = @"NETWORK_NOT_IN_CONSUMERS_HOST_PROJECT";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotInConsumersProject = @"NETWORK_NOT_IN_CONSUMERS_PROJECT";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotPeered = @"NETWORK_NOT_PEERED";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkPeeringDeleted = @"NETWORK_PEERING_DELETED";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesDeletedLater = @"RANGES_DELETED_LATER";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesExhausted = @"RANGES_EXHAUSTED";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesNotReserved = @"RANGES_NOT_RESERVED";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled = @"SERVICE_NETWORKING_NOT_ENABLED";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationErrorUnspecified = @"VALIDATION_ERROR_UNSPECIFIED";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationNotRequested = @"VALIDATION_NOT_REQUESTED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRServiceNetworking_AddSubnetworkRequest
@@ -300,6 +315,16 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_ConsumerProject
+//
+
+@implementation GTLRServiceNetworking_ConsumerProject
+@dynamic projectNum;
 @end
 
 
@@ -985,6 +1010,16 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_RangeReservation
+//
+
+@implementation GTLRServiceNetworking_RangeReservation
+@dynamic ipPrefixLength;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_SearchRangeRequest
 //
 
@@ -1202,4 +1237,24 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceNetworking_UsageRule
 @dynamic allowUnregisteredCalls, selector, skipServiceControl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_ValidateConsumerConfigRequest
+//
+
+@implementation GTLRServiceNetworking_ValidateConsumerConfigRequest
+@dynamic consumerNetwork, consumerProject, rangeReservation, validateNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_ValidateConsumerConfigResponse
+//
+
+@implementation GTLRServiceNetworking_ValidateConsumerConfigResponse
+@dynamic isValid, validationError;
 @end

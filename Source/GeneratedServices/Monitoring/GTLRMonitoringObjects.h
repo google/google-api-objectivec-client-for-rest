@@ -26,8 +26,13 @@
 @class GTLRMonitoring_Aggregation;
 @class GTLRMonitoring_AlertPolicy;
 @class GTLRMonitoring_AlertPolicy_UserLabels;
+@class GTLRMonitoring_AppEngine;
+@class GTLRMonitoring_AvailabilityCriteria;
 @class GTLRMonitoring_BasicAuthentication;
+@class GTLRMonitoring_BasicSli;
 @class GTLRMonitoring_BucketOptions;
+@class GTLRMonitoring_CloudEndpoints;
+@class GTLRMonitoring_ClusterIstio;
 @class GTLRMonitoring_CollectdPayload;
 @class GTLRMonitoring_CollectdPayload_Metadata;
 @class GTLRMonitoring_CollectdPayloadError;
@@ -35,25 +40,32 @@
 @class GTLRMonitoring_CollectdValueError;
 @class GTLRMonitoring_Condition;
 @class GTLRMonitoring_ContentMatcher;
+@class GTLRMonitoring_CreateTimeSeriesSummary;
+@class GTLRMonitoring_Custom;
 @class GTLRMonitoring_Distribution;
+@class GTLRMonitoring_DistributionCut;
 @class GTLRMonitoring_Documentation;
 @class GTLRMonitoring_DroppedLabels_Label;
+@class GTLRMonitoring_Error;
 @class GTLRMonitoring_Exemplar;
 @class GTLRMonitoring_Exemplar_Attachments_Item;
 @class GTLRMonitoring_Explicit;
 @class GTLRMonitoring_Exponential;
 @class GTLRMonitoring_Field;
+@class GTLRMonitoring_GoogleMonitoringV3Range;
 @class GTLRMonitoring_Group;
 @class GTLRMonitoring_HttpCheck;
 @class GTLRMonitoring_HttpCheck_Headers;
 @class GTLRMonitoring_InternalChecker;
 @class GTLRMonitoring_LabelDescriptor;
+@class GTLRMonitoring_LatencyCriteria;
 @class GTLRMonitoring_Linear;
 @class GTLRMonitoring_Metric;
 @class GTLRMonitoring_Metric_Labels;
 @class GTLRMonitoring_MetricAbsence;
 @class GTLRMonitoring_MetricDescriptor;
 @class GTLRMonitoring_MetricDescriptorMetadata;
+@class GTLRMonitoring_MetricRange;
 @class GTLRMonitoring_MetricThreshold;
 @class GTLRMonitoring_MonitoredResource;
 @class GTLRMonitoring_MonitoredResource_Labels;
@@ -68,19 +80,27 @@
 @class GTLRMonitoring_NotificationChannelDescriptor;
 @class GTLRMonitoring_Option;
 @class GTLRMonitoring_Option_Value;
+@class GTLRMonitoring_PerformanceThreshold;
 @class GTLRMonitoring_Point;
 @class GTLRMonitoring_Range;
+@class GTLRMonitoring_RequestBasedSli;
 @class GTLRMonitoring_ResourceGroup;
+@class GTLRMonitoring_Service;
+@class GTLRMonitoring_ServiceLevelIndicator;
+@class GTLRMonitoring_ServiceLevelObjective;
 @class GTLRMonitoring_SourceContext;
 @class GTLRMonitoring_Status;
 @class GTLRMonitoring_Status_Details_Item;
 @class GTLRMonitoring_TcpCheck;
+@class GTLRMonitoring_Telemetry;
 @class GTLRMonitoring_TimeInterval;
 @class GTLRMonitoring_TimeSeries;
+@class GTLRMonitoring_TimeSeriesRatio;
 @class GTLRMonitoring_Trigger;
 @class GTLRMonitoring_TypedValue;
 @class GTLRMonitoring_UptimeCheckConfig;
 @class GTLRMonitoring_UptimeCheckIp;
+@class GTLRMonitoring_WindowsBasedSli;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -472,8 +492,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Unspec
 // GTLRMonitoring_ContentMatcher.matcher
 
 /**
- *  Selects substring matching (there is a match if the output contains the
- *  content string). This is the default value for checks without a matcher
+ *  Selects substring matching. The match succeeds if the output contains the
+ *  content string. This is the default value for checks without a matcher
  *  option, or where the value of matcher is CONTENT_MATCHER_OPTION_UNSPECIFIED.
  *
  *  Value: "CONTAINS_STRING"
@@ -487,23 +507,23 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContainsStri
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified;
 /**
- *  Selects regular expression matching (there is a match of the output matches
- *  the regular expression specified in the content string).
+ *  Selects regular-expression matching. The match succeeds of the output
+ *  matches the regular expression specified in the content string.
  *
  *  Value: "MATCHES_REGEX"
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex;
 /**
- *  Selects negation of substring matching (there is a match if the output does
- *  NOT contain the content string).
+ *  Selects negation of substring matching. The match succeeds if the output
+ *  does NOT contain the content string.
  *
  *  Value: "NOT_CONTAINS_STRING"
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString;
 /**
- *  Selects negation of regular expression matching (there is a match if the
+ *  Selects negation of regular-expression matching. The match succeeds if the
  *  output does NOT match the regular expression specified in the content
- *  string).
+ *  string.
  *
  *  Value: "NOT_MATCHES_REGEX"
  */
@@ -1077,6 +1097,61 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_Instance
 GTLR_EXTERN NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_ResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRMonitoring_ServiceLevelObjective.calendarPeriod
+
+/**
+ *  Undefined period, raises an error.
+ *
+ *  Value: "CALENDAR_PERIOD_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_CalendarPeriodUnspecified;
+/**
+ *  A day.
+ *
+ *  Value: "DAY"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Day;
+/**
+ *  A fortnight. The first calendar fortnight of the year begins at the start of
+ *  week 1 according to ISO 8601 (https://en.wikipedia.org/wiki/ISO_week_date).
+ *
+ *  Value: "FORTNIGHT"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Fortnight;
+/**
+ *  A half-year. Half-years start on dates 1-Jan and 1-Jul.
+ *
+ *  Value: "HALF"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Half;
+/**
+ *  A month.
+ *
+ *  Value: "MONTH"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Month;
+/**
+ *  A quarter. Quarters start on dates 1-Jan, 1-Apr, 1-Jul, and 1-Oct of each
+ *  year.
+ *
+ *  Value: "QUARTER"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Quarter;
+/**
+ *  A week. Weeks begin on Monday, following ISO 8601
+ *  (https://en.wikipedia.org/wiki/ISO_week_date).
+ *
+ *  Value: "WEEK"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Week;
+/**
+ *  A year.
+ *
+ *  Value: "YEAR"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Year;
+
+// ----------------------------------------------------------------------------
 // GTLRMonitoring_TimeSeries.metricKind
 
 /**
@@ -1607,6 +1682,28 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  App Engine service. Learn more at https://cloud.google.com/appengine.
+ */
+@interface GTLRMonitoring_AppEngine : GTLRObject
+
+/**
+ *  The ID of the App Engine module underlying this service. Corresponds to the
+ *  module_id resource label in the gae_app monitored resource:
+ *  https://cloud.google.com/monitoring/api/resources#tag_gae_app
+ */
+@property(nonatomic, copy, nullable) NSString *moduleId;
+
+@end
+
+
+/**
+ *  Future parameters for the availability SLI.
+ */
+@interface GTLRMonitoring_AvailabilityCriteria : GTLRObject
+@end
+
+
+/**
  *  The authentication parameters to provide to the specified resource or URL
  *  that requires a username and password. Currently, only Basic HTTP
  *  authentication (https://tools.ietf.org/html/rfc7617) is supported in Uptime
@@ -1619,6 +1716,57 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /** The username to use when authenticating with the HTTP server. */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  An SLI measuring performance on a well-known service type. Performance will
+ *  be computed on the basis of pre-defined metrics. The type of the
+ *  service_resource determines the metrics to use and the
+ *  service_resource.labels and metric_labels are used to construct a monitoring
+ *  filter to filter that metric down to just the data relevant to this service.
+ */
+@interface GTLRMonitoring_BasicSli : GTLRObject
+
+/**
+ *  Good service is defined to be the count of requests made to this service
+ *  that return successfully.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_AvailabilityCriteria *availability;
+
+/**
+ *  Good service is defined to be the count of requests made to this service
+ *  that are fast enough with respect to latency.threshold.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_LatencyCriteria *latency;
+
+/**
+ *  OPTIONAL: The set of locations to which this SLI is relevant. Telemetry from
+ *  other locations will not be used to calculate performance for this SLI. If
+ *  omitted, this SLI applies to all locations in which the Service has
+ *  activity. For service types that don't support breaking down by location,
+ *  setting this field will result in an error.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *location;
+
+/**
+ *  OPTIONAL: The set of RPCs to which this SLI is relevant. Telemetry from
+ *  other methods will not be used to calculate performance for this SLI. If
+ *  omitted, this SLI applies to all the Service's methods. For service types
+ *  that don't support breaking down by method, setting this field will result
+ *  in an error.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *method;
+
+/**
+ *  OPTIONAL: The set of API versions to which this SLI is relevant. Telemetry
+ *  from other API versions will not be used to calculate performance for this
+ *  SLI. If omitted, this SLI applies to all API versions. For service types
+ *  that don't support breaking down by version, setting this field will result
+ *  in an error.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *version;
 
 @end
 
@@ -1648,6 +1796,54 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /** The linear bucket. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_Linear *linearBuckets;
+
+@end
+
+
+/**
+ *  Cloud Endpoints service. Learn more at https://cloud.google.com/endpoints.
+ */
+@interface GTLRMonitoring_CloudEndpoints : GTLRObject
+
+/**
+ *  The name of the Cloud Endpoints service underlying this service. Corresponds
+ *  to the service resource label in the api monitored resource:
+ *  https://cloud.google.com/monitoring/api/resources#tag_api
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Istio service. Learn more at http://istio.io.
+ */
+@interface GTLRMonitoring_ClusterIstio : GTLRObject
+
+/**
+ *  The name of the Kubernetes cluster in which this Istio service is defined.
+ *  Corresponds to the cluster_name resource label in k8s_cluster resources.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/**
+ *  The location of the Kubernetes cluster in which this Istio service is
+ *  defined. Corresponds to the location resource label in k8s_cluster
+ *  resources.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  The name of the Istio service underlying this service. Corresponds to the
+ *  destination_service_name metric label in Istio metrics.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceName;
+
+/**
+ *  The namespace of the Istio service underlying this service. Corresponds to
+ *  the destination_service_namespace metric label in Istio metrics.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceNamespace;
 
 @end
 
@@ -1832,12 +2028,18 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
- *  Used to perform string matching. It allows substring and regular
- *  expressions, together with their negations.
+ *  Optional. Used to perform content matching. This allows matching based on
+ *  substrings and regular expressions, together with their negations. Only the
+ *  first 4&nbsp;MB of an HTTP or HTTPS check's response (and the first
+ *  1&nbsp;MB of a TCP check's response) are examined for purposes of content
+ *  matching.
  */
 @interface GTLRMonitoring_ContentMatcher : GTLRObject
 
-/** String or regex content to match (max 1024 bytes) */
+/**
+ *  String or regex content to match. Maximum 1024 bytes. An empty content
+ *  string indicates no content matching is to be performed.
+ */
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
@@ -1846,25 +2048,25 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *
  *  Likely values:
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_ContainsString Selects
- *        substring matching (there is a match if the output contains the
- *        content string). This is the default value for checks without a
- *        matcher option, or where the value of matcher is
+ *        substring matching. The match succeeds if the output contains the
+ *        content string. This is the default value for checks without a matcher
+ *        option, or where the value of matcher is
  *        CONTENT_MATCHER_OPTION_UNSPECIFIED. (Value: "CONTAINS_STRING")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified
  *        No content matcher type specified (maintained for backward
  *        compatibility, but deprecated for future use). Treated as
  *        CONTAINS_STRING. (Value: "CONTENT_MATCHER_OPTION_UNSPECIFIED")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex Selects
- *        regular expression matching (there is a match of the output matches
- *        the regular expression specified in the content string). (Value:
+ *        regular-expression matching. The match succeeds of the output matches
+ *        the regular expression specified in the content string. (Value:
  *        "MATCHES_REGEX")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString Selects
- *        negation of substring matching (there is a match if the output does
- *        NOT contain the content string). (Value: "NOT_CONTAINS_STRING")
+ *        negation of substring matching. The match succeeds if the output does
+ *        NOT contain the content string. (Value: "NOT_CONTAINS_STRING")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRegex Selects
- *        negation of regular expression matching (there is a match if the
+ *        negation of regular-expression matching. The match succeeds if the
  *        output does NOT match the regular expression specified in the content
- *        string). (Value: "NOT_MATCHES_REGEX")
+ *        string. (Value: "NOT_MATCHES_REGEX")
  */
 @property(nonatomic, copy, nullable) NSString *matcher;
 
@@ -1901,11 +2103,20 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @interface GTLRMonitoring_CreateCollectdTimeSeriesResponse : GTLRObject
 
 /**
- *  Records the error status for points that were not written due to an
- *  error.Failed requests for which nothing is written will return an error
- *  response instead.
+ *  Records the error status for points that were not written due to an error in
+ *  the request.Failed requests for which nothing is written will return an
+ *  error response instead. Requests where data points were rejected by the
+ *  backend will set summary instead.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_CollectdPayloadError *> *payloadErrors;
+
+/**
+ *  Aggregate statistics from writing the payloads. This field is omitted if all
+ *  points were successfully written, so that the response is empty. This is for
+ *  backwards compatibility with clients that log errors on any non-empty
+ *  response.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_CreateTimeSeriesSummary *summary;
 
 @end
 
@@ -1925,6 +2136,41 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_TimeSeries *> *timeSeries;
 
+@end
+
+
+/**
+ *  Summary of the result of a failed request to write data to a time series.
+ */
+@interface GTLRMonitoring_CreateTimeSeriesSummary : GTLRObject
+
+/**
+ *  The number of points that failed to be written. Order is not guaranteed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Error *> *errors;
+
+/**
+ *  The number of points that were successfully written.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *successPointCount;
+
+/**
+ *  The number of points in the request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalPointCount;
+
+@end
+
+
+/**
+ *  Custom view of service telemetry. Currently a place-holder pending final
+ *  design.
+ */
+@interface GTLRMonitoring_Custom : GTLRObject
 @end
 
 
@@ -2006,6 +2252,31 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  A DistributionCut defines a TimeSeries and thresholds used for measuring
+ *  good service and total service. The TimeSeries must have ValueType =
+ *  DISTRIBUTION and MetricKind = DELTA or MetricKind = CUMULATIVE. The computed
+ *  good_service will be the count of values x in the Distribution such that
+ *  range.min <= x < range.max.
+ */
+@interface GTLRMonitoring_DistributionCut : GTLRObject
+
+/**
+ *  A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters)
+ *  specifying a TimeSeries aggregating values. Must have ValueType =
+ *  DISTRIBUTION and MetricKind = DELTA or MetricKind = CUMULATIVE.
+ */
+@property(nonatomic, copy, nullable) NSString *distributionFilter;
+
+/**
+ *  Range of values considered "good." For a one-sided range, set one bound to
+ *  an infinite value.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_GoogleMonitoringV3Range *range;
+
+@end
+
+
+/**
  *  A content string and a MIME type that describes the content string's format.
  */
 @interface GTLRMonitoring_Documentation : GTLRObject
@@ -2071,6 +2342,24 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  The JSON representation for Empty is empty JSON object {}.
  */
 @interface GTLRMonitoring_Empty : GTLRObject
+@end
+
+
+/**
+ *  Detailed information about an error category.
+ */
+@interface GTLRMonitoring_Error : GTLRObject
+
+/**
+ *  The number of points that couldn't be written because of status.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pointCount;
+
+/** The status of the requested write operation. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Status *status;
+
 @end
 
 
@@ -2323,6 +2612,30 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  expiration in the request and the max permitted expiration.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+@end
+
+
+/**
+ *  Range of numerical values, inclusive of min and exclusive of max. If the
+ *  open range "< range.max" is desired, set range.min = -infinity. If the open
+ *  range ">= range.min" is desired, set range.max = infinity.
+ */
+@interface GTLRMonitoring_GoogleMonitoringV3Range : GTLRObject
+
+/**
+ *  Range maximum.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *max;
+
+/**
+ *  Range minimum.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *min;
 
 @end
 
@@ -2581,6 +2894,20 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  Parameters for a latency threshold SLI.
+ */
+@interface GTLRMonitoring_LatencyCriteria : GTLRObject
+
+/**
+ *  Good service is defined to be the count of requests made to this service
+ *  that return in no more than threshold.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *threshold;
+
+@end
+
+
+/**
  *  Specifies a linear sequence of buckets that all have the same width (except
  *  overflow and underflow). Each bucket represents a constant absolute
  *  uncertainty on the specific value in the bucket.There are num_finite_buckets
@@ -2821,6 +3148,62 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  The ListServiceLevelObjectives response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "serviceLevelObjectives" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRMonitoring_ListServiceLevelObjectivesResponse : GTLRCollectionObject
+
+/**
+ *  If there are more results than have been returned, then this field is set to
+ *  a non-empty value. To see the additional results, use that value as
+ *  pageToken in the next call to this method.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The ServiceLevelObjectives matching the specified filter.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_ServiceLevelObjective *> *serviceLevelObjectives;
+
+@end
+
+
+/**
+ *  The ListServices response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "services" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRMonitoring_ListServicesResponse : GTLRCollectionObject
+
+/**
+ *  If there are more results than have been returned, then this field is set to
+ *  a non-empty value. To see the additional results, use that value as
+ *  pageToken in the next call to this method.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The Services matching the specified filter.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Service *> *services;
+
+@end
+
+
+/**
  *  The ListTimeSeries response.
  */
 @interface GTLRMonitoring_ListTimeSeriesResponse : GTLRObject
@@ -2962,8 +3345,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  multiple streams on each resource to a single stream for each resource or
  *  when aggregating streams across all members of a group of resrouces).
  *  Multiple aggregations are applied in the order specified.This field is
- *  similar to the one in the MetricService.ListTimeSeries request. It is
- *  advisable to use the ListTimeSeries method when debugging this field.
+ *  similar to the one in the ListTimeSeries request. It is advisable to use the
+ *  ListTimeSeries method when debugging this field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Aggregation *> *aggregations;
 
@@ -2978,11 +3361,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  A filter that identifies which time series should be compared with the
  *  threshold.The filter is similar to the one that is specified in the
- *  MetricService.ListTimeSeries request (that call is useful to verify the time
- *  series that will be retrieved / processed) and must specify the metric type
- *  and optionally may contain restrictions on resource type, resource labels,
- *  and metric labels. This field may not exceed 2048 Unicode characters in
- *  length.
+ *  ListTimeSeries request (that call is useful to verify the time series that
+ *  will be retrieved / processed) and must specify the metric type and
+ *  optionally may contain restrictions on resource type, resource labels, and
+ *  metric labels. This field may not exceed 2048 Unicode characters in length.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3257,6 +3639,28 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  A MetricRange is used when each window is good when the value x of a single
+ *  TimeSeries satisfies range.min <= x < range.max. The provided TimeSeries
+ *  must have ValueType = INT64 or ValueType = DOUBLE and MetricKind = GAUGE.
+ */
+@interface GTLRMonitoring_MetricRange : GTLRObject
+
+/**
+ *  Range of values considered "good." For a one-sided range, set one bound to
+ *  an infinite value.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_GoogleMonitoringV3Range *range;
+
+/**
+ *  A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters)
+ *  specifying the TimeSeries to use for evaluating window quality.
+ */
+@property(nonatomic, copy, nullable) NSString *timeSeries;
+
+@end
+
+
+/**
  *  A condition type that compares a collection of time series against a
  *  threshold.
  */
@@ -3268,8 +3672,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  multiple streams on each resource to a single stream for each resource or
  *  when aggregating streams across all members of a group of resrouces).
  *  Multiple aggregations are applied in the order specified.This field is
- *  similar to the one in the MetricService.ListTimeSeries request. It is
- *  advisable to use the ListTimeSeries method when debugging this field.
+ *  similar to the one in the ListTimeSeries request. It is advisable to use the
+ *  ListTimeSeries method when debugging this field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Aggregation *> *aggregations;
 
@@ -3339,11 +3743,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  A filter that identifies which time series should be compared with the
  *  threshold.The filter is similar to the one that is specified in the
- *  MetricService.ListTimeSeries request (that call is useful to verify the time
- *  series that will be retrieved / processed) and must specify the metric type
- *  and optionally may contain restrictions on resource type, resource labels,
- *  and metric labels. This field may not exceed 2048 Unicode characters in
- *  length.
+ *  ListTimeSeries request (that call is useful to verify the time series that
+ *  will be retrieved / processed) and must specify the metric type and
+ *  optionally may contain restrictions on resource type, resource labels, and
+ *  metric labels. This field may not exceed 2048 Unicode characters in length.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3809,6 +4212,28 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  A PerformanceThreshold is used when each window is good when that window has
+ *  a sufficiently high performance.
+ */
+@interface GTLRMonitoring_PerformanceThreshold : GTLRObject
+
+/** BasicSli to evaluate to judge window quality. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_BasicSli *basicSliPerformance;
+
+/** RequestBasedSli to evaluate to judge window quality. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_RequestBasedSli *performance;
+
+/**
+ *  If window performance >= threshold, the window is counted as good.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threshold;
+
+@end
+
+
+/**
  *  A single data point in a time series.
  */
 @interface GTLRMonitoring_Point : GTLRObject
@@ -3854,6 +4279,28 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  Service Level Indicators for which atomic units of service are counted
+ *  directly.
+ */
+@interface GTLRMonitoring_RequestBasedSli : GTLRObject
+
+/**
+ *  distribution_cut is used when good_service is a count of values aggregated
+ *  in a Distribution that fall into a good range. The total_service is the
+ *  total count of all values aggregated in the Distribution.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_DistributionCut *distributionCut;
+
+/**
+ *  good_total_ratio is used when the ratio of good_service to total_service is
+ *  computed from two TimeSeries.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_TimeSeriesRatio *goodTotalRatio;
+
+@end
+
+
+/**
  *  The resource submessage for group checks. It can be used instead of a
  *  monitored resource, when multiple resources are being monitored.
  */
@@ -3886,6 +4333,145 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  The SendNotificationChannelVerificationCode request.
  */
 @interface GTLRMonitoring_SendNotificationChannelVerificationCodeRequest : GTLRObject
+@end
+
+
+/**
+ *  A Service is a discrete, autonomous, and network-accessible unit, designed
+ *  to solve an individual concern (Wikipedia
+ *  (https://en.wikipedia.org/wiki/Service-orientation)). In Stackdriver
+ *  Monitoring, a Service acts as the root resource under which operational
+ *  aspects of the service are accessible.
+ */
+@interface GTLRMonitoring_Service : GTLRObject
+
+/** Type used for App Engine services. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_AppEngine *appEngine;
+
+/** Type used for Cloud Endpoints services. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_CloudEndpoints *cloudEndpoints;
+
+/** Type used for Istio services that live in a Kubernetes cluster. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_ClusterIstio *clusterIstio;
+
+/** Custom service type. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Custom *custom;
+
+/** Name used for UI elements listing this Service. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Resource name for this Service. Of the form
+ *  projects/{project_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Configuration for how to query telemetry on a Service. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Telemetry *telemetry;
+
+@end
+
+
+/**
+ *  A Service-Level Indicator (SLI) describes the "performance" of a service.
+ *  For some services, the SLI is well-defined. In such cases, the SLI can be
+ *  described easily by referencing the well-known SLI and providing the needed
+ *  parameters. Alternatively, a "custom" SLI can be defined with a query to the
+ *  underlying metric store. An SLI is defined to be good_service /
+ *  total_service over any queried time interval. The value of performance
+ *  always falls into the range 0 <= performance <= 1. A custom SLI describes
+ *  how to compute this ratio, whether this is by dividing values from a pair of
+ *  time series, cutting a Distribution into good and bad counts, or counting
+ *  time windows in which the service complies with a criterion. For separation
+ *  of concerns, a single Service-Level Indicator measures performance for only
+ *  one aspect of service quality, such as fraction of successful queries or
+ *  fast-enough queries.
+ */
+@interface GTLRMonitoring_ServiceLevelIndicator : GTLRObject
+
+/** Basic SLI on a well-known service type. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_BasicSli *basicSli;
+
+/** Request-based SLIs */
+@property(nonatomic, strong, nullable) GTLRMonitoring_RequestBasedSli *requestBased;
+
+/** Windows-based SLIs */
+@property(nonatomic, strong, nullable) GTLRMonitoring_WindowsBasedSli *windowsBased;
+
+@end
+
+
+/**
+ *  A Service-Level Objective (SLO) describes a level of desired good service.
+ *  It consists of a service-level indicator (SLI), a performance goal, and a
+ *  period over which the objective is to be evaluated against that goal. The
+ *  SLO can use SLIs defined in a number of different manners. Typical SLOs
+ *  might include "99% of requests in each rolling week have latency below 200
+ *  milliseconds" or "99.5% of requests in each calendar month return
+ *  successfully."
+ */
+@interface GTLRMonitoring_ServiceLevelObjective : GTLRObject
+
+/**
+ *  A calendar period, semantically "since the start of the current
+ *  <calendar_period>". At this time, only DAY, WEEK, FORTNIGHT, and MONTH are
+ *  supported.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_CalendarPeriodUnspecified
+ *        Undefined period, raises an error. (Value:
+ *        "CALENDAR_PERIOD_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Day A day.
+ *        (Value: "DAY")
+ *    @arg @c kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Fortnight A
+ *        fortnight. The first calendar fortnight of the year begins at the
+ *        start of week 1 according to ISO 8601
+ *        (https://en.wikipedia.org/wiki/ISO_week_date). (Value: "FORTNIGHT")
+ *    @arg @c kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Half A
+ *        half-year. Half-years start on dates 1-Jan and 1-Jul. (Value: "HALF")
+ *    @arg @c kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Month A
+ *        month. (Value: "MONTH")
+ *    @arg @c kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Quarter A
+ *        quarter. Quarters start on dates 1-Jan, 1-Apr, 1-Jul, and 1-Oct of
+ *        each year. (Value: "QUARTER")
+ *    @arg @c kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Week A week.
+ *        Weeks begin on Monday, following ISO 8601
+ *        (https://en.wikipedia.org/wiki/ISO_week_date). (Value: "WEEK")
+ *    @arg @c kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Year A year.
+ *        (Value: "YEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *calendarPeriod;
+
+/** Name used for UI elements listing this SLO. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The fraction of service that must be good in order for this objective to be
+ *  met. 0 < goal <= 1.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *goal;
+
+/**
+ *  Resource name for this ServiceLevelObjective. Of the form
+ *  projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A rolling time period, semantically "in the past <rolling_period>". Must be
+ *  an integer multiple of 1 day no larger than 30 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *rollingPeriod;
+
+/**
+ *  The definition of good service, used to measure and calculate the quality of
+ *  the Service's performance with respect to a single aspect of service
+ *  quality.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_ServiceLevelIndicator *serviceLevelIndicator;
+
 @end
 
 
@@ -3982,6 +4568,20 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
+
+@end
+
+
+/**
+ *  Configuration for how to query telemetry on a Service.
+ */
+@interface GTLRMonitoring_Telemetry : GTLRObject
+
+/**
+ *  The full name of the resource that defines this service. Formatted as
+ *  described in https://cloud.google.com/apis/design/resource_names.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 
@@ -4106,6 +4706,44 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *        use this default value. (Value: "VALUE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *valueType;
+
+@end
+
+
+/**
+ *  A TimeSeriesRatio specifies two TimeSeries to use for computing the
+ *  good_service / total_service ratio. The specified TimeSeries must have
+ *  ValueType = DOUBLE or ValueType = INT64 and must have MetricKind =
+ *  DELTA or MetricKind = CUMULATIVE. The TimeSeriesRatio must specify exactly
+ *  two of good, bad, and total, and the relationship good_service +
+ *  bad_service = total_service will be assumed.
+ */
+@interface GTLRMonitoring_TimeSeriesRatio : GTLRObject
+
+/**
+ *  A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters)
+ *  specifying a TimeSeries quantifying bad service, either demanded service
+ *  that was not provided or demanded service that was of inadequate quality.
+ *  Must have ValueType = DOUBLE or ValueType = INT64 and must have MetricKind =
+ *  DELTA or MetricKind = CUMULATIVE.
+ */
+@property(nonatomic, copy, nullable) NSString *badServiceFilter;
+
+/**
+ *  A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters)
+ *  specifying a TimeSeries quantifying good service provided. Must have
+ *  ValueType = DOUBLE or ValueType = INT64 and must have MetricKind =
+ *  DELTA or MetricKind = CUMULATIVE.
+ */
+@property(nonatomic, copy, nullable) NSString *goodServiceFilter;
+
+/**
+ *  A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters)
+ *  specifying a TimeSeries quantifying total demanded service. Must have
+ *  ValueType = DOUBLE or ValueType = INT64 and must have MetricKind =
+ *  DELTA or MetricKind = CUMULATIVE.
+ */
+@property(nonatomic, copy, nullable) NSString *totalServiceFilter;
 
 @end
 
@@ -4356,6 +4994,44 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  the structure or format of the code).
  */
 @property(nonatomic, copy, nullable) NSString *code;
+
+@end
+
+
+/**
+ *  A WindowsBasedSli defines good_service as the count of time windows for
+ *  which the provided service was of good quality. Criteria for determining if
+ *  service was good are embedded in the window_criterion.
+ */
+@interface GTLRMonitoring_WindowsBasedSli : GTLRObject
+
+/**
+ *  A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters)
+ *  specifying a TimeSeries with ValueType = BOOL. The window is good if any
+ *  true values appear in the window.
+ */
+@property(nonatomic, copy, nullable) NSString *goodBadMetricFilter;
+
+/** A window is good if its performance is high enough. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_PerformanceThreshold *goodTotalRatioThreshold;
+
+/**
+ *  A window is good if the metric's value is in a good range, averaged across
+ *  returned streams.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_MetricRange *metricMeanInRange;
+
+/**
+ *  A window is good if the metric's value is in a good range, summed across
+ *  returned streams.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_MetricRange *metricSumInRange;
+
+/**
+ *  Duration over which window quality is evaluated. Must be an integer fraction
+ *  of a day and at least 60s.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *windowPeriod;
 
 @end
 

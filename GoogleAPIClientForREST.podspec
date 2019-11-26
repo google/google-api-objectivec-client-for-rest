@@ -96,10 +96,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AndroidPublisher/*.{h,m}'
   end
-  s.subspec 'AppState' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/AppState/*.{h,m}'
-  end
   s.subspec 'Appengine' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Appengine/*.{h,m}'
@@ -155,6 +151,10 @@ Pod::Spec.new do |s|
   s.subspec 'CloudAsset' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudAsset/*.{h,m}'
+  end
+  s.subspec 'CloudBillingBudget' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudBillingBudget/*.{h,m}'
   end
   s.subspec 'CloudBuild' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -303,6 +303,10 @@ Pod::Spec.new do |s|
   s.subspec 'DLP' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DLP/*.{h,m}'
+  end
+  s.subspec 'DataCatalog' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/DataCatalog/*.{h,m}'
   end
   s.subspec 'DataFusion' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

@@ -175,6 +175,16 @@ NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer =
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_Instance = @"INSTANCE";
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
 
+// GTLRMonitoring_ServiceLevelObjective.calendarPeriod
+NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_CalendarPeriodUnspecified = @"CALENDAR_PERIOD_UNSPECIFIED";
+NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Day = @"DAY";
+NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Fortnight = @"FORTNIGHT";
+NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Half = @"HALF";
+NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Month = @"MONTH";
+NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Quarter = @"QUARTER";
+NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Week = @"WEEK";
+NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Year = @"YEAR";
+
 // GTLRMonitoring_TimeSeries.metricKind
 NSString * const kGTLRMonitoring_TimeSeries_MetricKind_Cumulative = @"CUMULATIVE";
 NSString * const kGTLRMonitoring_TimeSeries_MetricKind_Delta   = @"DELTA";
@@ -263,6 +273,25 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_AppEngine
+//
+
+@implementation GTLRMonitoring_AppEngine
+@dynamic moduleId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_AvailabilityCriteria
+//
+
+@implementation GTLRMonitoring_AvailabilityCriteria
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_BasicAuthentication
 //
 
@@ -273,11 +302,51 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_BasicSli
+//
+
+@implementation GTLRMonitoring_BasicSli
+@dynamic availability, latency, location, method, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"location" : [NSString class],
+    @"method" : [NSString class],
+    @"version" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_BucketOptions
 //
 
 @implementation GTLRMonitoring_BucketOptions
 @dynamic explicitBuckets, exponentialBuckets, linearBuckets;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_CloudEndpoints
+//
+
+@implementation GTLRMonitoring_CloudEndpoints
+@dynamic service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_ClusterIstio
+//
+
+@implementation GTLRMonitoring_ClusterIstio
+@dynamic clusterName, location, serviceName, serviceNamespace;
 @end
 
 
@@ -396,7 +465,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_CreateCollectdTimeSeriesResponse
-@dynamic payloadErrors;
+@dynamic payloadErrors, summary;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -428,6 +497,33 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_CreateTimeSeriesSummary
+//
+
+@implementation GTLRMonitoring_CreateTimeSeriesSummary
+@dynamic errors, successPointCount, totalPointCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRMonitoring_Error class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Custom
+//
+
+@implementation GTLRMonitoring_Custom
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_Distribution
 //
 
@@ -443,6 +539,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_DistributionCut
+//
+
+@implementation GTLRMonitoring_DistributionCut
+@dynamic distributionFilter, range;
 @end
 
 
@@ -486,6 +592,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Error
+//
+
+@implementation GTLRMonitoring_Error
+@dynamic pointCount, status;
 @end
 
 
@@ -596,6 +712,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_GoogleMonitoringV3Range
+//
+
+@implementation GTLRMonitoring_GoogleMonitoringV3Range
+@dynamic max, min;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_Group
 //
 
@@ -650,6 +776,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_LatencyCriteria
+//
+
+@implementation GTLRMonitoring_LatencyCriteria
+@dynamic threshold;
 @end
 
 
@@ -819,6 +955,50 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_ListServiceLevelObjectivesResponse
+//
+
+@implementation GTLRMonitoring_ListServiceLevelObjectivesResponse
+@dynamic nextPageToken, serviceLevelObjectives;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceLevelObjectives" : [GTLRMonitoring_ServiceLevelObjective class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"serviceLevelObjectives";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_ListServicesResponse
+//
+
+@implementation GTLRMonitoring_ListServicesResponse
+@dynamic nextPageToken, services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"services" : [GTLRMonitoring_Service class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"services";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_ListTimeSeriesResponse
 //
 
@@ -953,6 +1133,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 @implementation GTLRMonitoring_MetricDescriptorMetadata
 @dynamic ingestDelay, launchStage, samplePeriod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_MetricRange
+//
+
+@implementation GTLRMonitoring_MetricRange
+@dynamic range, timeSeries;
 @end
 
 
@@ -1163,6 +1353,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_PerformanceThreshold
+//
+
+@implementation GTLRMonitoring_PerformanceThreshold
+@dynamic basicSliPerformance, performance, threshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_Point
 //
 
@@ -1183,6 +1383,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_RequestBasedSli
+//
+
+@implementation GTLRMonitoring_RequestBasedSli
+@dynamic distributionCut, goodTotalRatio;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_ResourceGroup
 //
 
@@ -1197,6 +1407,38 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_SendNotificationChannelVerificationCodeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Service
+//
+
+@implementation GTLRMonitoring_Service
+@dynamic appEngine, cloudEndpoints, clusterIstio, custom, displayName, name,
+         telemetry;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_ServiceLevelIndicator
+//
+
+@implementation GTLRMonitoring_ServiceLevelIndicator
+@dynamic basicSli, requestBased, windowsBased;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_ServiceLevelObjective
+//
+
+@implementation GTLRMonitoring_ServiceLevelObjective
+@dynamic calendarPeriod, displayName, goal, name, rollingPeriod,
+         serviceLevelIndicator;
 @end
 
 
@@ -1264,6 +1506,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_Telemetry
+//
+
+@implementation GTLRMonitoring_Telemetry
+@dynamic resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_TimeInterval
 //
 
@@ -1287,6 +1539,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_TimeSeriesRatio
+//
+
+@implementation GTLRMonitoring_TimeSeriesRatio
+@dynamic badServiceFilter, goodServiceFilter, totalServiceFilter;
 @end
 
 
@@ -1369,4 +1631,15 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 @implementation GTLRMonitoring_VerifyNotificationChannelRequest
 @dynamic code;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_WindowsBasedSli
+//
+
+@implementation GTLRMonitoring_WindowsBasedSli
+@dynamic goodBadMetricFilter, goodTotalRatioThreshold, metricMeanInRange,
+         metricSumInRange, windowPeriod;
 @end

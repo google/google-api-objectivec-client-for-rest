@@ -2260,6 +2260,34 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 
 
 /**
+ *  The request used for `UpdateInstance`.
+ */
+@interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateInstanceRequest : GTLRObject
+
+/**
+ *  Whether to enable Stackdriver logging for this instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *loggingEnabled;
+
+/**
+ *  Name of the instance to update.
+ *  Format: `projects/[PROJECT_ID]/instances/[INSTANCE_ID]`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
  *  The request used for UpdateWorkerPool.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateWorkerPoolRequest : GTLRObject

@@ -133,6 +133,25 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_Control
+//
+
+@implementation GTLRAndroidPublisher_Control
+@dynamic modRanges, versionCodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"modRanges" : [GTLRAndroidPublisher_ModRange class],
+    @"versionCodes" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_CountryTargeting
 //
 
@@ -440,6 +459,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_MendelSampling
+//
+
+@implementation GTLRAndroidPublisher_MendelSampling
+@dynamic modRanges, modulus, salt;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"modRanges" : [GTLRAndroidPublisher_ModRange class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ModRange
+//
+
+@implementation GTLRAndroidPublisher_ModRange
+@dynamic end, start;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_MonthDay
 //
 
@@ -721,11 +768,12 @@
 //
 
 @implementation GTLRAndroidPublisher_TrackRelease
-@dynamic countryTargeting, name, releaseNotes, status, userFraction,
-         versionCodes;
+@dynamic controls, countryTargeting, name, releaseNotes, sampling, status,
+         userFraction, versionCodes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"controls" : [GTLRAndroidPublisher_Control class],
     @"releaseNotes" : [GTLRAndroidPublisher_LocalizedText class],
     @"versionCodes" : [NSNumber class]
   };

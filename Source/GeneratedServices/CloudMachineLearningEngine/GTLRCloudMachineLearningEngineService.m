@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Machine Learning Engine (ml/v1)
+//   AI Platform Training & Prediction API (ml/v1)
 // Description:
 //   An API to enable creating and using machine learning models.
 // Documentation:

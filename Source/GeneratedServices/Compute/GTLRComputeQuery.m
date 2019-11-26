@@ -10752,7 +10752,7 @@
 
 @implementation GTLRComputeQuery_SubnetworksPatch
 
-@dynamic project, region, requestId, subnetwork;
+@dynamic drainTimeoutSeconds, project, region, requestId, subnetwork;
 
 + (instancetype)queryWithObject:(GTLRCompute_Subnetwork *)object
                         project:(NSString *)project

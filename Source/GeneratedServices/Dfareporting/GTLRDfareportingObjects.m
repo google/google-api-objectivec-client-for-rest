@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.3)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.4)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -490,6 +490,18 @@ NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_We
 NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyHighestCtr = @"WEIGHT_STRATEGY_HIGHEST_CTR";
 NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyOptimized = @"WEIGHT_STRATEGY_OPTIMIZED";
 
+// GTLRDfareporting_CustomEvent.eventType
+NSString * const kGTLRDfareporting_CustomEvent_EventType_Annotate = @"ANNOTATE";
+NSString * const kGTLRDfareporting_CustomEvent_EventType_Insert = @"INSERT";
+NSString * const kGTLRDfareporting_CustomEvent_EventType_Unknown = @"UNKNOWN";
+
+// GTLRDfareporting_CustomEventError.code
+NSString * const kGTLRDfareporting_CustomEventError_Code_Internal = @"INTERNAL";
+NSString * const kGTLRDfareporting_CustomEventError_Code_InvalidArgument = @"INVALID_ARGUMENT";
+NSString * const kGTLRDfareporting_CustomEventError_Code_NotFound = @"NOT_FOUND";
+NSString * const kGTLRDfareporting_CustomEventError_Code_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRDfareporting_CustomEventError_Code_Unknown = @"UNKNOWN";
+
 // GTLRDfareporting_CustomFloodlightVariable.type
 NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U1 = @"U1";
 NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U10 = @"U10";
@@ -721,6 +733,12 @@ NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_GlobalSi
 NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Iframe = @"IFRAME";
 NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Image = @"IMAGE";
 
+// GTLRDfareporting_FloodlightActivity.status
+NSString * const kGTLRDfareporting_FloodlightActivity_Status_Active = @"ACTIVE";
+NSString * const kGTLRDfareporting_FloodlightActivity_Status_Archived = @"ARCHIVED";
+NSString * const kGTLRDfareporting_FloodlightActivity_Status_ArchivedAndDisabled = @"ARCHIVED_AND_DISABLED";
+NSString * const kGTLRDfareporting_FloodlightActivity_Status_DisabledPolicy = @"DISABLED_POLICY";
+
 // GTLRDfareporting_FloodlightActivity.tagFormat
 NSString * const kGTLRDfareporting_FloodlightActivity_TagFormat_Html = @"HTML";
 NSString * const kGTLRDfareporting_FloodlightActivity_TagFormat_Xhtml = @"XHTML";
@@ -843,6 +861,11 @@ NSString * const kGTLRDfareporting_FloodlightConfiguration_NaturalSearchConversi
 // GTLRDfareporting_FsCommand.positionOption
 NSString * const kGTLRDfareporting_FsCommand_PositionOption_Centered = @"CENTERED";
 NSString * const kGTLRDfareporting_FsCommand_PositionOption_DistanceFromTopLeftCorner = @"DISTANCE_FROM_TOP_LEFT_CORNER";
+
+// GTLRDfareporting_InsertEvent.insertEventType
+NSString * const kGTLRDfareporting_InsertEvent_InsertEventType_Click = @"CLICK";
+NSString * const kGTLRDfareporting_InsertEvent_InsertEventType_Impression = @"IMPRESSION";
+NSString * const kGTLRDfareporting_InsertEvent_InsertEventType_Unknown = @"UNKNOWN";
 
 // GTLRDfareporting_InventoryItem.type
 NSString * const kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeCredit = @"PLANNING_PLACEMENT_TYPE_CREDIT";
@@ -1620,6 +1643,16 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_AnnotateClickEvent
+//
+
+@implementation GTLRDfareporting_AnnotateClickEvent
+@dynamic gclid, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_AudienceSegment
 //
 
@@ -1747,6 +1780,16 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return @"campaignCreativeAssociations";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CampaignManagerIds
+//
+
+@implementation GTLRDfareporting_CampaignManagerIds
+@dynamic adId, campaignId, creativeId, kind, placementId, siteId;
 @end
 
 
@@ -2542,6 +2585,89 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_CustomEvent
+//
+
+@implementation GTLRDfareporting_CustomEvent
+@dynamic annotateClickEvent, customVariables, eventType,
+         floodlightConfigurationId, insertEvent, kind, ordinal, timestampMicros;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customVariables" : [GTLRDfareporting_CustomVariables class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CustomEventError
+//
+
+@implementation GTLRDfareporting_CustomEventError
+@dynamic code, kind, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CustomEventsBatchInsertRequest
+//
+
+@implementation GTLRDfareporting_CustomEventsBatchInsertRequest
+@dynamic customEvents, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customEvents" : [GTLRDfareporting_CustomEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CustomEventsBatchInsertResponse
+//
+
+@implementation GTLRDfareporting_CustomEventsBatchInsertResponse
+@dynamic hasFailures, kind, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"status" : [GTLRDfareporting_CustomEventStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CustomEventStatus
+//
+
+@implementation GTLRDfareporting_CustomEventStatus
+@dynamic customEvent, errors, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRDfareporting_CustomEventError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_CustomFloodlightVariable
 //
 
@@ -2565,6 +2691,16 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CustomVariables
+//
+
+@implementation GTLRDfareporting_CustomVariables
+@dynamic index, kind, value;
 @end
 
 
@@ -2809,6 +2945,17 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_DV3Ids
+//
+
+@implementation GTLRDfareporting_DV3Ids
+@dynamic dvCampaignId, dvCreativeId, dvInsertionOrderId, dvLineItemId, dvSiteId,
+         kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_DynamicTargetingKey
 //
 
@@ -3007,9 +3154,9 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
          countingMethod, defaultTags, expectedUrl, floodlightActivityGroupId,
          floodlightActivityGroupName, floodlightActivityGroupTagString,
          floodlightActivityGroupType, floodlightConfigurationId,
-         floodlightConfigurationIdDimensionValue, floodlightTagType, hidden,
-         identifier, idDimensionValue, kind, name, notes, publisherTags, secure,
-         sslCompliant, sslRequired, subaccountId, tagFormat, tagString,
+         floodlightConfigurationIdDimensionValue, floodlightTagType, identifier,
+         idDimensionValue, kind, name, notes, publisherTags, secure,
+         sslCompliant, sslRequired, status, subaccountId, tagFormat, tagString,
          userDefinedVariableTypes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -3200,6 +3347,17 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_InsertEvent
+//
+
+@implementation GTLRDfareporting_InsertEvent
+@dynamic cmDimensions, dv3Dimensions, insertEventType, kind, matchId,
+         mobileDeviceId;
 @end
 
 
@@ -4059,9 +4217,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_PricingSchedule
-@dynamic capCostOption, disregardOverdelivery, endDate, flighted,
-         floodlightActivityId, pricingPeriods, pricingType, startDate,
-         testingStartDate;
+@dynamic capCostOption, endDate, flighted, floodlightActivityId, pricingPeriods,
+         pricingType, startDate, testingStartDate;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

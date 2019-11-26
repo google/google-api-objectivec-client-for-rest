@@ -182,6 +182,24 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseRules_Metadata
+//
+
+@implementation GTLRFirebaseRules_Metadata
+@dynamic services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"services" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseRules_Release
 //
 
@@ -206,7 +224,7 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 //
 
 @implementation GTLRFirebaseRules_Ruleset
-@dynamic createTime, name, source;
+@dynamic createTime, metadata, name, source;
 @end
 
 

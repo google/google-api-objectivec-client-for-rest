@@ -555,6 +555,60 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
 @end
 
 /**
+ *  Lists the versions that have been created on the specified site.
+ *  Will include filtering in the future.
+ *
+ *  Method: firebasehosting.sites.versions.list
+ */
+@interface GTLRFirebaseHostingQuery_SitesVersionsList : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForSitesVersionsListWithparent:]
+
+/**
+ *  The filter string used to return a subset of versions in the response.
+ *  Currently supported fields for filtering are: name, status,
+ *  and create_time. Filter processing will be implemented in accordance
+ *  with go/filtering.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of versions to return. The service may return fewer than
+ *  this value.
+ *  If unspecified, at most 25 versions will be returned.
+ *  The maximum value is 100; values above 100 will be coerced to 100
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token from a previous request, if provided. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent for which to list files, in the format:
+ *  <code>sites/<var>site-name</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_ListVersionsResponse.
+ *
+ *  Lists the versions that have been created on the specified site.
+ *  Will include filtering in the future.
+ *
+ *  @param parent Required. The parent for which to list files, in the format:
+ *    <code>sites/<var>site-name</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_SitesVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates the specified metadata for a version. Note that this method will
  *  fail with `FAILED_PRECONDITION` in the event of an invalid state
  *  transition. The only valid transition for a version is currently from a

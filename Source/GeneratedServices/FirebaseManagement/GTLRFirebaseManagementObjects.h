@@ -765,10 +765,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_Sha
 @interface GTLRFirebaseManagement_Location : GTLRObject
 
 /**
- *  The ID of the default GCP resource location. It must be one of the
- *  available
- *  [GCP resource
- *  locations](https://firebase.google.com/docs/projects/locations).
+ *  The ID of the GCP resource location. It will be one of the available [GCP
+ *  resource
+ *  locations](https://firebase.google.com/docs/projects/locations#types).
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 

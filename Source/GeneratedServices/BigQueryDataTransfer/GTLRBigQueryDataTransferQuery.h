@@ -482,6 +482,14 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional service account name. If this field is set, transfer config will
+ *  be created with this service account credentials. It requires that
+ *  requesting user calling this API has permissions to act as this service
+ *  account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountName;
+
+/**
  *  Optional version info. If users want to find a very recent access token,
  *  that is, immediately after approving access, users have to set the
  *  version_info claim in the token request. To obtain the version_info, users
@@ -683,6 +691,15 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  required, will be generated for config_id.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional service account name. If this field is set and
+ *  "service_account_name" is set in update_mask, transfer config will be
+ *  updated to use this service account credentials. It requires that
+ *  requesting user calling this API has permissions to act as this service
+ *  account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountName;
 
 /**
  *  Required. Required list of fields to be updated in this request.
@@ -1066,6 +1083,14 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional service account name. If this field is set, transfer config will
+ *  be created with this service account credentials. It requires that
+ *  requesting user calling this API has permissions to act as this service
+ *  account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountName;
+
+/**
  *  Optional version info. If users want to find a very recent access token,
  *  that is, immediately after approving access, users have to set the
  *  version_info claim in the token request. To obtain the version_info, users
@@ -1267,6 +1292,15 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspeci
  *  required, will be generated for config_id.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional service account name. If this field is set and
+ *  "service_account_name" is set in update_mask, transfer config will be
+ *  updated to use this service account credentials. It requires that
+ *  requesting user calling this API has permissions to act as this service
+ *  account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountName;
 
 /**
  *  Required. Required list of fields to be updated in this request.

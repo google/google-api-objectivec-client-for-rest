@@ -45,7 +45,6 @@ NSString * const kGTLRAuthScopeGamesManagementGames = @"https://www.googleapis.c
     @"gamesManagement#playerScoreResetAllResponse" : [GTLRGamesManagement_PlayerScoreResetAllResponse class],
     @"gamesManagement#playerScoreResetResponse" : [GTLRGamesManagement_PlayerScoreResetResponse class],
     @"gamesManagement#profileSettings" : [GTLRGamesManagement_ProfileSettings class],
-    @"gamesManagement#questsResetMultipleForAllRequest" : [GTLRGamesManagement_QuestsResetMultipleForAllRequest class],
     @"gamesManagement#scoresResetMultipleForAllRequest" : [GTLRGamesManagement_ScoresResetMultipleForAllRequest class],
   };
 }

@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsCreateWithObject:parent:]
 
 /**
- *  Optional connection id that should be assigned to the created connection.
+ *  Optional. Connection id that should be assigned to the created connection.
  */
 @property(nonatomic, copy, nullable) NSString *connectionId;
 

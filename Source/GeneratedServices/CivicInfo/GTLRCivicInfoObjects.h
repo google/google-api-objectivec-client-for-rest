@@ -33,9 +33,6 @@
 @class GTLRCivicInfo_GeographicDivision;
 @class GTLRCivicInfo_InternalFieldMetadataProto;
 @class GTLRCivicInfo_InternalSourceSummaryProto;
-@class GTLRCivicInfo_LivegraphBacktraceRecordInfo;
-@class GTLRCivicInfo_LivegraphBacktraceRecordInfoExpInfo;
-@class GTLRCivicInfo_MessageSet;
 @class GTLRCivicInfo_Office;
 @class GTLRCivicInfo_Official;
 @class GTLRCivicInfo_PointProto;
@@ -637,114 +634,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCivicInfo_LivegraphBacktraceRecordInfo
- */
-@interface GTLRCivicInfo_LivegraphBacktraceRecordInfo : GTLRObject
-
-/**
- *  dataSourcePublishMsec
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dataSourcePublishMsec;
-
-@property(nonatomic, copy, nullable) NSString *expId;
-@property(nonatomic, strong, nullable) GTLRCivicInfo_LivegraphBacktraceRecordInfoExpInfo *expInfo;
-
-/**
- *  isRecon
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isRecon;
-
-/**
- *  isWlmThrottled
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isWlmThrottled;
-
-/**
- *  numberOfTriples
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numberOfTriples;
-
-@property(nonatomic, copy, nullable) NSString *priority;
-@property(nonatomic, copy, nullable) NSString *process;
-
-/**
- *  proxyReceiveMsec
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *proxyReceiveMsec;
-
-/**
- *  proxySentMsec
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *proxySentMsec;
-
-@property(nonatomic, copy, nullable) NSString *recordId;
-
-/**
- *  shouldMonitorLatency
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *shouldMonitorLatency;
-
-/**
- *  subscriberReceiveMsec
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *subscriberReceiveMsec;
-
-/**
- *  topicBuildFinishMsec
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *topicBuildFinishMsec;
-
-/**
- *  topicBuildStartMsec
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *topicBuildStartMsec;
-
-@property(nonatomic, copy, nullable) NSString *version;
-
-@end
-
-
-/**
- *  GTLRCivicInfo_LivegraphBacktraceRecordInfoExpInfo
- */
-@interface GTLRCivicInfo_LivegraphBacktraceRecordInfoExpInfo : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *deletedIns;
-
-@end
-
-
-/**
- *  GTLRCivicInfo_MessageSet
- */
-@interface GTLRCivicInfo_MessageSet : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRCivicInfo_LivegraphBacktraceRecordInfo *recordMessageSetExt;
-
-@end
-
-
-/**
  *  Information about an Office held by one or more Officials.
  */
 @interface GTLRCivicInfo_Office : GTLRObject
@@ -841,7 +730,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *lngE7;
 
 @property(nonatomic, strong, nullable) GTLRCivicInfo_FieldMetadataProto *metadata;
-@property(nonatomic, strong, nullable) GTLRCivicInfo_MessageSet *temporaryData;
 
 @end
 

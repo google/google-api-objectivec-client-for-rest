@@ -404,7 +404,7 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_ListFindingsResult
-@dynamic finding, stateChange;
+@dynamic finding, resource, stateChange;
 @end
 
 
@@ -520,6 +520,16 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Resource
+//
+
+@implementation GTLRSecurityCommandCenter_Resource
+@dynamic name, parentDisplayName, parentName, projectDisplayName, projectName;
 @end
 
 

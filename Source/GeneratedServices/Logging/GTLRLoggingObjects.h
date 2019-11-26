@@ -1347,7 +1347,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 /**
  *  Required. A client-assigned identifier, such as "load-balancer-exclusion".
  *  Identifiers are limited to 100 characters and can include only letters,
- *  digits, underscores, hyphens, and periods.
+ *  digits, underscores, hyphens, and periods. First character has to be
+ *  alphanumeric.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1567,6 +1568,14 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optional. A description of this sink. The maximum length of the description
+ *  is 8000 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
  *  Required. The export destination:
  *  "storage.googleapis.com/[GCS_BUCKET]"
  *  "bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET]"
@@ -1576,6 +1585,14 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *  exported. For more information, see Exporting Logs with Sinks.
  */
 @property(nonatomic, copy, nullable) NSString *destination;
+
+/**
+ *  Optional. If set to True, then this sink is disabled and it does not export
+ *  any log entries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
 
 /** Do not use. This field is ignored. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
@@ -1610,7 +1627,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *  Required. The client-assigned sink identifier, unique within the project.
  *  Example: "my-syslog-errors-to-pubsub". Sink identifiers are limited to 100
  *  characters and can include only the following characters: upper and
- *  lower-case alphanumeric characters, underscores, hyphens, and periods.
+ *  lower-case alphanumeric characters, underscores, hyphens, and periods. First
+ *  character has to be alphanumeric.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

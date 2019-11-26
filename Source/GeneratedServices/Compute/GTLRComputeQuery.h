@@ -24254,6 +24254,18 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCompute queryForSubnetworksPatchWithObject:project:region:subnetwork:]
 
+/**
+ *  The drain timeout specifies the upper bound in seconds on the amount of time
+ *  allowed to drain connections from the current ACTIVE subnetwork to the
+ *  current BACKUP subnetwork. The drain timeout is only applicable when the
+ *  following conditions are true: - the subnetwork being patched has purpose =
+ *  INTERNAL_HTTPS_LOAD_BALANCER - the subnetwork being patched has role =
+ *  BACKUP - the patch request is setting the role to ACTIVE. Note that after
+ *  this patch operation the roles of the ACTIVE and BACKUP subnetworks will be
+ *  swapped.
+ */
+@property(nonatomic, assign) NSInteger drainTimeoutSeconds;
+
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 

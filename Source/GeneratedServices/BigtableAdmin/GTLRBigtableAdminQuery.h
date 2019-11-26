@@ -1375,7 +1375,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  The view to be applied to the returned tables' fields.
- *  Defaults to `NAME_ONLY` if unspecified; no others are currently supported.
+ *  Only NAME_ONLY view (default) and REPLICATION_VIEW are supported.
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdminViewViewUnspecified Value "VIEW_UNSPECIFIED"

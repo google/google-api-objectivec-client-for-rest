@@ -37,15 +37,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearch;
 /**
- *  Authorization scope: New Service:
- *  https://www.googleapis.com/auth/cloud_search.debug
+ *  Authorization scope: Index and serve your organization's data with Cloud
+ *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.debug"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchDebug;
 /**
- *  Authorization scope: New Service:
- *  https://www.googleapis.com/auth/cloud_search.indexing
+ *  Authorization scope: Index and serve your organization's data with Cloud
+ *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.indexing"
  */
@@ -58,36 +58,36 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchIndexing;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchQuery;
 /**
- *  Authorization scope: New Service:
- *  https://www.googleapis.com/auth/cloud_search.settings
+ *  Authorization scope: Index and serve your organization's data with Cloud
+ *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.settings"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchSettings;
 /**
- *  Authorization scope: New Service:
- *  https://www.googleapis.com/auth/cloud_search.settings.indexing
+ *  Authorization scope: Index and serve your organization's data with Cloud
+ *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.settings.indexing"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchSettingsIndexing;
 /**
- *  Authorization scope: New Service:
- *  https://www.googleapis.com/auth/cloud_search.settings.query
+ *  Authorization scope: Index and serve your organization's data with Cloud
+ *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.settings.query"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchSettingsQuery;
 /**
- *  Authorization scope: New Service:
- *  https://www.googleapis.com/auth/cloud_search.stats
+ *  Authorization scope: Index and serve your organization's data with Cloud
+ *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.stats"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchStats;
 /**
- *  Authorization scope: New Service:
- *  https://www.googleapis.com/auth/cloud_search.stats.indexing
+ *  Authorization scope: Index and serve your organization's data with Cloud
+ *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.stats.indexing"
  */

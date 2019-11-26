@@ -631,7 +631,7 @@
 @implementation GTLRGames_Player
 @dynamic avatarImageUrl, bannerUrlLandscape, bannerUrlPortrait, displayName,
          experienceInfo, kind, lastPlayedWith, name, originalPlayerId, playerId,
-         profileSettings, title;
+         playerStattus, profileSettings, title;
 @end
 
 
@@ -893,96 +893,6 @@
   NSDictionary<NSString *, NSString *> *map = @{
     @"apnsDeviceToken" : @"apns_device_token",
     @"apnsEnvironment" : @"apns_environment"
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_Quest
-//
-
-@implementation GTLRGames_Quest
-@dynamic acceptedTimestampMillis, applicationId, bannerUrl, descriptionProperty,
-         endTimestampMillis, iconUrl, identifier, isDefaultBannerUrl,
-         isDefaultIconUrl, kind, lastUpdatedTimestampMillis, milestones, name,
-         notifyTimestampMillis, startTimestampMillis, state;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"identifier" : @"id"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"milestones" : [GTLRGames_QuestMilestone class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_QuestContribution
-//
-
-@implementation GTLRGames_QuestContribution
-@dynamic formattedValue, kind, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_QuestCriterion
-//
-
-@implementation GTLRGames_QuestCriterion
-@dynamic completionContribution, currentContribution, eventId,
-         initialPlayerProgress, kind;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_QuestListResponse
-//
-
-@implementation GTLRGames_QuestListResponse
-@dynamic items, kind, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRGames_Quest class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_QuestMilestone
-//
-
-@implementation GTLRGames_QuestMilestone
-@dynamic completionRewardData, criteria, identifier, kind, state;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"criteria" : [GTLRGames_QuestCriterion class]
   };
   return map;
 }

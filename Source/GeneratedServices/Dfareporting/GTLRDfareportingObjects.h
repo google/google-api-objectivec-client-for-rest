@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.3)
+//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.4)
 // Description:
 //   Manages your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
@@ -28,11 +28,13 @@
 @class GTLRDfareporting_AdSlot;
 @class GTLRDfareporting_Advertiser;
 @class GTLRDfareporting_AdvertiserGroup;
+@class GTLRDfareporting_AnnotateClickEvent;
 @class GTLRDfareporting_AudienceSegment;
 @class GTLRDfareporting_AudienceSegmentGroup;
 @class GTLRDfareporting_Browser;
 @class GTLRDfareporting_Campaign;
 @class GTLRDfareporting_CampaignCreativeAssociation;
+@class GTLRDfareporting_CampaignManagerIds;
 @class GTLRDfareporting_ChangeLog;
 @class GTLRDfareporting_City;
 @class GTLRDfareporting_ClickTag;
@@ -61,8 +63,12 @@
 @class GTLRDfareporting_CreativeOptimizationConfiguration;
 @class GTLRDfareporting_CreativeRotation;
 @class GTLRDfareporting_CrossDimensionReachReportCompatibleFields;
+@class GTLRDfareporting_CustomEvent;
+@class GTLRDfareporting_CustomEventError;
+@class GTLRDfareporting_CustomEventStatus;
 @class GTLRDfareporting_CustomFloodlightVariable;
 @class GTLRDfareporting_CustomRichMediaEvents;
+@class GTLRDfareporting_CustomVariables;
 @class GTLRDfareporting_CustomViewabilityMetric;
 @class GTLRDfareporting_CustomViewabilityMetricConfiguration;
 @class GTLRDfareporting_DateRange;
@@ -76,6 +82,7 @@
 @class GTLRDfareporting_DimensionValue;
 @class GTLRDfareporting_DirectorySite;
 @class GTLRDfareporting_DirectorySiteSettings;
+@class GTLRDfareporting_DV3Ids;
 @class GTLRDfareporting_DynamicTargetingKey;
 @class GTLRDfareporting_EncryptionInfo;
 @class GTLRDfareporting_EventTag;
@@ -92,6 +99,7 @@
 @class GTLRDfareporting_FrequencyCap;
 @class GTLRDfareporting_FsCommand;
 @class GTLRDfareporting_GeoTargeting;
+@class GTLRDfareporting_InsertEvent;
 @class GTLRDfareporting_InventoryItem;
 @class GTLRDfareporting_KeyValueTargetingExpression;
 @class GTLRDfareporting_LandingPage;
@@ -1143,6 +1151,30 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculatio
 GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyOptimized;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_CustomEvent.eventType
+
+/** Value: "ANNOTATE" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEvent_EventType_Annotate;
+/** Value: "INSERT" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEvent_EventType_Insert;
+/** Value: "UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEvent_EventType_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_CustomEventError.code
+
+/** Value: "INTERNAL" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_Internal;
+/** Value: "INVALID_ARGUMENT" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_InvalidArgument;
+/** Value: "NOT_FOUND" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_NotFound;
+/** Value: "PERMISSION_DENIED" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_PermissionDenied;
+/** Value: "UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_CustomFloodlightVariable.type
 
 /** Value: "U1" */
@@ -1605,6 +1637,18 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagT
 GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Image;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_FloodlightActivity.status
+
+/** Value: "ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Status_Active;
+/** Value: "ARCHIVED" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Status_Archived;
+/** Value: "ARCHIVED_AND_DISABLED" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Status_ArchivedAndDisabled;
+/** Value: "DISABLED_POLICY" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Status_DisabledPolicy;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.tagFormat
 
 /** Value: "HTML" */
@@ -1849,6 +1893,16 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightConfiguration_NaturalSe
 GTLR_EXTERN NSString * const kGTLRDfareporting_FsCommand_PositionOption_Centered;
 /** Value: "DISTANCE_FROM_TOP_LEFT_CORNER" */
 GTLR_EXTERN NSString * const kGTLRDfareporting_FsCommand_PositionOption_DistanceFromTopLeftCorner;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_InsertEvent.insertEventType
+
+/** Value: "CLICK" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_InsertEvent_InsertEventType_Click;
+/** Value: "IMPRESSION" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_InsertEvent_InsertEventType_Impression;
+/** Value: "UNKNOWN" */
+GTLR_EXTERN NSString * const kGTLRDfareporting_InsertEvent_InsertEventType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_InventoryItem.type
@@ -2783,6 +2837,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  - "48" for HRK
  *  - "49" for MXN
  *  - "50" for NGN
+ *  - "51" for EGP
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3961,6 +4016,26 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
+ *  Annotate a click event.
+ */
+@interface GTLRDfareporting_AnnotateClickEvent : GTLRObject
+
+/**
+ *  The Google click ID. Use this field to annotate the click associated with
+ *  the gclid.
+ */
+@property(nonatomic, copy, nullable) NSString *gclid;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#annotateClickEvent".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
  *  Audience Segment.
  */
 @interface GTLRDfareporting_AudienceSegment : GTLRObject
@@ -4317,6 +4392,55 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /** Pagination token to be used for the next list operation. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Campaign Manager IDs related to the custom event.
+ */
+@interface GTLRDfareporting_CampaignManagerIds : GTLRObject
+
+/**
+ *  Ad ID for Campaign Manager.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adId;
+
+/**
+ *  Campaign ID for Campaign Manager.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *campaignId;
+
+/**
+ *  Creative ID for Campaign Manager.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *creativeId;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#campaignManagerIds".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Placement ID for Campaign Manager.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *placementId;
+
+/**
+ *  Site ID for Campaign Manager.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *siteId;
 
 @end
 
@@ -4864,11 +4988,11 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  A list of the alphanumeric encrypted user IDs. Any user ID with exposure
  *  prior to the conversion timestamp will be used in the inserted conversion.
  *  If no such user ID is found then the conversion will be rejected with
- *  NO_COOKIE_MATCH_FOUND error. When set, encryptionInfo should also be
- *  specified. This field may only be used when calling batchinsert; it is not
- *  supported by batchupdate. This field is mutually exclusive with
- *  encryptedUserId, matchId, mobileDeviceId and gclid. This or encryptedUserId
- *  or matchId or mobileDeviceId or gclid is a required field.
+ *  INVALID_ARGUMENT error. When set, encryptionInfo should also be specified.
+ *  This field may only be used when calling batchinsert; it is not supported by
+ *  batchupdate. This field is mutually exclusive with encryptedUserId, matchId,
+ *  mobileDeviceId and gclid. This or encryptedUserId or matchId or
+ *  mobileDeviceId or gclid is a required field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *encryptedUserIdCandidates;
 
@@ -7138,6 +7262,159 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
+ *  Experimental feature (no support provided) A custom event represents a third
+ *  party impression, a third party click, an annotation on a first party
+ *  impression, or an annotation on a first party click.
+ */
+@interface GTLRDfareporting_CustomEvent : GTLRObject
+
+/** Annotate a click event. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_AnnotateClickEvent *annotateClickEvent;
+
+/** Custom variables associated with the event. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomVariables *> *customVariables;
+
+/**
+ *  The type of event. If INSERT, the fields in insertEvent need to be
+ *  populated. If ANNOTATE_CLICK, the fields in annotateClickEvent need to be
+ *  populated. A custom event cannot have both insertEvent and
+ *  annotateClickEvent populated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_CustomEvent_EventType_Annotate Value "ANNOTATE"
+ *    @arg @c kGTLRDfareporting_CustomEvent_EventType_Insert Value "INSERT"
+ *    @arg @c kGTLRDfareporting_CustomEvent_EventType_Unknown Value "UNKNOWN"
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/**
+ *  Floodlight configuration ID of the advertiser the event is linked to. This
+ *  is a required field.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floodlightConfigurationId;
+
+/** Insert custom event. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_InsertEvent *insertEvent;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#customEvent".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The ordinal of this custom event. This is a required field. */
+@property(nonatomic, copy, nullable) NSString *ordinal;
+
+/**
+ *  The timestamp of this custom event, in Unix epoch micros. This is a required
+ *  field.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timestampMicros;
+
+@end
+
+
+/**
+ *  The error code and description for a custom event that failed to insert.
+ */
+@interface GTLRDfareporting_CustomEventError : GTLRObject
+
+/**
+ *  The error code.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_CustomEventError_Code_Internal Value "INTERNAL"
+ *    @arg @c kGTLRDfareporting_CustomEventError_Code_InvalidArgument Value
+ *        "INVALID_ARGUMENT"
+ *    @arg @c kGTLRDfareporting_CustomEventError_Code_NotFound Value "NOT_FOUND"
+ *    @arg @c kGTLRDfareporting_CustomEventError_Code_PermissionDenied Value
+ *        "PERMISSION_DENIED"
+ *    @arg @c kGTLRDfareporting_CustomEventError_Code_Unknown Value "UNKNOWN"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#customEventError".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** A description of the error. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  Insert Custom Events Request.
+ */
+@interface GTLRDfareporting_CustomEventsBatchInsertRequest : GTLRObject
+
+/** The set of custom events to insert. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomEvent *> *customEvents;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#customEventsBatchInsertRequest".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Insert Custom Events Response.
+ */
+@interface GTLRDfareporting_CustomEventsBatchInsertResponse : GTLRObject
+
+/**
+ *  Indicates that some or all custom events failed to insert.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasFailures;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#customEventsBatchInsertResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The insert status of each custom event. Statuses are returned in the same
+ *  order that conversions are inserted.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomEventStatus *> *status;
+
+@end
+
+
+/**
+ *  The original custom event that was inserted and whether there were any
+ *  errors.
+ */
+@interface GTLRDfareporting_CustomEventStatus : GTLRObject
+
+/** The original custom event that was inserted. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_CustomEvent *customEvent;
+
+/** A list of errors related to this custom event. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomEventError *> *errors;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#customEventStatus".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
  *  A custom floodlight variable.
  */
 @interface GTLRDfareporting_CustomFloodlightVariable : GTLRObject
@@ -7281,6 +7558,33 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  dfareporting#customRichMediaEvents.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  A custom variable.
+ */
+@interface GTLRDfareporting_CustomVariables : GTLRObject
+
+/**
+ *  The index of the custom variable.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#customVariables".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The value of the custom variable. The length of string must not exceed 50
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -7899,6 +8203,55 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /** Pagination token to be used for the next list operation. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  DV360 IDs related to the custom event.
+ */
+@interface GTLRDfareporting_DV3Ids : GTLRObject
+
+/**
+ *  Campaign ID for DV360.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dvCampaignId;
+
+/**
+ *  Creative ID for DV360.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dvCreativeId;
+
+/**
+ *  Insertion Order ID for DV360.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dvInsertionOrderId;
+
+/**
+ *  Line Item ID for DV360.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dvLineItemId;
+
+/**
+ *  Site ID for DV360.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dvSiteId;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#dV3Ids".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -8575,13 +8928,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, copy, nullable) NSString *floodlightTagType;
 
 /**
- *  Whether this activity is archived.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *hidden;
-
-/**
  *  ID of this floodlight activity. This is a read-only, auto-generated field.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -8635,6 +8981,24 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sslRequired;
+
+/**
+ *  The status of the activity. This can only be set to ACTIVE or
+ *  ARCHIVED_AND_DISABLED. The ARCHIVED status is no longer supported and cannot
+ *  be set for Floodlight activities. The DISABLED_POLICY status indicates that
+ *  a Floodlight activity is violating Google policy. Contact your account
+ *  manager for more information.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_Status_Active Value "ACTIVE"
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_Status_Archived Value
+ *        "ARCHIVED"
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_Status_ArchivedAndDisabled
+ *        Value "ARCHIVED_AND_DISABLED"
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_Status_DisabledPolicy Value
+ *        "DISABLED_POLICY"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  Subaccount ID of this floodlight activity. This is a read-only field that
@@ -9179,6 +9543,52 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  targeting a region, do not target or exclude the country of the region.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Region *> *regions;
+
+@end
+
+
+/**
+ *  Insert custom event.
+ */
+@interface GTLRDfareporting_InsertEvent : GTLRObject
+
+/** Campaign Manager dimensions associated with the event. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_CampaignManagerIds *cmDimensions;
+
+/** DV360 dimensions associated with the event. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_DV3Ids *dv3Dimensions;
+
+/**
+ *  The type of insert event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_InsertEvent_InsertEventType_Click Value "CLICK"
+ *    @arg @c kGTLRDfareporting_InsertEvent_InsertEventType_Impression Value
+ *        "IMPRESSION"
+ *    @arg @c kGTLRDfareporting_InsertEvent_InsertEventType_Unknown Value
+ *        "UNKNOWN"
+ */
+@property(nonatomic, copy, nullable) NSString *insertEventType;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#insertEvent".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The match ID field. A match ID is your own first-party identifier that has
+ *  been synced with Google using the match ID feature in Floodlight. This field
+ *  is mutually exclusive with mobileDeviceId, and at least one of the two
+ *  fields is required.
+ */
+@property(nonatomic, copy, nullable) NSString *matchId;
+
+/**
+ *  The mobile device ID. This field is mutually exclusive with matchId, and at
+ *  least one of the two fields is required.
+ */
+@property(nonatomic, copy, nullable) NSString *mobileDeviceId;
 
 @end
 
@@ -11453,13 +11863,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, copy, nullable) NSString *capCostOption;
 
 /**
- *  Whether cap costs are ignored by ad serving.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *disregardOverdelivery;
-
-/**
  *  Placement end date. This date must be later than, or the same day as, the
  *  placement start date, but not later than the campaign end date. If, for
  *  example, you set 6/25/2015 as both the start and end dates, the effective
@@ -12719,6 +13122,25 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  - "11" for "America/Los_Angeles"
  *  - "12" for "Pacific/Auckland"
  *  - "13" for "America/Sao_Paulo"
+ *  - "16" for "America/Asuncion"
+ *  - "17" for "America/Chicago"
+ *  - "18" for "America/Denver"
+ *  - "19" for "America/St_Johns"
+ *  - "20" for "Asia/Dhaka"
+ *  - "21" for "Asia/Jakarta"
+ *  - "22" for "Asia/Kabul"
+ *  - "23" for "Asia/Karachi"
+ *  - "24" for "Asia/Calcutta"
+ *  - "25" for "Asia/Pyongyang"
+ *  - "26" for "Asia/Rangoon"
+ *  - "27" for "Atlantic/Cape_Verde"
+ *  - "28" for "Atlantic/South_Georgia"
+ *  - "29" for "Australia/Adelaide"
+ *  - "30" for "Australia/Lord_Howe"
+ *  - "31" for "Europe/Moscow"
+ *  - "32" for "Pacific/Kiritimati"
+ *  - "35" for "Pacific/Norfolk"
+ *  - "36" for "Pacific/Tongatapu"
  *
  *  Uses NSNumber of longLongValue.
  */

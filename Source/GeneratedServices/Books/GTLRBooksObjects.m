@@ -895,7 +895,8 @@
 //
 
 @implementation GTLRBooks_Series_Series_Item
-@dynamic bannerImageUrl, imageUrl, seriesId, seriesType, title;
+@dynamic bannerImageUrl, eligibleForSubscription, imageUrl, isComplete,
+         seriesId, seriesType, subscriptionId, title;
 @end
 
 
