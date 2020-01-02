@@ -7,7 +7,8 @@
 //   Writes log entries and manages your Stackdriver Logging configuration. The
 //   table entries below are presented in alphabetical order, not in order of
 //   common use. For explanations of the concepts found in the table entries,
-//   read the Stackdriver Logging documentation.
+//   read the <a href=https://cloud.google.com/logging/docs>Stackdriver Logging
+//   documentation</a>.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 

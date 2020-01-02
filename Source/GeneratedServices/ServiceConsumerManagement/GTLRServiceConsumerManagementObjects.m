@@ -113,6 +113,13 @@ NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_StatusUnsp
 NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
+// GTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse.attachStatus
+NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_AttachDeniedByOrgPolicy = @"ATTACH_DENIED_BY_ORG_POLICY";
+NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_Attached = @"ATTACHED";
+NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_AttachSkipped = @"ATTACH_SKIPPED";
+NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_AttachStatusUnspecified = @"ATTACH_STATUS_UNSPECIFIED";
+NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_PreviouslyAttached = @"PREVIOUSLY_ATTACHED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRServiceConsumerManagement_AddTenantProjectRequest
@@ -249,8 +256,8 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 //
 
 @implementation GTLRServiceConsumerManagement_BackendRule
-@dynamic address, deadline, jwtAudience, minDeadline, operationDeadline,
-         pathTranslation, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
+         operationDeadline, pathTranslation, selector;
 @end
 
 
@@ -1479,6 +1486,16 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_V1DefaultIdentity
+//
+
+@implementation GTLRServiceConsumerManagement_V1DefaultIdentity
+@dynamic email, name, uniqueId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_V1DisableConsumerResponse
 //
 
@@ -1492,6 +1509,16 @@ NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3 = @"SYN
 //
 
 @implementation GTLRServiceConsumerManagement_V1EnableConsumerResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse
+@dynamic attachStatus, identity, role;
 @end
 
 

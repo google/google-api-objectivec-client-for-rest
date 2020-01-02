@@ -53,7 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDuration *lifetime;
 
 /**
- *  Code to identify the scopes to be included in the OAuth 2.0 access token.
+ *  Required. Code to identify the scopes to be included in the OAuth 2.0 access
+ *  token.
  *  See https://developers.google.com/identity/protocols/googlescopes for more
  *  information.
  *  At least one value required.
@@ -86,7 +87,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIAMCredentials_GenerateIdTokenRequest : GTLRObject
 
 /**
- *  The audience for the token, such as the API or account that this token
+ *  Required. The audience for the token, such as the API or account that this
+ *  token
  *  grants access to.
  */
 @property(nonatomic, copy, nullable) NSString *audience;
@@ -145,7 +147,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *delegates;
 
 /**
- *  The bytes to sign.
+ *  Required. The bytes to sign.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -192,7 +194,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *delegates;
 
-/** The JWT payload to sign: a JSON object that contains a JWT Claims Set. */
+/**
+ *  Required. The JWT payload to sign: a JSON object that contains a JWT Claims
+ *  Set.
+ */
 @property(nonatomic, copy, nullable) NSString *payload;
 
 @end

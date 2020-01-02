@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryIAMCredentials queryForProjectsServiceAccountsGenerateAccessTokenWithObject:name:]
 
 /**
- *  The resource name of the service account for which the credentials
+ *  Required. The resource name of the service account for which the credentials
  *  are requested, in the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
  *  character is required; replacing it with a project ID is invalid.
@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRIAMCredentials_GenerateAccessTokenRequest to
  *    include in the query.
- *  @param name The resource name of the service account for which the
+ *  @param name Required. The resource name of the service account for which the
  *    credentials
  *    are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
@@ -94,7 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryIAMCredentials queryForProjectsServiceAccountsGenerateIdTokenWithObject:name:]
 
 /**
- *  The resource name of the service account for which the credentials
+ *  Required. The resource name of the service account for which the credentials
  *  are requested, in the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
  *  character is required; replacing it with a project ID is invalid.
@@ -108,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRIAMCredentials_GenerateIdTokenRequest to include in
  *    the query.
- *  @param name The resource name of the service account for which the
+ *  @param name Required. The resource name of the service account for which the
  *    credentials
  *    are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
@@ -134,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryIAMCredentials queryForProjectsServiceAccountsSignBlobWithObject:name:]
 
 /**
- *  The resource name of the service account for which the credentials
+ *  Required. The resource name of the service account for which the credentials
  *  are requested, in the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
  *  character is required; replacing it with a project ID is invalid.
@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRIAMCredentials_SignBlobRequest to include in the
  *    query.
- *  @param name The resource name of the service account for which the
+ *  @param name Required. The resource name of the service account for which the
  *    credentials
  *    are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
@@ -174,7 +174,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryIAMCredentials queryForProjectsServiceAccountsSignJwtWithObject:name:]
 
 /**
- *  The resource name of the service account for which the credentials
+ *  Required. The resource name of the service account for which the credentials
  *  are requested, in the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
  *  character is required; replacing it with a project ID is invalid.
@@ -188,7 +188,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRIAMCredentials_SignJwtRequest to include in the
  *    query.
- *  @param name The resource name of the service account for which the
+ *  @param name Required. The resource name of the service account for which the
  *    credentials
  *    are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard

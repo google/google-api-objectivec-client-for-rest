@@ -1129,7 +1129,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Resource name of the ProductSet to get.
  *  Format is:
- *  `projects/PROJECT_ID/locations/LOG_ID/productSets/PRODUCT_SET_ID`
+ *  `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1142,7 +1142,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Resource name of the ProductSet to get.
  *    Format is:
- *    `projects/PROJECT_ID/locations/LOG_ID/productSets/PRODUCT_SET_ID`
+ *    `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
  *
  *  @return GTLRVisionQuery_ProjectsLocationsProductSetsGet
  */

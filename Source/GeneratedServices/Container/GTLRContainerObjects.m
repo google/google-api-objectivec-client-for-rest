@@ -110,8 +110,8 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 //
 
 @implementation GTLRContainer_AddonsConfig
-@dynamic horizontalPodAutoscaling, httpLoadBalancing, kubernetesDashboard,
-         networkPolicyConfig;
+@dynamic cloudRunConfig, horizontalPodAutoscaling, httpLoadBalancing,
+         kubernetesDashboard, networkPolicyConfig;
 @end
 
 
@@ -210,6 +210,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_ClientCertificateConfig
 @dynamic issueClientCertificate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_CloudRunConfig
+//
+
+@implementation GTLRContainer_CloudRunConfig
+@dynamic disabled;
 @end
 
 
@@ -617,7 +627,7 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 //
 
 @implementation GTLRContainer_MaintenancePolicy
-@dynamic window;
+@dynamic resourceVersion, window;
 @end
 
 
@@ -627,7 +637,21 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 //
 
 @implementation GTLRContainer_MaintenanceWindow
-@dynamic dailyMaintenanceWindow;
+@dynamic dailyMaintenanceWindow, maintenanceExclusions, recurringWindow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_MaintenanceWindow_MaintenanceExclusions
+//
+
+@implementation GTLRContainer_MaintenanceWindow_MaintenanceExclusions
+
++ (Class)classForAdditionalProperties {
+  return [GTLRContainer_TimeWindow class];
+}
+
 @end
 
 
@@ -835,6 +859,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 @implementation GTLRContainer_PrivateClusterConfig
 @dynamic enablePrivateEndpoint, enablePrivateNodes, masterIpv4CidrBlock,
          privateEndpoint, publicEndpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_RecurringTimeWindow
+//
+
+@implementation GTLRContainer_RecurringTimeWindow
+@dynamic recurrence, window;
 @end
 
 
@@ -1129,6 +1163,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_StatusCondition
 @dynamic code, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_TimeWindow
+//
+
+@implementation GTLRContainer_TimeWindow
+@dynamic endTime, startTime;
 @end
 
 

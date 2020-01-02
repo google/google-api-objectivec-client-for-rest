@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDatastore queryForProjectsAllocateIdsWithObject:projectId:]
 
-/** The ID of the project against which to make the request. */
+/** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -72,7 +72,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDatastore_AllocateIdsRequest to include in the
  *    query.
- *  @param projectId The ID of the project against which to make the request.
+ *  @param projectId Required. The ID of the project against which to make the
+ *    request.
  *
  *  @return GTLRDatastoreQuery_ProjectsAllocateIds
  */
@@ -94,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDatastore queryForProjectsBeginTransactionWithObject:projectId:]
 
-/** The ID of the project against which to make the request. */
+/** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -104,7 +105,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDatastore_BeginTransactionRequest to include in the
  *    query.
- *  @param projectId The ID of the project against which to make the request.
+ *  @param projectId Required. The ID of the project against which to make the
+ *    request.
  *
  *  @return GTLRDatastoreQuery_ProjectsBeginTransaction
  */
@@ -127,7 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDatastore queryForProjectsCommitWithObject:projectId:]
 
-/** The ID of the project against which to make the request. */
+/** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -137,7 +139,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  entities.
  *
  *  @param object The @c GTLRDatastore_CommitRequest to include in the query.
- *  @param projectId The ID of the project against which to make the request.
+ *  @param projectId Required. The ID of the project against which to make the
+ *    request.
  *
  *  @return GTLRDatastoreQuery_ProjectsCommit
  */
@@ -166,7 +169,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDatastore queryForProjectsExportWithObject:projectId:]
 
-/** Project ID against which to make the request. */
+/** Required. Project ID against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -184,7 +187,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesRequest to include in
  *    the query.
- *  @param projectId Project ID against which to make the request.
+ *  @param projectId Required. Project ID against which to make the request.
  *
  *  @return GTLRDatastoreQuery_ProjectsExport
  */
@@ -210,7 +213,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDatastore queryForProjectsImportWithObject:projectId:]
 
-/** Project ID against which to make the request. */
+/** Required. Project ID against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -225,7 +228,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDatastore_GoogleDatastoreAdminV1ImportEntitiesRequest to include in
  *    the query.
- *  @param projectId Project ID against which to make the request.
+ *  @param projectId Required. Project ID against which to make the request.
  *
  *  @return GTLRDatastoreQuery_ProjectsImport
  */
@@ -433,7 +436,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDatastore queryForProjectsLookupWithObject:projectId:]
 
-/** The ID of the project against which to make the request. */
+/** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -442,7 +445,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Looks up entities by key.
  *
  *  @param object The @c GTLRDatastore_LookupRequest to include in the query.
- *  @param projectId The ID of the project against which to make the request.
+ *  @param projectId Required. The ID of the project against which to make the
+ *    request.
  *
  *  @return GTLRDatastoreQuery_ProjectsLookup
  */
@@ -626,7 +630,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Prevents the supplied keys' IDs from being auto-allocated by Cloud
- *  Datastore. Used for imports only; other workloads are not supported.
+ *  Datastore.
  *
  *  Method: datastore.projects.reserveIds
  *
@@ -638,18 +642,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDatastore queryForProjectsReserveIdsWithObject:projectId:]
 
-/** The ID of the project against which to make the request. */
+/** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Fetches a @c GTLRDatastore_ReserveIdsResponse.
  *
  *  Prevents the supplied keys' IDs from being auto-allocated by Cloud
- *  Datastore. Used for imports only; other workloads are not supported.
+ *  Datastore.
  *
  *  @param object The @c GTLRDatastore_ReserveIdsRequest to include in the
  *    query.
- *  @param projectId The ID of the project against which to make the request.
+ *  @param projectId Required. The ID of the project against which to make the
+ *    request.
  *
  *  @return GTLRDatastoreQuery_ProjectsReserveIds
  */
@@ -671,7 +676,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDatastore queryForProjectsRollbackWithObject:projectId:]
 
-/** The ID of the project against which to make the request. */
+/** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -680,7 +685,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Rolls back a transaction.
  *
  *  @param object The @c GTLRDatastore_RollbackRequest to include in the query.
- *  @param projectId The ID of the project against which to make the request.
+ *  @param projectId Required. The ID of the project against which to make the
+ *    request.
  *
  *  @return GTLRDatastoreQuery_ProjectsRollback
  */
@@ -702,7 +708,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDatastore queryForProjectsRunQueryWithObject:projectId:]
 
-/** The ID of the project against which to make the request. */
+/** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -711,7 +717,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Queries for entities.
  *
  *  @param object The @c GTLRDatastore_RunQueryRequest to include in the query.
- *  @param projectId The ID of the project against which to make the request.
+ *  @param projectId Required. The ID of the project against which to make the
+ *    request.
  *
  *  @return GTLRDatastoreQuery_ProjectsRunQuery
  */

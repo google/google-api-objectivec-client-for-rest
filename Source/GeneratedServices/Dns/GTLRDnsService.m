@@ -48,6 +48,8 @@ NSString * const kGTLRAuthScopeDnsNdevClouddnsReadwrite = @"https://www.googleap
     @"dns#managedZoneForwardingConfig" : [GTLRDns_ManagedZoneForwardingConfig class],
     @"dns#managedZoneForwardingConfigNameServerTarget" : [GTLRDns_ManagedZoneForwardingConfigNameServerTarget class],
     @"dns#managedZoneOperationsListResponse" : [GTLRDns_ManagedZoneOperationsListResponse class],
+    @"dns#managedZonePeeringConfig" : [GTLRDns_ManagedZonePeeringConfig class],
+    @"dns#managedZonePeeringConfigTargetNetwork" : [GTLRDns_ManagedZonePeeringConfigTargetNetwork class],
     @"dns#managedZonePrivateVisibilityConfig" : [GTLRDns_ManagedZonePrivateVisibilityConfig class],
     @"dns#managedZonePrivateVisibilityConfigNetwork" : [GTLRDns_ManagedZonePrivateVisibilityConfigNetwork class],
     @"dns#managedZonesListResponse" : [GTLRDns_ManagedZonesListResponse class],

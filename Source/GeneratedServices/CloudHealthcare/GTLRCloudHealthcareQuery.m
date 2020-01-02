@@ -31,6 +31,79 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Policy class];
+  query.loggingName = @"healthcare.projects.locations.datasets.annotationStores.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Policy class];
+  query.loggingName = @"healthcare.projects.locations.datasets.annotationStores.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudHealthcare_TestIamPermissionsResponse class];
+  query.loggingName = @"healthcare.projects.locations.datasets.annotationStores.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsCreate
 
 @dynamic datasetId, parent;
@@ -1096,10 +1169,16 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirHistory
 
-@dynamic xPageToken, at, count, name, page, since;
+@dynamic xAt, xCount, xPageToken, xSince, name;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"xPageToken" : @"_page_token" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"xAt" : @"_at",
+    @"xCount" : @"_count",
+    @"xPageToken" : @"_page_token",
+    @"xSince" : @"_since"
+  };
+  return map;
 }
 
 + (instancetype)queryWithName:(NSString *)name {
@@ -1163,10 +1242,14 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientEverything
 
-@dynamic xCount, end, name, pageToken, start;
+@dynamic xCount, xPageToken, end, name, start;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"xCount" : @"_count" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"xCount" : @"_count",
+    @"xPageToken" : @"_page_token"
+  };
+  return map;
 }
 
 + (instancetype)queryWithName:(NSString *)name {

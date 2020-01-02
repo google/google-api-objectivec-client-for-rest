@@ -2394,7 +2394,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_RollbackRequest : GTLRObject
 
 /**
- *  The transaction to roll back.
+ *  Required. The transaction to roll back.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

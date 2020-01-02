@@ -82,6 +82,7 @@
 @class GTLRDocs_InsertInlineImageResponse;
 @class GTLRDocs_InsertInlineSheetsChartResponse;
 @class GTLRDocs_InsertPageBreakRequest;
+@class GTLRDocs_InsertSectionBreakRequest;
 @class GTLRDocs_InsertTableColumnRequest;
 @class GTLRDocs_InsertTableRequest;
 @class GTLRDocs_InsertTableRowRequest;
@@ -173,6 +174,7 @@
 @class GTLRDocs_UnmergeTableCellsRequest;
 @class GTLRDocs_UpdateDocumentStyleRequest;
 @class GTLRDocs_UpdateParagraphStyleRequest;
+@class GTLRDocs_UpdateSectionStyleRequest;
 @class GTLRDocs_UpdateTableCellStyleRequest;
 @class GTLRDocs_UpdateTableColumnPropertiesRequest;
 @class GTLRDocs_UpdateTableRowStyleRequest;
@@ -460,6 +462,29 @@ GTLR_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_PropertyState_NotRen
  *  Value: "RENDERED"
  */
 GTLR_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_PropertyState_Rendered;
+
+// ----------------------------------------------------------------------------
+// GTLRDocs_InsertSectionBreakRequest.sectionType
+
+/**
+ *  The section starts immediately after the last paragraph of the previous
+ *  section.
+ *
+ *  Value: "CONTINUOUS"
+ */
+GTLR_EXTERN NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_Continuous;
+/**
+ *  The section starts on the next page.
+ *
+ *  Value: "NEXT_PAGE"
+ */
+GTLR_EXTERN NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_NextPage;
+/**
+ *  The section type is unspecified.
+ *
+ *  Value: "SECTION_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_SectionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_NamedStyle.namedStyleType
@@ -951,6 +976,29 @@ GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_ContentDirection_LeftToRight
  *  Value: "RIGHT_TO_LEFT"
  */
 GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_ContentDirection_RightToLeft;
+
+// ----------------------------------------------------------------------------
+// GTLRDocs_SectionStyle.sectionType
+
+/**
+ *  The section starts immediately after the last paragraph of the previous
+ *  section.
+ *
+ *  Value: "CONTINUOUS"
+ */
+GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_SectionType_Continuous;
+/**
+ *  The section starts on the next page.
+ *
+ *  Value: "NEXT_PAGE"
+ */
+GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_SectionType_NextPage;
+/**
+ *  The section type is unspecified.
+ *
+ *  Value: "SECTION_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_SectionType_SectionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_TableCellBorder.dashStyle
@@ -2075,6 +2123,18 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginBottom;
 
 /**
+ *  The amount of space between the bottom of the page and the contents of the
+ *  footer.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginFooter;
+
+/**
+ *  The amount of space between the top of the page and the contents of the
+ *  header.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginHeader;
+
+/**
  *  The left page margin.
  *  Updating the left page margin on the document style clears the left page
  *  margin on all section styles. It may also cause columns to resize in all
@@ -2106,6 +2166,23 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /** The size of a page in the document. */
 @property(nonatomic, strong, nullable) GTLRDocs_Size *pageSize;
+
+/**
+ *  Indicates whether DocumentStyle
+ *  margin_header,
+ *  SectionStyle
+ *  margin_header and
+ *  DocumentStyle
+ *  margin_footer,
+ *  SectionStyle
+ *  margin_footer are
+ *  respected. When false, the default values in the Docs editor for header and
+ *  footer margin are used.
+ *  This property is read-only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useCustomHeaderFooterMargins;
 
 /**
  *  Indicates whether to use the even page header / footer IDs for the even
@@ -3020,6 +3097,52 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *  empty.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Location *location;
+
+@end
+
+
+/**
+ *  Inserts a section break at the given location.
+ *  A newline character will be inserted before the section break.
+ */
+@interface GTLRDocs_InsertSectionBreakRequest : GTLRObject
+
+/**
+ *  Inserts a newline and a section break at the end of the document body.
+ *  Section breaks cannot be inserted inside a footnote, header or footer.
+ *  Because section breaks can only be inserted inside the body, the segment
+ *  ID field must be
+ *  empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_EndOfSegmentLocation *endOfSegmentLocation;
+
+/**
+ *  Inserts a newline and a section break at a specific index in the
+ *  document.
+ *  The section break must be inserted inside the bounds of an existing
+ *  Paragraph. For instance, it cannot be
+ *  inserted at a table's start index (i.e. between the table and its
+ *  preceding paragraph).
+ *  Section breaks cannot be inserted inside a table, equation, footnote,
+ *  header, or footer. Since section breaks can only be inserted inside the
+ *  body, the segment ID field
+ *  must be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *location;
+
+/**
+ *  The type of section to insert.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocs_InsertSectionBreakRequest_SectionType_Continuous The
+ *        section starts immediately after the last paragraph of the previous
+ *        section. (Value: "CONTINUOUS")
+ *    @arg @c kGTLRDocs_InsertSectionBreakRequest_SectionType_NextPage The
+ *        section starts on the next page. (Value: "NEXT_PAGE")
+ *    @arg @c kGTLRDocs_InsertSectionBreakRequest_SectionType_SectionTypeUnspecified
+ *        The section type is unspecified. (Value: "SECTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sectionType;
 
 @end
 
@@ -4680,6 +4803,9 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /** Inserts a page break at the specified location. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertPageBreakRequest *insertPageBreak;
 
+/** Inserts a section break at the specified location. */
+@property(nonatomic, strong, nullable) GTLRDocs_InsertSectionBreakRequest *insertSectionBreak;
+
 /** Inserts a table at the specified location. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertTableRequest *insertTable;
 
@@ -4712,6 +4838,9 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /** Updates the paragraph style at the specified range. */
 @property(nonatomic, strong, nullable) GTLRDocs_UpdateParagraphStyleRequest *updateParagraphStyle;
+
+/** Updates the section style of the specified range. */
+@property(nonatomic, strong, nullable) GTLRDocs_UpdateSectionStyleRequest *updateSectionStyle;
 
 /** Updates the style of table cells. */
 @property(nonatomic, strong, nullable) GTLRDocs_UpdateTableCellStyleRequest *updateTableCellStyle;
@@ -4869,6 +4998,80 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *        goes from right to left. (Value: "RIGHT_TO_LEFT")
  */
 @property(nonatomic, copy, nullable) NSString *contentDirection;
+
+/**
+ *  The bottom page margin of the section. If unset, uses margin_bottom from
+ *  DocumentStyle.
+ *  When updating this property, setting a concrete value is required.
+ *  Unsetting this property results in a 400 bad request error.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginBottom;
+
+/**
+ *  The footer margin of the section. If unset, uses margin_footer from
+ *  DocumentStyle. If
+ *  updated, use_custom_header_footer_margins is set
+ *  to true on DocumentStyle. The value of use_custom_header_footer_margins on
+ *  DocumentStyle indicates if a footer margin is being respected for this
+ *  section
+ *  When updating this property, setting a concrete value is required.
+ *  Unsetting this property results in a 400 bad request error.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginFooter;
+
+/**
+ *  The header margin of the section. If unset, uses margin_header from
+ *  DocumentStyle. If
+ *  updated, use_custom_header_footer_margins is set
+ *  to true on DocumentStyle. The value of use_custom_header_footer_margins on
+ *  DocumentStyle indicates if a header margin is being respected for this
+ *  section.
+ *  When updating this property, setting a concrete value is required.
+ *  Unsetting this property results in a 400 bad request error.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginHeader;
+
+/**
+ *  The left page margin of the section. If unset, uses margin_left from
+ *  DocumentStyle.
+ *  Updating left margin causes columns in this section to resize. Since
+ *  the margin affects column width, it is applied before column properties.
+ *  When updating this property, setting a concrete value is required.
+ *  Unsetting this property results in a 400 bad request error.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginLeft;
+
+/**
+ *  The right page margin of the section. If unset, uses margin_right from
+ *  DocumentStyle.
+ *  Updating right margin causes columns in this section to resize. Since
+ *  the margin affects column width, it is applied before column properties.
+ *  When updating this property, setting a concrete value is required.
+ *  Unsetting this property results in a 400 bad request error.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginRight;
+
+/**
+ *  The top page margin of the section. If unset, uses margin_top from
+ *  DocumentStyle.
+ *  When updating this property, setting a concrete value is required.
+ *  Unsetting this property results in a 400 bad request error.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginTop;
+
+/**
+ *  Output only. The type of section.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocs_SectionStyle_SectionType_Continuous The section starts
+ *        immediately after the last paragraph of the previous
+ *        section. (Value: "CONTINUOUS")
+ *    @arg @c kGTLRDocs_SectionStyle_SectionType_NextPage The section starts on
+ *        the next page. (Value: "NEXT_PAGE")
+ *    @arg @c kGTLRDocs_SectionStyle_SectionType_SectionTypeUnspecified The
+ *        section type is unspecified. (Value: "SECTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sectionType;
 
 @end
 
@@ -6158,6 +6361,40 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /** The range overlapping the paragraphs to style. */
 @property(nonatomic, strong, nullable) GTLRDocs_Range *range;
+
+@end
+
+
+/**
+ *  Updates the SectionStyle.
+ */
+@interface GTLRDocs_UpdateSectionStyleRequest : GTLRObject
+
+/**
+ *  The fields that should be updated.
+ *  At least one field must be specified. The root `section_style` is
+ *  implied and must not be specified. A single `"*"` can be used as
+ *  short-hand for listing every field.
+ *  For example to update the left margin, set `fields` to `"margin_left"`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/**
+ *  The range overlapping the sections to style.
+ *  Because section breaks can only be inserted inside the body, the segment
+ *  ID field must be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Range *range;
+
+/**
+ *  The styles to be set on the section.
+ *  Certain section style changes may cause other changes in order to mirror
+ *  the behavior of the Docs editor. See the documentation of SectionStyle for
+ *  more information.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_SectionStyle *sectionStyle;
 
 @end
 

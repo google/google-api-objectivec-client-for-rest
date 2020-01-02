@@ -416,7 +416,7 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Transfe
 
 /**
  *  Output only. Status in Google Maps, whether this photo was published or
- *  rejected.
+ *  rejected. Not currently populated.
  *
  *  Likely values:
  *    @arg @c kGTLRStreetViewPublish_Photo_MapsPublishStatus_Published The photo

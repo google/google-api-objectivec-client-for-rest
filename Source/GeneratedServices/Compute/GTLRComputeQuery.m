@@ -12,6 +12,17 @@
 
 #import "GTLRComputeObjects.h"
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// direction
+NSString * const kGTLRComputeDirectionIncoming = @"INCOMING";
+NSString * const kGTLRComputeDirectionOutgoing = @"OUTGOING";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRComputeQuery
 
 @dynamic fields;
@@ -2124,6 +2135,29 @@
 
 @end
 
+@implementation GTLRComputeQuery_GlobalOperationsWait
+
+@dynamic operation, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                       operation:(NSString *)operation {
+  NSArray *pathParams = @[
+    @"operation", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/operations/{operation}/wait";
+  GTLRComputeQuery_GlobalOperationsWait *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.operation = operation;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.globalOperations.wait";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_HealthChecksAggregatedList
 
 @dynamic filter, maxResults, orderBy, pageToken, project;
@@ -2888,6 +2922,41 @@
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_InstanceGroupManagerAggregatedList class];
   query.loggingName = @"compute.instanceGroupManagers.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstanceGroupManagersCreateInstances
+
+@dynamic instanceGroupManager, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersCreateInstancesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/createInstances";
+  GTLRComputeQuery_InstanceGroupManagersCreateInstances *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instanceGroupManagers.createInstances";
   return query;
 }
 
@@ -4933,7 +5002,7 @@
 
 @implementation GTLRComputeQuery_InterconnectAttachmentsInsert
 
-@dynamic project, region, requestId;
+@dynamic project, region, requestId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCompute_InterconnectAttachment *)object
                         project:(NSString *)project
@@ -5888,6 +5957,30 @@
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_NetworkList class];
   query.loggingName = @"compute.networks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_NetworksListPeeringRoutes
+
+@dynamic direction, filter, maxResults, network, orderBy, pageToken,
+         peeringName, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                         network:(NSString *)network {
+  NSArray *pathParams = @[
+    @"network", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/networks/{network}/listPeeringRoutes";
+  GTLRComputeQuery_NetworksListPeeringRoutes *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.network = network;
+  query.expectedObjectClass = [GTLRCompute_ExchangedPeeringRoutesList class];
+  query.loggingName = @"compute.networks.listPeeringRoutes";
   return query;
 }
 
@@ -7944,6 +8037,37 @@
 
 @end
 
+@implementation GTLRComputeQuery_RegionInstanceGroupManagersCreateInstances
+
+@dynamic instanceGroupManager, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersCreateInstancesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/createInstances";
+  GTLRComputeQuery_RegionInstanceGroupManagersCreateInstances *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionInstanceGroupManagers.createInstances";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersDelete
 
 @dynamic instanceGroupManager, project, region, requestId;
@@ -8435,6 +8559,31 @@
   query.region = region;
   query.expectedObjectClass = [GTLRCompute_OperationList class];
   query.loggingName = @"compute.regionOperations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionOperationsWait
+
+@dynamic operation, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                       operation:(NSString *)operation {
+  NSArray *pathParams = @[
+    @"operation", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/operations/{operation}/wait";
+  GTLRComputeQuery_RegionOperationsWait *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.operation = operation;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionOperations.wait";
   return query;
 }
 
@@ -12789,6 +12938,35 @@
   query.zoneProperty = zoneProperty;
   query.expectedObjectClass = [GTLRCompute_OperationList class];
   query.loggingName = @"compute.zoneOperations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ZoneOperationsWait
+
+@dynamic operation, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                       operation:(NSString *)operation {
+  NSArray *pathParams = @[
+    @"operation", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/operations/{operation}/wait";
+  GTLRComputeQuery_ZoneOperationsWait *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.operation = operation;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.zoneOperations.wait";
   return query;
 }
 

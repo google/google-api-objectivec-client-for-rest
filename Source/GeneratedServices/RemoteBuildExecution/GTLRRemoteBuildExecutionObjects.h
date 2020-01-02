@@ -45,6 +45,7 @@
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2SymlinkNode;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ToolDetails;
 @class GTLRRemoteBuildExecution_BuildBazelSemverSemVer;
+@class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageStat;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAcceleratorConfig;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig;
@@ -1991,6 +1992,46 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 
 
 /**
+ *  ResourceUsage is the system resource usage of the host machine.
+ */
+@interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsage : GTLRObject
+
+/**
+ *  cpuUsedPercent
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuUsedPercent;
+
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageStat *diskUsage;
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageStat *memoryUsage;
+
+@end
+
+
+/**
+ *  GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageStat
+ */
+@interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageStat : GTLRObject
+
+/**
+ *  total
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *total;
+
+/**
+ *  used
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *used;
+
+@end
+
+
+/**
  *  AcceleratorConfig defines the accelerator cards to attach to the VM.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAcceleratorConfig : GTLRObject
@@ -2332,7 +2373,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  Required. Disk Type to use for the worker.
  *  See [Storage
  *  options](https://cloud.google.com/compute/docs/disks/#introduction).
- *  Currently only `pd-standard` is supported.
+ *  Currently only `pd-standard` and `pd-ssd` are supported.
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 

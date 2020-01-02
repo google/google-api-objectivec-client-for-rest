@@ -195,6 +195,56 @@
 
 @end
 
+@implementation GTLRServiceNetworkingQuery_ServicesDisableVpcServiceControls
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_DisableVpcServiceControlsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:disableVpcServiceControls";
+  GTLRServiceNetworkingQuery_ServicesDisableVpcServiceControls *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.disableVpcServiceControls";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesEnableVpcServiceControls
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_EnableVpcServiceControlsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:enableVpcServiceControls";
+  GTLRServiceNetworkingQuery_ServicesEnableVpcServiceControls *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.enableVpcServiceControls";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceNetworkingQuery_ServicesSearchRange
 
 @dynamic parent;

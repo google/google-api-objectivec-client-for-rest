@@ -183,7 +183,7 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 @implementation GTLRDns_ManagedZone
 @dynamic creationTime, descriptionProperty, dnsName, dnssecConfig,
          forwardingConfig, identifier, kind, labels, name, nameServers,
-         nameServerSet, privateVisibilityConfig, visibility;
+         nameServerSet, peeringConfig, privateVisibilityConfig, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -282,6 +282,26 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
   return @"operations";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZonePeeringConfig
+//
+
+@implementation GTLRDns_ManagedZonePeeringConfig
+@dynamic kind, targetNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZonePeeringConfigTargetNetwork
+//
+
+@implementation GTLRDns_ManagedZonePeeringConfigTargetNetwork
+@dynamic deactivateTime, kind, networkUrl;
 @end
 
 

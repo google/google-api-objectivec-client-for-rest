@@ -701,7 +701,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig
-@dynamic infoTypeTransformations, recordTransformations;
+@dynamic infoTypeTransformations, recordTransformations,
+         transformationErrorHandling;
 @end
 
 
@@ -1580,6 +1581,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2LeaveUntransformed
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2LeaveUntransformed
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment
 //
 
@@ -2331,6 +2341,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2ThrowError
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ThrowError
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2TimePartConfig
 //
 
@@ -2357,6 +2376,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2TimeZone
 @dynamic offsetMinutes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2TransformationErrorHandling
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2TransformationErrorHandling
+@dynamic leaveUntransformed, throwError;
 @end
 
 

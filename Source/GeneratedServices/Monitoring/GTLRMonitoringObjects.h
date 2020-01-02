@@ -1064,16 +1064,6 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationSta
 GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_Verified;
 
 // ----------------------------------------------------------------------------
-// GTLRMonitoring_NotificationChannelDescriptor.supportedTiers
-
-/** Value: "SERVICE_TIER_BASIC" */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierBasic;
-/** Value: "SERVICE_TIER_PREMIUM" */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierPremium;
-/** Value: "SERVICE_TIER_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRMonitoring_ResourceGroup.resourceType
 
 /**
@@ -1558,7 +1548,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /**
  *  How to combine the results of multiple conditions to determine if an
- *  incident should be opened.
+ *  incident should be opened. If condition_time_series_query_language is
+ *  present, this must be COMBINE_UNSPECIFIED.
  *
  *  Likely values:
  *    @arg @c kGTLRMonitoring_AlertPolicy_Combiner_And Combine conditions using
@@ -1583,7 +1574,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  A list of conditions for the policy. The conditions are combined by AND or
  *  OR according to the combiner field. If the combined conditions evaluate to
  *  true, then an incident is created. A policy can have from one to six
- *  conditions.
+ *  conditions. If |condition_time_series_uery_language| is present, it must be
+ *  the only |condition|.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Condition *> *conditions;
 
@@ -3496,39 +3488,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  The unit in which the metric value is reported. It is only applicable if the
- *  value_type is INT64, DOUBLE, or DISTRIBUTION. The supported units are a
- *  subset of The Unified Code for Units of Measure
- *  (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT)
- *  bit bit
- *  By byte
- *  s second
- *  min minute
- *  h hour
- *  d dayPrefixes (PREFIX)
- *  k kilo (10**3)
- *  M mega (10**6)
- *  G giga (10**9)
- *  T tera (10**12)
- *  P peta (10**15)
- *  E exa (10**18)
- *  Z zetta (10**21)
- *  Y yotta (10**24)
- *  m milli (10**-3)
- *  u micro (10**-6)
- *  n nano (10**-9)
- *  p pico (10**-12)
- *  f femto (10**-15)
- *  a atto (10**-18)
- *  z zepto (10**-21)
- *  y yocto (10**-24)
- *  Ki kibi (2**10)
- *  Mi mebi (2**20)
- *  Gi gibi (2**30)
- *  Ti tebi (2**40)GrammarThe grammar also includes these connectors:
- *  / division (as an infix operator, e.g. 1/s).
- *  . multiplication (as an infix operator, e.g. GBy.d)The grammar for a unit is
- *  as follows:
+ *  Ki kibi (2^10)
+ *  Mi mebi (2^20)
+ *  Gi gibi (2^30)
+ *  Ti tebi (2^40)
+ *  Pi pebi (2^50)GrammarThe grammar also includes these connectors:
+ *  / division or ratio (as an infix operator). For examples, kBy/{email} or
+ *  MiBy/10ms (although you should almost never have /s in a metric unit; rates
+ *  should always be computed at query time from the underlying cumulative or
+ *  delta value).
+ *  . multiplication or composition (as an infix operator). For examples, GBy.d
+ *  or k{watt}.h.The grammar for a unit is as follows:
  *  Expression = Component { "." Component } { "/" Component } ;
  *  Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ]
  *  | Annotation
@@ -3536,14 +3506,24 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  ;
  *  Annotation = "{" NAME "}" ;
  *  Notes:
- *  Annotation is just a comment if it follows a UNIT and is equivalent to 1 if
- *  it is used alone. For examples, {requests}/s == 1/s, By{transmitted}/s ==
- *  By/s.
- *  NAME is a sequence of non-blank printable ASCII characters not containing
- *  '{' or '}'.
- *  1 represents dimensionless value 1, such as in 1/s.
- *  % represents dimensionless value 1/100, and annotates values giving a
- *  percentage.
+ *  Annotation is just a comment if it follows a UNIT. If the annotation is used
+ *  alone, then the unit is equivalent to 1. For examples, {request}/s == 1/s,
+ *  By{transmitted}/s == By/s.
+ *  NAME is a sequence of non-blank printable ASCII characters not containing {
+ *  or }.
+ *  1 represents a unitary dimensionless unit
+ *  (https://en.wikipedia.org/wiki/Dimensionless_quantity) of 1, such as in 1/s.
+ *  It is typically used when none of the basic units are appropriate. For
+ *  example, "new users per day" can be represented as 1/d or {new-users}/d (and
+ *  a metric value 5 would mean "5 new users). Alternatively, "thousands of page
+ *  views per day" would be represented as 1000/d or k1/d or k{page_views}/d
+ *  (and a metric value of 5.3 would mean "5300 page views per day").
+ *  % represents dimensionless value of 1/100, and annotates values giving a
+ *  percentage (so the metric values are typically in the range of 0..100, and a
+ *  metric value 3 means "3 percent").
+ *  10^2.% indicates a metric contains a ratio, typically in the range 0..1,
+ *  that will be multiplied by 100 and displayed as a percentage (so a metric
+ *  value 0.03 means "3 percent").
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
@@ -4157,12 +4137,6 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The tiers that support this notification channel; the project service tier
- *  must be one of the supported_tiers.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedTiers;
-
-/**
  *  The type of notification channel, such as "email", "sms", etc. Notification
  *  channel types are globally unique.
  */
@@ -4447,7 +4421,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /**
  *  The fraction of service that must be good in order for this objective to be
- *  met. 0 < goal <= 1.
+ *  met. 0 < goal <= 0.999.
  *
  *  Uses NSNumber of doubleValue.
  */

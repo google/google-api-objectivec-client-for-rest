@@ -165,11 +165,6 @@ NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_Unverifi
 NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_VerificationStatusUnspecified = @"VERIFICATION_STATUS_UNSPECIFIED";
 NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_Verified = @"VERIFIED";
 
-// GTLRMonitoring_NotificationChannelDescriptor.supportedTiers
-NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierBasic = @"SERVICE_TIER_BASIC";
-NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierPremium = @"SERVICE_TIER_PREMIUM";
-NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierUnspecified = @"SERVICE_TIER_UNSPECIFIED";
-
 // GTLRMonitoring_ResourceGroup.resourceType
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer = @"AWS_ELB_LOAD_BALANCER";
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_Instance = @"INSTANCE";
@@ -1310,7 +1305,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_NotificationChannelDescriptor
-@dynamic descriptionProperty, displayName, labels, name, supportedTiers, type;
+@dynamic descriptionProperty, displayName, labels, name, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1318,8 +1313,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"labels" : [GTLRMonitoring_LabelDescriptor class],
-    @"supportedTiers" : [NSString class]
+    @"labels" : [GTLRMonitoring_LabelDescriptor class]
   };
   return map;
 }

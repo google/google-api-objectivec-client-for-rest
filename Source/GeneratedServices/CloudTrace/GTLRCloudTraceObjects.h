@@ -412,7 +412,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *childSpanCount;
 
 /**
- *  A description of the span's operation (up to 128 bytes).
+ *  Required. A description of the span's operation (up to 128 bytes).
  *  Stackdriver Trace displays the description in the
  *  Google Cloud Platform Console.
  *  For example, the display name can be a qualified method name or a file name
@@ -423,7 +423,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
 @property(nonatomic, strong, nullable) GTLRCloudTrace_TruncatableString *displayName;
 
 /**
- *  The end time of the span. On the client side, this is the time kept by
+ *  Required. The end time of the span. On the client side, this is the time
+ *  kept by
  *  the local machine where the span execution ends. On the server side, this
  *  is the time when the server application handler stops running.
  */
@@ -458,7 +459,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
  */
 @property(nonatomic, strong, nullable) NSNumber *sameProcessAsParentSpan;
 
-/** The [SPAN_ID] portion of the span's resource name. */
+/** Required. The [SPAN_ID] portion of the span's resource name. */
 @property(nonatomic, copy, nullable) NSString *spanId;
 
 /**
@@ -497,7 +498,8 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
 @property(nonatomic, strong, nullable) GTLRCloudTrace_StackTrace *stackTrace;
 
 /**
- *  The start time of the span. On the client side, this is the time kept by
+ *  Required. The start time of the span. On the client side, this is the time
+ *  kept by
  *  the local machine where the span execution starts. On the server side, this
  *  is the time when the server's application handler starts running.
  */

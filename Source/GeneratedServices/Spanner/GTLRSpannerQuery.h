@@ -142,6 +142,321 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a database resource.
+ *  Returns an empty policy if a database exists but does
+ *  not have a policy set.
+ *  Authorization requires `spanner.databases.getIamPolicy` permission on
+ *  resource.
+ *
+ *  Method: spanner.projects.instances.backups.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesBackupsGetIamPolicy : GTLRSpannerQuery
+// Previous library name was
+//   +[GTLQuerySpanner queryForProjectsInstancesBackupsGetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The Cloud Spanner resource for which the policy is being
+ *  retrieved. The format is `projects/<project ID>/instances/<instance ID>` for
+ *  instance resources and `projects/<project ID>/instances/<instance
+ *  ID>/databases/<database ID>` for database resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRSpanner_Policy.
+ *
+ *  Gets the access control policy for a database resource.
+ *  Returns an empty policy if a database exists but does
+ *  not have a policy set.
+ *  Authorization requires `spanner.databases.getIamPolicy` permission on
+ *  resource.
+ *
+ *  @param object The @c GTLRSpanner_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The Cloud Spanner resource for which the policy is
+ *    being retrieved. The format is `projects/<project ID>/instances/<instance
+ *    ID>` for instance resources and `projects/<project ID>/instances/<instance
+ *    ID>/databases/<database ID>` for database resources.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesBackupsGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  Method: spanner.projects.instances.backups.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesBackupsOperationsCancel : GTLRSpannerQuery
+// Previous library name was
+//   +[GTLQuerySpanner queryForProjectsInstancesBackupsOperationsCancelWithname:]
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesBackupsOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: spanner.projects.instances.backups.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesBackupsOperationsDelete : GTLRSpannerQuery
+// Previous library name was
+//   +[GTLQuerySpanner queryForProjectsInstancesBackupsOperationsDeleteWithname:]
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesBackupsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: spanner.projects.instances.backups.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesBackupsOperationsGet : GTLRSpannerQuery
+// Previous library name was
+//   +[GTLQuerySpanner queryForProjectsInstancesBackupsOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesBackupsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *  NOTE: the `name` binding allows API services to override the binding
+ *  to use different resource name schemes, such as `users/ * /operations`. To
+ *  override the binding, API services can add a binding such as
+ *  `"/v1/{name=users/ *}/operations"` to their service configuration.
+ *  For backwards compatibility, the default name includes the operations
+ *  collection id, however overriding users must ensure the name binding
+ *  is the parent resource, without the operations collection id.
+ *
+ *  Method: spanner.projects.instances.backups.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesBackupsOperationsList : GTLRSpannerQuery
+// Previous library name was
+//   +[GTLQuerySpanner queryForProjectsInstancesBackupsOperationsListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRSpanner_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *  NOTE: the `name` binding allows API services to override the binding
+ *  to use different resource name schemes, such as `users/ * /operations`. To
+ *  override the binding, API services can add a binding such as
+ *  `"/v1/{name=users/ *}/operations"` to their service configuration.
+ *  For backwards compatibility, the default name includes the operations
+ *  collection id, however overriding users must ensure the name binding
+ *  is the parent resource, without the operations collection id.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesBackupsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on a database resource.
+ *  Replaces any existing policy.
+ *  Authorization requires `spanner.databases.setIamPolicy`
+ *  permission on resource.
+ *
+ *  Method: spanner.projects.instances.backups.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesBackupsSetIamPolicy : GTLRSpannerQuery
+// Previous library name was
+//   +[GTLQuerySpanner queryForProjectsInstancesBackupsSetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The Cloud Spanner resource for which the policy is being set. The
+ *  format is `projects/<project ID>/instances/<instance ID>` for instance
+ *  resources and `projects/<project ID>/instances/<instance
+ *  ID>/databases/<database ID>` for databases resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRSpanner_Policy.
+ *
+ *  Sets the access control policy on a database resource.
+ *  Replaces any existing policy.
+ *  Authorization requires `spanner.databases.setIamPolicy`
+ *  permission on resource.
+ *
+ *  @param object The @c GTLRSpanner_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The Cloud Spanner resource for which the policy is
+ *    being set. The format is `projects/<project ID>/instances/<instance ID>`
+ *    for instance resources and `projects/<project ID>/instances/<instance
+ *    ID>/databases/<database ID>` for databases resources.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesBackupsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that the caller has on the specified database resource.
+ *  Attempting this RPC on a non-existent Cloud Spanner database will
+ *  result in a NOT_FOUND error if the user has
+ *  `spanner.databases.list` permission on the containing Cloud
+ *  Spanner instance. Otherwise returns an empty set of permissions.
+ *
+ *  Method: spanner.projects.instances.backups.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesBackupsTestIamPermissions : GTLRSpannerQuery
+// Previous library name was
+//   +[GTLQuerySpanner queryForProjectsInstancesBackupsTestIamPermissionsWithObject:resource:]
+
+/**
+ *  REQUIRED: The Cloud Spanner resource for which permissions are being tested.
+ *  The format is `projects/<project ID>/instances/<instance ID>` for instance
+ *  resources and `projects/<project ID>/instances/<instance
+ *  ID>/databases/<database ID>` for database resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRSpanner_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that the caller has on the specified database resource.
+ *  Attempting this RPC on a non-existent Cloud Spanner database will
+ *  result in a NOT_FOUND error if the user has
+ *  `spanner.databases.list` permission on the containing Cloud
+ *  Spanner instance. Otherwise returns an empty set of permissions.
+ *
+ *  @param object The @c GTLRSpanner_TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The Cloud Spanner resource for which permissions
+ *    are being tested. The format is `projects/<project ID>/instances/<instance
+ *    ID>` for instance resources and `projects/<project ID>/instances/<instance
+ *    ID>/databases/<database ID>` for database resources.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesBackupsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates an instance and begins preparing it to begin serving. The
  *  returned long-running operation
  *  can be used to track the progress of preparing the new
@@ -1525,6 +1840,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSpannerQuery_ProjectsInstancesGet : GTLRSpannerQuery
 // Previous library name was
 //   +[GTLQuerySpanner queryForProjectsInstancesGetWithname:]
+
+/**
+ *  If field_mask is present, specifies the subset of Instance fields that
+ *  should be returned.
+ *  If absent, all Instance fields are returned.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldMask;
 
 /**
  *  Required. The name of the requested instance. Values are of the form

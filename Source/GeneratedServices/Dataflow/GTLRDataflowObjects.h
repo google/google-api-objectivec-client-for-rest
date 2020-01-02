@@ -106,6 +106,8 @@
 @class GTLRDataflow_ResourceUtilizationReportResponse;
 @class GTLRDataflow_RuntimeEnvironment;
 @class GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels;
+@class GTLRDataflow_RuntimeMetadata;
+@class GTLRDataflow_SDKInfo;
 @class GTLRDataflow_SdkVersion;
 @class GTLRDataflow_SeqMapTask;
 @class GTLRDataflow_SeqMapTask_UserFn;
@@ -622,6 +624,28 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_UnknownKin
 GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_GetTemplateResponse.templateType
+
+/**
+ *  Flex Template.
+ *
+ *  Value: "FLEX"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Flex;
+/**
+ *  Legacy Template.
+ *
+ *  Value: "LEGACY"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Legacy;
+/**
+ *  Unknown Template Type.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_Job.currentState
 
 /**
@@ -978,6 +1002,70 @@ GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Set;
 GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Sum;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_ParameterMetadata.paramType
+
+/**
+ *  Default input type.
+ *
+ *  Value: "DEFAULT"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Default;
+/**
+ *  The parameter specifies a GCS Bucket to read from.
+ *
+ *  Value: "GCS_READ_BUCKET"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadBucket;
+/**
+ *  The parameter specifies a GCS file path to read from.
+ *
+ *  Value: "GCS_READ_FILE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFile;
+/**
+ *  The parameter specifies a GCS folder path to read from.
+ *
+ *  Value: "GCS_READ_FOLDER"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFolder;
+/**
+ *  The parameter specifies a GCS Bucket to write to.
+ *
+ *  Value: "GCS_WRITE_BUCKET"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteBucket;
+/**
+ *  The parameter specifies a GCS file path to write to.
+ *
+ *  Value: "GCS_WRITE_FILE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFile;
+/**
+ *  The parameter specifies a GCS folder to write to.
+ *
+ *  Value: "GCS_WRITE_FOLDER"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder;
+/**
+ *  The parameter specifies a Pub/Sub Subscription.
+ *
+ *  Value: "PUBSUB_SUBSCRIPTION"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription;
+/**
+ *  The parameter specifies a Pub/Sub Topic.
+ *
+ *  Value: "PUBSUB_TOPIC"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubTopic;
+/**
+ *  The parameter specifies generic text input.
+ *
+ *  Value: "TEXT"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Text;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_RuntimeEnvironment.ipConfiguration
 
 /**
@@ -998,6 +1086,28 @@ GTLR_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_Wo
  *  Value: "WORKER_IP_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_SDKInfo.language
+
+/**
+ *  Java.
+ *
+ *  Value: "JAVA"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Java;
+/**
+ *  Python.
+ *
+ *  Value: "PYTHON"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Python;
+/**
+ *  UNKNOWN Language.
+ *
+ *  Value: "UNKNOWN"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SdkVersion.sdkSupportStatus
@@ -2637,11 +2747,27 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_TemplateMetadata *metadata;
 
+/** Describes the runtime metadata with SDKInfo and available parameters. */
+@property(nonatomic, strong, nullable) GTLRDataflow_RuntimeMetadata *runtimeMetadata;
+
 /**
  *  The status of the get template request. Any problems with the
  *  request will be indicated in the error_details.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_Status *status;
+
+/**
+ *  Template Type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_GetTemplateResponse_TemplateType_Flex Flex Template.
+ *        (Value: "FLEX")
+ *    @arg @c kGTLRDataflow_GetTemplateResponse_TemplateType_Legacy Legacy
+ *        Template. (Value: "LEGACY")
+ *    @arg @c kGTLRDataflow_GetTemplateResponse_TemplateType_Unknown Unknown
+ *        Template Type. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *templateType;
 
 @end
 
@@ -3958,6 +4084,41 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** Required. The name of the parameter. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. The type of the parameter.
+ *  Used for selecting input picker.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_Default Default input
+ *        type. (Value: "DEFAULT")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsReadBucket The
+ *        parameter specifies a GCS Bucket to read from. (Value:
+ *        "GCS_READ_BUCKET")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFile The
+ *        parameter specifies a GCS file path to read from. (Value:
+ *        "GCS_READ_FILE")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFolder The
+ *        parameter specifies a GCS folder path to read from. (Value:
+ *        "GCS_READ_FOLDER")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteBucket The
+ *        parameter specifies a GCS Bucket to write to. (Value:
+ *        "GCS_WRITE_BUCKET")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFile The
+ *        parameter specifies a GCS file path to write to. (Value:
+ *        "GCS_WRITE_FILE")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder The
+ *        parameter specifies a GCS folder to write to. (Value:
+ *        "GCS_WRITE_FOLDER")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription The
+ *        parameter specifies a Pub/Sub Subscription. (Value:
+ *        "PUBSUB_SUBSCRIPTION")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_PubsubTopic The
+ *        parameter specifies a Pub/Sub Topic. (Value: "PUBSUB_TOPIC")
+ *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_Text The parameter
+ *        specifies generic text input. (Value: "TEXT")
+ */
+@property(nonatomic, copy, nullable) NSString *paramType;
+
 /** Optional. Regexes that the parameter must match. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regexes;
 
@@ -4465,6 +4626,42 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        fetch them all at once.
  */
 @interface GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels : GTLRObject
+@end
+
+
+/**
+ *  RuntimeMetadata describing a runtime environment.
+ */
+@interface GTLRDataflow_RuntimeMetadata : GTLRObject
+
+/** The parameters for the template. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_ParameterMetadata *> *parameters;
+
+/** SDK Info for the template. */
+@property(nonatomic, strong, nullable) GTLRDataflow_SDKInfo *sdkInfo;
+
+@end
+
+
+/**
+ *  SDK Information.
+ */
+@interface GTLRDataflow_SDKInfo : GTLRObject
+
+/**
+ *  Required. The SDK Language.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_SDKInfo_Language_Java Java. (Value: "JAVA")
+ *    @arg @c kGTLRDataflow_SDKInfo_Language_Python Python. (Value: "PYTHON")
+ *    @arg @c kGTLRDataflow_SDKInfo_Language_Unknown UNKNOWN Language. (Value:
+ *        "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *language;
+
+/** Optional. The SDK version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 

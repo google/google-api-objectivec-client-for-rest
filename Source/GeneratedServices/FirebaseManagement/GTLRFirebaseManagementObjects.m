@@ -21,6 +21,17 @@ NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Ios = @"IOS";
 NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_PlatformUnspecified = @"PLATFORM_UNSPECIFIED";
 NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Web = @"WEB";
 
+// GTLRFirebaseManagement_Location.features
+NSString * const kGTLRFirebaseManagement_Location_Features_DefaultStorage = @"DEFAULT_STORAGE";
+NSString * const kGTLRFirebaseManagement_Location_Features_Firestore = @"FIRESTORE";
+NSString * const kGTLRFirebaseManagement_Location_Features_Functions = @"FUNCTIONS";
+NSString * const kGTLRFirebaseManagement_Location_Features_LocationFeatureUnspecified = @"LOCATION_FEATURE_UNSPECIFIED";
+
+// GTLRFirebaseManagement_Location.type
+NSString * const kGTLRFirebaseManagement_Location_Type_LocationTypeUnspecified = @"LOCATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRFirebaseManagement_Location_Type_MultiRegional = @"MULTI_REGIONAL";
+NSString * const kGTLRFirebaseManagement_Location_Type_Regional = @"REGIONAL";
+
 // GTLRFirebaseManagement_ShaCertificate.certType
 NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_Sha1 = @"SHA_1";
 NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_Sha256 = @"SHA_256";
@@ -334,7 +345,15 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_Location
-@dynamic locationId;
+@dynamic features, locationId, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"features" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

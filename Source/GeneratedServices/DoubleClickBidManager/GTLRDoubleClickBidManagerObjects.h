@@ -348,10 +348,6 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterUs
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterUserListThirdPartyName;
 /** Value: "FILTER_VIDEO_AD_POSITION_IN_STREAM" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoAdPositionInStream;
-/** Value: "FILTER_VIDEO_COMPANION_SIZE" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoCompanionSize;
-/** Value: "FILTER_VIDEO_COMPANION_TYPE" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoCompanionType;
 /** Value: "FILTER_VIDEO_CREATIVE_DURATION" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoCreativeDuration;
 /** Value: "FILTER_VIDEO_CREATIVE_DURATION_SKIPPABLE" */
@@ -362,8 +358,6 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVi
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoDurationSecondsRange;
 /** Value: "FILTER_VIDEO_FORMAT_SUPPORT" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoFormatSupport;
-/** Value: "FILTER_VIDEO_INVENTORY_TYPE" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoInventoryType;
 /** Value: "FILTER_VIDEO_PLAYER_SIZE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoPlayerSize;
 /** Value: "FILTER_VIDEO_RATING_TIER" */
@@ -632,10 +626,6 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterUserListThirdPartyName;
 /** Value: "FILTER_VIDEO_AD_POSITION_IN_STREAM" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoAdPositionInStream;
-/** Value: "FILTER_VIDEO_COMPANION_SIZE" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoCompanionSize;
-/** Value: "FILTER_VIDEO_COMPANION_TYPE" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoCompanionType;
 /** Value: "FILTER_VIDEO_CREATIVE_DURATION" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoCreativeDuration;
 /** Value: "FILTER_VIDEO_CREATIVE_DURATION_SKIPPABLE" */
@@ -646,8 +636,6 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoDurationSecondsRange;
 /** Value: "FILTER_VIDEO_FORMAT_SUPPORT" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoFormatSupport;
-/** Value: "FILTER_VIDEO_INVENTORY_TYPE" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoInventoryType;
 /** Value: "FILTER_VIDEO_PLAYER_SIZE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoPlayerSize;
 /** Value: "FILTER_VIDEO_RATING_TIER" */
@@ -1877,10 +1865,6 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "FILTER_USER_LIST_THIRD_PARTY_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoAdPositionInStream
  *        Value "FILTER_VIDEO_AD_POSITION_IN_STREAM"
- *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoCompanionSize
- *        Value "FILTER_VIDEO_COMPANION_SIZE"
- *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoCompanionType
- *        Value "FILTER_VIDEO_COMPANION_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoCreativeDuration
  *        Value "FILTER_VIDEO_CREATIVE_DURATION"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoCreativeDurationSkippable
@@ -1891,8 +1875,6 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "FILTER_VIDEO_DURATION_SECONDS_RANGE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoFormatSupport
  *        Value "FILTER_VIDEO_FORMAT_SUPPORT"
- *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoInventoryType
- *        Value "FILTER_VIDEO_INVENTORY_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoPlayerSize
  *        Value "FILTER_VIDEO_PLAYER_SIZE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoRatingTier

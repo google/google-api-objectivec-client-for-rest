@@ -92,6 +92,11 @@ NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_SingletonKind = @"SING
 NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_UnknownKind = @"UNKNOWN_KIND";
 NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind = @"WRITE_KIND";
 
+// GTLRDataflow_GetTemplateResponse.templateType
+NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Flex = @"FLEX";
+NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Legacy = @"LEGACY";
+NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Unknown = @"UNKNOWN";
+
 // GTLRDataflow_Job.currentState
 NSString * const kGTLRDataflow_Job_CurrentState_JobStateCancelled = @"JOB_STATE_CANCELLED";
 NSString * const kGTLRDataflow_Job_CurrentState_JobStateCancelling = @"JOB_STATE_CANCELLING";
@@ -145,10 +150,27 @@ NSString * const kGTLRDataflow_NameAndKind_Kind_Or           = @"OR";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Set          = @"SET";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Sum          = @"SUM";
 
+// GTLRDataflow_ParameterMetadata.paramType
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Default = @"DEFAULT";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadBucket = @"GCS_READ_BUCKET";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFile = @"GCS_READ_FILE";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFolder = @"GCS_READ_FOLDER";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteBucket = @"GCS_WRITE_BUCKET";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFile = @"GCS_WRITE_FILE";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder = @"GCS_WRITE_FOLDER";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription = @"PUBSUB_SUBSCRIPTION";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubTopic = @"PUBSUB_TOPIC";
+NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Text = @"TEXT";
+
 // GTLRDataflow_RuntimeEnvironment.ipConfiguration
 NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPrivate = @"WORKER_IP_PRIVATE";
 NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPublic = @"WORKER_IP_PUBLIC";
 NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpUnspecified = @"WORKER_IP_UNSPECIFIED";
+
+// GTLRDataflow_SDKInfo.language
+NSString * const kGTLRDataflow_SDKInfo_Language_Java    = @"JAVA";
+NSString * const kGTLRDataflow_SDKInfo_Language_Python  = @"PYTHON";
+NSString * const kGTLRDataflow_SDKInfo_Language_Unknown = @"UNKNOWN";
 
 // GTLRDataflow_SdkVersion.sdkSupportStatus
 NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Deprecated = @"DEPRECATED";
@@ -739,7 +761,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_GetTemplateResponse
-@dynamic metadata, status;
+@dynamic metadata, runtimeMetadata, status, templateType;
 @end
 
 
@@ -1323,7 +1345,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_ParameterMetadata
-@dynamic helpText, isOptional, label, name, regexes;
+@dynamic helpText, isOptional, label, name, paramType, regexes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1614,6 +1636,34 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_RuntimeMetadata
+//
+
+@implementation GTLRDataflow_RuntimeMetadata
+@dynamic parameters, sdkInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameters" : [GTLRDataflow_ParameterMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_SDKInfo
+//
+
+@implementation GTLRDataflow_SDKInfo
+@dynamic language, version;
 @end
 
 

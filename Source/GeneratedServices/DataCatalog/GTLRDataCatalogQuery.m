@@ -83,7 +83,7 @@
 
 @implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsDelete
 
-@dynamic name;
+@dynamic force, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

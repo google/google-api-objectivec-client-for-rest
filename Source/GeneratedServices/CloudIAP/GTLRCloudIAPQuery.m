@@ -18,6 +18,176 @@
 
 @end
 
+@implementation GTLRCloudIAPQuery_OauthProjectsBrandsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_Brand *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/oauth/{+parent}/brands";
+  GTLRCloudIAPQuery_OauthProjectsBrandsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIAP_Brand class];
+  query.loggingName = @"iap.oauth.projects.brands.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_OauthProjectsBrandsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/oauth/{+name}";
+  GTLRCloudIAPQuery_OauthProjectsBrandsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIAP_Brand class];
+  query.loggingName = @"iap.oauth.projects.brands.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_IdentityAwareProxyClient *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/oauth/{+parent}/identityAwareProxyClients";
+  GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIAP_IdentityAwareProxyClient class];
+  query.loggingName = @"iap.oauth.projects.brands.identityAwareProxyClients.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/oauth/{+name}";
+  GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIAP_Empty class];
+  query.loggingName = @"iap.oauth.projects.brands.identityAwareProxyClients.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/oauth/{+name}";
+  GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIAP_IdentityAwareProxyClient class];
+  query.loggingName = @"iap.oauth.projects.brands.identityAwareProxyClients.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/oauth/{+parent}/identityAwareProxyClients";
+  GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIAP_ListIdentityAwareProxyClientsResponse class];
+  query.loggingName = @"iap.oauth.projects.brands.identityAwareProxyClients.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsResetSecret
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudIAP_ResetIdentityAwareProxyClientSecretRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/oauth/{+name}:resetSecret";
+  GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsResetSecret *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIAP_IdentityAwareProxyClient class];
+  query.loggingName = @"iap.oauth.projects.brands.identityAwareProxyClients.resetSecret";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIAPQuery_OauthProjectsBrandsList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/oauth/{+parent}/brands";
+  GTLRCloudIAPQuery_OauthProjectsBrandsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIAP_ListBrandsResponse class];
+  query.loggingName = @"iap.oauth.projects.brands.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudIAPQuery_V1GetIamPolicy
 
 @dynamic resource;

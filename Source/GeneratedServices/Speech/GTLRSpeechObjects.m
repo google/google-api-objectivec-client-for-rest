@@ -283,7 +283,7 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_SpeakerDiarizationConfig
-@dynamic enableSpeakerDiarization, maxSpeakerCount, minSpeakerCount;
+@dynamic enableSpeakerDiarization, maxSpeakerCount, minSpeakerCount, speakerTag;
 @end
 
 

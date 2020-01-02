@@ -61,6 +61,12 @@ NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Off 
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Trace = @"TRACE";
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn = @"WARN";
 
+// GTLRDataproc_ReservationAffinity.consumeReservationType
+NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_AnyReservation = @"ANY_RESERVATION";
+NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_NoReservation = @"NO_RESERVATION";
+NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_SpecificReservation = @"SPECIFIC_RESERVATION";
+NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRDataproc_SoftwareConfig.optionalComponents
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Anaconda = @"ANACONDA";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
@@ -433,8 +439,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_GceClusterConfig
-@dynamic internalIpOnly, metadata, networkUri, serviceAccount,
-         serviceAccountScopes, subnetworkUri, tags, zoneUri;
+@dynamic internalIpOnly, metadata, networkUri, reservationAffinity,
+         serviceAccount, serviceAccountScopes, subnetworkUri, tags, zoneUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1112,6 +1118,24 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"regexes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ReservationAffinity
+//
+
+@implementation GTLRDataproc_ReservationAffinity
+@dynamic consumeReservationType, key, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
   };
   return map;
 }

@@ -657,6 +657,9 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
  */
 @interface GTLRDriveActivity_Assignment : GTLRObject
 
+/** The user to whom the comment was assigned. */
+@property(nonatomic, strong, nullable) GTLRDriveActivity_User *assignedUser;
+
 /**
  *  The sub-type of this event.
  *

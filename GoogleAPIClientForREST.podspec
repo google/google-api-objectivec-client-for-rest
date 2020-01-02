@@ -556,6 +556,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Reseller/*.{h,m}'
   end
+  s.subspec 'SASPortal' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/SASPortal/*.{h,m}'
+  end
   s.subspec 'SQLAdmin' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/SQLAdmin/*.{h,m}'
@@ -571,6 +575,10 @@ Pod::Spec.new do |s|
   s.subspec 'SearchConsole' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/SearchConsole/*.{h,m}'
+  end
+  s.subspec 'SecretManager' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/SecretManager/*.{h,m}'
   end
   s.subspec 'SecurityCommandCenter' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

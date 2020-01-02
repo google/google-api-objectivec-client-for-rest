@@ -22,6 +22,8 @@
 @class GTLRServiceNetworking_AddSubnetworkRequest;
 @class GTLRServiceNetworking_CancelOperationRequest;
 @class GTLRServiceNetworking_Connection;
+@class GTLRServiceNetworking_DisableVpcServiceControlsRequest;
+@class GTLRServiceNetworking_EnableVpcServiceControlsRequest;
 @class GTLRServiceNetworking_SearchRangeRequest;
 @class GTLRServiceNetworking_ValidateConsumerConfigRequest;
 
@@ -451,6 +453,84 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRServiceNetworking_Connection *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Disables VPC service controls for a connection.
+ *
+ *  Method: servicenetworking.services.disableVpcServiceControls
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesDisableVpcServiceControls : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForServicesDisableVpcServiceControlsWithObject:parent:]
+
+/**
+ *  The service that is managing peering connectivity for a service producer's
+ *  organization. For Google services that support this functionality, this
+ *  value is `services/servicenetworking.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_Operation.
+ *
+ *  Disables VPC service controls for a connection.
+ *
+ *  @param object The @c GTLRServiceNetworking_DisableVpcServiceControlsRequest
+ *    to include in the query.
+ *  @param parent The service that is managing peering connectivity for a
+ *    service producer's
+ *    organization. For Google services that support this functionality, this
+ *    value is `services/servicenetworking.googleapis.com`.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesDisableVpcServiceControls
+ */
++ (instancetype)queryWithObject:(GTLRServiceNetworking_DisableVpcServiceControlsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Enables VPC service controls for a connection.
+ *
+ *  Method: servicenetworking.services.enableVpcServiceControls
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesEnableVpcServiceControls : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForServicesEnableVpcServiceControlsWithObject:parent:]
+
+/**
+ *  The service that is managing peering connectivity for a service producer's
+ *  organization. For Google services that support this functionality, this
+ *  value is `services/servicenetworking.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_Operation.
+ *
+ *  Enables VPC service controls for a connection.
+ *
+ *  @param object The @c GTLRServiceNetworking_EnableVpcServiceControlsRequest
+ *    to include in the query.
+ *  @param parent The service that is managing peering connectivity for a
+ *    service producer's
+ *    organization. For Google services that support this functionality, this
+ *    value is `services/servicenetworking.googleapis.com`.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesEnableVpcServiceControls
+ */
++ (instancetype)queryWithObject:(GTLRServiceNetworking_EnableVpcServiceControlsRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

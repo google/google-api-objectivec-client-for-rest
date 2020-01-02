@@ -74,6 +74,139 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
+ *  Gets the access control policy for a resource.
+ *  Returns an empty policy if the resource exists and does not have a policy
+ *  set.
+ *
+ *  Method: healthcare.projects.locations.datasets.annotationStores.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresGetIamPolicy : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsAnnotationStoresGetIamPolicyWithresource:]
+
+/**
+ *  Optional. The policy format version to be returned.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected.
+ *  Requests for policies with any conditional bindings must specify version 3.
+ *  Policies without any conditional bindings may specify any valid value or
+ *  leave the field unset.
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Policy.
+ *
+ *  Gets the access control policy for a resource.
+ *  Returns an empty policy if the resource exists and does not have a policy
+ *  set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+ *
+ *  Method: healthcare.projects.locations.datasets.annotationStores.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresSetIamPolicy : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsAnnotationStoresSetIamPolicyWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+ *
+ *  @param object The @c GTLRCloudHealthcare_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *  If the resource does not exist, this will return an empty set of
+ *  permissions, not a NOT_FOUND error.
+ *  Note: This operation is designed to be used for building permission-aware
+ *  UIs and command-line tools, not for authorization checking. This operation
+ *  may "fail open" without warning.
+ *
+ *  Method: healthcare.projects.locations.datasets.annotationStores.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresTestIamPermissions : GTLRCloudHealthcareQuery
+// Previous library name was
+//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsAnnotationStoresTestIamPermissionsWithObject:resource:]
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested.
+ *  See the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *  If the resource does not exist, this will return an empty set of
+ *  permissions, not a NOT_FOUND error.
+ *  Note: This operation is designed to be used for building permission-aware
+ *  UIs and command-line tools, not for authorization checking. This operation
+ *  may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudHealthcare_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested.
+ *    See the operation documentation for the appropriate value for this field.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a new health dataset. Results are returned through the
  *  Operation interface which returns either an
  *  `Operation.response` which contains a Dataset or
@@ -1795,12 +1928,17 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Gets the FHIR [capability
- *  statement](http://hl7.org/implement/standards/fhir/STU3/capabilitystatement.html)
- *  for the store, which contains a description of functionality supported by
- *  the server.
- *  Implements the FHIR standard [capabilities
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#capabilities).
+ *  Gets the FHIR capability statement
+ *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/capabilitystatement.html)),
+ *  or the [conformance
+ *  statement](http://hl7.org/implement/standards/fhir/DSTU2/conformance.html)
+ *  in the DSTU2 case for the store, which contains a description of
+ *  functionality supported by the server.
+ *  Implements the FHIR standard capabilities interaction
+ *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#capabilities)),
+ *  or the [conformance
+ *  interaction](http://hl7.org/implement/standards/fhir/DSTU2/http.html#conformance)
+ *  in the DSTU2 case.
  *  On success, the response body will contain a JSON-encoded representation
  *  of a `CapabilityStatement` resource.
  *
@@ -1819,12 +1957,17 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
- *  Gets the FHIR [capability
- *  statement](http://hl7.org/implement/standards/fhir/STU3/capabilitystatement.html)
- *  for the store, which contains a description of functionality supported by
- *  the server.
- *  Implements the FHIR standard [capabilities
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#capabilities).
+ *  Gets the FHIR capability statement
+ *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/capabilitystatement.html)),
+ *  or the [conformance
+ *  statement](http://hl7.org/implement/standards/fhir/DSTU2/conformance.html)
+ *  in the DSTU2 case for the store, which contains a description of
+ *  functionality supported by the server.
+ *  Implements the FHIR standard capabilities interaction
+ *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#capabilities)),
+ *  or the [conformance
+ *  interaction](http://hl7.org/implement/standards/fhir/DSTU2/http.html#conformance)
+ *  in the DSTU2 case.
  *  On success, the response body will contain a JSON-encoded representation
  *  of a `CapabilityStatement` resource.
  *
@@ -1838,8 +1981,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Deletes FHIR resources that match a search query.
- *  Implements the FHIR standard [conditional delete
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.13.1).
+ *  Implements the FHIR standard conditional delete interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.12.1),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.13.1)).
  *  If multiple resources match, all of them will be deleted.
  *  Search terms are provided as query parameters following the same pattern as
  *  the search method.
@@ -1864,8 +2008,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  The FHIR resource type to delete, such as Patient or Observation. For a
- *  complete list, see the [FHIR Resource
- *  Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ *  complete list, see the FHIR Resource Index
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1873,8 +2018,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_Empty.
  *
  *  Deletes FHIR resources that match a search query.
- *  Implements the FHIR standard [conditional delete
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.13.1).
+ *  Implements the FHIR standard conditional delete interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.12.1),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.13.1)).
  *  If multiple resources match, all of them will be deleted.
  *  Search terms are provided as query parameters following the same pattern as
  *  the search method.
@@ -1888,8 +2034,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  @param parent The name of the FHIR store this resource belongs to.
  *  @param type The FHIR resource type to delete, such as Patient or
  *    Observation. For a
- *    complete list, see the [FHIR Resource
- *    Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ *    complete list, see the FHIR Resource Index
+ *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
+ *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete
  */
@@ -1902,8 +2049,10 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  If a resource is found based on the search criteria specified in the query
  *  parameters, updates part of that resource by applying the operations
  *  specified in a [JSON Patch](http://jsonpatch.com/) document.
- *  Implements the FHIR standard [conditional patch
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#patch).
+ *  Implements the FHIR standard conditional patch interaction
+ *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch)).
+ *  DSTU2 doesn't define a conditional patch method, but the server supports it
+ *  in the same way it supports STU3.
  *  Search terms are provided as query parameters following the same pattern as
  *  the search method.
  *  If the search criteria identify more than one match, the request will
@@ -1931,8 +2080,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  The FHIR resource type to update, such as Patient or Observation. For a
- *  complete list, see the [FHIR Resource
- *  Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ *  complete list, see the FHIR Resource Index
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1942,8 +2092,10 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  If a resource is found based on the search criteria specified in the query
  *  parameters, updates part of that resource by applying the operations
  *  specified in a [JSON Patch](http://jsonpatch.com/) document.
- *  Implements the FHIR standard [conditional patch
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#patch).
+ *  Implements the FHIR standard conditional patch interaction
+ *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch)).
+ *  DSTU2 doesn't define a conditional patch method, but the server supports it
+ *  in the same way it supports STU3.
  *  Search terms are provided as query parameters following the same pattern as
  *  the search method.
  *  If the search criteria identify more than one match, the request will
@@ -1961,8 +2113,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  @param parent The name of the FHIR store this resource belongs to.
  *  @param type The FHIR resource type to update, such as Patient or
  *    Observation. For a
- *    complete list, see the [FHIR Resource
- *    Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ *    complete list, see the FHIR Resource Index
+ *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
+ *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch
  */
@@ -1975,8 +2128,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  If a resource is found based on the search criteria specified in the query
  *  parameters, updates the entire contents of that resource.
- *  Implements the FHIR standard [conditional update
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#cond-update).
+ *  Implements the FHIR standard conditional update interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.10.2),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#cond-update)).
  *  Search terms are provided as query parameters following the same pattern as
  *  the search method.
  *  If the search criteria identify more than one match, the request will
@@ -2011,8 +2165,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  The FHIR resource type to update, such as Patient or Observation. For a
- *  complete list, see the [FHIR Resource
- *  Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ *  complete list, see the FHIR Resource Index
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
  *  Must match the resource type in the provided content.
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -2022,8 +2177,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  If a resource is found based on the search criteria specified in the query
  *  parameters, updates the entire contents of that resource.
- *  Implements the FHIR standard [conditional update
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#cond-update).
+ *  Implements the FHIR standard conditional update interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.10.2),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#cond-update)).
  *  Search terms are provided as query parameters following the same pattern as
  *  the search method.
  *  If the search criteria identify more than one match, the request will
@@ -2048,8 +2204,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  @param parent The name of the FHIR store this resource belongs to.
  *  @param type The FHIR resource type to update, such as Patient or
  *    Observation. For a
- *    complete list, see the [FHIR Resource
- *    Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ *    complete list, see the FHIR Resource Index
+ *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
+ *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
  *    Must match the resource type in the provided content.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate
@@ -2062,11 +2219,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Creates a FHIR resource.
- *  Implements the FHIR standard [create
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#create),
+ *  Implements the FHIR standard create interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#create),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#create)),
  *  which creates a new resource with a server-assigned resource ID.
- *  Also supports the FHIR standard [conditional create
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#ccreate),
+ *  Also supports the FHIR standard conditional create interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#ccreate),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#ccreate)),
  *  specified by supplying an `If-None-Exist` header containing a FHIR search
  *  query. If no resources match this search query, the server processes the
  *  create operation as normal.
@@ -2094,8 +2253,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  The FHIR resource type to create, such as Patient or Observation. For a
- *  complete list, see the [FHIR Resource
- *  Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ *  complete list, see the FHIR Resource Index
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
  *  Must match the resource type in the provided content.
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -2104,11 +2264,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Creates a FHIR resource.
- *  Implements the FHIR standard [create
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#create),
+ *  Implements the FHIR standard create interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#create),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#create)),
  *  which creates a new resource with a server-assigned resource ID.
- *  Also supports the FHIR standard [conditional create
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#ccreate),
+ *  Also supports the FHIR standard conditional create interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#ccreate),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#ccreate)),
  *  specified by supplying an `If-None-Exist` header containing a FHIR search
  *  query. If no resources match this search query, the server processes the
  *  create operation as normal.
@@ -2126,8 +2288,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  @param parent The name of the FHIR store this resource belongs to.
  *  @param type The FHIR resource type to create, such as Patient or
  *    Observation. For a
- *    complete list, see the [FHIR Resource
- *    Index](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html).
+ *    complete list, see the FHIR Resource Index
+ *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
+ *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
  *    Must match the resource type in the provided content.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCreate
@@ -2140,8 +2303,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Deletes a FHIR resource.
- *  Implements the FHIR standard [delete
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#delete).
+ *  Implements the FHIR standard delete interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#delete),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#delete)).
  *  Note: Unless resource versioning is disabled by setting the
  *  disable_resource_versioning flag
  *  on the FHIR store, the deleted resources will be moved to a history
@@ -2165,8 +2329,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Deletes a FHIR resource.
- *  Implements the FHIR standard [delete
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#delete).
+ *  Implements the FHIR standard delete interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#delete),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#delete)).
  *  Note: Unless resource versioning is disabled by setting the
  *  disable_resource_versioning flag
  *  on the FHIR store, the deleted resources will be moved to a history
@@ -2184,14 +2349,17 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Executes all the requests in the given Bundle.
- *  Implements the FHIR standard [batch/transaction
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#transaction).
+ *  Implements the FHIR standard batch/transaction interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#transaction),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#transaction)).
  *  Supports all interactions within a bundle, except search. This method
  *  accepts Bundles of type `batch` and `transaction`, processing them
- *  according to the [batch processing
- *  rules](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.1)
- *  and [transaction processing
- *  rules](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.2).
+ *  according to the batch processing rules
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.16.1),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.1))
+ *  and transaction processing rules
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.16.2),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.2)).
  *  The request body must contain a JSON-encoded FHIR `Bundle` resource, and
  *  the request headers must contain `Content-Type: application/fhir+json`.
  *  For a batch bundle or a successful transaction the response body will
@@ -2219,14 +2387,17 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Executes all the requests in the given Bundle.
- *  Implements the FHIR standard [batch/transaction
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#transaction).
+ *  Implements the FHIR standard batch/transaction interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#transaction),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#transaction)).
  *  Supports all interactions within a bundle, except search. This method
  *  accepts Bundles of type `batch` and `transaction`, processing them
- *  according to the [batch processing
- *  rules](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.1)
- *  and [transaction processing
- *  rules](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.2).
+ *  according to the batch processing rules
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.16.1),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.1))
+ *  and transaction processing rules
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.16.2),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.2)).
  *  The request body must contain a JSON-encoded FHIR `Bundle` resource, and
  *  the request headers must contain `Content-Type: application/fhir+json`.
  *  For a batch bundle or a successful transaction the response body will
@@ -2251,8 +2422,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Lists all the versions of a resource (including the current version and
  *  deleted versions) from the FHIR store.
- *  Implements the per-resource form of the FHIR standard [history
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#history).
+ *  Implements the per-resource form of the FHIR standard history interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#history),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#history)).
  *  On success, the response body will contain a JSON-encoded representation
  *  of a `Bundle` resource of type `history`, containing the version history
  *  sorted from most recent to oldest versions.
@@ -2271,6 +2443,21 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirHistoryWithname:]
 
 /**
+ *  Only include resource versions that were current at some point during the
+ *  time period specified in the date time value. The date parameter format is
+ *  yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]
+ *  Clients may specify any of the following:
+ *  * An entire year: `_at=2019`
+ *  * An entire month: `_at=2019-01`
+ *  * A specific day: `_at=2019-01-20`
+ *  * A specific second: `_at=2018-12-31T23:59:58Z`
+ */
+@property(nonatomic, copy, nullable) NSString *xAt;
+
+/** The maximum number of search results on a page. Defaults to 1000. */
+@property(nonatomic, assign) NSInteger xCount;
+
+/**
  *  Used to retrieve the first, previous, next, or last page of resource
  *  versions when using pagination. Value should be set to the value of
  *  `_page_token` set in next or previous page links' URLs. Next and previous
@@ -2281,42 +2468,25 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @property(nonatomic, copy, nullable) NSString *xPageToken;
 
 /**
- *  Only include resource versions that were current at some point during the
- *  time period specified in the date time value. The date parameter format is
- *  yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]
- *  Clients may specify any of the following:
- *  * An entire year: `_at=2019`
- *  * An entire month: `_at=2019-01`
- *  * A specific day: `_at=2019-01-20`
- *  * A specific second: `_at=2018-12-31T23:59:58Z`
- */
-@property(nonatomic, copy, nullable) NSString *at;
-
-/** The maximum number of search results on a page. Defaults to 1000. */
-@property(nonatomic, assign) NSInteger count;
-
-/** The name of the resource to retrieve. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** DEPRECATED! Use `_page_token`. */
-@property(nonatomic, copy, nullable) NSString *page;
-
-/**
  *  Only include resource versions that were created at or after the given
  *  instant in time. The instant in time uses the format
  *  YYYY-MM-DDThh:mm:ss.sss+zz:zz (for example 2015-02-07T13:28:17.239+02:00 or
  *  2017-01-01T00:00:00Z). The time must be specified to the second and
  *  include a time zone.
  */
-@property(nonatomic, copy, nullable) NSString *since;
+@property(nonatomic, copy, nullable) NSString *xSince;
+
+/** The name of the resource to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Lists all the versions of a resource (including the current version and
  *  deleted versions) from the FHIR store.
- *  Implements the per-resource form of the FHIR standard [history
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#history).
+ *  Implements the per-resource form of the FHIR standard history interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#history),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#history)).
  *  On success, the response body will contain a JSON-encoded representation
  *  of a `Bundle` resource of type `history`, containing the version history
  *  sorted from most recent to oldest versions.
@@ -2337,8 +2507,10 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Retrieves the N most recent `Observation` resources for a subject matching
  *  search criteria specified as query parameters, grouped by
  *  `Observation.code`, sorted from most recent to oldest.
- *  Implements the FHIR extended operation
- *  [Observation-lastn](http://hl7.org/implement/standards/fhir/STU3/observation-operations.html#lastn).
+ *  Implements the FHIR extended operation Observation-lastn
+ *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/observation-operations.html#lastn)).
+ *  DSTU2 doesn't define the Observation-lastn method, but the server supports
+ *  it the same way it supports STU3.
  *  Search terms are provided as query parameters following the same pattern as
  *  the search method. The following search parameters must
  *  be provided:
@@ -2379,8 +2551,10 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Retrieves the N most recent `Observation` resources for a subject matching
  *  search criteria specified as query parameters, grouped by
  *  `Observation.code`, sorted from most recent to oldest.
- *  Implements the FHIR extended operation
- *  [Observation-lastn](http://hl7.org/implement/standards/fhir/STU3/observation-operations.html#lastn).
+ *  Implements the FHIR extended operation Observation-lastn
+ *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/observation-operations.html#lastn)).
+ *  DSTU2 doesn't define the Observation-lastn method, but the server supports
+ *  it the same way it supports STU3.
  *  Search terms are provided as query parameters following the same pattern as
  *  the search method. The following search parameters must
  *  be provided:
@@ -2414,8 +2588,10 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Updates part of an existing resource by applying the operations specified
  *  in a [JSON Patch](http://jsonpatch.com/) document.
- *  Implements the FHIR standard [patch
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#patch).
+ *  Implements the FHIR standard patch interaction
+ *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch)).
+ *  DSTU2 doesn't define a patch method, but the server supports it in the same
+ *  way it supports STU3.
  *  The request body must contain a JSON Patch document, and the request
  *  headers must contain `Content-Type: application/json-patch+json`.
  *  On success, the response body will contain a JSON-encoded representation
@@ -2442,8 +2618,10 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  Updates part of an existing resource by applying the operations specified
  *  in a [JSON Patch](http://jsonpatch.com/) document.
- *  Implements the FHIR standard [patch
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#patch).
+ *  Implements the FHIR standard patch interaction
+ *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch)).
+ *  DSTU2 doesn't define a patch method, but the server supports it in the same
+ *  way it supports STU3.
  *  The request body must contain a JSON Patch document, and the request
  *  headers must contain `Content-Type: application/json-patch+json`.
  *  On success, the response body will contain a JSON-encoded representation
@@ -2485,15 +2663,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @property(nonatomic, assign) NSInteger xCount;
 
 /**
- *  The response includes records prior to the end date. If no end date is
- *  provided, all records subsequent to the start date are in scope.
- */
-@property(nonatomic, copy, nullable) NSString *end;
-
-/** Name of the `Patient` resource for which the information is required. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
  *  Used to retrieve the next or previous page of results
  *  when using pagination. Value should be set to the value of page_token set
  *  in next or previous page links' urls. Next and previous page are returned
@@ -2501,7 +2670,16 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  or "next".
  *  Omit `page_token` if no previous request has been made.
  */
-@property(nonatomic, copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *xPageToken;
+
+/**
+ *  The response includes records prior to the end date. If no end date is
+ *  provided, all records subsequent to the start date are in scope.
+ */
+@property(nonatomic, copy, nullable) NSString *end;
+
+/** Name of the `Patient` resource for which the information is required. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The response includes records subsequent to the start date. If no start
@@ -2531,10 +2709,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Gets the contents of a FHIR resource.
- *  Implements the FHIR standard [read
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#read).
- *  Also supports the FHIR standard [conditional read
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#cread)
+ *  Implements the FHIR standard read interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#read),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#read)).
+ *  Also supports the FHIR standard conditional read interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#cread),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#cread))
  *  specified by supplying an `If-Modified-Since` header with a date/time value
  *  or an `If-None-Match` header with an ETag value.
  *  On success, the response body will contain a JSON-encoded representation
@@ -2560,10 +2740,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Gets the contents of a FHIR resource.
- *  Implements the FHIR standard [read
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#read).
- *  Also supports the FHIR standard [conditional read
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#cread)
+ *  Implements the FHIR standard read interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#read),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#read)).
+ *  Also supports the FHIR standard conditional read interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#cread),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#cread))
  *  specified by supplying an `If-Modified-Since` header with a date/time value
  *  or an `If-None-Match` header with an ETag value.
  *  On success, the response body will contain a JSON-encoded representation
@@ -2618,10 +2800,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Searches for resources in the given FHIR store according to criteria
  *  specified as query parameters.
- *  Implements the FHIR standard [search
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#search)
- *  using the search semantics described in the [FHIR Search
- *  specification](http://hl7.org/implement/standards/fhir/STU3/search.html).
+ *  Implements the FHIR standard search interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#search),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#search))
+ *  using the search semantics described in the FHIR Search specification
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/search.html),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/search.html)).
  *  Supports three methods of search defined by the specification:
  *  * `GET [base]?[parameters]` to search across all resources.
  *  * `GET [base]/[type]?[parameters]` to search resources of a specified
@@ -2638,11 +2822,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
  *  The server's capability statement, retrieved through
- *  capabilities, indicates the search parameters
- *  that are supported on each FHIR resource. For the list of search
- *  parameters for STU3, see the
- *  [STU3 FHIR Search Parameter
- *  Registry](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html).
+ *  capabilities, indicates what search parameters
+ *  are supported on each FHIR resource. A list of all search parameters
+ *  defined by the specification can be found in the FHIR Search Parameter
+ *  Registry
+ *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html)).
+ *  FHIR search parameters for DSTU2 can be found on each resource's definition
+ *  page.
  *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
  *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `:recurse`.
  *  Supported search result parameters: `_sort`, `_count`, `_include`,
@@ -2675,10 +2861,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  Searches for resources in the given FHIR store according to criteria
  *  specified as query parameters.
- *  Implements the FHIR standard [search
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#search)
- *  using the search semantics described in the [FHIR Search
- *  specification](http://hl7.org/implement/standards/fhir/STU3/search.html).
+ *  Implements the FHIR standard search interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#search),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#search))
+ *  using the search semantics described in the FHIR Search specification
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/search.html),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/search.html)).
  *  Supports three methods of search defined by the specification:
  *  * `GET [base]?[parameters]` to search across all resources.
  *  * `GET [base]/[type]?[parameters]` to search resources of a specified
@@ -2695,11 +2883,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
  *  The server's capability statement, retrieved through
- *  capabilities, indicates the search parameters
- *  that are supported on each FHIR resource. For the list of search
- *  parameters for STU3, see the
- *  [STU3 FHIR Search Parameter
- *  Registry](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html).
+ *  capabilities, indicates what search parameters
+ *  are supported on each FHIR resource. A list of all search parameters
+ *  defined by the specification can be found in the FHIR Search Parameter
+ *  Registry
+ *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html)).
+ *  FHIR search parameters for DSTU2 can be found on each resource's definition
+ *  page.
  *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
  *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `:recurse`.
  *  Supported search result parameters: `_sort`, `_count`, `_include`,
@@ -2728,8 +2918,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Updates the entire contents of a resource.
- *  Implements the FHIR standard [update
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#update).
+ *  Implements the FHIR standard update interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#update),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#update)).
  *  If the specified resource does
  *  not exist and the FHIR store has
  *  enable_update_create set, creates the
@@ -2761,8 +2952,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Updates the entire contents of a resource.
- *  Implements the FHIR standard [update
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#update).
+ *  Implements the FHIR standard update interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#update),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#update)).
  *  If the specified resource does
  *  not exist and the FHIR store has
  *  enable_update_create set, creates the
@@ -2791,8 +2983,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Gets the contents of a version (current or historical) of a FHIR resource
  *  by version ID.
- *  Implements the FHIR standard [vread
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#vread).
+ *  Implements the FHIR standard vread interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#vread),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#vread).
  *  On success, the response body will contain a JSON-encoded representation
  *  of the resource.
  *  Errors generated by the FHIR store will contain a JSON-encoded
@@ -2817,8 +3010,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  Gets the contents of a version (current or historical) of a FHIR resource
  *  by version ID.
- *  Implements the FHIR standard [vread
- *  interaction](http://hl7.org/implement/standards/fhir/STU3/http.html#vread).
+ *  Implements the FHIR standard vread interaction
+ *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#vread),
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#vread).
  *  On success, the response body will contain a JSON-encoded representation
  *  of the resource.
  *  Errors generated by the FHIR store will contain a JSON-encoded
@@ -3604,6 +3798,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Specifies which parts of the Message resource to return in the response.
+ *  When unspecified, equivalent to FULL.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcareViewMessageViewUnspecified Value
@@ -3630,9 +3825,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Ingests a new HL7v2 message from the hospital and sends a notification to
  *  the Cloud Pub/Sub topic. Return is an HL7v2 ACK message if the message was
- *  successfully stored. Otherwise an error is returned. If an identical
- *  HL7v2 message is created twice only one resource is created on the server
- *  and no error is reported.
+ *  successfully stored. Otherwise an error is returned.
  *
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.ingest
  *
@@ -3651,9 +3844,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  Ingests a new HL7v2 message from the hospital and sends a notification to
  *  the Cloud Pub/Sub topic. Return is an HL7v2 ACK message if the message was
- *  successfully stored. Otherwise an error is returned. If an identical
- *  HL7v2 message is created twice only one resource is created on the server
- *  and no error is reported.
+ *  successfully stored. Otherwise an error is returned.
  *
  *  @param object The @c GTLRCloudHealthcare_IngestMessageRequest to include in
  *    the query.

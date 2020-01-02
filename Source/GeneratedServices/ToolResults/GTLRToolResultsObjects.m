@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Tool Results API (toolresults/v1beta3)
+//   Cloud Tool Results API (toolresults/v1)
 // Description:
-//   Reads and publishes results from Firebase Test Lab.
+//   API to publish and access results from developer tools.
 // Documentation:
 //   https://firebase.google.com/docs/test-lab/
 
@@ -13,149 +13,64 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRToolResults_BasicPerfSampleSeries.perfMetricType
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Cpu = @"cpu";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Graphics = @"graphics";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Memory = @"memory";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Network = @"network";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_PerfMetricTypeUnspecified = @"perfMetricTypeUnspecified";
-
-// GTLRToolResults_BasicPerfSampleSeries.perfUnit
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Byte = @"byte";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond = @"bytesPerSecond";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_FramesPerSecond = @"framesPerSecond";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte = @"kibibyte";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Percent = @"percent";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_PerfUnitUnspecified = @"perfUnitUnspecified";
-
-// GTLRToolResults_BasicPerfSampleSeries.sampleSeriesLabel
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuKernel = @"cpuKernel";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuTotal = @"cpuTotal";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuUser = @"cpuUser";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_GraphicsFrameRate = @"graphicsFrameRate";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssPrivate = @"memoryRssPrivate";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssShared = @"memoryRssShared";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssTotal = @"memoryRssTotal";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryTotal = @"memoryTotal";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkReceived = @"networkReceived";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkSent = @"networkSent";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesReceived = @"ntBytesReceived";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesTransferred = @"ntBytesTransferred";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_SampleSeriesTypeUnspecified = @"sampleSeriesTypeUnspecified";
-
-// GTLRToolResults_Execution.state
-NSString * const kGTLRToolResults_Execution_State_Complete     = @"complete";
-NSString * const kGTLRToolResults_Execution_State_InProgress   = @"inProgress";
-NSString * const kGTLRToolResults_Execution_State_Pending      = @"pending";
-NSString * const kGTLRToolResults_Execution_State_UnknownState = @"unknownState";
-
-// GTLRToolResults_IndividualOutcome.outcomeSummary
-NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Failure = @"failure";
-NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Flaky = @"flaky";
-NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Inconclusive = @"inconclusive";
-NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Skipped = @"skipped";
-NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Success = @"success";
-NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Unset = @"unset";
-
-// GTLRToolResults_Outcome.summary
-NSString * const kGTLRToolResults_Outcome_Summary_Failure      = @"failure";
-NSString * const kGTLRToolResults_Outcome_Summary_Flaky        = @"flaky";
-NSString * const kGTLRToolResults_Outcome_Summary_Inconclusive = @"inconclusive";
-NSString * const kGTLRToolResults_Outcome_Summary_Skipped      = @"skipped";
-NSString * const kGTLRToolResults_Outcome_Summary_Success      = @"success";
-NSString * const kGTLRToolResults_Outcome_Summary_Unset        = @"unset";
-
-// GTLRToolResults_PerfMetricsSummary.perfMetrics
-NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Cpu = @"cpu";
-NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Graphics = @"graphics";
-NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Memory = @"memory";
-NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Network = @"network";
-NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_PerfMetricTypeUnspecified = @"perfMetricTypeUnspecified";
-
-// GTLRToolResults_PrimaryStep.rollUp
-NSString * const kGTLRToolResults_PrimaryStep_RollUp_Failure   = @"failure";
-NSString * const kGTLRToolResults_PrimaryStep_RollUp_Flaky     = @"flaky";
-NSString * const kGTLRToolResults_PrimaryStep_RollUp_Inconclusive = @"inconclusive";
-NSString * const kGTLRToolResults_PrimaryStep_RollUp_Skipped   = @"skipped";
-NSString * const kGTLRToolResults_PrimaryStep_RollUp_Success   = @"success";
-NSString * const kGTLRToolResults_PrimaryStep_RollUp_Unset     = @"unset";
-
-// GTLRToolResults_Step.state
-NSString * const kGTLRToolResults_Step_State_Complete     = @"complete";
-NSString * const kGTLRToolResults_Step_State_InProgress   = @"inProgress";
-NSString * const kGTLRToolResults_Step_State_Pending      = @"pending";
-NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
-
-// GTLRToolResults_TestCase.status
-NSString * const kGTLRToolResults_TestCase_Status_Error   = @"error";
-NSString * const kGTLRToolResults_TestCase_Status_Failed  = @"failed";
-NSString * const kGTLRToolResults_TestCase_Status_Flaky   = @"flaky";
-NSString * const kGTLRToolResults_TestCase_Status_Passed  = @"passed";
-NSString * const kGTLRToolResults_TestCase_Status_Skipped = @"skipped";
-
-// GTLRToolResults_TestIssue.category
-NSString * const kGTLRToolResults_TestIssue_Category_Common    = @"common";
-NSString * const kGTLRToolResults_TestIssue_Category_Robo      = @"robo";
-NSString * const kGTLRToolResults_TestIssue_Category_UnspecifiedCategory = @"unspecifiedCategory";
-
-// GTLRToolResults_TestIssue.severity
-NSString * const kGTLRToolResults_TestIssue_Severity_Info      = @"info";
-NSString * const kGTLRToolResults_TestIssue_Severity_Severe    = @"severe";
-NSString * const kGTLRToolResults_TestIssue_Severity_Suggestion = @"suggestion";
-NSString * const kGTLRToolResults_TestIssue_Severity_UnspecifiedSeverity = @"unspecifiedSeverity";
-NSString * const kGTLRToolResults_TestIssue_Severity_Warning   = @"warning";
-
-// GTLRToolResults_TestIssue.type
-NSString * const kGTLRToolResults_TestIssue_Type_Anr           = @"anr";
-NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks = @"availableDeepLinks";
-NSString * const kGTLRToolResults_TestIssue_Type_BlankScreen   = @"blankScreen";
-NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator = @"compatibleWithOrchestrator";
-NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution = @"completeRoboScriptExecution";
-NSString * const kGTLRToolResults_TestIssue_Type_CrashDialogError = @"crashDialogError";
-NSString * const kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen = @"encounteredLoginScreen";
-NSString * const kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen = @"encounteredNonAndroidUiWidgetScreen";
-NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall = @"failedToInstall";
-NSString * const kGTLRToolResults_TestIssue_Type_FatalException = @"fatalException";
-NSString * const kGTLRToolResults_TestIssue_Type_InAppPurchases = @"inAppPurchases";
-NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution = @"incompleteRoboScriptExecution";
-NSString * const kGTLRToolResults_TestIssue_Type_InsufficientCoverage = @"insufficientCoverage";
-NSString * const kGTLRToolResults_TestIssue_Type_IosCrash      = @"iosCrash";
-NSString * const kGTLRToolResults_TestIssue_Type_IosException  = @"iosException";
-NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound = @"launcherActivityNotFound";
-NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash   = @"nativeCrash";
-NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageReport = @"nonSdkApiUsageReport";
-NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation = @"nonSdkApiUsageViolation";
-NSString * const kGTLRToolResults_TestIssue_Type_OverlappingUiElements = @"overlappingUiElements";
-NSString * const kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin = @"performedGoogleLogin";
-NSString * const kGTLRToolResults_TestIssue_Type_PerformedMonkeyActions = @"performedMonkeyActions";
-NSString * const kGTLRToolResults_TestIssue_Type_StartActivityNotFound = @"startActivityNotFound";
-NSString * const kGTLRToolResults_TestIssue_Type_UiElementsTooDeep = @"uiElementsTooDeep";
-NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType = @"unspecifiedType";
-NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective = @"unusedRoboDirective";
-NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective = @"usedRoboDirective";
-NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"usedRoboIgnoreDirective";
+// GTLRToolResults_NonSdkApi.list
+NSString * const kGTLRToolResults_NonSdkApi_List_Black    = @"BLACK";
+NSString * const kGTLRToolResults_NonSdkApi_List_Grey     = @"GREY";
+NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxO = @"GREY_MAX_O";
+NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxP = @"GREY_MAX_P";
+NSString * const kGTLRToolResults_NonSdkApi_List_None     = @"NONE";
+NSString * const kGTLRToolResults_NonSdkApi_List_White    = @"WHITE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_AndroidAppInfo
+//   GTLRToolResults_ANR
 //
 
-@implementation GTLRToolResults_AndroidAppInfo
-@dynamic name, packageName, versionCode, versionName;
+@implementation GTLRToolResults_ANR
+@dynamic stackTrace;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_AndroidInstrumentationTest
+//   GTLRToolResults_AvailableDeepLinks
 //
 
-@implementation GTLRToolResults_AndroidInstrumentationTest
-@dynamic testPackageId, testRunnerClass, testTargets, useOrchestrator;
+@implementation GTLRToolResults_AvailableDeepLinks
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_BlankScreen
+//
+
+@implementation GTLRToolResults_BlankScreen
+@dynamic screenId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_CrashDialogError
+//
+
+@implementation GTLRToolResults_CrashDialogError
+@dynamic crashPackage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_EncounteredLoginScreen
+//
+
+@implementation GTLRToolResults_EncounteredLoginScreen
+@dynamic distinctScreens, screenIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"testTargets" : [NSString class]
+    @"screenIds" : [NSString class]
   };
   return map;
 }
@@ -165,67 +80,15 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_AndroidRoboTest
+//   GTLRToolResults_EncounteredNonAndroidUiWidgetScreen
 //
 
-@implementation GTLRToolResults_AndroidRoboTest
-@dynamic appInitialActivity, bootstrapPackageId, bootstrapRunnerClass, maxDepth,
-         maxSteps;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_AndroidTest
-//
-
-@implementation GTLRToolResults_AndroidTest
-@dynamic androidAppInfo, androidInstrumentationTest, androidRoboTest,
-         testTimeout;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_Any
-//
-
-@implementation GTLRToolResults_Any
-@dynamic typeUrl, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_AppStartTime
-//
-
-@implementation GTLRToolResults_AppStartTime
-@dynamic fullyDrawnTime, initialDisplayTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_BasicPerfSampleSeries
-//
-
-@implementation GTLRToolResults_BasicPerfSampleSeries
-@dynamic perfMetricType, perfUnit, sampleSeriesLabel;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_BatchCreatePerfSamplesRequest
-//
-
-@implementation GTLRToolResults_BatchCreatePerfSamplesRequest
-@dynamic perfSamples;
+@implementation GTLRToolResults_EncounteredNonAndroidUiWidgetScreen
+@dynamic distinctScreens, screenIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"perfSamples" : [GTLRToolResults_PerfSample class]
+    @"screenIds" : [NSString class]
   };
   return map;
 }
@@ -235,15 +98,83 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_BatchCreatePerfSamplesResponse
+//   GTLRToolResults_FailedToInstall
 //
 
-@implementation GTLRToolResults_BatchCreatePerfSamplesResponse
-@dynamic perfSamples;
+@implementation GTLRToolResults_FailedToInstall
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_FatalException
+//
+
+@implementation GTLRToolResults_FatalException
+@dynamic stackTrace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_InAppPurchasesFound
+//
+
+@implementation GTLRToolResults_InAppPurchasesFound
+@dynamic inAppPurchasesFlowsExplored, inAppPurchasesFlowsStarted;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_InsufficientCoverage
+//
+
+@implementation GTLRToolResults_InsufficientCoverage
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_IosAppCrashed
+//
+
+@implementation GTLRToolResults_IosAppCrashed
+@dynamic stackTrace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_LauncherActivityNotFound
+//
+
+@implementation GTLRToolResults_LauncherActivityNotFound
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_NativeCrash
+//
+
+@implementation GTLRToolResults_NativeCrash
+@dynamic stackTrace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_NonSdkApi
+//
+
+@implementation GTLRToolResults_NonSdkApi
+@dynamic apiSignature, exampleStackTraces, insights, invocationCount, list;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"perfSamples" : [GTLRToolResults_PerfSample class]
+    @"exampleStackTraces" : [NSString class],
+    @"insights" : [GTLRToolResults_NonSdkApiInsight class]
   };
   return map;
 }
@@ -253,68 +184,16 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_CPUInfo
+//   GTLRToolResults_NonSdkApiInsight
 //
 
-@implementation GTLRToolResults_CPUInfo
-@dynamic cpuProcessor, cpuSpeedInGhz, numberOfCores;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_Duration
-//
-
-@implementation GTLRToolResults_Duration
-@dynamic nanos, seconds;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_Execution
-//
-
-@implementation GTLRToolResults_Execution
-@dynamic completionTime, creationTime, executionId, outcome, specification,
-         state, testExecutionMatrixId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_FailureDetail
-//
-
-@implementation GTLRToolResults_FailureDetail
-@dynamic crashed, notInstalled, otherNativeCrash, timedOut, unableToCrawl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_FileReference
-//
-
-@implementation GTLRToolResults_FileReference
-@dynamic fileUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_GraphicsStats
-//
-
-@implementation GTLRToolResults_GraphicsStats
-@dynamic buckets, highInputLatencyCount, jankyFrames, missedVsyncCount,
-         p50Millis, p90Millis, p95Millis, p99Millis, slowBitmapUploadCount,
-         slowDrawCount, slowUiThreadCount, totalFrames;
+@implementation GTLRToolResults_NonSdkApiInsight
+@dynamic exampleTraceMessages, matcherId, pendingGoogleUpdateInsight,
+         upgradeInsight;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"buckets" : [GTLRToolResults_GraphicsStatsBucket class]
+    @"exampleTraceMessages" : [NSString class]
   };
   return map;
 }
@@ -324,109 +203,15 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_GraphicsStatsBucket
+//   GTLRToolResults_NonSdkApiUsageViolation
 //
 
-@implementation GTLRToolResults_GraphicsStatsBucket
-@dynamic frameCount, renderMillis;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_History
-//
-
-@implementation GTLRToolResults_History
-@dynamic displayName, historyId, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_Image
-//
-
-@implementation GTLRToolResults_Image
-@dynamic error, sourceImage, stepId, thumbnail;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_InconclusiveDetail
-//
-
-@implementation GTLRToolResults_InconclusiveDetail
-@dynamic abortedByUser, hasErrorLogs, infrastructureFailure;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_IndividualOutcome
-//
-
-@implementation GTLRToolResults_IndividualOutcome
-@dynamic multistepNumber, outcomeSummary, runDuration, stepId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_ListExecutionsResponse
-//
-
-@implementation GTLRToolResults_ListExecutionsResponse
-@dynamic executions, nextPageToken;
+@implementation GTLRToolResults_NonSdkApiUsageViolation
+@dynamic apiSignatures, uniqueApis;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"executions" : [GTLRToolResults_Execution class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"executions";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_ListHistoriesResponse
-//
-
-@implementation GTLRToolResults_ListHistoriesResponse
-@dynamic histories, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"histories" : [GTLRToolResults_History class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"histories";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_ListPerfSampleSeriesResponse
-//
-
-@implementation GTLRToolResults_ListPerfSampleSeriesResponse
-@dynamic perfSampleSeries;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"perfSampleSeries" : [GTLRToolResults_PerfSampleSeries class]
+    @"apiSignatures" : [NSString class]
   };
   return map;
 }
@@ -436,37 +221,15 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_ListPerfSamplesResponse
+//   GTLRToolResults_NonSdkApiUsageViolationReport
 //
 
-@implementation GTLRToolResults_ListPerfSamplesResponse
-@dynamic nextPageToken, perfSamples;
+@implementation GTLRToolResults_NonSdkApiUsageViolationReport
+@dynamic exampleApis, minSdkVersion, targetSdkVersion, uniqueApis;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"perfSamples" : [GTLRToolResults_PerfSample class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"perfSamples";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_ListScreenshotClustersResponse
-//
-
-@implementation GTLRToolResults_ListScreenshotClustersResponse
-@dynamic clusters;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"clusters" : [GTLRToolResults_ScreenshotCluster class]
+    @"exampleApis" : [GTLRToolResults_NonSdkApi class]
   };
   return map;
 }
@@ -476,123 +239,15 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_ListStepsResponse
+//   GTLRToolResults_OverlappingUIElements
 //
 
-@implementation GTLRToolResults_ListStepsResponse
-@dynamic nextPageToken, steps;
+@implementation GTLRToolResults_OverlappingUIElements
+@dynamic resourceName, screenId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"steps" : [GTLRToolResults_Step class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"steps";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_ListStepThumbnailsResponse
-//
-
-@implementation GTLRToolResults_ListStepThumbnailsResponse
-@dynamic nextPageToken, thumbnails;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"thumbnails" : [GTLRToolResults_Image class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"thumbnails";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_ListTestCasesResponse
-//
-
-@implementation GTLRToolResults_ListTestCasesResponse
-@dynamic nextPageToken, testCases;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"testCases" : [GTLRToolResults_TestCase class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"testCases";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_MemoryInfo
-//
-
-@implementation GTLRToolResults_MemoryInfo
-@dynamic memoryCapInKibibyte, memoryTotalInKibibyte;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_MultiStep
-//
-
-@implementation GTLRToolResults_MultiStep
-@dynamic multistepNumber, primaryStep, primaryStepId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_Outcome
-//
-
-@implementation GTLRToolResults_Outcome
-@dynamic failureDetail, inconclusiveDetail, skippedDetail, successDetail,
-         summary;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_PerfEnvironment
-//
-
-@implementation GTLRToolResults_PerfEnvironment
-@dynamic cpuInfo, memoryInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_PerfMetricsSummary
-//
-
-@implementation GTLRToolResults_PerfMetricsSummary
-@dynamic appStartTime, executionId, graphicsStats, historyId, perfEnvironment,
-         perfMetrics, projectId, stepId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"perfMetrics" : [NSString class]
+    @"resourceName" : [NSString class]
   };
   return map;
 }
@@ -602,116 +257,40 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_PerfSample
+//   GTLRToolResults_PendingGoogleUpdateInsight
 //
 
-@implementation GTLRToolResults_PerfSample
-@dynamic sampleTime, value;
+@implementation GTLRToolResults_PendingGoogleUpdateInsight
+@dynamic nameOfGoogleLibrary;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_PerfSampleSeries
+//   GTLRToolResults_PerformedGoogleLogin
 //
 
-@implementation GTLRToolResults_PerfSampleSeries
-@dynamic basicPerfSampleSeries, executionId, historyId, projectId,
-         sampleSeriesId, stepId;
+@implementation GTLRToolResults_PerformedGoogleLogin
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_PrimaryStep
+//   GTLRToolResults_PerformedMonkeyActions
 //
 
-@implementation GTLRToolResults_PrimaryStep
-@dynamic individualOutcome, rollUp;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"individualOutcome" : [GTLRToolResults_IndividualOutcome class]
-  };
-  return map;
-}
-
+@implementation GTLRToolResults_PerformedMonkeyActions
+@dynamic totalActions;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_ProjectSettings
+//   GTLRToolResults_RoboScriptExecution
 //
 
-@implementation GTLRToolResults_ProjectSettings
-@dynamic defaultBucket, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_PublishXunitXmlFilesRequest
-//
-
-@implementation GTLRToolResults_PublishXunitXmlFilesRequest
-@dynamic xunitXmlFiles;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"xunitXmlFiles" : [GTLRToolResults_FileReference class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_Screen
-//
-
-@implementation GTLRToolResults_Screen
-@dynamic fileReference, locale, model, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_ScreenshotCluster
-//
-
-@implementation GTLRToolResults_ScreenshotCluster
-@dynamic activity, clusterId, keyScreen, screens;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"screens" : [GTLRToolResults_Screen class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_SkippedDetail
-//
-
-@implementation GTLRToolResults_SkippedDetail
-@dynamic incompatibleAppVersion, incompatibleArchitecture, incompatibleDevice;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_Specification
-//
-
-@implementation GTLRToolResults_Specification
-@dynamic androidTest;
+@implementation GTLRToolResults_RoboScriptExecution
+@dynamic successfulActions, totalActions;
 @end
 
 
@@ -727,227 +306,68 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_Status
+//   GTLRToolResults_StartActivityNotFound
 //
 
-@implementation GTLRToolResults_Status
-@dynamic code, details, message;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRToolResults_Any class]
-  };
-  return map;
-}
-
+@implementation GTLRToolResults_StartActivityNotFound
+@dynamic action, uri;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_Step
+//   GTLRToolResults_UIElementTooDeep
 //
 
-@implementation GTLRToolResults_Step
-@dynamic completionTime, creationTime, descriptionProperty, deviceUsageDuration,
-         dimensionValue, hasImages, labels, multiStep, name, outcome,
-         runDuration, state, stepId, testExecutionStep, toolExecutionStep;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dimensionValue" : [GTLRToolResults_StepDimensionValueEntry class],
-    @"labels" : [GTLRToolResults_StepLabelsEntry class]
-  };
-  return map;
-}
-
+@implementation GTLRToolResults_UIElementTooDeep
+@dynamic depth, screenId, screenStateId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_StepDimensionValueEntry
+//   GTLRToolResults_UnspecifiedWarning
 //
 
-@implementation GTLRToolResults_StepDimensionValueEntry
-@dynamic key, value;
+@implementation GTLRToolResults_UnspecifiedWarning
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_StepLabelsEntry
+//   GTLRToolResults_UnusedRoboDirective
 //
 
-@implementation GTLRToolResults_StepLabelsEntry
-@dynamic key, value;
+@implementation GTLRToolResults_UnusedRoboDirective
+@dynamic resourceName;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_SuccessDetail
+//   GTLRToolResults_UpgradeInsight
 //
 
-@implementation GTLRToolResults_SuccessDetail
-@dynamic otherNativeCrash;
+@implementation GTLRToolResults_UpgradeInsight
+@dynamic packageName, upgradeToVersion;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_TestCase
+//   GTLRToolResults_UsedRoboDirective
 //
 
-@implementation GTLRToolResults_TestCase
-@dynamic elapsedTime, endTime, skippedMessage, stackTraces, startTime, status,
-         testCaseId, testCaseReference, toolOutputs;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"stackTraces" : [GTLRToolResults_StackTrace class],
-    @"toolOutputs" : [GTLRToolResults_ToolOutputReference class]
-  };
-  return map;
-}
-
+@implementation GTLRToolResults_UsedRoboDirective
+@dynamic resourceName;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRToolResults_TestCaseReference
+//   GTLRToolResults_UsedRoboIgnoreDirective
 //
 
-@implementation GTLRToolResults_TestCaseReference
-@dynamic classNameProperty, name, testSuiteName;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"classNameProperty" : @"className" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_TestExecutionStep
-//
-
-@implementation GTLRToolResults_TestExecutionStep
-@dynamic testIssues, testSuiteOverviews, testTiming, toolExecution;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"testIssues" : [GTLRToolResults_TestIssue class],
-    @"testSuiteOverviews" : [GTLRToolResults_TestSuiteOverview class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_TestIssue
-//
-
-@implementation GTLRToolResults_TestIssue
-@dynamic category, errorMessage, severity, stackTrace, type, warning;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_TestSuiteOverview
-//
-
-@implementation GTLRToolResults_TestSuiteOverview
-@dynamic elapsedTime, errorCount, failureCount, name, skippedCount, totalCount,
-         xmlSource;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_TestTiming
-//
-
-@implementation GTLRToolResults_TestTiming
-@dynamic testProcessDuration;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_Thumbnail
-//
-
-@implementation GTLRToolResults_Thumbnail
-@dynamic contentType, data, heightPx, widthPx;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_Timestamp
-//
-
-@implementation GTLRToolResults_Timestamp
-@dynamic nanos, seconds;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_ToolExecution
-//
-
-@implementation GTLRToolResults_ToolExecution
-@dynamic commandLineArguments, exitCode, toolLogs, toolOutputs;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"commandLineArguments" : [NSString class],
-    @"toolLogs" : [GTLRToolResults_FileReference class],
-    @"toolOutputs" : [GTLRToolResults_ToolOutputReference class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_ToolExecutionStep
-//
-
-@implementation GTLRToolResults_ToolExecutionStep
-@dynamic toolExecution;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_ToolExitCode
-//
-
-@implementation GTLRToolResults_ToolExitCode
-@dynamic number;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRToolResults_ToolOutputReference
-//
-
-@implementation GTLRToolResults_ToolOutputReference
-@dynamic creationTime, output, testCase;
+@implementation GTLRToolResults_UsedRoboIgnoreDirective
+@dynamic resourceName;
 @end

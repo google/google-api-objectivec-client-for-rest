@@ -180,7 +180,7 @@ NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion = @"USER_DELET
 //
 
 @implementation GTLRDriveActivity_Assignment
-@dynamic subtype;
+@dynamic assignedUser, subtype;
 @end
 
 

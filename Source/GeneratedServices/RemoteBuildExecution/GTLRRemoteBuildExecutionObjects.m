@@ -687,6 +687,26 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsage
+//
+
+@implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsage
+@dynamic cpuUsedPercent, diskUsage, memoryUsage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageStat
+//
+
+@implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageStat
+@dynamic total, used;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAcceleratorConfig
 //
 
