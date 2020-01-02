@@ -24,6 +24,8 @@
 @class GTLRCloudAsset_BigQueryDestination;
 @class GTLRCloudAsset_Binding;
 @class GTLRCloudAsset_Expr;
+@class GTLRCloudAsset_Feed;
+@class GTLRCloudAsset_FeedOutputConfig;
 @class GTLRCloudAsset_GcsDestination;
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1BooleanPolicy;
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy;
@@ -41,6 +43,7 @@
 @class GTLRCloudAsset_Operation_Response;
 @class GTLRCloudAsset_OutputConfig;
 @class GTLRCloudAsset_Policy;
+@class GTLRCloudAsset_PubsubDestination;
 @class GTLRCloudAsset_Resource;
 @class GTLRCloudAsset_Resource_Data;
 @class GTLRCloudAsset_Status;
@@ -119,6 +122,40 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Org
  *  Value: "RESOURCE"
  */
 GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_Feed.contentType
+
+/**
+ *  The Cloud Access context mananger Policy set on an asset.
+ *
+ *  Value: "ACCESS_POLICY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_AccessPolicy;
+/**
+ *  Unspecified content type.
+ *
+ *  Value: "CONTENT_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_ContentTypeUnspecified;
+/**
+ *  The actual IAM policy set on a resource.
+ *
+ *  Value: "IAM_POLICY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_IamPolicy;
+/**
+ *  The Cloud Organization Policy set on an asset.
+ *
+ *  Value: "ORG_POLICY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_OrgPolicy;
+/**
+ *  Resource metadata.
+ *
+ *  Value: "RESOURCE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_Resource;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy.allValues
@@ -463,6 +500,23 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
  *  For example, `admins\@example.com`.
+ *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For
+ *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
+ *  recovered, this value reverts to `user:{emailid}` and the recovered user
+ *  retains the role in the binding.
+ *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
+ *  unique identifier) representing a service account that has been recently
+ *  deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
+ *  If the service account is undeleted, this value reverts to
+ *  `serviceAccount:{emailid}` and the undeleted service account retains the
+ *  role in the binding.
+ *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a Google group that has been recently
+ *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
+ *  the group is recovered, this value reverts to `group:{emailid}` and the
+ *  recovered group retains the role in the binding.
  *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
  *  users of that domain. For example, `google.com` or `example.com`.
  */
@@ -474,6 +528,43 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
+@end
+
+
+/**
+ *  Create asset feed request.
+ */
+@interface GTLRCloudAsset_CreateFeedRequest : GTLRObject
+
+/**
+ *  Required. The feed details. The field `name` must be empty and it will be
+ *  generated
+ *  in the format of:
+ *  projects/project_number/feeds/feed_id
+ *  folders/folder_number/feeds/feed_id
+ *  organizations/organization_number/feeds/feed_id
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Feed *feed;
+
+/**
+ *  Required. This is the client-assigned asset feed identifier and it needs to
+ *  be unique under a specific parent project/folder/organization.
+ */
+@property(nonatomic, copy, nullable) NSString *feedId;
+
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRCloudAsset_Empty : GTLRObject
 @end
 
 
@@ -564,6 +655,86 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  An asset feed used to export asset updates to a destinations.
+ *  An asset feed filter controls what updates are exported.
+ *  The asset feed must be created within a project, organization, or
+ *  folder. Supported destinations are:
+ *  Cloud Pub/Sub topics.
+ */
+@interface GTLRCloudAsset_Feed : GTLRObject
+
+/**
+ *  A list of the full names of the assets to receive updates. You must specify
+ *  either or both of asset_names and asset_types. Only asset updates matching
+ *  specified asset_names and asset_types are exported to the feed. For
+ *  example:
+ *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
+ *  See [Resource
+ *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
+ *  for more info.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *assetNames;
+
+/**
+ *  A list of types of the assets to receive updates. You must specify either
+ *  or both of asset_names and asset_types. Only asset updates matching
+ *  specified asset_names and asset_types are exported to the feed.
+ *  For example:
+ *  "compute.googleapis.com/Disk" See [Introduction to Cloud Asset
+ *  Inventory](https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/overview)
+ *  for all supported asset types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *assetTypes;
+
+/**
+ *  Asset content type. If not specified, no content but the asset name and
+ *  type will be returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_Feed_ContentType_AccessPolicy The Cloud Access
+ *        context mananger Policy set on an asset. (Value: "ACCESS_POLICY")
+ *    @arg @c kGTLRCloudAsset_Feed_ContentType_ContentTypeUnspecified
+ *        Unspecified content type. (Value: "CONTENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAsset_Feed_ContentType_IamPolicy The actual IAM policy
+ *        set on a resource. (Value: "IAM_POLICY")
+ *    @arg @c kGTLRCloudAsset_Feed_ContentType_OrgPolicy The Cloud Organization
+ *        Policy set on an asset. (Value: "ORG_POLICY")
+ *    @arg @c kGTLRCloudAsset_Feed_ContentType_Resource Resource metadata.
+ *        (Value: "RESOURCE")
+ */
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
+ *  Required. Feed output configuration defining where the asset updates are
+ *  published to.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_FeedOutputConfig *feedOutputConfig;
+
+/**
+ *  Required. The format will be
+ *  projects/{project_number}/feeds/{client-assigned_feed_identifier} or
+ *  folders/{folder_number}/feeds/{client-assigned_feed_identifier} or
+ *  organizations/{organization_number}/feeds/{client-assigned_feed_identifier}
+ *  The client-assigned feed identifier must be unique within the parent
+ *  project/folder/organization.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Output configuration for asset feed destination.
+ */
+@interface GTLRCloudAsset_FeedOutputConfig : GTLRObject
+
+/** Destination on Cloud Pubsub. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_PubsubDestination *pubsubDestination;
 
 @end
 
@@ -1241,6 +1412,17 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 
 
 /**
+ *  GTLRCloudAsset_ListFeedsResponse
+ */
+@interface GTLRCloudAsset_ListFeedsResponse : GTLRObject
+
+/** A list of feeds. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_Feed *> *feeds;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -1342,17 +1524,19 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 
 
 /**
- *  Defines an Identity and Access Management (IAM) policy. It is used to
- *  specify access control policies for Cloud Platform resources.
+ *  An Identity and Access Management (IAM) policy, which specifies access
+ *  controls for Google Cloud resources.
  *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
  *  `members` to a single `role`. Members can be user accounts, service
  *  accounts,
  *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions (defined by IAM or configured by users). A `binding` can
- *  optionally specify a `condition`, which is a logic expression that further
- *  constrains the role binding based on attributes about the request and/or
- *  target resource.
- *  **JSON Example**
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role.
+ *  Optionally, a `binding` can specify a `condition`, which is a logical
+ *  expression that allows access to a resource only if the expression evaluates
+ *  to `true`. A condition can add constraints based on attributes of the
+ *  request, the resource, or both.
+ *  **JSON example:**
  *  {
  *  "bindings": [
  *  {
@@ -1370,13 +1554,14 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  "condition": {
  *  "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time <
- *  timestamp('2020-10-01T00:00:00.000Z')",
+ *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
  *  }
  *  }
- *  ]
+ *  ],
+ *  "etag": "BwWWja0YfJA=",
+ *  "version": 3
  *  }
- *  **YAML Example**
+ *  **YAML example:**
  *  bindings:
  *  - members:
  *  - user:mike\@example.com
@@ -1391,8 +1576,10 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  title: expirable access
  *  description: Does not grant access after Sep 2020
  *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
+ *  - etag: BwWWja0YfJA=
+ *  - version: 3
  *  For a description of IAM and its features, see the
- *  [IAM developer's guide](https://cloud.google.com/iam/docs).
+ *  [IAM documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudAsset_Policy : GTLRObject
 
@@ -1400,9 +1587,9 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally may specify a
- *  `condition` that determines when binding is in effect.
- *  `bindings` with no members will result in an error.
+ *  Associates a list of `members` to a `role`. Optionally, may specify a
+ *  `condition` that determines how and when the `bindings` are applied. Each
+ *  of the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_Binding *> *bindings;
 
@@ -1414,10 +1601,10 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
- *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
- *  'setIamPolicy' will not fail even if the incoming policy version does not
- *  meet the requirements for modifying the stored policy.
+ *  **Important:** If you use IAM Conditions, you must include the `etag` field
+ *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+ *  you to overwrite a version `3` policy with a version `1` policy, and all of
+ *  the conditions in the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1426,20 +1613,39 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 
 /**
  *  Specifies the format of the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Operations affecting conditional bindings must specify version 3. This can
- *  be either setting a conditional policy, modifying a conditional binding,
- *  or removing a binding (conditional or unconditional) from the stored
- *  conditional policy.
- *  Operations on non-conditional policies may specify any valid value or
- *  leave the field unset.
- *  If no etag is provided in the call to `setIamPolicy`, version compliance
- *  checks against the stored policy is skipped.
+ *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
+ *  are rejected.
+ *  Any operation that affects conditional role bindings must specify version
+ *  `3`. This requirement applies to the following operations:
+ *  * Getting a policy that includes a conditional role binding
+ *  * Adding a conditional role binding to a policy
+ *  * Changing a conditional role binding in a policy
+ *  * Removing any role binding, with or without a condition, from a policy
+ *  that includes conditions
+ *  **Important:** If you use IAM Conditions, you must include the `etag` field
+ *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+ *  you to overwrite a version `3` policy with a version `1` policy, and all of
+ *  the conditions in the version `3` policy are lost.
+ *  If a policy does not include any conditions, operations on that policy may
+ *  specify any valid version or leave the field unset.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  A Cloud Pubsub destination.
+ */
+@interface GTLRCloudAsset_PubsubDestination : GTLRObject
+
+/**
+ *  The name of the Cloud Pub/Sub topic to publish to.
+ *  For example: `projects/PROJECT_ID/topics/TOPIC_ID`.
+ */
+@property(nonatomic, copy, nullable) NSString *topic;
 
 @end
 
@@ -1592,6 +1798,33 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 
 /** Start time of the time window (exclusive). */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Update asset feed request.
+ */
+@interface GTLRCloudAsset_UpdateFeedRequest : GTLRObject
+
+/**
+ *  Required. The new values of feed details. It must match an existing feed and
+ *  the
+ *  field `name` must be in the format of:
+ *  projects/project_number/feeds/feed_id or
+ *  folders/folder_number/feeds/feed_id or
+ *  organizations/organization_number/feeds/feed_id.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Feed *feed;
+
+/**
+ *  Required. Only updates the `feed` fields indicated by this mask.
+ *  The field mask must not be empty, and it must not contain fields that
+ *  are immutable or only set by the server.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 

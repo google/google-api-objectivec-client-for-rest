@@ -27,6 +27,8 @@
 @class GTLRDns_ManagedZoneDnsSecConfig;
 @class GTLRDns_ManagedZoneForwardingConfig;
 @class GTLRDns_ManagedZoneForwardingConfigNameServerTarget;
+@class GTLRDns_ManagedZonePeeringConfig;
+@class GTLRDns_ManagedZonePeeringConfigTargetNetwork;
 @class GTLRDns_ManagedZonePrivateVisibilityConfig;
 @class GTLRDns_ManagedZonePrivateVisibilityConfigNetwork;
 @class GTLRDns_Operation;
@@ -527,6 +529,12 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 @property(nonatomic, copy, nullable) NSString *nameServerSet;
 
 /**
+ *  The presence of this field indicates that DNS Peering is enabled for this
+ *  zone. The value of this field contains the network to peer with.
+ */
+@property(nonatomic, strong, nullable) GTLRDns_ManagedZonePeeringConfig *peeringConfig;
+
+/**
  *  For privately visible zones, the set of Virtual Private Cloud resources that
  *  the zone is visible from.
  */
@@ -669,6 +677,52 @@ GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_Operation *> *operations;
+
+@end
+
+
+/**
+ *  GTLRDns_ManagedZonePeeringConfig
+ */
+@interface GTLRDns_ManagedZonePeeringConfig : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dns#managedZonePeeringConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The network with which to peer. */
+@property(nonatomic, strong, nullable) GTLRDns_ManagedZonePeeringConfigTargetNetwork *targetNetwork;
+
+@end
+
+
+/**
+ *  GTLRDns_ManagedZonePeeringConfigTargetNetwork
+ */
+@interface GTLRDns_ManagedZonePeeringConfigTargetNetwork : GTLRObject
+
+/**
+ *  The time at which the zone was deactivated, in RFC 3339 date-time format. An
+ *  empty string indicates that the peering connection is active. The producer
+ *  network can deactivate a zone. The zone is automatically deactivated if the
+ *  producer network that the zone targeted is deleted. Output only.
+ */
+@property(nonatomic, copy, nullable) NSString *deactivateTime;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dns#managedZonePeeringConfigTargetNetwork".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The fully qualified URL of the VPC network to forward queries to. This
+ *  should be formatted like
+ *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ */
+@property(nonatomic, copy, nullable) NSString *networkUrl;
 
 @end
 

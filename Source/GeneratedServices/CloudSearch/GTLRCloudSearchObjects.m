@@ -133,7 +133,6 @@ NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_None = 
 NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_Replace = @"REPLACE";
 
 // GTLRCloudSearch_QueryInterpretation.reason
-NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_NoResultsFoundForUserQuery = @"NO_RESULTS_FOUND_FOR_USER_QUERY";
 NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_NotEnoughResultsFoundForUserQuery = @"NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY";
 NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_QueryHasNaturalLanguageIntent = @"QUERY_HAS_NATURAL_LANGUAGE_INTENT";
 NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_Unspecified = @"UNSPECIFIED";

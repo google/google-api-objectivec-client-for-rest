@@ -987,6 +987,13 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
  */
 @property(nonatomic, strong, nullable) NSNumber *minSpeakerCount;
 
+/**
+ *  Output only. Unused.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *speakerTag;
+
 @end
 
 

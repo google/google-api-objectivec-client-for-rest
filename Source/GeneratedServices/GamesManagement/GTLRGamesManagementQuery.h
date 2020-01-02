@@ -239,8 +239,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Resets all player progress on the event with the given ID for the currently
  *  authenticated player. This method is only accessible to whitelisted tester
- *  accounts for your application. All quests for this player that use the event
- *  will also be reset.
+ *  accounts for your application.
  *
  *  Method: gamesManagement.events.reset
  *
@@ -260,8 +259,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Resets all player progress on the event with the given ID for the currently
  *  authenticated player. This method is only accessible to whitelisted tester
- *  accounts for your application. All quests for this player that use the event
- *  will also be reset.
+ *  accounts for your application.
  *
  *  @param eventId The ID of the event.
  *
@@ -274,7 +272,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Resets all player progress on all events for the currently authenticated
  *  player. This method is only accessible to whitelisted tester accounts for
- *  your application. All quests for this player will also be reset.
+ *  your application.
  *
  *  Method: gamesManagement.events.resetAll
  *
@@ -291,7 +289,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Resets all player progress on all events for the currently authenticated
  *  player. This method is only accessible to whitelisted tester accounts for
- *  your application. All quests for this player will also be reset.
+ *  your application.
  *
  *  @return GTLRGamesManagementQuery_EventsResetAll
  */
@@ -301,8 +299,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Resets all draft events for all players. This method is only available to
- *  user accounts for your developer console. All quests that use any of these
- *  events will also be reset.
+ *  user accounts for your developer console.
  *
  *  Method: gamesManagement.events.resetAllForAllPlayers
  *
@@ -318,8 +315,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  be nil. This query does not fetch an object.
  *
  *  Resets all draft events for all players. This method is only available to
- *  user accounts for your developer console. All quests that use any of these
- *  events will also be reset.
+ *  user accounts for your developer console.
  *
  *  @return GTLRGamesManagementQuery_EventsResetAllForAllPlayers
  */
@@ -330,7 +326,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Resets the event with the given ID for all players. This method is only
  *  available to user accounts for your developer console. Only draft events can
- *  be reset. All quests that use the event will also be reset.
+ *  be reset.
  *
  *  Method: gamesManagement.events.resetForAllPlayers
  *
@@ -350,7 +346,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Resets the event with the given ID for all players. This method is only
  *  available to user accounts for your developer console. Only draft events can
- *  be reset. All quests that use the event will also be reset.
+ *  be reset.
  *
  *  @param eventId The ID of the event.
  *
@@ -363,7 +359,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Resets events with the given IDs for all players. This method is only
  *  available to user accounts for your developer console. Only draft events may
- *  be reset. All quests that use any of the events will also be reset.
+ *  be reset.
  *
  *  Method: gamesManagement.events.resetMultipleForAllPlayers
  *
@@ -380,7 +376,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Resets events with the given IDs for all players. This method is only
  *  available to user accounts for your developer console. Only draft events may
- *  be reset. All quests that use any of the events will also be reset.
+ *  be reset.
  *
  *  @param object The @c GTLRGamesManagement_EventsResetMultipleForAllRequest to
  *    include in the query.

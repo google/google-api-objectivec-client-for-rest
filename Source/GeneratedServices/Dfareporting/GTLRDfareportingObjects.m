@@ -502,6 +502,11 @@ NSString * const kGTLRDfareporting_CustomEventError_Code_NotFound = @"NOT_FOUND"
 NSString * const kGTLRDfareporting_CustomEventError_Code_PermissionDenied = @"PERMISSION_DENIED";
 NSString * const kGTLRDfareporting_CustomEventError_Code_Unknown = @"UNKNOWN";
 
+// GTLRDfareporting_CustomEventInsert.insertEventType
+NSString * const kGTLRDfareporting_CustomEventInsert_InsertEventType_Click = @"CLICK";
+NSString * const kGTLRDfareporting_CustomEventInsert_InsertEventType_Impression = @"IMPRESSION";
+NSString * const kGTLRDfareporting_CustomEventInsert_InsertEventType_Unknown = @"UNKNOWN";
+
 // GTLRDfareporting_CustomFloodlightVariable.type
 NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U1 = @"U1";
 NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U10 = @"U10";
@@ -861,11 +866,6 @@ NSString * const kGTLRDfareporting_FloodlightConfiguration_NaturalSearchConversi
 // GTLRDfareporting_FsCommand.positionOption
 NSString * const kGTLRDfareporting_FsCommand_PositionOption_Centered = @"CENTERED";
 NSString * const kGTLRDfareporting_FsCommand_PositionOption_DistanceFromTopLeftCorner = @"DISTANCE_FROM_TOP_LEFT_CORNER";
-
-// GTLRDfareporting_InsertEvent.insertEventType
-NSString * const kGTLRDfareporting_InsertEvent_InsertEventType_Click = @"CLICK";
-NSString * const kGTLRDfareporting_InsertEvent_InsertEventType_Impression = @"IMPRESSION";
-NSString * const kGTLRDfareporting_InsertEvent_InsertEventType_Unknown = @"UNKNOWN";
 
 // GTLRDfareporting_InventoryItem.type
 NSString * const kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeCredit = @"PLANNING_PLACEMENT_TYPE_CREDIT";
@@ -1638,16 +1638,6 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return @"advertisers";
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_AnnotateClickEvent
-//
-
-@implementation GTLRDfareporting_AnnotateClickEvent
-@dynamic gclid, kind;
 @end
 
 
@@ -2594,11 +2584,21 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"customVariables" : [GTLRDfareporting_CustomVariables class]
+    @"customVariables" : [GTLRDfareporting_CustomVariable class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CustomEventClickAnnotation
+//
+
+@implementation GTLRDfareporting_CustomEventClickAnnotation
+@dynamic gclid, kind;
 @end
 
 
@@ -2609,6 +2609,17 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_CustomEventError
 @dynamic code, kind, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CustomEventInsert
+//
+
+@implementation GTLRDfareporting_CustomEventInsert
+@dynamic cmDimensions, dv3Dimensions, insertEventType, kind, matchId,
+         mobileDeviceId;
 @end
 
 
@@ -2696,10 +2707,10 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDfareporting_CustomVariables
+//   GTLRDfareporting_CustomVariable
 //
 
-@implementation GTLRDfareporting_CustomVariables
+@implementation GTLRDfareporting_CustomVariable
 @dynamic index, kind, value;
 @end
 
@@ -3347,17 +3358,6 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_InsertEvent
-//
-
-@implementation GTLRDfareporting_InsertEvent
-@dynamic cmDimensions, dv3Dimensions, insertEventType, kind, matchId,
-         mobileDeviceId;
 @end
 
 

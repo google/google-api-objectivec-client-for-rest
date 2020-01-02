@@ -21,6 +21,7 @@
 
 @class GTLRFirebaseRules_Arg;
 @class GTLRFirebaseRules_Empty;
+@class GTLRFirebaseRules_ExpressionReport;
 @class GTLRFirebaseRules_File;
 @class GTLRFirebaseRules_FunctionCall;
 @class GTLRFirebaseRules_FunctionMock;
@@ -34,6 +35,7 @@
 @class GTLRFirebaseRules_TestCase;
 @class GTLRFirebaseRules_TestResult;
 @class GTLRFirebaseRules_TestSuite;
+@class GTLRFirebaseRules_ValueCount;
 @class GTLRFirebaseRules_VisitedExpression;
 
 // Generated comments include content from the discovery document; avoid them
@@ -144,6 +146,28 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_Expectation_Deny;
 GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_Expectation_ExpectationUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRFirebaseRules_TestCase.expressionReportLevel
+
+/**
+ *  Include detailed reporting on expressions evaluated.
+ *
+ *  Value: "FULL"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_Full;
+/**
+ *  No level has been specified. Defaults to "NONE" behavior.
+ *
+ *  Value: "LEVEL_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_LevelUnspecified;
+/**
+ *  Do not include any additional information.
+ *
+ *  Value: "NONE"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_None;
+
+// ----------------------------------------------------------------------------
 // GTLRFirebaseRules_TestCase.pathEncoding
 
 /**
@@ -216,6 +240,24 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRFirebaseRules_Empty : GTLRObject
+@end
+
+
+/**
+ *  Describes where in a file an expression is found and what it was
+ *  evaluated to over the course of its use.
+ */
+@interface GTLRFirebaseRules_ExpressionReport : GTLRObject
+
+/** Subexpressions */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseRules_ExpressionReport *> *children;
+
+/** Position of expression in original rules source. */
+@property(nonatomic, strong, nullable) GTLRFirebaseRules_SourcePosition *sourcePosition;
+
+/** Values that this expression evaluated to when encountered. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseRules_ValueCount *> *values;
+
 @end
 
 
@@ -616,6 +658,20 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 @property(nonatomic, copy, nullable) NSString *expectation;
 
 /**
+ *  Specifies what should be included in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseRules_TestCase_ExpressionReportLevel_Full Include
+ *        detailed reporting on expressions evaluated. (Value: "FULL")
+ *    @arg @c kGTLRFirebaseRules_TestCase_ExpressionReportLevel_LevelUnspecified
+ *        No level has been specified. Defaults to "NONE" behavior. (Value:
+ *        "LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRFirebaseRules_TestCase_ExpressionReportLevel_None Do not
+ *        include any additional information. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *expressionReportLevel;
+
+/**
  *  Optional function mocks for service-defined functions. If not set, any
  *  service defined function is expected to return an error, which may or may
  *  not influence the test outcome.
@@ -695,6 +751,15 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  *  E.g. `error_position { line: 19 column: 37 }`
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseRules_SourcePosition *errorPosition;
+
+/**
+ *  The mapping from expression in the ruleset AST to the values they were
+ *  evaluated to. Partially-nested to mirror AST structure. Note that this
+ *  field is actually tracking expressions and not permission statements in
+ *  contrast to the "visited_expressions" field above. Literal expressions
+ *  are omitted.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseRules_ExpressionReport *> *expressionReports;
 
 /**
  *  The set of function calls made to service-defined methods.
@@ -805,6 +870,29 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Tuple for how many times an Expression was evaluated to a particular
+ *  ExpressionValue.
+ */
+@interface GTLRFirebaseRules_ValueCount : GTLRObject
+
+/**
+ *  The amount of times that expression returned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  The return value of the expression
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id value;
 
 @end
 

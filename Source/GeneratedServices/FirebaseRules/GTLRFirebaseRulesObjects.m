@@ -35,6 +35,11 @@ NSString * const kGTLRFirebaseRules_TestCase_Expectation_Allow = @"ALLOW";
 NSString * const kGTLRFirebaseRules_TestCase_Expectation_Deny  = @"DENY";
 NSString * const kGTLRFirebaseRules_TestCase_Expectation_ExpectationUnspecified = @"EXPECTATION_UNSPECIFIED";
 
+// GTLRFirebaseRules_TestCase.expressionReportLevel
+NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_Full = @"FULL";
+NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_LevelUnspecified = @"LEVEL_UNSPECIFIED";
+NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_None = @"NONE";
+
 // GTLRFirebaseRules_TestCase.pathEncoding
 NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";
 NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_Plain = @"PLAIN";
@@ -61,6 +66,25 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 //
 
 @implementation GTLRFirebaseRules_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseRules_ExpressionReport
+//
+
+@implementation GTLRFirebaseRules_ExpressionReport
+@dynamic children, sourcePosition, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"children" : [GTLRFirebaseRules_ExpressionReport class],
+    @"values" : [GTLRFirebaseRules_ValueCount class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -262,7 +286,8 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 //
 
 @implementation GTLRFirebaseRules_TestCase
-@dynamic expectation, functionMocks, pathEncoding, request, resource;
+@dynamic expectation, expressionReportLevel, functionMocks, pathEncoding,
+         request, resource;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -280,11 +305,13 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 //
 
 @implementation GTLRFirebaseRules_TestResult
-@dynamic debugMessages, errorPosition, functionCalls, state, visitedExpressions;
+@dynamic debugMessages, errorPosition, expressionReports, functionCalls, state,
+         visitedExpressions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"debugMessages" : [NSString class],
+    @"expressionReports" : [GTLRFirebaseRules_ExpressionReport class],
     @"functionCalls" : [GTLRFirebaseRules_FunctionCall class],
     @"visitedExpressions" : [GTLRFirebaseRules_VisitedExpression class]
   };
@@ -353,6 +380,16 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
   return @{ @"releaseProperty" : @"release" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseRules_ValueCount
+//
+
+@implementation GTLRFirebaseRules_ValueCount
+@dynamic count, value;
 @end
 
 

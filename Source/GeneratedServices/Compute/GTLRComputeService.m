@@ -66,6 +66,7 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#diskType" : [GTLRCompute_DiskType class],
     @"compute#diskTypeAggregatedList" : [GTLRCompute_DiskTypeAggregatedList class],
     @"compute#diskTypeList" : [GTLRCompute_DiskTypeList class],
+    @"compute#exchangedPeeringRoutesList" : [GTLRCompute_ExchangedPeeringRoutesList class],
     @"compute#externalVpnGateway" : [GTLRCompute_ExternalVpnGateway class],
     @"compute#externalVpnGatewayList" : [GTLRCompute_ExternalVpnGatewayList class],
     @"compute#firewall" : [GTLRCompute_Firewall class],

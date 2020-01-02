@@ -74,7 +74,7 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @implementation GTLRAndroidManagementQuery_EnterprisesDevicesDelete
 
-@dynamic name, wipeDataFlags;
+@dynamic name, wipeDataFlags, wipeReasonMessage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

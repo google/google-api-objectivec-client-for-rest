@@ -459,24 +459,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidPublisher_MendelSampling
-//
-
-@implementation GTLRAndroidPublisher_MendelSampling
-@dynamic modRanges, modulus, salt;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"modRanges" : [GTLRAndroidPublisher_ModRange class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidPublisher_ModRange
 //
 
@@ -610,6 +592,24 @@
 
 @implementation GTLRAndroidPublisher_ReviewsReplyResponse
 @dynamic result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_Sampling
+//
+
+@implementation GTLRAndroidPublisher_Sampling
+@dynamic modRanges, modulus, salt;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"modRanges" : [GTLRAndroidPublisher_ModRange class]
+  };
+  return map;
+}
+
 @end
 
 

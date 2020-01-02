@@ -751,7 +751,9 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 @interface GTLRGmail_ListDraftsResponse : GTLRCollectionObject
 
 /**
- *  List of drafts.
+ *  List of drafts. Note that the Message property in each Draft resource only
+ *  contains an id and a threadId. The messages.get method can fetch additional
+ *  message details.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -830,7 +832,11 @@ GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
  */
 @interface GTLRGmail_ListLabelsResponse : GTLRObject
 
-/** List of labels. */
+/**
+ *  List of labels. Note that each label resource only contains an id, name,
+ *  messageListVisibility, labelListVisibility, and type. The labels.get method
+ *  can fetch additional label details.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRGmail_Label *> *labels;
 
 @end

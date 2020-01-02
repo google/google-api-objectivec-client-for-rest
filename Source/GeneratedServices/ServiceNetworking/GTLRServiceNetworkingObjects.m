@@ -250,8 +250,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_BackendRule
-@dynamic address, deadline, jwtAudience, minDeadline, operationDeadline,
-         pathTranslation, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
+         operationDeadline, pathTranslation, selector;
 @end
 
 
@@ -426,6 +426,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_DisableVpcServiceControlsRequest
+//
+
+@implementation GTLRServiceNetworking_DisableVpcServiceControlsRequest
+@dynamic consumerNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Documentation
 //
 
@@ -464,6 +474,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_EnableVpcServiceControlsRequest
+//
+
+@implementation GTLRServiceNetworking_EnableVpcServiceControlsRequest
+@dynamic consumerNetwork;
 @end
 
 

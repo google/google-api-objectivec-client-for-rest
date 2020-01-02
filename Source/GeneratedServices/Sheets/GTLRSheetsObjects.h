@@ -66,6 +66,7 @@
 @class GTLRSheets_ChartSpec;
 @class GTLRSheets_ClearBasicFilterRequest;
 @class GTLRSheets_Color;
+@class GTLRSheets_ColorStyle;
 @class GTLRSheets_ConditionalFormatRule;
 @class GTLRSheets_ConditionValue;
 @class GTLRSheets_CopyPasteRequest;
@@ -165,11 +166,13 @@
 @class GTLRSheets_SourceAndDestination;
 @class GTLRSheets_Spreadsheet;
 @class GTLRSheets_SpreadsheetProperties;
+@class GTLRSheets_SpreadsheetTheme;
 @class GTLRSheets_TextFormat;
 @class GTLRSheets_TextFormatRun;
 @class GTLRSheets_TextPosition;
 @class GTLRSheets_TextRotation;
 @class GTLRSheets_TextToColumnsRequest;
+@class GTLRSheets_ThemeColorPair;
 @class GTLRSheets_TreemapChartColorScale;
 @class GTLRSheets_TreemapChartSpec;
 @class GTLRSheets_TrimWhitespaceRequest;
@@ -1348,6 +1351,70 @@ GTLR_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_SkipH
  *  Value: "SKIP_HIDDEN_ROWS_AND_COLUMNS"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_SkipHiddenRowsAndColumns;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_ColorStyle.themeColor
+
+/**
+ *  Represents the first accent color
+ *
+ *  Value: "ACCENT1"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent1;
+/**
+ *  Represents the second accent color
+ *
+ *  Value: "ACCENT2"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent2;
+/**
+ *  Represents the third accent color
+ *
+ *  Value: "ACCENT3"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent3;
+/**
+ *  Represents the fourth accent color
+ *
+ *  Value: "ACCENT4"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent4;
+/**
+ *  Represents the fifth accent color
+ *
+ *  Value: "ACCENT5"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent5;
+/**
+ *  Represents the sixth accent color
+ *
+ *  Value: "ACCENT6"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent6;
+/**
+ *  Represents the primary background color
+ *
+ *  Value: "BACKGROUND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Background;
+/**
+ *  Represents the color to use for hyperlinks
+ *
+ *  Value: "LINK"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Link;
+/**
+ *  Represents the primary text color
+ *
+ *  Value: "TEXT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Text;
+/**
+ *  Unspecified theme color
+ *
+ *  Value: "THEME_COLOR_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_ThemeColorTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ConditionValue.relativeDate
@@ -2692,6 +2759,70 @@ GTLR_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Semi
  *  Value: "SPACE"
  */
 GTLR_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Space;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_ThemeColorPair.colorType
+
+/**
+ *  Represents the first accent color
+ *
+ *  Value: "ACCENT1"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent1;
+/**
+ *  Represents the second accent color
+ *
+ *  Value: "ACCENT2"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent2;
+/**
+ *  Represents the third accent color
+ *
+ *  Value: "ACCENT3"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent3;
+/**
+ *  Represents the fourth accent color
+ *
+ *  Value: "ACCENT4"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent4;
+/**
+ *  Represents the fifth accent color
+ *
+ *  Value: "ACCENT5"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent5;
+/**
+ *  Represents the sixth accent color
+ *
+ *  Value: "ACCENT6"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent6;
+/**
+ *  Represents the primary background color
+ *
+ *  Value: "BACKGROUND"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Background;
+/**
+ *  Represents the color to use for hyperlinks
+ *
+ *  Value: "LINK"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Link;
+/**
+ *  Represents the primary text color
+ *
+ *  Value: "TEXT"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Text;
+/**
+ *  Unspecified theme color
+ *
+ *  Value: "THEME_COLOR_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_ThemeColorTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ValueRange.majorDimension
@@ -5153,6 +5284,44 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *red;
+
+@end
+
+
+/**
+ *  A color value.
+ */
+@interface GTLRSheets_ColorStyle : GTLRObject
+
+/** RGB color. */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *rgbColor;
+
+/**
+ *  Theme color.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_ColorStyle_ThemeColor_Accent1 Represents the first
+ *        accent color (Value: "ACCENT1")
+ *    @arg @c kGTLRSheets_ColorStyle_ThemeColor_Accent2 Represents the second
+ *        accent color (Value: "ACCENT2")
+ *    @arg @c kGTLRSheets_ColorStyle_ThemeColor_Accent3 Represents the third
+ *        accent color (Value: "ACCENT3")
+ *    @arg @c kGTLRSheets_ColorStyle_ThemeColor_Accent4 Represents the fourth
+ *        accent color (Value: "ACCENT4")
+ *    @arg @c kGTLRSheets_ColorStyle_ThemeColor_Accent5 Represents the fifth
+ *        accent color (Value: "ACCENT5")
+ *    @arg @c kGTLRSheets_ColorStyle_ThemeColor_Accent6 Represents the sixth
+ *        accent color (Value: "ACCENT6")
+ *    @arg @c kGTLRSheets_ColorStyle_ThemeColor_Background Represents the
+ *        primary background color (Value: "BACKGROUND")
+ *    @arg @c kGTLRSheets_ColorStyle_ThemeColor_Link Represents the color to use
+ *        for hyperlinks (Value: "LINK")
+ *    @arg @c kGTLRSheets_ColorStyle_ThemeColor_Text Represents the primary text
+ *        color (Value: "TEXT")
+ *    @arg @c kGTLRSheets_ColorStyle_ThemeColor_ThemeColorTypeUnspecified
+ *        Unspecified theme color (Value: "THEME_COLOR_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *themeColor;
 
 @end
 
@@ -8802,6 +8971,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
+/** Theme applied to the spreadsheet. */
+@property(nonatomic, strong, nullable) GTLRSheets_SpreadsheetTheme *spreadsheetTheme;
+
 /**
  *  The time zone of the spreadsheet, in CLDR format such as
  *  `America/New_York`. If the time zone isn't recognized, this may
@@ -8811,6 +8983,23 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The title of the spreadsheet. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Represents spreadsheet theme
+ */
+@interface GTLRSheets_SpreadsheetTheme : GTLRObject
+
+/** / Name of the primary font family. */
+@property(nonatomic, copy, nullable) NSString *primaryFontFamily;
+
+/**
+ *  The spreadsheet theme color pairs. For update users need to give all pairs
+ *  of theme colors.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_ThemeColorPair *> *themeColors;
 
 @end
 
@@ -8982,6 +9171,45 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The source data range. This must span exactly one column. */
 @property(nonatomic, strong, nullable) GTLRSheets_GridRange *source;
+
+@end
+
+
+/**
+ *  A pair mapping a spreadsheet theme color type to the concrete color it
+ *  represents.
+ */
+@interface GTLRSheets_ThemeColorPair : GTLRObject
+
+/** The concrete color corresponding to the theme color type. */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *color;
+
+/**
+ *  The type of the spreadsheet theme color.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_ThemeColorPair_ColorType_Accent1 Represents the first
+ *        accent color (Value: "ACCENT1")
+ *    @arg @c kGTLRSheets_ThemeColorPair_ColorType_Accent2 Represents the second
+ *        accent color (Value: "ACCENT2")
+ *    @arg @c kGTLRSheets_ThemeColorPair_ColorType_Accent3 Represents the third
+ *        accent color (Value: "ACCENT3")
+ *    @arg @c kGTLRSheets_ThemeColorPair_ColorType_Accent4 Represents the fourth
+ *        accent color (Value: "ACCENT4")
+ *    @arg @c kGTLRSheets_ThemeColorPair_ColorType_Accent5 Represents the fifth
+ *        accent color (Value: "ACCENT5")
+ *    @arg @c kGTLRSheets_ThemeColorPair_ColorType_Accent6 Represents the sixth
+ *        accent color (Value: "ACCENT6")
+ *    @arg @c kGTLRSheets_ThemeColorPair_ColorType_Background Represents the
+ *        primary background color (Value: "BACKGROUND")
+ *    @arg @c kGTLRSheets_ThemeColorPair_ColorType_Link Represents the color to
+ *        use for hyperlinks (Value: "LINK")
+ *    @arg @c kGTLRSheets_ThemeColorPair_ColorType_Text Represents the primary
+ *        text color (Value: "TEXT")
+ *    @arg @c kGTLRSheets_ThemeColorPair_ColorType_ThemeColorTypeUnspecified
+ *        Unspecified theme color (Value: "THEME_COLOR_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *colorType;
 
 @end
 
@@ -9572,7 +9800,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 
 /**
- *  Updates a slicer’s specifications.
+ *  Updates a slicer's specifications.
  *  (This does not move or resize a slicer. To move or resize a slicer use
  *  UpdateEmbeddedObjectPositionRequest.
  */

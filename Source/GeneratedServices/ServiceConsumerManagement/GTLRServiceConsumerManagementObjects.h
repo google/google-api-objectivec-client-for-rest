@@ -86,6 +86,7 @@
 @class GTLRServiceConsumerManagement_V1Beta1QuotaOverride;
 @class GTLRServiceConsumerManagement_V1Beta1QuotaOverride_Dimensions;
 @class GTLRServiceConsumerManagement_V1Beta1ServiceIdentity;
+@class GTLRServiceConsumerManagement_V1DefaultIdentity;
 @class GTLRServiceConsumerManagement_V1ServiceAccount;
 
 // Generated comments include content from the discovery document; avoid them
@@ -679,6 +680,45 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  */
 GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxProto3;
 
+// ----------------------------------------------------------------------------
+// GTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse.attachStatus
+
+/**
+ *  Role attachment was denied in this request by customer set org policy.
+ *  (go/si-attach-role)
+ *
+ *  Value: "ATTACH_DENIED_BY_ORG_POLICY"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_AttachDeniedByOrgPolicy;
+/**
+ *  The default identity was attached to a role successfully in this request.
+ *
+ *  Value: "ATTACHED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_Attached;
+/**
+ *  The request specified that no attempt should be made to attach the role.
+ *
+ *  Value: "ATTACH_SKIPPED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_AttachSkipped;
+/**
+ *  Indicates that the AttachStatus was not set.
+ *
+ *  Value: "ATTACH_STATUS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_AttachStatusUnspecified;
+/**
+ *  Role was attached to the consumer project at some point in time. Tenant
+ *  manager doesn't make assertion about the current state of the identity
+ *  with respect to the consumer.
+ *  Role attachment should happen only once after activation and cannot be
+ *  reattached after customer removes it. (go/si-attach-role)
+ *
+ *  Value: "PREVIOUSLY_ATTACHED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_PreviouslyAttached;
+
 /**
  *  Request to add a newly created and configured tenant project to a tenancy
  *  unit.
@@ -1000,7 +1040,22 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 @property(nonatomic, strong, nullable) NSNumber *deadline;
 
 /**
- *  The JWT audience is used when generating a JWT id token for the backend.
+ *  When disable_auth is false, a JWT ID token will be generated with the
+ *  value from BackendRule.address as jwt_audience, overrode to the HTTP
+ *  "Authorization" request header and sent to the backend.
+ *  When disable_auth is true, a JWT ID token won't be generated and the
+ *  original "Authorization" HTTP header will be preserved. If the header is
+ *  used to carry the original token and is expected by the backend, this
+ *  field must be set to true to preserve the header.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableAuth;
+
+/**
+ *  The JWT audience is used when generating a JWT ID token for the backend.
+ *  This ID token will be added in the HTTP "authorization" header, and sent
+ *  to the backend.
  */
 @property(nonatomic, copy, nullable) NSString *jwtAudience;
 
@@ -2390,42 +2445,19 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  The unit in which the metric value is reported. It is only applicable
- *  if the `value_type` is `INT64`, `DOUBLE`, or `DISTRIBUTION`. The
- *  supported units are a subset of [The Unified Code for Units of
- *  Measure](http://unitsofmeasure.org/ucum.html) standard:
- *  **Basic units (UNIT)**
- *  * `bit` bit
- *  * `By` byte
- *  * `s` second
- *  * `min` minute
- *  * `h` hour
- *  * `d` day
- *  **Prefixes (PREFIX)**
- *  * `k` kilo (10**3)
- *  * `M` mega (10**6)
- *  * `G` giga (10**9)
- *  * `T` tera (10**12)
- *  * `P` peta (10**15)
- *  * `E` exa (10**18)
- *  * `Z` zetta (10**21)
- *  * `Y` yotta (10**24)
- *  * `m` milli (10**-3)
- *  * `u` micro (10**-6)
- *  * `n` nano (10**-9)
- *  * `p` pico (10**-12)
- *  * `f` femto (10**-15)
- *  * `a` atto (10**-18)
- *  * `z` zepto (10**-21)
- *  * `y` yocto (10**-24)
- *  * `Ki` kibi (2**10)
- *  * `Mi` mebi (2**20)
- *  * `Gi` gibi (2**30)
- *  * `Ti` tebi (2**40)
+ *  * `Ki` kibi (2^10)
+ *  * `Mi` mebi (2^20)
+ *  * `Gi` gibi (2^30)
+ *  * `Ti` tebi (2^40)
+ *  * `Pi` pebi (2^50)
  *  **Grammar**
  *  The grammar also includes these connectors:
- *  * `/` division (as an infix operator, e.g. `1/s`).
- *  * `.` multiplication (as an infix operator, e.g. `GBy.d`)
+ *  * `/` division or ratio (as an infix operator). For examples,
+ *  `kBy/{email}` or `MiBy/10ms` (although you should almost never
+ *  have `/s` in a metric `unit`; rates should always be computed at
+ *  query time from the underlying cumulative or delta value).
+ *  * `.` multiplication or composition (as an infix operator). For
+ *  examples, `GBy.d` or `k{watt}.h`.
  *  The grammar for a unit is as follows:
  *  Expression = Component { "." Component } { "/" Component } ;
  *  Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ]
@@ -2434,14 +2466,25 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  ;
  *  Annotation = "{" NAME "}" ;
  *  Notes:
- *  * `Annotation` is just a comment if it follows a `UNIT` and is
- *  equivalent to `1` if it is used alone. For examples,
- *  `{requests}/s == 1/s`, `By{transmitted}/s == By/s`.
+ *  * `Annotation` is just a comment if it follows a `UNIT`. If the annotation
+ *  is used alone, then the unit is equivalent to `1`. For examples,
+ *  `{request}/s == 1/s`, `By{transmitted}/s == By/s`.
  *  * `NAME` is a sequence of non-blank printable ASCII characters not
- *  containing '{' or '}'.
- *  * `1` represents dimensionless value 1, such as in `1/s`.
- *  * `%` represents dimensionless value 1/100, and annotates values giving
- *  a percentage.
+ *  containing `{` or `}`.
+ *  * `1` represents a unitary [dimensionless
+ *  unit](https://en.wikipedia.org/wiki/Dimensionless_quantity) of 1, such
+ *  as in `1/s`. It is typically used when none of the basic units are
+ *  appropriate. For example, "new users per day" can be represented as
+ *  `1/d` or `{new-users}/d` (and a metric value `5` would mean "5 new
+ *  users). Alternatively, "thousands of page views per day" would be
+ *  represented as `1000/d` or `k1/d` or `k{page_views}/d` (and a metric
+ *  value of `5.3` would mean "5300 page views per day").
+ *  * `%` represents dimensionless value of 1/100, and annotates values giving
+ *  a percentage (so the metric values are typically in the range of 0..100,
+ *  and a metric value `3` means "3 percent").
+ *  * `10^2.%` indicates a metric contains a ratio, typically in the range
+ *  0..1, that will be multiplied by 100 and displayed as a percentage
+ *  (so a metric value `0.03` means "3 percent").
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
@@ -4102,6 +4145,27 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
 
 
 /**
+ *  A default identity in the Identity and Access Management API.
+ */
+@interface GTLRServiceConsumerManagement_V1DefaultIdentity : GTLRObject
+
+/** The email address of the default identity. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Default identity resource name.
+ *  An example name would be:
+ *  `services/serviceconsumermanagement.googleapis.com/projects/123/defaultIdentity`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The unique and stable id of the default identity. */
+@property(nonatomic, copy, nullable) NSString *uniqueId;
+
+@end
+
+
+/**
  *  Response message for the `DisableConsumer` method.
  *  This response message is assigned to the `response` field of the returned
  *  Operation when that operation is done.
@@ -4116,6 +4180,53 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_Type_Syntax_SyntaxPr
  *  Operation when that operation is done.
  */
 @interface GTLRServiceConsumerManagement_V1EnableConsumerResponse : GTLRObject
+@end
+
+
+/**
+ *  Response message for the `GenerateDefaultIdentity` method.
+ *  This response message is assigned to the `response` field of the returned
+ *  Operation when that operation is done.
+ */
+@interface GTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse : GTLRObject
+
+/**
+ *  Status of the role attachment. Under development (go/si-attach-role),
+ *  currently always return ATTACH_STATUS_UNSPECIFIED)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_AttachDeniedByOrgPolicy
+ *        Role attachment was denied in this request by customer set org policy.
+ *        (go/si-attach-role) (Value: "ATTACH_DENIED_BY_ORG_POLICY")
+ *    @arg @c kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_Attached
+ *        The default identity was attached to a role successfully in this
+ *        request. (Value: "ATTACHED")
+ *    @arg @c kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_AttachSkipped
+ *        The request specified that no attempt should be made to attach the
+ *        role. (Value: "ATTACH_SKIPPED")
+ *    @arg @c kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_AttachStatusUnspecified
+ *        Indicates that the AttachStatus was not set. (Value:
+ *        "ATTACH_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityResponse_AttachStatus_PreviouslyAttached
+ *        Role was attached to the consumer project at some point in time.
+ *        Tenant
+ *        manager doesn't make assertion about the current state of the identity
+ *        with respect to the consumer.
+ *        Role attachment should happen only once after activation and cannot be
+ *        reattached after customer removes it. (go/si-attach-role) (Value:
+ *        "PREVIOUSLY_ATTACHED")
+ */
+@property(nonatomic, copy, nullable) NSString *attachStatus;
+
+/** DefaultIdentity that was created or retrieved. */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_V1DefaultIdentity *identity;
+
+/**
+ *  Role attached to consumer project. Empty if not attached in this
+ *  request. (Under development, currently always return empty.)
+ */
+@property(nonatomic, copy, nullable) NSString *role;
+
 @end
 
 

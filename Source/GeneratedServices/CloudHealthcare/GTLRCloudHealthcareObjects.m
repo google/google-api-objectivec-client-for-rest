@@ -26,6 +26,11 @@ NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_KeepAllProfile =
 NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_MinimalKeepListProfile = @"MINIMAL_KEEP_LIST_PROFILE";
 NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_TagFilterProfileUnspecified = @"TAG_FILTER_PROFILE_UNSPECIFIED";
 
+// GTLRCloudHealthcare_FhirStore.version
+NSString * const kGTLRCloudHealthcare_FhirStore_Version_Dstu2  = @"DSTU2";
+NSString * const kGTLRCloudHealthcare_FhirStore_Version_Stu3   = @"STU3";
+NSString * const kGTLRCloudHealthcare_FhirStore_Version_VersionUnspecified = @"VERSION_UNSPECIFIED";
+
 // GTLRCloudHealthcare_FieldMetadata.action
 NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
 NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTransform = @"DO_NOT_TRANSFORM";
@@ -348,7 +353,7 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 @implementation GTLRCloudHealthcare_FhirStore
 @dynamic disableReferentialIntegrity, disableResourceVersioning,
-         enableUpdateCreate, labels, name, notificationConfig;
+         enableUpdateCreate, labels, name, notificationConfig, version;
 @end
 
 

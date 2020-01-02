@@ -78,6 +78,7 @@
 @class GTLRDataproc_PySparkJob_Properties;
 @class GTLRDataproc_QueryList;
 @class GTLRDataproc_RegexValidation;
+@class GTLRDataproc_ReservationAffinity;
 @class GTLRDataproc_SecurityConfig;
 @class GTLRDataproc_SoftwareConfig;
 @class GTLRDataproc_SoftwareConfig_Properties;
@@ -323,6 +324,31 @@ GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverL
 GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Trace;
 /** Value: "WARN" */
 GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_ReservationAffinity.consumeReservationType
+
+/**
+ *  Consume any reservation available.
+ *
+ *  Value: "ANY_RESERVATION"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_AnyReservation;
+/**
+ *  Do not consume from any allocated capacity.
+ *
+ *  Value: "NO_RESERVATION"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_NoReservation;
+/**
+ *  Must consume from a specific reservation. Must specify key value fields for
+ *  specifying the reservations.
+ *
+ *  Value: "SPECIFIC_RESERVATION"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_SpecificReservation;
+/** Value: "TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_SoftwareConfig.optionalComponents
@@ -653,6 +679,22 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  account. For example, my-other-app\@appspot.gserviceaccount.com.
  *  group:{emailid}: An email address that represents a Google group. For
  *  example, admins\@example.com.
+ *  deleted:user:{emailid}?uid={uniqueid}: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  alice\@example.com?uid=123456789012345678901. If the user is recovered, this
+ *  value reverts to user:{emailid} and the recovered user retains the role in
+ *  the binding.
+ *  deleted:serviceAccount:{emailid}?uid={uniqueid}: An email address (plus
+ *  unique identifier) representing a service account that has been recently
+ *  deleted. For example,
+ *  my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901. If the
+ *  service account is undeleted, this value reverts to serviceAccount:{emailid}
+ *  and the undeleted service account retains the role in the binding.
+ *  deleted:group:{emailid}?uid={uniqueid}: An email address (plus unique
+ *  identifier) representing a Google group that has been recently deleted. For
+ *  example, admins\@example.com?uid=123456789012345678901. If the group is
+ *  recovered, this value reverts to group:{emailid} and the recovered group
+ *  retains the role in the binding.
  *  domain:{domain}: The G Suite domain (primary) that represents all the users
  *  of that domain. For example, google.com or example.com.
  */
@@ -1202,6 +1244,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
+/** Optional. Reservation Affinity for consuming Zonal reservation. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ReservationAffinity *reservationAffinity;
+
 /**
  *  Optional. The service account of the instances. Defaults to the default
  *  Compute Engine service account. Custom service accounts need permissions
@@ -1636,10 +1681,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, copy, nullable) NSString *driverOutputResourceUri;
 
-/** Job is a Hadoop job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_HadoopJob *hadoopJob;
-
-/** Job is a Hive job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_HiveJob *hiveJob;
 
 /**
@@ -1659,7 +1701,6 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_Job_Labels *labels;
 
-/** Job is a Pig job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_PigJob *pigJob;
 
 /**
@@ -1667,7 +1708,6 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobPlacement *placement;
 
-/** Job is a Pyspark job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_PySparkJob *pysparkJob;
 
 /**
@@ -1680,13 +1720,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 /** Optional. Job scheduling configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobScheduling *scheduling;
 
-/** Job is a Spark job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkJob *sparkJob;
-
-/** Job is a SparkR job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkRJob *sparkRJob;
-
-/** Job is a SparkSql job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkSqlJob *sparkSqlJob;
 
 /**
@@ -2320,10 +2355,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @interface GTLRDataproc_OrderedJob : GTLRObject
 
-/** Job is a Hadoop job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_HadoopJob *hadoopJob;
-
-/** Job is a Hive job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_HiveJob *hiveJob;
 
 /**
@@ -2336,7 +2368,6 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_OrderedJob_Labels *labels;
 
-/** Job is a Pig job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_PigJob *pigJob;
 
 /**
@@ -2345,16 +2376,12 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *prerequisiteStepIds;
 
-/** Job is a Pyspark job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_PySparkJob *pysparkJob;
 
 /** Optional. Job scheduling configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobScheduling *scheduling;
 
-/** Job is a Spark job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkJob *sparkJob;
-
-/** Job is a SparkSql job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkSqlJob *sparkSqlJob;
 
 /**
@@ -2477,14 +2504,15 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  Defines an Identity and Access Management (IAM) policy. It is used to
- *  specify access control policies for Cloud Platform resources.A Policy is a
- *  collection of bindings. A binding binds one or more members to a single
- *  role. Members can be user accounts, service accounts, Google groups, and
- *  domains (such as G Suite). A role is a named list of permissions (defined by
- *  IAM or configured by users). A binding can optionally specify a condition,
- *  which is a logic expression that further constrains the role binding based
- *  on attributes about the request and/or target resource.JSON Example
+ *  An Identity and Access Management (IAM) policy, which specifies access
+ *  controls for Google Cloud resources.A Policy is a collection of bindings. A
+ *  binding binds one or more members to a single role. Members can be user
+ *  accounts, service accounts, Google groups, and domains (such as G Suite). A
+ *  role is a named list of permissions; each role can be an IAM predefined role
+ *  or a user-created custom role.Optionally, a binding can specify a condition,
+ *  which is a logical expression that allows access to a resource only if the
+ *  expression evaluates to true. A condition can add constraints based on
+ *  attributes of the request, the resource, or both.JSON example:
  *  {
  *  "bindings": [
  *  {
@@ -2502,13 +2530,14 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  "condition": {
  *  "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time <
- *  timestamp('2020-10-01T00:00:00.000Z')",
+ *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
  *  }
  *  }
- *  ]
+ *  ],
+ *  "etag": "BwWWja0YfJA=",
+ *  "version": 3
  *  }
- *  YAML Example
+ *  YAML example:
  *  bindings:
  *  - members:
  *  - user:mike\@example.com
@@ -2523,15 +2552,17 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  title: expirable access
  *  description: Does not grant access after Sep 2020
  *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  For a description of IAM and its features, see the IAM developer's guide
- *  (https://cloud.google.com/iam/docs).
+ *  - etag: BwWWja0YfJA=
+ *  - version: 3
+ *  For a description of IAM and its features, see the IAM documentation
+ *  (https://cloud.google.com/iam/docs/).
  */
 @interface GTLRDataproc_Policy : GTLRObject
 
 /**
- *  Associates a list of members to a role. Optionally may specify a condition
- *  that determines when binding is in effect. bindings with no members will
- *  result in an error.
+ *  Associates a list of members to a role. Optionally, may specify a condition
+ *  that determines how and when the bindings are applied. Each of the bindings
+ *  must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_Binding *> *bindings;
 
@@ -2542,10 +2573,11 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  to perform policy updates in order to avoid race conditions: An etag is
  *  returned in the response to getIamPolicy, and systems are expected to put
  *  that etag in the request to setIamPolicy to ensure that their change will be
- *  applied to the same version of the policy.If no etag is provided in the call
- *  to setIamPolicy, then the existing policy is overwritten. Due to blind-set
- *  semantics of an etag-less policy, 'setIamPolicy' will not fail even if
- *  either of incoming or stored policy does not meet the version requirements.
+ *  applied to the same version of the policy.Important: If you use IAM
+ *  Conditions, you must include the etag field whenever you call setIamPolicy.
+ *  If you omit this field, then IAM allows you to overwrite a version 3 policy
+ *  with a version 1 policy, and all of the conditions in the version 3 policy
+ *  are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2554,13 +2586,19 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Specifies the format of the policy.Valid values are 0, 1, and 3. Requests
- *  specifying an invalid value will be rejected.Operations affecting
- *  conditional bindings must specify version 3. This can be either setting a
- *  conditional policy, modifying a conditional binding, or removing a
- *  conditional binding from the stored conditional policy. Operations on
- *  non-conditional policies may specify any valid value or leave the field
- *  unset.If no etag is provided in the call to setIamPolicy, any version
- *  compliance checks on the incoming and/or stored policy is skipped.
+ *  that specify an invalid value are rejected.Any operation that affects
+ *  conditional role bindings must specify version 3. This requirement applies
+ *  to the following operations:
+ *  Getting a policy that includes a conditional role binding
+ *  Adding a conditional role binding to a policy
+ *  Changing a conditional role binding in a policy
+ *  Removing any role binding, with or without a condition, from a policy that
+ *  includes conditionsImportant: If you use IAM Conditions, you must include
+ *  the etag field whenever you call setIamPolicy. If you omit this field, then
+ *  IAM allows you to overwrite a version 3 policy with a version 1 policy, and
+ *  all of the conditions in the version 3 policy are lost.If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2678,6 +2716,37 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  sufficient).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regexes;
+
+@end
+
+
+/**
+ *  Reservation Affinity for consuming Zonal reservation.
+ */
+@interface GTLRDataproc_ReservationAffinity : GTLRObject
+
+/**
+ *  Optional. Type of reservation to consume
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_ReservationAffinity_ConsumeReservationType_AnyReservation
+ *        Consume any reservation available. (Value: "ANY_RESERVATION")
+ *    @arg @c kGTLRDataproc_ReservationAffinity_ConsumeReservationType_NoReservation
+ *        Do not consume from any allocated capacity. (Value: "NO_RESERVATION")
+ *    @arg @c kGTLRDataproc_ReservationAffinity_ConsumeReservationType_SpecificReservation
+ *        Must consume from a specific reservation. Must specify key value
+ *        fields for specifying the reservations. (Value:
+ *        "SPECIFIC_RESERVATION")
+ *    @arg @c kGTLRDataproc_ReservationAffinity_ConsumeReservationType_TypeUnspecified
+ *        Value "TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *consumeReservationType;
+
+/** Optional. Corresponds to the label key of reservation resource. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Optional. Corresponds to the label values of reservation resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 

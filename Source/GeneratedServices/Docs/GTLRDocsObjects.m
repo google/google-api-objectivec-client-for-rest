@@ -64,6 +64,11 @@ NSString * const kGTLRDocs_EmbeddedObjectBorder_DashStyle_Solid = @"SOLID";
 NSString * const kGTLRDocs_EmbeddedObjectBorder_PropertyState_NotRendered = @"NOT_RENDERED";
 NSString * const kGTLRDocs_EmbeddedObjectBorder_PropertyState_Rendered = @"RENDERED";
 
+// GTLRDocs_InsertSectionBreakRequest.sectionType
+NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_Continuous = @"CONTINUOUS";
+NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_NextPage = @"NEXT_PAGE";
+NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
+
 // GTLRDocs_NamedStyle.namedStyleType
 NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading1  = @"HEADING_1";
 NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading2  = @"HEADING_2";
@@ -160,6 +165,11 @@ NSString * const kGTLRDocs_SectionStyle_ColumnSeparatorStyle_None = @"NONE";
 NSString * const kGTLRDocs_SectionStyle_ContentDirection_ContentDirectionUnspecified = @"CONTENT_DIRECTION_UNSPECIFIED";
 NSString * const kGTLRDocs_SectionStyle_ContentDirection_LeftToRight = @"LEFT_TO_RIGHT";
 NSString * const kGTLRDocs_SectionStyle_ContentDirection_RightToLeft = @"RIGHT_TO_LEFT";
+
+// GTLRDocs_SectionStyle.sectionType
+NSString * const kGTLRDocs_SectionStyle_SectionType_Continuous = @"CONTINUOUS";
+NSString * const kGTLRDocs_SectionStyle_SectionType_NextPage   = @"NEXT_PAGE";
+NSString * const kGTLRDocs_SectionStyle_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
 
 // GTLRDocs_TableCellBorder.dashStyle
 NSString * const kGTLRDocs_TableCellBorder_DashStyle_Dash      = @"DASH";
@@ -671,7 +681,8 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 @implementation GTLRDocs_DocumentStyle
 @dynamic background, defaultFooterId, defaultHeaderId, evenPageFooterId,
          evenPageHeaderId, firstPageFooterId, firstPageHeaderId, marginBottom,
-         marginLeft, marginRight, marginTop, pageNumberStart, pageSize,
+         marginFooter, marginHeader, marginLeft, marginRight, marginTop,
+         pageNumberStart, pageSize, useCustomHeaderFooterMargins,
          useEvenPageHeaderFooter, useFirstPageHeaderFooter;
 @end
 
@@ -1060,6 +1071,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_InsertPageBreakRequest
 @dynamic endOfSegmentLocation, location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_InsertSectionBreakRequest
+//
+
+@implementation GTLRDocs_InsertSectionBreakRequest
+@dynamic endOfSegmentLocation, location, sectionType;
 @end
 
 
@@ -1655,11 +1676,12 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 @dynamic createFooter, createHeader, createNamedRange, createParagraphBullets,
          deleteContentRange, deleteNamedRange, deleteParagraphBullets,
          deletePositionedObject, deleteTableColumn, deleteTableRow,
-         insertInlineImage, insertPageBreak, insertTable, insertTableColumn,
-         insertTableRow, insertText, mergeTableCells, replaceAllText,
-         replaceImage, replaceNamedRangeContent, unmergeTableCells,
-         updateDocumentStyle, updateParagraphStyle, updateTableCellStyle,
-         updateTableColumnProperties, updateTableRowStyle, updateTextStyle;
+         insertInlineImage, insertPageBreak, insertSectionBreak, insertTable,
+         insertTableColumn, insertTableRow, insertText, mergeTableCells,
+         replaceAllText, replaceImage, replaceNamedRangeContent,
+         unmergeTableCells, updateDocumentStyle, updateParagraphStyle,
+         updateSectionStyle, updateTableCellStyle, updateTableColumnProperties,
+         updateTableRowStyle, updateTextStyle;
 @end
 
 
@@ -1719,7 +1741,9 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_SectionStyle
-@dynamic columnProperties, columnSeparatorStyle, contentDirection;
+@dynamic columnProperties, columnSeparatorStyle, contentDirection, marginBottom,
+         marginFooter, marginHeader, marginLeft, marginRight, marginTop,
+         sectionType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2221,6 +2245,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_UpdateParagraphStyleRequest
 @dynamic fields, paragraphStyle, range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_UpdateSectionStyleRequest
+//
+
+@implementation GTLRDocs_UpdateSectionStyleRequest
+@dynamic fields, range, sectionStyle;
 @end
 
 

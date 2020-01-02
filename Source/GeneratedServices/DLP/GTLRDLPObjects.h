@@ -110,6 +110,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2LDiversityEquivalenceClass;
 @class GTLRDLP_GooglePrivacyDlpV2LDiversityHistogramBucket;
 @class GTLRDLP_GooglePrivacyDlpV2LDiversityResult;
+@class GTLRDLP_GooglePrivacyDlpV2LeaveUntransformed;
 @class GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment;
 @class GTLRDLP_GooglePrivacyDlpV2Location;
 @class GTLRDLP_GooglePrivacyDlpV2NumericalStatsConfig;
@@ -156,9 +157,11 @@
 @class GTLRDLP_GooglePrivacyDlpV2Table;
 @class GTLRDLP_GooglePrivacyDlpV2TableLocation;
 @class GTLRDLP_GooglePrivacyDlpV2TaggedField;
+@class GTLRDLP_GooglePrivacyDlpV2ThrowError;
 @class GTLRDLP_GooglePrivacyDlpV2TimePartConfig;
 @class GTLRDLP_GooglePrivacyDlpV2TimespanConfig;
 @class GTLRDLP_GooglePrivacyDlpV2TimeZone;
+@class GTLRDLP_GooglePrivacyDlpV2TransformationErrorHandling;
 @class GTLRDLP_GooglePrivacyDlpV2TransformationOverview;
 @class GTLRDLP_GooglePrivacyDlpV2TransformationSummary;
 @class GTLRDLP_GooglePrivacyDlpV2TransientCryptoKey;
@@ -2206,6 +2209,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RecordTransformations *recordTransformations;
 
+/**
+ *  Mode for handling transformation errors. If left unspecified, the default
+ *  mode is `TransformationErrorHandling.ThrowError`.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TransformationErrorHandling *transformationErrorHandling;
+
 @end
 
 
@@ -3854,6 +3863,16 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  Skips the data without modifying it if the requested transformation would
+ *  cause an error. For example, if a `DateShift` transformation were applied
+ *  an an IP address, this mode would leave the IP address unchanged in the
+ *  response.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2LeaveUntransformed : GTLRObject
+@end
+
+
+/**
  *  Message for specifying an adjustment to the likelihood of a finding as
  *  part of a detection rule.
  */
@@ -4850,7 +4869,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Configuration for stored infoT types. All fields and subfield are provided
+ *  Configuration for stored infoTypes. All fields and subfield are provided
  *  by the user. For more information, see
  *  https://cloud.google.com/dlp/docs/creating-custom-infotypes.
  */
@@ -5074,6 +5093,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  Throw an error and fail the request when a transformation error occurs.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ThrowError : GTLRObject
+@end
+
+
+/**
  *  For use with `Date`, `Timestamp`, and `TimeOfDay`, extract or preserve a
  *  portion of the value.
  */
@@ -5159,6 +5185,26 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *offsetMinutes;
+
+@end
+
+
+/**
+ *  How to handle transformation errors during de-identification. A
+ *  transformation error occurs when the requested transformation is
+ *  incompatible
+ *  with the data. For example, trying to de-identify an IP address using a
+ *  `DateShift` transformation would result in a transformation error, since
+ *  date
+ *  info cannot be extracted from an IP address.
+ *  Information about any incompatible transformations, and how they were
+ *  handled, is returned in the response as part of the
+ *  `TransformationOverviews`.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TransformationErrorHandling : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LeaveUntransformed *leaveUntransformed;
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ThrowError *throwError;
 
 @end
 

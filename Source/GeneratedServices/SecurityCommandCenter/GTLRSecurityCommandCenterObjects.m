@@ -548,7 +548,8 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_SecurityCenterProperties
-@dynamic resourceName, resourceOwners, resourceParent, resourceProject,
+@dynamic resourceDisplayName, resourceName, resourceOwners, resourceParent,
+         resourceParentDisplayName, resourceProject, resourceProjectDisplayName,
          resourceType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

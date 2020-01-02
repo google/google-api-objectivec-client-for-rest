@@ -377,7 +377,15 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_Instance
-@dynamic config, displayName, labels, name, nodeCount, state;
+@dynamic config, displayName, endpointUris, labels, name, nodeCount, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"endpointUris" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

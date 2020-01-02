@@ -1949,7 +1949,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Required. Group of packages, classes, and/or test methods to be run for
- *  each shard. The number of shard_test_targets must be > 1, and <= 50.
+ *  each shard. The number of shard_test_targets must be >= 1 and <= 50.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_TestTargetsForShard *> *testTargetsForShard;
 
@@ -2834,7 +2834,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_UniformSharding : GTLRObject
 
 /**
- *  Required. Total number of shards. The number must be > 1, and <= 50.
+ *  Required. Total number of shards. The number must be >= 1 and <= 50.
  *
  *  Uses NSNumber of intValue.
  */

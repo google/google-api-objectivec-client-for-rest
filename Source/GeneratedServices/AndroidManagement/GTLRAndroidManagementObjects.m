@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAndroidManagement_AdvancedSecurityOverrides.untrustedAppsPolicy
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallDeviceWide = @"ALLOW_INSTALL_DEVICE_WIDE";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallInPersonalProfileOnly = @"ALLOW_INSTALL_IN_PERSONAL_PROFILE_ONLY";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_DisallowInstall = @"DISALLOW_INSTALL";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_UntrustedAppsPolicyUnspecified = @"UNTRUSTED_APPS_POLICY_UNSPECIFIED";
+
 // GTLRAndroidManagement_ApplicationEvent.eventType
 NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_ApplicationEventTypeUnspecified = @"APPLICATION_EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Changed = @"CHANGED";
@@ -127,6 +133,28 @@ NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Error = @"ERROR";
 NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Info = @"INFO";
 NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
+// GTLRAndroidManagement_KioskCustomization.powerButtonActions
+NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButtonActions_PowerButtonActionsUnspecified = @"POWER_BUTTON_ACTIONS_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButtonActions_PowerButtonAvailable = @"POWER_BUTTON_AVAILABLE";
+NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButtonActions_PowerButtonBlocked = @"POWER_BUTTON_BLOCKED";
+
+// GTLRAndroidManagement_KioskCustomization.statusBar
+NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_NotificationsAndSystemInfoDisabled = @"NOTIFICATIONS_AND_SYSTEM_INFO_DISABLED";
+NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_NotificationsAndSystemInfoEnabled = @"NOTIFICATIONS_AND_SYSTEM_INFO_ENABLED";
+NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_StatusBarUnspecified = @"STATUS_BAR_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_SystemInfoOnly = @"SYSTEM_INFO_ONLY";
+
+// GTLRAndroidManagement_KioskCustomization.systemErrorWarnings
+NSString * const kGTLRAndroidManagement_KioskCustomization_SystemErrorWarnings_ErrorAndWarningsEnabled = @"ERROR_AND_WARNINGS_ENABLED";
+NSString * const kGTLRAndroidManagement_KioskCustomization_SystemErrorWarnings_ErrorAndWarningsMuted = @"ERROR_AND_WARNINGS_MUTED";
+NSString * const kGTLRAndroidManagement_KioskCustomization_SystemErrorWarnings_SystemErrorWarningsUnspecified = @"SYSTEM_ERROR_WARNINGS_UNSPECIFIED";
+
+// GTLRAndroidManagement_KioskCustomization.systemNavigation
+NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNavigation_HomeButtonOnly = @"HOME_BUTTON_ONLY";
+NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNavigation_NavigationDisabled = @"NAVIGATION_DISABLED";
+NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNavigation_NavigationEnabled = @"NAVIGATION_ENABLED";
+NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNavigation_SystemNavigationUnspecified = @"SYSTEM_NAVIGATION_UNSPECIFIED";
+
 // GTLRAndroidManagement_ManagedProperty.type
 NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Bool = @"BOOL";
 NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Bundle = @"BUNDLE";
@@ -199,6 +227,11 @@ NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Som
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeDevice = @"SCOPE_DEVICE";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeProfile = @"SCOPE_PROFILE";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeUnspecified = @"SCOPE_UNSPECIFIED";
+
+// GTLRAndroidManagement_PasswordRequirements.requirePasswordUnlock
+NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_RequireEveryDay = @"REQUIRE_EVERY_DAY";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_RequirePasswordUnlockUnspecified = @"REQUIRE_PASSWORD_UNLOCK_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_UseDefaultDeviceTimeout = @"USE_DEFAULT_DEVICE_TIMEOUT";
 
 // GTLRAndroidManagement_PermissionGrant.policy
 NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Deny = @"DENY";
@@ -304,6 +337,16 @@ NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_WebApps = @"WEB
 // GTLRAndroidManagement_WebToken.permissions
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_ApproveApps = @"APPROVE_APPS";
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified = @"WEB_TOKEN_PERMISSION_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_AdvancedSecurityOverrides
+//
+
+@implementation GTLRAndroidManagement_AdvancedSecurityOverrides
+@dynamic untrustedAppsPolicy;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -517,6 +560,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_Date
+//
+
+@implementation GTLRAndroidManagement_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_Device
 //
 
@@ -635,6 +688,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_FreezePeriod
+//
+
+@implementation GTLRAndroidManagement_FreezePeriod
+@dynamic endDate, startDate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_HardwareInfo
 //
 
@@ -693,6 +756,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_KeyedAppState
 @dynamic createTime, data, key, lastUpdateTime, message, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_KioskCustomization
+//
+
+@implementation GTLRAndroidManagement_KioskCustomization
+@dynamic powerButtonActions, statusBar, systemErrorWarnings, systemNavigation;
 @end
 
 
@@ -969,7 +1042,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          passwordHistoryLength, passwordMinimumLength, passwordMinimumLetters,
          passwordMinimumLowerCase, passwordMinimumNonLetter,
          passwordMinimumNumeric, passwordMinimumSymbols,
-         passwordMinimumUpperCase, passwordQuality, passwordScope;
+         passwordMinimumUpperCase, passwordQuality, passwordScope,
+         requirePasswordUnlock;
 @end
 
 
@@ -1009,9 +1083,9 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_Policy
 @dynamic accountTypesWithManagementDisabled, addUserDisabled,
-         adjustVolumeDisabled, alwaysOnVpnPackage, androidDevicePolicyTracks,
-         appAutoUpdatePolicy, applications, autoTimeRequired,
-         blockApplicationsEnabled, bluetoothConfigDisabled,
+         adjustVolumeDisabled, advancedSecurityOverrides, alwaysOnVpnPackage,
+         androidDevicePolicyTracks, appAutoUpdatePolicy, applications,
+         autoTimeRequired, blockApplicationsEnabled, bluetoothConfigDisabled,
          bluetoothContactSharingDisabled, bluetoothDisabled, cameraDisabled,
          cellBroadcastsConfigDisabled, choosePrivateKeyRules, complianceRules,
          createWindowsDisabled, credentialsConfigDisabled, dataRoamingDisabled,
@@ -1019,21 +1093,21 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          deviceOwnerLockScreenInfo, encryptionPolicy, ensureVerifyAppsEnabled,
          factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
          installUnknownSourcesAllowed, keyguardDisabled,
-         keyguardDisabledFeatures, kioskCustomLauncherEnabled, locationMode,
-         longSupportMessage, maximumTimeToLock, minimumApiLevel,
-         mobileNetworksConfigDisabled, modifyAccountsDisabled,
-         mountPhysicalMediaDisabled, name, networkEscapeHatchEnabled,
-         networkResetDisabled, openNetworkConfiguration, outgoingBeamDisabled,
-         outgoingCallsDisabled, passwordPolicies, passwordRequirements,
-         permissionGrants, permittedAccessibilityServices,
-         permittedInputMethods, persistentPreferredActivities, playStoreMode,
-         policyEnforcementRules, privateKeySelectionEnabled,
-         recommendedGlobalProxy, removeUserDisabled, safeBootDisabled,
-         screenCaptureDisabled, setupActions, setUserIconDisabled,
-         setWallpaperDisabled, shareLocationDisabled, shortSupportMessage,
-         skipFirstUseHintsEnabled, smsDisabled, statusBarDisabled,
-         statusReportingSettings, stayOnPluggedModes, systemUpdate,
-         tetheringConfigDisabled, uninstallAppsDisabled,
+         keyguardDisabledFeatures, kioskCustomization,
+         kioskCustomLauncherEnabled, locationMode, longSupportMessage,
+         maximumTimeToLock, minimumApiLevel, mobileNetworksConfigDisabled,
+         modifyAccountsDisabled, mountPhysicalMediaDisabled, name,
+         networkEscapeHatchEnabled, networkResetDisabled,
+         openNetworkConfiguration, outgoingBeamDisabled, outgoingCallsDisabled,
+         passwordPolicies, passwordRequirements, permissionGrants,
+         permittedAccessibilityServices, permittedInputMethods,
+         persistentPreferredActivities, playStoreMode, policyEnforcementRules,
+         privateKeySelectionEnabled, recommendedGlobalProxy, removeUserDisabled,
+         safeBootDisabled, screenCaptureDisabled, setupActions,
+         setUserIconDisabled, setWallpaperDisabled, shareLocationDisabled,
+         shortSupportMessage, skipFirstUseHintsEnabled, smsDisabled,
+         statusBarDisabled, statusReportingSettings, stayOnPluggedModes,
+         systemUpdate, tetheringConfigDisabled, uninstallAppsDisabled,
          unmuteMicrophoneDisabled, usbFileTransferDisabled,
          usbMassStorageEnabled, version, vpnConfigDisabled, wifiConfigDisabled,
          wifiConfigsLockdownEnabled;
@@ -1247,7 +1321,15 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_SystemUpdate
-@dynamic endMinutes, startMinutes, type;
+@dynamic endMinutes, freezePeriods, startMinutes, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"freezePeriods" : [GTLRAndroidManagement_FreezePeriod class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -77,6 +77,45 @@ GTLR_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Pl
 GTLR_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Web;
 
 // ----------------------------------------------------------------------------
+// GTLRFirebaseManagement_Location.features
+
+/** Value: "DEFAULT_STORAGE" */
+GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_DefaultStorage;
+/** Value: "FIRESTORE" */
+GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_Firestore;
+/** Value: "FUNCTIONS" */
+GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_Functions;
+/** Value: "LOCATION_FEATURE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_LocationFeatureUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseManagement_Location.type
+
+/**
+ *  Used internally for distinguishing unset values and is not intended for
+ *  external use.
+ *
+ *  Value: "LOCATION_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_LocationTypeUnspecified;
+/**
+ *  The location is a multi-regional location.
+ *  <br>Data in a multi-region location is replicated in multiple regions.
+ *  Within each region, data is replicated in multiple zones.
+ *
+ *  Value: "MULTI_REGIONAL"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_MultiRegional;
+/**
+ *  The location is a regional location.
+ *  <br>Data in a regional location is replicated in multiple zones within a
+ *  region.
+ *
+ *  Value: "REGIONAL"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_Regional;
+
+// ----------------------------------------------------------------------------
 // GTLRFirebaseManagement_ShaCertificate.certType
 
 /**
@@ -764,12 +803,38 @@ GTLR_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_Sha
  */
 @interface GTLRFirebaseManagement_Location : GTLRObject
 
+/** Products and services that are available in the GCP resource location. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *features;
+
 /**
  *  The ID of the GCP resource location. It will be one of the available [GCP
  *  resource
  *  locations](https://firebase.google.com/docs/projects/locations#types).
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  Indicates whether the GCP resource location is a [regional or
+ *  multi-regional
+ *  location](https://firebase.google.com/docs/projects/locations#types)
+ *  for data replication.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseManagement_Location_Type_LocationTypeUnspecified Used
+ *        internally for distinguishing unset values and is not intended for
+ *        external use. (Value: "LOCATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRFirebaseManagement_Location_Type_MultiRegional The location
+ *        is a multi-regional location.
+ *        <br>Data in a multi-region location is replicated in multiple regions.
+ *        Within each region, data is replicated in multiple zones. (Value:
+ *        "MULTI_REGIONAL")
+ *    @arg @c kGTLRFirebaseManagement_Location_Type_Regional The location is a
+ *        regional location.
+ *        <br>Data in a regional location is replicated in multiple zones within
+ *        a
+ *        region. (Value: "REGIONAL")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

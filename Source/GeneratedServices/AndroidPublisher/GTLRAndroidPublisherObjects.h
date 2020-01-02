@@ -38,7 +38,6 @@
 @class GTLRAndroidPublisher_IntroductoryPriceInfo;
 @class GTLRAndroidPublisher_Listing;
 @class GTLRAndroidPublisher_LocalizedText;
-@class GTLRAndroidPublisher_MendelSampling;
 @class GTLRAndroidPublisher_ModRange;
 @class GTLRAndroidPublisher_MonthDay;
 @class GTLRAndroidPublisher_PageInfo;
@@ -46,6 +45,7 @@
 @class GTLRAndroidPublisher_Prorate;
 @class GTLRAndroidPublisher_Review;
 @class GTLRAndroidPublisher_ReviewReplyResult;
+@class GTLRAndroidPublisher_Sampling;
 @class GTLRAndroidPublisher_Season;
 @class GTLRAndroidPublisher_SubscriptionCancelSurveyResult;
 @class GTLRAndroidPublisher_SubscriptionDeferralInfo;
@@ -812,30 +812,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_MendelSampling
- */
-@interface GTLRAndroidPublisher_MendelSampling : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ModRange *> *modRanges;
-
-/**
- *  modulus
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *modulus;
-
-/**
- *  salt
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *salt;
-
-@end
-
-
-/**
  *  GTLRAndroidPublisher_ModRange
  */
 @interface GTLRAndroidPublisher_ModRange : GTLRObject
@@ -1096,6 +1072,30 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidPublisher_ReviewsReplyResponse : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_ReviewReplyResult *result;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_Sampling
+ */
+@interface GTLRAndroidPublisher_Sampling : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ModRange *> *modRanges;
+
+/**
+ *  modulus
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *modulus;
+
+/**
+ *  salt
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *salt;
 
 @end
 
@@ -1524,7 +1524,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The description of what is new in the app in this release. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_LocalizedText *> *releaseNotes;
 
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_MendelSampling *sampling;
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Sampling *sampling;
 
 /** The desired status of this release. */
 @property(nonatomic, copy, nullable) NSString *status;

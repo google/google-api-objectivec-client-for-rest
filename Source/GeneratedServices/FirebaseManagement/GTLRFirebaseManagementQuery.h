@@ -483,7 +483,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebase.projects.androidApps.getConfig
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAndroidAppsGetConfig : GTLRFirebaseManagementQuery
 // Previous library name was
@@ -895,6 +898,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebase.projects.defaultLocation.finalize
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsDefaultLocationFinalize : GTLRFirebaseManagementQuery
@@ -1175,7 +1179,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebase.projects.iosApps.getConfig
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsIosAppsGetConfig : GTLRFirebaseManagementQuery
 // Previous library name was
@@ -1464,6 +1471,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebase.projects.removeAnalytics
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsRemoveAnalytics : GTLRFirebaseManagementQuery
@@ -1668,7 +1676,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebase.projects.webApps.getConfig
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseManagement
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseManagementCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsWebAppsGetConfig : GTLRFirebaseManagementQuery
 // Previous library name was

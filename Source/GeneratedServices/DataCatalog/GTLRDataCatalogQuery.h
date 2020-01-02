@@ -223,6 +223,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsDeleteWithname:]
 
+/** Optional. If true, deletes all entries in the entry group. */
+@property(nonatomic, assign) BOOL force;
+
 /**
  *  Required. The name of the entry group. For example,
  *  `projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}`.
@@ -1275,15 +1278,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The field mask specifies the parts of the template to be updated.
+ *  Optional. The field mask specifies the parts of the template to be updated.
  *  Allowed fields:
  *  * `display_name`
  *  * `type.enum_type`
+ *  * `is_required`
  *  If `update_mask` is not set or empty, all of the allowed fields above will
  *  be updated.
  *  When updating an enum type, the provided values will be merged with the
  *  existing values. Therefore, enum values can only be added, existing enum
- *  values cannot be deleted nor renamed.
+ *  values cannot be deleted nor renamed. Updating a template field from
+ *  optional to required is NOT allowed.
  *
  *  String format is a comma-separated list of fields.
  */

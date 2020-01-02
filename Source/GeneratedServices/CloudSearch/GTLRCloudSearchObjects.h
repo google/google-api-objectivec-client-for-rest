@@ -653,8 +653,6 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Interpretation
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_QueryInterpretation.reason
 
-/** Value: "NO_RESULTS_FOUND_FOR_USER_QUERY" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_NoResultsFoundForUserQuery;
 /**
  *  A much broader version of the query is used to retrieve the search
  *  results since enough results were not found for the user query.
@@ -3545,7 +3543,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  The interpretation of the query used in search. For example, queries with
  *  natural language intent like "email from john" will be interpreted as
  *  "from:john source:mail". This field will not be filled when the reason is
- *  NO_RESULTS_FOUND_FOR_USER_QUERY.
+ *  NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY.
  */
 @property(nonatomic, copy, nullable) NSString *interpretedQuery;
 
@@ -3554,8 +3552,6 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  UNSPECIFIED if the interpretation type is not NONE.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_NoResultsFoundForUserQuery
- *        Value "NO_RESULTS_FOUND_FOR_USER_QUERY"
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_NotEnoughResultsFoundForUserQuery
  *        A much broader version of the query is used to retrieve the search
  *        results since enough results were not found for the user query.
@@ -4912,7 +4908,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Schema *schema;
 
 /**
- *  If true, the request will be validated without side effects.
+ *  If true, the schema will be checked for validity,
+ *  but will not be registered with the data source, even if valid.
  *
  *  Uses NSNumber of boolValue.
  */

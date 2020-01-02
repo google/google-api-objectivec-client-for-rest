@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsFieldsGetWithname:]
 
 /**
- *  A name of the form
+ *  Required. A name of the form
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the metadata and configuration for a Field.
  *
- *  @param name A name of the form
+ *  @param name Required. A name of the form
  *    `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_id}`
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsGet
@@ -121,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  A parent name of the form
+ *  Required. A parent name of the form
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -135,7 +135,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  FirestoreAdmin.ListFields with the filter set to
  *  `indexConfig.usesAncestorConfig:false`.
  *
- *  @param parent A parent name of the form
+ *  @param parent Required. A parent name of the form
  *    `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}`
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsList
@@ -276,7 +276,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsIndexesCreateWithObject:parent:]
 
 /**
- *  A parent name of the form
+ *  Required. A parent name of the form
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -290,7 +290,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1Index to include in
  *    the query.
- *  @param parent A parent name of the form
+ *  @param parent Required. A parent name of the form
  *    `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}`
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesCreate
@@ -314,7 +314,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsIndexesDeleteWithname:]
 
 /**
- *  A name of the form
+ *  Required. A name of the form
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{index_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -324,7 +324,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a composite index.
  *
- *  @param name A name of the form
+ *  @param name Required. A name of the form
  *    `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{index_id}`
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesDelete
@@ -347,7 +347,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsIndexesGetWithname:]
 
 /**
- *  A name of the form
+ *  Required. A name of the form
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{index_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -357,7 +357,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a composite index.
  *
- *  @param name A name of the form
+ *  @param name Required. A name of the form
  *    `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{index_id}`
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesGet
@@ -393,7 +393,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  A parent name of the form
+ *  Required. A parent name of the form
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -403,7 +403,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists composite indexes.
  *
- *  @param parent A parent name of the form
+ *  @param parent Required. A parent name of the form
  *    `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}`
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesList
@@ -432,7 +432,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsBatchGetWithObject:database:]
 
 /**
- *  The database name. In the format:
+ *  Required. The database name. In the format:
  *  `projects/{project_id}/databases/{database_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -446,7 +446,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRFirestore_BatchGetDocumentsRequest to include in
  *    the query.
- *  @param database The database name. In the format:
+ *  @param database Required. The database name. In the format:
  *    `projects/{project_id}/databases/{database_id}`.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsBatchGet
@@ -470,7 +470,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsBeginTransactionWithObject:database:]
 
 /**
- *  The database name. In the format:
+ *  Required. The database name. In the format:
  *  `projects/{project_id}/databases/{database_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -482,7 +482,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRFirestore_BeginTransactionRequest to include in the
  *    query.
- *  @param database The database name. In the format:
+ *  @param database Required. The database name. In the format:
  *    `projects/{project_id}/databases/{database_id}`.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsBeginTransaction
@@ -506,7 +506,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsCommitWithObject:database:]
 
 /**
- *  The database name. In the format:
+ *  Required. The database name. In the format:
  *  `projects/{project_id}/databases/{database_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -517,7 +517,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Commits a transaction, while optionally updating documents.
  *
  *  @param object The @c GTLRFirestore_CommitRequest to include in the query.
- *  @param database The database name. In the format:
+ *  @param database Required. The database name. In the format:
  *    `projects/{project_id}/databases/{database_id}`.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsCommit
@@ -541,7 +541,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsCreateDocumentWithObject:parent:collectionId:]
 
 /**
- *  The collection ID, relative to `parent`, to list. For example: `chatrooms`.
+ *  Required. The collection ID, relative to `parent`, to list. For example:
+ *  `chatrooms`.
  */
 @property(nonatomic, copy, nullable) NSString *collectionId;
 
@@ -558,7 +559,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *maskFieldPaths;
 
 /**
- *  The parent resource. For example:
+ *  Required. The parent resource. For example:
  *  `projects/{project_id}/databases/{database_id}/documents` or
  *  `projects/{project_id}/databases/{database_id}/documents/chatrooms/{chatroom_id}`
  */
@@ -570,11 +571,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new document.
  *
  *  @param object The @c GTLRFirestore_Document to include in the query.
- *  @param parent The parent resource. For example:
+ *  @param parent Required. The parent resource. For example:
  *    `projects/{project_id}/databases/{database_id}/documents` or
  *    `projects/{project_id}/databases/{database_id}/documents/chatrooms/{chatroom_id}`
- *  @param collectionId The collection ID, relative to `parent`, to list. For
- *    example: `chatrooms`.
+ *  @param collectionId Required. The collection ID, relative to `parent`, to
+ *    list. For example: `chatrooms`.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsCreateDocument
  */
@@ -610,7 +611,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *currentDocumentUpdateTime;
 
 /**
- *  The resource name of the Document to delete. In the format:
+ *  Required. The resource name of the Document to delete. In the format:
  *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -620,7 +621,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a document.
  *
- *  @param name The resource name of the Document to delete. In the format:
+ *  @param name Required. The resource name of the Document to delete. In the
+ *    format:
  *    `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsDelete
@@ -649,7 +651,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *maskFieldPaths;
 
 /**
- *  The resource name of the Document to get. In the format:
+ *  Required. The resource name of the Document to get. In the format:
  *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -673,7 +675,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a single document.
  *
- *  @param name The resource name of the Document to get. In the format:
+ *  @param name Required. The resource name of the Document to get. In the
+ *    format:
  *    `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsGet
@@ -696,7 +699,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsListWithparent:collectionId:]
 
 /**
- *  The collection ID, relative to `parent`, to list. For example: `chatrooms`
+ *  Required. The collection ID, relative to `parent`, to list. For example:
+ *  `chatrooms`
  *  or `messages`.
  */
 @property(nonatomic, copy, nullable) NSString *collectionId;
@@ -719,7 +723,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The parent resource name. In the format:
+ *  Required. The parent resource name. In the format:
  *  `projects/{project_id}/databases/{database_id}/documents` or
  *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  *  For example:
@@ -757,14 +761,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists documents.
  *
- *  @param parent The parent resource name. In the format:
+ *  @param parent Required. The parent resource name. In the format:
  *    `projects/{project_id}/databases/{database_id}/documents` or
  *    `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  *    For example:
  *    `projects/my-project/databases/my-database/documents` or
  *    `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
- *  @param collectionId The collection ID, relative to `parent`, to list. For
- *    example: `chatrooms`
+ *  @param collectionId Required. The collection ID, relative to `parent`, to
+ *    list. For example: `chatrooms`
  *    or `messages`.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsList
@@ -792,7 +796,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsListCollectionIdsWithObject:parent:]
 
 /**
- *  The parent document. In the format:
+ *  Required. The parent document. In the format:
  *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  *  For example:
  *  `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
@@ -806,7 +810,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRFirestore_ListCollectionIdsRequest to include in
  *    the query.
- *  @param parent The parent document. In the format:
+ *  @param parent Required. The parent document. In the format:
  *    `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  *    For example:
  *    `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
@@ -832,7 +836,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsListenWithObject:database:]
 
 /**
- *  The database name. In the format:
+ *  Required. The database name. In the format:
  *  `projects/{project_id}/databases/{database_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -843,7 +847,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Listens to changes.
  *
  *  @param object The @c GTLRFirestore_ListenRequest to include in the query.
- *  @param database The database name. In the format:
+ *  @param database Required. The database name. In the format:
  *    `projects/{project_id}/databases/{database_id}`.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsListen
@@ -926,7 +930,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsRollbackWithObject:database:]
 
 /**
- *  The database name. In the format:
+ *  Required. The database name. In the format:
  *  `projects/{project_id}/databases/{database_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -937,7 +941,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Rolls back a transaction.
  *
  *  @param object The @c GTLRFirestore_RollbackRequest to include in the query.
- *  @param database The database name. In the format:
+ *  @param database Required. The database name. In the format:
  *    `projects/{project_id}/databases/{database_id}`.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsRollback
@@ -961,7 +965,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsRunQueryWithObject:parent:]
 
 /**
- *  The parent resource name. In the format:
+ *  Required. The parent resource name. In the format:
  *  `projects/{project_id}/databases/{database_id}/documents` or
  *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  *  For example:
@@ -976,7 +980,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Runs a query.
  *
  *  @param object The @c GTLRFirestore_RunQueryRequest to include in the query.
- *  @param parent The parent resource name. In the format:
+ *  @param parent Required. The parent resource name. In the format:
  *    `projects/{project_id}/databases/{database_id}/documents` or
  *    `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
  *    For example:
@@ -1004,7 +1008,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsWriteWithObject:database:]
 
 /**
- *  The database name. In the format:
+ *  Required. The database name. In the format:
  *  `projects/{project_id}/databases/{database_id}`.
  *  This is only required in the first message.
  */
@@ -1016,7 +1020,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Streams batches of document updates and deletes, in order.
  *
  *  @param object The @c GTLRFirestore_WriteRequest to include in the query.
- *  @param database The database name. In the format:
+ *  @param database Required. The database name. In the format:
  *    `projects/{project_id}/databases/{database_id}`.
  *    This is only required in the first message.
  *
@@ -1048,7 +1052,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesExportDocumentsWithObject:name:]
 
 /**
- *  Database to export. Should be of the form:
+ *  Required. Database to export. Should be of the form:
  *  `projects/{project_id}/databases/{database_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1068,7 +1072,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsRequest to include in
  *    the query.
- *  @param name Database to export. Should be of the form:
+ *  @param name Required. Database to export. Should be of the form:
  *    `projects/{project_id}/databases/{database_id}`.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesExportDocuments
@@ -1096,7 +1100,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesImportDocumentsWithObject:name:]
 
 /**
- *  Database to import into. Should be of the form:
+ *  Required. Database to import into. Should be of the form:
  *  `projects/{project_id}/databases/{database_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1113,7 +1117,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsRequest to include in
  *    the query.
- *  @param name Database to import into. Should be of the form:
+ *  @param name Required. Database to import into. Should be of the form:
  *    `projects/{project_id}/databases/{database_id}`.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesImportDocuments

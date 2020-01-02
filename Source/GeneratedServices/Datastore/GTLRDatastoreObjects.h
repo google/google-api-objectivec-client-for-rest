@@ -540,7 +540,8 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_AllocateIdsRequest : GTLRObject
 
 /**
- *  A list of keys with incomplete key paths for which to allocate IDs.
+ *  Required. A list of keys with incomplete key paths for which to allocate
+ *  IDs.
  *  No key may be reserved/read-only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
@@ -1168,7 +1169,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesRequest_Labels *labels;
 
 /**
- *  Location for the export metadata and data files.
+ *  Required. Location for the export metadata and data files.
  *  The full resource URL of the external storage location. Currently, only
  *  Google Cloud Storage is supported. So output_url_prefix should be of the
  *  form: `gs://BUCKET_NAME[/NAMESPACE_PATH]`, where `BUCKET_NAME` is the
@@ -1259,7 +1260,8 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1EntityFilter *entityFilter;
 
 /**
- *  The full resource URL of the external storage location. Currently, only
+ *  Required. The full resource URL of the external storage location. Currently,
+ *  only
  *  Google Cloud Storage is supported. So input_url should be of the form:
  *  `gs://BUCKET_NAME[/NAMESPACE_PATH]/OVERALL_EXPORT_METADATA_FILE`, where
  *  `BUCKET_NAME` is the name of the Cloud Storage bucket, `NAMESPACE_PATH` is
@@ -1298,8 +1300,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_GoogleDatastoreAdminV1Index : GTLRObject
 
 /**
- *  The index's ancestor mode. Must not be ANCESTOR_MODE_UNSPECIFIED.
- *  Required.
+ *  Required. The index's ancestor mode. Must not be ANCESTOR_MODE_UNSPECIFIED.
  *
  *  Likely values:
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_AllAncestors
@@ -1312,33 +1313,22 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *ancestor;
 
-/**
- *  The resource ID of the index.
- *  Output only.
- */
+/** Output only. The resource ID of the index. */
 @property(nonatomic, copy, nullable) NSString *indexId;
 
-/**
- *  The entity kind to which this index applies.
- *  Required.
- */
+/** Required. The entity kind to which this index applies. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/**
- *  Project ID.
- *  Output only.
- */
+/** Output only. Project ID. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  An ordered sequence of property names and their index attributes.
- *  Required.
+ *  Required. An ordered sequence of property names and their index attributes.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_GoogleDatastoreAdminV1IndexedProperty *> *properties;
 
 /**
- *  The state of the index.
- *  Output only.
+ *  Output only. The state of the index.
  *
  *  Likely values:
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Creating The
@@ -1377,8 +1367,8 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_GoogleDatastoreAdminV1IndexedProperty : GTLRObject
 
 /**
- *  The indexed property's direction. Must not be DIRECTION_UNSPECIFIED.
- *  Required.
+ *  Required. The indexed property's direction. Must not be
+ *  DIRECTION_UNSPECIFIED.
  *
  *  Likely values:
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_Ascending
@@ -1394,10 +1384,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *direction;
 
-/**
- *  The property name to index.
- *  Required.
- */
+/** Required. The property name to index. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -1730,7 +1717,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_LookupRequest : GTLRObject
 
-/** Keys of entities to look up. */
+/** Required. Keys of entities to look up. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
 
 /** The options for this lookup request. */
@@ -2218,7 +2205,8 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
 /**
- *  A list of keys with complete key paths whose numeric IDs should not be
+ *  Required. A list of keys with complete key paths whose numeric IDs should
+ *  not be
  *  auto-allocated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
@@ -2239,7 +2227,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_RollbackRequest : GTLRObject
 
 /**
- *  The transaction identifier, returned by a call to
+ *  Required. The transaction identifier, returned by a call to
  *  Datastore.BeginTransaction.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably

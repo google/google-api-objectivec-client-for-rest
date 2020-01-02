@@ -1295,7 +1295,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Gets the access control policy for an instance resource. Returns an empty
+ *  Gets the access control policy for a table resource. Returns an empty
  *  policy if an table exists but does not have a policy set.
  *
  *  Method: bigtableadmin.projects.instances.tables.getIamPolicy
@@ -1320,7 +1320,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Gets the access control policy for an instance resource. Returns an empty
+ *  Gets the access control policy for a table resource. Returns an empty
  *  policy if an table exists but does not have a policy set.
  *
  *  @param object The @c GTLRBigtableAdmin_GetIamPolicyRequest to include in the

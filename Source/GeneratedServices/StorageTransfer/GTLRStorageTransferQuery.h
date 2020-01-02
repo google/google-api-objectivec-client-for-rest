@@ -195,8 +195,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a transfer job. Updating a job's transfer spec does not affect
- *  transfer operations that are running already. Updating the scheduling
- *  of a job is not allowed.
+ *  transfer operations that are running already. Updating a job's schedule
+ *  is not allowed.
+ *  Note: The job's `status` field can be modified using this RPC (for example,
+ *  to set a job's status to `DELETED`, `DISABLED`, or `ENABLED`).
  *
  *  Method: storagetransfer.transferJobs.patch
  *
@@ -214,8 +216,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRStorageTransfer_TransferJob.
  *
  *  Updates a transfer job. Updating a job's transfer spec does not affect
- *  transfer operations that are running already. Updating the scheduling
- *  of a job is not allowed.
+ *  transfer operations that are running already. Updating a job's schedule
+ *  is not allowed.
+ *  Note: The job's `status` field can be modified using this RPC (for example,
+ *  to set a job's status to `DELETED`, `DISABLED`, or `ENABLED`).
  *
  *  @param object The @c GTLRStorageTransfer_UpdateTransferJobRequest to include
  *    in the query.

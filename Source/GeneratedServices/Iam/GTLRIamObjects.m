@@ -37,10 +37,8 @@ NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypePkcs
 NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRIam_LintResult.level
-NSString * const kGTLRIam_LintResult_Level_Binding          = @"BINDING";
 NSString * const kGTLRIam_LintResult_Level_Condition        = @"CONDITION";
 NSString * const kGTLRIam_LintResult_Level_LevelUnspecified = @"LEVEL_UNSPECIFIED";
-NSString * const kGTLRIam_LintResult_Level_Policy           = @"POLICY";
 
 // GTLRIam_LintResult.severity
 NSString * const kGTLRIam_LintResult_Severity_Deprecated       = @"DEPRECATED";
@@ -265,21 +263,7 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_LintPolicyRequest
-@dynamic binding, condition, context, fullResourceName, policy;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRIam_LintPolicyRequest_Context
-//
-
-@implementation GTLRIam_LintPolicyRequest_Context
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
+@dynamic condition, fullResourceName;
 @end
 
 
@@ -307,8 +291,8 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 //
 
 @implementation GTLRIam_LintResult
-@dynamic bindingOrdinal, debugMessage, fieldName, level, locationOffset,
-         severity, validationUnitName;
+@dynamic debugMessage, fieldName, level, locationOffset, severity,
+         validationUnitName;
 @end
 
 

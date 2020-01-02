@@ -50,6 +50,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIAP_Brand
+//
+
+@implementation GTLRCloudIAP_Brand
+@dynamic applicationTitle, name, orgInternalOnly, supportEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIAP_CorsSettings
 //
 
@@ -65,6 +75,15 @@
 
 @implementation GTLRCloudIAP_CsmSettings
 @dynamic rctokenAud;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_Empty
+//
+
+@implementation GTLRCloudIAP_Empty
 @end
 
 
@@ -133,6 +152,56 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIAP_IdentityAwareProxyClient
+//
+
+@implementation GTLRCloudIAP_IdentityAwareProxyClient
+@dynamic displayName, name, secret;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_ListBrandsResponse
+//
+
+@implementation GTLRCloudIAP_ListBrandsResponse
+@dynamic brands;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"brands" : [GTLRCloudIAP_Brand class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_ListIdentityAwareProxyClientsResponse
+//
+
+@implementation GTLRCloudIAP_ListIdentityAwareProxyClientsResponse
+@dynamic identityAwareProxyClients, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"identityAwareProxyClients" : [GTLRCloudIAP_IdentityAwareProxyClient class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"identityAwareProxyClients";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIAP_OAuthSettings
 //
 
@@ -160,6 +229,15 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_ResetIdentityAwareProxyClientSecretRequest
+//
+
+@implementation GTLRCloudIAP_ResetIdentityAwareProxyClientSecretRequest
 @end
 
 

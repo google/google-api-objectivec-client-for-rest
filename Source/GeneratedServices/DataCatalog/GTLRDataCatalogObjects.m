@@ -632,7 +632,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField
-@dynamic displayName, name, type;
+@dynamic displayName, isRequired, name, type;
 @end
 
 

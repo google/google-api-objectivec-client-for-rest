@@ -167,9 +167,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  * resource_properties: `=`, `:`, `>`, `<`, `>=`, `<=`
  *  * security_marks.marks: `=`, `:`
  *  * security_center_properties.resource_name: `=`, `:`
+ *  * security_center_properties.resource_display_name: `=`, `:`
  *  * security_center_properties.resource_type: `=`, `:`
  *  * security_center_properties.resource_parent: `=`, `:`
+ *  * security_center_properties.resource_parent_display_name: `=`, `:`
  *  * security_center_properties.resource_project: `=`, `:`
+ *  * security_center_properties.resource_project_display_name: `=`, `:`
  *  * security_center_properties.resource_owners: `=`, `:`
  *  For example, `resource_properties.size = 100` is a valid filter string.
  */
@@ -190,8 +193,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  resource_properties
  *  security_marks.marks
  *  security_center_properties.resource_name
+ *  security_center_properties.resource_display_name
  *  security_center_properties.resource_parent
+ *  security_center_properties.resource_parent_display_name
  *  security_center_properties.resource_project
+ *  security_center_properties.resource_project_display_name
  *  security_center_properties.resource_type
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;

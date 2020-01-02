@@ -1967,6 +1967,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  The labels describing the metric value.
  *  See comments on google.api.servicecontrol.v1.Operation.labels for
  *  the overriding relationship.
+ *  Note that this map must not contain monitored resource labels.
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_MetricValue_Labels *labels;
 
@@ -1991,6 +1992,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  The labels describing the metric value.
  *  See comments on google.api.servicecontrol.v1.Operation.labels for
  *  the overriding relationship.
+ *  Note that this map must not contain monitored resource labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2569,9 +2571,9 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *  Putting multiple operations into a single request is allowed, but should
  *  be used only when multiple operations are natually available at the time
  *  of the report.
- *  If multiple operations are in a single request, the total request size
- *  should be no larger than 1MB. See ReportResponse.report_errors for
- *  partial failure behavior.
+ *  There is no limit on the number of operations in the same ReportRequest,
+ *  however the ReportRequest size should be no larger than 1MB. See
+ *  ReportResponse.report_errors for partial failure behavior.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_Operation *> *operations;
 
@@ -2676,7 +2678,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, copy, nullable) NSString *protocol;
 
 /**
- *  The HTTP URL query in the format of `name1=value`&name2=value2`, as it
+ *  The HTTP URL query in the format of `name1=value1&name2=value2`, as it
  *  appears in the first line of the HTTP request. No decoding is performed.
  */
 @property(nonatomic, copy, nullable) NSString *query;

@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *connectionId;
 
 /**
- *  Parent resource name.
+ *  Required. Parent resource name.
  *  Must be in the format `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBigQueryConnectionService_Connection to include in
  *    the query.
- *  @param parent Parent resource name.
+ *  @param parent Required. Parent resource name.
  *    Must be in the format `projects/{project_id}/locations/{location_id}`
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsCreate
@@ -96,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsDeleteWithname:]
 
 /**
- *  Name of the deleted connection, for example:
+ *  Required. Name of the deleted connection, for example:
  *  `projects/{project_id}/locations/{location_id}/connections/{connection_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -106,7 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes connection and associated credential.
  *
- *  @param name Name of the deleted connection, for example:
+ *  @param name Required. Name of the deleted connection, for example:
  *    `projects/{project_id}/locations/{location_id}/connections/{connection_id}`
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsDelete
@@ -129,7 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsGetWithname:]
 
 /**
- *  Name of the requested connection, for example:
+ *  Required. Name of the requested connection, for example:
  *  `projects/{project_id}/locations/{location_id}/connections/{connection_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -139,7 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns specified connection.
  *
- *  @param name Name of the requested connection, for example:
+ *  @param name Required. Name of the requested connection, for example:
  *    `projects/{project_id}/locations/{location_id}/connections/{connection_id}`
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsGet
@@ -202,14 +202,14 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsListWithparent:]
 
-/** Maximum number of results per page. */
+/** Required. Maximum number of results per page. */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /** Page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Parent resource name.
+ *  Required. Parent resource name.
  *  Must be in the form: `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -219,7 +219,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns a list of connections in the given project.
  *
- *  @param parent Parent resource name.
+ *  @param parent Required. Parent resource name.
  *    Must be in the form: `projects/{project_id}/locations/{location_id}`
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsList
@@ -247,13 +247,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsPatchWithObject:name:]
 
 /**
- *  Name of the connection to update, for example:
+ *  Required. Name of the connection to update, for example:
  *  `projects/{project_id}/locations/{location_id}/connections/{connection_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Update mask for the connection fields to be updated.
+ *  Required. Update mask for the connection fields to be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -267,7 +267,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBigQueryConnectionService_Connection to include in
  *    the query.
- *  @param name Name of the connection to update, for example:
+ *  @param name Required. Name of the connection to update, for example:
  *    `projects/{project_id}/locations/{location_id}/connections/{connection_id}`
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsPatch
@@ -379,7 +379,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsUpdateCredentialWithObject:name:]
 
 /**
- *  Name of the connection, for example:
+ *  Required. Name of the connection, for example:
  *  `projects/{project_id}/locations/{location_id}/connections/{connection_id}/credential`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -391,7 +391,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBigQueryConnectionService_ConnectionCredential to
  *    include in the query.
- *  @param name Name of the connection, for example:
+ *  @param name Required. Name of the connection, for example:
  *    `projects/{project_id}/locations/{location_id}/connections/{connection_id}/credential`
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsUpdateCredential

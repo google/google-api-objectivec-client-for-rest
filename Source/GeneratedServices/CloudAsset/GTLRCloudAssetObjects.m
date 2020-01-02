@@ -26,6 +26,13 @@ NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_IamPolicy = @"I
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_OrgPolicy = @"ORG_POLICY";
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource = @"RESOURCE";
 
+// GTLRCloudAsset_Feed.contentType
+NSString * const kGTLRCloudAsset_Feed_ContentType_AccessPolicy = @"ACCESS_POLICY";
+NSString * const kGTLRCloudAsset_Feed_ContentType_ContentTypeUnspecified = @"CONTENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudAsset_Feed_ContentType_IamPolicy    = @"IAM_POLICY";
+NSString * const kGTLRCloudAsset_Feed_ContentType_OrgPolicy    = @"ORG_POLICY";
+NSString * const kGTLRCloudAsset_Feed_ContentType_Resource     = @"RESOURCE";
+
 // GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy.allValues
 NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Allow = @"ALLOW";
 NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_AllValuesUnspecified = @"ALL_VALUES_UNSPECIFIED";
@@ -162,6 +169,25 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_CreateFeedRequest
+//
+
+@implementation GTLRCloudAsset_CreateFeedRequest
+@dynamic feed, feedId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_Empty
+//
+
+@implementation GTLRCloudAsset_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_ExportAssetsRequest
 //
 
@@ -190,6 +216,35 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_Feed
+//
+
+@implementation GTLRCloudAsset_Feed
+@dynamic assetNames, assetTypes, contentType, feedOutputConfig, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assetNames" : [NSString class],
+    @"assetTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_FeedOutputConfig
+//
+
+@implementation GTLRCloudAsset_FeedOutputConfig
+@dynamic pubsubDestination;
 @end
 
 
@@ -393,6 +448,24 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_ListFeedsResponse
+//
+
+@implementation GTLRCloudAsset_ListFeedsResponse
+@dynamic feeds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"feeds" : [GTLRCloudAsset_Feed class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_Operation
 //
 
@@ -459,6 +532,16 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_PubsubDestination
+//
+
+@implementation GTLRCloudAsset_PubsubDestination
+@dynamic topic;
 @end
 
 
@@ -536,4 +619,14 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 
 @implementation GTLRCloudAsset_TimeWindow
 @dynamic endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_UpdateFeedRequest
+//
+
+@implementation GTLRCloudAsset_UpdateFeedRequest
+@dynamic feed, updateMask;
 @end

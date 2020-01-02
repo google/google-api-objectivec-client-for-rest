@@ -214,6 +214,8 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
 /**
  *  State properties to include with this state. Overwrites any existing
  *  `state_metadata`.
+ *  Keys must match the regex /^a-z0-9{0,62}$/.
+ *  Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest_StateMetadata *stateMetadata;
 
@@ -223,6 +225,8 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
 /**
  *  State properties to include with this state. Overwrites any existing
  *  `state_metadata`.
+ *  Keys must match the regex /^a-z0-9{0,62}$/.
+ *  Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -244,6 +248,8 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
 /**
  *  State properties to include with this state. Overwrites any existing
  *  `state_metadata`.
+ *  Keys must match the regex /^a-z0-9{0,62}$/.
+ *  Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest_StateMetadata *stateMetadata;
 
@@ -253,6 +259,8 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
 /**
  *  State properties to include with this state. Overwrites any existing
  *  `state_metadata`.
+ *  Keys must match the regex /^a-z0-9{0,62}$/.
+ *  Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -274,6 +282,8 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
 /**
  *  State properties to include with this state. Overwrites any existing
  *  `state_metadata`.
+ *  Keys must match the regex /^a-z0-9{0,62}$/.
+ *  Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest_StateMetadata *stateMetadata;
 
@@ -283,6 +293,8 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
 /**
  *  State properties to include with this state. Overwrites any existing
  *  `state_metadata`.
+ *  Keys must match the regex /^a-z0-9{0,62}$/.
+ *  Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

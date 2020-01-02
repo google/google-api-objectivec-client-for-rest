@@ -95,10 +95,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_AdministratorWebToken : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#administratorWebToken".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -116,10 +112,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_AdministratorWebTokenSpec : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#administratorWebTokenSpec".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Options for displaying the Managed Configuration page. */
@@ -238,10 +230,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_AppRestrictionsSchema : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#appRestrictionsSchema".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The set of restrictions that make up this schema. */
@@ -369,10 +357,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *approvalUrl;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#approvalUrlInfo".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -454,10 +438,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_AuthenticationToken : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#authenticationToken".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -513,7 +493,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The minimum version of the app. If a lower version of the app is installed,
  *  then the app will be auto-updated according to the auto-install constraints,
- *  instead of waiting for the regular auto-update.
+ *  instead of waiting for the regular auto-update. You can set a minimum
+ *  version code for at most 20 apps per device.
  *
  *  Uses NSNumber of intValue.
  */
@@ -530,10 +511,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_ConfigurationVariables : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#configurationVariables".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The ID of the managed configurations settings. */
@@ -557,10 +534,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *androidId;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#device".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -662,10 +635,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *accountState;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#deviceState".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -701,10 +670,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#enterprise".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The name of the enterprise, for example, "Example, Inc". */
@@ -725,10 +690,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** The email address of the service account. */
 @property(nonatomic, copy, nullable) NSString *accountEmail;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#enterpriseAccount".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -792,10 +753,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_Entitlement : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#entitlement".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -869,10 +826,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *approval;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#groupLicense".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -981,10 +934,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *installState;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#install".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1145,10 +1094,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ConfigurationVariables *configurationVariables;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#managedConfiguration".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The set of managed properties for this configuration. */
@@ -1205,10 +1150,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_ManagedConfigurationsSettings : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#managedConfigurationsSettings".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1422,10 +1363,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_NotificationSet : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#notificationSet".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The notifications received, or empty if no notifications are present. */
@@ -1489,10 +1426,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#permission".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The name of the permission. */
@@ -1605,10 +1538,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *iconUrl;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#product".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1737,10 +1666,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_ProductPermissions : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#productPermissions".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The permissions required by the app. */
@@ -1814,10 +1739,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_ProductSet : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#productSet".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The list of product IDs making up the set of products. */
@@ -1947,10 +1868,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** Credentials that can be used to authenticate as this ServiceAccount. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ServiceAccountKey *key;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#serviceAccount".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1982,10 +1899,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#serviceAccountKey".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2024,10 +1937,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *completionToken;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#signupInfo".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2052,10 +1961,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#storeCluster".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2098,10 +2003,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *homepageId;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#storeLayout".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2163,10 +2064,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#storePage".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2265,10 +2162,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#user".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2312,10 +2205,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_UserToken : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#userToken".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2338,10 +2227,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_VariableSet : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#variableSet".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The placeholder string; defined by EMM. */

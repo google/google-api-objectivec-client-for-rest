@@ -302,8 +302,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The field paths to be updated.
- *  Currently supported field paths: "text", "cards".
+ *  Required. The field paths to be updated, comma separated if there are
+ *  multiple.
+ *  Currently supported field paths:
+ *  * text
+ *  * cards
  *
  *  String format is a comma-separated list of fields.
  */

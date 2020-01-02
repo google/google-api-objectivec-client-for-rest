@@ -32,6 +32,113 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 @end
 
+@implementation GTLRCloudAssetQuery_FeedsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudAsset_CreateFeedRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/feeds";
+  GTLRCloudAssetQuery_FeedsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudAsset_Feed class];
+  query.loggingName = @"cloudasset.feeds.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_FeedsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudAssetQuery_FeedsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudAsset_Empty class];
+  query.loggingName = @"cloudasset.feeds.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_FeedsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudAssetQuery_FeedsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudAsset_Feed class];
+  query.loggingName = @"cloudasset.feeds.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_FeedsList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/feeds";
+  GTLRCloudAssetQuery_FeedsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudAsset_ListFeedsResponse class];
+  query.loggingName = @"cloudasset.feeds.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_FeedsPatch
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudAsset_UpdateFeedRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudAssetQuery_FeedsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudAsset_Feed class];
+  query.loggingName = @"cloudasset.feeds.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudAssetQuery_OperationsGet
 
 @dynamic name;

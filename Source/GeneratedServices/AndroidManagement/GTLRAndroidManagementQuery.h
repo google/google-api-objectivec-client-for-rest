@@ -169,6 +169,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStor
 @property(nonatomic, strong, nullable) NSArray<NSString *> *wipeDataFlags;
 
 /**
+ *  Optional short message displayed to the user before wiping the work profile
+ *  on personal devices. This has no effect on company owned devices. The
+ *  maximum message length is 200 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *wipeReasonMessage;
+
+/**
  *  Fetches a @c GTLRAndroidManagement_Empty.
  *
  *  Deletes a device. This operation wipes the device.
