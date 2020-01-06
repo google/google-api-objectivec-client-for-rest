@@ -320,7 +320,9 @@ typedef struct {
   // These are the "fixed" return classes, but some properties will require
   // looking up the return class instead (because it is a subclass of
   // GTLRObject).
+  const char *returnClassName;
   Class       returnClass;
+  BOOL extractReturnClass;
 
 } GTLRDynamicImpInfo;
 
@@ -345,18 +347,6 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
   //   T@"GTLRLink",D
   //   T@"NSArray",D
 
-  // References to classes that we can put in static structures.
-  extern const struct {} GTLRNSArrayClass __asm__("_OBJC_CLASS_$_NSArray");
-  extern const struct {} GTLRNSObjectClass __asm__("_OBJC_CLASS_$_NSObject");
-  extern const struct {} GTLRNSStringClass __asm__("_OBJC_CLASS_$_NSString");
-  extern const struct {} GTLRNSNumberClass __asm__("_OBJC_CLASS_$_NSNumber");
-  extern const struct {} GTLRDateTimeClass
-      __asm__("_OBJC_CLASS_$_" GTLR_CLASSNAME_CSTR(GTLRDateTime));
-  extern const struct {} GTLRDurationClass
-      __asm__("_OBJC_CLASS_$_" GTLR_CLASSNAME_CSTR(GTLRDuration));
-
-	// Denotes that the class is dynamic and must be resolved.
-  const Class kLookupClass = (__bridge Class)(void *)0x1;
 
   static GTLRDynamicImpInfo kImplInfo[] = {
 #if !defined(__LP64__) || !__LP64__
@@ -365,14 +355,16 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
       GTLRPropertyTypeInt32,
       "v@:i",
       "i@:",
-      Nil,
+      nil, nil,
+      NO
     },
     { // NSUInteger on 32bit
       "TI",
       GTLRPropertyTypeUInt32,
       "v@:I",
       "I@:",
-      Nil,
+      nil, nil,
+      NO
     },
 #endif
     { // NSInteger on 64bit, long long on 32bit and 64bit.
@@ -380,28 +372,32 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
       GTLRPropertyTypeLongLong,
       "v@:q",
       "q@:",
-      Nil,
+      nil, nil,
+      NO
     },
     { // NSUInteger on 64bit, long long on 32bit and 64bit.
       "TQ",
       GTLRPropertyTypeULongLong,
       "v@:Q",
       "Q@:",
-      Nil,
+      nil, nil,
+      NO
     },
     { // float
       "Tf",
       GTLRPropertyTypeFloat,
       "v@:f",
       "f@:",
-      Nil,
+      nil, nil,
+      NO
     },
     { // double
       "Td",
       GTLRPropertyTypeDouble,
       "v@:d",
       "d@:",
-      Nil,
+      nil, nil,
+      NO
     },
 #if defined(OBJC_BOOL_IS_BOOL) && OBJC_BOOL_IS_BOOL
     { // BOOL as bool
@@ -409,7 +405,8 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
       GTLRPropertyTypeBool,
       "v@:B",
       "B@:",
-      Nil,
+      nil, nil,
+      NO
     },
 #elif defined(OBJC_BOOL_IS_CHAR) && OBJC_BOOL_IS_CHAR
     { // BOOL as char
@@ -417,7 +414,8 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
       GTLRPropertyTypeBool,
       "v@:c",
       "c@:",
-      Nil,
+      nil, nil,
+      NO
     },
 #else
  #error unknown definition for ObjC BOOL type
@@ -427,51 +425,72 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
       GTLRPropertyTypeNSString,
       "v@:@",
       "@@:",
-      (__bridge Class)&GTLRNSStringClass,
+      "NSString", nil,
+      NO
     },
     { // NSNumber
       "T@\"NSNumber\"",
       GTLRPropertyTypeNSNumber,
       "v@:@",
       "@@:",
-      (__bridge Class)&GTLRNSNumberClass,
+      "NSNumber", nil,
+      NO
     },
     { // GTLRDateTime
       "T@\"" GTLR_CLASSNAME_CSTR(GTLRDateTime) "\"",
       GTLRPropertyTypeGTLRDateTime,
       "v@:@",
       "@@:",
-      (__bridge Class)&GTLRNSNumberClass,
+      GTLR_CLASSNAME_CSTR(GTLRDateTime), nil,
+      NO
     },
     { // GTLRDuration
       "T@\"" GTLR_CLASSNAME_CSTR(GTLRDuration) "\"",
       GTLRPropertyTypeGTLRDuration,
       "v@:@",
       "@@:",
-      (__bridge Class)&GTLRDurationClass,
+      GTLR_CLASSNAME_CSTR(GTLRDuration), nil,
+      NO
     },
     { // NSArray with type
       "T@\"NSArray\"",
       GTLRPropertyTypeNSArray,
       "v@:@",
       "@@:",
-      (__bridge Class)&GTLRNSArrayClass,
+      "NSArray", nil,
+      NO
     },
     { // id (any of the objects above)
       "T@,",
       GTLRPropertyTypeNSObject,
       "v@:@",
       "@@:",
-      (__bridge Class)&GTLRNSObjectClass,
+      "NSObject", nil,
+      NO
     },
     { // GTLRObject - Last, cause it's a special case and prefix is general
       "T@\"",
       GTLRPropertyTypeGTLRObject,
       "v@:@",
       "@@:",
-      kLookupClass,
+      nil, nil,
+      YES
     },
   };
+
+  static BOOL hasLookedUpClasses = NO;
+  if (!hasLookedUpClasses) {
+    // Unfortunately, you can't put [NSString class] into the static structure,
+    // so this lookup has to be done at runtime.
+    hasLookedUpClasses = YES;
+    for (uint32_t idx = 0; idx < sizeof(kImplInfo)/sizeof(kImplInfo[0]); ++idx) {
+      if (kImplInfo[idx].returnClassName) {
+        kImplInfo[idx].returnClass = objc_getClass(kImplInfo[idx].returnClassName);
+        NSCAssert1(kImplInfo[idx].returnClass != nil,
+                   @"GTLRRuntimeCommon: class lookup failed: %s", kImplInfo[idx].returnClassName);
+      }
+    }
+  }
 
   const char *attr = property_getAttributes(prop);
 
@@ -502,7 +521,7 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
     return NULL;
   }
 
-  if (result->returnClass == kLookupClass && outReturnClass) {
+  if (result->extractReturnClass && outReturnClass) {
 
     // add a null at the next quotation mark
     char *attrCopy = strdup(attr);
@@ -513,7 +532,7 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
 
       // Lookup the return class
       *outReturnClass = objc_getClass(classNameStart);
-      if (*outReturnClass == Nil) {
+      if (*outReturnClass == nil) {
         GTLR_DEBUG_LOG(@"GTLRRuntimeCommon: did not find class with name \"%s\" "
                        @"for property \"%s\" with attributes \"%s\"",
                        classNameStart, property_getName(prop), attr);
