@@ -220,6 +220,31 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_Height
 
 
 /**
+ *  Request for BulkCreateDevice method.
+ */
+@interface GTLRSASPortal_BulkCreateDeviceRequest : GTLRObject
+
+/**
+ *  Required. A csv with each row representing a [device]. Each row must
+ *  conform to the regulations described on CreateDeviceRequest's device field.
+ */
+@property(nonatomic, copy, nullable) NSString *csv;
+
+@end
+
+
+/**
+ *  Response for BulkCreateDevice method.
+ */
+@interface GTLRSASPortal_BulkCreateDeviceResponse : GTLRObject
+
+/** Required. The devices that were imported. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_Device *> *devices;
+
+@end
+
+
+/**
  *  Request for CreateSignedDevice method.
  */
 @interface GTLRSASPortal_CreateSignedDeviceRequest : GTLRObject

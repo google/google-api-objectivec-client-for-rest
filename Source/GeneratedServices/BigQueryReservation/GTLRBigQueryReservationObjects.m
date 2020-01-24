@@ -43,16 +43,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigQueryReservation_LocationMetadata
-//
-
-@implementation GTLRBigQueryReservation_LocationMetadata
-@dynamic legacyLocationId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBigQueryReservation_Operation
 //
 

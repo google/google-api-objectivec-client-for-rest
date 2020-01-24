@@ -1204,9 +1204,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
 @property(nonatomic, strong, nullable) GTLRDateTime *destroyTime;
 
 /**
- *  [ExternalProtectionLevelOptions] stores a group of additional fields for
- *  configuring a [CryptoKeyVersion] that are specific to the [EXTERNAL]
- *  protection level.
+ *  ExternalProtectionLevelOptions stores a group of additional fields for
+ *  configuring a CryptoKeyVersion that are specific to the
+ *  EXTERNAL protection level.
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_ExternalProtectionLevelOptions *externalProtectionLevelOptions;
 
@@ -1572,9 +1572,9 @@ GTLR_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha
 
 
 /**
- *  [ExternalProtectionLevelOptions] stores a group of additional fields for
- *  configuring a [CryptoKeyVersion] that are specific to the [EXTERNAL]
- *  protection level.
+ *  ExternalProtectionLevelOptions stores a group of additional fields for
+ *  configuring a CryptoKeyVersion that are specific to the
+ *  EXTERNAL protection level.
  */
 @interface GTLRCloudKMS_ExternalProtectionLevelOptions : GTLRObject
 

@@ -20,6 +20,9 @@
 #endif
 
 @class GTLRServiceControl_AllocateInfo;
+@class GTLRServiceControl_Attributes;
+@class GTLRServiceControl_Attributes_AttributeMap;
+@class GTLRServiceControl_AttributeValue;
 @class GTLRServiceControl_AuditLog_Metadata;
 @class GTLRServiceControl_AuditLog_Request;
 @class GTLRServiceControl_AuditLog_ResourceOriginalState;
@@ -77,6 +80,8 @@
 @class GTLRServiceControl_Status_Details_Item;
 @class GTLRServiceControl_ThirdPartyPrincipal;
 @class GTLRServiceControl_ThirdPartyPrincipal_ThirdPartyClaims;
+@class GTLRServiceControl_TraceSpan;
+@class GTLRServiceControl_TruncatableString;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -617,6 +622,55 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Check
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release;
 
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_TraceSpan.spanKind
+
+/**
+ *  Indicates that the span covers the client-side wrapper around an RPC or
+ *  other remote request.
+ *
+ *  Value: "CLIENT"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Client;
+/**
+ *  Indicates that the span describes consumer receiving a message from a
+ *  broker. Unlike client and server, there is no direct critical path
+ *  latency relationship between producer and consumer spans (e.g. receiving
+ *  a message from a pubsub service subscription).
+ *
+ *  Value: "CONSUMER"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Consumer;
+/**
+ *  Indicates that the span is used internally. Default value.
+ *
+ *  Value: "INTERNAL"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Internal;
+/**
+ *  Indicates that the span describes producer sending a message to a broker.
+ *  Unlike client and server, there is no direct critical path latency
+ *  relationship between producer and consumer spans (e.g. publishing a
+ *  message to a pubsub service).
+ *
+ *  Value: "PRODUCER"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Producer;
+/**
+ *  Indicates that the span covers server-side handling of an RPC or other
+ *  remote network request.
+ *
+ *  Value: "SERVER"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Server;
+/**
+ *  Unspecified. Do NOT use as default.
+ *  Implementations MAY assume SpanKind.INTERNAL to be default.
+ *
+ *  Value: "SPAN_KIND_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified;
+
 /**
  *  GTLRServiceControl_AllocateInfo
  */
@@ -683,6 +737,77 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 /** ID of the actual config used to process the request. */
 @property(nonatomic, copy, nullable) NSString *serviceConfigId;
+
+@end
+
+
+/**
+ *  A set of attributes, each in the format `[KEY]:[VALUE]`.
+ */
+@interface GTLRServiceControl_Attributes : GTLRObject
+
+/**
+ *  The set of attributes. Each attribute's key can be up to 128 bytes
+ *  long. The value can be a string up to 256 bytes, a signed 64-bit integer,
+ *  or the Boolean values `true` and `false`. For example:
+ *  "/instance_id": "my-instance"
+ *  "/http/user_agent": ""
+ *  "/http/request_bytes": 300
+ *  "abc.com/myattribute": true
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Attributes_AttributeMap *attributeMap;
+
+/**
+ *  The number of attributes that were discarded. Attributes can be discarded
+ *  because their keys are too long or because there are too many attributes.
+ *  If this value is 0 then all attributes are valid.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *droppedAttributesCount;
+
+@end
+
+
+/**
+ *  The set of attributes. Each attribute's key can be up to 128 bytes
+ *  long. The value can be a string up to 256 bytes, a signed 64-bit integer,
+ *  or the Boolean values `true` and `false`. For example:
+ *  "/instance_id": "my-instance"
+ *  "/http/user_agent": ""
+ *  "/http/request_bytes": 300
+ *  "abc.com/myattribute": true
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRServiceControl_AttributeValue. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_Attributes_AttributeMap : GTLRObject
+@end
+
+
+/**
+ *  The allowed types for [VALUE] in a `[KEY]:[VALUE]` attribute.
+ */
+@interface GTLRServiceControl_AttributeValue : GTLRObject
+
+/**
+ *  A Boolean value represented by `true` or `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  A 64-bit signed integer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *intValue;
+
+/** A string up to 256 bytes long. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_TruncatableString *stringValue;
 
 @end
 
@@ -2165,6 +2290,13 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
+ *  Unimplemented. A list of Cloud Trace spans. The span names shall contain
+ *  the id of the destination project which can be either the produce or the
+ *  consumer project.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_TraceSpan *> *traceSpans;
+
+/**
  *  User defined labels for the resource that this operation is associated
  *  with. Only a combination of 1000 user labels per consumer project are
  *  allowed.
@@ -2916,6 +3048,27 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
 
 
 /**
+ *  The context of a span, attached to google.api.Distribution.Exemplars
+ *  in google.api.Distribution values during aggregation.
+ *  It contains the name of a span with format:
+ *  projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/[SPAN_ID]
+ */
+@interface GTLRServiceControl_SpanContext : GTLRObject
+
+/**
+ *  The resource name of the span in the following format:
+ *  projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier
+ *  for a trace within a project;
+ *  it is a 32-character hexadecimal encoding of a 16-byte array.
+ *  [SPAN_ID] is a unique identifier for a span within a trace; it
+ *  is a 16-character hexadecimal encoding of an 8-byte array.
+ */
+@property(nonatomic, copy, nullable) NSString *spanName;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -2980,6 +3133,148 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceControl_ThirdPartyPrincipal_ThirdPartyClaims : GTLRObject
+@end
+
+
+/**
+ *  A span represents a single operation within a trace. Spans can be
+ *  nested to form a trace tree. Often, a trace contains a root span
+ *  that describes the end-to-end latency, and one or more subspans for
+ *  its sub-operations. A trace can also contain multiple root spans,
+ *  or none at all. Spans do not need to be contiguous&mdash;there may be
+ *  gaps or overlaps between spans in a trace.
+ */
+@interface GTLRServiceControl_TraceSpan : GTLRObject
+
+/**
+ *  A set of attributes on the span. You can have up to 32 attributes per
+ *  span.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Attributes *attributes;
+
+/**
+ *  An optional number of child spans that were generated while this span
+ *  was active. If set, allows implementation to detect missing child spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *childSpanCount;
+
+/**
+ *  A description of the span's operation (up to 128 bytes).
+ *  Stackdriver Trace displays the description in the
+ *  Google Cloud Platform Console.
+ *  For example, the display name can be a qualified method name or a file name
+ *  and a line number where the operation is called. A best practice is to use
+ *  the same display name within an application and at the same call point.
+ *  This makes it easier to correlate spans in different traces.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_TruncatableString *displayName;
+
+/**
+ *  The end time of the span. On the client side, this is the time kept by
+ *  the local machine where the span execution ends. On the server side, this
+ *  is the time when the server application handler stops running.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The resource name of the span in the following format:
+ *  projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier
+ *  for a trace within a project;
+ *  it is a 32-character hexadecimal encoding of a 16-byte array.
+ *  [SPAN_ID] is a unique identifier for a span within a trace; it
+ *  is a 16-character hexadecimal encoding of an 8-byte array.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The [SPAN_ID] of this span's parent span. If this is a root span,
+ *  then this field must be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *parentSpanId;
+
+/**
+ *  (Optional) Set this parameter to indicate whether this span is in
+ *  the same process as its parent. If you do not set this parameter,
+ *  Stackdriver Trace is unable to take advantage of this helpful
+ *  information.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sameProcessAsParentSpan;
+
+/** The [SPAN_ID] portion of the span's resource name. */
+@property(nonatomic, copy, nullable) NSString *spanId;
+
+/**
+ *  Distinguishes between spans generated in a particular context. For example,
+ *  two spans with the same name may be distinguished using `CLIENT` (caller)
+ *  and `SERVER` (callee) to identify an RPC call.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_TraceSpan_SpanKind_Client Indicates that the
+ *        span covers the client-side wrapper around an RPC or
+ *        other remote request. (Value: "CLIENT")
+ *    @arg @c kGTLRServiceControl_TraceSpan_SpanKind_Consumer Indicates that the
+ *        span describes consumer receiving a message from a
+ *        broker. Unlike client and server, there is no direct critical path
+ *        latency relationship between producer and consumer spans (e.g.
+ *        receiving
+ *        a message from a pubsub service subscription). (Value: "CONSUMER")
+ *    @arg @c kGTLRServiceControl_TraceSpan_SpanKind_Internal Indicates that the
+ *        span is used internally. Default value. (Value: "INTERNAL")
+ *    @arg @c kGTLRServiceControl_TraceSpan_SpanKind_Producer Indicates that the
+ *        span describes producer sending a message to a broker.
+ *        Unlike client and server, there is no direct critical path latency
+ *        relationship between producer and consumer spans (e.g. publishing a
+ *        message to a pubsub service). (Value: "PRODUCER")
+ *    @arg @c kGTLRServiceControl_TraceSpan_SpanKind_Server Indicates that the
+ *        span covers server-side handling of an RPC or other
+ *        remote network request. (Value: "SERVER")
+ *    @arg @c kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified
+ *        Unspecified. Do NOT use as default.
+ *        Implementations MAY assume SpanKind.INTERNAL to be default. (Value:
+ *        "SPAN_KIND_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *spanKind;
+
+/**
+ *  The start time of the span. On the client side, this is the time kept by
+ *  the local machine where the span execution starts. On the server side, this
+ *  is the time when the server's application handler starts running.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/** An optional final status for this span. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Status *status;
+
+@end
+
+
+/**
+ *  Represents a string that might be shortened to a specified length.
+ */
+@interface GTLRServiceControl_TruncatableString : GTLRObject
+
+/**
+ *  The number of bytes removed from the original string. If this
+ *  value is 0, then the string was not shortened.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *truncatedByteCount;
+
+/**
+ *  The shortened string. For example, if the original string is 500
+ *  bytes long and the limit of the string is 128 bytes, then
+ *  `value` contains the first 128 bytes of the 500-byte string.
+ *  Truncation always happens on a UTF8 character boundary. If there
+ *  are multi-byte characters in the string, then the length of the
+ *  shortened string might be less than the size limit.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
 @end
 
 NS_ASSUME_NONNULL_END

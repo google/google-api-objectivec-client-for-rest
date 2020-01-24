@@ -73,6 +73,7 @@ NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspec
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat = @"HIVE_WEBHCAT";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter = @"JUPYTER";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin = @"ZEPPELIN";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper = @"ZOOKEEPER";
 
 // GTLRDataproc_WorkflowMetadata.state
 NSString * const kGTLRDataproc_WorkflowMetadata_State_Done    = @"DONE";

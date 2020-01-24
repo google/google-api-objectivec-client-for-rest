@@ -1719,7 +1719,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_ChannelStatus
-@dynamic isLinked, longUploadsStatus, privacyStatus;
+@dynamic isLinked, longUploadsStatus, madeForKids, privacyStatus,
+         selfDeclaredMadeForKids;
 @end
 
 
@@ -2250,7 +2251,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_LiveBroadcastStatus
-@dynamic lifeCycleStatus, liveBroadcastPriority, privacyStatus, recordingStatus;
+@dynamic lifeCycleStatus, liveBroadcastPriority, madeForKids, privacyStatus,
+         recordingStatus, selfDeclaredMadeForKids;
 @end
 
 
@@ -2700,14 +2702,10 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_Member
-@dynamic ETag, identifier, kind, snippet;
+@dynamic ETag, kind, snippet;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"ETag" : @"etag",
-    @"identifier" : @"id"
-  };
-  return map;
+  return @{ @"ETag" : @"etag" };
 }
 
 @end
@@ -2742,8 +2740,10 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_MembershipsDetails
-@dynamic accessibleLevels, memberSince, memberSinceCurrentLevel,
-         memberTotalDuration, memberTotalDurationCurrentLevel, purchasedLevel;
+@dynamic accessibleLevels, highestAccessibleLevel,
+         highestAccessibleLevelDisplayName, memberSince,
+         memberSinceCurrentLevel, memberTotalDuration,
+         memberTotalDurationCurrentLevel, purchasedLevel;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3866,8 +3866,9 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_VideoStatus
-@dynamic embeddable, failureReason, license, privacyStatus, publicStatsViewable,
-         publishAt, rejectionReason, uploadStatus;
+@dynamic embeddable, failureReason, license, madeForKids, privacyStatus,
+         publicStatsViewable, publishAt, rejectionReason,
+         selfDeclaredMadeForKids, uploadStatus;
 @end
 
 

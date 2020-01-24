@@ -73,6 +73,12 @@ GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserinfoEmail;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserinfoProfile;
 /**
+ *  Authorization scope: See your education, work history and org info
+ *
+ *  Value "https://www.googleapis.com/auth/user.organization.read"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserOrganizationRead;
+/**
  *  Authorization scope: View your phone numbers
  *
  *  Value "https://www.googleapis.com/auth/user.phonenumbers.read"

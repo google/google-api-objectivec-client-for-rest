@@ -20,6 +20,7 @@ NSString * const kGTLRAuthScopePeopleServiceUserBirthdayRead   = @"https://www.g
 NSString * const kGTLRAuthScopePeopleServiceUserEmailsRead     = @"https://www.googleapis.com/auth/user.emails.read";
 NSString * const kGTLRAuthScopePeopleServiceUserinfoEmail      = @"https://www.googleapis.com/auth/userinfo.email";
 NSString * const kGTLRAuthScopePeopleServiceUserinfoProfile    = @"https://www.googleapis.com/auth/userinfo.profile";
+NSString * const kGTLRAuthScopePeopleServiceUserOrganizationRead = @"https://www.googleapis.com/auth/user.organization.read";
 NSString * const kGTLRAuthScopePeopleServiceUserPhonenumbersRead = @"https://www.googleapis.com/auth/user.phonenumbers.read";
 
 // ----------------------------------------------------------------------------

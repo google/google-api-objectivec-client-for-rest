@@ -1194,7 +1194,8 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @implementation GTLRYouTubeQuery_MembersList
 
-@dynamic hasAccessToLevel, maxResults, mode, pageToken, part;
+@dynamic filterByMemberChannelId, hasAccessToLevel, maxResults, mode, pageToken,
+         part;
 
 + (instancetype)queryWithPart:(NSString *)part {
   NSString *pathURITemplate = @"members";

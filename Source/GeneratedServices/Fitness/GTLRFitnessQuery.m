@@ -297,7 +297,14 @@
 
 @implementation GTLRFitnessQuery_UsersSessionsList
 
-@dynamic endTime, includeDeleted, pageToken, startTime, userId;
+@dynamic activityType, endTime, includeDeleted, pageToken, startTime, userId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activityType" : [NSNumber class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];

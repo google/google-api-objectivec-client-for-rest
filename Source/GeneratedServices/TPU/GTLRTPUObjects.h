@@ -435,7 +435,6 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  *  conflicts with any subnetworks in the user's provided network, or the
  *  provided network is peered with another network that is using that CIDR
  *  block.
- *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *cidrBlock;
 

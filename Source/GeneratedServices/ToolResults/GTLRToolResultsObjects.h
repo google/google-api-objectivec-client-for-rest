@@ -45,6 +45,8 @@ GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_Grey;
 GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxO;
 /** Value: "GREY_MAX_P" */
 GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxP;
+/** Value: "GREY_MAX_Q" */
+GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxQ;
 /** Value: "NONE" */
 GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_None;
 /** Value: "WHITE" */
@@ -248,6 +250,7 @@ GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_White;
  *    @arg @c kGTLRToolResults_NonSdkApi_List_Grey Value "GREY"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_GreyMaxO Value "GREY_MAX_O"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_GreyMaxP Value "GREY_MAX_P"
+ *    @arg @c kGTLRToolResults_NonSdkApi_List_GreyMaxQ Value "GREY_MAX_Q"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_None Value "NONE"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_White Value "WHITE"
  */

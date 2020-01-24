@@ -3949,6 +3949,11 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Update the message.
+ *  The contents of the message in Message.data and data extracted from
+ *  the contents such as Message.create_time cannot be altered. Only the
+ *  Message.labels field is allowed to be updated. The labels in the
+ *  request are merged with the existing set of labels. Existing labels with
+ *  the same keys are updated.
  *
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.patch
  *
@@ -3970,9 +3975,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  The update mask applies to the resource. For the `FieldMask` definition,
  *  see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
- *  Only the `labels` field is allowed to be updated.
- *  The labels in the request are merged with the existing set of labels.
- *  Existing labels with the same keys are updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -3982,6 +3984,11 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_Message.
  *
  *  Update the message.
+ *  The contents of the message in Message.data and data extracted from
+ *  the contents such as Message.create_time cannot be altered. Only the
+ *  Message.labels field is allowed to be updated. The labels in the
+ *  request are merged with the existing set of labels. Existing labels with
+ *  the same keys are updated.
  *
  *  @param object The @c GTLRCloudHealthcare_Message to include in the query.
  *  @param name Resource name of the Message, of the form

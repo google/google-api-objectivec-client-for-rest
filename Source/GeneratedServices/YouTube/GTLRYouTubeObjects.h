@@ -3892,6 +3892,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *longUploadsStatus;
 
 /**
+ *  madeForKids
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *madeForKids;
+
+/**
  *  Privacy status of the channel.
  *
  *  Likely values:
@@ -3900,6 +3907,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *    @arg @c kGTLRYouTube_ChannelStatus_PrivacyStatus_Unlisted Value "unlisted"
  */
 @property(nonatomic, copy, nullable) NSString *privacyStatus;
+
+/**
+ *  selfDeclaredMadeForKids
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *selfDeclaredMadeForKids;
 
 @end
 
@@ -6399,6 +6413,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *liveBroadcastPriority;
 
 /**
+ *  madeForKids
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *madeForKids;
+
+/**
  *  The broadcast's privacy status. Note that the broadcast represents exactly
  *  one YouTube video, so the privacy settings are identical to those supported
  *  for videos. In addition, you can set this field by modifying the broadcast
@@ -6427,6 +6448,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        "recording"
  */
 @property(nonatomic, copy, nullable) NSString *recordingStatus;
+
+/**
+ *  selfDeclaredMadeForKids
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *selfDeclaredMadeForKids;
 
 @end
 
@@ -7458,13 +7486,6 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The ID that YouTube assigns to uniquely identify the member.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "youtube#member".
  */
@@ -7527,10 +7548,19 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_MembershipsDetails : GTLRObject
 
 /**
- *  All levels that the user has access to. This includes the purchased level
- *  and all other levels that are included because of a higher purchase.
+ *  All levels that the user has access to. This includes the currently active
+ *  level and all other levels that are included because of a higher purchase.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessibleLevels;
+
+/** The highest level that the user has access to at the moment. */
+@property(nonatomic, copy, nullable) NSString *highestAccessibleLevel;
+
+/**
+ *  Display name for the highest level that the user has access to at the
+ *  moment.
+ */
+@property(nonatomic, copy, nullable) NSString *highestAccessibleLevelDisplayName;
 
 /**
  *  The date and time when the user became a continuous member across all
@@ -7560,7 +7590,11 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  */
 @property(nonatomic, strong, nullable) NSNumber *memberTotalDurationCurrentLevel;
 
-/** The highest level the user has access to at the moment. */
+/**
+ *  The highest level that the user has access to at the moment. DEPRECATED -
+ *  highest_accessible_level should be used instead. This will be removed after
+ *  we make sure there are no 3rd parties relying on it.
+ */
 @property(nonatomic, copy, nullable) NSString *purchasedLevel;
 
 @end
@@ -10283,6 +10317,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *license;
 
 /**
+ *  madeForKids
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *madeForKids;
+
+/**
  *  The video's privacy status.
  *
  *  Likely values:
@@ -10333,6 +10374,15 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
  *        Value "uploaderAccountSuspended"
  */
 @property(nonatomic, copy, nullable) NSString *rejectionReason;
+
+/**
+ *  Allows clients to set the Crosswalk self_declared state for a Video. This
+ *  maps to VAPI.Video.creator_flags.is_crosswalk_self_declared() and
+ *  VAPI.Video.creator_flags.is_not_crosswalk_self_declared().
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *selfDeclaredMadeForKids;
 
 /**
  *  The status of the uploaded video.

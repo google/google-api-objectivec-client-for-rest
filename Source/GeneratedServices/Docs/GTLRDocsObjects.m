@@ -379,7 +379,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_CreateFooterRequest
-@dynamic type;
+@dynamic sectionBreakLocation, type;
 @end
 
 
@@ -395,11 +395,31 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_CreateFootnoteRequest
+//
+
+@implementation GTLRDocs_CreateFootnoteRequest
+@dynamic endOfSegmentLocation, location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_CreateFootnoteResponse
+//
+
+@implementation GTLRDocs_CreateFootnoteResponse
+@dynamic footnoteId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_CreateHeaderRequest
 //
 
 @implementation GTLRDocs_CreateHeaderRequest
-@dynamic type;
+@dynamic sectionBreakLocation, type;
 @end
 
 
@@ -471,6 +491,26 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_DeleteContentRangeRequest
 @dynamic range;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DeleteFooterRequest
+//
+
+@implementation GTLRDocs_DeleteFooterRequest
+@dynamic footerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DeleteHeaderRequest
+//
+
+@implementation GTLRDocs_DeleteHeaderRequest
+@dynamic headerId;
 @end
 
 
@@ -1673,15 +1713,15 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_Request
-@dynamic createFooter, createHeader, createNamedRange, createParagraphBullets,
-         deleteContentRange, deleteNamedRange, deleteParagraphBullets,
-         deletePositionedObject, deleteTableColumn, deleteTableRow,
-         insertInlineImage, insertPageBreak, insertSectionBreak, insertTable,
-         insertTableColumn, insertTableRow, insertText, mergeTableCells,
-         replaceAllText, replaceImage, replaceNamedRangeContent,
-         unmergeTableCells, updateDocumentStyle, updateParagraphStyle,
-         updateSectionStyle, updateTableCellStyle, updateTableColumnProperties,
-         updateTableRowStyle, updateTextStyle;
+@dynamic createFooter, createFootnote, createHeader, createNamedRange,
+         createParagraphBullets, deleteContentRange, deleteFooter, deleteHeader,
+         deleteNamedRange, deleteParagraphBullets, deletePositionedObject,
+         deleteTableColumn, deleteTableRow, insertInlineImage, insertPageBreak,
+         insertSectionBreak, insertTable, insertTableColumn, insertTableRow,
+         insertText, mergeTableCells, replaceAllText, replaceImage,
+         replaceNamedRangeContent, unmergeTableCells, updateDocumentStyle,
+         updateParagraphStyle, updateSectionStyle, updateTableCellStyle,
+         updateTableColumnProperties, updateTableRowStyle, updateTextStyle;
 @end
 
 
@@ -1691,8 +1731,8 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_Response
-@dynamic createFooter, createHeader, createNamedRange, insertInlineImage,
-         insertInlineSheetsChart, replaceAllText;
+@dynamic createFooter, createFootnote, createHeader, createNamedRange,
+         insertInlineImage, insertInlineSheetsChart, replaceAllText;
 @end
 
 
@@ -1741,9 +1781,11 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_SectionStyle
-@dynamic columnProperties, columnSeparatorStyle, contentDirection, marginBottom,
-         marginFooter, marginHeader, marginLeft, marginRight, marginTop,
-         sectionType;
+@dynamic columnProperties, columnSeparatorStyle, contentDirection,
+         defaultFooterId, defaultHeaderId, evenPageFooterId, evenPageHeaderId,
+         firstPageFooterId, firstPageHeaderId, marginBottom, marginFooter,
+         marginHeader, marginLeft, marginRight, marginTop, sectionType,
+         useFirstPageHeaderFooter;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

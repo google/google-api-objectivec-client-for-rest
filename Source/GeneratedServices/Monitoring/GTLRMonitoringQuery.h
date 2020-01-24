@@ -2014,7 +2014,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Resource name of the Service to delete. Of the form
- *  projects/{project_id}/service/{service_id}.
+ *  projects/{project_id}/services/{service_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2024,7 +2024,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Soft delete this Service.
  *
  *  @param name Resource name of the Service to delete. Of the form
- *    projects/{project_id}/service/{service_id}.
+ *    projects/{project_id}/services/{service_id}.
  *
  *  @return GTLRMonitoringQuery_ServicesDelete
  */

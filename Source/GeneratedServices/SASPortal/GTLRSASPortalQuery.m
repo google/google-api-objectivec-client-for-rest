@@ -16,6 +16,31 @@
 
 @end
 
+@implementation GTLRSASPortalQuery_CustomersDevicesBulk
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSASPortal_BulkCreateDeviceRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha1/{+parent}/devices:bulk";
+  GTLRSASPortalQuery_CustomersDevicesBulk *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSASPortal_BulkCreateDeviceResponse class];
+  query.loggingName = @"sasportal.customers.devices.bulk";
+  return query;
+}
+
+@end
+
 @implementation GTLRSASPortalQuery_CustomersDevicesCreate
 
 @dynamic parent;
@@ -451,6 +476,31 @@
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRSASPortal_ValidateInstallerResponse class];
   query.loggingName = @"sasportal.installer.validate";
+  return query;
+}
+
+@end
+
+@implementation GTLRSASPortalQuery_NodesDevicesBulk
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSASPortal_BulkCreateDeviceRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha1/{+parent}/devices:bulk";
+  GTLRSASPortalQuery_NodesDevicesBulk *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSASPortal_BulkCreateDeviceResponse class];
+  query.loggingName = @"sasportal.nodes.devices.bulk";
   return query;
 }
 

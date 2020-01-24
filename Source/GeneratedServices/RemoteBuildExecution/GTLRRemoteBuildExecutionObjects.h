@@ -270,6 +270,12 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuild
  */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_InvalidArgument;
 /**
+ *  The command failed with "no cuda-capable device is detected" error.
+ *
+ *  Value: "NO_CUDA_CAPABLE_DEVICE"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_NoCudaCapableDevice;
+/**
  *  The resources requested by the command were not found.
  *
  *  Value: "NOT_FOUND"
@@ -287,6 +293,18 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuild
  *  Value: "PERMISSION_DENIED"
  */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_PermissionDenied;
+/**
+ *  The bot encountered errors from remote CAS when downloading blobs.
+ *
+ *  Value: "REMOTE_CAS_DOWNLOAD_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_RemoteCasDownloadError;
+/**
+ *  The bot encountered errors from remote CAS when uploading blobs.
+ *
+ *  Value: "REMOTE_CAS_UPLOAD_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_RemoteCasUploadError;
 /**
  *  Unknown error.
  *
@@ -1965,6 +1983,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *        (Value: "INTERNAL")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_InvalidArgument
  *        The command input was invalid. (Value: "INVALID_ARGUMENT")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_NoCudaCapableDevice
+ *        The command failed with "no cuda-capable device is detected" error.
+ *        (Value: "NO_CUDA_CAPABLE_DEVICE")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_NotFound
  *        The resources requested by the command were not found. (Value:
  *        "NOT_FOUND")
@@ -1973,6 +1994,12 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_PermissionDenied
  *        The command failed due to permission errors. (Value:
  *        "PERMISSION_DENIED")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_RemoteCasDownloadError
+ *        The bot encountered errors from remote CAS when downloading blobs.
+ *        (Value: "REMOTE_CAS_DOWNLOAD_ERROR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_RemoteCasUploadError
+ *        The bot encountered errors from remote CAS when uploading blobs.
+ *        (Value: "REMOTE_CAS_UPLOAD_ERROR")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Unknown
  *        Unknown error. (Value: "UNKNOWN")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_UploadOutputsError
@@ -2394,6 +2421,13 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  supported.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  The maximum number of actions a worker can execute concurrently.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentActions;
 
 /**
  *  Minimum CPU platform to use when creating the worker.

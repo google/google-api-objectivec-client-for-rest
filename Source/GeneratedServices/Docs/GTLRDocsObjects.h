@@ -30,6 +30,8 @@
 @class GTLRDocs_ColumnBreak_SuggestedTextStyleChanges;
 @class GTLRDocs_CreateFooterRequest;
 @class GTLRDocs_CreateFooterResponse;
+@class GTLRDocs_CreateFootnoteRequest;
+@class GTLRDocs_CreateFootnoteResponse;
 @class GTLRDocs_CreateHeaderRequest;
 @class GTLRDocs_CreateHeaderResponse;
 @class GTLRDocs_CreateNamedRangeRequest;
@@ -38,6 +40,8 @@
 @class GTLRDocs_CropProperties;
 @class GTLRDocs_CropPropertiesSuggestionState;
 @class GTLRDocs_DeleteContentRangeRequest;
+@class GTLRDocs_DeleteFooterRequest;
+@class GTLRDocs_DeleteHeaderRequest;
 @class GTLRDocs_DeleteNamedRangeRequest;
 @class GTLRDocs_DeleteParagraphBulletsRequest;
 @class GTLRDocs_DeletePositionedObjectRequest;
@@ -1405,13 +1409,23 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
- *  Creates a Footer. The new footer will be
- *  applied to the DocumentStyle.
- *  If a footer of the specified type already exists then a 400 bad request
- *  error
- *  will be returned.
+ *  Creates a Footer. The new footer is applied to
+ *  the SectionStyle at the location of the
+ *  SectionBreak if specificed, otherwise
+ *  it is applied to the DocumentStyle.
+ *  If a footer of the specified type already exists, a 400 bad request error
+ *  is returned.
  */
 @interface GTLRDocs_CreateFooterRequest : GTLRObject
+
+/**
+ *  The location of the SectionBreak
+ *  immediately preceding the section whose SectionStyle this footer should
+ *  belong to. If this is
+ *  unset or refers to the first section break in the document, the footer
+ *  applies to the document style.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *sectionBreakLocation;
 
 /**
  *  The type of footer to create.
@@ -1440,13 +1454,67 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 
 /**
- *  Creates a Header. The new header will be
- *  applied to the DocumentStyle.
- *  If a header of the specified type already exists then a 400 bad request
- *  error
- *  will be returned.
+ *  Creates a Footnote segment
+ *  and inserts a new FootnoteReference
+ *  to it at the given location.
+ *  The new Footnote segment will contain a
+ *  space followed by a newline character.
+ */
+@interface GTLRDocs_CreateFootnoteRequest : GTLRObject
+
+/**
+ *  Inserts the footnote reference at the end of the document body.
+ *  Footnote references cannot be inserted inside a header, footer or
+ *  footnote. Since footnote references can only be inserted in the body, the
+ *  segment ID field
+ *  must be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_EndOfSegmentLocation *endOfSegmentLocation;
+
+/**
+ *  Inserts the footnote reference at a specific index in the document.
+ *  The footnote reference must be inserted inside the bounds of an existing
+ *  Paragraph. For instance, it cannot be
+ *  inserted at a table's start index (i.e. between the table and its
+ *  preceding paragraph).
+ *  Footnote references cannot be inserted inside an equation,
+ *  header, footer or footnote. Since footnote references can only be
+ *  inserted in the body, the segment ID field must be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *location;
+
+@end
+
+
+/**
+ *  The result of creating a footnote.
+ */
+@interface GTLRDocs_CreateFootnoteResponse : GTLRObject
+
+/** The ID of the created footnote. */
+@property(nonatomic, copy, nullable) NSString *footnoteId;
+
+@end
+
+
+/**
+ *  Creates a Header. The new header is applied to
+ *  the SectionStyle at the location of the
+ *  SectionBreak if specificed, otherwise
+ *  it is applied to the DocumentStyle.
+ *  If a header of the specified type already exists, a 400 bad request error
+ *  is returned.
  */
 @interface GTLRDocs_CreateHeaderRequest : GTLRObject
+
+/**
+ *  The location of the SectionBreak
+ *  which begins the section this header should belong to. If
+ *  `section_break_location' is unset or if it refers to the first section
+ *  break in the document body, the header applies to the
+ *  DocumentStyle
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *sectionBreakLocation;
 
 /**
  *  The type of header to create.
@@ -1730,6 +1798,44 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *  a table cell is allowed.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_Range *range;
+
+@end
+
+
+/**
+ *  Deletes a Footer from the document.
+ */
+@interface GTLRDocs_DeleteFooterRequest : GTLRObject
+
+/**
+ *  The id of the footer to delete. If this footer is defined on
+ *  DocumentStyle, the reference to
+ *  this footer is removed, resulting in no footer of that type for
+ *  the first section of the document. If this footer is defined on a
+ *  SectionStyle, the reference to this
+ *  footer is removed and the footer of that type is now continued from
+ *  the previous section.
+ */
+@property(nonatomic, copy, nullable) NSString *footerId;
+
+@end
+
+
+/**
+ *  Deletes a Header from the document.
+ */
+@interface GTLRDocs_DeleteHeaderRequest : GTLRObject
+
+/**
+ *  The id of the header to delete. If this header is defined on
+ *  DocumentStyle, the reference to
+ *  this header is removed, resulting in no header of that type for
+ *  the first section of the document. If this header is defined on a
+ *  SectionStyle, the reference to this
+ *  header is removed and the header of that type is now continued from
+ *  the previous section.
+ */
+@property(nonatomic, copy, nullable) NSString *headerId;
 
 @end
 
@@ -2187,7 +2293,6 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /**
  *  Indicates whether to use the even page header / footer IDs for the even
  *  pages.
- *  This property is read-only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2196,7 +2301,6 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /**
  *  Indicates whether to use the first page header / footer IDs for the first
  *  page.
- *  This property is read-only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4770,6 +4874,9 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /** Creates a footer. */
 @property(nonatomic, strong, nullable) GTLRDocs_CreateFooterRequest *createFooter;
 
+/** Creates a footnote. */
+@property(nonatomic, strong, nullable) GTLRDocs_CreateFootnoteRequest *createFootnote;
+
 /** Creates a header. */
 @property(nonatomic, strong, nullable) GTLRDocs_CreateHeaderRequest *createHeader;
 
@@ -4781,6 +4888,12 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /** Deletes content from the document. */
 @property(nonatomic, strong, nullable) GTLRDocs_DeleteContentRangeRequest *deleteContentRange;
+
+/** Deletes a footer from the document. */
+@property(nonatomic, strong, nullable) GTLRDocs_DeleteFooterRequest *deleteFooter;
+
+/** Deletes a header from the document. */
+@property(nonatomic, strong, nullable) GTLRDocs_DeleteHeaderRequest *deleteHeader;
 
 /** Deletes a named range. */
 @property(nonatomic, strong, nullable) GTLRDocs_DeleteNamedRangeRequest *deleteNamedRange;
@@ -4864,6 +4977,9 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /** The result of creating a footer. */
 @property(nonatomic, strong, nullable) GTLRDocs_CreateFooterResponse *createFooter;
+
+/** The result of creating a footnote. */
+@property(nonatomic, strong, nullable) GTLRDocs_CreateFootnoteResponse *createFootnote;
 
 /** The result of creating a header. */
 @property(nonatomic, strong, nullable) GTLRDocs_CreateHeaderResponse *createHeader;
@@ -4950,7 +5066,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /** The padding at the end of the column. */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *paddingEnd;
 
-/** The width of the column. */
+/** Output only. The width of the column. */
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *width;
 
 @end
@@ -4965,12 +5081,17 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *  The section's columns properties.
  *  If empty, the section contains one column with the default properties in
  *  the Docs editor.
+ *  A section can be updated to have no more than three columns.
+ *  When updating this property, setting a concrete value is required.
+ *  Unsetting this property will result in a 400 bad request error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocs_SectionColumnProperties *> *columnProperties;
 
 /**
  *  The style of column separators.
  *  This style can be set even when there is one column in the section.
+ *  When updating this property, setting a concrete value is required.
+ *  Unsetting this property results in a 400 bad request error.
  *
  *  Likely values:
  *    @arg @c kGTLRDocs_SectionStyle_ColumnSeparatorStyle_BetweenEachColumn
@@ -4987,6 +5108,8 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 /**
  *  The content direction of this section. If unset, the value defaults to
  *  LEFT_TO_RIGHT.
+ *  When updating this property, setting a concrete value is required.
+ *  Unsetting this property results in a 400 bad request error.
  *
  *  Likely values:
  *    @arg @c kGTLRDocs_SectionStyle_ContentDirection_ContentDirectionUnspecified
@@ -4998,6 +5121,80 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *        goes from right to left. (Value: "RIGHT_TO_LEFT")
  */
 @property(nonatomic, copy, nullable) NSString *contentDirection;
+
+/**
+ *  The ID of the default footer. If unset, the value inherits from the
+ *  previous SectionBreak's SectionStyle.
+ *  If the value is unset in the first SectionBreak, it inherits from
+ *  DocumentStyle's default_footer_id.
+ *  This property is read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultFooterId;
+
+/**
+ *  The ID of the default header. If unset, the value inherits from the
+ *  previous SectionBreak's SectionStyle.
+ *  If the value is unset in the first SectionBreak, it inherits from
+ *  DocumentStyle's default_header_id.
+ *  This property is read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultHeaderId;
+
+/**
+ *  The ID of the footer used only for even pages. If the value of
+ *  DocumentStyle's use_even_page_header_footer is true,
+ *  this value is used for the footers on even pages in the section. If it
+ *  is false, the footers on even pages uses the default_footer_id. If unset,
+ *  the value
+ *  inherits from the previous SectionBreak's SectionStyle. If the value is
+ *  unset in
+ *  the first SectionBreak, it inherits from DocumentStyle's
+ *  even_page_footer_id.
+ *  This property is read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *evenPageFooterId;
+
+/**
+ *  The ID of the header used only for even pages. If the value of
+ *  DocumentStyle's use_even_page_header_footer is true,
+ *  this value is used for the headers on even pages in the section. If it
+ *  is false, the headers on even pages uses the default_header_id. If unset,
+ *  the value
+ *  inherits from the previous SectionBreak's SectionStyle. If the value is
+ *  unset in
+ *  the first SectionBreak, it inherits from DocumentStyle's
+ *  even_page_header_id.
+ *  This property is read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *evenPageHeaderId;
+
+/**
+ *  The ID of the footer used only for the first page of the section.
+ *  If use_first_page_header_footer is true,
+ *  this value is used for the footer on the first page of the section. If
+ *  it is false, the footer on the first page of the section uses the
+ *  default_footer_id.
+ *  If unset, the value inherits from the previous SectionBreak's SectionStyle.
+ *  If the value is unset in
+ *  the first SectionBreak, it inherits from DocumentStyle's
+ *  first_page_footer_id.
+ *  This property is read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *firstPageFooterId;
+
+/**
+ *  The ID of the header used only for the first page of the section.
+ *  If use_first_page_header_footer is true,
+ *  this value is used for the header on the first page of the section. If
+ *  it is false, the header on the first page of the section uses the
+ *  default_header_id.
+ *  If unset, the value inherits from the previous SectionBreak's SectionStyle.
+ *  If the value is unset in
+ *  the first SectionBreak, it inherits from DocumentStyle's
+ *  first_page_header_id.
+ *  This property is read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *firstPageHeaderId;
 
 /**
  *  The bottom page margin of the section. If unset, uses margin_bottom from
@@ -5072,6 +5269,19 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *        section type is unspecified. (Value: "SECTION_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *sectionType;
+
+/**
+ *  Indicates whether to use the first page header / footer IDs for the first
+ *  page of the section. If unset, it inherits from DocumentStyle's
+ *  use_first_page_header_footer for the
+ *  first section. If the value is unset for subsequent sectors, it should be
+ *  interpreted as false.
+ *  When updating this property, setting a concrete value is required.
+ *  Unsetting this property results in a 400 bad request error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useFirstPageHeaderFooter;
 
 @end
 

@@ -101,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudbilling queryForBillingAccountsGetWithname:]
 
 /**
- *  The resource name of the billing account to retrieve. For example,
+ *  Required. The resource name of the billing account to retrieve. For example,
  *  `billingAccounts/012345-567890-ABCDEF`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -113,8 +113,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  must be a [viewer of the billing
  *  account](https://cloud.google.com/billing/docs/how-to/billing-access).
  *
- *  @param name The resource name of the billing account to retrieve. For
- *    example,
+ *  @param name Required. The resource name of the billing account to retrieve.
+ *    For example,
  *    `billingAccounts/012345-567890-ABCDEF`.
  *
  *  @return GTLRCloudbillingQuery_BillingAccountsGet
@@ -243,7 +243,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudbilling queryForBillingAccountsPatchWithObject:name:]
 
-/** The name of the billing account resource to be updated. */
+/** Required. The name of the billing account resource to be updated. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -266,7 +266,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudbilling_BillingAccount to include in the
  *    query.
- *  @param name The name of the billing account resource to be updated.
+ *  @param name Required. The name of the billing account resource to be
+ *    updated.
  *
  *  @return GTLRCloudbillingQuery_BillingAccountsPatch
  */
@@ -291,7 +292,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudbilling queryForBillingAccountsProjectsListWithname:]
 
 /**
- *  The resource name of the billing account associated with the projects that
+ *  Required. The resource name of the billing account associated with the
+ *  projects that
  *  you want to list. For example, `billingAccounts/012345-567890-ABCDEF`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -317,8 +319,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  permission, which is often given to billing account
  *  [viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
  *
- *  @param name The resource name of the billing account associated with the
- *    projects that
+ *  @param name Required. The resource name of the billing account associated
+ *    with the projects that
  *    you want to list. For example, `billingAccounts/012345-567890-ABCDEF`.
  *
  *  @return GTLRCloudbillingQuery_BillingAccountsProjectsList
@@ -431,7 +433,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudbilling queryForProjectsGetBillingInfoWithname:]
 
 /**
- *  The resource name of the project for which billing information is
+ *  Required. The resource name of the project for which billing information is
  *  retrieved. For example, `projects/tokyo-rain-123`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -444,8 +446,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  project](https://cloud.google.com/docs/permissions-overview#h.bgs0oxofvnoo
  *  ).
  *
- *  @param name The resource name of the project for which billing information
- *    is
+ *  @param name Required. The resource name of the project for which billing
+ *    information is
  *    retrieved. For example, `projects/tokyo-rain-123`.
  *
  *  @return GTLRCloudbillingQuery_ProjectsGetBillingInfo
@@ -493,7 +495,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudbilling queryForProjectsUpdateBillingInfoWithObject:name:]
 
 /**
- *  The resource name of the project associated with the billing information
+ *  Required. The resource name of the project associated with the billing
+ *  information
  *  that you want to update. For example, `projects/tokyo-rain-123`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -531,8 +534,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudbilling_ProjectBillingInfo to include in the
  *    query.
- *  @param name The resource name of the project associated with the billing
- *    information
+ *  @param name Required. The resource name of the project associated with the
+ *    billing information
  *    that you want to update. For example, `projects/tokyo-rain-123`.
  *
  *  @return GTLRCloudbillingQuery_ProjectsUpdateBillingInfo
@@ -619,7 +622,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The name of the service.
+ *  Required. The name of the service.
  *  Example: "services/DA34-426B-A397"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -639,7 +642,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists all publicly available SKUs for a given cloud service.
  *
- *  @param parent The name of the service.
+ *  @param parent Required. The name of the service.
  *    Example: "services/DA34-426B-A397"
  *
  *  @return GTLRCloudbillingQuery_ServicesSkusList

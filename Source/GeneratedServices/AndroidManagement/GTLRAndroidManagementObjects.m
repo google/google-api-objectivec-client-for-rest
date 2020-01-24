@@ -133,6 +133,11 @@ NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Error = @"ERROR";
 NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Info = @"INFO";
 NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
+// GTLRAndroidManagement_KioskCustomization.deviceSettings
+NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSettings_DeviceSettingsUnspecified = @"DEVICE_SETTINGS_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSettings_SettingsAccessAllowed = @"SETTINGS_ACCESS_ALLOWED";
+NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSettings_SettingsAccessBlocked = @"SETTINGS_ACCESS_BLOCKED";
+
 // GTLRAndroidManagement_KioskCustomization.powerButtonActions
 NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButtonActions_PowerButtonActionsUnspecified = @"POWER_BUTTON_ACTIONS_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButtonActions_PowerButtonAvailable = @"POWER_BUTTON_AVAILABLE";
@@ -765,7 +770,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_KioskCustomization
-@dynamic powerButtonActions, statusBar, systemErrorWarnings, systemNavigation;
+@dynamic deviceSettings, powerButtonActions, statusBar, systemErrorWarnings,
+         systemNavigation;
 @end
 
 

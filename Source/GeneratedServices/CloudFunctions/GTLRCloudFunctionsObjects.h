@@ -81,6 +81,28 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_DataWrit
 GTLR_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudFunctions_CloudFunction.ingressSettings
+
+/**
+ *  Allow HTTP traffic from public and private sources.
+ *
+ *  Value: "ALLOW_ALL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowAll;
+/**
+ *  Allow HTTP traffic from only private VPC sources.
+ *
+ *  Value: "ALLOW_INTERNAL_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowInternalOnly;
+/**
+ *  Unspecified.
+ *
+ *  Value: "INGRESS_SETTINGS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_IngressSettingsUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudFunctions_CloudFunction.status
 
 /**
@@ -120,6 +142,29 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_Offline;
  *  Value: "UNKNOWN"
  */
 GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_CloudFunction.vpcConnectorEgressSettings
+
+/**
+ *  Force the use of VPC Access Connector for all egress traffic from the
+ *  function.
+ *
+ *  Value: "ALL_TRAFFIC"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_AllTraffic;
+/**
+ *  Use the VPC Access Connector only for private IP space from RFC1918.
+ *
+ *  Value: "PRIVATE_RANGES_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_PrivateRangesOnly;
+/**
+ *  Unspecified.
+ *
+ *  Value: "VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_VpcConnectorEgressSettingsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_OperationMetadataV1.type
@@ -313,6 +358,23 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
  *  For example, `admins\@example.com`.
+ *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For
+ *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
+ *  recovered, this value reverts to `user:{emailid}` and the recovered user
+ *  retains the role in the binding.
+ *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
+ *  unique identifier) representing a service account that has been recently
+ *  deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
+ *  If the service account is undeleted, this value reverts to
+ *  `serviceAccount:{emailid}` and the undeleted service account retains the
+ *  role in the binding.
+ *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a Google group that has been recently
+ *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
+ *  the group is recovered, this value reverts to `group:{emailid}` and the
+ *  recovered group retains the role in the binding.
  *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
  *  users of that domain. For example, `google.com` or `example.com`.
  */
@@ -404,6 +466,21 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 
 /** An HTTPS endpoint type of source that can be triggered via URL. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_HttpsTrigger *httpsTrigger;
+
+/**
+ *  The ingress settings for the function, controlling what traffic can reach
+ *  it.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowAll Allow
+ *        HTTP traffic from public and private sources. (Value: "ALLOW_ALL")
+ *    @arg @c kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowInternalOnly
+ *        Allow HTTP traffic from only private VPC sources. (Value:
+ *        "ALLOW_INTERNAL_ONLY")
+ *    @arg @c kGTLRCloudFunctions_CloudFunction_IngressSettings_IngressSettingsUnspecified
+ *        Unspecified. (Value: "INGRESS_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ingressSettings;
 
 /** Labels associated with this Cloud Function. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_CloudFunction_Labels *labels;
@@ -523,6 +600,22 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  more information on connecting Cloud projects.
  */
 @property(nonatomic, copy, nullable) NSString *vpcConnector;
+
+/**
+ *  The egress settings for the connector, controlling what traffic is diverted
+ *  through it.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_AllTraffic
+ *        Force the use of VPC Access Connector for all egress traffic from the
+ *        function. (Value: "ALL_TRAFFIC")
+ *    @arg @c kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_PrivateRangesOnly
+ *        Use the VPC Access Connector only for private IP space from RFC1918.
+ *        (Value: "PRIVATE_RANGES_ONLY")
+ *    @arg @c kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_VpcConnectorEgressSettingsUnspecified
+ *        Unspecified. (Value: "VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *vpcConnectorEgressSettings;
 
 @end
 
@@ -1058,17 +1151,19 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 
 
 /**
- *  Defines an Identity and Access Management (IAM) policy. It is used to
- *  specify access control policies for Cloud Platform resources.
+ *  An Identity and Access Management (IAM) policy, which specifies access
+ *  controls for Google Cloud resources.
  *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
  *  `members` to a single `role`. Members can be user accounts, service
  *  accounts,
  *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions (defined by IAM or configured by users). A `binding` can
- *  optionally specify a `condition`, which is a logic expression that further
- *  constrains the role binding based on attributes about the request and/or
- *  target resource.
- *  **JSON Example**
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role.
+ *  Optionally, a `binding` can specify a `condition`, which is a logical
+ *  expression that allows access to a resource only if the expression evaluates
+ *  to `true`. A condition can add constraints based on attributes of the
+ *  request, the resource, or both.
+ *  **JSON example:**
  *  {
  *  "bindings": [
  *  {
@@ -1086,13 +1181,14 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  "condition": {
  *  "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time <
- *  timestamp('2020-10-01T00:00:00.000Z')",
+ *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
  *  }
  *  }
- *  ]
+ *  ],
+ *  "etag": "BwWWja0YfJA=",
+ *  "version": 3
  *  }
- *  **YAML Example**
+ *  **YAML example:**
  *  bindings:
  *  - members:
  *  - user:mike\@example.com
@@ -1107,8 +1203,10 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  title: expirable access
  *  description: Does not grant access after Sep 2020
  *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
+ *  - etag: BwWWja0YfJA=
+ *  - version: 3
  *  For a description of IAM and its features, see the
- *  [IAM developer's guide](https://cloud.google.com/iam/docs).
+ *  [IAM documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudFunctions_Policy : GTLRObject
 
@@ -1116,9 +1214,9 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally may specify a
- *  `condition` that determines when binding is in effect.
- *  `bindings` with no members will result in an error.
+ *  Associates a list of `members` to a `role`. Optionally, may specify a
+ *  `condition` that determines how and when the `bindings` are applied. Each
+ *  of the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_Binding *> *bindings;
 
@@ -1130,10 +1228,10 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
  *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
- *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
- *  'setIamPolicy' will not fail even if the incoming policy version does not
- *  meet the requirements for modifying the stored policy.
+ *  **Important:** If you use IAM Conditions, you must include the `etag` field
+ *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+ *  you to overwrite a version `3` policy with a version `1` policy, and all of
+ *  the conditions in the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1142,16 +1240,21 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_U
 
 /**
  *  Specifies the format of the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Operations affecting conditional bindings must specify version 3. This can
- *  be either setting a conditional policy, modifying a conditional binding,
- *  or removing a binding (conditional or unconditional) from the stored
- *  conditional policy.
- *  Operations on non-conditional policies may specify any valid value or
- *  leave the field unset.
- *  If no etag is provided in the call to `setIamPolicy`, version compliance
- *  checks against the stored policy is skipped.
+ *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
+ *  are rejected.
+ *  Any operation that affects conditional role bindings must specify version
+ *  `3`. This requirement applies to the following operations:
+ *  * Getting a policy that includes a conditional role binding
+ *  * Adding a conditional role binding to a policy
+ *  * Changing a conditional role binding in a policy
+ *  * Removing any role binding, with or without a condition, from a policy
+ *  that includes conditions
+ *  **Important:** If you use IAM Conditions, you must include the `etag` field
+ *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+ *  you to overwrite a version `3` policy with a version `1` policy, and all of
+ *  the conditions in the version `3` policy are lost.
+ *  If a policy does not include any conditions, operations on that policy may
+ *  specify any valid version or leave the field unset.
  *
  *  Uses NSNumber of intValue.
  */

@@ -68,6 +68,7 @@
 @class GTLRServiceNetworking_QuotaLimit;
 @class GTLRServiceNetworking_QuotaLimit_Values;
 @class GTLRServiceNetworking_RangeReservation;
+@class GTLRServiceNetworking_ServiceIdentity;
 @class GTLRServiceNetworking_SourceContext;
 @class GTLRServiceNetworking_SourceInfo;
 @class GTLRServiceNetworking_SourceInfo_SourceFiles_Item;
@@ -2104,6 +2105,14 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigRespon
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_HttpRule *> *additionalBindings;
 
 /**
+ *  When this flag is set to true, HTTP requests will be allowed to invoke a
+ *  half-duplex streaming method.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowHalfDuplex;
+
+/**
  *  The name of the request field whose value is mapped to the HTTP request
  *  body, or `*` for mapping all request fields not captured by the path
  *  pattern to the HTTP body, or omitted for not having any HTTP request body.
@@ -2517,6 +2526,48 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigRespon
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
+ *  The units in which the metric value is reported. It is only applicable
+ *  if the `value_type` is `INT64`, `DOUBLE`, or `DISTRIBUTION`. The `unit`
+ *  defines the representation of the stored metric values.
+ *  Different systems may scale the values to be more easily displayed (so a
+ *  value of `0.02KBy` _might_ be displayed as `20By`, and a value of
+ *  `3523KBy` _might_ be displayed as `3.5MBy`). However, if the `unit` is
+ *  `KBy`, then the value of the metric is always in thousands of bytes, no
+ *  matter how it may be displayed..
+ *  If you want a custom metric to record the exact number of CPU-seconds used
+ *  by a job, you can create an `INT64 CUMULATIVE` metric whose `unit` is
+ *  `s{CPU}` (or equivalently `1s{CPU}` or just `s`). If the job uses 12,005
+ *  CPU-seconds, then the value is written as `12005`.
+ *  Alternatively, if you want a custom metric to record data in a more
+ *  granular way, you can create a `DOUBLE CUMULATIVE` metric whose `unit` is
+ *  `ks{CPU}`, and then write the value `12.005` (which is `12005/1000`),
+ *  or use `Kis{CPU}` and write `11.723` (which is `12005/1024`).
+ *  The supported units are a subset of [The Unified Code for Units of
+ *  Measure](http://unitsofmeasure.org/ucum.html) standard:
+ *  **Basic units (UNIT)**
+ *  * `bit` bit
+ *  * `By` byte
+ *  * `s` second
+ *  * `min` minute
+ *  * `h` hour
+ *  * `d` day
+ *  **Prefixes (PREFIX)**
+ *  * `k` kilo (10^3)
+ *  * `M` mega (10^6)
+ *  * `G` giga (10^9)
+ *  * `T` tera (10^12)
+ *  * `P` peta (10^15)
+ *  * `E` exa (10^18)
+ *  * `Z` zetta (10^21)
+ *  * `Y` yotta (10^24)
+ *  * `m` milli (10^-3)
+ *  * `u` micro (10^-6)
+ *  * `n` nano (10^-9)
+ *  * `p` pico (10^-12)
+ *  * `f` femto (10^-15)
+ *  * `a` atto (10^-18)
+ *  * `z` zepto (10^-21)
+ *  * `y` yocto (10^-24)
  *  * `Ki` kibi (2^10)
  *  * `Mi` mebi (2^20)
  *  * `Gi` gibi (2^30)
@@ -3567,6 +3618,42 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigRespon
 
 
 /**
+ *  The per-product per-project service identity for a service.
+ *  Use this field to configure per-product per-project service identity.
+ *  Example of a service identity configuration.
+ *  usage:
+ *  service_identity:
+ *  - service_account_parent: "projects/123456789"
+ *  display_name: "Cloud XXX Service Agent"
+ *  description: "Used as the identity of Cloud XXX to access resources"
+ */
+@interface GTLRServiceNetworking_ServiceIdentity : GTLRObject
+
+/**
+ *  Optional. A user-specified opaque description of the service account.
+ *  Must be less than or equal to 256 UTF-8 bytes.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. A user-specified name for the service account.
+ *  Must be less than or equal to 100 UTF-8 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  A service account project that hosts the service accounts.
+ *  An example name would be:
+ *  `projects/123456789`
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountParent;
+
+@end
+
+
+/**
  *  `SourceContext` represents information about the source of a
  *  protobuf element, like the file in which it is defined.
  */
@@ -3835,6 +3922,9 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigRespon
  *  **NOTE:** All service configuration rules follow "last one wins" order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_UsageRule *> *rules;
+
+/** The configuration of a per-product per-project service identity. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_ServiceIdentity *serviceIdentity;
 
 @end
 

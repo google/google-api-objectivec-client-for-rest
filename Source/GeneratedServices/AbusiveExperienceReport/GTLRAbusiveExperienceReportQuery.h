@@ -40,9 +40,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a site's Abusive Experience Report summary.
  *
  *  Method: abusiveexperiencereport.sites.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAbusiveExperienceReportXapiZoo
  */
 @interface GTLRAbusiveExperienceReportQuery_SitesGet : GTLRAbusiveExperienceReportQuery
 // Previous library name was
@@ -74,9 +71,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists sites that are failing in the Abusive Experience Report.
  *
  *  Method: abusiveexperiencereport.violatingSites.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAbusiveExperienceReportXapiZoo
  */
 @interface GTLRAbusiveExperienceReportQuery_ViolatingSitesList : GTLRAbusiveExperienceReportQuery
 // Previous library name was

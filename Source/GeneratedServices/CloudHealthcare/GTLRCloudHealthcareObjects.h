@@ -2417,10 +2417,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
- *  When using the INSPECT_AND_TRANSFORM action, each match is replaced with
- *  the name of the info_type. For example, "My name is Jake" becomes "My name
- *  is
- *  [PERSON_NAME]." The TRANSFORM action is equivalent to redacting.
+ *  When using the
+ *  INSPECT_AND_TRANSFORM
+ *  action, each match is replaced with the name of the info_type. For example,
+ *  "My name is Jake" becomes "My name is [PERSON_NAME]." The
+ *  TRANSFORM
+ *  action is equivalent to redacting.
  */
 @interface GTLRCloudHealthcare_ReplaceWithInfoTypeConfig : GTLRObject
 @end

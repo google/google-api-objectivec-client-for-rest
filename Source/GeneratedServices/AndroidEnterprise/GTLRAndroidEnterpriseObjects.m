@@ -568,6 +568,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -785,10 +791,11 @@
 @implementation GTLRAndroidEnterprise_Product
 @dynamic appTracks, appVersion, authorName, availableCountries, availableTracks,
          category, contentRating, descriptionProperty, detailsUrl,
-         distributionChannel, iconUrl, kind, lastUpdatedTimestampMillis,
-         minAndroidSdkVersion, permissions, productId, productPricing,
-         recentChanges, requiresContainerApp, screenshotUrls,
-         signingCertificate, smallIconUrl, title, workDetailsUrl;
+         distributionChannel, features, iconUrl, kind,
+         lastUpdatedTimestampMillis, minAndroidSdkVersion, permissions,
+         productId, productPricing, recentChanges, requiresContainerApp,
+         screenshotUrls, signingCertificate, smallIconUrl, title,
+         workDetailsUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -800,6 +807,7 @@
     @"appVersion" : [GTLRAndroidEnterprise_AppVersion class],
     @"availableCountries" : [NSString class],
     @"availableTracks" : [NSString class],
+    @"features" : [NSString class],
     @"permissions" : [GTLRAndroidEnterprise_ProductPermission class],
     @"screenshotUrls" : [NSString class]
   };

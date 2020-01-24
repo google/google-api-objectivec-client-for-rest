@@ -4,7 +4,8 @@
 // API:
 //   Secret Manager API (secretmanager/v1beta1)
 // Description:
-//   Stores, manages, and secures access to application secrets.
+//   Stores and manages access to application secrets. Provides convenience
+//   while improving security.
 // Documentation:
 //   https://cloud.google.com/secret-manager/
 
@@ -43,7 +44,8 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeSecretManagerCloudPlatform;
 /**
  *  Service for executing Secret Manager API queries.
  *
- *  Stores, manages, and secures access to application secrets.
+ *  Stores and manages access to application secrets. Provides convenience while
+ *  improving security.
  */
 @interface GTLRSecretManagerService : GTLRService
 

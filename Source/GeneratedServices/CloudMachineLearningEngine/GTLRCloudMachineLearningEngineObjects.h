@@ -1887,7 +1887,11 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictRequest : GTLRObject
 
-/** Required. The prediction request body. */
+/**
+ *  Required. The prediction request body. Refer to the [request body details
+ *  section](#request-body-details) for more information on how to structure
+ *  your request.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleApiHttpBody *httpBody;
 
 @end
@@ -1988,7 +1992,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  The number of feature permutations to consider when approximating the
- *  shapley values.
+ *  Shapley values.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2143,9 +2147,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Optional. The version of Python used in training. If not set, the default
- *  version is '2.7'. Python '3.5' is available when `runtime_version` is set
- *  to '1.4' and above. Python '2.7' works with all supported
- *  <a href="/ml-engine/docs/runtime-version-list">runtime versions</a>.
+ *  version is '2.7'. Starting [January 13,
+ *  2020](/ml-engine/docs/release-notes#december_10_2019), this field is
+ *  required.
+ *  The following Python versions are available:
+ *  * Python '3.7' is available when `runtime_version` is set to '1.15' or
+ *  later.
+ *  * Python '3.5' is available when `runtime_version` is set to a version
+ *  from '1.4' to '1.14'.
+ *  * Python '2.7' is available when `runtime_version` is set to '1.15' or
+ *  earlier. (Runtime versions released [after January 1,
+ *  2020](/ml-engine/docs/release-notes#december_10_2019) do not support
+ *  Python 2.7.)
+ *  Read more about the Python versions available for [each runtime
+ *  version](/ml-engine/docs/runtime-version-list).
  */
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
 
@@ -2158,8 +2173,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Optional. The AI Platform runtime version to use for training. If not
- *  set, AI Platform uses the default stable version, 1.0. For more
- *  information, see the
+ *  set, AI Platform uses the default stable version, 1.0. Starting [January
+ *  13, 2020](/ml-engine/docs/release-notes#december_10_2019), this field is
+ *  required.
+ *  For more information, see the
  *  <a href="/ml-engine/docs/runtime-version-list">runtime version list</a>
  *  and
  *  <a href="/ml-engine/docs/versioning">how to manage runtime versions</a>.
@@ -2558,8 +2575,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Optional. The version of Python used in prediction. If not set, the default
- *  version is '2.7'. Python '3.5' is available when `runtime_version` is set
- *  to '1.4' and above. Python '2.7' works with all supported runtime versions.
+ *  version is '2.7'. Starting [January 13,
+ *  2020](/ml-engine/docs/release-notes#december_10_2019), this field is
+ *  required.
+ *  The following Python versions are available:
+ *  * Python '3.7' is available when `runtime_version` is set to '1.15' or
+ *  later.
+ *  * Python '3.5' is available when `runtime_version` is set to a version
+ *  from '1.4' to '1.14'.
+ *  * Python '2.7' is available when `runtime_version` is set to '1.15' or
+ *  earlier. (Runtime versions released [after January 1,
+ *  2020](/ml-engine/docs/release-notes#december_10_2019) do not support
+ *  Python 2.7.)
+ *  Read more about the Python versions available for [each runtime
+ *  version](/ml-engine/docs/runtime-version-list).
  */
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
 
@@ -2576,8 +2605,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Optional. The AI Platform runtime version to use for this deployment.
- *  If not set, AI Platform uses the default stable version, 1.0. For more
- *  information, see the
+ *  If not set, AI Platform uses the default stable version, 1.0. Starting
+ *  [January 13, 2020](/ml-engine/docs/release-notes#december_10_2019), this
+ *  field is required.
+ *  For more information, see the
  *  [runtime version list](/ml-engine/docs/runtime-version-list) and
  *  [how to manage runtime versions](/ml-engine/docs/versioning).
  */

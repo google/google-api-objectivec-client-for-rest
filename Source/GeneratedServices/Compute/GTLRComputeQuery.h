@@ -82,6 +82,7 @@
 @class GTLRCompute_NodeGroupsDeleteNodesRequest;
 @class GTLRCompute_NodeGroupsSetNodeTemplateRequest;
 @class GTLRCompute_NodeTemplate;
+@class GTLRCompute_PacketMirroring;
 @class GTLRCompute_ProjectsDisableXpnResourceRequest;
 @class GTLRCompute_ProjectsEnableXpnResourceRequest;
 @class GTLRCompute_ProjectsListXpnHostsRequest;
@@ -4164,6 +4165,65 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
+ *  Updates the specified forwarding rule with the data included in the request.
+ *  This method supports PATCH semantics and uses the JSON merge patch format
+ *  and processing rules. Currently, you can only patch the network_tier field.
+ *
+ *  Method: compute.forwardingRules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ForwardingRulesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForForwardingRulesPatchWithObject:project:region:forwardingRule:]
+
+/** Name of the ForwardingRule resource to patch. */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified forwarding rule with the data included in the request.
+ *  This method supports PATCH semantics and uses the JSON merge patch format
+ *  and processing rules. Currently, you can only patch the network_tier field.
+ *
+ *  @param object The @c GTLRCompute_ForwardingRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param forwardingRule Name of the ForwardingRule resource to patch.
+ *
+ *  @return GTLRComputeQuery_ForwardingRulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ForwardingRule *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 forwardingRule:(NSString *)forwardingRule;
+
+@end
+
+/**
  *  Changes target URL for forwarding rule. The new target should be of the same
  *  type as the old target.
  *
@@ -4654,6 +4714,60 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
+ *  Updates the specified forwarding rule with the data included in the request.
+ *  This method supports PATCH semantics and uses the JSON merge patch format
+ *  and processing rules. Currently, you can only patch the network_tier field.
+ *
+ *  Method: compute.globalForwardingRules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_GlobalForwardingRulesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalForwardingRulesPatchWithObject:project:forwardingRule:]
+
+/** Name of the ForwardingRule resource to patch. */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified forwarding rule with the data included in the request.
+ *  This method supports PATCH semantics and uses the JSON merge patch format
+ *  and processing rules. Currently, you can only patch the network_tier field.
+ *
+ *  @param object The @c GTLRCompute_ForwardingRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param forwardingRule Name of the ForwardingRule resource to patch.
+ *
+ *  @return GTLRComputeQuery_GlobalForwardingRulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ForwardingRule *)object
+                        project:(NSString *)project
+                 forwardingRule:(NSString *)forwardingRule;
+
+@end
+
+/**
  *  Changes target URL for the GlobalForwardingRule resource. The new target
  *  should be of the same type as the old target.
  *
@@ -4943,15 +5057,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
- *  Waits for the specified Operations resource until it is done or timeout, and
- *  retrieves the specified Operations resource. 1. Immediately returns when the
- *  operation is already done. 2. Waits for no more than the default deadline (2
- *  minutes, subject to change) and then returns the current state of the
- *  operation, which may be DONE or still in progress. 3. Is best-effort: a. The
- *  server can wait less than the default deadline or zero seconds, in overload
- *  situations. b. There is no guarantee that the operation is actually done
- *  when returns. 4. User should be prepared to retry if the operation is not
- *  DONE.
+ *  Waits for the specified Operation resource to return as DONE or for the
+ *  request to approach the 2 minute deadline, and retrieves the specified
+ *  Operation resource. This method differs from the GET method in that it waits
+ *  for no more than the default deadline (2 minutes) and then returns the
+ *  current state of the operation, which might be DONE or still in progress.
+ *  This method is called on a best-effort basis. Specifically:
+ *  - In uncommon cases, when the server is overloaded, the request might return
+ *  before the default deadline is reached, or might return after zero seconds.
+ *  - If the default deadline is reached, there is no guarantee that the
+ *  operation is actually done when the method returns. Be prepared to retry if
+ *  the operation is not DONE.
  *
  *  Method: compute.globalOperations.wait
  *
@@ -4973,15 +5089,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Waits for the specified Operations resource until it is done or timeout, and
- *  retrieves the specified Operations resource. 1. Immediately returns when the
- *  operation is already done. 2. Waits for no more than the default deadline (2
- *  minutes, subject to change) and then returns the current state of the
- *  operation, which may be DONE or still in progress. 3. Is best-effort: a. The
- *  server can wait less than the default deadline or zero seconds, in overload
- *  situations. b. There is no guarantee that the operation is actually done
- *  when returns. 4. User should be prepared to retry if the operation is not
- *  DONE.
+ *  Waits for the specified Operation resource to return as DONE or for the
+ *  request to approach the 2 minute deadline, and retrieves the specified
+ *  Operation resource. This method differs from the GET method in that it waits
+ *  for no more than the default deadline (2 minutes) and then returns the
+ *  current state of the operation, which might be DONE or still in progress.
+ *  This method is called on a best-effort basis. Specifically:
+ *  - In uncommon cases, when the server is overloaded, the request might return
+ *  before the default deadline is reached, or might return after zero seconds.
+ *  - If the default deadline is reached, there is no guarantee that the
+ *  operation is actually done when the method returns. Be prepared to retry if
+ *  the operation is not DONE.
  *
  *  @param project Project ID for this request.
  *  @param operation Name of the Operations resource to return.
@@ -14915,6 +15033,422 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
+ *  Retrieves an aggregated list of packetMirrorings.
+ *
+ *  Method: compute.packetMirrorings.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_PacketMirroringsAggregatedList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPacketMirroringsAggregatedListWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_PacketMirroringAggregatedList.
+ *
+ *  Retrieves an aggregated list of packetMirrorings.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_PacketMirroringsAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified PacketMirroring resource.
+ *
+ *  Method: compute.packetMirrorings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PacketMirroringsDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPacketMirroringsDeleteWithproject:region:packetMirroring:]
+
+/** Name of the PacketMirroring resource to delete. */
+@property(nonatomic, copy, nullable) NSString *packetMirroring;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified PacketMirroring resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param packetMirroring Name of the PacketMirroring resource to delete.
+ *
+ *  @return GTLRComputeQuery_PacketMirroringsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                 packetMirroring:(NSString *)packetMirroring;
+
+@end
+
+/**
+ *  Returns the specified PacketMirroring resource.
+ *
+ *  Method: compute.packetMirrorings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_PacketMirroringsGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPacketMirroringsGetWithproject:region:packetMirroring:]
+
+/** Name of the PacketMirroring resource to return. */
+@property(nonatomic, copy, nullable) NSString *packetMirroring;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_PacketMirroring.
+ *
+ *  Returns the specified PacketMirroring resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param packetMirroring Name of the PacketMirroring resource to return.
+ *
+ *  @return GTLRComputeQuery_PacketMirroringsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                 packetMirroring:(NSString *)packetMirroring;
+
+@end
+
+/**
+ *  Creates a PacketMirroring resource in the specified project and region using
+ *  the data included in the request.
+ *
+ *  Method: compute.packetMirrorings.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PacketMirroringsInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPacketMirroringsInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a PacketMirroring resource in the specified project and region using
+ *  the data included in the request.
+ *
+ *  @param object The @c GTLRCompute_PacketMirroring to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_PacketMirroringsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_PacketMirroring *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves a list of PacketMirroring resources available to the specified
+ *  project and region.
+ *
+ *  Method: compute.packetMirrorings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_PacketMirroringsList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPacketMirroringsListWithproject:region:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_PacketMirroringList.
+ *
+ *  Retrieves a list of PacketMirroring resources available to the specified
+ *  project and region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_PacketMirroringsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Patches the specified PacketMirroring resource with the data included in the
+ *  request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules.
+ *
+ *  Method: compute.packetMirrorings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PacketMirroringsPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPacketMirroringsPatchWithObject:project:region:packetMirroring:]
+
+/** Name of the PacketMirroring resource to patch. */
+@property(nonatomic, copy, nullable) NSString *packetMirroring;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified PacketMirroring resource with the data included in the
+ *  request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_PacketMirroring to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param packetMirroring Name of the PacketMirroring resource to patch.
+ *
+ *  @return GTLRComputeQuery_PacketMirroringsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_PacketMirroring *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                packetMirroring:(NSString *)packetMirroring;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.packetMirrorings.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_PacketMirroringsTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPacketMirroringsTestIamPermissionsWithObject:project:region:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_PacketMirroringsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Disable this project as a shared VPC host project.
  *
  *  Method: compute.projects.disableXpnHost
@@ -19000,15 +19534,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
- *  Waits for the specified region-specific Operations resource until it is done
- *  or timeout, and retrieves the specified Operations resource. 1. Immediately
- *  returns when the operation is already done. 2. Waits for no more than the
- *  default deadline (2 minutes, subject to change) and then returns the current
- *  state of the operation, which may be DONE or still in progress. 3. Is
- *  best-effort: a. The server can wait less than the default deadline or zero
- *  seconds, in overload situations. b. There is no guarantee that the operation
- *  is actually done when returns. 4. User should be prepared to retry if the
- *  operation is not DONE.
+ *  Waits for the specified Operation resource to return as DONE or for the
+ *  request to approach the 2 minute deadline, and retrieves the specified
+ *  Operation resource. This method differs from the GET method in that it waits
+ *  for no more than the default deadline (2 minutes) and then returns the
+ *  current state of the operation, which might be DONE or still in progress.
+ *  This method is called on a best-effort basis. Specifically:
+ *  - In uncommon cases, when the server is overloaded, the request might return
+ *  before the default deadline is reached, or might return after zero seconds.
+ *  - If the default deadline is reached, there is no guarantee that the
+ *  operation is actually done when the method returns. Be prepared to retry if
+ *  the operation is not DONE.
  *
  *  Method: compute.regionOperations.wait
  *
@@ -19033,15 +19569,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Waits for the specified region-specific Operations resource until it is done
- *  or timeout, and retrieves the specified Operations resource. 1. Immediately
- *  returns when the operation is already done. 2. Waits for no more than the
- *  default deadline (2 minutes, subject to change) and then returns the current
- *  state of the operation, which may be DONE or still in progress. 3. Is
- *  best-effort: a. The server can wait less than the default deadline or zero
- *  seconds, in overload situations. b. There is no guarantee that the operation
- *  is actually done when returns. 4. User should be prepared to retry if the
- *  operation is not DONE.
+ *  Waits for the specified Operation resource to return as DONE or for the
+ *  request to approach the 2 minute deadline, and retrieves the specified
+ *  Operation resource. This method differs from the GET method in that it waits
+ *  for no more than the default deadline (2 minutes) and then returns the
+ *  current state of the operation, which might be DONE or still in progress.
+ *  This method is called on a best-effort basis. Specifically:
+ *  - In uncommon cases, when the server is overloaded, the request might return
+ *  before the default deadline is reached, or might return after zero seconds.
+ *  - If the default deadline is reached, there is no guarantee that the
+ *  operation is actually done when the method returns. Be prepared to retry if
+ *  the operation is not DONE.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -28715,15 +29253,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
- *  Waits for the specified zone-specific Operations resource until it is done
- *  or timeout, and retrieves the specified Operations resource. 1. Immediately
- *  returns when the operation is already done. 2. Waits for no more than the
- *  default deadline (2 minutes, subject to change) and then returns the current
- *  state of the operation, which may be DONE or still in progress. 3. Is
- *  best-effort: a. The server can wait less than the default deadline or zero
- *  seconds, in overload situations. b. There is no guarantee that the operation
- *  is actually done when returns. 4. User should be prepared to retry if the
- *  operation is not DONE.
+ *  Waits for the specified Operation resource to return as DONE or for the
+ *  request to approach the 2 minute deadline, and retrieves the specified
+ *  Operation resource. This method differs from the GET method in that it waits
+ *  for no more than the default deadline (2 minutes) and then returns the
+ *  current state of the operation, which might be DONE or still in progress.
+ *  This method is called on a best-effort basis. Specifically:
+ *  - In uncommon cases, when the server is overloaded, the request might return
+ *  before the default deadline is reached, or might return after zero seconds.
+ *  - If the default deadline is reached, there is no guarantee that the
+ *  operation is actually done when the method returns. Be prepared to retry if
+ *  the operation is not DONE.
  *
  *  Method: compute.zoneOperations.wait
  *
@@ -28752,15 +29292,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Waits for the specified zone-specific Operations resource until it is done
- *  or timeout, and retrieves the specified Operations resource. 1. Immediately
- *  returns when the operation is already done. 2. Waits for no more than the
- *  default deadline (2 minutes, subject to change) and then returns the current
- *  state of the operation, which may be DONE or still in progress. 3. Is
- *  best-effort: a. The server can wait less than the default deadline or zero
- *  seconds, in overload situations. b. There is no guarantee that the operation
- *  is actually done when returns. 4. User should be prepared to retry if the
- *  operation is not DONE.
+ *  Waits for the specified Operation resource to return as DONE or for the
+ *  request to approach the 2 minute deadline, and retrieves the specified
+ *  Operation resource. This method differs from the GET method in that it waits
+ *  for no more than the default deadline (2 minutes) and then returns the
+ *  current state of the operation, which might be DONE or still in progress.
+ *  This method is called on a best-effort basis. Specifically:
+ *  - In uncommon cases, when the server is overloaded, the request might return
+ *  before the default deadline is reached, or might return after zero seconds.
+ *  - If the default deadline is reached, there is no guarantee that the
+ *  operation is actually done when the method returns. Be prepared to retry if
+ *  the operation is not DONE.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.

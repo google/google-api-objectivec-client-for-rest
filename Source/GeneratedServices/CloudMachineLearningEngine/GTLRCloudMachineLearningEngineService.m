@@ -11,9 +11,10 @@
 #import "GTLRCloudMachineLearningEngine.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 NSString * const kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly = @"https://www.googleapis.com/auth/cloud-platform.read-only";
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudMachineLearningEngineService

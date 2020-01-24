@@ -147,6 +147,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisRequestConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SpeechContext;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SynthesizeSpeechConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2TextInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams;
@@ -208,7 +209,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVer
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeHybrid;
 /**
  *  Can be used for agents with a large number of examples in intents,
- *  especially the ones using \@sys.any or very large developer entities.
+ *  especially the ones using \@sys.any or very large custom entities.
  *
  *  Value: "MATCH_MODE_ML_ONLY"
  */
@@ -285,7 +286,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityT
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType.kind
 
 /**
- *  List entity types contain a set of entries that do not map to canonical
+ *  List entity types contain a set of entries that do not map to reference
  *  values. However, list entity types can contain references to other entity
  *  types (with or without aliases).
  *
@@ -293,7 +294,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityT
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindList;
 /**
- *  Map entity types allow mapping of a group of synonyms to a canonical
+ *  Map entity types allow mapping of a group of synonyms to a reference
  *  value.
  *
  *  Value: "KIND_MAP"
@@ -786,19 +787,19 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Knowled
 
 /**
  *  The collection of session entities overrides the collection of entities
- *  in the corresponding developer entity type.
+ *  in the corresponding custom entity type.
  *
  *  Value: "ENTITY_OVERRIDE_MODE_OVERRIDE"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride;
 /**
  *  The collection of session entities extends the collection of entities in
- *  the corresponding developer entity type.
+ *  the corresponding custom entity type.
  *  Note: Even in this override mode calls to `ListSessionEntityTypes`,
  *  `GetSessionEntityType`, `CreateSessionEntityType` and
  *  `UpdateSessionEntityType` only return the additional entities added in
  *  this session entity type. If you want to get the supplemented list,
- *  please call EntityTypes.GetEntityType on the developer entity type
+ *  please call EntityTypes.GetEntityType on the custom entity type
  *  and merge.
  *
  *  Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT"
@@ -883,7 +884,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_A
 // GTLRDialogflow_GoogleCloudDialogflowV2EntityType.kind
 
 /**
- *  List entity types contain a set of entries that do not map to canonical
+ *  List entity types contain a set of entries that do not map to reference
  *  values. However, list entity types can contain references to other entity
  *  types (with or without aliases).
  *
@@ -891,7 +892,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_A
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindList;
 /**
- *  Map entity types allow mapping of a group of synonyms to a canonical
+ *  Map entity types allow mapping of a group of synonyms to a reference
  *  value.
  *
  *  Value: "KIND_MAP"
@@ -1402,19 +1403,19 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioC
 
 /**
  *  The collection of session entities overrides the collection of entities
- *  in the corresponding developer entity type.
+ *  in the corresponding custom entity type.
  *
  *  Value: "ENTITY_OVERRIDE_MODE_OVERRIDE"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride;
 /**
  *  The collection of session entities extends the collection of entities in
- *  the corresponding developer entity type.
+ *  the corresponding custom entity type.
  *  Note: Even in this override mode calls to `ListSessionEntityTypes`,
  *  `GetSessionEntityType`, `CreateSessionEntityType` and
  *  `UpdateSessionEntityType` only return the additional entities added in
  *  this session entity type. If you want to get the supplemented list,
- *  please call EntityTypes.GetEntityType on the developer entity type
+ *  please call EntityTypes.GetEntityType on the custom entity type
  *  and merge.
  *
  *  Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT"
@@ -1538,7 +1539,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *        "MATCH_MODE_HYBRID")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeMlOnly
  *        Can be used for agents with a large number of examples in intents,
- *        especially the ones using \@sys.any or very large developer entities.
+ *        especially the ones using \@sys.any or very large custom entities.
  *        (Value: "MATCH_MODE_ML_ONLY")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeUnspecified
  *        Not specified. (Value: "MATCH_MODE_UNSPECIFIED")
@@ -1647,7 +1648,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @interface GTLRDialogflow_GoogleCloudDialogflowV2BatchDeleteEntitiesRequest : GTLRObject
 
 /**
- *  Required. The canonical `values` of the entities to delete. Note that
+ *  Required. The reference `values` of the entities to delete. Note that
  *  these are not fully-qualified names, i.e. they don't start with
  *  `projects/<Project ID>`.
  */
@@ -2009,12 +2010,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindList
  *        List entity types contain a set of entries that do not map to
- *        canonical
+ *        reference
  *        values. However, list entity types can contain references to other
  *        entity
  *        types (with or without aliases). (Value: "KIND_LIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindMap
- *        Map entity types allow mapping of a group of synonyms to a canonical
+ *        Map entity types allow mapping of a group of synonyms to a reference
  *        value. (Value: "KIND_MAP")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindRegexp
  *        Regexp entity types allow to specify regular expressions in entries
@@ -2055,7 +2056,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  For example, if the entity type is *vegetable*, the value could be
  *  *scallions*.
  *  For `KIND_MAP` entity types:
- *  * A canonical value to be used in place of synonyms.
+ *  * A reference value to be used in place of synonyms.
  *  For `KIND_LIST` entity types:
  *  * A string that can contain references to other entity types (with or
  *  without aliases).
@@ -3935,8 +3936,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Represents a session entity type.
- *  Extends or replaces a developer entity type at the user session level (we
- *  refer to the entity types defined at the agent level as "developer entity
+ *  Extends or replaces a custom entity type at the user session level (we
+ *  refer to the entity types defined at the agent level as "custom entity
  *  types").
  *  Note: session entity types apply to all queries, regardless of the language.
  */
@@ -3950,23 +3951,23 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Required. Indicates whether the additional data should override or
- *  supplement the developer entity type definition.
+ *  supplement the custom entity type definition.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride
  *        The collection of session entities overrides the collection of
  *        entities
- *        in the corresponding developer entity type. (Value:
+ *        in the corresponding custom entity type. (Value:
  *        "ENTITY_OVERRIDE_MODE_OVERRIDE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement
  *        The collection of session entities extends the collection of entities
  *        in
- *        the corresponding developer entity type.
+ *        the corresponding custom entity type.
  *        Note: Even in this override mode calls to `ListSessionEntityTypes`,
  *        `GetSessionEntityType`, `CreateSessionEntityType` and
  *        `UpdateSessionEntityType` only return the additional entities added in
  *        this session entity type. If you want to get the supplemented list,
- *        please call EntityTypes.GetEntityType on the developer entity type
+ *        please call EntityTypes.GetEntityType on the custom entity type
  *        and merge. (Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified
  *        Not specified. This value should be never used. (Value:
@@ -4178,6 +4179,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  *  The `Context ID` is always converted to lowercase, may only contain
  *  characters in [a-zA-Z0-9_-%] and may be at most 250 bytes long.
+ *  The following context names are reserved for internal use by Dialogflow.
+ *  You should not use these contexts or create contexts with these names:
+ *  * `__system_counters__`
+ *  * `*_id_dialog_context`
+ *  * `*_dialog_params_size`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4388,12 +4394,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindList
  *        List entity types contain a set of entries that do not map to
- *        canonical
+ *        reference
  *        values. However, list entity types can contain references to other
  *        entity
  *        types (with or without aliases). (Value: "KIND_LIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindMap Map
- *        entity types allow mapping of a group of synonyms to a canonical
+ *        entity types allow mapping of a group of synonyms to a reference
  *        value. (Value: "KIND_MAP")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindRegexp
  *        Regexp entity types allow to specify regular expressions in entries
@@ -4445,7 +4451,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  For example, if the entity type is *vegetable*, the value could be
  *  *scallions*.
  *  For `KIND_MAP` entity types:
- *  * A canonical value to be used in place of synonyms.
+ *  * A reference value to be used in place of synonyms.
  *  For `KIND_LIST` entity types:
  *  * A string that can contain references to other entity types (with or
  *  without aliases).
@@ -4612,6 +4618,16 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, copy, nullable) NSString *audioEncoding;
 
 /**
+ *  Optional. If `true`, Dialogflow returns SpeechWordInfo in
+ *  StreamingRecognitionResult with information about the recognized speech
+ *  words, e.g. start and end time offsets. If false or unspecified, Speech
+ *  doesn't return any word-level information.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableWordInfo;
+
+/**
  *  Required. The language of the supplied audio. Dialogflow does not do
  *  translations. See [Language
  *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
@@ -4619,6 +4635,21 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  the same session do not necessarily need to specify the same language.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Optional. Which Speech model to select for the given request. Select the
+ *  model best suited to your domain to get best results. If a model is not
+ *  explicitly specified, then we auto-select a model based on the parameters
+ *  in the InputAudioConfig.
+ *  If enhanced speech model is enabled for the agent and an enhanced
+ *  version of the specified model for the language does not exist, then the
+ *  speech is recognized using the standard version of the specified model.
+ *  Refer to
+ *  [Cloud Speech API
+ *  documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
+ *  for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *model;
 
 /**
  *  Optional. Which variant of the Speech model to use.
@@ -4662,6 +4693,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  See [the Cloud Speech
  *  documentation](https://cloud.google.com/speech-to-text/docs/basics#phrase-hints)
  *  for more details.
+ *  This field is deprecated. Please use [speech_contexts]() instead. If you
+ *  specify both [phrase_hints]() and [speech_contexts](), Dialogflow will
+ *  treat the [phrase_hints]() as a single additional [SpeechContext]().
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *phraseHints;
 
@@ -4691,6 +4725,14 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *singleUtterance;
+
+/**
+ *  Optional. Context information to assist speech recognition.
+ *  See [the Cloud Speech
+ *  documentation](https://cloud.google.com/speech-to-text/docs/basics#phrase-hints)
+ *  for more details.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SpeechContext *> *speechContexts;
 
 @end
 
@@ -6393,8 +6435,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Represents a session entity type.
- *  Extends or replaces a developer entity type at the user session level (we
- *  refer to the entity types defined at the agent level as "developer entity
+ *  Extends or replaces a custom entity type at the user session level (we
+ *  refer to the entity types defined at the agent level as "custom entity
  *  types").
  *  Note: session entity types apply to all queries, regardless of the language.
  */
@@ -6408,23 +6450,23 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Required. Indicates whether the additional data should override or
- *  supplement the developer entity type definition.
+ *  supplement the custom entity type definition.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride
  *        The collection of session entities overrides the collection of
  *        entities
- *        in the corresponding developer entity type. (Value:
+ *        in the corresponding custom entity type. (Value:
  *        "ENTITY_OVERRIDE_MODE_OVERRIDE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement
  *        The collection of session entities extends the collection of entities
  *        in
- *        the corresponding developer entity type.
+ *        the corresponding custom entity type.
  *        Note: Even in this override mode calls to `ListSessionEntityTypes`,
  *        `GetSessionEntityType`, `CreateSessionEntityType` and
  *        `UpdateSessionEntityType` only return the additional entities added in
  *        this session entity type. If you want to get the supplemented list,
- *        please call EntityTypes.GetEntityType on the developer entity type
+ *        please call EntityTypes.GetEntityType on the custom entity type
  *        and merge. (Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified
  *        Not specified. This value should be never used. (Value:
@@ -6441,6 +6483,42 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  type in the same agent that will be overridden or supplemented.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Hints for the speech recognizer to help with recognition in a specific
+ *  conversation state.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SpeechContext : GTLRObject
+
+/**
+ *  Optional. Boost for this context compared to other contexts:
+ *  * If the boost is positive, Dialogflow will increase the probability that
+ *  the phrases in this context are recognized over similar sounding phrases.
+ *  * If the boost is unspecified or non-positive, Dialogflow will not apply
+ *  any boost.
+ *  Dialogflow recommends that you use boosts in the range (0, 20] and that you
+ *  find a value that fits your use case with binary search.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boost;
+
+/**
+ *  Optional. A list of strings containing words and phrases that the speech
+ *  recognizer should recognize with higher likelihood.
+ *  This list can be used to:
+ *  * improve accuracy for words and phrases you expect the user to say,
+ *  e.g. typical commands for your Dialogflow agent
+ *  * add additional words to the speech recognizer vocabulary
+ *  * ...
+ *  See the [Cloud Speech
+ *  documentation](https://cloud.google.com/speech-to-text/quotas) for usage
+ *  limits.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *phrases;
 
 @end
 

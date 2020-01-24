@@ -54,7 +54,6 @@ NSString * const kGTLRAuthScopeAndroidEnterprise = @"https://www.googleapis.com/
     @"androidenterprise#groupLicenseUsersListResponse" : [GTLRAndroidEnterprise_GroupLicenseUsersListResponse class],
     @"androidenterprise#install" : [GTLRAndroidEnterprise_Install class],
     @"androidenterprise#installsListResponse" : [GTLRAndroidEnterprise_InstallsListResponse class],
-    @"androidenterprise#managedConfiguration" : [GTLRAndroidEnterprise_ManagedConfiguration class],
     @"androidenterprise#managedConfigurationsForDeviceListResponse" : [GTLRAndroidEnterprise_ManagedConfigurationsForDeviceListResponse class],
     @"androidenterprise#managedConfigurationsForUserListResponse" : [GTLRAndroidEnterprise_ManagedConfigurationsForUserListResponse class],
     @"androidenterprise#managedConfigurationsSettings" : [GTLRAndroidEnterprise_ManagedConfigurationsSettings class],

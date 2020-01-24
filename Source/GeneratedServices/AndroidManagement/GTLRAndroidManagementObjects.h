@@ -626,6 +626,28 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Info;
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_KioskCustomization.deviceSettings
+
+/**
+ *  Unspecified, defaults to SETTINGS_ACCESS_BLOCKED.
+ *
+ *  Value: "DEVICE_SETTINGS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSettings_DeviceSettingsUnspecified;
+/**
+ *  Access to the Settings app is allowed in kiosk mode.
+ *
+ *  Value: "SETTINGS_ACCESS_ALLOWED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSettings_SettingsAccessAllowed;
+/**
+ *  Access to the Settings app is not allowed in kiosk mode.
+ *
+ *  Value: "SETTINGS_ACCESS_BLOCKED"
+ */
+GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSettings_SettingsAccessBlocked;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_KioskCustomization.powerButtonActions
 
 /**
@@ -3000,6 +3022,22 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
 @interface GTLRAndroidManagement_KioskCustomization : GTLRObject
 
 /**
+ *  Specifies whether the Settings app is allowed in kiosk mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_KioskCustomization_DeviceSettings_DeviceSettingsUnspecified
+ *        Unspecified, defaults to SETTINGS_ACCESS_BLOCKED. (Value:
+ *        "DEVICE_SETTINGS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_KioskCustomization_DeviceSettings_SettingsAccessAllowed
+ *        Access to the Settings app is allowed in kiosk mode. (Value:
+ *        "SETTINGS_ACCESS_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_KioskCustomization_DeviceSettings_SettingsAccessBlocked
+ *        Access to the Settings app is not allowed in kiosk mode. (Value:
+ *        "SETTINGS_ACCESS_BLOCKED")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceSettings;
+
+/**
  *  Sets the behavior of a device in kiosk mode when a user presses and holds
  *  (long-presses) the Power button.
  *
@@ -4147,7 +4185,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *  Whether the kiosk custom launcher is enabled. This replaces the home screen
  *  with a launcher that locks down the device to the apps installed via the
  *  applications setting. Apps appear on a single page in alphabetical order.
- *  The status bar is disabled when this is set.
+ *  Use kioskCustomization to further configure the kiosk device behavior.
  *
  *  Uses NSNumber of boolValue.
  */

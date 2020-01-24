@@ -157,7 +157,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  List groups within a customer or a domain.
+ *  Lists groups within a customer or a domain.
  *
  *  Method: cloudidentity.groups.list
  *
@@ -200,7 +200,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_ListGroupsResponse.
  *
- *  List groups within a customer or a domain.
+ *  Lists groups within a customer or a domain.
  *
  *  @return GTLRCloudIdentityQuery_GroupsList
  *
@@ -376,7 +376,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  List Memberships within a Group.
+ *  Lists Memberships within a Group.
  *
  *  Method: cloudidentity.groups.memberships.list
  *
@@ -421,7 +421,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_ListMembershipsResponse.
  *
- *  List Memberships within a Group.
+ *  Lists Memberships within a Group.
  *
  *  @param parent [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the

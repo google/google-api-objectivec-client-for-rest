@@ -19,6 +19,11 @@ NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_DataRead = @"DATA_RE
 NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudFunctions_CloudFunction.ingressSettings
+NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowAll = @"ALLOW_ALL";
+NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowInternalOnly = @"ALLOW_INTERNAL_ONLY";
+NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_IngressSettingsUnspecified = @"INGRESS_SETTINGS_UNSPECIFIED";
+
 // GTLRCloudFunctions_CloudFunction.status
 NSString * const kGTLRCloudFunctions_CloudFunction_Status_Active = @"ACTIVE";
 NSString * const kGTLRCloudFunctions_CloudFunction_Status_CloudFunctionStatusUnspecified = @"CLOUD_FUNCTION_STATUS_UNSPECIFIED";
@@ -26,6 +31,11 @@ NSString * const kGTLRCloudFunctions_CloudFunction_Status_DeleteInProgress = @"D
 NSString * const kGTLRCloudFunctions_CloudFunction_Status_DeployInProgress = @"DEPLOY_IN_PROGRESS";
 NSString * const kGTLRCloudFunctions_CloudFunction_Status_Offline = @"OFFLINE";
 NSString * const kGTLRCloudFunctions_CloudFunction_Status_Unknown = @"UNKNOWN";
+
+// GTLRCloudFunctions_CloudFunction.vpcConnectorEgressSettings
+NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_AllTraffic = @"ALL_TRAFFIC";
+NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_PrivateRangesOnly = @"PRIVATE_RANGES_ONLY";
+NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_VpcConnectorEgressSettingsUnspecified = @"VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED";
 
 // GTLRCloudFunctions_OperationMetadataV1.type
 NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_CreateFunction = @"CREATE_FUNCTION";
@@ -120,10 +130,10 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 
 @implementation GTLRCloudFunctions_CloudFunction
 @dynamic availableMemoryMb, descriptionProperty, entryPoint,
-         environmentVariables, eventTrigger, httpsTrigger, labels, maxInstances,
-         name, network, runtime, serviceAccountEmail, sourceArchiveUrl,
-         sourceRepository, sourceUploadUrl, status, timeout, updateTime,
-         versionId, vpcConnector;
+         environmentVariables, eventTrigger, httpsTrigger, ingressSettings,
+         labels, maxInstances, name, network, runtime, serviceAccountEmail,
+         sourceArchiveUrl, sourceRepository, sourceUploadUrl, status, timeout,
+         updateTime, versionId, vpcConnector, vpcConnectorEgressSettings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

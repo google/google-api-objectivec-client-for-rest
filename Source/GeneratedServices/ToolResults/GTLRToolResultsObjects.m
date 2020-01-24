@@ -18,6 +18,7 @@ NSString * const kGTLRToolResults_NonSdkApi_List_Black    = @"BLACK";
 NSString * const kGTLRToolResults_NonSdkApi_List_Grey     = @"GREY";
 NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxO = @"GREY_MAX_O";
 NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxP = @"GREY_MAX_P";
+NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxQ = @"GREY_MAX_Q";
 NSString * const kGTLRToolResults_NonSdkApi_List_None     = @"NONE";
 NSString * const kGTLRToolResults_NonSdkApi_List_White    = @"WHITE";
 

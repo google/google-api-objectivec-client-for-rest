@@ -213,31 +213,6 @@
 
 @end
 
-@implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRDataCatalog_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
-  GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRDataCatalog_Policy class];
-  query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.setIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsCreate
 
 @dynamic parent;

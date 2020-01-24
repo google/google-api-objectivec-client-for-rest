@@ -103,6 +103,14 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_AcquireBestEffort
 NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Check = @"CHECK";
 NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEASE";
 
+// GTLRServiceControl_TraceSpan.spanKind
+NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Client = @"CLIENT";
+NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Consumer = @"CONSUMER";
+NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Internal = @"INTERNAL";
+NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Producer = @"PRODUCER";
+NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Server = @"SERVER";
+NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"SPAN_KIND_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRServiceControl_AllocateInfo
@@ -148,6 +156,40 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_Attributes
+//
+
+@implementation GTLRServiceControl_Attributes
+@dynamic attributeMap, droppedAttributesCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_Attributes_AttributeMap
+//
+
+@implementation GTLRServiceControl_Attributes_AttributeMap
+
++ (Class)classForAdditionalProperties {
+  return [GTLRServiceControl_AttributeValue class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_AttributeValue
+//
+
+@implementation GTLRServiceControl_AttributeValue
+@dynamic boolValue, intValue, stringValue;
 @end
 
 
@@ -652,13 +694,14 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 @implementation GTLRServiceControl_Operation
 @dynamic consumerId, endTime, importance, labels, logEntries, metricValueSets,
          operationId, operationName, quotaProperties, resources, startTime,
-         userLabels;
+         traceSpans, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"logEntries" : [GTLRServiceControl_LogEntry class],
     @"metricValueSets" : [GTLRServiceControl_MetricValueSet class],
-    @"resources" : [GTLRServiceControl_ResourceInfo class]
+    @"resources" : [GTLRServiceControl_ResourceInfo class],
+    @"traceSpans" : [GTLRServiceControl_TraceSpan class]
   };
   return map;
 }
@@ -971,6 +1014,16 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceControl_SpanContext
+//
+
+@implementation GTLRServiceControl_SpanContext
+@dynamic spanName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceControl_Status
 //
 
@@ -1022,4 +1075,25 @@ NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEA
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_TraceSpan
+//
+
+@implementation GTLRServiceControl_TraceSpan
+@dynamic attributes, childSpanCount, displayName, endTime, name, parentSpanId,
+         sameProcessAsParentSpan, spanId, spanKind, startTime, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_TruncatableString
+//
+
+@implementation GTLRServiceControl_TruncatableString
+@dynamic truncatedByteCount, value;
 @end

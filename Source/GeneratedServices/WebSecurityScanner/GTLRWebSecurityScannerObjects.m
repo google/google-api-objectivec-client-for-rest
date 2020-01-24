@@ -125,7 +125,7 @@ NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName = @"WINDOW_
 //
 
 @implementation GTLRWebSecurityScanner_Authentication
-@dynamic customAccount, googleAccount;
+@dynamic customAccount, googleAccount, iapCredential;
 @end
 
 
@@ -221,6 +221,26 @@ NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName = @"WINDOW_
 
 @implementation GTLRWebSecurityScanner_Header
 @dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebSecurityScanner_IapCredential
+//
+
+@implementation GTLRWebSecurityScanner_IapCredential
+@dynamic iapTestServiceAccountInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebSecurityScanner_IapTestServiceAccountInfo
+//
+
+@implementation GTLRWebSecurityScanner_IapTestServiceAccountInfo
+@dynamic targetAudienceClientId;
 @end
 
 
@@ -355,8 +375,8 @@ NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName = @"WINDOW_
 
 @implementation GTLRWebSecurityScanner_ScanConfig
 @dynamic authentication, blacklistPatterns, displayName,
-         exportToSecurityCommandCenter, maxQps, name, riskLevel, schedule,
-         startingUrls, userAgent;
+         exportToSecurityCommandCenter, managedScan, maxQps, name, riskLevel,
+         schedule, startingUrls, staticIpScan, userAgent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -165,6 +165,14 @@ NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_Unverifi
 NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_VerificationStatusUnspecified = @"VERIFICATION_STATUS_UNSPECIFIED";
 NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_Verified = @"VERIFIED";
 
+// GTLRMonitoring_NotificationChannelDescriptor.launchStage
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Ga = @"GA";
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+
 // GTLRMonitoring_ResourceGroup.resourceType
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer = @"AWS_ELB_LOAD_BALANCER";
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_Instance = @"INSTANCE";
@@ -1305,7 +1313,7 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_NotificationChannelDescriptor
-@dynamic descriptionProperty, displayName, labels, name, type;
+@dynamic descriptionProperty, displayName, labels, launchStage, name, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

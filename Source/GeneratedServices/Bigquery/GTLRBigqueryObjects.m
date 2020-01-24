@@ -302,9 +302,9 @@
 @dynamic completedParallelInputs, computeMsAvg, computeMsMax, computeRatioAvg,
          computeRatioMax, endMs, identifier, inputStages, name, parallelInputs,
          readMsAvg, readMsMax, readRatioAvg, readRatioMax, recordsRead,
-         recordsWritten, shuffleOutputBytes, shuffleOutputBytesSpilled, startMs,
-         status, steps, waitMsAvg, waitMsMax, waitRatioAvg, waitRatioMax,
-         writeMsAvg, writeMsMax, writeRatioAvg, writeRatioMax;
+         recordsWritten, shuffleOutputBytes, shuffleOutputBytesSpilled, slotMs,
+         startMs, status, steps, waitMsAvg, waitMsMax, waitRatioAvg,
+         waitRatioMax, writeMsAvg, writeMsMax, writeRatioAvg, writeRatioMax;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -488,7 +488,8 @@
 
 @implementation GTLRBigquery_JobConfigurationExtract
 @dynamic compression, destinationFormat, destinationUri, destinationUris,
-         fieldDelimiter, printHeader, sourceTable;
+         fieldDelimiter, printHeader, sourceModel, sourceTable,
+         useAvroLogicalTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -649,7 +650,7 @@
 @implementation GTLRBigquery_JobStatistics
 @dynamic completionRatio, creationTime, endTime, extract, load, numChildJobs,
          parentJobId, query, quotaDeferments, reservationId, reservationUsage,
-         startTime, totalBytesProcessed, totalSlotMs;
+         scriptStatistics, startTime, totalBytesProcessed, totalSlotMs;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"reservationId" : @"reservation_id" };
@@ -781,7 +782,7 @@
 //
 
 @implementation GTLRBigquery_MaterializedViewDefinition
-@dynamic lastRefreshTime, query;
+@dynamic enableRefresh, lastRefreshTime, query, refreshIntervalMs;
 @end
 
 
@@ -818,6 +819,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ModelReference
+//
+
+@implementation GTLRBigquery_ModelReference
+@dynamic datasetId, modelId, projectId;
 @end
 
 
@@ -1039,6 +1050,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_ScriptStackFrame
+//
+
+@implementation GTLRBigquery_ScriptStackFrame
+@dynamic endColumn, endLine, procedureId, startColumn, startLine, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ScriptStatistics
+//
+
+@implementation GTLRBigquery_ScriptStatistics
+@dynamic evaluationKind, stackFrames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stackFrames" : [GTLRBigquery_ScriptStackFrame class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_Streamingbuffer
 //
 
@@ -1188,7 +1227,7 @@
 //
 
 @implementation GTLRBigquery_TableFieldSchema
-@dynamic categories, descriptionProperty, fields, mode, name, type;
+@dynamic categories, descriptionProperty, fields, mode, name, policyTags, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1210,6 +1249,24 @@
 //
 
 @implementation GTLRBigquery_TableFieldSchema_Categories
+@dynamic names;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TableFieldSchema_PolicyTags
+//
+
+@implementation GTLRBigquery_TableFieldSchema_PolicyTags
 @dynamic names;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1255,7 +1312,8 @@
 
 @implementation GTLRBigquery_TableList_Tables_Item
 @dynamic clustering, creationTime, expirationTime, friendlyName, identifier,
-         kind, labels, tableReference, timePartitioning, type, view;
+         kind, labels, rangePartitioning, tableReference, timePartitioning,
+         type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

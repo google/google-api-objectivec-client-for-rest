@@ -509,7 +509,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  The A1 notation of a range to search for a logical table of data.
- *  Values will be appended after the last row of the table.
+ *  Values are appended after the last row of the table.
  */
 @property(nonatomic, copy, nullable) NSString *range;
 
@@ -575,7 +575,7 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  @param spreadsheetId The ID of the spreadsheet to update.
  *  @param range The A1 notation of a range to search for a logical table of
  *    data.
- *    Values will be appended after the last row of the table.
+ *    Values are appended after the last row of the table.
  *
  *  @return GTLRSheetsQuery_SpreadsheetsValuesAppend
  */
@@ -698,9 +698,8 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  The major dimension that results should use.
  *  For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`,
- *  then requesting `range=A1:B2,majorDimension=ROWS` will return
- *  `[[1,2],[3,4]]`,
- *  whereas requesting `range=A1:B2,majorDimension=COLUMNS` will return
+ *  then requesting `range=A1:B2,majorDimension=ROWS` returns `[[1,2],[3,4]]`,
+ *  whereas requesting `range=A1:B2,majorDimension=COLUMNS` returns
  *  `[[1,3],[2,4]]`.
  *
  *  Likely values:
@@ -935,10 +934,9 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  The major dimension that results should use.
- *  For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`,
- *  then requesting `range=A1:B2,majorDimension=ROWS` will return
- *  `[[1,2],[3,4]]`,
- *  whereas requesting `range=A1:B2,majorDimension=COLUMNS` will return
+ *  For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`, then
+ *  requesting `range=A1:B2,majorDimension=ROWS` returns `[[1,2],[3,4]]`,
+ *  whereas requesting `range=A1:B2,majorDimension=COLUMNS` returns
  *  `[[1,3],[2,4]]`.
  *
  *  Likely values:
@@ -1003,9 +1001,9 @@ GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  Determines if the update response should include the values
  *  of the cells that were updated. By default, responses
  *  do not include the updated values.
- *  If the range to write was larger than than the range actually written,
- *  the response will include all values in the requested range (excluding
- *  trailing empty rows and columns).
+ *  If the range to write was larger than the range actually written, the
+ *  response includes all values in the requested range (excluding trailing
+ *  empty rows and columns).
  */
 @property(nonatomic, assign) BOOL includeValuesInResponse;
 

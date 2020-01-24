@@ -101,7 +101,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 
 /**
  *  Required. The resource name of the Google Cloud Platform project. Written
- *  as `projects/` plus the
+ *  as `projects/{projectID}`, where `{projectID}` is the
  *  [Google Cloud Platform project
  *  ID](https://support.google.com/cloud/answer/6158840).
  *  Example: `projects/my-project-123`.
@@ -115,7 +115,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *
  *  @param projectName Required. The resource name of the Google Cloud Platform
  *    project. Written
- *    as `projects/` plus the
+ *    as `projects/{projectID}`, where `{projectID}` is the
  *    [Google Cloud Platform project
  *    ID](https://support.google.com/cloud/answer/6158840).
  *    Example: `projects/my-project-123`.
@@ -149,7 +149,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 
 /**
  *  Required. The resource name of the Google Cloud Platform project. Written
- *  as `projects/` plus the
+ *  as `projects/{projectID}`, where `{projectID}` is the
  *  [Google Cloud Platform project
  *  ID](https://support.google.com/cloud/answer/6158840).
  *  Example: `projects/my-project-123`.
@@ -200,7 +200,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *
  *  @param projectName Required. The resource name of the Google Cloud Platform
  *    project. Written
- *    as `projects/` plus the
+ *    as `projects/{projectID}`, where `{projectID}` is the
  *    [Google Cloud Platform project
  *    ID](https://support.google.com/cloud/answer/6158840).
  *    Example: `projects/my-project-123`.
@@ -222,7 +222,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *  for authentication. To use an API key, append it to the URL as the value of
  *  a `key` parameter. For example:
  *  `POST
- *  https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456`
+ *  https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456`
  *
  *  Method: clouderrorreporting.projects.events.report
  *
@@ -235,10 +235,10 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 
 /**
  *  Required. The resource name of the Google Cloud Platform project. Written
- *  as `projects/` plus the
+ *  as `projects/{projectId}`, where `{projectId}` is the
  *  [Google Cloud Platform project
- *  ID](https://support.google.com/cloud/answer/6158840). Example:
- *  `projects/my-project-123`.
+ *  ID](https://support.google.com/cloud/answer/6158840).
+ *  Example: // `projects/my-project-123`.
  */
 @property(nonatomic, copy, nullable) NSString *projectName;
 
@@ -251,16 +251,16 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *  for authentication. To use an API key, append it to the URL as the value of
  *  a `key` parameter. For example:
  *  `POST
- *  https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456`
+ *  https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456`
  *
  *  @param object The @c GTLRClouderrorreporting_ReportedErrorEvent to include
  *    in the query.
  *  @param projectName Required. The resource name of the Google Cloud Platform
  *    project. Written
- *    as `projects/` plus the
+ *    as `projects/{projectId}`, where `{projectId}` is the
  *    [Google Cloud Platform project
- *    ID](https://support.google.com/cloud/answer/6158840). Example:
- *    `projects/my-project-123`.
+ *    ID](https://support.google.com/cloud/answer/6158840).
+ *    Example: // `projects/my-project-123`.
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsEventsReport
  */
@@ -376,10 +376,10 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 
 /**
  *  Required. The resource name of the Google Cloud Platform project. Written
- *  as <code>projects/</code> plus the
- *  <a href="https://support.google.com/cloud/answer/6158840">Google Cloud
- *  Platform project ID</a>.
- *  Example: <code>projects/my-project-123</code>.
+ *  as `projects/{projectID}`, where `{projectID}` is the
+ *  [Google Cloud Platform project
+ *  ID](https://support.google.com/cloud/answer/6158840).
+ *  Example: `projects/my-project-123`.
  */
 @property(nonatomic, copy, nullable) NSString *projectName;
 
@@ -433,10 +433,10 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *
  *  @param projectName Required. The resource name of the Google Cloud Platform
  *    project. Written
- *    as <code>projects/</code> plus the
- *    <a href="https://support.google.com/cloud/answer/6158840">Google Cloud
- *    Platform project ID</a>.
- *    Example: <code>projects/my-project-123</code>.
+ *    as `projects/{projectID}`, where `{projectID}` is the
+ *    [Google Cloud Platform project
+ *    ID](https://support.google.com/cloud/answer/6158840).
+ *    Example: `projects/my-project-123`.
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsGroupStatsList
  *

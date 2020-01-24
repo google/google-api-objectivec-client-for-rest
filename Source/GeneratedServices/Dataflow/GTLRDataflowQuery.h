@@ -21,6 +21,7 @@
 @class GTLRDataflow_CreateJobFromTemplateRequest;
 @class GTLRDataflow_GetDebugConfigRequest;
 @class GTLRDataflow_Job;
+@class GTLRDataflow_LaunchFlexTemplateRequest;
 @class GTLRDataflow_LaunchTemplateParameters;
 @class GTLRDataflow_LeaseWorkItemRequest;
 @class GTLRDataflow_ReportWorkItemStatusRequest;
@@ -747,6 +748,52 @@ GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 + (instancetype)queryWithObject:(GTLRDataflow_ReportWorkItemStatusRequest *)object
                       projectId:(NSString *)projectId
                           jobId:(NSString *)jobId;
+
+@end
+
+/**
+ *  Launch a job with a FlexTemplate.
+ *
+ *  Method: dataflow.projects.locations.flexTemplates.launch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsFlexTemplatesLaunch : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsFlexTemplatesLaunchWithObject:projectId:location:]
+
+/**
+ *  Required. The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *  which to direct the request. E.g., us-central1, us-west1.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** Required. The ID of the Cloud Platform project that the job belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_LaunchFlexTemplateResponse.
+ *
+ *  Launch a job with a FlexTemplate.
+ *
+ *  @param object The @c GTLRDataflow_LaunchFlexTemplateRequest to include in
+ *    the query.
+ *  @param projectId Required. The ID of the Cloud Platform project that the job
+ *    belongs to.
+ *  @param location Required. The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) to
+ *    which to direct the request. E.g., us-central1, us-west1.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsFlexTemplatesLaunch
+ */
++ (instancetype)queryWithObject:(GTLRDataflow_LaunchFlexTemplateRequest *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location;
 
 @end
 

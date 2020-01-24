@@ -6,7 +6,7 @@
 // Description:
 //   The cloud asset API manages the history and inventory of cloud resources.
 // Documentation:
-//   https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/quickstart-cloud-asset-inventory
+//   https://cloud.google.com/asset-inventory/docs/quickstart
 
 #import "GTLRCloudAssetObjects.h"
 
@@ -319,7 +319,8 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessLevel
-@dynamic basic, createTime, descriptionProperty, name, title, updateTime;
+@dynamic basic, createTime, custom, descriptionProperty, name, title,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -375,6 +376,16 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1CustomLevel
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1CustomLevel
+@dynamic expr;
 @end
 
 

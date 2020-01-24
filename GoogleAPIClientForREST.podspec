@@ -412,10 +412,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Fitness/*.{h,m}'
   end
-  s.subspec 'FusionTables' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/FusionTables/*.{h,m}'
-  end
   s.subspec 'Games' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Games/*.{h,m}'
@@ -516,10 +512,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Plus/*.{h,m}'
   end
-  s.subspec 'PlusDomains' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/PlusDomains/*.{h,m}'
-  end
   s.subspec 'PolicyTroubleshooter' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PolicyTroubleshooter/*.{h,m}'
@@ -584,10 +576,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/SecurityCommandCenter/*.{h,m}'
   end
-  s.subspec 'ServiceBroker' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/ServiceBroker/*.{h,m}'
-  end
   s.subspec 'ServiceConsumerManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ServiceConsumerManagement/*.{h,m}'
@@ -643,10 +631,6 @@ Pod::Spec.new do |s|
   s.subspec 'StreetViewPublish' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/StreetViewPublish/*.{h,m}'
-  end
-  s.subspec 'Surveys' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Surveys/*.{h,m}'
   end
   s.subspec 'TPU' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

@@ -556,15 +556,34 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  Represents an expression text. Example:
- *  title: "User account presence"
- *  description: "Determines whether the request has a user account"
- *  expression: "size(request.user) > 0"
+ *  Represents a textual expression in the Common Expression Language (CEL)
+ *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
+ *  are documented at https://github.com/google/cel-spec.
+ *  Example (Comparison):
+ *  title: "Summary size limit"
+ *  description: "Determines if a summary is less than 100 chars"
+ *  expression: "document.summary.size() < 100"
+ *  Example (Equality):
+ *  title: "Requestor is owner"
+ *  description: "Determines if requestor is the document owner"
+ *  expression: "document.owner == request.auth.claims.email"
+ *  Example (Logic):
+ *  title: "Public documents"
+ *  description: "Determine whether the document should be publicly visible"
+ *  expression: "document.type != 'private' && document.type != 'internal'"
+ *  Example (Data Manipulation):
+ *  title: "Notification string"
+ *  description: "Create a notification string with a timestamp."
+ *  expression: "'New message received at ' + string(document.create_time)"
+ *  The exact variables and functions that may be referenced within an
+ *  expression
+ *  are determined by the service that evaluates it. See the service
+ *  documentation for additional information.
  */
 @interface GTLRSecurityCommandCenter_Expr : GTLRObject
 
 /**
- *  An optional description of the expression. This is a longer text which
+ *  Optional. Description of the expression. This is a longer text which
  *  describes the expression, e.g. when hovered over it in a UI.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -572,21 +591,19 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Textual representation of an expression in
- *  Common Expression Language syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
+ *  Textual representation of an expression in Common Expression Language
+ *  syntax.
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  An optional string indicating the location of the expression for error
+ *  Optional. String indicating the location of the expression for error
  *  reporting, e.g. a file name and a position in the file.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  An optional title for the expression, i.e. a short string describing
+ *  Optional. Title for the expression, i.e. a short string describing
  *  its purpose. This can be used e.g. in UIs which allow to enter the
  *  expression.
  */
@@ -862,9 +879,12 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  * resource_properties: `=`, `:`, `>`, `<`, `>=`, `<=`
  *  * security_marks.marks: `=`, `:`
  *  * security_center_properties.resource_name: `=`, `:`
+ *  * security_center_properties.resource_display_name: `=`, `:`
  *  * security_center_properties.resource_type: `=`, `:`
  *  * security_center_properties.resource_parent: `=`, `:`
+ *  * security_center_properties.resource_parent_display_name: `=`, `:`
  *  * security_center_properties.resource_project: `=`, `:`
+ *  * security_center_properties.resource_project_display_name: `=`, `:`
  *  * security_center_properties.resource_owners: `=`, `:`
  *  For example, `resource_properties.size = 100` is a valid filter string.
  */
@@ -878,10 +898,14 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  "security_center_properties.resource_project,security_center_properties.project".
  *  The following fields are supported when compare_duration is not set:
  *  * security_center_properties.resource_project
+ *  * security_center_properties.resource_project_display_name
  *  * security_center_properties.resource_type
  *  * security_center_properties.resource_parent
+ *  * security_center_properties.resource_parent_display_name
  *  The following fields are supported when compare_duration is set:
  *  * security_center_properties.resource_type
+ *  * security_center_properties.resource_project_display_name
+ *  * security_center_properties.resource_parent_display_name
  */
 @property(nonatomic, copy, nullable) NSString *groupBy;
 

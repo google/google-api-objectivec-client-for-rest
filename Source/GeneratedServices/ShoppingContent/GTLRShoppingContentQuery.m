@@ -38,6 +38,7 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate1  = @"template1";
 NSString * const kGTLRShoppingContentTemplateNameTemplate1a = @"template1a";
 NSString * const kGTLRShoppingContentTemplateNameTemplate1b = @"template1b";
 NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
+NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -2257,6 +2258,25 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
   query.merchantId = merchantId;
   query.expectedObjectClass = [GTLRShoppingContent_ShippingsettingsGetSupportedHolidaysResponse class];
   query.loggingName = @"content.shippingsettings.getsupportedholidays";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ShippingsettingsGetsupportedpickupservices
+
+@dynamic merchantId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/supportedPickupServices";
+  GTLRShoppingContentQuery_ShippingsettingsGetsupportedpickupservices *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ShippingsettingsGetSupportedPickupServicesResponse class];
+  query.loggingName = @"content.shippingsettings.getsupportedpickupservices";
   return query;
 }
 

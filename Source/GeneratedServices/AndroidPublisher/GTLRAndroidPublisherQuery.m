@@ -1493,3 +1493,117 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 }
 
 @end
+
+@implementation GTLRAndroidPublisherQuery_SystemapksVariantsCreate
+
+@dynamic packageName, versionCode;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_SystemApkVariantsCreateRequest *)object
+                    packageName:(NSString *)packageName
+                    versionCode:(long long)versionCode {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"versionCode"
+  ];
+  NSString *pathURITemplate = @"{packageName}/systemApks/{versionCode}/variants";
+  GTLRAndroidPublisherQuery_SystemapksVariantsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.versionCode = versionCode;
+  query.expectedObjectClass = [GTLRAndroidPublisher_Variant class];
+  query.loggingName = @"androidpublisher.systemapks.variants.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_SystemapksVariantsDownload
+
+@dynamic packageName, variantId, versionCode;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                         versionCode:(long long)versionCode
+                           variantId:(NSUInteger)variantId {
+  NSArray *pathParams = @[
+    @"packageName", @"variantId", @"versionCode"
+  ];
+  NSString *pathURITemplate = @"{packageName}/systemApks/{versionCode}/variants/{variantId}:download";
+  GTLRAndroidPublisherQuery_SystemapksVariantsDownload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.versionCode = versionCode;
+  query.variantId = variantId;
+  query.loggingName = @"androidpublisher.systemapks.variants.download";
+  return query;
+}
+
++ (instancetype)queryForMediaWithPackageName:(NSString *)packageName
+                                 versionCode:(long long)versionCode
+                                   variantId:(NSUInteger)variantId {
+  GTLRAndroidPublisherQuery_SystemapksVariantsDownload *query =
+    [self queryWithPackageName:packageName
+                   versionCode:versionCode
+                     variantId:variantId];
+  query.downloadAsDataObjectType = @"media";
+  query.useMediaDownloadService = YES;
+  query.loggingName = @"Download androidpublisher.systemapks.variants.download";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_SystemapksVariantsGet
+
+@dynamic packageName, variantId, versionCode;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                         versionCode:(long long)versionCode
+                           variantId:(NSUInteger)variantId {
+  NSArray *pathParams = @[
+    @"packageName", @"variantId", @"versionCode"
+  ];
+  NSString *pathURITemplate = @"{packageName}/systemApks/{versionCode}/variants/{variantId}";
+  GTLRAndroidPublisherQuery_SystemapksVariantsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.versionCode = versionCode;
+  query.variantId = variantId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_Variant class];
+  query.loggingName = @"androidpublisher.systemapks.variants.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_SystemapksVariantsList
+
+@dynamic packageName, versionCode;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                         versionCode:(long long)versionCode {
+  NSArray *pathParams = @[
+    @"packageName", @"versionCode"
+  ];
+  NSString *pathURITemplate = @"{packageName}/systemApks/{versionCode}/variants";
+  GTLRAndroidPublisherQuery_SystemapksVariantsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.versionCode = versionCode;
+  query.expectedObjectClass = [GTLRAndroidPublisher_SystemApkVariantsListResponse class];
+  query.loggingName = @"androidpublisher.systemapks.variants.list";
+  return query;
+}
+
+@end

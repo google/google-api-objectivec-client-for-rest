@@ -783,7 +783,10 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_CommitResponse : GTLRObject
 
-/** The time at which the commit occurred. */
+/**
+ *  The time at which the commit occurred. Any read with an equal or greater
+ *  `read_time` is guaranteed to see the effects of the commit.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *commitTime;
 
 /**
@@ -2931,7 +2934,10 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_WriteResponse : GTLRObject
 
-/** The time at which the commit occurred. */
+/**
+ *  The time at which the commit occurred. Any read with an equal or greater
+ *  `read_time` is guaranteed to see the effects of the write.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *commitTime;
 
 /**

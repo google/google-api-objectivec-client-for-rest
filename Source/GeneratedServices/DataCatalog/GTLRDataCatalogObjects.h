@@ -105,6 +105,12 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry
  */
 GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Fileset;
 /**
+ *  Output only. The type of models.
+ *
+ *  Value: "MODEL"
+ */
+GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Model;
+/**
  *  Output only. The type of entry that has a GoogleSQL schema, including
  *  logical views.
  *
@@ -518,6 +524,8 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
  *        Alpha feature. An entry type which is a set of files or objects.
  *        Example:
  *        Cloud Storage fileset. (Value: "FILESET")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Model
+ *        Output only. The type of models. (Value: "MODEL")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Table
  *        Output only. The type of entry that has a GoogleSQL schema, including
  *        logical views. (Value: "TABLE")
@@ -646,7 +654,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 /**
  *  Required. Patterns to identify a set of files in Google Cloud Storage. See
  *  [Cloud
- *  Storage documentation](storage/docs/gsutil/addlhelp/WildcardNames) for
+ *  Storage documentation](/storage/docs/gsutil/addlhelp/WildcardNames) for
  *  more information. Note that bucket wildcards are currently not supported.
  *  Examples of valid file_patterns:
  *  * `gs://bucket_name/dir/ *`: matches all files within `bucket_name/dir`
@@ -1263,10 +1271,12 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 
 
 /**
- *  A tag template defines the schema of the tags used to attach to Data Catalog
- *  resources. It defines the mapping of accepted field names and types that can
- *  be used within the tag. The tag template also controls the access to the
- *  tag.
+ *  A tag template defines a tag, which can have one or more typed fields.
+ *  The template is used to create and attach the tag to GCP resources.
+ *  [Tag template roles](/iam/docs/understanding-roles#data-catalog-roles)
+ *  provide permissions to create, edit, and use the template (see, for example,
+ *  the [TagTemplate User](/data-catalog/docs/how-to/template-user) role, which
+ *  includes permission to use the tag template to tag resources.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate : GTLRObject
 

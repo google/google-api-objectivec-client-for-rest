@@ -23,6 +23,11 @@ NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful = @"VERY_USEFUL"
 NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Json = @"JSON";
 NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified = @"PAYLOAD_FORMAT_UNSPECIFIED";
 
+// GTLRAlertCenter_MailPhishing.systemActionType
+NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_NoOperation = @"NO_OPERATION";
+NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_RemovedFromInbox = @"REMOVED_FROM_INBOX";
+NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionTypeUnspecified = @"SYSTEM_ACTION_TYPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAlertCenter_AccountWarning
@@ -462,7 +467,7 @@ NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUn
 //
 
 @implementation GTLRAlertCenter_MailPhishing
-@dynamic domainId, isInternal, maliciousEntity, messages;
+@dynamic domainId, isInternal, maliciousEntity, messages, systemActionType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -480,7 +485,7 @@ NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUn
 //
 
 @implementation GTLRAlertCenter_MaliciousEntity
-@dynamic displayName, fromHeader;
+@dynamic displayName, entity, fromHeader;
 @end
 
 
@@ -626,4 +631,14 @@ NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUn
 
 @implementation GTLRAlertCenter_UndeleteAlertRequest
 @dynamic customerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_User
+//
+
+@implementation GTLRAlertCenter_User
+@dynamic displayName, emailAddress;
 @end

@@ -69,22 +69,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  BigQuery-specific metadata about a location. This will be set on
- *  google.cloud.location.Location.metadata in Cloud Location API
- *  responses.
- */
-@interface GTLRBigQueryReservation_LocationMetadata : GTLRObject
-
-/**
- *  The legacy BigQuery location ID, e.g. “EU” for the “europe” location.
- *  This is for any API consumers that need the legacy “US” and “EU” locations.
- */
-@property(nonatomic, copy, nullable) NSString *legacyLocationId;
-
-@end
-
-
-/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */

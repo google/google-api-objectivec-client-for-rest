@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryRecommender queryForProjectsLocationsRecommendersRecommendationsGetWithname:]
 
-/** Name of the recommendation. */
+/** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the requested recommendation. Requires the recommender.*.get
  *  IAM permission for the specified recommender.
  *
- *  @param name Name of the recommendation.
+ *  @param name Required. Name of the recommendation.
  *
  *  @return GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsGet
  */
@@ -89,16 +89,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The maximum number of results to return from this request.
- *  Non-positive values are ignored. If not specified, the server will
- *  determine the number of results to return.
+ *  Non-positive
+ *  values are ignored. If not specified, the server will determine the number
+ *  of results to return.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. If present, retrieves the next batch of results from the
- *  preceding call to this method. `page_token` must be the value of
- *  `next_page_token` from the previous response. The values of other method
- *  parameters must be identical to those in the previous call.
+ *  Optional. If present, retrieves the next batch of results from the preceding
+ *  call to
+ *  this method. `page_token` must be the value of `next_page_token` from the
+ *  previous response. The values of other method parameters must be identical
+ *  to those in the previous call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -156,7 +158,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryRecommender queryForProjectsLocationsRecommendersRecommendationsMarkClaimedWithObject:name:]
 
-/** Name of the recommendation. */
+/** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -174,7 +176,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest
  *    to include in the query.
- *  @param name Name of the recommendation.
+ *  @param name Required. Name of the recommendation.
  *
  *  @return GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkClaimed
  */
@@ -203,7 +205,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryRecommender queryForProjectsLocationsRecommendersRecommendationsMarkFailedWithObject:name:]
 
-/** Name of the recommendation. */
+/** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -222,7 +224,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest
  *    to include in the query.
- *  @param name Name of the recommendation.
+ *  @param name Required. Name of the recommendation.
  *
  *  @return GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkFailed
  */
@@ -251,7 +253,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryRecommender queryForProjectsLocationsRecommendersRecommendationsMarkSucceededWithObject:name:]
 
-/** Name of the recommendation. */
+/** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -270,7 +272,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest
  *    to include in the query.
- *  @param name Name of the recommendation.
+ *  @param name Required. Name of the recommendation.
  *
  *  @return GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkSucceeded
  */

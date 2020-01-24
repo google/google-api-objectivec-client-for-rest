@@ -114,6 +114,16 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_CmekSettings
+//
+
+@implementation GTLRLogging_CmekSettings
+@dynamic kmsKeyName, name, serviceAccountId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_Empty
 //
 

@@ -11,15 +11,6 @@
 
 #import "GTLRAdExperienceReport.h"
 
-// ----------------------------------------------------------------------------
-// Authorization scope
-
-NSString * const kGTLRAuthScopeAdExperienceReportXapiZoo = @"https://www.googleapis.com/auth/xapi.zoo";
-
-// ----------------------------------------------------------------------------
-//   GTLRAdExperienceReportService
-//
-
 @implementation GTLRAdExperienceReportService
 
 - (instancetype)init {

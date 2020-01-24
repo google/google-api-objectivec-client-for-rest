@@ -31,6 +31,7 @@
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
 @class GTLRCloudFilestore_Instance;
@@ -70,6 +71,12 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManag
  *  Value: "DELETING"
  */
 GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting;
+/**
+ *  Instance encountered an error and is in indeterministic state.
+ *
+ *  Value: "ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Error;
 /**
  *  Instance has been created and is ready to use.
  *
@@ -347,6 +354,14 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata *rolloutMetadata;
 
 /**
+ *  Link to the SLM instance template. Only populated when updating SLM
+ *  instances via SSA's Actuation service adaptor.
+ *  Service producers with custom control plane (e.g. Cloud SQL) doesn't
+ *  need to populate this field. Instead they should use software_versions.
+ */
+@property(nonatomic, copy, nullable) NSString *slmInstanceTemplate;
+
+/**
  *  Output only. SLO metadata for instance classification in the
  *  Standardized dataplane SLO platform.
  *  See go/cloud-ssa-standard-slo for feature description.
@@ -368,6 +383,9 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *        Instance is being created. (Value: "CREATING")
  *    @arg @c kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting
  *        Instance is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Error
+ *        Instance encountered an error and is in indeterministic state. (Value:
+ *        "ERROR")
  *    @arg @c kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Ready
  *        Instance has been created and is ready to use. (Value: "READY")
  *    @arg @c kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing
@@ -613,7 +631,31 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 
 
 /**
- *  SloExclusion represents an excusion in SLI calculation applies to all SLOs.
+ *  SloEligibility is a tuple containing eligibility value: true if an instance
+ *  is eligible for SLO calculation or false if it should be excluded from all
+ *  SLO-related calculations along with a user-defined reason.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility : GTLRObject
+
+/**
+ *  Whether an instance is eligible or ineligible.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *eligible;
+
+/**
+ *  User-defined reason for the current value of instance eligibility. Usually,
+ *  this can be directly mapped to the internal state. An empty reason is
+ *  allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  SloExclusion represents an exclusion in SLI calculation applies to all SLOs.
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion : GTLRObject
 
@@ -626,12 +668,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  original exclusion expiration - otherwise it is possible that there will
  *  be "gaps" in the exclusion application in the exported timeseries.
  */
-@property(nonatomic, strong, nullable) GTLRDuration *exclusionDuration;
-
-/**
- *  Start time of the exclusion. No alignment (e.g. to a full minute) needed.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *exclusionStartTime;
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
  *  Human-readable reason for the exclusion.
@@ -648,6 +685,11 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  */
 @property(nonatomic, copy, nullable) NSString *sliName;
 
+/**
+ *  Start time of the exclusion. No alignment (e.g. to a full minute) needed.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
 @end
 
 
@@ -656,6 +698,9 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  instance.
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata : GTLRObject
+
+/** Optional: user-defined instance eligibility. */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility *eligibility;
 
 /**
  *  List of SLO exclusion windows. When multiple entries in the list match
@@ -667,8 +712,8 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  in the historically produced timeseries regardless of the current state).
  *  This field can be used to mark the instance as temporary ineligible
  *  for the purpose of SLO calculation. For permanent instance SLO exclusion,
- *  a dedicated tier name can be used that does not have targets specified
- *  in the service SLO configuration.
+ *  use of custom instance eligibility is recommended. See 'eligibility' field
+ *  below.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
 

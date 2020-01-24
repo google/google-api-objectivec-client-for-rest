@@ -85,13 +85,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForInfoTypesList]
 
 /**
- *  Optional filter to only return infoTypes supported by certain parts of the
+ *  filter to only return infoTypes supported by certain parts of the
  *  API. Defaults to supported_by=INSPECT.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional BCP-47 language code for localized infoType friendly
+ *  BCP-47 language code for localized infoType friendly
  *  names. If omitted, or if localized strings are not available,
  *  en-US strings will be returned.
  */
@@ -131,13 +131,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForLocationsInfoTypesListWithlocationId:]
 
 /**
- *  Optional filter to only return infoTypes supported by certain parts of the
+ *  filter to only return infoTypes supported by certain parts of the
  *  API. Defaults to supported_by=INSPECT.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional BCP-47 language code for localized infoType friendly
+ *  BCP-47 language code for localized infoType friendly
  *  names. If omitted, or if localized strings are not available,
  *  en-US strings will be returned.
  */
@@ -310,7 +310,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -324,13 +324,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional size of the page, can be limited by server. If zero server returns
+ *  Size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to `ListDeidentifyTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -542,7 +542,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -556,13 +556,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional size of the page, can be limited by server. If zero server returns
+ *  Size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to `ListInspectTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -788,7 +788,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -802,13 +802,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional size of the page, can be limited by server. If zero server returns
+ *  Size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to `ListDeidentifyTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1034,7 +1034,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -1048,13 +1048,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional size of the page, can be limited by server. If zero server returns
+ *  Size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to `ListInspectTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1281,7 +1281,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -1296,13 +1296,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional size of the page, can be limited by server. If zero server returns
+ *  Size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to `ListStoredInfoTypes`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1524,7 +1524,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -1539,13 +1539,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional size of the page, can be limited by server. If zero server returns
+ *  Size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to `ListStoredInfoTypes`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1889,7 +1889,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -1903,13 +1903,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional size of the page, can be limited by server. If zero server returns
+ *  Size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to `ListDeidentifyTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -2149,12 +2149,12 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsDlpJobsListWithparent:]
 
 /**
- *  Optional. Allows filtering.
+ *  Allows filtering.
  *  Supported syntax:
  *  * Filter expressions are made up of one or more restrictions.
  *  * Restrictions can be combined by `AND` or `OR` logical operators. A
  *  sequence of restrictions implicitly uses `AND`.
- *  * A restriction has the form of `<field> <operator> <value>`.
+ *  * A restriction has the form of `{field} {operator} {value}`.
  *  * Supported fields/values for inspect jobs:
  *  - `state` - PENDING|RUNNING|CANCELED|FINISHED|FAILED
  *  - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
@@ -2182,7 +2182,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -2413,7 +2413,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -2427,13 +2427,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional size of the page, can be limited by server. If zero server returns
+ *  Size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to `ListInspectTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -2662,12 +2662,12 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsJobTriggersListWithparent:]
 
 /**
- *  Optional. Allows filtering.
+ *  Allows filtering.
  *  Supported syntax:
  *  * Filter expressions are made up of one or more restrictions.
  *  * Restrictions can be combined by `AND` or `OR` logical operators. A
  *  sequence of restrictions implicitly uses `AND`.
- *  * A restriction has the form of `<field> <operator> <value>`.
+ *  * A restriction has the form of `{field} {operator} {value}`.
  *  * Supported fields/values for inspect jobs:
  *  - `status` - HEALTHY|PAUSED|CANCELLED
  *  - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
@@ -2691,7 +2691,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of triggeredJob fields to order by,
+ *  Comma separated list of triggeredJob fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -2706,11 +2706,11 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Optional size of the page, can be limited by a server. */
+/** Size of the page, can be limited by a server. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to ListJobTriggers. `order_by` field must not
  *  change for subsequent calls.
  */
@@ -3085,7 +3085,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -3099,13 +3099,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional size of the page, can be limited by server. If zero server returns
+ *  Size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to `ListDeidentifyTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -3359,12 +3359,12 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsDlpJobsListWithparent:locationId:]
 
 /**
- *  Optional. Allows filtering.
+ *  Allows filtering.
  *  Supported syntax:
  *  * Filter expressions are made up of one or more restrictions.
  *  * Restrictions can be combined by `AND` or `OR` logical operators. A
  *  sequence of restrictions implicitly uses `AND`.
- *  * A restriction has the form of `<field> <operator> <value>`.
+ *  * A restriction has the form of `{field} {operator} {value}`.
  *  * Supported fields/values for inspect jobs:
  *  - `state` - PENDING|RUNNING|CANCELED|FINISHED|FAILED
  *  - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
@@ -3392,7 +3392,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -3646,7 +3646,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -3660,13 +3660,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional size of the page, can be limited by server. If zero server returns
+ *  Size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to `ListInspectTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -3909,12 +3909,12 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsJobTriggersListWithparent:locationId:]
 
 /**
- *  Optional. Allows filtering.
+ *  Allows filtering.
  *  Supported syntax:
  *  * Filter expressions are made up of one or more restrictions.
  *  * Restrictions can be combined by `AND` or `OR` logical operators. A
  *  sequence of restrictions implicitly uses `AND`.
- *  * A restriction has the form of `<field> <operator> <value>`.
+ *  * A restriction has the form of `{field} {operator} {value}`.
  *  * Supported fields/values for inspect jobs:
  *  - `status` - HEALTHY|PAUSED|CANCELLED
  *  - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
@@ -3938,7 +3938,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of triggeredJob fields to order by,
+ *  Comma separated list of triggeredJob fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -3953,11 +3953,11 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Optional size of the page, can be limited by a server. */
+/** Size of the page, can be limited by a server. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to ListJobTriggers. `order_by` field must not
  *  change for subsequent calls.
  */
@@ -4180,7 +4180,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -4195,13 +4195,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional size of the page, can be limited by server. If zero server returns
+ *  Size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to `ListStoredInfoTypes`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -4423,7 +4423,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Optional comma separated list of fields to order by,
+ *  Comma separated list of fields to order by,
  *  followed by `asc` or `desc` postfix. This list is case-insensitive,
  *  default sorting order is ascending, redundant space characters are
  *  insignificant.
@@ -4438,13 +4438,13 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional size of the page, can be limited by server. If zero server returns
+ *  Size of the page, can be limited by server. If zero server returns
  *  a page of max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional page token to continue retrieval. Comes from previous call
+ *  Page token to continue retrieval. Comes from previous call
  *  to `ListStoredInfoTypes`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;

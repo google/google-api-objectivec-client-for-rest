@@ -23,7 +23,9 @@
 @class GTLRAccessContextManager_AccessPolicy;
 @class GTLRAccessContextManager_BasicLevel;
 @class GTLRAccessContextManager_Condition;
+@class GTLRAccessContextManager_CustomLevel;
 @class GTLRAccessContextManager_DevicePolicy;
+@class GTLRAccessContextManager_Expr;
 @class GTLRAccessContextManager_Operation;
 @class GTLRAccessContextManager_Operation_Metadata;
 @class GTLRAccessContextManager_Operation_Response;
@@ -144,6 +146,9 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 
 /** Output only. Time the `AccessLevel` was created in UTC. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** A `CustomLevel` written in the Common Expression Language. */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_CustomLevel *custom;
 
 /**
  *  Description of the `AccessLevel` and its use. Does not affect behavior.
@@ -306,6 +311,19 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 
 
 /**
+ *  `CustomLevel` is an `AccessLevel` using the Cloud Common Expression Language
+ *  to represent the necessary conditions for the level to apply to a request.
+ *  See CEL spec at: https://github.com/google/cel-spec
+ */
+@interface GTLRAccessContextManager_CustomLevel : GTLRObject
+
+/** Required. A Cloud CEL expression evaluating to a boolean. */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_Expr *expr;
+
+@end
+
+
+/**
  *  `DevicePolicy` specifies device specific restrictions necessary to acquire a
  *  given access level. A `DevicePolicy` specifies requirements for requests
  *  from
@@ -366,6 +384,63 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *  The JSON representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRAccessContextManager_Empty : GTLRObject
+@end
+
+
+/**
+ *  Represents a textual expression in the Common Expression Language (CEL)
+ *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
+ *  are documented at https://github.com/google/cel-spec.
+ *  Example (Comparison):
+ *  title: "Summary size limit"
+ *  description: "Determines if a summary is less than 100 chars"
+ *  expression: "document.summary.size() < 100"
+ *  Example (Equality):
+ *  title: "Requestor is owner"
+ *  description: "Determines if requestor is the document owner"
+ *  expression: "document.owner == request.auth.claims.email"
+ *  Example (Logic):
+ *  title: "Public documents"
+ *  description: "Determine whether the document should be publicly visible"
+ *  expression: "document.type != 'private' && document.type != 'internal'"
+ *  Example (Data Manipulation):
+ *  title: "Notification string"
+ *  description: "Create a notification string with a timestamp."
+ *  expression: "'New message received at ' + string(document.create_time)"
+ *  The exact variables and functions that may be referenced within an
+ *  expression
+ *  are determined by the service that evaluates it. See the service
+ *  documentation for additional information.
+ */
+@interface GTLRAccessContextManager_Expr : GTLRObject
+
+/**
+ *  Optional. Description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in Common Expression Language
+ *  syntax.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  Optional. String indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Optional. Title for the expression, i.e. a short string describing
+ *  its purpose. This can be used e.g. in UIs which allow to enter the
+ *  expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
 @end
 
 

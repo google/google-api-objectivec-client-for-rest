@@ -26,20 +26,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Authorization scope
-
-/**
- *  Authorization scope: Test scope for access to the Zoo service
- *
- *  Value "https://www.googleapis.com/auth/xapi.zoo"
- */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAdExperienceReportXapiZoo;
-
-// ----------------------------------------------------------------------------
-//   GTLRAdExperienceReportService
-//
-
 /**
  *  Service for executing Ad Experience Report API queries.
  *

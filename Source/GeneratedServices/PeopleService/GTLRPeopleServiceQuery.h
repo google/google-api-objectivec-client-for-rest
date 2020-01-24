@@ -218,14 +218,14 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The next_page_token value returned from a previous call to
+ *  Optional. The next_page_token value returned from a previous call to
  *  [ListContactGroups](/people/api/rest/v1/contactgroups/list).
  *  Requests the next page of resources.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  A sync token, returned by a previous call to `contactgroups.list`.
+ *  Optional. A sync token, returned by a previous call to `contactgroups.list`.
  *  Only resources changed since the sync token was created will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *syncToken;
@@ -248,7 +248,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 /**
  *  Modify the members of a contact group owned by the authenticated user.
- *  <br>
  *  The only system contact groups that can have members added are
  *  `contactGroups/myContacts` and `contactGroups/starred`. Other system
  *  contact groups are deprecated and can only have contacts removed.
@@ -269,7 +268,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Fetches a @c GTLRPeopleService_ModifyContactGroupMembersResponse.
  *
  *  Modify the members of a contact group owned by the authenticated user.
- *  <br>
  *  The only system contact groups that can have members added are
  *  `contactGroups/myContacts` and `contactGroups/starred`. Other system
  *  contact groups are deprecated and can only have contacts removed.
@@ -301,7 +299,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 /**
  *  The resource name for the contact group, assigned by the server. An ASCII
- *  string, in the form of `contactGroups/`<var>contact_group_id</var>.
+ *  string, in the form of `contactGroups/{contact_group_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -315,7 +313,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *    in the query.
  *  @param resourceName The resource name for the contact group, assigned by the
  *    server. An ASCII
- *    string, in the form of `contactGroups/`<var>contact_group_id</var>.
+ *    string, in the form of `contactGroups/{contact_group_id}`.
  *
  *  @return GTLRPeopleServiceQuery_ContactGroupsUpdate
  */
@@ -327,7 +325,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 /**
  *  Provides a list of the authenticated user's contacts merged with any
  *  connected profiles.
- *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
  *  Method: people.people.connections.list
@@ -347,7 +344,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The token of the page to be returned. */
+/** Optional. The token of the page to be returned. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -399,7 +396,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /**
- *  Whether the response should include a sync token, which can be used to get
+ *  Optional. Whether the response should include a sync token, which can be
+ *  used to get
  *  all changes since the last request. For subsequent sync requests use the
  *  `sync_token` param instead. Initial sync requests that specify
  *  `request_sync_token` have an additional rate limit.
@@ -413,7 +411,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
- *  The order in which the connections should be sorted. Defaults to
+ *  Optional. The order in which the connections should be sorted. Defaults to
  *  `LAST_MODIFIED_ASCENDING`.
  *
  *  Likely values:
@@ -429,7 +427,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
- *  A sync token returned by a previous call to `people.connections.list`.
+ *  Optional. A sync token returned by a previous call to
+ *  `people.connections.list`.
  *  Only resources changed since the sync token was created will be returned.
  *  Sync requests that specify `sync_token` have an additional rate limit.
  */
@@ -440,7 +439,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *
  *  Provides a list of the authenticated user's contacts merged with any
  *  connected profiles.
- *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
  *  @param resourceName Required. The resource name to return connections for.
@@ -580,7 +578,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 /**
  *  Provides information about a person by specifying a resource name. Use
  *  `people/me` to indicate the authenticated user.
- *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
  *  Method: people.people.get
@@ -593,6 +590,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *    @c kGTLRAuthScopePeopleServiceUserEmailsRead
  *    @c kGTLRAuthScopePeopleServiceUserinfoEmail
  *    @c kGTLRAuthScopePeopleServiceUserinfoProfile
+ *    @c kGTLRAuthScopePeopleServiceUserOrganizationRead
  *    @c kGTLRAuthScopePeopleServiceUserPhonenumbersRead
  */
 @interface GTLRPeopleServiceQuery_PeopleGet : GTLRPeopleServiceQuery
@@ -651,7 +649,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Required. The resource name of the person to provide information about.
  *  - To get information about the authenticated user, specify `people/me`.
  *  - To get information about a google account, specify
- *  `people/`<var>account_id</var>.
+ *  `people/{account_id}`.
  *  - To get information about a contact, specify the resource name that
  *  identifies the contact as returned by
  *  [`people.connections.list`](/people/api/rest/v1/people.connections/list).
@@ -663,14 +661,13 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *
  *  Provides information about a person by specifying a resource name. Use
  *  `people/me` to indicate the authenticated user.
- *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
  *  @param resourceName Required. The resource name of the person to provide
  *    information about.
  *    - To get information about the authenticated user, specify `people/me`.
  *    - To get information about a google account, specify
- *    `people/`<var>account_id</var>.
+ *    `people/{account_id}`.
  *    - To get information about a contact, specify the resource name that
  *    identifies the contact as returned by
  *    [`people.connections.list`](/people/api/rest/v1/people.connections/list).
@@ -685,7 +682,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Provides information about a list of specific people by specifying a list
  *  of requested resource names. Use `people/me` to indicate the authenticated
  *  user.
- *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
  *  Method: people.people.getBatchGet
@@ -698,6 +694,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *    @c kGTLRAuthScopePeopleServiceUserEmailsRead
  *    @c kGTLRAuthScopePeopleServiceUserinfoEmail
  *    @c kGTLRAuthScopePeopleServiceUserinfoProfile
+ *    @c kGTLRAuthScopePeopleServiceUserOrganizationRead
  *    @c kGTLRAuthScopePeopleServiceUserPhonenumbersRead
  */
 @interface GTLRPeopleServiceQuery_PeopleGetBatchGet : GTLRPeopleServiceQuery
@@ -756,7 +753,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Required. The resource names of the people to provide information about.
  *  - To get information about the authenticated user, specify `people/me`.
  *  - To get information about a google account, specify
- *  `people/`<var>account_id</var>.
+ *  `people/{account_id}`.
  *  - To get information about a contact, specify the resource name that
  *  identifies the contact as returned by
  *  [`people.connections.list`](/people/api/rest/v1/people.connections/list).
@@ -770,7 +767,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Provides information about a list of specific people by specifying a list
  *  of requested resource names. Use `people/me` to indicate the authenticated
  *  user.
- *  <br>
  *  The request throws a 400 error if 'personFields' is not specified.
  *
  *  @return GTLRPeopleServiceQuery_PeopleGetBatchGet
@@ -783,10 +779,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Update contact data for an existing contact person. Any non-contact data
  *  will not be modified.
  *  The request throws a 400 error if `updatePersonFields` is not specified.
- *  <br>
  *  The request throws a 400 error if `person.metadata.sources` is not
  *  specified for the contact to be updated.
- *  <br>
  *  The request throws a 400 error with an error with reason
  *  `"failedPrecondition"` if `person.metadata.sources.etag` is different than
  *  the contact's etag, which indicates the contact has changed since its data
@@ -805,7 +799,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 /**
  *  The resource name for the person, assigned by the server. An ASCII string
  *  with a max length of 27 characters, in the form of
- *  `people/`<var>person_id</var>.
+ *  `people/{person_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -845,10 +839,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Update contact data for an existing contact person. Any non-contact data
  *  will not be modified.
  *  The request throws a 400 error if `updatePersonFields` is not specified.
- *  <br>
  *  The request throws a 400 error if `person.metadata.sources` is not
  *  specified for the contact to be updated.
- *  <br>
  *  The request throws a 400 error with an error with reason
  *  `"failedPrecondition"` if `person.metadata.sources.etag` is different than
  *  the contact's etag, which indicates the contact has changed since its data
@@ -859,7 +851,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  @param resourceName The resource name for the person, assigned by the
  *    server. An ASCII string
  *    with a max length of 27 characters, in the form of
- *    `people/`<var>person_id</var>.
+ *    `people/{person_id}`.
  *
  *  @return GTLRPeopleServiceQuery_PeopleUpdateContact
  */

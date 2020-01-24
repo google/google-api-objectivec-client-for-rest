@@ -212,6 +212,25 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_DeviceSpec
+//
+
+@implementation GTLRAndroidPublisher_DeviceSpec
+@dynamic screenDensity, supportedAbis, supportedLocales;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportedAbis" : [NSString class],
+    @"supportedLocales" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ExpansionFile
 //
 
@@ -332,8 +351,7 @@
 
 @implementation GTLRAndroidPublisher_InAppProduct
 @dynamic defaultLanguage, defaultPrice, gracePeriod, listings, packageName,
-         prices, purchaseType, season, sku, status, subscriptionPeriod,
-         trialPeriod;
+         prices, purchaseType, sku, status, subscriptionPeriod, trialPeriod;
 @end
 
 
@@ -469,16 +487,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidPublisher_MonthDay
-//
-
-@implementation GTLRAndroidPublisher_MonthDay
-@dynamic day, month;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidPublisher_PageInfo
 //
 
@@ -505,7 +513,7 @@
 @implementation GTLRAndroidPublisher_ProductPurchase
 @dynamic acknowledgementState, consumptionState, developerPayload, kind,
          orderId, productId, purchaseState, purchaseTimeMillis, purchaseToken,
-         purchaseType;
+         purchaseType, quantity;
 @end
 
 
@@ -516,16 +524,6 @@
 
 @implementation GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest
 @dynamic developerPayload;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_Prorate
-//
-
-@implementation GTLRAndroidPublisher_Prorate
-@dynamic defaultPrice, start;
 @end
 
 
@@ -615,24 +613,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidPublisher_Season
-//
-
-@implementation GTLRAndroidPublisher_Season
-@dynamic end, prorations, start;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"prorations" : [GTLRAndroidPublisher_Prorate class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidPublisher_SubscriptionCancelSurveyResult
 //
 
@@ -671,8 +651,9 @@
          cancelSurveyResult, countryCode, developerPayload, emailAddress,
          expiryTimeMillis, familyName, givenName, introductoryPriceInfo, kind,
          linkedPurchaseToken, orderId, paymentState, priceAmountMicros,
-         priceChange, priceCurrencyCode, profileId, profileName, purchaseType,
-         startTimeMillis, userCancellationTimeMillis;
+         priceChange, priceCurrencyCode, profileId, profileName, promotionCode,
+         promotionType, purchaseType, startTimeMillis,
+         userCancellationTimeMillis;
 @end
 
 
@@ -703,6 +684,34 @@
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchasesDeferResponse
 @dynamic newExpiryTimeMillis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SystemApkVariantsCreateRequest
+//
+
+@implementation GTLRAndroidPublisher_SystemApkVariantsCreateRequest
+@dynamic deviceSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SystemApkVariantsListResponse
+//
+
+@implementation GTLRAndroidPublisher_SystemApkVariantsListResponse
+@dynamic variants;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"variants" : [GTLRAndroidPublisher_Variant class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -810,6 +819,16 @@
 @dynamic androidOsVersion, appVersionCode, appVersionName, device,
          deviceMetadata, lastModified, originalText, reviewerLanguage,
          starRating, text, thumbsDownCount, thumbsUpCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_Variant
+//
+
+@implementation GTLRAndroidPublisher_Variant
+@dynamic deviceSpec, variantId;
 @end
 
 

@@ -208,7 +208,9 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest : GTLRObject
 
-/** Fingerprint of the Recommendation. Provides optimistic locking. */
+/**
+ *  Required. Fingerprint of the Recommendation. Provides optimistic locking.
+ */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
@@ -242,7 +244,9 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest : GTLRObject
 
-/** Fingerprint of the Recommendation. Provides optimistic locking. */
+/**
+ *  Required. Fingerprint of the Recommendation. Provides optimistic locking.
+ */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
@@ -276,7 +280,9 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest : GTLRObject
 
-/** Fingerprint of the Recommendation. Provides optimistic locking. */
+/**
+ *  Required. Fingerprint of the Recommendation. Provides optimistic locking.
+ */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
@@ -507,11 +513,7 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
 
-/**
- *  Name of recommendation.
- *  A project recommendation is represented as
- *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/recommendations/[RECOMMENDATION_ID]
- */
+/** Name of recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**

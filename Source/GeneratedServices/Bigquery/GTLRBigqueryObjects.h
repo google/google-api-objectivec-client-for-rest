@@ -61,6 +61,7 @@
 @class GTLRBigquery_MaterializedViewDefinition;
 @class GTLRBigquery_ModelDefinition;
 @class GTLRBigquery_ModelDefinition_ModelOptions;
+@class GTLRBigquery_ModelReference;
 @class GTLRBigquery_ModelTraining;
 @class GTLRBigquery_ProjectList_Projects_Item;
 @class GTLRBigquery_ProjectReference;
@@ -73,6 +74,8 @@
 @class GTLRBigquery_RangePartitioning;
 @class GTLRBigquery_RangePartitioning_Range;
 @class GTLRBigquery_RoutineReference;
+@class GTLRBigquery_ScriptStackFrame;
+@class GTLRBigquery_ScriptStatistics;
 @class GTLRBigquery_Streamingbuffer;
 @class GTLRBigquery_Table_Labels;
 @class GTLRBigquery_TableCell;
@@ -80,6 +83,7 @@
 @class GTLRBigquery_TableDataInsertAllResponse_InsertErrors_Item;
 @class GTLRBigquery_TableFieldSchema;
 @class GTLRBigquery_TableFieldSchema_Categories;
+@class GTLRBigquery_TableFieldSchema_PolicyTags;
 @class GTLRBigquery_TableList_Tables_Item;
 @class GTLRBigquery_TableList_Tables_Item_Labels;
 @class GTLRBigquery_TableList_Tables_Item_View;
@@ -470,7 +474,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [Optional] The number of rows at the top of a CSV file that BigQuery will
  *  skip when reading the data. The default value is 0. This property is useful
- *  if you have header rows in the file that should be skipped.
+ *  if you have header rows in the file that should be skipped. When autodetect
+ *  is on, the behavior is the following: * skipLeadingRows unspecified -
+ *  Autodetect tries to detect headers in the first row. If they are not
+ *  detected, the row is read as data. Otherwise data is read starting from the
+ *  second row. * skipLeadingRows is 0 - Instructs autodetect that there are no
+ *  headers and data should be read starting from the first row. *
+ *  skipLeadingRows = N > 0 - Autodetect skips N-1 rows and tries to detect
+ *  headers in row N. If headers are not detected, row N is just skipped.
+ *  Otherwise row N is used to extract column names for the detected schema.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1004,6 +1016,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *shuffleOutputBytesSpilled;
 
 /**
+ *  Slot-milliseconds used by the stage.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *slotMs;
+
+/**
  *  Stage start time represented as milliseconds since epoch.
  *
  *  Uses NSNumber of longLongValue.
@@ -1122,13 +1141,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBigquery_GoogleSheetsOptions *googleSheetsOptions;
 
 /**
- *  [Optional, Trusted Tester] If hive partitioning is enabled, which mode to
- *  use. Two modes are supported: - AUTO: automatically infer partition key
- *  name(s) and type(s). - STRINGS: automatic infer partition key name(s). All
- *  types are strings. Not all storage formats support hive partitioning --
- *  requesting hive partitioning on an unsupported format will lead to an error.
- *  Note: this setting is in the process of being deprecated in favor of
- *  hivePartitioningOptions.
+ *  [Optional, Trusted Tester] Deprecated, do not use. Please set
+ *  hivePartitioningOptions instead.
  */
 @property(nonatomic, copy, nullable) NSString *hivePartitioningMode;
 
@@ -1302,9 +1316,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_GoogleSheetsOptions : GTLRObject
 
 /**
- *  [Beta] [Optional] Range of a sheet to query from. Only used when non-empty.
- *  Typical format: sheet_name!top_left_cell_id:bottom_right_cell_id For
- *  example: sheet1!A1:B20
+ *  [Optional] Range of a sheet to query from. Only used when non-empty. Typical
+ *  format: sheet_name!top_left_cell_id:bottom_right_cell_id For example:
+ *  sheet1!A1:B20
  */
 @property(nonatomic, copy, nullable) NSString *range;
 
@@ -1540,8 +1554,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *printHeader;
 
-/** [Required] A reference to the table being exported. */
+/** A reference to the model being exported. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ModelReference *sourceModel;
+
+/** A reference to the table being exported. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *sourceTable;
+
+/**
+ *  [Optional] If destinationFormat is set to "AVRO", this flag indicates
+ *  whether to enable extracting applicable column types (such as TIMESTAMP) to
+ *  their corresponding AVRO logical types (timestamp-micros), instead of only
+ *  using their raw types (avro-long).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useAvroLogicalTypes;
 
 @end
 
@@ -1627,11 +1654,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *fieldDelimiter;
 
 /**
- *  [Optional, Trusted Tester] If hive partitioning is enabled, which mode to
- *  use. Two modes are supported: - AUTO: automatically infer partition key
- *  name(s) and type(s). - STRINGS: automatic infer partition key name(s). All
- *  types are strings. Not all storage formats support hive partitioning --
- *  requesting hive partitioning on an unsupported format will lead to an error.
+ *  [Optional, Trusted Tester] Deprecated, do not use. Please set
+ *  hivePartitioningOptions instead.
  */
 @property(nonatomic, copy, nullable) NSString *hivePartitioningMode;
 
@@ -2188,6 +2212,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** [Output-only] Job resource usage breakdown by reservation. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_JobStatistics_ReservationUsage_Item *> *reservationUsage;
 
+/** [Output-only] Statistics for a child job of a script. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ScriptStatistics *scriptStatistics;
+
 /**
  *  [Output-only] Start time of this job, in milliseconds since the epoch. This
  *  field will be present when the job transitions from the PENDING state to
@@ -2342,14 +2369,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language.
  *  "MERGE": MERGE query; see
  *  https://cloud.google.com/bigquery/docs/reference/standard-sql/data-manipulation-language.
- *  "ALTER_TABLE": ALTER TABLE query. "ALTER_VIEW": ALTER VIEW query.
- *  "CREATE_FUNCTION": CREATE FUNCTION query. "CREATE_MODEL": CREATE [OR
- *  REPLACE] MODEL ... AS SELECT ... . "CREATE_PROCEDURE": CREATE PROCEDURE
- *  query. "CREATE_TABLE": CREATE [OR REPLACE] TABLE without AS SELECT.
- *  "CREATE_TABLE_AS_SELECT": CREATE [OR REPLACE] TABLE ... AS SELECT ... .
- *  "CREATE_VIEW": CREATE [OR REPLACE] VIEW ... AS SELECT ... . "DROP_FUNCTION"
- *  : DROP FUNCTION query. "DROP_PROCEDURE": DROP PROCEDURE query. "DROP_TABLE":
- *  DROP TABLE query. "DROP_VIEW": DROP VIEW query.
+ *  "ALTER_TABLE": ALTER TABLE query. "ALTER_VIEW": ALTER VIEW query. "ASSERT":
+ *  ASSERT condition AS 'description'. "CREATE_FUNCTION": CREATE FUNCTION query.
+ *  "CREATE_MODEL": CREATE [OR REPLACE] MODEL ... AS SELECT ... .
+ *  "CREATE_PROCEDURE": CREATE PROCEDURE query. "CREATE_TABLE": CREATE [OR
+ *  REPLACE] TABLE without AS SELECT. "CREATE_TABLE_AS_SELECT": CREATE [OR
+ *  REPLACE] TABLE ... AS SELECT ... . "CREATE_VIEW": CREATE [OR REPLACE] VIEW
+ *  ... AS SELECT ... . "DROP_FUNCTION" : DROP FUNCTION query. "DROP_PROCEDURE":
+ *  DROP PROCEDURE query. "DROP_TABLE": DROP TABLE query. "DROP_VIEW": DROP VIEW
+ *  query.
  */
 @property(nonatomic, copy, nullable) NSString *statementType;
 
@@ -2540,6 +2568,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigquery_MaterializedViewDefinition : GTLRObject
 
 /**
+ *  [Optional] [TrustedTester] Enable automatic refresh of the materialized view
+ *  when the base table is updated. The default value is "true".
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableRefresh;
+
+/**
  *  [Output-only] [TrustedTester] The time when this materialized view was last
  *  modified, in milliseconds since the epoch.
  *
@@ -2549,6 +2585,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** [Required] A query whose result is persisted. */
 @property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  [Optional] [TrustedTester] The maximum frequency at which this materialized
+ *  view will be refreshed. The default value is "1800000" (30 minutes).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *refreshIntervalMs;
 
 @end
 
@@ -2586,6 +2630,26 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
 @property(nonatomic, copy, nullable) NSString *lossType;
 @property(nonatomic, copy, nullable) NSString *modelType;
+
+@end
+
+
+/**
+ *  GTLRBigquery_ModelReference
+ */
+@interface GTLRBigquery_ModelReference : GTLRObject
+
+/** [Required] The ID of the dataset containing this model. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  [Required] The ID of the model. The ID must contain only letters (a-z, A-Z),
+ *  numbers (0-9), or underscores (_). The maximum length is 1,024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *modelId;
+
+/** [Required] The ID of the project containing this model. */
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
 
@@ -3090,6 +3154,68 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRBigquery_ScriptStackFrame
+ */
+@interface GTLRBigquery_ScriptStackFrame : GTLRObject
+
+/**
+ *  [Output-only] One-based end column.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endColumn;
+
+/**
+ *  [Output-only] One-based end line.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endLine;
+
+/**
+ *  [Output-only] Name of the active procedure, empty if in a top-level script.
+ */
+@property(nonatomic, copy, nullable) NSString *procedureId;
+
+/**
+ *  [Output-only] One-based start column.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startColumn;
+
+/**
+ *  [Output-only] One-based start line.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startLine;
+
+/** [Output-only] Text of the current statement/expression. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  GTLRBigquery_ScriptStatistics
+ */
+@interface GTLRBigquery_ScriptStatistics : GTLRObject
+
+/** [Output-only] Whether this child job was a statement or expression. */
+@property(nonatomic, copy, nullable) NSString *evaluationKind;
+
+/**
+ *  Stack trace showing the line/column/procedure name of each frame on the
+ *  stack at the point where the current evaluation happened. The leaf frame is
+ *  first, the primary script is last. Never empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ScriptStackFrame *> *stackFrames;
+
+@end
+
+
+/**
  *  GTLRBigquery_Streamingbuffer
  */
 @interface GTLRBigquery_Streamingbuffer : GTLRObject
@@ -3265,8 +3391,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning *rangePartitioning;
 
 /**
- *  [Beta] [Optional] If set to true, queries over this table require a
- *  partition filter that can be used for partition elimination to be specified.
+ *  [Optional] If set to true, queries over this table require a partition
+ *  filter that can be used for partition elimination to be specified.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3503,6 +3629,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+@property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_PolicyTags *policyTags;
+
 /**
  *  [Required] The field data type. Possible values include STRING, BYTES,
  *  INTEGER, INT64 (same as INTEGER), FLOAT, FLOAT64 (same as FLOAT), BOOLEAN,
@@ -3524,6 +3652,21 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A list of category resource names. For example,
  *  "projects/1/taxonomies/2/categories/3". At most 5 categories are allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+@end
+
+
+/**
+ *  GTLRBigquery_TableFieldSchema_PolicyTags
+ */
+@interface GTLRBigquery_TableFieldSchema_PolicyTags : GTLRObject
+
+/**
+ *  A list of category resource names. For example,
+ *  "projects/1/location/eu/taxonomies/2/policyTags/3". At most 1 policy tag is
+ *  allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
@@ -3609,6 +3752,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  group your tables.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableList_Tables_Item_Labels *labels;
+
+/** The range partitioning specification for this table, if configured. */
+@property(nonatomic, strong, nullable) GTLRBigquery_RangePartitioning *rangePartitioning;
 
 /** A reference uniquely identifying the table. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *tableReference;

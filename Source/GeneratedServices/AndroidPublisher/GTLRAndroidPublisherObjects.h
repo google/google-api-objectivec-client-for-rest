@@ -27,6 +27,7 @@
 @class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
 @class GTLRAndroidPublisher_DeviceMetadata;
+@class GTLRAndroidPublisher_DeviceSpec;
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
 @class GTLRAndroidPublisher_ExternallyHostedApkUsesPermission;
@@ -39,14 +40,11 @@
 @class GTLRAndroidPublisher_Listing;
 @class GTLRAndroidPublisher_LocalizedText;
 @class GTLRAndroidPublisher_ModRange;
-@class GTLRAndroidPublisher_MonthDay;
 @class GTLRAndroidPublisher_PageInfo;
 @class GTLRAndroidPublisher_Price;
-@class GTLRAndroidPublisher_Prorate;
 @class GTLRAndroidPublisher_Review;
 @class GTLRAndroidPublisher_ReviewReplyResult;
 @class GTLRAndroidPublisher_Sampling;
-@class GTLRAndroidPublisher_Season;
 @class GTLRAndroidPublisher_SubscriptionCancelSurveyResult;
 @class GTLRAndroidPublisher_SubscriptionDeferralInfo;
 @class GTLRAndroidPublisher_SubscriptionPriceChange;
@@ -55,6 +53,7 @@
 @class GTLRAndroidPublisher_Track;
 @class GTLRAndroidPublisher_TrackRelease;
 @class GTLRAndroidPublisher_UserComment;
+@class GTLRAndroidPublisher_Variant;
 @class GTLRAndroidPublisher_VoidedPurchase;
 
 // Generated comments include content from the discovery document; avoid them
@@ -371,6 +370,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRAndroidPublisher_DeviceSpec
+ */
+@interface GTLRAndroidPublisher_DeviceSpec : GTLRObject
+
+/**
+ *  screenDensity
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenDensity;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedAbis;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedLocales;
+
+@end
+
+
+/**
  *  GTLRAndroidPublisher_ExpansionFile
  */
 @interface GTLRAndroidPublisher_ExpansionFile : GTLRObject
@@ -595,12 +612,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Purchase type enum value. Unmodifiable after creation. */
 @property(nonatomic, copy, nullable) NSString *purchaseType;
-
-/**
- *  Definition of a season for a seasonal subscription. Can be defined only for
- *  yearly subscriptions.
- */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Season *season;
 
 /** The stock-keeping-unit (SKU) of the product, unique within an app. */
 @property(nonatomic, copy, nullable) NSString *sku;
@@ -834,29 +845,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_MonthDay
- */
-@interface GTLRAndroidPublisher_MonthDay : GTLRObject
-
-/**
- *  Day of a month, value in [1, 31] range. Valid range depends on the specified
- *  month.
- *
- *  Uses NSNumber of unsignedIntValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *day;
-
-/**
- *  Month of a year. e.g. 1 = JAN, 2 = FEB etc.
- *
- *  Uses NSNumber of unsignedIntValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *month;
-
-@end
-
-
-/**
  *  GTLRAndroidPublisher_PageInfo
  */
 @interface GTLRAndroidPublisher_PageInfo : GTLRObject
@@ -976,6 +964,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *purchaseType;
 
+/**
+ *  The quantity associated with the purchase of the inapp product.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quantity;
+
 @end
 
 
@@ -986,25 +981,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Payload to attach to the purchase. */
 @property(nonatomic, copy, nullable) NSString *developerPayload;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_Prorate
- */
-@interface GTLRAndroidPublisher_Prorate : GTLRObject
-
-/**
- *  Default price cannot be zero and must be less than the full subscription
- *  price. Default price is always in the developer's Checkout merchant
- *  currency. Targeted countries have their prices set automatically based on
- *  the default_price.
- */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *defaultPrice;
-
-/** Defines the first day on which the price takes effect. */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_MonthDay *start;
 
 @end
 
@@ -1096,28 +1072,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *salt;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_Season
- */
-@interface GTLRAndroidPublisher_Season : GTLRObject
-
-/** Inclusive end date of the recurrence period. */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_MonthDay *end;
-
-/**
- *  Optionally present list of prorations for the season. Each proration is a
- *  one-off discounted entry into a subscription. Each proration contains the
- *  first date on which the discount is available and the new pricing
- *  information.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Prorate *> *prorations;
-
-/** Inclusive start date of the recurrence period. */
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_MonthDay *start;
 
 @end
 
@@ -1378,10 +1332,28 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *profileName;
 
 /**
+ *  The promotion code applied on this purchase. This field is only set if a
+ *  vanity code promotion is applied when the subscription was purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *promotionCode;
+
+/**
+ *  The type of promotion applied on this purchase. This field is only set if a
+ *  promotion is applied when the subscription was purchased. Possible values
+ *  are:
+ *  - One time code
+ *  - Vanity code
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *promotionType;
+
+/**
  *  The type of purchase of the subscription. This field is only set if this
  *  purchase was not made using the standard in-app billing flow. Possible
  *  values are:
  *  - Test (i.e. purchased from a license testing account)
+ *  - Promo (i.e. purchased using a promo code)
  *
  *  Uses NSNumber of intValue.
  */
@@ -1438,6 +1410,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *newExpiryTimeMillis NS_RETURNS_NOT_RETAINED;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_SystemApkVariantsCreateRequest
+ */
+@interface GTLRAndroidPublisher_SystemApkVariantsCreateRequest : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeviceSpec *deviceSpec;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_SystemApkVariantsListResponse
+ */
+@interface GTLRAndroidPublisher_SystemApkVariantsListResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Variant *> *variants;
 
 @end
 
@@ -1642,6 +1634,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *thumbsUpCount;
+
+@end
+
+
+/**
+ *  Represents the variant of a generated system APK from an uploaded App
+ *  Bundle.
+ */
+@interface GTLRAndroidPublisher_Variant : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeviceSpec *deviceSpec;
+
+/**
+ *  variantId
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *variantId;
 
 @end
 

@@ -258,9 +258,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Mask of fields to update. At least one path must be supplied in this
  *  field. The elements of the repeated paths field may only include these
  *  fields:
- *  "description"
- *  "file_shares"
- *  "labels"
+ *  * "description"
+ *  * "file_shares"
+ *  * "labels"
  *
  *  String format is a comma-separated list of fields.
  */
@@ -296,6 +296,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  If true, the returned list will include locations which are not yet
+ *  revealed.
+ */
+@property(nonatomic, assign) BOOL includeUnrevealedLocations;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
