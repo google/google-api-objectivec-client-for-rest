@@ -26,6 +26,8 @@
 @class GTLRWebSecurityScanner_Form;
 @class GTLRWebSecurityScanner_GoogleAccount;
 @class GTLRWebSecurityScanner_Header;
+@class GTLRWebSecurityScanner_IapCredential;
+@class GTLRWebSecurityScanner_IapTestServiceAccountInfo;
 @class GTLRWebSecurityScanner_OutdatedLibrary;
 @class GTLRWebSecurityScanner_ScanConfig;
 @class GTLRWebSecurityScanner_ScanConfigError;
@@ -652,6 +654,9 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName
 /** Authentication using a Google account. */
 @property(nonatomic, strong, nullable) GTLRWebSecurityScanner_GoogleAccount *googleAccount;
 
+/** Authentication using Identity-Aware-Proxy (IAP). */
+@property(nonatomic, strong, nullable) GTLRWebSecurityScanner_IapCredential *iapCredential;
+
 @end
 
 
@@ -890,6 +895,35 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName
 
 
 /**
+ *  Describes authentication configuration for Identity-Aware-Proxy (IAP).
+ */
+@interface GTLRWebSecurityScanner_IapCredential : GTLRObject
+
+/**
+ *  Authentication configuration when Web-Security-Scanner service
+ *  account is added in Identity-Aware-Proxy (IAP) access policies.
+ */
+@property(nonatomic, strong, nullable) GTLRWebSecurityScanner_IapTestServiceAccountInfo *iapTestServiceAccountInfo;
+
+@end
+
+
+/**
+ *  Describes authentication configuration when Web-Security-Scanner
+ *  service account is added in Identity-Aware-Proxy (IAP) access policies.
+ */
+@interface GTLRWebSecurityScanner_IapTestServiceAccountInfo : GTLRObject
+
+/**
+ *  Required. Describes OAuth2 client id of resources protected by
+ *  Identity-Aware-Proxy (IAP).
+ */
+@property(nonatomic, copy, nullable) NSString *targetAudienceClientId;
+
+@end
+
+
+/**
  *  Response for the `ListCrawledUrls` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1065,6 +1099,14 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName
 @property(nonatomic, copy, nullable) NSString *exportToSecurityCommandCenter;
 
 /**
+ *  Whether the scan config is managed by Cloud Web Security Scanner, output
+ *  only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *managedScan;
+
+/**
  *  The maximum QPS during scanning. A valid value ranges from 5 to 20
  *  inclusively. If the field is unspecified or its value is set 0, server will
  *  default to 15. Other values outside of [5, 20] range will be rejected with
@@ -1099,6 +1141,14 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName
 
 /** Required. The starting URLs from which the scanner finds site pages. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *startingUrls;
+
+/**
+ *  Whether the scan configuration has enabled static IP address scan feature.
+ *  If enabled, the scanner will access applications from static IP addresses.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *staticIpScan;
 
 /**
  *  The user agent used during scanning.

@@ -44,21 +44,22 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Constructs a new OAuth brand for the project if one does not exists.
- *  The created brand is 'internal only', meaning that OAuth clients created
- *  under it only accept requests from users who belong to the same GSuites
- *  account as the project. The brand is created in un-reviewed status.
- *  NOTE: the 'internal_only' can be manually changed in Pantheon UI.
- *  Requires that brand does not already exists for the project.
+ *  Constructs a new OAuth brand for the project if one does not exist.
+ *  The created brand is "internal only", meaning that OAuth clients created
+ *  under it only accept requests from users who belong to the same G Suite
+ *  organization as the project. The brand is created in an un-reviewed status.
+ *  NOTE: The "internal only" status can be manually changed in the Google
+ *  Cloud console. Requires that a brand does not already exist for the
+ *  project, and that the specified support email is owned by the caller.
  *
- *  Method: iap.oauth.projects.brands.create
+ *  Method: iap.projects.brands.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
-@interface GTLRCloudIAPQuery_OauthProjectsBrandsCreate : GTLRCloudIAPQuery
+@interface GTLRCloudIAPQuery_ProjectsBrandsCreate : GTLRCloudIAPQuery
 // Previous library name was
-//   +[GTLQueryCloudIAP queryForOauthProjectsBrandsCreateWithObject:parent:]
+//   +[GTLQueryCloudIAP queryForProjectsBrandsCreateWithObject:parent:]
 
 /**
  *  Required. GCP Project number/id under which the brand is to be created.
@@ -69,19 +70,20 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudIAP_Brand.
  *
- *  Constructs a new OAuth brand for the project if one does not exists.
- *  The created brand is 'internal only', meaning that OAuth clients created
- *  under it only accept requests from users who belong to the same GSuites
- *  account as the project. The brand is created in un-reviewed status.
- *  NOTE: the 'internal_only' can be manually changed in Pantheon UI.
- *  Requires that brand does not already exists for the project.
+ *  Constructs a new OAuth brand for the project if one does not exist.
+ *  The created brand is "internal only", meaning that OAuth clients created
+ *  under it only accept requests from users who belong to the same G Suite
+ *  organization as the project. The brand is created in an un-reviewed status.
+ *  NOTE: The "internal only" status can be manually changed in the Google
+ *  Cloud console. Requires that a brand does not already exist for the
+ *  project, and that the specified support email is owned by the caller.
  *
  *  @param object The @c GTLRCloudIAP_Brand to include in the query.
  *  @param parent Required. GCP Project number/id under which the brand is to be
  *    created.
  *    In the following format: projects/{project_number/id}.
  *
- *  @return GTLRCloudIAPQuery_OauthProjectsBrandsCreate
+ *  @return GTLRCloudIAPQuery_ProjectsBrandsCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudIAP_Brand *)object
                          parent:(NSString *)parent;
@@ -91,14 +93,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Retrieves the OAuth brand of the project.
  *
- *  Method: iap.oauth.projects.brands.get
+ *  Method: iap.projects.brands.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
-@interface GTLRCloudIAPQuery_OauthProjectsBrandsGet : GTLRCloudIAPQuery
+@interface GTLRCloudIAPQuery_ProjectsBrandsGet : GTLRCloudIAPQuery
 // Previous library name was
-//   +[GTLQueryCloudIAP queryForOauthProjectsBrandsGetWithname:]
+//   +[GTLQueryCloudIAP queryForProjectsBrandsGetWithname:]
 
 /**
  *  Required. Name of the brand to be fetched.
@@ -114,26 +116,25 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. Name of the brand to be fetched.
  *    In the following format: projects/{project_number/id}/brands/{brand}.
  *
- *  @return GTLRCloudIAPQuery_OauthProjectsBrandsGet
+ *  @return GTLRCloudIAPQuery_ProjectsBrandsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Creates an Identity Aware Proxy (IAP) OAuth client, the client is owned
- *  by IAP.
- *  Requires that the brand for the project exists and that it is set for
- *  internal only use.
+ *  Creates an Identity Aware Proxy (IAP) OAuth client. The client is owned
+ *  by IAP. Requires that the brand for the project exists and that it is
+ *  set for internal-only use.
  *
- *  Method: iap.oauth.projects.brands.identityAwareProxyClients.create
+ *  Method: iap.projects.brands.identityAwareProxyClients.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
-@interface GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsCreate : GTLRCloudIAPQuery
+@interface GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsCreate : GTLRCloudIAPQuery
 // Previous library name was
-//   +[GTLQueryCloudIAP queryForOauthProjectsBrandsIdentityAwareProxyClientsCreateWithObject:parent:]
+//   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsCreateWithObject:parent:]
 
 /**
  *  Required. Path to create the client in.
@@ -146,10 +147,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudIAP_IdentityAwareProxyClient.
  *
- *  Creates an Identity Aware Proxy (IAP) OAuth client, the client is owned
- *  by IAP.
- *  Requires that the brand for the project exists and that it is set for
- *  internal only use.
+ *  Creates an Identity Aware Proxy (IAP) OAuth client. The client is owned
+ *  by IAP. Requires that the brand for the project exists and that it is
+ *  set for internal-only use.
  *
  *  @param object The @c GTLRCloudIAP_IdentityAwareProxyClient to include in the
  *    query.
@@ -158,7 +158,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    projects/{project_number/id}/brands/{brand}.
  *    The project must belong to a GSuite account.
  *
- *  @return GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsCreate
+ *  @return GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudIAP_IdentityAwareProxyClient *)object
                          parent:(NSString *)parent;
@@ -166,18 +166,18 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an Identity Aware Proxy (IAP) OAuth client. Useful if the secret
- *  was compromised.
- *  Requires that the client is owned by IAP.
+ *  Deletes an Identity Aware Proxy (IAP) OAuth client. Useful for removing
+ *  obsolete clients, managing the number of clients in a given project, and
+ *  cleaning up after tests. Requires that the client is owned by IAP.
  *
- *  Method: iap.oauth.projects.brands.identityAwareProxyClients.delete
+ *  Method: iap.projects.brands.identityAwareProxyClients.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
-@interface GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsDelete : GTLRCloudIAPQuery
+@interface GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsDelete : GTLRCloudIAPQuery
 // Previous library name was
-//   +[GTLQueryCloudIAP queryForOauthProjectsBrandsIdentityAwareProxyClientsDeleteWithname:]
+//   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsDeleteWithname:]
 
 /**
  *  Required. Name of the Identity Aware Proxy client to be deleted.
@@ -189,15 +189,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudIAP_Empty.
  *
- *  Deletes an Identity Aware Proxy (IAP) OAuth client. Useful if the secret
- *  was compromised.
- *  Requires that the client is owned by IAP.
+ *  Deletes an Identity Aware Proxy (IAP) OAuth client. Useful for removing
+ *  obsolete clients, managing the number of clients in a given project, and
+ *  cleaning up after tests. Requires that the client is owned by IAP.
  *
  *  @param name Required. Name of the Identity Aware Proxy client to be deleted.
  *    In the following format:
  *    projects/{project_number/id}/brands/{brand}/identityAwareProxyClients/{client_id}.
  *
- *  @return GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsDelete
+ *  @return GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -207,14 +207,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves an Identity Aware Proxy (IAP) OAuth client.
  *  Requires that the client is owned by IAP.
  *
- *  Method: iap.oauth.projects.brands.identityAwareProxyClients.get
+ *  Method: iap.projects.brands.identityAwareProxyClients.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
-@interface GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsGet : GTLRCloudIAPQuery
+@interface GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsGet : GTLRCloudIAPQuery
 // Previous library name was
-//   +[GTLQueryCloudIAP queryForOauthProjectsBrandsIdentityAwareProxyClientsGetWithname:]
+//   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsGetWithname:]
 
 /**
  *  Required. Name of the Identity Aware Proxy client to be fetched.
@@ -233,7 +233,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    In the following format:
  *    projects/{project_number/id}/brands/{brand}/identityAwareProxyClients/{client_id}.
  *
- *  @return GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsGet
+ *  @return GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -242,14 +242,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Lists the existing clients for the brand.
  *
- *  Method: iap.oauth.projects.brands.identityAwareProxyClients.list
+ *  Method: iap.projects.brands.identityAwareProxyClients.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
-@interface GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsList : GTLRCloudIAPQuery
+@interface GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsList : GTLRCloudIAPQuery
 // Previous library name was
-//   +[GTLQueryCloudIAP queryForOauthProjectsBrandsIdentityAwareProxyClientsListWithparent:]
+//   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsListWithparent:]
 
 /**
  *  The maximum number of clients to return. The service may return fewer than
@@ -282,7 +282,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. Full brand path.
  *    In the following format: projects/{project_number/id}/brands/{brand}.
  *
- *  @return GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsList
+ *  @return GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -293,19 +293,17 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Resets an Identity Aware Proxy (IAP) OAuth client secret. Useful for
- *  removing obsolete clients, managing the number of clients in a given
- *  project, and cleaning up after tests.
- *  Requires that the client is owned by IAP.
+ *  Resets an Identity Aware Proxy (IAP) OAuth client secret. Useful if the
+ *  secret was compromised. Requires that the client is owned by IAP.
  *
- *  Method: iap.oauth.projects.brands.identityAwareProxyClients.resetSecret
+ *  Method: iap.projects.brands.identityAwareProxyClients.resetSecret
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
-@interface GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsResetSecret : GTLRCloudIAPQuery
+@interface GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsResetSecret : GTLRCloudIAPQuery
 // Previous library name was
-//   +[GTLQueryCloudIAP queryForOauthProjectsBrandsIdentityAwareProxyClientsResetSecretWithObject:name:]
+//   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsResetSecretWithObject:name:]
 
 /**
  *  Required. Name of the Identity Aware Proxy client to that will have its
@@ -317,10 +315,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudIAP_IdentityAwareProxyClient.
  *
- *  Resets an Identity Aware Proxy (IAP) OAuth client secret. Useful for
- *  removing obsolete clients, managing the number of clients in a given
- *  project, and cleaning up after tests.
- *  Requires that the client is owned by IAP.
+ *  Resets an Identity Aware Proxy (IAP) OAuth client secret. Useful if the
+ *  secret was compromised. Requires that the client is owned by IAP.
  *
  *  @param object The @c GTLRCloudIAP_ResetIdentityAwareProxyClientSecretRequest
  *    to include in the query.
@@ -329,7 +325,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    secret reset. In the following format:
  *    projects/{project_number/id}/brands/{brand}/identityAwareProxyClients/{client_id}.
  *
- *  @return GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsResetSecret
+ *  @return GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsResetSecret
  */
 + (instancetype)queryWithObject:(GTLRCloudIAP_ResetIdentityAwareProxyClientSecretRequest *)object
                            name:(NSString *)name;
@@ -339,14 +335,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Lists the existing brands for the project.
  *
- *  Method: iap.oauth.projects.brands.list
+ *  Method: iap.projects.brands.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
-@interface GTLRCloudIAPQuery_OauthProjectsBrandsList : GTLRCloudIAPQuery
+@interface GTLRCloudIAPQuery_ProjectsBrandsList : GTLRCloudIAPQuery
 // Previous library name was
-//   +[GTLQueryCloudIAP queryForOauthProjectsBrandsListWithparent:]
+//   +[GTLQueryCloudIAP queryForProjectsBrandsListWithparent:]
 
 /**
  *  Required. GCP Project number/id.
@@ -362,7 +358,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. GCP Project number/id.
  *    In the following format: projects/{project_number/id}.
  *
- *  @return GTLRCloudIAPQuery_OauthProjectsBrandsList
+ *  @return GTLRCloudIAPQuery_ProjectsBrandsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 

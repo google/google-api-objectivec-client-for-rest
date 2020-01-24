@@ -1064,6 +1064,66 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationSta
 GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_Verified;
 
 // ----------------------------------------------------------------------------
+// GTLRMonitoring_NotificationChannelDescriptor.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the “Deprecation Policy” section of our Terms of Service
+ *  (https://cloud.google.com/terms/) and the Google Cloud Platform Subject to
+ *  the Deprecation Policy (https://cloud.google.com/terms/deprecation)
+ *  documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_LaunchStageUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRMonitoring_ResourceGroup.resourceType
 
 /**
@@ -3488,6 +3548,44 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
+ *  The units in which the metric value is reported. It is only applicable if
+ *  the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the
+ *  representation of the stored metric values.Different systems may scale the
+ *  values to be more easily displayed (so a value of 0.02KBy might be displayed
+ *  as 20By, and a value of 3523KBy might be displayed as 3.5MBy). However, if
+ *  the unit is KBy, then the value of the metric is always in thousands of
+ *  bytes, no matter how it may be displayed..If you want a custom metric to
+ *  record the exact number of CPU-seconds used by a job, you can create an
+ *  INT64 CUMULATIVE metric whose unit is s{CPU} (or equivalently 1s{CPU} or
+ *  just s). If the job uses 12,005 CPU-seconds, then the value is written as
+ *  12005.Alternatively, if you want a custom metric to record data in a more
+ *  granular way, you can create a DOUBLE CUMULATIVE metric whose unit is
+ *  ks{CPU}, and then write the value 12.005 (which is 12005/1000), or use
+ *  Kis{CPU} and write 11.723 (which is 12005/1024).The supported units are a
+ *  subset of The Unified Code for Units of Measure
+ *  (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT)
+ *  bit bit
+ *  By byte
+ *  s second
+ *  min minute
+ *  h hour
+ *  d dayPrefixes (PREFIX)
+ *  k kilo (10^3)
+ *  M mega (10^6)
+ *  G giga (10^9)
+ *  T tera (10^12)
+ *  P peta (10^15)
+ *  E exa (10^18)
+ *  Z zetta (10^21)
+ *  Y yotta (10^24)
+ *  m milli (10^-3)
+ *  u micro (10^-6)
+ *  n nano (10^-9)
+ *  p pico (10^-12)
+ *  f femto (10^-15)
+ *  a atto (10^-18)
+ *  z zepto (10^-21)
+ *  y yocto (10^-24)
  *  Ki kibi (2^10)
  *  Mi mebi (2^20)
  *  Gi gibi (2^30)
@@ -4128,6 +4226,47 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  should be populated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_LabelDescriptor *> *labels;
+
+/**
+ *  The product launch stage for channels of this type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Alpha
+ *        Alpha is a limited availability test for releases before they are
+ *        cleared for widespread use. By Alpha, all significant design issues
+ *        are resolved and we are in the process of verifying functionality.
+ *        Alpha customers need to apply for access, agree to applicable terms,
+ *        and have their projects whitelisted. Alpha releases don’t have to be
+ *        feature complete, no SLAs are provided, and there are no technical
+ *        support obligations, but they will be far enough along that customers
+ *        can actually use them in test environments or for limited-use tests --
+ *        just like they would in normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Beta
+ *        Beta is the point at which we are ready to open a release for any
+ *        customer to use. There are no SLA or technical support obligations in
+ *        a Beta release. Products will be complete from a feature perspective,
+ *        but may have some open outstanding issues. Beta releases are suitable
+ *        for limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more information, see the “Deprecation Policy” section of our Terms of
+ *        Service (https://cloud.google.com/terms/) and the Google Cloud
+ *        Platform Subject to the Deprecation Policy
+ *        (https://cloud.google.com/terms/deprecation) documentation. (Value:
+ *        "DEPRECATED")
+ *    @arg @c kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Ga GA
+ *        features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
 
 /**
  *  The full REST resource name for this descriptor. The syntax is:

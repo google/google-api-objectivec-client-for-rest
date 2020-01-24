@@ -602,8 +602,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_HttpRule
-@dynamic additionalBindings, body, custom, deleteProperty, get, patch, post,
-         put, responseBody, selector;
+@dynamic additionalBindings, allowHalfDuplex, body, custom, deleteProperty, get,
+         patch, post, put, responseBody, selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -1083,6 +1083,21 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_ServiceIdentity
+//
+
+@implementation GTLRServiceNetworking_ServiceIdentity
+@dynamic descriptionProperty, displayName, serviceAccountParent;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_SourceContext
 //
 
@@ -1237,7 +1252,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Usage
-@dynamic producerNotificationChannel, requirements, rules;
+@dynamic producerNotificationChannel, requirements, rules, serviceIdentity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

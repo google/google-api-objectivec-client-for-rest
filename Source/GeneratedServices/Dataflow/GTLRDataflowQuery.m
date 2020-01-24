@@ -324,6 +324,35 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @end
 
+@implementation GTLRDataflowQuery_ProjectsLocationsFlexTemplatesLaunch
+
+@dynamic location, projectId;
+
++ (instancetype)queryWithObject:(GTLRDataflow_LaunchFlexTemplateRequest *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"location", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/flexTemplates:launch";
+  GTLRDataflowQuery_ProjectsLocationsFlexTemplatesLaunch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.location = location;
+  query.expectedObjectClass = [GTLRDataflow_LaunchFlexTemplateResponse class];
+  query.loggingName = @"dataflow.projects.locations.flexTemplates.launch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataflowQuery_ProjectsLocationsJobsCreate
 
 @dynamic location, projectId, replaceJobId, view;

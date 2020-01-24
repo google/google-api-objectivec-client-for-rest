@@ -1585,7 +1585,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 @implementation GTLRCloudSearch_QueryOperator
 @dynamic displayName, enumValues, greaterThanOperatorName, isFacetable,
          isRepeatable, isReturnable, isSortable, isSuggestable,
-         lessThanOperatorName, operatorName, type;
+         lessThanOperatorName, objectType, operatorName, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

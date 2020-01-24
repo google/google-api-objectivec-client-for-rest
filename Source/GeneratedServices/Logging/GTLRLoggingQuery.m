@@ -885,6 +885,25 @@
 
 @end
 
+@implementation GTLRLoggingQuery_OrganizationsGetCmekSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/cmekSettings";
+  GTLRLoggingQuery_OrganizationsGetCmekSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_CmekSettings class];
+  query.loggingName = @"logging.organizations.getCmekSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_OrganizationsLogsDelete
 
 @dynamic logName;
@@ -1050,6 +1069,31 @@
   query.sinkName = sinkName;
   query.expectedObjectClass = [GTLRLogging_LogSink class];
   query.loggingName = @"logging.organizations.sinks.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsUpdateCmekSettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_CmekSettings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/cmekSettings";
+  GTLRLoggingQuery_OrganizationsUpdateCmekSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_CmekSettings class];
+  query.loggingName = @"logging.organizations.updateCmekSettings";
   return query;
 }
 
@@ -1541,6 +1585,50 @@
   query.sinkName = sinkName;
   query.expectedObjectClass = [GTLRLogging_LogSink class];
   query.loggingName = @"logging.sinks.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_V2GetCmekSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/cmekSettings";
+  GTLRLoggingQuery_V2GetCmekSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_CmekSettings class];
+  query.loggingName = @"logging.getCmekSettings";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_V2UpdateCmekSettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_CmekSettings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/cmekSettings";
+  GTLRLoggingQuery_V2UpdateCmekSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_CmekSettings class];
+  query.loggingName = @"logging.updateCmekSettings";
   return query;
 }
 

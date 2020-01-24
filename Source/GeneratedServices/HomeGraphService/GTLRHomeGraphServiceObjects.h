@@ -437,7 +437,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *followUpToken;
 
 /**
- *  State of devices to update and notification metadata for devices. For
+ *  Required. State of devices to update and notification metadata for devices.
+ *  For
  *  example, if a user turns a light on manually, a state update should be
  *  sent so that the information is always the current status of the device.
  *  Notifications are independent from the state and its piece of the payload

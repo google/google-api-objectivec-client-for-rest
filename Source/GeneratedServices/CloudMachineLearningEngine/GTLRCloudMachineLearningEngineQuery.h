@@ -49,8 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Performs explanation on the data in the request.
  *  AI Platform implements a custom `explain` verb on top of an HTTP POST
  *  method.
- *  For details of the request and response format, see the **guide
- *  to the [explain request format](/ml-engine/docs/v1/explain-request)**.
  *
  *  Method: ml.projects.explain
  *
@@ -73,8 +71,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Performs explanation on the data in the request.
  *  AI Platform implements a custom `explain` verb on top of an HTTP POST
  *  method.
- *  For details of the request and response format, see the **guide
- *  to the [explain request format](/ml-engine/docs/v1/explain-request)**.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplainRequest to include in
@@ -195,6 +191,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsJobsGet : GTLRCloudMachineLearningEngineQuery
 // Previous library name was
@@ -272,6 +269,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsJobsList : GTLRCloudMachineLearningEngineQuery
 // Previous library name was
@@ -480,6 +478,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsGet : GTLRCloudMachineLearningEngineQuery
 // Previous library name was
@@ -509,6 +508,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsList : GTLRCloudMachineLearningEngineQuery
 // Previous library name was
@@ -635,6 +635,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsGet : GTLRCloudMachineLearningEngineQuery
 // Previous library name was
@@ -716,6 +717,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsList : GTLRCloudMachineLearningEngineQuery
 // Previous library name was
@@ -1042,6 +1044,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsList : GTLRCloudMachineLearningEngineQuery
 // Previous library name was
@@ -1333,11 +1336,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Performs prediction on the data in the request.
- *  AI Platform implements a custom `predict` verb on top of an HTTP POST
- *  method.
- *  For details of the request and response format, see the **guide
- *  to the [predict request format](/ml-engine/docs/v1/predict-request)**.
+ *  Performs online prediction on the data in the request.
+ *  <div>{% dynamic include "/ai-platform/includes/___predict-request" %}</div>
  *
  *  Method: ml.projects.predict
  *
@@ -1357,11 +1357,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleApiHttpBody.
  *
- *  Performs prediction on the data in the request.
- *  AI Platform implements a custom `predict` verb on top of an HTTP POST
- *  method.
- *  For details of the request and response format, see the **guide
- *  to the [predict request format](/ml-engine/docs/v1/predict-request)**.
+ *  Performs online prediction on the data in the request.
+ *  <div>{% dynamic include "/ai-platform/includes/___predict-request" %}</div>
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictRequest to include in

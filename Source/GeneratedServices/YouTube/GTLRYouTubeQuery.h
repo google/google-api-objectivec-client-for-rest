@@ -3839,6 +3839,14 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
 //   +[GTLQueryYouTube queryForMembersListWithpart:]
 
 /**
+ *  The filterByMemberChannelId parameter represents a comma separated list of
+ *  channel IDs. Only data about members that are part of this list will be
+ *  included in the response. It can be used to efficiently check whether
+ *  specific users are entitled to perks offered via third parties.
+ */
+@property(nonatomic, copy, nullable) NSString *filterByMemberChannelId;
+
+/**
  *  The hasAccessToLevel parameter specifies, when set, the ID of a pricing
  *  level that members from the results set should have access to. When not set,
  *  all members will be considered, regardless of their active pricing level.
@@ -3877,7 +3885,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
 
 /**
  *  The part parameter specifies the member resource parts that the API response
- *  will include. Supported values are id and snippet.
+ *  will include. Set the parameter value to snippet.
  */
 @property(nonatomic, copy, nullable) NSString *part;
 
@@ -3887,7 +3895,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  Lists members for a channel.
  *
  *  @param part The part parameter specifies the member resource parts that the
- *    API response will include. Supported values are id and snippet.
+ *    API response will include. Set the parameter value to snippet.
  *
  *  @return GTLRYouTubeQuery_MembersList
  *

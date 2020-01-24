@@ -1091,6 +1091,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  specific item, as users need to have ACL permissions on the contained
  *  items. This ensures a high level access on the entire datasource, and
  *  that the individual items are not shared outside this visibility.
+ *  This should not be set if anonymous search is enabled for the data source.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_GSuitePrincipal *> *itemsVisibility;
 
@@ -3672,6 +3673,12 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  the less-than operator.
  */
 @property(nonatomic, copy, nullable) NSString *lessThanOperatorName;
+
+/**
+ *  Name of the object corresponding to the operator. This field is only filled
+ *  for schema-specific operators, and is unset for common operators.
+ */
+@property(nonatomic, copy, nullable) NSString *objectType;
 
 /** The name of the operator. */
 @property(nonatomic, copy, nullable) NSString *operatorName;

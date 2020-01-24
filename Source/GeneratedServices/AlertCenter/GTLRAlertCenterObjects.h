@@ -38,6 +38,7 @@
 @class GTLRAlertCenter_Status;
 @class GTLRAlertCenter_Status_Details_Item;
 @class GTLRAlertCenter_SuspiciousActivitySecurityDetail;
+@class GTLRAlertCenter_User;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -92,6 +93,28 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Jso
  *  Value: "PAYLOAD_FORMAT_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_MailPhishing.systemActionType
+
+/**
+ *  No operation.
+ *
+ *  Value: "NO_OPERATION"
+ */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_NoOperation;
+/**
+ *  Messages were removed from the inbox.
+ *
+ *  Value: "REMOVED_FROM_INBOX"
+ */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_RemovedFromInbox;
+/**
+ *  System action is unspecified.
+ *
+ *  Value: "SYSTEM_ACTION_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionTypeUnspecified;
 
 /**
  *  Alerts for user account warning events.
@@ -792,6 +815,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
  *  * Suspicious message reported
  *  * Phishing reclassification
  *  * Malware reclassification
+ *  * Gmail potential employee spoofing
  */
 @interface GTLRAlertCenter_MailPhishing : GTLRObject
 
@@ -811,6 +835,20 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
 /** The list of messages contained by this alert. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_GmailMessageInfo *> *messages;
 
+/**
+ *  System actions on the messages.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_MailPhishing_SystemActionType_NoOperation No
+ *        operation. (Value: "NO_OPERATION")
+ *    @arg @c kGTLRAlertCenter_MailPhishing_SystemActionType_RemovedFromInbox
+ *        Messages were removed from the inbox. (Value: "REMOVED_FROM_INBOX")
+ *    @arg @c kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionTypeUnspecified
+ *        System action is unspecified. (Value:
+ *        "SYSTEM_ACTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *systemActionType;
+
 @end
 
 
@@ -821,6 +859,9 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
 
 /** The header from display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The actor who triggered a gmail phishing alert. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_User *entity;
 
 /** The sender email address. */
 @property(nonatomic, copy, nullable) NSString *fromHeader;
@@ -1020,6 +1061,20 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
  *  Inferred from the caller identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
+
+@end
+
+
+/**
+ *  A user.
+ */
+@interface GTLRAlertCenter_User : GTLRObject
+
+/** Display name of the user. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Email address of the user. */
+@property(nonatomic, copy, nullable) NSString *emailAddress;
 
 @end
 

@@ -663,6 +663,21 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_GoogleApiServiceIdentity
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceIdentity
+@dynamic descriptionProperty, displayName, serviceAccountParent;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse
 //
 
@@ -753,8 +768,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_HttpRule
-@dynamic additionalBindings, body, custom, deleteProperty, get, patch, post,
-         put, responseBody, selector;
+@dynamic additionalBindings, allowHalfDuplex, body, custom, deleteProperty, get,
+         patch, post, put, responseBody, selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -1371,7 +1386,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_Usage
-@dynamic producerNotificationChannel, requirements, rules;
+@dynamic producerNotificationChannel, requirements, rules, serviceIdentity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

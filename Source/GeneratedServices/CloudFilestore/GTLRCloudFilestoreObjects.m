@@ -17,6 +17,7 @@
 // GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance.state
 NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating = @"CREATING";
 NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting = @"DELETING";
+NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Error = @"ERROR";
 NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Ready = @"READY";
 NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing = @"REPAIRING";
 NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -75,8 +76,8 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance
 @dynamic consumerDefinedName, createTime, labels, maintenancePolicyNames,
          maintenanceSchedules, name, producerMetadata, provisionedResources,
-         rolloutMetadata, sloMetadata, softwareVersions, state, tenantProjectId,
-         updateTime;
+         rolloutMetadata, slmInstanceTemplate, sloMetadata, softwareVersions,
+         state, tenantProjectId, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -232,11 +233,21 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility
+@dynamic eligible, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
 //
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
-@dynamic exclusionDuration, exclusionStartTime, reason, sliName;
+@dynamic duration, reason, sliName, startTime;
 @end
 
 
@@ -246,7 +257,7 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 //
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
-@dynamic exclusions, nodes, tier;
+@dynamic eligibility, exclusions, nodes, tier;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

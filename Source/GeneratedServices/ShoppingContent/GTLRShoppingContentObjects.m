@@ -160,7 +160,15 @@
 //
 
 @implementation GTLRShoppingContent_AccountsCustomBatchRequestEntryLinkRequest
-@dynamic action, linkedAccountId, linkType;
+@dynamic action, linkedAccountId, linkType, services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"services" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -198,7 +206,15 @@
 //
 
 @implementation GTLRShoppingContent_AccountsLinkRequest
-@dynamic action, linkedAccountId, linkType;
+@dynamic action, linkedAccountId, linkType, services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"services" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2263,6 +2279,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_PickupCarrierService
+//
+
+@implementation GTLRShoppingContent_PickupCarrierService
+@dynamic carrierName, serviceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_PickupServicesPickupService
+//
+
+@implementation GTLRShoppingContent_PickupServicesPickupService
+@dynamic carrierName, country, serviceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_PosCustomBatchRequest
 //
 
@@ -3186,7 +3222,7 @@
 
 @implementation GTLRShoppingContent_Service
 @dynamic active, currency, deliveryCountry, deliveryTime, eligibility,
-         minimumOrderValue, name, rateGroups;
+         minimumOrderValue, name, pickupService, rateGroups, shipmentType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3348,6 +3384,24 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"holidays" : [GTLRShoppingContent_HolidaysHoliday class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ShippingsettingsGetSupportedPickupServicesResponse
+//
+
+@implementation GTLRShoppingContent_ShippingsettingsGetSupportedPickupServicesResponse
+@dynamic kind, pickupServices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pickupServices" : [GTLRShoppingContent_PickupServicesPickupService class]
   };
   return map;
 }

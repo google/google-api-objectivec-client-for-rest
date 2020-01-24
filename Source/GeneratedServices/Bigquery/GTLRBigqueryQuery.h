@@ -571,6 +571,12 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
+/**
+ *  If set, retrieves only jobs whose parent is this job. Otherwise, retrieves
+ *  only jobs which have no parent
+ */
+@property(nonatomic, copy, nullable) NSString *parentJobId;
+
 /** Project ID of the jobs to list */
 @property(nonatomic, copy, nullable) NSString *projectId;
 

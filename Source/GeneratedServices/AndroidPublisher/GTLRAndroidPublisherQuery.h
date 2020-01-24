@@ -28,6 +28,7 @@
 @class GTLRAndroidPublisher_ReviewsReplyRequest;
 @class GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest;
 @class GTLRAndroidPublisher_SubscriptionPurchasesDeferRequest;
+@class GTLRAndroidPublisher_SystemApkVariantsCreateRequest;
 @class GTLRAndroidPublisher_Testers;
 @class GTLRAndroidPublisher_Track;
 
@@ -2816,6 +2817,158 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_ReviewsReplyRequest *)object
                     packageName:(NSString *)packageName
                        reviewId:(NSString *)reviewId;
+
+@end
+
+/**
+ *  Creates a new variant of APK which is suitable for inclusion in a system
+ *  image.
+ *
+ *  Method: androidpublisher.systemapks.variants.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_SystemapksVariantsCreate : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForSystemapksVariantsCreateWithObject:packageName:versionCode:]
+
+/** Unique identifier for the Android app; for example, "com.spiffygame". */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** The version code of the App Bundle. */
+@property(nonatomic, assign) long long versionCode;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Variant.
+ *
+ *  Creates a new variant of APK which is suitable for inclusion in a system
+ *  image.
+ *
+ *  @param object The @c GTLRAndroidPublisher_SystemApkVariantsCreateRequest to
+ *    include in the query.
+ *  @param packageName Unique identifier for the Android app; for example,
+ *    "com.spiffygame".
+ *  @param versionCode The version code of the App Bundle.
+ *
+ *  @return GTLRAndroidPublisherQuery_SystemapksVariantsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_SystemApkVariantsCreateRequest *)object
+                    packageName:(NSString *)packageName
+                    versionCode:(long long)versionCode;
+
+@end
+
+/**
+ *  Download a previously created APK which is suitable for inclusion in a
+ *  system image.
+ *
+ *  Method: androidpublisher.systemapks.variants.download
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_SystemapksVariantsDownload : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForSystemapksVariantsDownloadWithpackageName:versionCode:variantId:]
+
+/** Unique identifier for the Android app; for example, "com.spiffygame". */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@property(nonatomic, assign) NSUInteger variantId;
+
+/** The version code of the App Bundle. */
+@property(nonatomic, assign) long long versionCode;
+
+/**
+ *  Fetches the requested resource data as a @c GTLRDataObject.
+ *
+ *  Download a previously created APK which is suitable for inclusion in a
+ *  system image.
+ *
+ *  @param packageName Unique identifier for the Android app; for example,
+ *    "com.spiffygame".
+ *  @param versionCode The version code of the App Bundle.
+ *  @param variantId NSUInteger
+ *
+ *  @return GTLRAndroidPublisherQuery_SystemapksVariantsDownload
+ */
++ (instancetype)queryForMediaWithPackageName:(NSString *)packageName
+                                 versionCode:(long long)versionCode
+                                   variantId:(NSUInteger)variantId;
+
+@end
+
+/**
+ *  Returns a previously created system APK variant.
+ *
+ *  Method: androidpublisher.systemapks.variants.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_SystemapksVariantsGet : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForSystemapksVariantsGetWithpackageName:versionCode:variantId:]
+
+/** Unique identifier for the Android app; for example, "com.spiffygame". */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Unique identifier for this variant. */
+@property(nonatomic, assign) NSUInteger variantId;
+
+/** The version code of the App Bundle. */
+@property(nonatomic, assign) long long versionCode;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Variant.
+ *
+ *  Returns a previously created system APK variant.
+ *
+ *  @param packageName Unique identifier for the Android app; for example,
+ *    "com.spiffygame".
+ *  @param versionCode The version code of the App Bundle.
+ *  @param variantId Unique identifier for this variant.
+ *
+ *  @return GTLRAndroidPublisherQuery_SystemapksVariantsGet
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                         versionCode:(long long)versionCode
+                           variantId:(NSUInteger)variantId;
+
+@end
+
+/**
+ *  Returns the list of previously created system APK variants.
+ *
+ *  Method: androidpublisher.systemapks.variants.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_SystemapksVariantsList : GTLRAndroidPublisherQuery
+// Previous library name was
+//   +[GTLQueryAndroidPublisher queryForSystemapksVariantsListWithpackageName:versionCode:]
+
+/** Unique identifier for the Android app; for example, "com.spiffygame". */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** The version code of the App Bundle. */
+@property(nonatomic, assign) long long versionCode;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_SystemApkVariantsListResponse.
+ *
+ *  Returns the list of previously created system APK variants.
+ *
+ *  @param packageName Unique identifier for the Android app; for example,
+ *    "com.spiffygame".
+ *  @param versionCode The version code of the App Bundle.
+ *
+ *  @return GTLRAndroidPublisherQuery_SystemapksVariantsList
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                         versionCode:(long long)versionCode;
 
 @end
 

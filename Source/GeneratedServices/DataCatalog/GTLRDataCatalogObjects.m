@@ -23,6 +23,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_DataStream = @"DATA_STREAM";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_EntryTypeUnspecified = @"ENTRY_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Fileset = @"FILESET";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Model = @"MODEL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Table = @"TABLE";
 
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType.primitiveType

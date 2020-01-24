@@ -363,6 +363,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_ContainerSpec
+//
+
+@implementation GTLRDataflow_ContainerSpec
+@dynamic image, metadata, sdkInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_CounterMetadata
 //
 
@@ -1038,6 +1048,50 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_KeyRangeLocation
 @dynamic dataDisk, deliveryEndpoint, deprecatedPersistentDirectory, end, start;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_LaunchFlexTemplateParameter
+//
+
+@implementation GTLRDataflow_LaunchFlexTemplateParameter
+@dynamic containerSpec, containerSpecGcsPath, jobName, parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_LaunchFlexTemplateParameter_Parameters
+//
+
+@implementation GTLRDataflow_LaunchFlexTemplateParameter_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_LaunchFlexTemplateRequest
+//
+
+@implementation GTLRDataflow_LaunchFlexTemplateRequest
+@dynamic launchParameter, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_LaunchFlexTemplateResponse
+//
+
+@implementation GTLRDataflow_LaunchFlexTemplateResponse
+@dynamic job;
 @end
 
 

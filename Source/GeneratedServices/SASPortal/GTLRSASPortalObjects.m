@@ -78,6 +78,34 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSASPortal_BulkCreateDeviceRequest
+//
+
+@implementation GTLRSASPortal_BulkCreateDeviceRequest
+@dynamic csv;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_BulkCreateDeviceResponse
+//
+
+@implementation GTLRSASPortal_BulkCreateDeviceResponse
+@dynamic devices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"devices" : [GTLRSASPortal_Device class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSASPortal_CreateSignedDeviceRequest
 //
 

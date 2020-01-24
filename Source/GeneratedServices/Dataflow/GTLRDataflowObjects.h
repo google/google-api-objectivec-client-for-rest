@@ -29,6 +29,7 @@
 @class GTLRDataflow_ComponentTransform;
 @class GTLRDataflow_ComputationTopology;
 @class GTLRDataflow_ConcatPosition;
+@class GTLRDataflow_ContainerSpec;
 @class GTLRDataflow_CounterMetadata;
 @class GTLRDataflow_CounterStructuredName;
 @class GTLRDataflow_CounterStructuredNameAndMetadata;
@@ -73,6 +74,8 @@
 @class GTLRDataflow_JobMetadata;
 @class GTLRDataflow_KeyRangeDataDiskAssignment;
 @class GTLRDataflow_KeyRangeLocation;
+@class GTLRDataflow_LaunchFlexTemplateParameter;
+@class GTLRDataflow_LaunchFlexTemplateParameter_Parameters;
 @class GTLRDataflow_LaunchTemplateParameters_Parameters;
 @class GTLRDataflow_LaunchTemplateParameters_TransformNameMapping;
 @class GTLRDataflow_LeaseWorkItemRequest_UnifiedWorkerRequest;
@@ -1742,6 +1745,25 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 /** Position within the inner source. */
 @property(nonatomic, strong, nullable) GTLRDataflow_Position *position;
+
+@end
+
+
+/**
+ *  Container Spec.
+ */
+@interface GTLRDataflow_ContainerSpec : GTLRObject
+
+/** Name of the docker container image. E.g., gcr.io/project/some-image */
+@property(nonatomic, copy, nullable) NSString *image;
+
+/**
+ *  Metadata describing a template including description and validation rules.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_TemplateMetadata *metadata;
+
+/** Required. SDK info of the Flex Template. */
+@property(nonatomic, strong, nullable) GTLRDataflow_SDKInfo *sdkInfo;
 
 @end
 
@@ -3529,6 +3551,75 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Launch FlexTemplate Parameter.
+ */
+@interface GTLRDataflow_LaunchFlexTemplateParameter : GTLRObject
+
+/** Spec about the container image to launch. */
+@property(nonatomic, strong, nullable) GTLRDataflow_ContainerSpec *containerSpec;
+
+/** Gcs path to a file with json serialized ContainerSpec as content. */
+@property(nonatomic, copy, nullable) NSString *containerSpecGcsPath;
+
+/** Required. The job name to use for the created job. */
+@property(nonatomic, copy, nullable) NSString *jobName;
+
+/**
+ *  The parameters for FlexTemplate.
+ *  Ex. {"num_workers":"5"}
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_LaunchFlexTemplateParameter_Parameters *parameters;
+
+@end
+
+
+/**
+ *  The parameters for FlexTemplate.
+ *  Ex. {"num_workers":"5"}
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_LaunchFlexTemplateParameter_Parameters : GTLRObject
+@end
+
+
+/**
+ *  A request to launch a Cloud Dataflow job from a FlexTemplate.
+ */
+@interface GTLRDataflow_LaunchFlexTemplateRequest : GTLRObject
+
+/** Required. Parameter to launch a job form Flex Template. */
+@property(nonatomic, strong, nullable) GTLRDataflow_LaunchFlexTemplateParameter *launchParameter;
+
+/**
+ *  If true, the request is validated but not actually executed.
+ *  Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  Response to the request to launch a job from Flex Template.
+ */
+@interface GTLRDataflow_LaunchFlexTemplateResponse : GTLRObject
+
+/**
+ *  The job that was launched, if the request was not a dry run and
+ *  the job was successfully launched.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_Job *job;
+
+@end
+
+
+/**
  *  Parameters to provide to the template being launched.
  */
 @interface GTLRDataflow_LaunchTemplateParameters : GTLRObject
@@ -3693,8 +3784,11 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
- *  Response to a request to list Cloud Dataflow jobs. This may be a partial
- *  response, depending on the page size in the ListJobsRequest.
+ *  Response to a request to list Cloud Dataflow jobs in a project. This might
+ *  be a partial response, depending on the page size in the ListJobsRequest.
+ *  However, if the project does not have any jobs, an instance of
+ *  ListJobsResponse is not returned and the requests's response
+ *  body is empty {}.
  */
 @interface GTLRDataflow_ListJobsResponse : GTLRObject
 

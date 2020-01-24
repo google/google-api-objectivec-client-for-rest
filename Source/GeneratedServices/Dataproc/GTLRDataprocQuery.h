@@ -1311,7 +1311,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Cloud Dataproc region in which to handle the request. */
+/** Required. The Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -1334,8 +1334,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param object The @c GTLRDataproc_Cluster to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
- *  @param region Required. The Cloud Dataproc region in which to handle the
- *    request.
+ *  @param region Required. The Dataproc region in which to handle the request.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersCreate
  */
@@ -1373,7 +1372,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Cloud Dataproc region in which to handle the request. */
+/** Required. The Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -1395,8 +1394,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
- *  @param region Required. The Cloud Dataproc region in which to handle the
- *    request.
+ *  @param region Required. The Dataproc region in which to handle the request.
  *  @param clusterName Required. The cluster name.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersDelete
@@ -1430,7 +1428,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Cloud Dataproc region in which to handle the request. */
+/** Required. The Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -1444,8 +1442,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    query.
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
- *  @param region Required. The Cloud Dataproc region in which to handle the
- *    request.
+ *  @param region Required. The Dataproc region in which to handle the request.
  *  @param clusterName Required. The cluster name.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersDiagnose
@@ -1478,7 +1475,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Cloud Dataproc region in which to handle the request. */
+/** Required. The Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -1488,8 +1485,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
- *  @param region Required. The Cloud Dataproc region in which to handle the
- *    request.
+ *  @param region Required. The Dataproc region in which to handle the request.
  *  @param clusterName Required. The cluster name.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersGet
@@ -1577,7 +1573,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Cloud Dataproc region in which to handle the request. */
+/** Required. The Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -1587,8 +1583,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
- *  @param region Required. The Cloud Dataproc region in which to handle the
- *    request.
+ *  @param region Required. The Dataproc region in which to handle the request.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersList
  *
@@ -1623,7 +1618,9 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  progress. Timeout specifies how long to wait for jobs in progress to finish
  *  before forcefully removing nodes (and potentially interrupting jobs).
  *  Default timeout is 0 (for forceful decommission), and the maximum allowed
- *  timeout is 1 day.Only supported on Dataproc image versions 1.2 and higher.
+ *  timeout is 1 day. (see JSON representation of Duration
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).Only
+ *  supported on Dataproc image versions 1.2 and higher.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *gracefulDecommissionTimeout;
 
@@ -1633,7 +1630,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Cloud Dataproc region in which to handle the request. */
+/** Required. The Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -1695,8 +1692,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param object The @c GTLRDataproc_Cluster to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project the
  *    cluster belongs to.
- *  @param region Required. The Cloud Dataproc region in which to handle the
- *    request.
+ *  @param region Required. The Dataproc region in which to handle the request.
  *  @param clusterName Required. The cluster name.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersPatch
@@ -1814,7 +1810,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Cloud Dataproc region in which to handle the request. */
+/** Required. The Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -1826,8 +1822,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param object The @c GTLRDataproc_CancelJobRequest to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the job belongs to.
- *  @param region Required. The Cloud Dataproc region in which to handle the
- *    request.
+ *  @param region Required. The Dataproc region in which to handle the request.
  *  @param jobId Required. The job ID.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsJobsCancel
@@ -1861,7 +1856,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Cloud Dataproc region in which to handle the request. */
+/** Required. The Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -1872,8 +1867,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the job belongs to.
- *  @param region Required. The Cloud Dataproc region in which to handle the
- *    request.
+ *  @param region Required. The Dataproc region in which to handle the request.
  *  @param jobId Required. The job ID.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsJobsDelete
@@ -1905,7 +1899,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Cloud Dataproc region in which to handle the request. */
+/** Required. The Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -1915,8 +1909,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the job belongs to.
- *  @param region Required. The Cloud Dataproc region in which to handle the
- *    request.
+ *  @param region Required. The Dataproc region in which to handle the request.
  *  @param jobId Required. The job ID.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsJobsGet
@@ -2020,7 +2013,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Cloud Dataproc region in which to handle the request. */
+/** Required. The Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -2030,8 +2023,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the job belongs to.
- *  @param region Required. The Cloud Dataproc region in which to handle the
- *    request.
+ *  @param region Required. The Dataproc region in which to handle the request.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsJobsList
  *
@@ -2065,7 +2057,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Cloud Dataproc region in which to handle the request. */
+/** Required. The Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -2088,8 +2080,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param object The @c GTLRDataproc_Job to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the job belongs to.
- *  @param region Required. The Cloud Dataproc region in which to handle the
- *    request.
+ *  @param region Required. The Dataproc region in which to handle the request.
  *  @param jobId Required. The job ID.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsJobsPatch
@@ -2159,7 +2150,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Required. The Cloud Dataproc region in which to handle the request. */
+/** Required. The Dataproc region in which to handle the request. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
@@ -2170,8 +2161,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param object The @c GTLRDataproc_SubmitJobRequest to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the job belongs to.
- *  @param region Required. The Cloud Dataproc region in which to handle the
- *    request.
+ *  @param region Required. The Dataproc region in which to handle the request.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsJobsSubmit
  */

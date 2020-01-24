@@ -18,7 +18,7 @@
 
 @end
 
-@implementation GTLRCloudIAPQuery_OauthProjectsBrandsCreate
+@implementation GTLRCloudIAPQuery_ProjectsBrandsCreate
 
 @dynamic parent;
 
@@ -29,40 +29,40 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/oauth/{+parent}/brands";
-  GTLRCloudIAPQuery_OauthProjectsBrandsCreate *query =
+  NSString *pathURITemplate = @"v1/{+parent}/brands";
+  GTLRCloudIAPQuery_ProjectsBrandsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudIAP_Brand class];
-  query.loggingName = @"iap.oauth.projects.brands.create";
+  query.loggingName = @"iap.projects.brands.create";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudIAPQuery_OauthProjectsBrandsGet
+@implementation GTLRCloudIAPQuery_ProjectsBrandsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/oauth/{+name}";
-  GTLRCloudIAPQuery_OauthProjectsBrandsGet *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIAPQuery_ProjectsBrandsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRCloudIAP_Brand class];
-  query.loggingName = @"iap.oauth.projects.brands.get";
+  query.loggingName = @"iap.projects.brands.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsCreate
+@implementation GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsCreate
 
 @dynamic parent;
 
@@ -73,78 +73,78 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/oauth/{+parent}/identityAwareProxyClients";
-  GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsCreate *query =
+  NSString *pathURITemplate = @"v1/{+parent}/identityAwareProxyClients";
+  GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudIAP_IdentityAwareProxyClient class];
-  query.loggingName = @"iap.oauth.projects.brands.identityAwareProxyClients.create";
+  query.loggingName = @"iap.projects.brands.identityAwareProxyClients.create";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsDelete
+@implementation GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/oauth/{+name}";
-  GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsDelete *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRCloudIAP_Empty class];
-  query.loggingName = @"iap.oauth.projects.brands.identityAwareProxyClients.delete";
+  query.loggingName = @"iap.projects.brands.identityAwareProxyClients.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsGet
+@implementation GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/oauth/{+name}";
-  GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsGet *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRCloudIAP_IdentityAwareProxyClient class];
-  query.loggingName = @"iap.oauth.projects.brands.identityAwareProxyClients.get";
+  query.loggingName = @"iap.projects.brands.identityAwareProxyClients.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsList
+@implementation GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsList
 
 @dynamic pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/oauth/{+parent}/identityAwareProxyClients";
-  GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsList *query =
+  NSString *pathURITemplate = @"v1/{+parent}/identityAwareProxyClients";
+  GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudIAP_ListIdentityAwareProxyClientsResponse class];
-  query.loggingName = @"iap.oauth.projects.brands.identityAwareProxyClients.list";
+  query.loggingName = @"iap.projects.brands.identityAwareProxyClients.list";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsResetSecret
+@implementation GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsResetSecret
 
 @dynamic name;
 
@@ -155,34 +155,34 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/oauth/{+name}:resetSecret";
-  GTLRCloudIAPQuery_OauthProjectsBrandsIdentityAwareProxyClientsResetSecret *query =
+  NSString *pathURITemplate = @"v1/{+name}:resetSecret";
+  GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsResetSecret *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRCloudIAP_IdentityAwareProxyClient class];
-  query.loggingName = @"iap.oauth.projects.brands.identityAwareProxyClients.resetSecret";
+  query.loggingName = @"iap.projects.brands.identityAwareProxyClients.resetSecret";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudIAPQuery_OauthProjectsBrandsList
+@implementation GTLRCloudIAPQuery_ProjectsBrandsList
 
 @dynamic parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/oauth/{+parent}/brands";
-  GTLRCloudIAPQuery_OauthProjectsBrandsList *query =
+  NSString *pathURITemplate = @"v1/{+parent}/brands";
+  GTLRCloudIAPQuery_ProjectsBrandsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudIAP_ListBrandsResponse class];
-  query.loggingName = @"iap.oauth.projects.brands.list";
+  query.loggingName = @"iap.projects.brands.list";
   return query;
 }
 

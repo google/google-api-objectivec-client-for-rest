@@ -73,6 +73,16 @@ NSString * const kGTLRContainer_Operation_Status_Pending       = @"PENDING";
 NSString * const kGTLRContainer_Operation_Status_Running       = @"RUNNING";
 NSString * const kGTLRContainer_Operation_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
+// GTLRContainer_ReservationAffinity.consumeReservationType
+NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservation = @"ANY_RESERVATION";
+NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_NoReservation = @"NO_RESERVATION";
+NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_SpecificReservation = @"SPECIFIC_RESERVATION";
+NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_Unspecified = @"UNSPECIFIED";
+
+// GTLRContainer_SandboxConfig.type
+NSString * const kGTLRContainer_SandboxConfig_Type_Gvisor      = @"GVISOR";
+NSString * const kGTLRContainer_SandboxConfig_Type_Unspecified = @"UNSPECIFIED";
+
 // GTLRContainer_SetMasterAuthRequest.action
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_GeneratePassword = @"GENERATE_PASSWORD";
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetPassword = @"SET_PASSWORD";
@@ -240,8 +250,8 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
          masterAuthorizedNetworksConfig, monitoringService, name, network,
          networkConfig, networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePools,
          privateClusterConfig, resourceLabels, resourceUsageExportConfig,
-         selfLink, servicesIpv4Cidr, status, statusMessage, subnetwork,
-         tpuIpv4CidrBlock, verticalPodAutoscaling, zoneProperty;
+         selfLink, servicesIpv4Cidr, shieldedNodes, status, statusMessage,
+         subnetwork, tpuIpv4CidrBlock, verticalPodAutoscaling, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -310,7 +320,8 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
          desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
          desiredMasterVersion, desiredMonitoringService,
          desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
-         desiredResourceUsageExportConfig, desiredVerticalPodAutoscaling;
+         desiredResourceUsageExportConfig, desiredShieldedNodes,
+         desiredVerticalPodAutoscaling;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -732,7 +743,8 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 @implementation GTLRContainer_NodeConfig
 @dynamic accelerators, diskSizeGb, diskType, imageType, labels, localSsdCount,
          machineType, metadata, minCpuPlatform, oauthScopes, preemptible,
-         serviceAccount, shieldedInstanceConfig, tags, taints;
+         reservationAffinity, sandboxConfig, serviceAccount,
+         shieldedInstanceConfig, tags, taints;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -858,7 +870,7 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_PrivateClusterConfig
 @dynamic enablePrivateEndpoint, enablePrivateNodes, masterIpv4CidrBlock,
-         privateEndpoint, publicEndpoint;
+         peeringName, privateEndpoint, publicEndpoint;
 @end
 
 
@@ -869,6 +881,24 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_RecurringTimeWindow
 @dynamic recurrence, window;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ReservationAffinity
+//
+
+@implementation GTLRContainer_ReservationAffinity
+@dynamic consumeReservationType, key, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -905,6 +935,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
   return @{ @"zoneProperty" : @"zone" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_SandboxConfig
+//
+
+@implementation GTLRContainer_SandboxConfig
+@dynamic type;
 @end
 
 
@@ -1138,6 +1178,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_ShieldedInstanceConfig
 @dynamic enableIntegrityMonitoring, enableSecureBoot;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ShieldedNodes
+//
+
+@implementation GTLRContainer_ShieldedNodes
+@dynamic enabled;
 @end
 
 

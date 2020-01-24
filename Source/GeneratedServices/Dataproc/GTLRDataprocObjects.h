@@ -183,7 +183,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Updating;
 // GTLRDataproc_ClusterStatus.substate
 
 /**
- *  The agent-reported status is out of date (may occur if Cloud Dataproc loses
+ *  The agent-reported status is out of date (may occur if Dataproc loses
  *  communication with Agent).Applies to RUNNING state.
  *
  *  Value: "STALE_STATUS"
@@ -284,8 +284,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_State_StateUnspecified;
 GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_Queued;
 /**
  *  The agent-reported status is out of date, which may be caused by a loss of
- *  communication between the agent and Cloud Dataproc. If the agent does not
- *  send a timely update, the job will fail.Applies to RUNNING state.
+ *  communication between the agent and Dataproc. If the agent does not send a
+ *  timely update, the job will fail.Applies to RUNNING state.
  *
  *  Value: "STALE_STATUS"
  */
@@ -363,6 +363,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hiv
 GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter;
 /** Value: "ZEPPELIN" */
 GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin;
+/** Value: "ZOOKEEPER" */
+GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_WorkflowMetadata.state
@@ -509,9 +511,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  expose to this instance. See Compute Engine AcceleratorTypes.Examples:
  *  https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80
  *  projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80
- *  nvidia-tesla-k80Auto Zone Exception: If you are using the Cloud Dataproc
- *  Auto Zone Placement feature, you must use the short name of the accelerator
- *  type resource, for example, nvidia-tesla-k80.
+ *  nvidia-tesla-k80Auto Zone Exception: If you are using the Dataproc Auto Zone
+ *  Placement feature, you must use the short name of the accelerator type
+ *  resource, for example, nvidia-tesla-k80.
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorTypeUri;
 
@@ -528,7 +530,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  including projectid and location (region) are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/locations/[dataproc_region]/autoscalingPolicies/[policy_id]
  *  projects/[project_id]/locations/[dataproc_region]/autoscalingPolicies/[policy_id]Note
- *  that the policy must be in the same project and Cloud Dataproc region.
+ *  that the policy must be in the same project and Dataproc region.
  */
 @property(nonatomic, copy, nullable) NSString *policyUri;
 
@@ -729,14 +731,14 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, copy, nullable) NSString *clusterName;
 
 /**
- *  Output only. A cluster UUID (Unique Universal Identifier). Cloud Dataproc
+ *  Output only. A cluster UUID (Unique Universal Identifier). Dataproc
  *  generates this value when it creates the cluster.
  */
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
 /**
- *  Required. The cluster config. Note that Cloud Dataproc may set default
- *  values, and values may change when clusters are updated.
+ *  Required. The cluster config. Note that Dataproc may set default values, and
+ *  values may change when clusters are updated.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_ClusterConfig *config;
 
@@ -800,12 +802,12 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, strong, nullable) GTLRDataproc_AutoscalingConfig *autoscalingConfig;
 
 /**
- *  Optional. A Google Cloud Storage bucket used to stage job dependencies,
- *  config files, and job driver console output. If you do not specify a staging
+ *  Optional. A Cloud Storage bucket used to stage job dependencies, config
+ *  files, and job driver console output. If you do not specify a staging
  *  bucket, Cloud Dataproc will determine a Cloud Storage location (US, ASIA, or
- *  EU) for your cluster's staging bucket according to the Google Compute Engine
- *  zone where your cluster is deployed, and then create and manage this
- *  project-level, per-location bucket (see Cloud Dataproc staging bucket).
+ *  EU) for your cluster's staging bucket according to the Compute Engine zone
+ *  where your cluster is deployed, and then create and manage this
+ *  project-level, per-location bucket (see Dataproc staging bucket).
  */
 @property(nonatomic, copy, nullable) NSString *configBucket;
 
@@ -1063,7 +1065,11 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Output only. Time when this state was entered. */
+/**
+ *  Output only. Time when this state was entered (see JSON representation of
+ *  Timestamp
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *stateStartTime;
 
 /**
@@ -1072,8 +1078,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *
  *  Likely values:
  *    @arg @c kGTLRDataproc_ClusterStatus_Substate_StaleStatus The
- *        agent-reported status is out of date (may occur if Cloud Dataproc
- *        loses communication with Agent).Applies to RUNNING state. (Value:
+ *        agent-reported status is out of date (may occur if Dataproc loses
+ *        communication with Agent).Applies to RUNNING state. (Value:
  *        "STALE_STATUS")
  *    @arg @c kGTLRDataproc_ClusterStatus_Substate_Unhealthy The cluster is
  *        known to be in an unhealthy state (for example, critical daemons are
@@ -1248,14 +1254,10 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, strong, nullable) GTLRDataproc_ReservationAffinity *reservationAffinity;
 
 /**
- *  Optional. The service account of the instances. Defaults to the default
- *  Compute Engine service account. Custom service accounts need permissions
- *  equivalent to the following IAM roles:
- *  roles/logging.logWriter
- *  roles/storage.objectAdmin(see
- *  https://cloud.google.com/compute/docs/access/service-accounts#custom_service_accounts
- *  for more information). Example:
- *  [account_id]\@[project_id].iam.gserviceaccount.com
+ *  Optional. The Dataproc service account (also see VM Data Plane identity)
+ *  used by Dataproc cluster VM instances to access Google Cloud Platform
+ *  services.If not specified, the Compute Engine default service account is
+ *  used.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -1291,7 +1293,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 /**
  *  Optional. The zone where the Compute Engine cluster will be located. On a
  *  create request, it is required in the "global" region. If omitted in a
- *  non-global Cloud Dataproc region, the service will pick a zone in the
+ *  non-global Dataproc region, the service will pick a zone in the
  *  corresponding Compute Engine region. On a get request, zone will always be
  *  present.A full URL, partial URI, or short name are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]
@@ -1351,7 +1353,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  A Cloud Dataproc job for running Apache Hadoop MapReduce
+ *  A Dataproc job for running Apache Hadoop MapReduce
  *  (https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)
  *  jobs on Apache Hadoop YARN
  *  (https://hadoop.apache.org/docs/r2.7.1/hadoop-yarn/hadoop-yarn-site/YARN.html).
@@ -1404,7 +1406,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names to values, used to configure Hadoop.
- *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API may be
  *  overwritten. Can include properties set in /etc/hadoop/conf/ *-site and
  *  classes in user code.
  */
@@ -1415,7 +1417,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names to values, used to configure Hadoop.
- *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API may be
  *  overwritten. Can include properties set in /etc/hadoop/conf/ *-site and
  *  classes in user code.
  *
@@ -1429,8 +1431,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  A Cloud Dataproc job for running Apache Hive (https://hive.apache.org/)
- *  queries on YARN.
+ *  A Dataproc job for running Apache Hive (https://hive.apache.org/) queries on
+ *  YARN.
  */
 @interface GTLRDataproc_HiveJob : GTLRObject
 
@@ -1451,7 +1453,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names and values, used to configure Hive.
- *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API may be
  *  overwritten. Can include properties set in /etc/hadoop/conf/ *-site.xml,
  *  /etc/hive/conf/hive-site.xml, and classes in user code.
  */
@@ -1474,7 +1476,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names and values, used to configure Hive.
- *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API may be
  *  overwritten. Can include properties set in /etc/hadoop/conf/ *-site.xml,
  *  /etc/hive/conf/hive-site.xml, and classes in user code.
  *
@@ -1570,8 +1572,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, copy, nullable) NSString *imageUri;
 
 /**
- *  Output only. The list of instance names. Cloud Dataproc derives the names
- *  from cluster_name, num_instances, and the instance group.
+ *  Output only. The list of instance names. Dataproc derives the names from
+ *  cluster_name, num_instances, and the instance group.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceNames;
 
@@ -1587,9 +1589,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  URL, partial URI, or short name are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2
  *  projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2
- *  n1-standard-2Auto Zone Exception: If you are using the Cloud Dataproc Auto
- *  Zone Placement feature, you must use the short name of the machine type
- *  resource, for example, n1-standard-2.
+ *  n1-standard-2Auto Zone Exception: If you are using the Dataproc Auto Zone
+ *  Placement feature, you must use the short name of the machine type resource,
+ *  for example, n1-standard-2.
  */
 @property(nonatomic, copy, nullable) NSString *machineTypeUri;
 
@@ -1601,7 +1603,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. Specifies the minimum cpu platform for the Instance Group. See
- *  Cloud Dataproc&rarr;Minimum CPU Platform.
+ *  Dataproc&rarr;Minimum CPU Platform.
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
@@ -1664,7 +1666,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  A Cloud Dataproc job resource.
+ *  A Dataproc job resource.
  */
 @interface GTLRDataproc_Job : GTLRObject
 
@@ -1762,7 +1764,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  Cloud Dataproc job config.
+ *  Dataproc job config.
  */
 @interface GTLRDataproc_JobPlacement : GTLRObject
 
@@ -1770,8 +1772,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, copy, nullable) NSString *clusterName;
 
 /**
- *  Output only. A cluster UUID generated by the Cloud Dataproc service when the
- *  job is submitted.
+ *  Output only. A cluster UUID generated by the Dataproc service when the job
+ *  is submitted.
  */
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
@@ -1819,7 +1821,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  Cloud Dataproc job status.
+ *  Dataproc job status.
  */
 @interface GTLRDataproc_JobStatus : GTLRObject
 
@@ -1873,8 +1875,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *        RUNNING state. (Value: "QUEUED")
  *    @arg @c kGTLRDataproc_JobStatus_Substate_StaleStatus The agent-reported
  *        status is out of date, which may be caused by a loss of communication
- *        between the agent and Cloud Dataproc. If the agent does not send a
- *        timely update, the job will fail.Applies to RUNNING state. (Value:
+ *        between the agent and Dataproc. If the agent does not send a timely
+ *        update, the job will fail.Applies to RUNNING state. (Value:
  *        "STALE_STATUS")
  *    @arg @c kGTLRDataproc_JobStatus_Substate_Submitted The Job is submitted to
  *        the agent.Applies to RUNNING state. (Value: "SUBMITTED")
@@ -1997,27 +1999,35 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @interface GTLRDataproc_LifecycleConfig : GTLRObject
 
-/** Optional. The time when cluster will be auto-deleted. */
+/**
+ *  Optional. The time when cluster will be auto-deleted (see JSON
+ *  representation of Timestamp
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *autoDeleteTime;
 
 /**
  *  Optional. The lifetime duration of cluster. The cluster will be auto-deleted
- *  at the end of this period. Valid range: 10m, 14d.Example: "1d", to delete
- *  the cluster 1 day after its creation..
+ *  at the end of this period. Minimum value is 10 minutes; maximum value is 14
+ *  days (see JSON representation of Duration
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *autoDeleteTtl;
 
 /**
- *  Optional. The duration to keep the cluster alive while idling. Passing this
- *  threshold will cause the cluster to be deleted. Valid range: 10m,
- *  14d.Example: "10m", the minimum value, to delete the cluster when it has had
- *  no jobs running for 10 minutes.
+ *  Optional. The duration to keep the cluster alive while idling (when no jobs
+ *  are running). Passing this threshold will cause the cluster to be deleted.
+ *  Minimum value is 10 minutes; maximum value is 14 days (see JSON
+ *  representation of Duration
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *idleDeleteTtl;
 
 /**
  *  Output only. The time when cluster became idle (most recent job finished)
- *  and became eligible for deletion due to idleness.
+ *  and became eligible for deletion due to idleness (see JSON representation of
+ *  Timestamp
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *idleStartTime;
 
@@ -2261,10 +2271,12 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, copy, nullable) NSString *executableFile;
 
 /**
- *  Optional. Amount of time executable has to complete. Default is 10 minutes.
- *  Cluster creation fails with an explanatory error message (the name of the
- *  executable that caused the error and the exceeded timeout period) if the
- *  executable is not completed at end of the timeout period.
+ *  Optional. Amount of time executable has to complete. Default is 10 minutes
+ *  (see JSON representation of Duration
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).Cluster
+ *  creation fails with an explanatory error message (the name of the executable
+ *  that caused the error and the exceeded timeout period) if the executable is
+ *  not completed at end of the timeout period.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *executionTimeout;
 
@@ -2429,8 +2441,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  A Cloud Dataproc job for running Apache Pig (https://pig.apache.org/)
- *  queries on YARN.
+ *  A Dataproc job for running Apache Pig (https://pig.apache.org/) queries on
+ *  YARN.
  */
 @interface GTLRDataproc_PigJob : GTLRObject
 
@@ -2454,7 +2466,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names to values, used to configure Pig.
- *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API may be
  *  overwritten. Can include properties set in /etc/hadoop/conf/ *-site.xml,
  *  /etc/pig/conf/pig.properties, and classes in user code.
  */
@@ -2477,7 +2489,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names to values, used to configure Pig.
- *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API may be
  *  overwritten. Can include properties set in /etc/hadoop/conf/ *-site.xml,
  *  /etc/pig/conf/pig.properties, and classes in user code.
  *
@@ -2608,7 +2620,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  A Cloud Dataproc job for running Apache PySpark
+ *  A Dataproc job for running Apache PySpark
  *  (https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
  *  applications on YARN.
  */
@@ -2650,7 +2662,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names to values, used to configure PySpark.
- *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API may be
  *  overwritten. Can include properties set in
  *  /etc/spark/conf/spark-defaults.conf and classes in user code.
  */
@@ -2667,7 +2679,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names to values, used to configure PySpark.
- *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API may be
  *  overwritten. Can include properties set in
  *  /etc/spark/conf/spark-defaults.conf and classes in user code.
  *
@@ -2784,9 +2796,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. The version of software inside the cluster. It must be one of the
- *  supported Cloud Dataproc Versions, such as "1.2" (including a subminor
- *  version, such as "1.2.29"), or the "preview" version. If unspecified, it
- *  defaults to the latest Debian version.
+ *  supported Dataproc Versions, such as "1.2" (including a subminor version,
+ *  such as "1.2.29"), or the "preview" version. If unspecified, it defaults to
+ *  the latest Debian version.
  */
 @property(nonatomic, copy, nullable) NSString *imageVersion;
 
@@ -2836,7 +2848,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  A Cloud Dataproc job for running Apache Spark (http://spark.apache.org/)
+ *  A Dataproc job for running Apache Spark (http://spark.apache.org/)
  *  applications on YARN.
  */
 @interface GTLRDataproc_SparkJob : GTLRObject
@@ -2881,7 +2893,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names to values, used to configure Spark.
- *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API may be
  *  overwritten. Can include properties set in
  *  /etc/spark/conf/spark-defaults.conf and classes in user code.
  */
@@ -2892,7 +2904,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names to values, used to configure Spark.
- *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API may be
  *  overwritten. Can include properties set in
  *  /etc/spark/conf/spark-defaults.conf and classes in user code.
  *
@@ -2906,7 +2918,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  A Cloud Dataproc job for running Apache SparkR
+ *  A Dataproc job for running Apache SparkR
  *  (https://spark.apache.org/docs/latest/sparkr.html) applications on YARN.
  */
 @interface GTLRDataproc_SparkRJob : GTLRObject
@@ -2942,7 +2954,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names to values, used to configure SparkR.
- *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API may be
  *  overwritten. Can include properties set in
  *  /etc/spark/conf/spark-defaults.conf and classes in user code.
  */
@@ -2953,7 +2965,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names to values, used to configure SparkR.
- *  Properties that conflict with values set by the Cloud Dataproc API may be
+ *  Properties that conflict with values set by the Dataproc API may be
  *  overwritten. Can include properties set in
  *  /etc/spark/conf/spark-defaults.conf and classes in user code.
  *
@@ -2967,8 +2979,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  A Cloud Dataproc job for running Apache Spark SQL
- *  (http://spark.apache.org/sql/) queries.
+ *  A Dataproc job for running Apache Spark SQL (http://spark.apache.org/sql/)
+ *  queries.
  */
 @interface GTLRDataproc_SparkSqlJob : GTLRObject
 
@@ -2980,8 +2992,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names to values, used to configure Spark
- *  SQL's SparkConf. Properties that conflict with values set by the Cloud
- *  Dataproc API may be overwritten.
+ *  SQL's SparkConf. Properties that conflict with values set by the Dataproc
+ *  API may be overwritten.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkSqlJob_Properties *properties;
 
@@ -3002,8 +3014,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. A mapping of property names to values, used to configure Spark
- *  SQL's SparkConf. Properties that conflict with values set by the Cloud
- *  Dataproc API may be overwritten.
+ *  SQL's SparkConf. Properties that conflict with values set by the Dataproc
+ *  API may be overwritten.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3213,7 +3225,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  A Cloud Dataproc workflow template resource.
+ *  A Dataproc workflow template resource.
  */
 @interface GTLRDataproc_WorkflowMetadata : GTLRObject
 
@@ -3333,7 +3345,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  A Cloud Dataproc workflow template resource.
+ *  A Dataproc workflow template resource.
  */
 @interface GTLRDataproc_WorkflowTemplate : GTLRObject
 

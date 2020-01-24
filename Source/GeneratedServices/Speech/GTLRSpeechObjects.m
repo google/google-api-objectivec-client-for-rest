@@ -226,7 +226,7 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 
 @implementation GTLRSpeech_RecognitionMetadata
 @dynamic audioTopic, industryNaicsCodeOfAudio, interactionType,
-         microphoneDistance, obfuscatedId, originalMediaType, originalMimeType,
+         microphoneDistance, originalMediaType, originalMimeType,
          recordingDeviceName, recordingDeviceType;
 @end
 

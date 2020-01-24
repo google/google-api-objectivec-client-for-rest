@@ -63,10 +63,13 @@
 @class GTLRContainer_Operation;
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_RecurringTimeWindow;
+@class GTLRContainer_ReservationAffinity;
 @class GTLRContainer_ResourceLimit;
 @class GTLRContainer_ResourceUsageExportConfig;
+@class GTLRContainer_SandboxConfig;
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
 @class GTLRContainer_ShieldedInstanceConfig;
+@class GTLRContainer_ShieldedNodes;
 @class GTLRContainer_StatusCondition;
 @class GTLRContainer_TimeWindow;
 @class GTLRContainer_UsableSubnetwork;
@@ -395,6 +398,51 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_Running;
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_ReservationAffinity.consumeReservationType
+
+/**
+ *  Consume any reservation available.
+ *
+ *  Value: "ANY_RESERVATION"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservation;
+/**
+ *  Do not consume from any reserved capacity.
+ *
+ *  Value: "NO_RESERVATION"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_NoReservation;
+/**
+ *  Must consume from a specific reservation. Must specify key value fields
+ *  for specifying the reservations.
+ *
+ *  Value: "SPECIFIC_RESERVATION"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_SpecificReservation;
+/**
+ *  Default value. This should not be used.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_SandboxConfig.type
+
+/**
+ *  Run sandbox using gvisor.
+ *
+ *  Value: "GVISOR"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Gvisor;
+/**
+ *  Default value. This should not be used.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_SetMasterAuthRequest.action
 
 /**
@@ -443,7 +491,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_CloudKmsKeyErro
  */
 GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GceQuotaExceeded;
 /**
- *  GCE_STOCKOUT indicates a Google Compute Engine stockout.
+ *  GCE_STOCKOUT indicates that Google Compute Engine resources are
+ *  temporarily unavailable.
  *
  *  Value: "GCE_STOCKOUT"
  */
@@ -1024,6 +1073,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  */
 @property(nonatomic, copy, nullable) NSString *servicesIpv4Cidr;
 
+/** Shielded Nodes configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_ShieldedNodes *shieldedNodes;
+
 /**
  *  [Output only] The current status of this cluster.
  *
@@ -1243,6 +1295,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /** The desired configuration for exporting resource usage. */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *desiredResourceUsageExportConfig;
+
+/** Configuration for Shielded Nodes. */
+@property(nonatomic, strong, nullable) GTLRContainer_ShieldedNodes *desiredShieldedNodes;
 
 /** Cluster-level Vertical Pod Autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_VerticalPodAutoscaling *desiredVerticalPodAutoscaling;
@@ -2139,8 +2194,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  "configure-sh"
  *  "containerd-configure-sh"
  *  "enable-os-login"
- *  "gci-update-strategy"
  *  "gci-ensure-gke-docker"
+ *  "gci-metrics-enabled"
+ *  "gci-update-strategy"
  *  "instance-template"
  *  "kube-env"
  *  "startup-script"
@@ -2193,6 +2249,17 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *preemptible;
+
+/**
+ *  The optional reservation affinity. Setting this field will apply
+ *  the specified [Zonal Compute
+ *  Reservation](/compute/docs/instances/reserving-zonal-resources)
+ *  to this node pool.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ReservationAffinity *reservationAffinity;
+
+/** Sandbox configuration for this node. */
+@property(nonatomic, strong, nullable) GTLRContainer_SandboxConfig *sandboxConfig;
 
 /**
  *  The Google Cloud Platform Service Account to be used by the node VMs. If
@@ -2252,8 +2319,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  "configure-sh"
  *  "containerd-configure-sh"
  *  "enable-os-login"
- *  "gci-update-strategy"
  *  "gci-ensure-gke-docker"
+ *  "gci-metrics-enabled"
+ *  "gci-update-strategy"
  *  "instance-template"
  *  "kube-env"
  *  "startup-script"
@@ -2630,6 +2698,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  */
 @property(nonatomic, copy, nullable) NSString *masterIpv4CidrBlock;
 
+/** Output only. The peering name in the customer VPC used by this cluster. */
+@property(nonatomic, copy, nullable) NSString *peeringName;
+
 /** Output only. The internal IP address of this cluster's master endpoint. */
 @property(nonatomic, copy, nullable) NSString *privateEndpoint;
 
@@ -2676,6 +2747,39 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /** The window of the first recurrence. */
 @property(nonatomic, strong, nullable) GTLRContainer_TimeWindow *window;
+
+@end
+
+
+/**
+ *  [ReservationAffinity](/compute/docs/instances/reserving-zonal-resources) is
+ *  the configuration of desired reservation which instances could take
+ *  capacity from.
+ */
+@interface GTLRContainer_ReservationAffinity : GTLRObject
+
+/**
+ *  Corresponds to the type of reservation consumption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservation
+ *        Consume any reservation available. (Value: "ANY_RESERVATION")
+ *    @arg @c kGTLRContainer_ReservationAffinity_ConsumeReservationType_NoReservation
+ *        Do not consume from any reserved capacity. (Value: "NO_RESERVATION")
+ *    @arg @c kGTLRContainer_ReservationAffinity_ConsumeReservationType_SpecificReservation
+ *        Must consume from a specific reservation. Must specify key value
+ *        fields
+ *        for specifying the reservations. (Value: "SPECIFIC_RESERVATION")
+ *    @arg @c kGTLRContainer_ReservationAffinity_ConsumeReservationType_Unspecified
+ *        Default value. This should not be used. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *consumeReservationType;
+
+/** Corresponds to the label key of reservation resource. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Corresponds to the label value(s) of reservation resource(s). */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 
@@ -2771,6 +2875,25 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  SandboxConfig contains configurations of the sandbox to use for the node.
+ */
+@interface GTLRContainer_SandboxConfig : GTLRObject
+
+/**
+ *  Type of the sandbox to use for the node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_SandboxConfig_Type_Gvisor Run sandbox using gvisor.
+ *        (Value: "GVISOR")
+ *    @arg @c kGTLRContainer_SandboxConfig_Type_Unspecified Default value. This
+ *        should not be used. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3409,6 +3532,21 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 
 /**
+ *  Configuration of Shielded Nodes feature.
+ */
+@interface GTLRContainer_ShieldedNodes : GTLRObject
+
+/**
+ *  Whether Shielded Nodes features are enabled on all nodes in this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  StartIPRotationRequest creates a new IP for the cluster and then performs
  *  a node upgrade on each node pool to point to the new IP.
  */
@@ -3470,7 +3608,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *    @arg @c kGTLRContainer_StatusCondition_Code_GceQuotaExceeded Google
  *        Compute Engine quota was exceeded. (Value: "GCE_QUOTA_EXCEEDED")
  *    @arg @c kGTLRContainer_StatusCondition_Code_GceStockout GCE_STOCKOUT
- *        indicates a Google Compute Engine stockout. (Value: "GCE_STOCKOUT")
+ *        indicates that Google Compute Engine resources are
+ *        temporarily unavailable. (Value: "GCE_STOCKOUT")
  *    @arg @c kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted
  *        GKE_SERVICE_ACCOUNT_DELETED indicates that the user deleted their
  *        robot

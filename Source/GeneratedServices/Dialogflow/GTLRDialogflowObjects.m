@@ -1669,12 +1669,13 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig
-@dynamic audioEncoding, languageCode, modelVariant, phraseHints,
-         sampleRateHertz, singleUtterance;
+@dynamic audioEncoding, enableWordInfo, languageCode, model, modelVariant,
+         phraseHints, sampleRateHertz, singleUtterance, speechContexts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"phraseHints" : [NSString class]
+    @"phraseHints" : [NSString class],
+    @"speechContexts" : [GTLRDialogflow_GoogleCloudDialogflowV2SpeechContext class]
   };
   return map;
 }
@@ -2540,6 +2541,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"entities" : [GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2SpeechContext
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SpeechContext
+@dynamic boost, phrases;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"phrases" : [NSString class]
   };
   return map;
 }

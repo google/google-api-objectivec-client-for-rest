@@ -2,27 +2,15 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Translation API (translate/v2)
+//   Cloud Translation API (translate/v3)
 // Description:
-//   The Google Cloud Translation API lets websites and programs integrate with
-//   Google Translate programmatically.
+//   Integrates text translation into your website or application.
 // Documentation:
-//   https://code.google.com/apis/language/translate/v2/getting_started.html
+//   https://cloud.google.com/translate/docs/quickstarts
 
 #import "GTLRTranslateQuery.h"
 
 #import "GTLRTranslateObjects.h"
-
-// ----------------------------------------------------------------------------
-// Constants
-
-// format
-NSString * const kGTLRTranslateFormatHtml = @"html";
-NSString * const kGTLRTranslateFormatText = @"text";
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
 
 @implementation GTLRTranslateQuery
 
@@ -30,111 +18,391 @@ NSString * const kGTLRTranslateFormatText = @"text";
 
 @end
 
-@implementation GTLRTranslateQuery_DetectionsDetect
+@implementation GTLRTranslateQuery_ProjectsDetectLanguage
 
-+ (instancetype)queryWithObject:(GTLRTranslate_DetectLanguageRequest *)object {
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_DetectLanguageRequest *)object
+                         parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"v2/detect";
-  GTLRTranslateQuery_DetectionsDetect *query =
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:detectLanguage";
+  GTLRTranslateQuery_ProjectsDetectLanguage *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
-                       pathParameterNames:nil];
+                       pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRTranslate_DetectionsListResponse class];
-  query.loggingName = @"language.detections.detect";
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_DetectLanguageResponse class];
+  query.loggingName = @"translate.projects.detectLanguage";
   return query;
 }
 
 @end
 
-@implementation GTLRTranslateQuery_DetectionsList
+@implementation GTLRTranslateQuery_ProjectsGetSupportedLanguages
 
-@dynamic q;
+@dynamic displayLanguageCode, model, parent;
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"q" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithQ:(NSArray<NSString *> *)q {
-  NSString *pathURITemplate = @"v2/detect";
-  GTLRTranslateQuery_DetectionsList *query =
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/supportedLanguages";
+  GTLRTranslateQuery_ProjectsGetSupportedLanguages *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.q = q;
-  query.expectedObjectClass = [GTLRTranslate_DetectionsListResponse class];
-  query.loggingName = @"language.detections.list";
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_SupportedLanguages class];
+  query.loggingName = @"translate.projects.getSupportedLanguages";
   return query;
 }
 
 @end
 
-@implementation GTLRTranslateQuery_LanguagesList
+@implementation GTLRTranslateQuery_ProjectsLocationsBatchTranslateText
 
-@dynamic model, target;
+@dynamic parent;
 
-+ (instancetype)query {
-  NSString *pathURITemplate = @"v2/languages";
-  GTLRTranslateQuery_LanguagesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRTranslate_LanguagesListResponse class];
-  query.loggingName = @"language.languages.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRTranslateQuery_TranslationsList
-
-@dynamic cid, format, model, q, source, target;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"cid" : [NSString class],
-    @"q" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithQ:(NSArray<NSString *> *)q
-                    target:(NSString *)target {
-  NSString *pathURITemplate = @"v2";
-  GTLRTranslateQuery_TranslationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.q = q;
-  query.target = target;
-  query.expectedObjectClass = [GTLRTranslate_TranslationsListResponse class];
-  query.loggingName = @"language.translations.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRTranslateQuery_TranslationsTranslate
-
-+ (instancetype)queryWithObject:(GTLRTranslate_TextRequest *)object {
++ (instancetype)queryWithObject:(GTLRTranslate_BatchTranslateTextRequest *)object
+                         parent:(NSString *)parent {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
     return nil;
   }
-  NSString *pathURITemplate = @"v2";
-  GTLRTranslateQuery_TranslationsTranslate *query =
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:batchTranslateText";
+  GTLRTranslateQuery_ProjectsLocationsBatchTranslateText *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
-                       pathParameterNames:nil];
+                       pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRTranslate_TranslationsListResponse class];
-  query.loggingName = @"language.translations.translate";
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_Operation class];
+  query.loggingName = @"translate.projects.locations.batchTranslateText";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsDetectLanguage
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_DetectLanguageRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:detectLanguage";
+  GTLRTranslateQuery_ProjectsLocationsDetectLanguage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_DetectLanguageResponse class];
+  query.loggingName = @"translate.projects.locations.detectLanguage";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_Location class];
+  query.loggingName = @"translate.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsGetSupportedLanguages
+
+@dynamic displayLanguageCode, model, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/supportedLanguages";
+  GTLRTranslateQuery_ProjectsLocationsGetSupportedLanguages *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_SupportedLanguages class];
+  query.loggingName = @"translate.projects.locations.getSupportedLanguages";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsGlossariesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_Glossary *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/glossaries";
+  GTLRTranslateQuery_ProjectsLocationsGlossariesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_Operation class];
+  query.loggingName = @"translate.projects.locations.glossaries.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsGlossariesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsGlossariesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_Operation class];
+  query.loggingName = @"translate.projects.locations.glossaries.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsGlossariesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsGlossariesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_Glossary class];
+  query.loggingName = @"translate.projects.locations.glossaries.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsGlossariesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/glossaries";
+  GTLRTranslateQuery_ProjectsLocationsGlossariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_ListGlossariesResponse class];
+  query.loggingName = @"translate.projects.locations.glossaries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/locations";
+  GTLRTranslateQuery_ProjectsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_ListLocationsResponse class];
+  query.loggingName = @"translate.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRTranslate_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}:cancel";
+  GTLRTranslateQuery_ProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_Empty class];
+  query.loggingName = @"translate.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_Empty class];
+  query.loggingName = @"translate.projects.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRTranslateQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_Operation class];
+  query.loggingName = @"translate.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/operations";
+  GTLRTranslateQuery_ProjectsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_ListOperationsResponse class];
+  query.loggingName = @"translate.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsOperationsWait
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRTranslate_WaitOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}:wait";
+  GTLRTranslateQuery_ProjectsLocationsOperationsWait *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRTranslate_Operation class];
+  query.loggingName = @"translate.projects.locations.operations.wait";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsTranslateText
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_TextRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:translateText";
+  GTLRTranslateQuery_ProjectsLocationsTranslateText *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_TextResponse class];
+  query.loggingName = @"translate.projects.locations.translateText";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsTranslateText
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_TextRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:translateText";
+  GTLRTranslateQuery_ProjectsTranslateText *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_TextResponse class];
+  query.loggingName = @"translate.projects.translateText";
   return query;
 }
 

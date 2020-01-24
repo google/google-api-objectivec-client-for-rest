@@ -1812,6 +1812,37 @@ NSString * const kGTLRComputeDirectionOutgoing = @"OUTGOING";
 
 @end
 
+@implementation GTLRComputeQuery_ForwardingRulesPatch
+
+@dynamic forwardingRule, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_ForwardingRule *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                 forwardingRule:(NSString *)forwardingRule {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"forwardingRule", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/forwardingRules/{forwardingRule}";
+  GTLRComputeQuery_ForwardingRulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.forwardingRule = forwardingRule;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.forwardingRules.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ForwardingRulesSetTarget
 
 @dynamic forwardingRule, project, region, requestId;
@@ -2018,6 +2049,35 @@ NSString * const kGTLRComputeDirectionOutgoing = @"OUTGOING";
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_ForwardingRuleList class];
   query.loggingName = @"compute.globalForwardingRules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalForwardingRulesPatch
+
+@dynamic forwardingRule, project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_ForwardingRule *)object
+                        project:(NSString *)project
+                 forwardingRule:(NSString *)forwardingRule {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"forwardingRule", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/forwardingRules/{forwardingRule}";
+  GTLRComputeQuery_GlobalForwardingRulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.forwardingRule = forwardingRule;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.globalForwardingRules.patch";
   return query;
 }
 
@@ -6747,6 +6807,189 @@ NSString * const kGTLRComputeDirectionOutgoing = @"OUTGOING";
   query.zoneProperty = zoneProperty;
   query.expectedObjectClass = [GTLRCompute_NodeTypeList class];
   query.loggingName = @"compute.nodeTypes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PacketMirroringsAggregatedList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/aggregated/packetMirrorings";
+  GTLRComputeQuery_PacketMirroringsAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_PacketMirroringAggregatedList class];
+  query.loggingName = @"compute.packetMirrorings.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PacketMirroringsDelete
+
+@dynamic packetMirroring, project, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                 packetMirroring:(NSString *)packetMirroring {
+  NSArray *pathParams = @[
+    @"packetMirroring", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/packetMirrorings/{packetMirroring}";
+  GTLRComputeQuery_PacketMirroringsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.packetMirroring = packetMirroring;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.packetMirrorings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PacketMirroringsGet
+
+@dynamic packetMirroring, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                 packetMirroring:(NSString *)packetMirroring {
+  NSArray *pathParams = @[
+    @"packetMirroring", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/packetMirrorings/{packetMirroring}";
+  GTLRComputeQuery_PacketMirroringsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.packetMirroring = packetMirroring;
+  query.expectedObjectClass = [GTLRCompute_PacketMirroring class];
+  query.loggingName = @"compute.packetMirrorings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PacketMirroringsInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PacketMirroring *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/packetMirrorings";
+  GTLRComputeQuery_PacketMirroringsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.packetMirrorings.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PacketMirroringsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/packetMirrorings";
+  GTLRComputeQuery_PacketMirroringsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_PacketMirroringList class];
+  query.loggingName = @"compute.packetMirrorings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PacketMirroringsPatch
+
+@dynamic packetMirroring, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PacketMirroring *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                packetMirroring:(NSString *)packetMirroring {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packetMirroring", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/packetMirrorings/{packetMirroring}";
+  GTLRComputeQuery_PacketMirroringsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.packetMirroring = packetMirroring;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.packetMirrorings.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PacketMirroringsTestIamPermissions
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/packetMirrorings/{resource}/testIamPermissions";
+  GTLRComputeQuery_PacketMirroringsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.packetMirrorings.testIamPermissions";
   return query;
 }
 

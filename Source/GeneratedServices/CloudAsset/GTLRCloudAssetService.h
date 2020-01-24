@@ -6,7 +6,7 @@
 // Description:
 //   The cloud asset API manages the history and inventory of cloud resources.
 // Documentation:
-//   https://cloud.google.com/resource-manager/docs/cloud-asset-inventory/quickstart-cloud-asset-inventory
+//   https://cloud.google.com/asset-inventory/docs/quickstart
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

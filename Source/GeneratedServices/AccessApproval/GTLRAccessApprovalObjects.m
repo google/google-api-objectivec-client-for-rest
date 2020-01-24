@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Access Approval API (accessapproval/v1beta1)
+//   Access Approval API (accessapproval/v1)
 // Description:
 //   An API for controlling access to data by Google personnel.
 // Documentation:

@@ -30,11 +30,13 @@ NSString * const kGTLRPeopleService_ContactGroup_GroupType_SystemContactGroup = 
 NSString * const kGTLRPeopleService_ContactGroup_GroupType_UserContactGroup = @"USER_CONTACT_GROUP";
 
 // GTLRPeopleService_Nickname.type
-NSString * const kGTLRPeopleService_Nickname_Type_Default    = @"DEFAULT";
-NSString * const kGTLRPeopleService_Nickname_Type_Gplus      = @"GPLUS";
-NSString * const kGTLRPeopleService_Nickname_Type_Initials   = @"INITIALS";
-NSString * const kGTLRPeopleService_Nickname_Type_MaidenName = @"MAIDEN_NAME";
-NSString * const kGTLRPeopleService_Nickname_Type_OtherName  = @"OTHER_NAME";
+NSString * const kGTLRPeopleService_Nickname_Type_AlternateName = @"ALTERNATE_NAME";
+NSString * const kGTLRPeopleService_Nickname_Type_Default      = @"DEFAULT";
+NSString * const kGTLRPeopleService_Nickname_Type_Gplus        = @"GPLUS";
+NSString * const kGTLRPeopleService_Nickname_Type_Initials     = @"INITIALS";
+NSString * const kGTLRPeopleService_Nickname_Type_MaidenName   = @"MAIDEN_NAME";
+NSString * const kGTLRPeopleService_Nickname_Type_OtherName    = @"OTHER_NAME";
+NSString * const kGTLRPeopleService_Nickname_Type_ShortName    = @"SHORT_NAME";
 
 // GTLRPeopleService_Person.ageRange
 NSString * const kGTLRPeopleService_Person_AgeRange_AgeRangeUnspecified = @"AGE_RANGE_UNSPECIFIED";

@@ -117,6 +117,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1a;
 GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1b;
 /** Value: "template2" */
 GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
+/** Value: "template3" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -2256,6 +2258,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate1a Value "template1a"
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Value "template1b"
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Value "template2"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate3 Value "template3"
  */
 @property(nonatomic, copy, nullable) NSString *templateName;
 
@@ -2274,6 +2277,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate1a Value "template1a"
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Value "template1b"
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Value "template2"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate3 Value "template3"
  *
  *  @return GTLRShoppingContentQuery_OrdersGettestordertemplate
  */
@@ -3803,6 +3807,38 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
  *    holidays.
  *
  *  @return GTLRShoppingContentQuery_ShippingsettingsGetsupportedholidays
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Retrieves supported pickup services for an account.
+ *
+ *  Method: content.shippingsettings.getsupportedpickupservices
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ShippingsettingsGetsupportedpickupservices : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForShippingsettingsGetsupportedpickupservicesWithmerchantId:]
+
+/**
+ *  The ID of the account for which to retrieve the supported pickup services.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c
+ *  GTLRShoppingContent_ShippingsettingsGetSupportedPickupServicesResponse.
+ *
+ *  Retrieves supported pickup services for an account.
+ *
+ *  @param merchantId The ID of the account for which to retrieve the supported
+ *    pickup services.
+ *
+ *  @return GTLRShoppingContentQuery_ShippingsettingsGetsupportedpickupservices
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
 

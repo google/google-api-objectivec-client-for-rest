@@ -1269,6 +1269,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  *  The `Context ID` is always converted to lowercase, may only contain
  *  characters in [a-zA-Z0-9_-%] and may be at most 250 bytes long.
+ *  The following context names are reserved for internal use by Dialogflow.
+ *  You should not use these contexts or create contexts with these names:
+ *  * `__system_counters__`
+ *  * `*_id_dialog_context`
+ *  * `*_dialog_params_size`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1290,6 +1295,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
  *    The `Context ID` is always converted to lowercase, may only contain
  *    characters in [a-zA-Z0-9_-%] and may be at most 250 bytes long.
+ *    The following context names are reserved for internal use by Dialogflow.
+ *    You should not use these contexts or create contexts with these names:
+ *    * `__system_counters__`
+ *    * `*_id_dialog_context`
+ *    * `*_dialog_params_size`
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsContextsPatch
  */

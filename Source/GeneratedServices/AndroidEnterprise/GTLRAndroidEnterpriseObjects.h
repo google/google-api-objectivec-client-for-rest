@@ -1094,6 +1094,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ConfigurationVariables *configurationVariables;
 
+/** Deprecated. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The set of managed properties for this configuration. */
@@ -1531,6 +1532,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  app (restricted to an enterprise) and is privately hosted.
  */
 @property(nonatomic, copy, nullable) NSString *distributionChannel;
+
+/** Noteworthy features (if any) of this product. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *features;
 
 /**
  *  A link to an image that can be used as an icon for the product. This image

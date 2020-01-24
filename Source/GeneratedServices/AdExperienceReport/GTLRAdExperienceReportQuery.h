@@ -40,9 +40,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a site's Ad Experience Report summary.
  *
  *  Method: adexperiencereport.sites.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExperienceReportXapiZoo
  */
 @interface GTLRAdExperienceReportQuery_SitesGet : GTLRAdExperienceReportQuery
 // Previous library name was
@@ -75,9 +72,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  platform.
  *
  *  Method: adexperiencereport.violatingSites.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAdExperienceReportXapiZoo
  */
 @interface GTLRAdExperienceReportQuery_ViolatingSitesList : GTLRAdExperienceReportQuery
 // Previous library name was

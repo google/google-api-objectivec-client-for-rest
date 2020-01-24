@@ -147,6 +147,12 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_UserConta
 // GTLRPeopleService_Nickname.type
 
 /**
+ *  Alternate name person is known by.
+ *
+ *  Value: "ALTERNATE_NAME"
+ */
+GTLR_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_AlternateName;
+/**
  *  Generic nickname.
  *
  *  Value: "DEFAULT"
@@ -177,6 +183,12 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_MaidenName;
  *  Value: "OTHER_NAME"
  */
 GTLR_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_OtherName;
+/**
+ *  A shorter version of the person's name.
+ *
+ *  Value: "SHORT_NAME"
+ */
+GTLR_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_ShortName;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_Person.ageRange
@@ -273,8 +285,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_UserTy
 GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_Account;
 /**
  *  [Google contact](https://contacts.google.com). You can view the
- *  contact at https://contact.google.com/<var>id</var> where <var>id</var>
- *  is the source id.
+ *  contact at
+ *  [https://contact.google.com/](https://contact.google.com/){id}, where
+ *  {id} is the source id.
  *
  *  Value: "CONTACT"
  */
@@ -287,8 +300,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_Contact;
 GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_DomainProfile;
 /**
  *  [Google profile](https://profiles.google.com). You can view the
- *  profile at https://profiles.google.com/<var>id</var> where
- *  <var>id</var> is the source id.
+ *  profile at
+ *  [https://profiles.google.com/](https://profiles.google.com/){id}, where
+ *  {id} is the source id.
  *
  *  Value: "PROFILE"
  */
@@ -519,7 +533,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /**
  *  The resource name for the contact group, assigned by the server. An ASCII
- *  string, in the form of `contactGroups/`<var>contact_group_id</var>.
+ *  string, in the form of `contactGroups/{contact_group_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -536,7 +550,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /**
  *  The resource name for the contact group, assigned by the server. An ASCII
- *  string, in the form of `contactGroups/`<var>contact_group_id</var>.
+ *  string, in the form of `contactGroups/{contact_group_id}`.
  *  Only contact_group_resource_name can be used for modifying memberships.
  *  Any contact group membership can be removed, but only user group or
  *  "myContacts" or "starred" system groups memberships can be added. A
@@ -824,7 +838,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  GTLRPeopleService_GetPeopleResponse
+ *  The response to a get request for a list of people by resource name.
  */
 @interface GTLRPeopleService_GetPeopleResponse : GTLRObject
 
@@ -899,7 +913,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
- *  GTLRPeopleService_ListConnectionsResponse
+ *  The response to a request for the authenticated user's connections.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "connections" property. If returned as the result of a query, it
@@ -1018,14 +1032,14 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_ModifyContactGroupMembersRequest : GTLRObject
 
 /**
- *  The resource names of the contact people to add in the form of
- *  `people/`<var>person_id</var>.
+ *  Optional. The resource names of the contact people to add in the form of
+ *  `people/{person_id}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNamesToAdd;
 
 /**
- *  The resource names of the contact people to remove in the form of
- *  `people/`<var>person_id</var>.
+ *  Optional. The resource names of the contact people to remove in the form of
+ *  `people/{person_id}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNamesToRemove;
 
@@ -1119,6 +1133,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  *  The type of the nickname.
  *
  *  Likely values:
+ *    @arg @c kGTLRPeopleService_Nickname_Type_AlternateName Alternate name
+ *        person is known by. (Value: "ALTERNATE_NAME")
  *    @arg @c kGTLRPeopleService_Nickname_Type_Default Generic nickname. (Value:
  *        "DEFAULT")
  *    @arg @c kGTLRPeopleService_Nickname_Type_Gplus Google+ profile nickname.
@@ -1131,6 +1147,8 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  *    @arg @c kGTLRPeopleService_Nickname_Type_OtherName A professional
  *        affiliation or other name; for example, `Dr. Smith.` (Value:
  *        "OTHER_NAME")
+ *    @arg @c kGTLRPeopleService_Nickname_Type_ShortName A shorter version of
+ *        the person's name. (Value: "SHORT_NAME")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1237,7 +1255,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Address *> *addresses;
 
 /**
- *  Output only. **DEPRECATED** (Please use `person.ageRanges` instead)**
+ *  Output only. **DEPRECATED** (Please use `person.ageRanges` instead)
  *  The person's age range.
  *
  *  Likely values:
@@ -1330,7 +1348,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /**
  *  The resource name for the person, assigned by the server. An ASCII string
  *  with a max length of 27 characters, in the form of
- *  `people/`<var>person_id</var>.
+ *  `people/{person_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -1500,8 +1518,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 /**
  *  The URL of the photo. You can change the desired size by appending a query
- *  parameter `sz=`<var>size</var> at the end of the url. Example:
- *  `https://lh3.googleusercontent.com/-T_wVWLlmg7w/AAAAAAAAAAI/AAAAAAAABa8/00gzXvDBYqw/s100/photo.jpg?sz=50`
+ *  parameter `sz={size}` at the end of the url, where {size} is the size in
+ *  pixels. Example:
+ *  https://lh3.googleusercontent.com/-T_wVWLlmg7w/AAAAAAAAAAI/AAAAAAAABa8/00gzXvDBYqw/s100/photo.jpg?sz=50
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -1738,16 +1757,18 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  *        Account](https://accounts.google.com). (Value: "ACCOUNT")
  *    @arg @c kGTLRPeopleService_Source_Type_Contact [Google
  *        contact](https://contacts.google.com). You can view the
- *        contact at https://contact.google.com/<var>id</var> where
- *        <var>id</var>
- *        is the source id. (Value: "CONTACT")
+ *        contact at
+ *        [https://contact.google.com/](https://contact.google.com/){id}, where
+ *        {id} is the source id. (Value: "CONTACT")
  *    @arg @c kGTLRPeopleService_Source_Type_DomainProfile [G Suite domain
  *        profile](https://support.google.com/a/answer/1628008). (Value:
  *        "DOMAIN_PROFILE")
  *    @arg @c kGTLRPeopleService_Source_Type_Profile [Google
  *        profile](https://profiles.google.com). You can view the
- *        profile at https://profiles.google.com/<var>id</var> where
- *        <var>id</var> is the source id. (Value: "PROFILE")
+ *        profile at
+ *        [https://profiles.google.com/](https://profiles.google.com/){id},
+ *        where
+ *        {id} is the source id. (Value: "PROFILE")
  *    @arg @c kGTLRPeopleService_Source_Type_SourceTypeUnspecified Unspecified.
  *        (Value: "SOURCE_TYPE_UNSPECIFIED")
  */

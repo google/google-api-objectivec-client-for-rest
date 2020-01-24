@@ -147,7 +147,7 @@
 
 @implementation GTLRCloudFilestoreQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, includeUnrevealedLocations, name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

@@ -180,7 +180,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The bucket's default storage class, used whenever no storageClass is
  *  specified for a newly-created object. This defines how objects in the bucket
  *  are stored and determines the SLA and the cost of storage. Values include
- *  MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, COLDLINE, and
+ *  MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, COLDLINE, ARCHIVE, and
  *  DURABLE_REDUCED_AVAILABILITY. If this value is not specified when the bucket
  *  is created, it will default to STANDARD. For more information, see storage
  *  classes.
@@ -275,7 +275,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRStorage_Bucket_IamConfiguration : GTLRObject
 
-/** The bucket's Bucket Policy Only configuration. */
+/**
+ *  The bucket's uniform bucket-level access configuration. The feature was
+ *  formerly known as Bucket Policy Only. For backward compatibility, this field
+ *  will be populated with identical information as the uniformBucketLevelAccess
+ *  field. We recommend using the uniformBucketLevelAccess field to enable and
+ *  disable the feature.
+ */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly *bucketPolicyOnly;
 
 /** The bucket's uniform bucket-level access configuration. */
@@ -422,7 +428,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The bucket's Bucket Policy Only configuration.
+ *  The bucket's uniform bucket-level access configuration. The feature was
+ *  formerly known as Bucket Policy Only. For backward compatibility, this field
+ *  will be populated with identical information as the uniformBucketLevelAccess
+ *  field. We recommend using the uniformBucketLevelAccess field to enable and
+ *  disable the feature.
  */
 @interface GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly : GTLRObject
 
@@ -544,7 +554,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Objects having any of the storage classes specified by this condition will
  *  be matched. Values include MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE,
- *  STANDARD, and DURABLE_REDUCED_AVAILABILITY.
+ *  ARCHIVE, STANDARD, and DURABLE_REDUCED_AVAILABILITY.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *matchesStorageClass;
 

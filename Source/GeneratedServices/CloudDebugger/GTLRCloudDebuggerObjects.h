@@ -770,7 +770,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 
 /**
  *  Breakpoint resource.
- *  The field `id` is guaranteed to be set (in addition to the echoed fileds).
+ *  The field `id` is guaranteed to be set (in addition to the echoed fields).
  */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_Breakpoint *breakpoint;
 

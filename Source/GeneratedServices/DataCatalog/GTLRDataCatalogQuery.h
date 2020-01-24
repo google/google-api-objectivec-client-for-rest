@@ -133,7 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  * ``pubsub.project_id.`topic.id.with.dots` ``
  *  * `bigquery.table.project_id.dataset_id.table_id`
  *  * `bigquery.dataset.project_id.dataset_id`
- *  * `datacatalog.project_id.location_id.entry_group_id.entry_id`
+ *  * `datacatalog.entry.project_id.location_id.entry_group_id.entry_id`
  *  `*_id`s shoud satisfy the standard SQL rules for identifiers.
  *  https://cloud.google.com/bigquery/docs/reference/standard-sql/lexical.
  */
@@ -516,68 +516,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Sets the access control policy for a resource. Replaces any existing
- *  policy.
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Cloud
- *  Pub/Sub and any external Google Cloud Platform resources synced to Cloud
- *  Data Catalog.
- *  Callers must have following Google IAM permission
- *  - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag
- *  templates.
- *  - `datacatalog.entries.setIamPolicy` to set policies on entries.
- *  - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
- *
- *  Method: datacatalog.projects.locations.entryGroups.entries.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataCatalogCloudPlatform
- */
-@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesSetIamPolicy : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesSetIamPolicyWithObject:resource:]
-
-/**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRDataCatalog_Policy.
- *
- *  Sets the access control policy for a resource. Replaces any existing
- *  policy.
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Cloud
- *  Pub/Sub and any external Google Cloud Platform resources synced to Cloud
- *  Data Catalog.
- *  Callers must have following Google IAM permission
- *  - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag
- *  templates.
- *  - `datacatalog.entries.setIamPolicy` to set policies on entries.
- *  - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
- *
- *  @param object The @c GTLRDataCatalog_SetIamPolicyRequest to include in the
- *    query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
- *
- *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRDataCatalog_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 

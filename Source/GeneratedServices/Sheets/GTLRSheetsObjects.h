@@ -3353,6 +3353,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @property(nonatomic, strong, nullable) GTLRSheets_Color *negativeColor;
 
 /**
+ *  Color to be used, in case baseline value represents a negative change for
+ *  key value. This field is optional.
+ *  If negative_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *negativeColorStyle;
+
+/**
  *  Specifies the horizontal text positioning of baseline value.
  *  This field is optional. If not specified, default positioning is used.
  */
@@ -3363,6 +3370,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  key value. This field is optional.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *positiveColor;
+
+/**
+ *  Color to be used, in case baseline value represents a positive change for
+ *  key value. This field is optional.
+ *  If positive_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *positiveColorStyle;
 
 /** Text formatting options for baseline value. */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
@@ -3454,6 +3468,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  series. If empty, a default color is used.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *color;
+
+/**
+ *  The color for elements (i.e. bars, lines, points) associated with this
+ *  series. If empty, a default color is used.
+ *  If color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *colorStyle;
 
 /**
  *  The line style of this series. Valid only if the
@@ -3737,10 +3758,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @interface GTLRSheets_BatchClearValuesByDataFilterResponse : GTLRObject
 
 /**
- *  The ranges that were cleared, in A1 notation.
- *  (If the requests were for an unbounded range or a ranger larger
- *  than the bounds of the sheet, this will be the actual ranges
- *  that were cleared, bounded to the sheet's limits.)
+ *  The ranges that were cleared, in A1 notation. If the requests are for an
+ *  unbounded range or a ranger larger than the bounds of the sheet, this is
+ *  the actual ranges that were cleared, bounded to the sheet's limits.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clearedRanges;
 
@@ -3767,10 +3787,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @interface GTLRSheets_BatchClearValuesResponse : GTLRObject
 
 /**
- *  The ranges that were cleared, in A1 notation.
- *  (If the requests were for an unbounded range or a ranger larger
- *  than the bounds of the sheet, this will be the actual ranges
- *  that were cleared, bounded to the sheet's limits.)
+ *  The ranges that were cleared, in A1 notation. If the requests are for an
+ *  unbounded range or a ranger larger than the bounds of the sheet, this is
+ *  the actual ranges that were cleared, bounded to the sheet's limits.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clearedRanges;
 
@@ -3788,8 +3807,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /**
  *  The data filters used to match the ranges of values to retrieve. Ranges
- *  that match any of the specified data filters will be included in the
- *  response.
+ *  that match any of the specified data filters are included in the response.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilter *> *dataFilters;
 
@@ -3820,10 +3838,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /**
  *  The major dimension that results should use.
  *  For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`,
- *  then a request that selects that range and sets `majorDimension=ROWS` will
- *  return `[[1,2],[3,4]]`,
- *  whereas a request that sets `majorDimension=COLUMNS` will return
- *  `[[1,3],[2,4]]`.
+ *  then a request that selects that range and sets `majorDimension=ROWS`
+ *  returns `[[1,2],[3,4]]`, whereas a request that sets
+ *  `majorDimension=COLUMNS` returns `[[1,3],[2,4]]`.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_Columns
@@ -3963,8 +3980,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /**
  *  The new values to apply to the spreadsheet. If more than one range is
- *  matched by the specified DataFilter the specified values will be
- *  applied to all of those ranges.
+ *  matched by the specified DataFilter the specified values are applied to
+ *  all of those ranges.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilterValueRange *> *data;
 
@@ -3972,10 +3989,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  Determines if the update response should include the values
  *  of the cells that were updated. By default, responses
  *  do not include the updated values. The `updatedData` field within
- *  each of the BatchUpdateValuesResponse.responses will contain
- *  the updated values. If the range to write was larger than than the range
- *  actually written, the response will include all values in the requested
- *  range (excluding trailing empty rows and columns).
+ *  each of the BatchUpdateValuesResponse.responses contains the updated
+ *  values. If the range to write was larger than the range actually written,
+ *  the response includes all values in the requested range (excluding trailing
+ *  empty rows and columns).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4108,10 +4125,10 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  Determines if the update response should include the values
  *  of the cells that were updated. By default, responses
  *  do not include the updated values. The `updatedData` field within
- *  each of the BatchUpdateValuesResponse.responses will contain
- *  the updated values. If the range to write was larger than than the range
- *  actually written, the response will include all values in the requested
- *  range (excluding trailing empty rows and columns).
+ *  each of the BatchUpdateValuesResponse.responses contains the updated
+ *  values. If the range to write was larger than the range actually written,
+ *  the response includes all values in the requested range (excluding trailing
+ *  empty rows and columns).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4491,6 +4508,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The bubble border color. */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *bubbleBorderColor;
+
+/**
+ *  The bubble border color.
+ *  If bubble_border_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *bubbleBorderColorStyle;
 
 /** The data containing the bubble labels. These do not need to be unique. */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *bubbleLabels;
@@ -5000,6 +5023,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  Not applicable to Org charts.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor;
+
+/**
+ *  The background color of the entire chart.
+ *  Not applicable to Org charts.
+ *  If background_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *backgroundColorStyle;
 
 /**
  *  A basic chart specification, can be one of many kinds of charts.
@@ -5561,9 +5591,9 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /**
  *  The data to be written. If the provided values exceed any of the ranges
- *  matched by the data filter then the request will fail. If the provided
- *  values are less than the matched ranges only the specified values will be
- *  written, existing values in the matched ranges will remain unaffected.
+ *  matched by the data filter then the request fails. If the provided values
+ *  are less than the matched ranges only the specified values are written,
+ *  existing values in the matched ranges remain unaffected.
  *
  *  Can be any valid JSON type.
  */
@@ -7082,6 +7112,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *barColor;
 
+/**
+ *  The color of the column representing this series in each bucket.
+ *  This field is optional.
+ *  If bar_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *barColorStyle;
+
 /** The data for this histogram series. */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *data;
 
@@ -7515,6 +7552,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @property(nonatomic, strong, nullable) GTLRSheets_Color *nodeColor;
 
 /**
+ *  The color of the org chart nodes.
+ *  If node_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *nodeColorStyle;
+
+/**
  *  The size of the org chart nodes.
  *
  *  Likely values:
@@ -7539,6 +7582,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The color of the selected org chart nodes. */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *selectedNodeColor;
+
+/**
+ *  The color of the selected org chart nodes.
+ *  If selected_node_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *selectedNodeColorStyle;
 
 /**
  *  The data containing the tooltip for the corresponding node. A blank value
@@ -8538,7 +8587,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /**
  *  The data filters describing the criteria used to determine which
  *  DeveloperMetadata entries to return. DeveloperMetadata matching any of the
- *  specified filters will be included in the response.
+ *  specified filters are included in the response.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilter *> *dataFilters;
 
@@ -8957,8 +9006,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /**
  *  Determines whether and how circular references are resolved with iterative
- *  calculation. Absence of this field means that circular references will
- *  result in calculation errors.
+ *  calculation. Absence of this field means that circular references result
+ *  in calculation errors.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_IterativeCalculationSettings *iterativeCalculationSettings;
 
@@ -8996,8 +9045,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @property(nonatomic, copy, nullable) NSString *primaryFontFamily;
 
 /**
- *  The spreadsheet theme color pairs. For update users need to give all pairs
- *  of theme colors.
+ *  The spreadsheet theme color pairs. To update you must provide all theme
+ *  color pairs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_ThemeColorPair *> *themeColors;
 
@@ -9227,12 +9276,29 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @property(nonatomic, strong, nullable) GTLRSheets_Color *maxValueColor;
 
 /**
+ *  The background color for cells with a color value greater than or equal
+ *  to maxValue. Defaults to #109618 if not
+ *  specified.
+ *  If max_value_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *maxValueColorStyle;
+
+/**
  *  The background color for cells with a color value at the midpoint between
  *  minValue and
  *  maxValue. Defaults to #efe6dc if not
  *  specified.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *midValueColor;
+
+/**
+ *  The background color for cells with a color value at the midpoint between
+ *  minValue and
+ *  maxValue. Defaults to #efe6dc if not
+ *  specified.
+ *  If mid_value_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *midValueColorStyle;
 
 /**
  *  The background color for cells with a color value less than or equal to
@@ -9242,10 +9308,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @property(nonatomic, strong, nullable) GTLRSheets_Color *minValueColor;
 
 /**
+ *  The background color for cells with a color value less than or equal to
+ *  minValue. Defaults to #dc3912 if not
+ *  specified.
+ *  If min_value_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *minValueColorStyle;
+
+/**
  *  The background color for cells that have no color data associated with
  *  them. Defaults to #000000 if not specified.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *noDataColor;
+
+/**
+ *  The background color for cells that have no color data associated with
+ *  them. Defaults to #000000 if not specified.
+ *  If no_data_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *noDataColorStyle;
 
 @end
 
@@ -9286,6 +9367,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The background color for header cells. */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *headerColor;
+
+/**
+ *  The background color for header cells.
+ *  If header_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *headerColorStyle;
 
 /**
  *  True to hide tooltips.
@@ -9993,6 +10080,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The color of the column. */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *color;
+
+/**
+ *  The color of the column.
+ *  If color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *colorStyle;
 
 /** The label of the column's legend. */
 @property(nonatomic, copy, nullable) NSString *label;

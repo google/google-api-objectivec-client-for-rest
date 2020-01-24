@@ -207,21 +207,53 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMe
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2ByteContentItem.type
 
-/** Value: "AVRO" */
+/**
+ *  avro
+ *
+ *  Value: "AVRO"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Avro;
-/** Value: "BYTES_TYPE_UNSPECIFIED" */
+/**
+ *  Unused
+ *
+ *  Value: "BYTES_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_BytesTypeUnspecified;
-/** Value: "IMAGE" */
+/**
+ *  Any image type.
+ *
+ *  Value: "IMAGE"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Image;
-/** Value: "IMAGE_BMP" */
+/**
+ *  bmp
+ *
+ *  Value: "IMAGE_BMP"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp;
-/** Value: "IMAGE_JPEG" */
+/**
+ *  jpeg
+ *
+ *  Value: "IMAGE_JPEG"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageJpeg;
-/** Value: "IMAGE_PNG" */
+/**
+ *  png
+ *
+ *  Value: "IMAGE_PNG"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImagePng;
-/** Value: "IMAGE_SVG" */
+/**
+ *  svg
+ *
+ *  Value: "IMAGE_SVG"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg;
-/** Value: "TEXT_UTF8" */
+/**
+ *  plain text
+ *
+ *  Value: "TEXT_UTF8"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8;
 
 // ----------------------------------------------------------------------------
@@ -239,7 +271,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonChar
  *  Value: "ALPHA_UPPER_CASE"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_AlphaUpperCase;
-/** Value: "COMMON_CHARS_TO_IGNORE_UNSPECIFIED" */
+/**
+ *  Unused.
+ *
+ *  Value: "COMMON_CHARS_TO_IGNORE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_CommonCharsToIgnoreUnspecified;
 /**
  *  0-9
@@ -338,7 +374,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProper
  *  Value: "NOT_EQUAL_TO"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_NotEqualTo;
-/** Value: "RELATIONAL_OPERATOR_UNSPECIFIED" */
+/**
+ *  Unused
+ *
+ *  Value: "RELATIONAL_OPERATOR_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_RelationalOperatorUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -350,7 +390,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProper
  *  Value: "ALPHA_NUMERIC"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_AlphaNumeric;
-/** Value: "FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED" */
+/**
+ *  Unused.
+ *
+ *  Value: "FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_FfxCommonNativeAlphabetUnspecified;
 /**
  *  [0-9A-F] (radix of 16)
@@ -493,7 +537,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Done;
  *  Value: "FAILED"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Failed;
-/** Value: "JOB_STATE_UNSPECIFIED" */
+/**
+ *  Unused.
+ *
+ *  Value: "JOB_STATE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_JobStateUnspecified;
 /**
  *  The job has not yet started.
@@ -511,7 +559,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running;
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.type
 
-/** Value: "DLP_JOB_TYPE_UNSPECIFIED" */
+/**
+ *  Unused
+ *
+ *  Value: "DLP_JOB_TYPE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_DlpJobTypeUnspecified;
 /**
  *  The job inspected Google Cloud for sensitive data.
@@ -566,9 +618,17 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingTy
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2Expressions.logicalOperator
 
-/** Value: "AND" */
+/**
+ *  Conditional AND
+ *
+ *  Value: "AND"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_And;
-/** Value: "LOGICAL_OPERATOR_UNSPECIFIED" */
+/**
+ *  Unused
+ *
+ *  Value: "LOGICAL_OPERATOR_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_LogicalOperatorUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -676,7 +736,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Health
  *  Value: "PAUSED"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Paused;
-/** Value: "STATUS_UNSPECIFIED" */
+/**
+ *  Unused.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -745,7 +809,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_Outp
  *  Value: "GCS_COLUMNS"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_GcsColumns;
-/** Value: "OUTPUT_SCHEMA_UNSPECIFIED" */
+/**
+ *  Unused.
+ *
+ *  Value: "OUTPUT_SCHEMA_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_OutputSchemaUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -778,17 +846,33 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_St
  *  Value: "READY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Ready;
-/** Value: "STORED_INFO_TYPE_STATE_UNSPECIFIED" */
+/**
+ *  Unused
+ *
+ *  Value: "STORED_INFO_TYPE_STATE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_StoredInfoTypeStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2SummaryResult.code
 
-/** Value: "ERROR" */
+/**
+ *  Transformation had an error.
+ *
+ *  Value: "ERROR"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Error;
-/** Value: "SUCCESS" */
+/**
+ *  Transformation completed without an error.
+ *
+ *  Value: "SUCCESS"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Success;
-/** Value: "TRANSFORMATION_RESULT_CODE_UNSPECIFIED" */
+/**
+ *  Unused
+ *
+ *  Value: "TRANSFORMATION_RESULT_CODE_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_TransformationResultCodeUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -818,7 +902,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExt
  *  Value: "MONTH"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_Month;
-/** Value: "TIME_PART_UNSPECIFIED" */
+/**
+ *  Unused
+ *
+ *  Value: "TIME_PART_UNSPECIFIED"
+ */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_TimePartUnspecified;
 /**
  *  [1-53]
@@ -892,7 +980,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2Action : GTLRObject
 
 /**
- *  Enable email notification to project owners and editors on job's
+ *  Enable email notification for project owners and editors on job's
  *  completion/failure.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2JobNotificationEmails *jobNotificationEmails;
@@ -927,11 +1015,22 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails : GTLRObject
 
+/** Categorical stats result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CategoricalStatsResult *categoricalStatsResult;
+
+/** Delta-presence result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationResult *deltaPresenceEstimationResult;
+
+/** K-anonymity result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KAnonymityResult *kAnonymityResult;
+
+/** K-map result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KMapEstimationResult *kMapEstimationResult;
+
+/** L-divesity result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LDiversityResult *lDiversityResult;
+
+/** Numerical stats result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2NumericalStatsResult *numericalStatsResult;
 
 /** Privacy metric to compute. */
@@ -954,17 +1053,16 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable : GTLRObject
 
-/** Quasi-identifier columns. [required] */
+/** Required. Quasi-identifier columns. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2QuasiIdField *> *quasiIds;
 
 /**
- *  The relative frequency column must contain a floating-point number
+ *  Required. The relative frequency column must contain a floating-point number
  *  between 0 and 1 (inclusive). Null values are assumed to be zero.
- *  [required]
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *relativeFrequency;
 
-/** Auxiliary table location. [required] */
+/** Required. Auxiliary table location. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *table;
 
 @end
@@ -1182,21 +1280,22 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  The type of data stored in the bytes string. Default will be TEXT_UTF8.
  *
  *  Likely values:
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Avro Value "AVRO"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Avro avro (Value:
+ *        "AVRO")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_BytesTypeUnspecified
- *        Value "BYTES_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Image Value
- *        "IMAGE"
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp Value
- *        "IMAGE_BMP"
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageJpeg Value
- *        "IMAGE_JPEG"
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImagePng Value
- *        "IMAGE_PNG"
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg Value
- *        "IMAGE_SVG"
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8 Value
- *        "TEXT_UTF8"
+ *        Unused (Value: "BYTES_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Image Any image
+ *        type. (Value: "IMAGE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp bmp
+ *        (Value: "IMAGE_BMP")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageJpeg jpeg
+ *        (Value: "IMAGE_JPEG")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImagePng png
+ *        (Value: "IMAGE_PNG")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg svg
+ *        (Value: "IMAGE_SVG")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8 plain
+ *        text (Value: "TEXT_UTF8")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1228,7 +1327,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2CategoricalStatsHistogramBucket
+ *  Histogram of value frequencies in the column.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CategoricalStatsHistogramBucket : GTLRObject
 
@@ -1336,10 +1435,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CharsToIgnore : GTLRObject
 
+/** Characters to not transform when masking. */
 @property(nonatomic, copy, nullable) NSString *charactersToSkip;
 
 /**
- *  commonCharactersToIgnore
+ *  Common characters to not transform when masking. Useful to avoid removing
+ *  punctuation.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_AlphaLowerCase
@@ -1347,7 +1448,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_AlphaUpperCase
  *        A-Z (Value: "ALPHA_UPPER_CASE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_CommonCharsToIgnoreUnspecified
- *        Value "COMMON_CHARS_TO_IGNORE_UNSPECIFIED"
+ *        Unused. (Value: "COMMON_CHARS_TO_IGNORE_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_Numeric
  *        0-9 (Value: "NUMERIC")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_Punctuation
@@ -1564,11 +1665,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Condition : GTLRObject
 
-/** Field within the record this condition is evaluated against. [required] */
+/** Required. Field within the record this condition is evaluated against. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
 /**
- *  Operator used to compare the field or infoType to the value. [required]
+ *  Required. Operator used to compare the field or infoType to the value.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_EqualTo
@@ -1588,13 +1689,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *        Not equal to. Attempts to match even with incompatible types. (Value:
  *        "NOT_EQUAL_TO")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_RelationalOperatorUnspecified
- *        Value "RELATIONAL_OPERATOR_UNSPECIFIED"
+ *        Unused (Value: "RELATIONAL_OPERATOR_UNSPECIFIED")
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
 @property(nonatomic, copy, nullable) NSString *operatorProperty;
 
-/** Value to compare against. [Required, except for `EXISTS` tests.] */
+/** Value to compare against. [Mandatory, except for `EXISTS` tests.] */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *value;
 
 @end
@@ -1605,6 +1706,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Conditions : GTLRObject
 
+/** A collection of conditions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Condition *> *conditions;
 
 @end
@@ -1640,9 +1742,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  Name of the container where the finding is located.
  *  The top level name is the source file name or table name. Names of some
  *  common storage containers are formatted as follows:
- *  * BigQuery tables: `<project_id>:<dataset_id>.<table_id>`
- *  * Cloud Storage files: `gs://<bucket>/<path>`
- *  * Datastore namespace: <namespace>
+ *  * BigQuery tables: `{project_id}:{dataset_id}.{table_id}`
+ *  * Cloud Storage files: `gs://{bucket}/{path}`
+ *  * Datastore namespace: {namespace}
  *  Nested names could be absent if the embedded object has no string
  *  identifier (for an example an image contained within a document).
  */
@@ -1679,7 +1781,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest : GTLRObject
 
-/** The DeidentifyTemplate to create. */
+/** Required. The DeidentifyTemplate to create. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate *deidentifyTemplate;
 
 /**
@@ -1706,6 +1808,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest : GTLRObject
 
+/** Set to control what and how to inspect. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectJobConfig *inspectJob;
 
 /**
@@ -1722,6 +1825,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
+/** Set to choose what metric to calculate. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RiskAnalysisJobConfig *riskJob;
 
 @end
@@ -1732,7 +1836,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest : GTLRObject
 
-/** The InspectTemplate to create. */
+/** Required. The InspectTemplate to create. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectTemplate *inspectTemplate;
 
 /**
@@ -1757,7 +1861,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest : GTLRObject
 
-/** The JobTrigger to create. */
+/** Required. The JobTrigger to create. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2JobTrigger *jobTrigger;
 
 /**
@@ -1782,7 +1886,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest : GTLRObject
 
-/** Configuration of the storedInfoType to create. */
+/** Required. Configuration of the storedInfoType to create. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig *config;
 
 /**
@@ -1811,7 +1915,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoDeterministicConfig : GTLRObject
 
 /**
- *  Optional. A context may be used for higher security and maintaining
+ *  A context may be used for higher security and maintaining
  *  referential integrity such that the same identifier in two different
  *  contexts will be given a distinct surrogate. The context is appended to
  *  plaintext value being encrypted. On decryption the provided context is
@@ -1836,7 +1940,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  This annotation will be applied to the surrogate by prefixing it with
  *  the name of the custom info type followed by the number of
  *  characters comprising the surrogate. The following scheme defines the
- *  format: <info type name>(<surrogate character count>):<surrogate>
+ *  format: {info type name}({surrogate character count}):{surrogate}
  *  For example, if the name of custom info type is 'MY_TOKEN_INFO_TYPE' and
  *  the surrogate is 'abc', the full replacement value
  *  will be: 'MY_TOKEN_INFO_TYPE(3):abc'
@@ -1844,7 +1948,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  custom info type 'Surrogate'. This facilitates reversal of the
  *  surrogate when it occurs in free text.
  *  Note: For record transformations where the entire cell in a table is being
- *  transformed, surrogates are optional to use. Surrogates are used to denote
+ *  transformed, surrogates are not mandatory. Surrogates are used to denote
  *  the location of the token and are necessary for re-identification in free
  *  form text.
  *  In order for inspection to work properly, the name of this info type must
@@ -1890,8 +1994,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoKey : GTLRObject
 
+/** Kms wrapped key */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KmsWrappedCryptoKey *kmsWrapped;
+
+/** Transient crypto key */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TransientCryptoKey *transient;
+
+/** Unwrapped crypto key */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2UnwrappedCryptoKey *unwrapped;
 
 @end
@@ -1915,13 +2024,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig : GTLRObject
 
 /**
- *  commonAlphabet
+ *  Common alphabets.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_AlphaNumeric
  *        [0-9A-Za-z] (radix of 62) (Value: "ALPHA_NUMERIC")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_FfxCommonNativeAlphabetUnspecified
- *        Value "FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED"
+ *        Unused. (Value: "FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Hexadecimal
  *        [0-9A-F] (radix of 16) (Value: "HEXADECIMAL")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Numeric
@@ -1949,7 +2058,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *context;
 
-/** The key used by the encryption algorithm. [required] */
+/** Required. The key used by the encryption algorithm. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoKey *cryptoKey;
 
 /**
@@ -2129,19 +2238,19 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoKey *cryptoKey;
 
 /**
- *  For example, -5 means shift date to at most 5 days back in the past.
- *  [Required]
+ *  Required. For example, -5 means shift date to at most 5 days back in the
+ *  past.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lowerBoundDays;
 
 /**
- *  Range of shift in days. Actual shift will be selected at random within this
+ *  Required. Range of shift in days. Actual shift will be selected at random
+ *  within this
  *  range (inclusive ends). Negative means shift to earlier in time. Must not
  *  be more than 365250 days (1000 years) each direction.
  *  For example, 3 means shift date to at most 3 days into the future.
- *  [Required]
  *
  *  Uses NSNumber of intValue.
  */
@@ -2157,13 +2266,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2DateTime : GTLRObject
 
 /**
- *  One or more of the following must be set. All fields are optional, but
- *  when set must be valid date or time values.
+ *  One or more of the following must be set.
+ *  Must be a valid date or time value.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleTypeDate *date;
 
 /**
- *  dayOfWeek
+ *  Day of week
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_DayOfWeekUnspecified
@@ -2185,7 +2294,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, copy, nullable) NSString *dayOfWeek;
 
+/** Time of day */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleTypeTimeOfDay *time;
+
+/** Time zone */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TimeZone *timeZone;
 
 @end
@@ -2231,7 +2343,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig *deidentifyConfig;
 
 /**
- *  Optional template to use. Any configuration directly specified in
+ *  Template to use. Any configuration directly specified in
  *  deidentify_config will override those set in the template. Singular fields
  *  that are set in this request will replace their corresponding fields in the
  *  template. Repeated fields are appended. Singular sub-messages and groups
@@ -2247,7 +2359,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
 
 /**
- *  Optional template to use. Any configuration directly specified in
+ *  Template to use. Any configuration directly specified in
  *  inspect_config will override those set in the template. Singular fields
  *  that are set in this request will replace their corresponding fields in the
  *  template. Repeated fields are appended. Singular sub-messages and groups
@@ -2287,7 +2399,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate : GTLRObject
 
-/** The creation timestamp of an inspectTemplate, output only field. */
+/** Output only. The creation timestamp of an inspectTemplate. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** ///////////// // The core content of the template // /////////////// */
@@ -2304,14 +2416,14 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The template name. Output only.
+ *  Output only. The template name.
  *  The template will have one of the following formats:
  *  `projects/PROJECT_ID/deidentifyTemplates/TEMPLATE_ID` OR
  *  `organizations/ORGANIZATION_ID/deidentifyTemplates/TEMPLATE_ID`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The last update timestamp of an inspectTemplate, output only field. */
+/** Output only. The last update timestamp of an inspectTemplate. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -2333,14 +2445,15 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2StatisticalTable *> *auxiliaryTables;
 
 /**
- *  Fields considered to be quasi-identifiers. No two fields can have the
- *  same tag. [required]
+ *  Required. Fields considered to be quasi-identifiers. No two fields can have
+ *  the
+ *  same tag.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2QuasiId *> *quasiIds;
 
 /**
  *  ISO 3166-1 alpha-2 region code to use in the statistical modeling.
- *  Required if no column is tagged with a region-specific InfoType (like
+ *  Set if no column is tagged with a region-specific InfoType (like
  *  US_ZIP_5) or a region code.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
@@ -2537,8 +2650,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *        running. (Value: "DONE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Failed The job had an
  *        error and did not complete. (Value: "FAILED")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_JobStateUnspecified Value
- *        "JOB_STATE_UNSPECIFIED"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_JobStateUnspecified
+ *        Unused. (Value: "JOB_STATE_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Pending The job has not
  *        yet started. (Value: "PENDING")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running The job is
@@ -2550,8 +2663,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  The type of job.
  *
  *  Likely values:
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_DlpJobTypeUnspecified Value
- *        "DLP_JOB_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_DlpJobTypeUnspecified
+ *        Unused (Value: "DLP_JOB_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_InspectJob The job
  *        inspected Google Cloud for sensitive data. (Value: "INSPECT_JOB")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_RiskAnalysisJob The job
@@ -2596,10 +2709,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  Details information about an error encountered during job execution or
  *  the results of an unsuccessful activation of the JobTrigger.
- *  Output only field.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Error : GTLRObject
 
+/** Detailed error codes and messages. */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleRpcStatus *details;
 
 /** The times the error occurred. */
@@ -2679,6 +2792,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Expressions : GTLRObject
 
+/** Conditions to apply to the expression. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Conditions *conditions;
 
 /**
@@ -2686,10 +2800,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  only supported value is `AND`.
  *
  *  Likely values:
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_And Value
- *        "AND"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_And
+ *        Conditional AND (Value: "AND")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_LogicalOperatorUnspecified
- *        Value "LOGICAL_OPERATOR_UNSPECIFIED"
+ *        Unused (Value: "LOGICAL_OPERATOR_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *logicalOperator;
 
@@ -2715,7 +2829,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  Only apply the transformation if the condition evaluates to true for the
  *  given `RecordCondition`. The conditions are allowed to reference fields
- *  that are not used in the actual transformation. [optional]
+ *  that are not used in the actual transformation.
  *  Example Use Cases:
  *  - Apply a different bucket transformation to an age column if the zip code
  *  column for the same record is within a specific range.
@@ -2723,7 +2837,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RecordCondition *condition;
 
-/** Input field(s) to apply the transformation to. [required] */
+/** Required. Input field(s) to apply the transformation to. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *fields;
 
 /**
@@ -2820,7 +2934,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2FindingLimits
+ *  Configuration to control the number of findings returned.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FindingLimits : GTLRObject
 
@@ -2856,7 +2970,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  to
  *  the user for simple bucketing strategies.
  *  The transformed value will be a hyphenated string of
- *  <lower_bound>-<upper_bound>, i.e if lower_bound = 10 and upper_bound = 20
+ *  {lower_bound}-{upper_bound}, i.e if lower_bound = 10 and upper_bound = 20
  *  all values that are within this bucket will be replaced with "10-20".
  *  This can be used on data of type: double, long.
  *  If the bound Value type differs from the type of data
@@ -2867,27 +2981,29 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig : GTLRObject
 
 /**
- *  Size of each bucket (except for minimum and maximum buckets). So if
+ *  Required. Size of each bucket (except for minimum and maximum buckets). So
+ *  if
  *  `lower_bound` = 10, `upper_bound` = 89, and `bucket_size` = 10, then the
  *  following buckets would be used: -10, 10-20, 20-30, 30-40, 40-50, 50-60,
- *  60-70, 70-80, 80-89, 89+. Precision up to 2 decimals works. [Required].
+ *  60-70, 70-80, 80-89, 89+. Precision up to 2 decimals works.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bucketSize;
 
 /**
- *  Lower bound value of buckets. All values less than `lower_bound` are
+ *  Required. Lower bound value of buckets. All values less than `lower_bound`
+ *  are
  *  grouped together into a single bucket; for example if `lower_bound` = 10,
- *  then all values less than 10 are replaced with the value “-10”. [Required].
+ *  then all values less than 10 are replaced with the value “-10”.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *lowerBound;
 
 /**
- *  Upper bound value of buckets. All values greater than upper_bound are
+ *  Required. Upper bound value of buckets. All values greater than upper_bound
+ *  are
  *  grouped together into a single bucket; for example if `upper_bound` = 89,
  *  then all values greater than 89 are replaced with the value “89+”.
- *  [Required].
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *upperBound;
 
@@ -3061,7 +3177,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
 
-/** Primitive transformation to apply to the infoType. [required] */
+/** Required. Primitive transformation to apply to the infoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PrimitiveTransformation *primitiveTransformation;
 
 @end
@@ -3076,8 +3192,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformations : GTLRObject
 
 /**
- *  Transformation for each infoType. Cannot specify more than one
- *  for a given infoType. [required]
+ *  Required. Transformation for each infoType. Cannot specify more than one
+ *  for a given infoType.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformation *> *transformations;
 
@@ -3132,6 +3248,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
 
+/** Configuration to control the number of findings returned. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FindingLimits *limits;
 
 /**
@@ -3177,7 +3294,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
 
 /**
- *  Optional template to use. Any configuration directly specified in
+ *  Template to use. Any configuration directly specified in
  *  inspect_config will override those set in the template. Singular fields
  *  that are set in this request will replace their corresponding fields in the
  *  template. Repeated fields are appended. Singular sub-messages and groups
@@ -3256,7 +3373,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2InspectJobConfig
+ *  Controls what and how to inspect for findings.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InspectJobConfig : GTLRObject
 
@@ -3310,7 +3427,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InspectTemplate : GTLRObject
 
-/** The creation timestamp of an inspectTemplate, output only field. */
+/** Output only. The creation timestamp of an inspectTemplate. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -3329,14 +3446,14 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
 
 /**
- *  The template name. Output only.
+ *  Output only. The template name.
  *  The template will have one of the following formats:
  *  `projects/PROJECT_ID/inspectTemplates/TEMPLATE_ID` OR
- *  `organizations/ORGANIZATION_ID/inspectTemplates/TEMPLATE_ID`
+ *  `organizations/ORGANIZATION_ID/inspectTemplates/TEMPLATE_ID`;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The last update timestamp of an inspectTemplate, output only field. */
+/** Output only. The last update timestamp of an inspectTemplate. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -3356,7 +3473,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2JobTrigger : GTLRObject
 
-/** The creation timestamp of a triggeredJob, output only field. */
+/** Output only. The creation timestamp of a triggeredJob. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -3370,18 +3487,18 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  A stream of errors encountered when the trigger was activated. Repeated
+ *  Output only. A stream of errors encountered when the trigger was activated.
+ *  Repeated
  *  errors may result in the JobTrigger automatically being paused.
  *  Will return the last 100 errors. Whenever the JobTrigger is modified
- *  this list will be cleared. Output only field.
+ *  this list will be cleared.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Error *> *errors;
 
+/** For inspect jobs, a snapshot of the configuration. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectJobConfig *inspectJob;
 
-/**
- *  The timestamp of the last time this trigger executed, output only field.
- */
+/** Output only. The timestamp of the last time this trigger executed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRunTime;
 
 /**
@@ -3392,7 +3509,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A status for this trigger. [required]
+ *  Required. A status for this trigger.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Cancelled Trigger is
@@ -3402,7 +3519,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Paused Trigger is
  *        temporarily paused. (Value: "PAUSED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_StatusUnspecified
- *        Value "STATUS_UNSPECIFIED"
+ *        Unused. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -3413,7 +3530,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Trigger *> *triggers;
 
-/** The last update timestamp of a triggeredJob, output only field. */
+/** Output only. The last update timestamp of a triggeredJob. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -3425,7 +3542,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2KAnonymityConfig : GTLRObject
 
 /**
- *  Optional message indicating that multiple rows might be associated to a
+ *  Message indicating that multiple rows might be associated to a
  *  single individual. If the same entity_id is associated to multiple
  *  quasi-identifier tuples over distinct rows, we consider the entire
  *  collection of tuples as the composite quasi-identifier. This collection
@@ -3473,7 +3590,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2KAnonymityHistogramBucket
+ *  Histogram of k-anonymity equivalence classes.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2KAnonymityHistogramBucket : GTLRObject
 
@@ -3573,7 +3690,6 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  using publicly available data (like the US Census), or using a custom
  *  statistical model (indicated as one or several BigQuery tables), or by
  *  extrapolating from the distribution of values in the input dataset.
- *  A column with a semantic tag attached.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2KMapEstimationConfig : GTLRObject
 
@@ -3585,14 +3701,15 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable *> *auxiliaryTables;
 
 /**
- *  Fields considered to be quasi-identifiers. No two columns can have the
- *  same tag. [required]
+ *  Required. Fields considered to be quasi-identifiers. No two columns can have
+ *  the
+ *  same tag.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2TaggedField *> *quasiIds;
 
 /**
  *  ISO 3166-1 alpha-2 region code to use in the statistical modeling.
- *  Required if no column is tagged with a region-specific InfoType (like
+ *  Set if no column is tagged with a region-specific InfoType (like
  *  US_ZIP_5) or a region code.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
@@ -3697,13 +3814,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2KmsWrappedCryptoKey : GTLRObject
 
-/**
- *  The resource name of the KMS CryptoKey to use for unwrapping. [required]
- */
+/** Required. The resource name of the KMS CryptoKey to use for unwrapping. */
 @property(nonatomic, copy, nullable) NSString *cryptoKeyName;
 
 /**
- *  The wrapped data crypto key. [required]
+ *  Required. The wrapped data crypto key.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -3808,7 +3923,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2LDiversityHistogramBucket
+ *  Histogram of l-diversity equivalence class sensitive value frequencies.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2LDiversityHistogramBucket : GTLRObject
 
@@ -4154,7 +4269,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *        Schema tailored to findings from scanning Google Cloud Storage.
  *        (Value: "GCS_COLUMNS")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_OutputSchemaUnspecified
- *        Value "OUTPUT_SCHEMA_UNSPECIFIED"
+ *        Unused. (Value: "OUTPUT_SCHEMA_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *outputSchema;
 
@@ -4237,16 +4352,37 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PrimitiveTransformation : GTLRObject
 
+/** Bucketing */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BucketingConfig *bucketingConfig;
+
+/** Mask */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CharacterMaskConfig *characterMaskConfig;
+
+/** Deterministic Crypto */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoDeterministicConfig *cryptoDeterministicConfig;
+
+/** Crypto */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoHashConfig *cryptoHashConfig;
+
+/** Ffx-Fpe */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig *cryptoReplaceFfxFpeConfig;
+
+/** Date Shift */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DateShiftConfig *dateShiftConfig;
+
+/** Fixed size bucketing */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig *fixedSizeBucketingConfig;
+
+/** Redact */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RedactConfig *redactConfig;
+
+/** Replace */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ReplaceValueConfig *replaceConfig;
+
+/** Replace with infotype */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ReplaceWithInfoTypeConfig *replaceWithInfoTypeConfig;
+
+/** Time extraction */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TimePartConfig *timePartConfig;
 
 @end
@@ -4257,11 +4393,22 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PrivacyMetric : GTLRObject
 
+/** Categorical stats */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CategoricalStatsConfig *categoricalStatsConfig;
+
+/** delta-presence */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationConfig *deltaPresenceEstimationConfig;
+
+/** K-anonymity */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KAnonymityConfig *kAnonymityConfig;
+
+/** k-map */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KMapEstimationConfig *kMapEstimationConfig;
+
+/** l-diversity */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LDiversityConfig *lDiversityConfig;
+
+/** Numerical stats */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2NumericalStatsConfig *numericalStatsConfig;
 
 @end
@@ -4364,7 +4511,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, copy, nullable) NSString *customTag;
 
-/** Identifies the column. [required] */
+/** Required. Identifies the column. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
 /**
@@ -4391,7 +4538,14 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2QuasiIdentifierField : GTLRObject
 
+/**
+ *  A column can be tagged with a custom tag. In this case, the user must
+ *  indicate an auxiliary table that contains statistical information on
+ *  the possible values of this column (below).
+ */
 @property(nonatomic, copy, nullable) NSString *customTag;
+
+/** Identifies the column. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
 @end
@@ -4403,7 +4557,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2QuasiIdField : GTLRObject
 
+/** A auxiliary field. */
 @property(nonatomic, copy, nullable) NSString *customTag;
+
+/** Identifies the column. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
 @end
@@ -4514,7 +4671,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Configuration defining which records get suppressed entirely. Records that
- *  match any suppression rule are omitted from the output [optional].
+ *  match any suppression rule are omitted from the output.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2RecordSuppression *> *recordSuppressions;
 
@@ -4620,7 +4777,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
 
 /**
- *  Optional template to use. Any configuration directly specified in
+ *  Template to use. Any configuration directly specified in
  *  `inspect_config` will override those set in the template. Singular fields
  *  that are set in this request will replace their corresponding fields in the
  *  template. Repeated fields are appended. Singular sub-messages and groups
@@ -4651,7 +4808,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig *reidentifyConfig;
 
 /**
- *  Optional template to use. References an instance of `DeidentifyTemplate`.
+ *  Template to use. References an instance of `DeidentifyTemplate`.
  *  Any configuration directly specified in `reidentify_config` or
  *  `inspect_config` will override those set in the template. Singular fields
  *  that are set in this request will replace their corresponding fields in the
@@ -4696,10 +4853,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2RequestedOptions
+ *  Snapshot of the inspection configuration.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2RequestedOptions : GTLRObject
 
+/** Inspect config. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectJobConfig *jobConfig;
 
 /**
@@ -4761,10 +4919,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2Row
+ *  Values of the row.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Row : GTLRObject
 
+/** Individual cells. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Value *> *values;
 
 @end
@@ -4778,6 +4937,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2SaveFindings : GTLRObject
 
+/** Location to store findings outside of DLP. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig *outputConfig;
 
 @end
@@ -4812,17 +4972,16 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2StatisticalTable : GTLRObject
 
-/** Quasi-identifier columns. [required] */
+/** Required. Quasi-identifier columns. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2QuasiIdentifierField *> *quasiIds;
 
 /**
- *  The relative frequency column must contain a floating-point number
+ *  Required. The relative frequency column must contain a floating-point number
  *  between 0 and 1 (inclusive). Null values are assumed to be zero.
- *  [required]
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *relativeFrequency;
 
-/** Auxiliary table location. [required] */
+/** Required. Auxiliary table location. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *table;
 
 @end
@@ -4922,10 +5081,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  anomalies detected in the storedInfoType data that render it unusable. Only
  *  the five most recent errors will be displayed, with the most recent error
  *  appearing first.
- *  <p>For example, some of the data for stored custom dictionaries is put in
+ *  For example, some of the data for stored custom dictionaries is put in
  *  the user's Google Cloud Storage bucket, and if this data is modified or
  *  deleted by the user or another system, the dictionary becomes invalid.
- *  <p>If any errors occur, fix the problem indicated by the error message and
+ *  If any errors occur, fix the problem indicated by the error message and
  *  use the UpdateStoredInfoType API method to create another version of the
  *  storedInfoType to continue using it, reusing the same `config` if it was
  *  not the source of the error.
@@ -4952,7 +5111,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Ready
  *        StoredInfoType version is ready for use. (Value: "READY")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_StoredInfoTypeStateUnspecified
- *        Value "STORED_INFO_TYPE_STATE_UNSPECIFIED"
+ *        Unused (Value: "STORED_INFO_TYPE_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -4990,19 +5149,20 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2SummaryResult : GTLRObject
 
 /**
- *  code
+ *  Outcome of the transformation.
  *
  *  Likely values:
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Error Value "ERROR"
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Success Value
- *        "SUCCESS"
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Error Transformation
+ *        had an error. (Value: "ERROR")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Success
+ *        Transformation completed without an error. (Value: "SUCCESS")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_TransformationResultCodeUnspecified
- *        Value "TRANSFORMATION_RESULT_CODE_UNSPECIFIED"
+ *        Unused (Value: "TRANSFORMATION_RESULT_CODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
 /**
- *  count
+ *  Number of transformations counted by this result.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5038,7 +5198,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Table : GTLRObject
 
+/** Headers of the table. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *headers;
+
+/** Rows of the table. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Row *> *rows;
 
 @end
@@ -5060,7 +5223,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2TaggedField
+ *  A column with a semantic tag attached.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TaggedField : GTLRObject
 
@@ -5071,7 +5234,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, copy, nullable) NSString *customTag;
 
-/** Identifies the column. [required] */
+/** Required. Identifies the column. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
 /**
@@ -5106,7 +5269,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2TimePartConfig : GTLRObject
 
 /**
- *  partToExtract
+ *  The part of the time to keep.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_DayOfMonth
@@ -5118,7 +5281,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_Month
  *        [1-12] (Value: "MONTH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_TimePartUnspecified
- *        Value "TIME_PART_UNSPECIFIED"
+ *        Unused (Value: "TIME_PART_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_WeekOfYear
  *        [1-53] (Value: "WEEK_OF_YEAR")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_Year
@@ -5174,7 +5337,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  GTLRDLP_GooglePrivacyDlpV2TimeZone
+ *  Time zone of the date time object.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TimeZone : GTLRObject
 
@@ -5203,7 +5366,10 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TransformationErrorHandling : GTLRObject
 
+/** Ignore errors */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LeaveUntransformed *leaveUntransformed;
+
+/** Throw an error */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ThrowError *throwError;
 
 @end
@@ -5250,6 +5416,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /** The specific suppression option these stats apply to. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RecordSuppression *recordSuppress;
 
+/** Collection of all transformations that took place or had an error. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2SummaryResult *> *results;
 
 /** The specific transformation these stats apply to. */
@@ -5272,7 +5439,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2TransientCryptoKey : GTLRObject
 
 /**
- *  Name of the key. [required]
+ *  Required. Name of the key.
  *  This is an arbitrary string used to differentiate different keys.
  *  A unique key is generated per name: two separate `TransientCryptoKey`
  *  protos share the same generated key if their names are the same.
@@ -5302,7 +5469,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2UnwrappedCryptoKey : GTLRObject
 
 /**
- *  A 128/192/256 bit key. [required]
+ *  Required. A 128/192/256 bit key.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -5399,16 +5566,17 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2Value : GTLRObject
 
 /**
- *  booleanValue
+ *  boolean
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *booleanValue;
 
+/** date */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleTypeDate *dateValue;
 
 /**
- *  dayOfWeekValue
+ *  day of week
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_DayOfWeekUnspecified
@@ -5431,21 +5599,26 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, copy, nullable) NSString *dayOfWeekValue;
 
 /**
- *  floatValue
+ *  float
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *floatValue;
 
 /**
- *  integerValue
+ *  integer
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *integerValue;
 
+/** string */
 @property(nonatomic, copy, nullable) NSString *stringValue;
+
+/** timestamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestampValue;
+
+/** time of day */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleTypeTimeOfDay *timeValue;
 
 @end

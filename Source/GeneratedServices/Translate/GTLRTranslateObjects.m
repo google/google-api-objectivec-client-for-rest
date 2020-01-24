@@ -2,26 +2,27 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Translation API (translate/v2)
+//   Cloud Translation API (translate/v3)
 // Description:
-//   The Google Cloud Translation API lets websites and programs integrate with
-//   Google Translate programmatically.
+//   Integrates text translation into your website or application.
 // Documentation:
-//   https://code.google.com/apis/language/translate/v2/getting_started.html
+//   https://cloud.google.com/translate/docs/quickstarts
 
 #import "GTLRTranslateObjects.h"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranslate_DetectionsListResponse
+//   GTLRTranslate_BatchTranslateTextRequest
 //
 
-@implementation GTLRTranslate_DetectionsListResponse
-@dynamic detections;
+@implementation GTLRTranslate_BatchTranslateTextRequest
+@dynamic glossaries, inputConfigs, labels, models, outputConfig,
+         sourceLanguageCode, targetLanguageCodes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"detections" : [GTLRTranslate_DetectionsResource_Item class]
+    @"inputConfigs" : [GTLRTranslate_InputConfig class],
+    @"targetLanguageCodes" : [NSString class]
   };
   return map;
 }
@@ -31,11 +32,62 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranslate_DetectionsResource_Item
+//   GTLRTranslate_BatchTranslateTextRequest_Glossaries
 //
 
-@implementation GTLRTranslate_DetectionsResource_Item
-@dynamic confidence, isReliable, language;
+@implementation GTLRTranslate_BatchTranslateTextRequest_Glossaries
+
++ (Class)classForAdditionalProperties {
+  return [GTLRTranslate_TextGlossaryConfig class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_BatchTranslateTextRequest_Labels
+//
+
+@implementation GTLRTranslate_BatchTranslateTextRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_BatchTranslateTextRequest_Models
+//
+
+@implementation GTLRTranslate_BatchTranslateTextRequest_Models
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_CancelOperationRequest
+//
+
+@implementation GTLRTranslate_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_DetectedLanguage
+//
+
+@implementation GTLRTranslate_DetectedLanguage
+@dynamic confidence, languageCode;
 @end
 
 
@@ -45,13 +97,19 @@
 //
 
 @implementation GTLRTranslate_DetectLanguageRequest
-@dynamic q;
+@dynamic content, labels, mimeType, model;
+@end
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"q" : [NSString class]
-  };
-  return map;
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_DetectLanguageRequest_Labels
+//
+
+@implementation GTLRTranslate_DetectLanguageRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -59,25 +117,15 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranslate_GetSupportedLanguagesRequest
+//   GTLRTranslate_DetectLanguageResponse
 //
 
-@implementation GTLRTranslate_GetSupportedLanguagesRequest
-@dynamic target;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTranslate_LanguagesListResponse
-//
-
-@implementation GTLRTranslate_LanguagesListResponse
+@implementation GTLRTranslate_DetectLanguageResponse
 @dynamic languages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"languages" : [GTLRTranslate_LanguagesResource class]
+    @"languages" : [GTLRTranslate_DetectedLanguage class]
   };
   return map;
 }
@@ -87,11 +135,311 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranslate_LanguagesResource
+//   GTLRTranslate_Empty
 //
 
-@implementation GTLRTranslate_LanguagesResource
-@dynamic language, name;
+@implementation GTLRTranslate_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_GcsDestination
+//
+
+@implementation GTLRTranslate_GcsDestination
+@dynamic outputUriPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_GcsSource
+//
+
+@implementation GTLRTranslate_GcsSource
+@dynamic inputUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_Glossary
+//
+
+@implementation GTLRTranslate_Glossary
+@dynamic endTime, entryCount, inputConfig, languageCodesSet, languagePair, name,
+         submitTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_GlossaryInputConfig
+//
+
+@implementation GTLRTranslate_GlossaryInputConfig
+@dynamic gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_InputConfig
+//
+
+@implementation GTLRTranslate_InputConfig
+@dynamic gcsSource, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_LanguageCodePair
+//
+
+@implementation GTLRTranslate_LanguageCodePair
+@dynamic sourceLanguageCode, targetLanguageCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_LanguageCodesSet
+//
+
+@implementation GTLRTranslate_LanguageCodesSet
+@dynamic languageCodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"languageCodes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ListGlossariesResponse
+//
+
+@implementation GTLRTranslate_ListGlossariesResponse
+@dynamic glossaries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"glossaries" : [GTLRTranslate_Glossary class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"glossaries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ListLocationsResponse
+//
+
+@implementation GTLRTranslate_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRTranslate_Location class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ListOperationsResponse
+//
+
+@implementation GTLRTranslate_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRTranslate_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_Location
+//
+
+@implementation GTLRTranslate_Location
+@dynamic displayName, labels, locationId, metadata, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_Location_Labels
+//
+
+@implementation GTLRTranslate_Location_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_Location_Metadata
+//
+
+@implementation GTLRTranslate_Location_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_Operation
+//
+
+@implementation GTLRTranslate_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_Operation_Metadata
+//
+
+@implementation GTLRTranslate_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_Operation_Response
+//
+
+@implementation GTLRTranslate_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_OutputConfig
+//
+
+@implementation GTLRTranslate_OutputConfig
+@dynamic gcsDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_Status
+//
+
+@implementation GTLRTranslate_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRTranslate_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_Status_Details_Item
+//
+
+@implementation GTLRTranslate_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_SupportedLanguage
+//
+
+@implementation GTLRTranslate_SupportedLanguage
+@dynamic displayName, languageCode, supportSource, supportTarget;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_SupportedLanguages
+//
+
+@implementation GTLRTranslate_SupportedLanguages
+@dynamic languages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"languages" : [GTLRTranslate_SupportedLanguage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_TextGlossaryConfig
+//
+
+@implementation GTLRTranslate_TextGlossaryConfig
+@dynamic glossary, ignoreCase;
 @end
 
 
@@ -101,11 +449,12 @@
 //
 
 @implementation GTLRTranslate_TextRequest
-@dynamic format, model, q, source, target;
+@dynamic contents, glossaryConfig, labels, mimeType, model, sourceLanguageCode,
+         targetLanguageCode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"q" : [NSString class]
+    @"contents" : [NSString class]
   };
   return map;
 }
@@ -115,15 +464,30 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranslate_TranslationsListResponse
+//   GTLRTranslate_TextRequest_Labels
 //
 
-@implementation GTLRTranslate_TranslationsListResponse
-@dynamic translations;
+@implementation GTLRTranslate_TextRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_TextResponse
+//
+
+@implementation GTLRTranslate_TextResponse
+@dynamic glossaryTranslations, translations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"translations" : [GTLRTranslate_TranslationsResource class]
+    @"glossaryTranslations" : [GTLRTranslate_Translation class],
+    @"translations" : [GTLRTranslate_Translation class]
   };
   return map;
 }
@@ -133,9 +497,19 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranslate_TranslationsResource
+//   GTLRTranslate_Translation
 //
 
-@implementation GTLRTranslate_TranslationsResource
-@dynamic detectedSourceLanguage, model, translatedText;
+@implementation GTLRTranslate_Translation
+@dynamic detectedLanguageCode, glossaryConfig, model, translatedText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_WaitOperationRequest
+//
+
+@implementation GTLRTranslate_WaitOperationRequest
+@dynamic timeout;
 @end

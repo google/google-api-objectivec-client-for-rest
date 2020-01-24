@@ -113,6 +113,8 @@
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo;
 @class GTLRShoppingContent_OrderShipment;
 @class GTLRShoppingContent_OrderShipmentLineItemShipment;
+@class GTLRShoppingContent_PickupCarrierService;
+@class GTLRShoppingContent_PickupServicesPickupService;
 @class GTLRShoppingContent_PosCustomBatchRequestEntry;
 @class GTLRShoppingContent_PosCustomBatchResponseEntry;
 @class GTLRShoppingContent_PosDataProviders;
@@ -511,6 +513,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Type of the link between the two accounts. */
 @property(nonatomic, copy, nullable) NSString *linkType;
 
+/** List of provided services. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *services;
+
 @end
 
 
@@ -577,6 +582,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Type of the link between the two accounts. */
 @property(nonatomic, copy, nullable) NSString *linkType;
+
+/** List of provided services. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
 @end
 
@@ -4068,6 +4076,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "boxtal" (Boxtal)
  *  - "geodis" (GEODIS)
  *  - "tnt" (TNT)
+ *  - "db schenker" (DB Schenker)
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
@@ -4578,6 +4587,37 @@ NS_ASSUME_NONNULL_BEGIN
  *  "content#ordersUpdateShipmentResponse".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_PickupCarrierService
+ */
+@interface GTLRShoppingContent_PickupCarrierService : GTLRObject
+
+/** The name of the pickup carrier (e.g., "UPS"). Required. */
+@property(nonatomic, copy, nullable) NSString *carrierName;
+
+/** The name of the pickup service (e.g., "Access point"). Required. */
+@property(nonatomic, copy, nullable) NSString *serviceName;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_PickupServicesPickupService
+ */
+@interface GTLRShoppingContent_PickupServicesPickupService : GTLRObject
+
+/** The name of the carrier (e.g., "UPS"). Always present. */
+@property(nonatomic, copy, nullable) NSString *carrierName;
+
+/** The CLDR country code of the carrier (e.g., "US"). Always present. */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/** The name of the pickup service (e.g., "Access point"). Always present. */
+@property(nonatomic, copy, nullable) NSString *serviceName;
 
 @end
 
@@ -6589,11 +6629,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  The carrier-service pair delivering items to collection points. The list of
+ *  supported pickup services can be retrieved via the
+ *  getSupportedPickupServices method. Required if and only if the service
+ *  delivery type is pickup.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PickupCarrierService *pickupService;
+
+/**
  *  Shipping rate group definitions. Only the last one is allowed to have an
  *  empty applicableShippingLabels, which means "everything else". The other
  *  applicableShippingLabels must not overlap.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_RateGroup *> *rateGroups;
+
+/** Type of locations this service ships orders to. */
+@property(nonatomic, copy, nullable) NSString *shipmentType;
 
 @end
 
@@ -6805,6 +6856,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  "content#shippingsettingsGetSupportedHolidaysResponse".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_ShippingsettingsGetSupportedPickupServicesResponse
+ */
+@interface GTLRShoppingContent_ShippingsettingsGetSupportedPickupServicesResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#shippingsettingsGetSupportedPickupServicesResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** A list of supported pickup services. May be empty. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_PickupServicesPickupService *> *pickupServices;
 
 @end
 
