@@ -32,6 +32,25 @@ NSString * const kGTLRFirebaseHostingStatusStatusUnspecified = @"STATUS_UNSPECIF
 
 @end
 
+@implementation GTLRFirebaseHostingQuery_ProjectsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRFirebaseHostingQuery_ProjectsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Operation class];
+  query.loggingName = @"firebasehosting.projects.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseHostingQuery_SitesDomainsCreate
 
 @dynamic parent;
@@ -222,6 +241,31 @@ NSString * const kGTLRFirebaseHostingStatusStatusUnspecified = @"STATUS_UNSPECIF
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseHosting_SiteConfig class];
   query.loggingName = @"firebasehosting.sites.updateConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_SitesVersionsClone
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_CloneVersionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/versions:clone";
+  GTLRFirebaseHostingQuery_SitesVersionsClone *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Operation class];
+  query.loggingName = @"firebasehosting.sites.versions.clone";
   return query;
 }
 

@@ -100,6 +100,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3bet
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress.feature
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_CelebrityRecognition = @"CELEBRITY_RECOGNITION";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ExplicitContentDetection = @"EXPLICIT_CONTENT_DETECTION";
+NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_FaceDetection = @"FACE_DETECTION";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_FeatureUnspecified = @"FEATURE_UNSPECIFIED";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_LabelDetection = @"LABEL_DETECTION";
 NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_LogoRecognition = @"LOGO_RECOGNITION";
@@ -1471,6 +1472,24 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceDetectionAnnotation
+//
+
+@implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceDetectionAnnotation
+@dynamic thumbnail, tracks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tracks" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Track class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation
 //
 
@@ -1771,13 +1790,15 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationResults
 @dynamic celebrityRecognitionAnnotations, error, explicitAnnotation,
-         frameLabelAnnotations, inputUri, logoRecognitionAnnotations,
-         objectAnnotations, segment, segmentLabelAnnotations,
-         segmentPresenceLabelAnnotations, shotAnnotations, shotLabelAnnotations,
-         shotPresenceLabelAnnotations, speechTranscriptions, textAnnotations;
+         faceDetectionAnnotations, frameLabelAnnotations, inputUri,
+         logoRecognitionAnnotations, objectAnnotations, segment,
+         segmentLabelAnnotations, segmentPresenceLabelAnnotations,
+         shotAnnotations, shotLabelAnnotations, shotPresenceLabelAnnotations,
+         speechTranscriptions, textAnnotations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"faceDetectionAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceDetectionAnnotation class],
     @"frameLabelAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation class],
     @"logoRecognitionAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LogoRecognitionAnnotation class],
     @"objectAnnotations" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingAnnotation class],

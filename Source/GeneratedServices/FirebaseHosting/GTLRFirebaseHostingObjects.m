@@ -103,6 +103,21 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseHosting_CloneVersionRequest
+//
+
+@implementation GTLRFirebaseHosting_CloneVersionRequest
+@dynamic exclude, finalizeProperty, include, sourceVersion;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"finalizeProperty" : @"finalize" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseHosting_CloudRunRewrite
 //
 
@@ -275,6 +290,62 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseHosting_Operation
+//
+
+@implementation GTLRFirebaseHosting_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseHosting_Operation_Metadata
+//
+
+@implementation GTLRFirebaseHosting_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseHosting_Operation_Response
+//
+
+@implementation GTLRFirebaseHosting_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseHosting_PathFilter
+//
+
+@implementation GTLRFirebaseHosting_PathFilter
+@dynamic regexes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regexes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseHosting_PopulateVersionFilesRequest
 //
 
@@ -383,6 +454,38 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 
 @implementation GTLRFirebaseHosting_SiteConfig
 @dynamic maxVersions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseHosting_Status
+//
+
+@implementation GTLRFirebaseHosting_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRFirebaseHosting_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseHosting_Status_Details_Item
+//
+
+@implementation GTLRFirebaseHosting_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

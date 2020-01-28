@@ -1409,6 +1409,21 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceManagement_ServiceIdentity
+//
+
+@implementation GTLRServiceManagement_ServiceIdentity
+@dynamic descriptionProperty, displayName, serviceAccountParent;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceManagement_SetIamPolicyRequest
 //
 
@@ -1668,7 +1683,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Usage
-@dynamic producerNotificationChannel, requirements, rules;
+@dynamic producerNotificationChannel, requirements, rules, serviceIdentity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
