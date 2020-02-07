@@ -3737,6 +3737,12 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
       @"bs_encoded",
       @"bs_isPlistableType",
       @"bs_secureEncoded",
+      // New as of Catalina
+      @"bs_isXPCObject",
+      @"supportsBSXPCSecureCoding",
+      @"pep_onDetachedThread",
+      @"pep_onMainThread",
+      @"pep_onMainThreadIfNecessary",
     ];
     // GTLRObject methods
     NSArray *gtlrObjectReserved = @[
