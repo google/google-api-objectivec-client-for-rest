@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeStorageDevstorageReadWrite   = @"https://www.goog
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
+    self.rootURLString = @"https://storage.googleapis.com/";
     self.servicePath = @"storage/v1/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";

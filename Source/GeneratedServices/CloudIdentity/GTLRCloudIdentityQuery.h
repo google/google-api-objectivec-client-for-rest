@@ -95,7 +95,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForGroupsDeleteWithname:]
 
 /**
- *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  Group in the format: `groups/{group_id}`, where `group_id` is the unique ID
  *  assigned to the Group.
  */
@@ -106,7 +107,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  Deletes a Group.
  *
- *  @param name [Resource
+ *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    Group in the format: `groups/{group_id}`, where `group_id` is the unique
  *    ID
@@ -133,7 +134,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForGroupsGetWithname:]
 
 /**
- *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  Group in the format: `groups/{group_id}`, where `group_id` is the unique ID
  *  assigned to the Group.
  */
@@ -144,7 +146,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  Retrieves a Group.
  *
- *  @param name [Resource
+ *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    Group in the format: `groups/{group_id}`, where `group_id` is the unique
  *    ID
@@ -181,10 +183,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  `Required`. May be made Optional in the future.
- *  Customer ID to list all groups from.
- */
+/** Required. Customer ID to list all groups from. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -270,7 +269,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForGroupsMembershipsCreateWithObject:parent:]
 
 /**
- *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  Group to create Membership within. Format: `groups/{group_id}`, where
  *  `group_id` is the unique ID assigned to the Group.
  */
@@ -282,7 +282,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Creates a Membership.
  *
  *  @param object The @c GTLRCloudIdentity_Membership to include in the query.
- *  @param parent [Resource
+ *  @param parent Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    Group to create Membership within. Format: `groups/{group_id}`, where
  *    `group_id` is the unique ID assigned to the Group.
@@ -308,7 +308,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForGroupsMembershipsDeleteWithname:]
 
 /**
- *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  Membership to be deleted.
  *  Format: `groups/{group_id}/memberships/{member_id}`, where `group_id` is
  *  the unique ID assigned to the Group to which Membership belongs to, and
@@ -321,7 +322,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  Deletes a Membership.
  *
- *  @param name [Resource
+ *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    Membership to be deleted.
  *    Format: `groups/{group_id}/memberships/{member_id}`, where `group_id` is
@@ -349,7 +350,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForGroupsMembershipsGetWithname:]
 
 /**
- *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  Membership to be retrieved.
  *  Format: `groups/{group_id}/memberships/{member_id}`, where `group_id` is
  *  the unique id assigned to the Group to which Membership belongs to, and
@@ -362,7 +364,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  Retrieves a Membership.
  *
- *  @param name [Resource
+ *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    Membership to be retrieved.
  *    Format: `groups/{group_id}/memberships/{member_id}`, where `group_id` is
@@ -401,7 +403,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  Group to list Memberships within.
  *  Format: `groups/{group_id}`, where `group_id` is the unique ID assigned to
  *  the Group.
@@ -423,7 +426,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  Lists Memberships within a Group.
  *
- *  @param parent [Resource
+ *  @param parent Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    Group to list Memberships within.
  *    Format: `groups/{group_id}`, where `group_id` is the unique ID assigned to
@@ -471,7 +474,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *memberKeyNamespace;
 
 /**
- *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  Group to lookup Membership within.
  *  Format: `groups/{group_id}`, where `group_id` is the unique ID assigned to
  *  the Group.
@@ -485,7 +489,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  name](https://cloud.google.com/apis/design/resource_names) of a Membership
  *  within a Group by member's EntityKey.
  *
- *  @param parent [Resource
+ *  @param parent Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    Group to lookup Membership within.
  *    Format: `groups/{group_id}`, where `group_id` is the unique ID assigned to
@@ -520,7 +524,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Editable fields: `display_name`, `description`
+ *  Required. Editable fields: `display_name`, `description`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -571,7 +575,8 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  `Required`. Query string for performing search on groups. Users can search
+ *  Required. `Required`. Query string for performing search on groups. Users
+ *  can search
  *  on parent and label attributes of groups.
  *  EXACT match ('==') is supported on parent, and CONTAINS match ('in') is
  *  supported on labels.

@@ -57,10 +57,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  (https://cloud.google.com/apis/design/custom_methods) and does not return
  *  the complete resource, only the resource identifier and high level
  *  fields. Clients can subsequentally call `Get` methods.
- *  Note that searches do not have full recall. There may be results that match
- *  your query but are not returned, even in subsequent pages of results. These
- *  missing results may vary across repeated calls to search. Do not rely on
- *  this method if you need to guarantee full recall.
+ *  Note that Data Catalog search queries do not guarantee full recall. Query
+ *  results that match your query may not be returned, even in subsequent
+ *  result pages. Also note that results returned (and not returned) can vary
+ *  across repeated search queries.
  *  See [Data Catalog Search
  *  Syntax](/data-catalog/docs/how-to/search-reference) for more information.
  *
@@ -83,10 +83,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  (https://cloud.google.com/apis/design/custom_methods) and does not return
  *  the complete resource, only the resource identifier and high level
  *  fields. Clients can subsequentally call `Get` methods.
- *  Note that searches do not have full recall. There may be results that match
- *  your query but are not returned, even in subsequent pages of results. These
- *  missing results may vary across repeated calls to search. Do not rely on
- *  this method if you need to guarantee full recall.
+ *  Note that Data Catalog search queries do not guarantee full recall. Query
+ *  results that match your query may not be returned, even in subsequent
+ *  result pages. Also note that results returned (and not returned) can vary
+ *  across repeated search queries.
  *  See [Data Catalog Search
  *  Syntax](/data-catalog/docs/how-to/search-reference) for more information.
  *
@@ -153,11 +153,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Alpha feature.
  *  Creates an EntryGroup.
  *  The user should enable the Data Catalog API in the project identified by
  *  the `parent` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  A maximum of 10,000 entry groups may be created per organization across all
+ *  locations.
  *
  *  Method: datacatalog.projects.locations.entryGroups.create
  *
@@ -186,11 +187,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup.
  *
- *  Alpha feature.
  *  Creates an EntryGroup.
  *  The user should enable the Data Catalog API in the project identified by
  *  the `parent` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  A maximum of 10,000 entry groups may be created per organization across all
+ *  locations.
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup
  *    to include in the query.
@@ -208,7 +210,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Alpha feature.
  *  Deletes an EntryGroup. Only entry groups that do not contain entries can be
  *  deleted. The user should enable the Data Catalog API in the project
  *  identified by the `name` parameter (see [Data Catalog Resource Project]
@@ -235,7 +236,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_Empty.
  *
- *  Alpha feature.
  *  Deletes an EntryGroup. Only entry groups that do not contain entries can be
  *  deleted. The user should enable the Data Catalog API in the project
  *  identified by the `name` parameter (see [Data Catalog Resource Project]
@@ -251,11 +251,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Alpha feature.
- *  Creates an entry. Currently only entries of 'FILESET' type can be created.
+ *  Creates an entry. Only entries of 'FILESET' type or user-specified type can
+ *  be created.
  *  The user should enable the Data Catalog API in the project identified by
  *  the `parent` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  A maximum of 100,000 entries may be created per entry group.
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.create
  *
@@ -280,11 +281,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.
  *
- *  Alpha feature.
- *  Creates an entry. Currently only entries of 'FILESET' type can be created.
+ *  Creates an entry. Only entries of 'FILESET' type or user-specified type can
+ *  be created.
  *  The user should enable the Data Catalog API in the project identified by
  *  the `parent` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  A maximum of 100,000 entries may be created per entry group.
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry to
  *    include in the query.
@@ -302,7 +304,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Alpha feature.
  *  Deletes an existing entry. Only entries created through
  *  CreateEntry
  *  method can be deleted.
@@ -329,7 +330,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_Empty.
  *
- *  Alpha feature.
  *  Deletes an existing entry. Only entries created through
  *  CreateEntry
  *  method can be deleted.
@@ -451,6 +451,68 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataCatalog_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists entries.
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.entries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesList : GTLRDataCatalogQuery
+// Previous library name was
+//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesListWithparent:]
+
+/**
+ *  The maximum number of items to return. Default is 10. Max limit is 1000.
+ *  Throws an invalid argument for `page_size > 1000`.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Token that specifies which page is requested. If empty, the first page is
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the entry group that contains the entries, which can
+ *  be provided in URL format. Example:
+ *  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The fields to return for each Entry. If not set or empty, all
+ *  fields are returned.
+ *  For example, setting read_mask to contain only one path "name" will cause
+ *  ListEntries to return a list of Entries with only "name" field.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntriesResponse.
+ *
+ *  Lists entries.
+ *
+ *  @param parent Required. The name of the entry group that contains the
+ *    entries, which can
+ *    be provided in URL format. Example:
+ *    * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -765,7 +827,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Alpha feature.
  *  Gets an EntryGroup.
  *
  *  Method: datacatalog.projects.locations.entryGroups.get
@@ -793,7 +854,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup.
  *
- *  Alpha feature.
  *  Gets an EntryGroup.
  *
  *  @param name Required. The name of the entry group. For example,
@@ -866,6 +926,114 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataCatalog_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists entry groups.
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsList : GTLRDataCatalogQuery
+// Previous library name was
+//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsListWithparent:]
+
+/**
+ *  Optional. The maximum number of items to return. Default is 10. Max limit is
+ *  1000.
+ *  Throws an invalid argument for `page_size > 1000`.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token that specifies which page is requested. If empty, the first
+ *  page is
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the location that contains the entry groups, which can
+ *  be
+ *  provided in URL format. Example:
+ *  * projects/{project_id}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntryGroupsResponse.
+ *
+ *  Lists entry groups.
+ *
+ *  @param parent Required. The name of the location that contains the entry
+ *    groups, which can be
+ *    provided in URL format. Example:
+ *    * projects/{project_id}/locations/{location}
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an EntryGroup. The user should enable the Data Catalog API in the
+ *  project identified by the `entry_group.name` parameter (see [Data Catalog
+ *  Resource Project] (/data-catalog/docs/concepts/resource-project) for more
+ *  information).
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsPatch : GTLRDataCatalogQuery
+// Previous library name was
+//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsPatchWithObject:name:]
+
+/**
+ *  The resource name of the entry group in URL format. Example:
+ *  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+ *  Note that this EntryGroup and its child resources may not actually be
+ *  stored in the location in this name.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The fields to update on the entry group. If absent or empty, all modifiable
+ *  fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup.
+ *
+ *  Updates an EntryGroup. The user should enable the Data Catalog API in the
+ *  project identified by the `entry_group.name` parameter (see [Data Catalog
+ *  Resource Project] (/data-catalog/docs/concepts/resource-project) for more
+ *  information).
+ *
+ *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup
+ *    to include in the query.
+ *  @param name The resource name of the entry group in URL format. Example:
+ *    * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+ *    Note that this EntryGroup and its child resources may not actually be
+ *    stored in the location in this name.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1005,11 +1173,11 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. The name of the project and the location this template is in.
+ *  Required. The name of the project and the template location
+ *  [region](/compute/docs/regions-zones/#available).
+ *  NOTE: Currently, only the `us-central1 region` is supported.
  *  Example:
- *  * projects/{project_id}/locations/{location}
- *  TagTemplate and its child resources may not actually be stored in the
- *  location in this name.
+ *  * projects/{project_id}/locations/us-central1
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1027,12 +1195,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate to include in the
  *    query.
- *  @param parent Required. The name of the project and the location this
- *    template is in.
+ *  @param parent Required. The name of the project and the template location
+ *    [region](/compute/docs/regions-zones/#available).
+ *    NOTE: Currently, only the `us-central1 region` is supported.
  *    Example:
- *    * projects/{project_id}/locations/{location}
- *    TagTemplate and its child resources may not actually be stored in the
- *    location in this name.
+ *    * projects/{project_id}/locations/us-central1
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesCreate
  */
@@ -1104,10 +1271,11 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesFieldsCreateWithObject:parent:]
 
 /**
- *  Required. The name of the project this template is in. Example:
- *  * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
- *  Note that this TagTemplateField may not actually be stored in the location
- *  in this name.
+ *  Required. The name of the project and the template location
+ *  [region](/compute/docs/regions-zones/#available).
+ *  NOTE: Currently, only the `us-central1 region` is supported.
+ *  Example:
+ *  * projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1132,12 +1300,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField to include
  *    in the query.
- *  @param parent Required. The name of the project this template is in.
+ *  @param parent Required. The name of the project and the template location
+ *    [region](/compute/docs/regions-zones/#available).
+ *    NOTE: Currently, only the `us-central1 region` is supported.
  *    Example:
  *    *
- *    projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
- *    Note that this TagTemplateField may not actually be stored in the location
- *    in this name.
+ *    projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsCreate
  */

@@ -615,7 +615,10 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @interface GTLRSpanner_Delete : GTLRObject
 
 /**
- *  Required. The primary keys of the rows within table to delete.
+ *  Required. The primary keys of the rows within table to delete. The
+ *  primary keys must be specified in the order in which they appear in the
+ *  `PRIMARY KEY()` clause of the table's equivalent DDL statement (the DDL
+ *  statement used to create the table).
  *  Delete is idempotent. The transaction will succeed even if some or all
  *  rows do not exist.
  */
@@ -860,15 +863,34 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
- *  Represents an expression text. Example:
- *  title: "User account presence"
- *  description: "Determines whether the request has a user account"
- *  expression: "size(request.user) > 0"
+ *  Represents a textual expression in the Common Expression Language (CEL)
+ *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
+ *  are documented at https://github.com/google/cel-spec.
+ *  Example (Comparison):
+ *  title: "Summary size limit"
+ *  description: "Determines if a summary is less than 100 chars"
+ *  expression: "document.summary.size() < 100"
+ *  Example (Equality):
+ *  title: "Requestor is owner"
+ *  description: "Determines if requestor is the document owner"
+ *  expression: "document.owner == request.auth.claims.email"
+ *  Example (Logic):
+ *  title: "Public documents"
+ *  description: "Determine whether the document should be publicly visible"
+ *  expression: "document.type != 'private' && document.type != 'internal'"
+ *  Example (Data Manipulation):
+ *  title: "Notification string"
+ *  description: "Create a notification string with a timestamp."
+ *  expression: "'New message received at ' + string(document.create_time)"
+ *  The exact variables and functions that may be referenced within an
+ *  expression
+ *  are determined by the service that evaluates it. See the service
+ *  documentation for additional information.
  */
 @interface GTLRSpanner_Expr : GTLRObject
 
 /**
- *  An optional description of the expression. This is a longer text which
+ *  Optional. Description of the expression. This is a longer text which
  *  describes the expression, e.g. when hovered over it in a UI.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -876,21 +898,19 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Textual representation of an expression in
- *  Common Expression Language syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
+ *  Textual representation of an expression in Common Expression Language
+ *  syntax.
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  An optional string indicating the location of the expression for error
+ *  Optional. String indicating the location of the expression for error
  *  reporting, e.g. a file name and a position in the file.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  An optional title for the expression, i.e. a short string describing
+ *  Optional. Title for the expression, i.e. a short string describing
  *  its purpose. This can be used e.g. in UIs which allow to enter the
  *  expression.
  */

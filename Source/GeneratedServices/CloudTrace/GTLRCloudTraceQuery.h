@@ -45,6 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sends new spans to new or existing traces. You cannot update
  *  existing spans.
+ *  In this case, writing traces is not considered an active developer
+ *  method since traces are machine generated.
  *
  *  Method: cloudtrace.projects.traces.batchWrite
  *
@@ -67,6 +69,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sends new spans to new or existing traces. You cannot update
  *  existing spans.
+ *  In this case, writing traces is not considered an active developer
+ *  method since traces are machine generated.
  *
  *  @param object The @c GTLRCloudTrace_BatchWriteSpansRequest to include in the
  *    query.
@@ -83,6 +87,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new span.
+ *  In this case, writing traces is not considered an active developer
+ *  method since traces are machine generated.
  *
  *  Method: cloudtrace.projects.traces.spans.createSpan
  *
@@ -108,6 +114,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudTrace_Span.
  *
  *  Creates a new span.
+ *  In this case, writing traces is not considered an active developer
+ *  method since traces are machine generated.
  *
  *  @param object The @c GTLRCloudTrace_Span to include in the query.
  *  @param name The resource name of the span in the following format:

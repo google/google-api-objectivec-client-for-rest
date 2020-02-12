@@ -29,13 +29,7 @@
 
 @class GTLRDataFusion_AuditConfig;
 @class GTLRDataFusion_AuditLogConfig;
-@class GTLRDataFusion_AuthorizationLoggingOptions;
 @class GTLRDataFusion_Binding;
-@class GTLRDataFusion_CloudAuditOptions;
-@class GTLRDataFusion_Condition;
-@class GTLRDataFusion_CounterOptions;
-@class GTLRDataFusion_CustomField;
-@class GTLRDataFusion_DataAccessOptions;
 @class GTLRDataFusion_Expr;
 @class GTLRDataFusion_Instance;
 @class GTLRDataFusion_Instance_Labels;
@@ -43,13 +37,11 @@
 @class GTLRDataFusion_Location;
 @class GTLRDataFusion_Location_Labels;
 @class GTLRDataFusion_Location_Metadata;
-@class GTLRDataFusion_LogConfig;
 @class GTLRDataFusion_NetworkConfig;
 @class GTLRDataFusion_Operation;
 @class GTLRDataFusion_Operation_Metadata;
 @class GTLRDataFusion_Operation_Response;
 @class GTLRDataFusion_Policy;
-@class GTLRDataFusion_Rule;
 @class GTLRDataFusion_Status;
 @class GTLRDataFusion_Status_Details_Item;
 @class GTLRDataFusion_Version;
@@ -91,242 +83,6 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataWrite;
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_LogTypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRDataFusion_AuthorizationLoggingOptions.permissionType
-
-/**
- *  A read of admin (meta) data.
- *
- *  Value: "ADMIN_READ"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_AdminRead;
-/**
- *  A write of admin (meta) data.
- *
- *  Value: "ADMIN_WRITE"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_AdminWrite;
-/**
- *  A read of standard data.
- *
- *  Value: "DATA_READ"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_DataRead;
-/**
- *  A write of standard data.
- *
- *  Value: "DATA_WRITE"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_DataWrite;
-/**
- *  Default. Should not be used.
- *
- *  Value: "PERMISSION_TYPE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRDataFusion_CloudAuditOptions.logName
-
-/**
- *  Corresponds to "cloudaudit.googleapis.com/activity"
- *
- *  Value: "ADMIN_ACTIVITY"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_CloudAuditOptions_LogName_AdminActivity;
-/**
- *  Corresponds to "cloudaudit.googleapis.com/data_access"
- *
- *  Value: "DATA_ACCESS"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_CloudAuditOptions_LogName_DataAccess;
-/**
- *  Default. Should not be used.
- *
- *  Value: "UNSPECIFIED_LOG_NAME"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_CloudAuditOptions_LogName_UnspecifiedLogName;
-
-// ----------------------------------------------------------------------------
-// GTLRDataFusion_Condition.iam
-
-/**
- *  An approver (distinct from the requester) that has authorized this
- *  request.
- *  When used with IN, the condition indicates that one of the approvers
- *  associated with the request matches the specified principal, or is a
- *  member of the specified group. Approvers can only grant additional
- *  access, and are thus only used in a strictly positive context
- *  (e.g. ALLOW/IN or DENY/NOT_IN).
- *
- *  Value: "APPROVER"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Iam_Approver;
-/**
- *  The principal (even if an authority selector is present), which
- *  must only be used for attribution, not authorization.
- *
- *  Value: "ATTRIBUTION"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Iam_Attribution;
-/**
- *  Either principal or (if present) authority selector.
- *
- *  Value: "AUTHORITY"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Iam_Authority;
-/**
- *  What type of credentials have been supplied with this request.
- *  String values should match enum names from
- *  security_loas_l2.CredentialsType - currently, only CREDS_TYPE_EMERGENCY
- *  is supported.
- *  It is not permitted to grant access based on the *absence* of a
- *  credentials type, so the conditions can only be used in a "positive"
- *  context (e.g., ALLOW/IN or DENY/NOT_IN).
- *
- *  Value: "CREDENTIALS_TYPE"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Iam_CredentialsType;
-/**
- *  What types of justifications have been supplied with this request.
- *  String values should match enum names from
- *  security.credentials.JustificationType, e.g. "MANUAL_STRING". It is not
- *  permitted to grant access based on the *absence* of a justification, so
- *  justification conditions can only be used in a "positive" context
- *  (e.g., ALLOW/IN or DENY/NOT_IN).
- *  Multiple justifications, e.g., a Buganizer ID and a manually-entered
- *  reason, are normal and supported.
- *
- *  Value: "JUSTIFICATION_TYPE"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Iam_JustificationType;
-/**
- *  Default non-attribute.
- *
- *  Value: "NO_ATTR"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Iam_NoAttr;
-/**
- *  Any of the security realms in the IAMContext (go/security-realms).
- *  When used with IN, the condition indicates "any of the request's realms
- *  match one of the given values; with NOT_IN, "none of the realms match
- *  any of the given values". Note that a value can be:
- *  - 'self' (i.e., allow connections from clients that are in the same
- *  security realm)
- *  - a realm (e.g., 'campus-abc')
- *  - a realm group (e.g., 'realms-for-borg-cell-xx', see: go/realm-groups)
- *  A match is determined by a realm group
- *  membership check performed by a RealmAclRep object (go/realm-acl-howto).
- *  It is not permitted to grant access based on the *absence* of a realm, so
- *  realm conditions can only be used in a "positive" context (e.g., ALLOW/IN
- *  or DENY/NOT_IN).
- *
- *  Value: "SECURITY_REALM"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Iam_SecurityRealm;
-
-// ----------------------------------------------------------------------------
-// GTLRDataFusion_Condition.op
-
-/**
- *  Subject is discharged
- *
- *  Value: "DISCHARGED"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Op_Discharged;
-/**
- *  DEPRECATED. Use IN instead.
- *
- *  Value: "EQUALS"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Op_Equals;
-/**
- *  The condition is true if the subject (or any element of it if it is
- *  a set) matches any of the supplied values.
- *
- *  Value: "IN"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Op_In;
-/**
- *  Default no-op.
- *
- *  Value: "NO_OP"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Op_NoOp;
-/**
- *  DEPRECATED. Use NOT_IN instead.
- *
- *  Value: "NOT_EQUALS"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Op_NotEquals;
-/**
- *  The condition is true if the subject (or every element of it if it is
- *  a set) matches none of the supplied values.
- *
- *  Value: "NOT_IN"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Op_NotIn;
-
-// ----------------------------------------------------------------------------
-// GTLRDataFusion_Condition.sys
-
-/**
- *  IP address of the caller
- *
- *  Value: "IP"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Sys_Ip;
-/**
- *  Resource name
- *
- *  Value: "NAME"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Sys_Name;
-/**
- *  Default non-attribute type
- *
- *  Value: "NO_ATTR"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Sys_NoAttr;
-/**
- *  Region of the resource
- *
- *  Value: "REGION"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Sys_Region;
-/**
- *  Service name
- *
- *  Value: "SERVICE"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Condition_Sys_Service;
-
-// ----------------------------------------------------------------------------
-// GTLRDataFusion_DataAccessOptions.logMode
-
-/**
- *  The application's operation in the context of which this authorization
- *  check is being made may only be performed if it is successfully logged
- *  to Gin. For instance, the authorization library may satisfy this
- *  obligation by emitting a partial log entry at authorization check time
- *  and only returning ALLOW to the application if it succeeds.
- *  If a matching Rule has this directive, but the client has not indicated
- *  that it will honor such requirements, then the IAM check will result in
- *  authorization failure by setting CheckPolicyResponse.success=false.
- *
- *  Value: "LOG_FAIL_CLOSED"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_DataAccessOptions_LogMode_LogFailClosed;
-/**
- *  Client is not required to write a partial Gin log immediately after
- *  the authorization check. If client chooses to write one and it fails,
- *  client may either fail open (allow the operation to continue) or
- *  fail closed (handle as a DENY outcome).
- *
- *  Value: "LOG_MODE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_DataAccessOptions_LogMode_LogModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataFusion_Instance.state
@@ -419,48 +175,6 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Enterprise;
  */
 GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified;
 
-// ----------------------------------------------------------------------------
-// GTLRDataFusion_Rule.action
-
-/**
- *  Matching 'Entries' grant access.
- *
- *  Value: "ALLOW"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_Allow;
-/**
- *  Matching 'Entries' grant access and the caller promises to log
- *  the request per the returned log_configs.
- *
- *  Value: "ALLOW_WITH_LOG"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_AllowWithLog;
-/**
- *  Matching 'Entries' deny access.
- *
- *  Value: "DENY"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_Deny;
-/**
- *  Matching 'Entries' deny access and the caller promises to log
- *  the request per the returned log_configs.
- *
- *  Value: "DENY_WITH_LOG"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_DenyWithLog;
-/**
- *  Matching 'Entries' tell IAM.Check callers to generate logs.
- *
- *  Value: "LOG"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_Log;
-/**
- *  Default no action.
- *
- *  Value: "NO_ACTION"
- */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
-
 /**
  *  Specifies the audit configuration for a service.
  *  The configuration determines which permission types are logged, and what
@@ -515,8 +229,6 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 /** The configuration for logging of each type of permission. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_AuditLogConfig *> *auditLogConfigs;
 
-@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
-
 /**
  *  Specifies a service that will be enabled for audit logging.
  *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
@@ -556,13 +268,6 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
- *  ignoreChildExemptions
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
-
-/**
  *  The log type that this config enables.
  *
  *  Likely values:
@@ -576,31 +281,6 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *        case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *logType;
-
-@end
-
-
-/**
- *  Authorization-related information used by Cloud Audit Logging.
- */
-@interface GTLRDataFusion_AuthorizationLoggingOptions : GTLRObject
-
-/**
- *  The type of the permission that was checked.
- *
- *  Likely values:
- *    @arg @c kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_AdminRead
- *        A read of admin (meta) data. (Value: "ADMIN_READ")
- *    @arg @c kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_AdminWrite
- *        A write of admin (meta) data. (Value: "ADMIN_WRITE")
- *    @arg @c kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_DataRead
- *        A read of standard data. (Value: "DATA_READ")
- *    @arg @c kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_DataWrite
- *        A write of standard data. (Value: "DATA_WRITE")
- *    @arg @c kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified
- *        Default. Should not be used. (Value: "PERMISSION_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *permissionType;
 
 @end
 
@@ -631,6 +311,23 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
  *  * `group:{emailid}`: An email address that represents a Google group.
  *  For example, `admins\@example.com`.
+ *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For
+ *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
+ *  recovered, this value reverts to `user:{emailid}` and the recovered user
+ *  retains the role in the binding.
+ *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
+ *  unique identifier) representing a service account that has been recently
+ *  deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
+ *  If the service account is undeleted, this value reverts to
+ *  `serviceAccount:{emailid}` and the undeleted service account retains the
+ *  role in the binding.
+ *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a Google group that has been recently
+ *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
+ *  the group is recovered, this value reverts to `group:{emailid}` and the
+ *  recovered group retains the role in the binding.
  *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
  *  users of that domain. For example, `google.com` or `example.com`.
  */
@@ -653,232 +350,6 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 
 
 /**
- *  Write a Cloud Audit log
- */
-@interface GTLRDataFusion_CloudAuditOptions : GTLRObject
-
-/** Information used by the Cloud Audit Logging pipeline. */
-@property(nonatomic, strong, nullable) GTLRDataFusion_AuthorizationLoggingOptions *authorizationLoggingOptions;
-
-/**
- *  The log_name to populate in the Cloud Audit Record.
- *
- *  Likely values:
- *    @arg @c kGTLRDataFusion_CloudAuditOptions_LogName_AdminActivity
- *        Corresponds to "cloudaudit.googleapis.com/activity" (Value:
- *        "ADMIN_ACTIVITY")
- *    @arg @c kGTLRDataFusion_CloudAuditOptions_LogName_DataAccess Corresponds
- *        to "cloudaudit.googleapis.com/data_access" (Value: "DATA_ACCESS")
- *    @arg @c kGTLRDataFusion_CloudAuditOptions_LogName_UnspecifiedLogName
- *        Default. Should not be used. (Value: "UNSPECIFIED_LOG_NAME")
- */
-@property(nonatomic, copy, nullable) NSString *logName;
-
-@end
-
-
-/**
- *  A condition to be met.
- */
-@interface GTLRDataFusion_Condition : GTLRObject
-
-/**
- *  Trusted attributes supplied by the IAM system.
- *
- *  Likely values:
- *    @arg @c kGTLRDataFusion_Condition_Iam_Approver An approver (distinct from
- *        the requester) that has authorized this
- *        request.
- *        When used with IN, the condition indicates that one of the approvers
- *        associated with the request matches the specified principal, or is a
- *        member of the specified group. Approvers can only grant additional
- *        access, and are thus only used in a strictly positive context
- *        (e.g. ALLOW/IN or DENY/NOT_IN). (Value: "APPROVER")
- *    @arg @c kGTLRDataFusion_Condition_Iam_Attribution The principal (even if
- *        an authority selector is present), which
- *        must only be used for attribution, not authorization. (Value:
- *        "ATTRIBUTION")
- *    @arg @c kGTLRDataFusion_Condition_Iam_Authority Either principal or (if
- *        present) authority selector. (Value: "AUTHORITY")
- *    @arg @c kGTLRDataFusion_Condition_Iam_CredentialsType What type of
- *        credentials have been supplied with this request.
- *        String values should match enum names from
- *        security_loas_l2.CredentialsType - currently, only
- *        CREDS_TYPE_EMERGENCY
- *        is supported.
- *        It is not permitted to grant access based on the *absence* of a
- *        credentials type, so the conditions can only be used in a "positive"
- *        context (e.g., ALLOW/IN or DENY/NOT_IN). (Value: "CREDENTIALS_TYPE")
- *    @arg @c kGTLRDataFusion_Condition_Iam_JustificationType What types of
- *        justifications have been supplied with this request.
- *        String values should match enum names from
- *        security.credentials.JustificationType, e.g. "MANUAL_STRING". It is
- *        not
- *        permitted to grant access based on the *absence* of a justification,
- *        so
- *        justification conditions can only be used in a "positive" context
- *        (e.g., ALLOW/IN or DENY/NOT_IN).
- *        Multiple justifications, e.g., a Buganizer ID and a manually-entered
- *        reason, are normal and supported. (Value: "JUSTIFICATION_TYPE")
- *    @arg @c kGTLRDataFusion_Condition_Iam_NoAttr Default non-attribute.
- *        (Value: "NO_ATTR")
- *    @arg @c kGTLRDataFusion_Condition_Iam_SecurityRealm Any of the security
- *        realms in the IAMContext (go/security-realms).
- *        When used with IN, the condition indicates "any of the request's
- *        realms
- *        match one of the given values; with NOT_IN, "none of the realms match
- *        any of the given values". Note that a value can be:
- *        - 'self' (i.e., allow connections from clients that are in the same
- *        security realm)
- *        - a realm (e.g., 'campus-abc')
- *        - a realm group (e.g., 'realms-for-borg-cell-xx', see:
- *        go/realm-groups)
- *        A match is determined by a realm group
- *        membership check performed by a RealmAclRep object
- *        (go/realm-acl-howto).
- *        It is not permitted to grant access based on the *absence* of a realm,
- *        so
- *        realm conditions can only be used in a "positive" context (e.g.,
- *        ALLOW/IN
- *        or DENY/NOT_IN). (Value: "SECURITY_REALM")
- */
-@property(nonatomic, copy, nullable) NSString *iam;
-
-/**
- *  An operator to apply the subject with.
- *
- *  Likely values:
- *    @arg @c kGTLRDataFusion_Condition_Op_Discharged Subject is discharged
- *        (Value: "DISCHARGED")
- *    @arg @c kGTLRDataFusion_Condition_Op_Equals DEPRECATED. Use IN instead.
- *        (Value: "EQUALS")
- *    @arg @c kGTLRDataFusion_Condition_Op_In The condition is true if the
- *        subject (or any element of it if it is
- *        a set) matches any of the supplied values. (Value: "IN")
- *    @arg @c kGTLRDataFusion_Condition_Op_NoOp Default no-op. (Value: "NO_OP")
- *    @arg @c kGTLRDataFusion_Condition_Op_NotEquals DEPRECATED. Use NOT_IN
- *        instead. (Value: "NOT_EQUALS")
- *    @arg @c kGTLRDataFusion_Condition_Op_NotIn The condition is true if the
- *        subject (or every element of it if it is
- *        a set) matches none of the supplied values. (Value: "NOT_IN")
- */
-@property(nonatomic, copy, nullable) NSString *op;
-
-/** Trusted attributes discharged by the service. */
-@property(nonatomic, copy, nullable) NSString *svc;
-
-/**
- *  Trusted attributes supplied by any service that owns resources and uses
- *  the IAM system for access control.
- *
- *  Likely values:
- *    @arg @c kGTLRDataFusion_Condition_Sys_Ip IP address of the caller (Value:
- *        "IP")
- *    @arg @c kGTLRDataFusion_Condition_Sys_Name Resource name (Value: "NAME")
- *    @arg @c kGTLRDataFusion_Condition_Sys_NoAttr Default non-attribute type
- *        (Value: "NO_ATTR")
- *    @arg @c kGTLRDataFusion_Condition_Sys_Region Region of the resource
- *        (Value: "REGION")
- *    @arg @c kGTLRDataFusion_Condition_Sys_Service Service name (Value:
- *        "SERVICE")
- */
-@property(nonatomic, copy, nullable) NSString *sys;
-
-/** The objects of the condition. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
-
-@end
-
-
-/**
- *  Increment a streamz counter with the specified metric and field names.
- *  Metric names should start with a '/', generally be lowercase-only,
- *  and end in "_count". Field names should not contain an initial slash.
- *  The actual exported metric names will have "/iam/policy" prepended.
- *  Field names correspond to IAM request parameters and field values are
- *  their respective values.
- *  Supported field names:
- *  - "authority", which is "[token]" if IAMContext.token is present,
- *  otherwise the value of IAMContext.authority_selector if present, and
- *  otherwise a representation of IAMContext.principal; or
- *  - "iam_principal", a representation of IAMContext.principal even if a
- *  token or authority selector is present; or
- *  - "" (empty string), resulting in a counter with no fields.
- *  Examples:
- *  counter { metric: "/debug_access_count" field: "iam_principal" }
- *  ==> increment counter /iam/policy/debug_access_count
- *  {iam_principal=[value of IAMContext.principal]}
- */
-@interface GTLRDataFusion_CounterOptions : GTLRObject
-
-/** Custom fields. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_CustomField *> *customFields;
-
-/** The field value to attribute. */
-@property(nonatomic, copy, nullable) NSString *field;
-
-/** The metric to update. */
-@property(nonatomic, copy, nullable) NSString *metric;
-
-@end
-
-
-/**
- *  Custom fields.
- *  These can be used to create a counter with arbitrary field/value
- *  pairs.
- *  See: go/rpcsp-custom-fields.
- */
-@interface GTLRDataFusion_CustomField : GTLRObject
-
-/** Name is the field name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Value is the field value. It is important that in contrast to the
- *  CounterOptions.field, the value here is a constant that is not
- *  derived from the IAMContext.
- */
-@property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
- *  Write a Data Access (Gin) log
- */
-@interface GTLRDataFusion_DataAccessOptions : GTLRObject
-
-/**
- *  Whether Gin logging should happen in a fail-closed manner at the caller.
- *  This is relevant only in the LocalIAM implementation, for now.
- *
- *  Likely values:
- *    @arg @c kGTLRDataFusion_DataAccessOptions_LogMode_LogFailClosed The
- *        application's operation in the context of which this authorization
- *        check is being made may only be performed if it is successfully logged
- *        to Gin. For instance, the authorization library may satisfy this
- *        obligation by emitting a partial log entry at authorization check time
- *        and only returning ALLOW to the application if it succeeds.
- *        If a matching Rule has this directive, but the client has not
- *        indicated
- *        that it will honor such requirements, then the IAM check will result
- *        in
- *        authorization failure by setting CheckPolicyResponse.success=false.
- *        (Value: "LOG_FAIL_CLOSED")
- *    @arg @c kGTLRDataFusion_DataAccessOptions_LogMode_LogModeUnspecified
- *        Client is not required to write a partial Gin log immediately after
- *        the authorization check. If client chooses to write one and it fails,
- *        client may either fail open (allow the operation to continue) or
- *        fail closed (handle as a DENY outcome). (Value:
- *        "LOG_MODE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *logMode;
-
-@end
-
-
-/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -892,15 +363,34 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 
 
 /**
- *  Represents an expression text. Example:
- *  title: "User account presence"
- *  description: "Determines whether the request has a user account"
- *  expression: "size(request.user) > 0"
+ *  Represents a textual expression in the Common Expression Language (CEL)
+ *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
+ *  are documented at https://github.com/google/cel-spec.
+ *  Example (Comparison):
+ *  title: "Summary size limit"
+ *  description: "Determines if a summary is less than 100 chars"
+ *  expression: "document.summary.size() < 100"
+ *  Example (Equality):
+ *  title: "Requestor is owner"
+ *  description: "Determines if requestor is the document owner"
+ *  expression: "document.owner == request.auth.claims.email"
+ *  Example (Logic):
+ *  title: "Public documents"
+ *  description: "Determine whether the document should be publicly visible"
+ *  expression: "document.type != 'private' && document.type != 'internal'"
+ *  Example (Data Manipulation):
+ *  title: "Notification string"
+ *  description: "Create a notification string with a timestamp."
+ *  expression: "'New message received at ' + string(document.create_time)"
+ *  The exact variables and functions that may be referenced within an
+ *  expression
+ *  are determined by the service that evaluates it. See the service
+ *  documentation for additional information.
  */
 @interface GTLRDataFusion_Expr : GTLRObject
 
 /**
- *  An optional description of the expression. This is a longer text which
+ *  Optional. Description of the expression. This is a longer text which
  *  describes the expression, e.g. when hovered over it in a UI.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -908,21 +398,19 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Textual representation of an expression in
- *  Common Expression Language syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
+ *  Textual representation of an expression in Common Expression Language
+ *  syntax.
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  An optional string indicating the location of the expression for error
+ *  Optional. String indicating the location of the expression for error
  *  reporting, e.g. a file name and a position in the file.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  An optional title for the expression, i.e. a short string describing
+ *  Optional. Title for the expression, i.e. a short string describing
  *  its purpose. This can be used e.g. in UIs which allow to enter the
  *  expression.
  */
@@ -973,9 +461,15 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) NSNumber *enableStackdriverMonitoring;
 
 /**
+ *  Output only. Cloud Storage bucket generated by Data Fusion in the customer
+ *  project.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsBucket;
+
+/**
  *  The resource labels for instance to use to annotate any related underlying
- *  resources such as GCE VMs. The character '=' is not allowed to be used
- *  within the labels.
+ *  resources such as Compute Engine VMs. The character '=' is not allowed to
+ *  be used within the labels.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Instance_Labels *labels;
 
@@ -1070,7 +564,7 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 /** Output only. The time the instance was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** Current version of the Data Fusion. Only specifiable in Update. */
+/** Current version of Data Fusion. */
 @property(nonatomic, copy, nullable) NSString *version;
 
 /**
@@ -1085,8 +579,8 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 
 /**
  *  The resource labels for instance to use to annotate any related underlying
- *  resources such as GCE VMs. The character '=' is not allowed to be used
- *  within the labels.
+ *  resources such as Compute Engine VMs. The character '=' is not allowed to
+ *  be used within the labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1250,23 +744,6 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 
 
 /**
- *  Specifies what kind of log the caller must write
- */
-@interface GTLRDataFusion_LogConfig : GTLRObject
-
-/** Cloud audit options. */
-@property(nonatomic, strong, nullable) GTLRDataFusion_CloudAuditOptions *cloudAudit;
-
-/** Counter options. */
-@property(nonatomic, strong, nullable) GTLRDataFusion_CounterOptions *counter;
-
-/** Data access options. */
-@property(nonatomic, strong, nullable) GTLRDataFusion_DataAccessOptions *dataAccess;
-
-@end
-
-
-/**
  *  Network configuration for a Data Fusion instance. These configurations
  *  are used for peering with the customer network. Configurations are optional
  *  when a public Data Fusion instance is to be created. However, providing
@@ -1414,17 +891,19 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 
 
 /**
- *  Defines an Identity and Access Management (IAM) policy. It is used to
- *  specify access control policies for Cloud Platform resources.
+ *  An Identity and Access Management (IAM) policy, which specifies access
+ *  controls for Google Cloud resources.
  *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
  *  `members` to a single `role`. Members can be user accounts, service
  *  accounts,
  *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions (defined by IAM or configured by users). A `binding` can
- *  optionally specify a `condition`, which is a logic expression that further
- *  constrains the role binding based on attributes about the request and/or
- *  target resource.
- *  **JSON Example**
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role.
+ *  Optionally, a `binding` can specify a `condition`, which is a logical
+ *  expression that allows access to a resource only if the expression evaluates
+ *  to `true`. A condition can add constraints based on attributes of the
+ *  request, the resource, or both.
+ *  **JSON example:**
  *  {
  *  "bindings": [
  *  {
@@ -1442,13 +921,14 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  "condition": {
  *  "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time <
- *  timestamp('2020-10-01T00:00:00.000Z')",
+ *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
  *  }
  *  }
- *  ]
+ *  ],
+ *  "etag": "BwWWja0YfJA=",
+ *  "version": 3
  *  }
- *  **YAML Example**
+ *  **YAML example:**
  *  bindings:
  *  - members:
  *  - user:mike\@example.com
@@ -1463,8 +943,10 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  title: expirable access
  *  description: Does not grant access after Sep 2020
  *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
+ *  - etag: BwWWja0YfJA=
+ *  - version: 3
  *  For a description of IAM and its features, see the
- *  [IAM developer's guide](https://cloud.google.com/iam/docs).
+ *  [IAM documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRDataFusion_Policy : GTLRObject
 
@@ -1472,9 +954,9 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally may specify a
- *  `condition` that determines when binding is in effect.
- *  `bindings` with no members will result in an error.
+ *  Associates a list of `members` to a `role`. Optionally, may specify a
+ *  `condition` that determines how and when the `bindings` are applied. Each
+ *  of the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Binding *> *bindings;
 
@@ -1486,10 +968,10 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
  *  systems are expected to put that etag in the request to `setIamPolicy` to
  *  ensure that their change will be applied to the same version of the policy.
- *  If no `etag` is provided in the call to `setIamPolicy`, then the existing
- *  policy is overwritten. Due to blind-set semantics of an etag-less policy,
- *  'setIamPolicy' will not fail even if either of incoming or stored policy
- *  does not meet the version requirements.
+ *  **Important:** If you use IAM Conditions, you must include the `etag` field
+ *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+ *  you to overwrite a version `3` policy with a version `1` policy, and all of
+ *  the conditions in the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1497,36 +979,22 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  iamOwned
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *iamOwned;
-
-/**
- *  If more than one rule is specified, the rules are applied in the following
- *  manner:
- *  - All matching LOG rules are always applied.
- *  - If any DENY/DENY_WITH_LOG rule matches, permission is denied.
- *  Logging will be applied if one or more matching rule requires logging.
- *  - Otherwise, if any ALLOW/ALLOW_WITH_LOG rule matches, permission is
- *  granted.
- *  Logging will be applied if one or more matching rule requires logging.
- *  - Otherwise, if no rule applies, permission is denied.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Rule *> *rules;
-
-/**
  *  Specifies the format of the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Operations affecting conditional bindings must specify version 3. This can
- *  be either setting a conditional policy, modifying a conditional binding,
- *  or removing a conditional binding from the stored conditional policy.
- *  Operations on non-conditional policies may specify any valid value or
- *  leave the field unset.
- *  If no etag is provided in the call to `setIamPolicy`, any version
- *  compliance checks on the incoming and/or stored policy is skipped.
+ *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
+ *  are rejected.
+ *  Any operation that affects conditional role bindings must specify version
+ *  `3`. This requirement applies to the following operations:
+ *  * Getting a policy that includes a conditional role binding
+ *  * Adding a conditional role binding to a policy
+ *  * Changing a conditional role binding in a policy
+ *  * Removing any role binding, with or without a condition, from a policy
+ *  that includes conditions
+ *  **Important:** If you use IAM Conditions, you must include the `etag` field
+ *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+ *  you to overwrite a version `3` policy with a version `1` policy, and all of
+ *  the conditions in the version `3` policy are lost.
+ *  If a policy does not include any conditions, operations on that policy may
+ *  specify any valid version or leave the field unset.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1539,77 +1007,6 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Rule_Action_NoAction;
  *  Request message for restarting a Data Fusion instance.
  */
 @interface GTLRDataFusion_RestartInstanceRequest : GTLRObject
-@end
-
-
-/**
- *  A rule to be applied in a Policy.
- */
-@interface GTLRDataFusion_Rule : GTLRObject
-
-/**
- *  Required
- *
- *  Likely values:
- *    @arg @c kGTLRDataFusion_Rule_Action_Allow Matching 'Entries' grant access.
- *        (Value: "ALLOW")
- *    @arg @c kGTLRDataFusion_Rule_Action_AllowWithLog Matching 'Entries' grant
- *        access and the caller promises to log
- *        the request per the returned log_configs. (Value: "ALLOW_WITH_LOG")
- *    @arg @c kGTLRDataFusion_Rule_Action_Deny Matching 'Entries' deny access.
- *        (Value: "DENY")
- *    @arg @c kGTLRDataFusion_Rule_Action_DenyWithLog Matching 'Entries' deny
- *        access and the caller promises to log
- *        the request per the returned log_configs. (Value: "DENY_WITH_LOG")
- *    @arg @c kGTLRDataFusion_Rule_Action_Log Matching 'Entries' tell IAM.Check
- *        callers to generate logs. (Value: "LOG")
- *    @arg @c kGTLRDataFusion_Rule_Action_NoAction Default no action. (Value:
- *        "NO_ACTION")
- */
-@property(nonatomic, copy, nullable) NSString *action;
-
-/**
- *  Additional restrictions that must be met. All conditions must pass for the
- *  rule to match.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Condition *> *conditions;
-
-/**
- *  Human-readable description of the rule.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  If one or more 'in' clauses are specified, the rule matches if
- *  the PRINCIPAL/AUTHORITY_SELECTOR is in at least one of these entries.
- *
- *  Remapped to 'inProperty' to avoid language reserved word 'in'.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *inProperty;
-
-/**
- *  The config returned to callers of tech.iam.IAM.CheckPolicy for any entries
- *  that match the LOG action.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_LogConfig *> *logConfig;
-
-/**
- *  If one or more 'not_in' clauses are specified, the rule matches
- *  if the PRINCIPAL/AUTHORITY_SELECTOR is in none of the entries.
- *  The format for in and not_in entries can be found at in the Local IAM
- *  documentation (see go/local-iam#features).
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *notIn;
-
-/**
- *  A permission is a string of form '<service>.<resource type>.<verb>'
- *  (e.g., 'storage.buckets.list'). A value of '*' matches all permissions,
- *  and a verb part of '*' (e.g., 'storage.buckets.*') matches all verbs.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
-
 @end
 
 

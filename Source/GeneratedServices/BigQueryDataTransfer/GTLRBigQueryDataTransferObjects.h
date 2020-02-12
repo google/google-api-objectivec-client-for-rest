@@ -21,6 +21,7 @@
 
 @class GTLRBigQueryDataTransfer_DataSource;
 @class GTLRBigQueryDataTransfer_DataSourceParameter;
+@class GTLRBigQueryDataTransfer_EmailPreferences;
 @class GTLRBigQueryDataTransfer_Location;
 @class GTLRBigQueryDataTransfer_Location_Labels;
 @class GTLRBigQueryDataTransfer_Location_Metadata;
@@ -564,6 +565,22 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 
 
 /**
+ *  Represents preferences for sending email notifications for transfer run
+ *  events.
+ */
+@interface GTLRBigQueryDataTransfer_EmailPreferences : GTLRObject
+
+/**
+ *  If true, email notifications will be sent on transfer run failures.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableFailureEmail;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -984,6 +1001,12 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Email notifications will be sent according to these preferences
+ *  to the email address of the user who owns this transfer config.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_EmailPreferences *emailPreferences;
+
+/**
  *  The resource name of the transfer config.
  *  Transfer config names have the form of
  *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
@@ -996,6 +1019,12 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 
 /** Output only. Next time when data transfer will run. */
 @property(nonatomic, strong, nullable) GTLRDateTime *nextRunTime;
+
+/**
+ *  Pub/Sub topic where notifications will be sent after transfer runs
+ *  associated with this transfer config finish.
+ */
+@property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
 /** Data transfer specific parameters. */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferConfig_Params *params;
@@ -1107,6 +1136,13 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
 @property(nonatomic, copy, nullable) NSString *destinationDatasetId;
 
 /**
+ *  Output only. Email notifications will be sent according to these
+ *  preferences to the email address of the user who owns the transfer config
+ *  this run was derived from.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_EmailPreferences *emailPreferences;
+
+/**
  *  Output only. Time when transfer run ended.
  *  Parameter ignored by server for input requests.
  */
@@ -1122,6 +1158,12 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  *  The name is ignored when creating a transfer run.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Pub/Sub topic where a notification will be sent after this
+ *  transfer run finishes
+ */
+@property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
 /** Output only. Data transfer specific parameters. */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferRun_Params *params;

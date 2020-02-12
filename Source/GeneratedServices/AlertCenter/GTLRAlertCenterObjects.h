@@ -33,12 +33,18 @@
 @class GTLRAlertCenter_GmailMessageInfo;
 @class GTLRAlertCenter_LoginDetails;
 @class GTLRAlertCenter_MaliciousEntity;
+@class GTLRAlertCenter_MatchInfo;
 @class GTLRAlertCenter_Notification;
+@class GTLRAlertCenter_PredefinedDetectorInfo;
 @class GTLRAlertCenter_RequestInfo;
+@class GTLRAlertCenter_ResourceInfo;
+@class GTLRAlertCenter_RuleInfo;
+@class GTLRAlertCenter_RuleViolationInfo;
 @class GTLRAlertCenter_Status;
 @class GTLRAlertCenter_Status_Details_Item;
 @class GTLRAlertCenter_SuspiciousActivitySecurityDetail;
 @class GTLRAlertCenter_User;
+@class GTLRAlertCenter_UserDefinedDetectorInfo;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -115,6 +121,62 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_Remo
  *  Value: "SYSTEM_ACTION_TYPE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_RuleViolationInfo.dataSource
+
+/**
+ *  Data source is unspecified.
+ *
+ *  Value: "DATA_SOURCE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_DataSourceUnspecified;
+/**
+ *  Drive data source.
+ *
+ *  Value: "DRIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_RuleViolationInfo.suppressedActionTypes
+
+/** Value: "ACTION_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ActionTypeUnspecified;
+/** Value: "ALERT" */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert;
+/** Value: "DRIVE_BLOCK_EXTERNAL_SHARING" */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveBlockExternalSharing;
+/** Value: "DRIVE_WARN_ON_EXTERNAL_SHARING" */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveWarnOnExternalSharing;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_RuleViolationInfo.trigger
+
+/**
+ *  A Drive file is shared.
+ *
+ *  Value: "DRIVE_SHARE"
+ */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_DriveShare;
+/**
+ *  Trigger is unspecified.
+ *
+ *  Value: "TRIGGER_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_TriggerUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_RuleViolationInfo.triggeredActionTypes
+
+/** Value: "ACTION_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ActionTypeUnspecified;
+/** Value: "ALERT" */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert;
+/** Value: "DRIVE_BLOCK_EXTERNAL_SHARING" */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveBlockExternalSharing;
+/** Value: "DRIVE_WARN_ON_EXTERNAL_SHARING" */
+GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveWarnOnExternalSharing;
 
 /**
  *  Alerts for user account warning events.
@@ -641,6 +703,23 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_Syst
 
 
 /**
+ *  Alerts that get triggered on violations of Data Loss Prevention (DLP) rules.
+ */
+@interface GTLRAlertCenter_DlpRuleViolation : GTLRObject
+
+/**
+ *  Details about the violated DLP rule.
+ *  Admins can use the predefined detectors provided by Google Cloud DLP
+ *  https://cloud.google.com/dlp/ when setting up a DLP rule. Matched Cloud DLP
+ *  detectors in this violation if any will be captured in the
+ *  MatchInfo.predefined_detector.
+ */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_RuleViolationInfo *ruleViolationInfo;
+
+@end
+
+
+/**
  *  Domain ID of Gmail phishing alerts.
  */
 @interface GTLRAlertCenter_DomainId : GTLRObject
@@ -870,6 +949,20 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_Syst
 
 
 /**
+ *  Proto that contains match information from the condition part of the rule.
+ */
+@interface GTLRAlertCenter_MatchInfo : GTLRObject
+
+/** For matched detector predefined by Google. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_PredefinedDetectorInfo *predefinedDetector;
+
+/** For matched detector defined by administrators. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_UserDefinedDetectorInfo *userDefinedDetector;
+
+@end
+
+
+/**
  *  Settings for callback notifications.
  *  For more details see [G Suite Alert
  *  Notification](/admin-sdk/alertcenter/guides/notifications).
@@ -910,6 +1003,17 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_Syst
 
 
 /**
+ *  Detector provided by Google.
+ */
+@interface GTLRAlertCenter_PredefinedDetectorInfo : GTLRObject
+
+/** Name that uniquely identifies the detector. */
+@property(nonatomic, copy, nullable) NSString *detectorName;
+
+@end
+
+
+/**
  *  Requests for one application that needs default SQL setup.
  */
 @interface GTLRAlertCenter_RequestInfo : GTLRObject
@@ -930,6 +1034,97 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_Syst
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numberOfRequests;
+
+@end
+
+
+/**
+ *  Proto that contains resource information.
+ */
+@interface GTLRAlertCenter_ResourceInfo : GTLRObject
+
+/** Drive file ID. */
+@property(nonatomic, copy, nullable) NSString *documentId;
+
+/** Title of the resource, e.g. email subject, or document title. */
+@property(nonatomic, copy, nullable) NSString *resourceTitle;
+
+@end
+
+
+/**
+ *  Proto that contains rule information.
+ */
+@interface GTLRAlertCenter_RuleInfo : GTLRObject
+
+/** User provided name of the rule. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Resource name that uniquely identifies the rule. */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  Common alert information about violated rules that are configured by G Suite
+ *  administrators.
+ */
+@interface GTLRAlertCenter_RuleViolationInfo : GTLRObject
+
+/**
+ *  Source of the data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_DataSource_DataSourceUnspecified
+ *        Data source is unspecified. (Value: "DATA_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive Drive data
+ *        source. (Value: "DRIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/** List of matches that were found in the resource content. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_MatchInfo *> *matchInfo;
+
+/**
+ *  Resource recipients.
+ *  For Drive, they are grantees that the Drive file was shared with at the
+ *  time of rule triggering. Valid values include user emails, group emails,
+ *  domains, or 'anyone' if the file was publicly accessible. If the file was
+ *  private the recipients list will be empty.
+ *  For Gmail, they are emails of the users or groups that the Gmail message
+ *  was sent to.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *recipients;
+
+/** Details of the resource which violated the rule. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_ResourceInfo *resourceInfo;
+
+/** Details of the violated rule. */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_RuleInfo *ruleInfo;
+
+/** Actions suppressed due to other actions with higher priority. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suppressedActionTypes;
+
+/**
+ *  Trigger of the rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_DriveShare A Drive file
+ *        is shared. (Value: "DRIVE_SHARE")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_TriggerUnspecified
+ *        Trigger is unspecified. (Value: "TRIGGER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *trigger;
+
+/** Actions applied as a consequence of the rule being triggered. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *triggeredActionTypes;
+
+/**
+ *  Email of the user who caused the violation. Value could be empty if not
+ *  applicable, for example, a violation found by drive continuous scan.
+ */
+@property(nonatomic, copy, nullable) NSString *triggeringUserEmail;
 
 @end
 
@@ -1075,6 +1270,20 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_Syst
 
 /** Email address of the user. */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
+
+@end
+
+
+/**
+ *  Detector defined by administrators.
+ */
+@interface GTLRAlertCenter_UserDefinedDetectorInfo : GTLRObject
+
+/** Display name of the detector. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Resource name that uniquely identifies the detector. */
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 

@@ -3186,6 +3186,22 @@ GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_
 GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_InstanceGroupManagersApplyUpdatesRequest.minimalAction
+
+/** Value: "REPLACE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace;
+/** Value: "RESTART" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Restart;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InstanceGroupManagersApplyUpdatesRequest.mostDisruptiveAllowedAction
+
+/** Value: "REPLACE" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace;
+/** Value: "RESTART" */
+GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagersScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -5940,6 +5956,22 @@ GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest.minimalAction
+
+/** Value: "REPLACE" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace;
+/** Value: "RESTART" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Restart;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest.mostDisruptiveAllowedAction
+
+/** Value: "REPLACE" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace;
+/** Value: "RESTART" */
+GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RegionInstanceGroupsListInstances_Warning.code
@@ -17548,11 +17580,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  - -3someString will not match.
  *  Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch
  *  or rangeMatch must be set.
+ *  Note that rangeMatch is not supported for Loadbalancers that have their
+ *  loadBalancingScheme set to EXTERNAL.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_Int64RangeMatch *rangeMatch;
 
 /**
- *  The value of the header must match the regualar expression specified in
+ *  The value of the header must match the regular expression specified in
  *  regexMatch. For regular expression grammar, please see:
  *  en.cppreference.com/w/cpp/regex/ecmascript
  *  For matching against a port specified in the HTTP request, use a headerMatch
@@ -17560,6 +17594,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  RFC2616 Host header's port specifier.
  *  Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch
  *  or rangeMatch must be set.
+ *  Note that regexMatch only applies to Loadbalancers that have their
+ *  loadBalancingScheme set to INTERNAL_SELF_MANAGED.
  */
 @property(nonatomic, copy, nullable) NSString *regexMatch;
 
@@ -17945,6 +17981,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  regular expression specified by regexMatch. For the regular expression
  *  grammar, please see en.cppreference.com/w/cpp/regex/ecmascript
  *  Only one of presentMatch, exactMatch or regexMatch must be set.
+ *  Note that regexMatch only applies when the loadBalancingScheme is set to
+ *  INTERNAL_SELF_MANAGED.
  */
 @property(nonatomic, copy, nullable) NSString *regexMatch;
 
@@ -18298,6 +18336,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  parameters and anchor supplied with the original URL. For regular expression
  *  grammar please see en.cppreference.com/w/cpp/regex/ecmascript
  *  Only one of prefixMatch, fullPathMatch or regexMatch must be specified.
+ *  Note that regexMatch only applies to Loadbalancers that have their
+ *  loadBalancingScheme set to INTERNAL_SELF_MANAGED.
  */
 @property(nonatomic, copy, nullable) NSString *regexMatch;
 
@@ -20365,6 +20405,57 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
+
+@end
+
+
+/**
+ *  InstanceGroupManagers.applyUpdatesToInstances
+ */
+@interface GTLRCompute_InstanceGroupManagersApplyUpdatesRequest : GTLRObject
+
+/**
+ *  The list of URLs of one or more instances for which you want to apply
+ *  updates. Each URL can be a full URL or a partial URL, such as
+ *  zones/[ZONE]/instances/[INSTANCE_NAME].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
+
+/**
+ *  The minimal action that you want to perform on each instance during the
+ *  update:
+ *  - REPLACE: At minimum, delete the instance and create it again.
+ *  - RESTART: Stop the instance and start it again.
+ *  - REFRESH: Do not stop the instance.
+ *  - NONE: Do not disrupt the instance at all. By default, the minimum action
+ *  is NONE. If your update requires a more disruptive action than you set with
+ *  this flag, the necessary action is performed to execute the update.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace
+ *        Value "REPLACE"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Restart
+ *        Value "RESTART"
+ */
+@property(nonatomic, copy, nullable) NSString *minimalAction;
+
+/**
+ *  The most disruptive action that you want to perform on each instance during
+ *  the update:
+ *  - REPLACE: Delete the instance and create it again.
+ *  - RESTART: Stop the instance and start it again.
+ *  - REFRESH: Do not stop the instance.
+ *  - NONE: Do not disrupt the instance at all. By default, the most disruptive
+ *  allowed action is REPLACE. If your update requires a more disruptive action
+ *  than you set with this flag, the update request will fail.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace
+ *        Value "REPLACE"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart
+ *        Value "RESTART"
+ */
+@property(nonatomic, copy, nullable) NSString *mostDisruptiveAllowedAction;
 
 @end
 
@@ -29340,9 +29431,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  The list of HTTP route rules. Use this list instead of pathRules when
  *  advanced route matching and routing actions are desired. routeRules are
  *  evaluated in order of priority, from the lowest to highest number.
- *  Within a given pathMatcher, only one of pathRules or routeRules must be set.
- *  routeRules are not supported in UrlMaps intended for External Load
- *  balancers.
+ *  Within a given pathMatcher, you can set only one of pathRules or routeRules.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_HttpRouteRule *> *routeRules;
 
@@ -30578,6 +30667,57 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
+
+@end
+
+
+/**
+ *  InstanceGroupManagers.applyUpdatesToInstances
+ */
+@interface GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest : GTLRObject
+
+/**
+ *  The list of URLs of one or more instances for which you want to apply
+ *  updates. Each URL can be a full URL or a partial URL, such as
+ *  zones/[ZONE]/instances/[INSTANCE_NAME].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
+
+/**
+ *  The minimal action that you want to perform on each instance during the
+ *  update:
+ *  - REPLACE: At minimum, delete the instance and create it again.
+ *  - RESTART: Stop the instance and start it again.
+ *  - REFRESH: Do not stop the instance.
+ *  - NONE: Do not disrupt the instance at all. By default, the minimum action
+ *  is NONE. If your update requires a more disruptive action than you set with
+ *  this flag, the necessary action is performed to execute the update.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace
+ *        Value "REPLACE"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Restart
+ *        Value "RESTART"
+ */
+@property(nonatomic, copy, nullable) NSString *minimalAction;
+
+/**
+ *  The most disruptive action that you want to perform on each instance during
+ *  the update:
+ *  - REPLACE: Delete the instance and create it again.
+ *  - RESTART: Stop the instance and start it again.
+ *  - REFRESH: Do not stop the instance.
+ *  - NONE: Do not disrupt the instance at all. By default, the most disruptive
+ *  allowed action is REPLACE. If your update requires a more disruptive action
+ *  than you set with this flag, the update request will fail.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace
+ *        Value "REPLACE"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart
+ *        Value "RESTART"
+ */
+@property(nonatomic, copy, nullable) NSString *mostDisruptiveAllowedAction;
 
 @end
 

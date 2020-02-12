@@ -1088,8 +1088,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2BigQueryKey : GTLRObject
 
 /**
- *  Absolute number of the row from the beginning of the table at the time
- *  of scanning.
+ *  Row number inferred at the time the table was scanned. This value is
+ *  nondeterministic, cannot be queried, and may be null for inspection
+ *  jobs. To locate findings within a table, specify
+ *  `inspect_job.storage_config.big_query_options.identifying_fields` in
+ *  `CreateDlpJobRequest`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1113,8 +1116,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *excludedFields;
 
 /**
- *  References to fields uniquely identifying rows within the table.
- *  Nested fields in the format, like `person.birthdate.year`, are allowed.
+ *  Table fields that may uniquely identify a row within the table. When
+ *  `actions.saveFindings.outputConfig.table` is specified, the values of
+ *  columns specified here are available in the output table under
+ *  `location.content_locations.record_location.record_key.id_values`. Nested
+ *  fields such as `person.birthdate.year` are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *identifyingFields;
 
@@ -1734,7 +1740,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  Findings container location data.
+ *  Precise location of the finding within a document, record, image, or
+ *  metadata
+ *  container.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ContentLocation : GTLRObject
 
@@ -4621,7 +4629,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Values of identifying columns in the given row. Order of values matches
- *  the order of field identifiers specified in the scanning request.
+ *  the order of `identifying_fields` specified in the scanning request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *idValues;
 

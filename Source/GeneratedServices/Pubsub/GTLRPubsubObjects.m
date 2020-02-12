@@ -73,6 +73,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_DeadLetterPolicy
+//
+
+@implementation GTLRPubsub_DeadLetterPolicy
+@dynamic deadLetterTopic, maxDeliveryAttempts;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_Empty
 //
 
@@ -403,7 +413,7 @@
 //
 
 @implementation GTLRPubsub_ReceivedMessage
-@dynamic ackId, message;
+@dynamic ackId, deliveryAttempt, message;
 @end
 
 
@@ -466,8 +476,8 @@
 //
 
 @implementation GTLRPubsub_Subscription
-@dynamic ackDeadlineSeconds, expirationPolicy, labels, messageRetentionDuration,
-         name, pushConfig, retainAckedMessages, topic;
+@dynamic ackDeadlineSeconds, deadLetterPolicy, expirationPolicy, labels,
+         messageRetentionDuration, name, pushConfig, retainAckedMessages, topic;
 @end
 
 

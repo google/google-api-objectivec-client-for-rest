@@ -126,7 +126,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The group resource name.
- *  Example: <code>projects/my-project-123/groups/my-groupid</code>
+ *  Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

@@ -73,6 +73,29 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtect
 GTLR_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_LimitedDataLoss;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRedis_Instance.connectMode
+
+/**
+ *  Not set.
+ *
+ *  Value: "CONNECT_MODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_ConnectModeUnspecified;
+/**
+ *  Connect via directly peering with memorystore redis hosted service.
+ *
+ *  Value: "DIRECT_PEERING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_DirectPeering;
+/**
+ *  Connect with google via private service access and share connection
+ *  across google managed services.
+ *
+ *  Value: "PRIVATE_SERVICE_ACCESS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_PrivateServiceAccess;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRedis_Instance.state
 
 /**
@@ -347,6 +370,23 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  *  will be used.
  */
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
+
+/**
+ *  Optional. The connect mode of Redis instance.
+ *  If not provided, default one will be used.
+ *  Current default: DIRECT_PEERING.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_Instance_ConnectMode_ConnectModeUnspecified Not
+ *        set. (Value: "CONNECT_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_Instance_ConnectMode_DirectPeering Connect via
+ *        directly peering with memorystore redis hosted service. (Value:
+ *        "DIRECT_PEERING")
+ *    @arg @c kGTLRCloudRedis_Instance_ConnectMode_PrivateServiceAccess Connect
+ *        with google via private service access and share connection
+ *        across google managed services. (Value: "PRIVATE_SERVICE_ACCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *connectMode;
 
 /** Output only. The time the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;

@@ -5257,6 +5257,19 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 @property(nonatomic, strong, nullable) GTLRDocs_Dimension *marginTop;
 
 /**
+ *  The page number from which to start counting the number of pages for this
+ *  section. If unset, page numbering continues from the previous section.
+ *  If the value is unset in the first
+ *  SectionBreak, refer to DocumentStyle's
+ *  page_number_start.
+ *  When updating this property, setting a concrete value is required.
+ *  Unsetting this property results in a 400 bad request error.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageNumberStart;
+
+/**
  *  Output only. The type of section.
  *
  *  Likely values:

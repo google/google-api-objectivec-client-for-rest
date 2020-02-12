@@ -761,7 +761,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_BandingProperties
-@dynamic firstBandColor, footerColor, headerColor, secondBandColor;
+@dynamic firstBandColor, firstBandColorStyle, footerColor, footerColorStyle,
+         headerColor, headerColorStyle, secondBandColor, secondBandColorStyle;
 @end
 
 
@@ -1138,7 +1139,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_Border
-@dynamic color, style, width;
+@dynamic color, colorStyle, style, width;
 @end
 
 
@@ -1238,9 +1239,9 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_CellFormat
-@dynamic backgroundColor, borders, horizontalAlignment, hyperlinkDisplayType,
-         numberFormat, padding, textDirection, textFormat, textRotation,
-         verticalAlignment, wrapStrategy;
+@dynamic backgroundColor, backgroundColorStyle, borders, horizontalAlignment,
+         hyperlinkDisplayType, numberFormat, padding, textDirection, textFormat,
+         textRotation, verticalAlignment, wrapStrategy;
 @end
 
 
@@ -1840,7 +1841,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_FilterCriteria
 @dynamic condition, hiddenValues, visibleBackgroundColor,
-         visibleForegroundColor;
+         visibleBackgroundColorStyle, visibleForegroundColor,
+         visibleForegroundColorStyle;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2050,7 +2052,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_InterpolationPoint
-@dynamic color, type, value;
+@dynamic color, colorStyle, type, value;
 @end
 
 
@@ -2575,7 +2577,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_SheetProperties
 @dynamic gridProperties, hidden, index, rightToLeft, sheetId, sheetType,
-         tabColor, title;
+         tabColor, tabColorStyle, title;
 @end
 
 
@@ -2595,8 +2597,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_SlicerSpec
-@dynamic applyToPivotTables, backgroundColor, columnIndex, dataRange,
-         filterCriteria, horizontalAlignment, textFormat, title;
+@dynamic applyToPivotTables, backgroundColor, backgroundColorStyle, columnIndex,
+         dataRange, filterCriteria, horizontalAlignment, textFormat, title;
 @end
 
 
@@ -2624,7 +2626,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_SortSpec
-@dynamic backgroundColor, dimensionIndex, foregroundColor, sortOrder;
+@dynamic backgroundColor, backgroundColorStyle, dimensionIndex, foregroundColor,
+         foregroundColorStyle, sortOrder;
 @end
 
 
@@ -2694,8 +2697,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_TextFormat
-@dynamic bold, fontFamily, fontSize, foregroundColor, italic, strikethrough,
-         underline;
+@dynamic bold, fontFamily, fontSize, foregroundColor, foregroundColorStyle,
+         italic, strikethrough, underline;
 @end
 
 

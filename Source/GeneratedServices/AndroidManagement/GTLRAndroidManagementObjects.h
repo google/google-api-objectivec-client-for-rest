@@ -629,7 +629,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Sever
 // GTLRAndroidManagement_KioskCustomization.deviceSettings
 
 /**
- *  Unspecified, defaults to SETTINGS_ACCESS_BLOCKED.
+ *  Unspecified, defaults to SETTINGS_ACCESS_ALLOWED.
  *
  *  Value: "DEVICE_SETTINGS_UNSPECIFIED"
  */
@@ -682,7 +682,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButt
  */
 GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_NotificationsAndSystemInfoDisabled;
 /**
- *  System info and notifications are shown on the status bar in kiosk mode.
+ *  System info and notifications are shown on the status bar in kiosk
+ *  mode.Note: For this policy to take effect, the device's home button must be
+ *  enabled using kioskCustomization.systemNavigation.
  *
  *  Value: "NOTIFICATIONS_AND_SYSTEM_INFO_ENABLED"
  */
@@ -3026,7 +3028,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_KioskCustomization_DeviceSettings_DeviceSettingsUnspecified
- *        Unspecified, defaults to SETTINGS_ACCESS_BLOCKED. (Value:
+ *        Unspecified, defaults to SETTINGS_ACCESS_ALLOWED. (Value:
  *        "DEVICE_SETTINGS_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_KioskCustomization_DeviceSettings_SettingsAccessAllowed
  *        Access to the Settings app is allowed in kiosk mode. (Value:
@@ -3066,7 +3068,9 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebToke
  *        "NOTIFICATIONS_AND_SYSTEM_INFO_DISABLED")
  *    @arg @c kGTLRAndroidManagement_KioskCustomization_StatusBar_NotificationsAndSystemInfoEnabled
  *        System info and notifications are shown on the status bar in kiosk
- *        mode. (Value: "NOTIFICATIONS_AND_SYSTEM_INFO_ENABLED")
+ *        mode.Note: For this policy to take effect, the device's home button
+ *        must be enabled using kioskCustomization.systemNavigation. (Value:
+ *        "NOTIFICATIONS_AND_SYSTEM_INFO_ENABLED")
  *    @arg @c kGTLRAndroidManagement_KioskCustomization_StatusBar_StatusBarUnspecified
  *        Unspecified, defaults to INFO_AND_NOTIFICATIONS_DISABLED. (Value:
  *        "STATUS_BAR_UNSPECIFIED")

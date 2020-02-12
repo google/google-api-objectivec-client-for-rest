@@ -99,6 +99,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Method: gmail.users.drafts.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailAddonsCurrentActionCompose
  *    @c kGTLRAuthScopeGmailCompose
  *    @c kGTLRAuthScopeGmailMailGoogleCom
  *    @c kGTLRAuthScopeGmailModify
@@ -790,6 +791,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Method: gmail.users.messages.attachments.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailAddonsCurrentMessageAction
+ *    @c kGTLRAuthScopeGmailAddonsCurrentMessageReadonly
  *    @c kGTLRAuthScopeGmailMailGoogleCom
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
@@ -965,6 +968,9 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Method: gmail.users.messages.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailAddonsCurrentMessageAction
+ *    @c kGTLRAuthScopeGmailAddonsCurrentMessageMetadata
+ *    @c kGTLRAuthScopeGmailAddonsCurrentMessageReadonly
  *    @c kGTLRAuthScopeGmailMailGoogleCom
  *    @c kGTLRAuthScopeGmailMetadata
  *    @c kGTLRAuthScopeGmailModify
@@ -1290,6 +1296,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Method: gmail.users.messages.send
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailAddonsCurrentActionCompose
  *    @c kGTLRAuthScopeGmailCompose
  *    @c kGTLRAuthScopeGmailMailGoogleCom
  *    @c kGTLRAuthScopeGmailModify
@@ -3012,6 +3019,9 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Method: gmail.users.threads.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailAddonsCurrentMessageAction
+ *    @c kGTLRAuthScopeGmailAddonsCurrentMessageMetadata
+ *    @c kGTLRAuthScopeGmailAddonsCurrentMessageReadonly
  *    @c kGTLRAuthScopeGmailMailGoogleCom
  *    @c kGTLRAuthScopeGmailMetadata
  *    @c kGTLRAuthScopeGmailModify

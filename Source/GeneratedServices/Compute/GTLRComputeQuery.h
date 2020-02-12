@@ -46,6 +46,7 @@
 @class GTLRCompute_InstanceGroup;
 @class GTLRCompute_InstanceGroupManager;
 @class GTLRCompute_InstanceGroupManagersAbandonInstancesRequest;
+@class GTLRCompute_InstanceGroupManagersApplyUpdatesRequest;
 @class GTLRCompute_InstanceGroupManagersCreateInstancesRequest;
 @class GTLRCompute_InstanceGroupManagersDeleteInstancesRequest;
 @class GTLRCompute_InstanceGroupManagersRecreateInstancesRequest;
@@ -91,6 +92,7 @@
 @class GTLRCompute_RegionDisksRemoveResourcePoliciesRequest;
 @class GTLRCompute_RegionDisksResizeRequest;
 @class GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest;
+@class GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest;
 @class GTLRCompute_RegionInstanceGroupManagersCreateInstancesRequest;
 @class GTLRCompute_RegionInstanceGroupManagersDeleteInstancesRequest;
 @class GTLRCompute_RegionInstanceGroupManagersRecreateRequest;
@@ -6794,6 +6796,57 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  @return GTLRComputeQuery_InstanceGroupManagersAggregatedList
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Apply changes to selected instances on the managed instance group. This
+ *  method can be used to apply new overrides and/or new versions.
+ *
+ *  Method: compute.instanceGroupManagers.applyUpdatesToInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersApplyUpdatesToInstances : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstanceGroupManagersApplyUpdatesToInstancesWithObject:project:zoneProperty:instanceGroupManager:]
+
+/** The name of the managed instance group, should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone where the managed instance group is located. Should
+ *  conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Apply changes to selected instances on the managed instance group. This
+ *  method can be used to apply new overrides and/or new versions.
+ *
+ *  @param object The @c GTLRCompute_InstanceGroupManagersApplyUpdatesRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located. Should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group, should
+ *    conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersApplyUpdatesToInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersApplyUpdatesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
 
 @end
 
@@ -18239,6 +18292,51 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  @return GTLRComputeQuery_RegionInstanceGroupManagersAbandonInstances
  */
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Apply updates to selected instances the managed instance group.
+ *
+ *  Method: compute.regionInstanceGroupManagers.applyUpdatesToInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersApplyUpdatesToInstances : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersApplyUpdatesToInstancesWithObject:project:region:instanceGroupManager:]
+
+/** The name of the managed instance group, should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request, should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Apply updates to selected instances the managed instance group.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request, should conform to
+ *    RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group, should
+ *    conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersApplyUpdatesToInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest *)object
                         project:(NSString *)project
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager;

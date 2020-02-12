@@ -534,25 +534,6 @@
 
 @end
 
-@implementation GTLRCloudRunQuery_ProjectsLocationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudRunQuery_ProjectsLocationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudRun_Location class];
-  query.loggingName = @"run.projects.locations.get";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudRunQuery_ProjectsLocationsList
 
 @dynamic filter, name, pageSize, pageToken;

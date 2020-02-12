@@ -2839,12 +2839,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *deleteProperty;
 
-/**
- *  Applies a transformation to a document.
- *  At most one `transform` per document is allowed in a given request.
- *  An `update` cannot follow a `transform` on the same document in a given
- *  request.
- */
+/** Applies a transformation to a document. */
 @property(nonatomic, strong, nullable) GTLRFirestore_DocumentTransform *transform;
 
 /** A document to write. */

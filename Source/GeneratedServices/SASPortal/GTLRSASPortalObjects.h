@@ -77,6 +77,8 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_Device_State_Reserved;
 
 /** Value: "CAMBIUM_NETWORKS" */
 GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_CambiumNetworks;
+/** Value: "CW" */
+GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Cw;
 /** Value: "DOODLE_CBRS" */
 GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_DoodleCbrs;
 /** Value: "E_UTRA" */
@@ -87,6 +89,10 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_F
 GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Nr;
 /** Value: "RADIO_TECHNOLOGY_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_RadioTechnologyUnspecified;
+/** Value: "REDLINE" */
+GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Redline;
+/** Value: "TARANA_WIRELESS" */
+GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_TaranaWireless;
 
 // ----------------------------------------------------------------------------
 // GTLRSASPortal_DeviceConfig.category
@@ -346,6 +352,7 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_Height
  *  Likely values:
  *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_CambiumNetworks
  *        Value "CAMBIUM_NETWORKS"
+ *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Cw Value "CW"
  *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_DoodleCbrs Value
  *        "DOODLE_CBRS"
  *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_EUtra Value
@@ -355,6 +362,10 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_Height
  *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Nr Value "NR"
  *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_RadioTechnologyUnspecified
  *        Value "RADIO_TECHNOLOGY_UNSPECIFIED"
+ *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Redline Value
+ *        "REDLINE"
+ *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_TaranaWireless
+ *        Value "TARANA_WIRELESS"
  */
 @property(nonatomic, copy, nullable) NSString *radioTechnology;
 

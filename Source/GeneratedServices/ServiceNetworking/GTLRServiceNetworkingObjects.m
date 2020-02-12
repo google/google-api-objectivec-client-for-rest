@@ -251,7 +251,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 @implementation GTLRServiceNetworking_BackendRule
 @dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, selector;
+         operationDeadline, pathTranslation, protocol, selector;
 @end
 
 

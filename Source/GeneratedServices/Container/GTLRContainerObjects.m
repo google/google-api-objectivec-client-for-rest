@@ -141,7 +141,7 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 //
 
 @implementation GTLRContainer_AutoprovisioningNodePoolDefaults
-@dynamic oauthScopes, serviceAccount;
+@dynamic management, oauthScopes, serviceAccount, upgradeSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -804,13 +804,14 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_NodePool
 @dynamic autoscaling, conditions, config, initialNodeCount, instanceGroupUrls,
-         management, maxPodsConstraint, name, podIpv4CidrSize, selfLink, status,
-         statusMessage, version;
+         locations, management, maxPodsConstraint, name, podIpv4CidrSize,
+         selfLink, status, statusMessage, upgradeSettings, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"conditions" : [GTLRContainer_StatusCondition class],
-    @"instanceGroupUrls" : [NSString class]
+    @"instanceGroupUrls" : [NSString class],
+    @"locations" : [NSString class]
   };
   return map;
 }
@@ -1262,13 +1263,30 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 //
 
 @implementation GTLRContainer_UpdateNodePoolRequest
-@dynamic clusterId, imageType, name, nodePoolId, nodeVersion, projectId,
-         zoneProperty;
+@dynamic clusterId, imageType, locations, name, nodePoolId, nodeVersion,
+         projectId, upgradeSettings, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
 }
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_UpgradeSettings
+//
+
+@implementation GTLRContainer_UpgradeSettings
+@dynamic maxSurge, maxUnavailable;
 @end
 
 

@@ -29,6 +29,33 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: Manage drafts and send emails when you interact with
+ *  the add-on
+ *
+ *  Value "https://www.googleapis.com/auth/gmail.addons.current.action.compose"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentActionCompose;
+/**
+ *  Authorization scope: View your email messages when you interact with the
+ *  add-on
+ *
+ *  Value "https://www.googleapis.com/auth/gmail.addons.current.message.action"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentMessageAction;
+/**
+ *  Authorization scope: View your email message metadata when the add-on is
+ *  running
+ *
+ *  Value "https://www.googleapis.com/auth/gmail.addons.current.message.metadata"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentMessageMetadata;
+/**
+ *  Authorization scope: View your email messages when the add-on is running
+ *
+ *  Value "https://www.googleapis.com/auth/gmail.addons.current.message.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentMessageReadonly;
+/**
  *  Authorization scope: Manage drafts and send emails
  *
  *  Value "https://www.googleapis.com/auth/gmail.compose"

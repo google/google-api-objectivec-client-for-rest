@@ -28,46 +28,6 @@ NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRDataFusion_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
-// GTLRDataFusion_AuthorizationLoggingOptions.permissionType
-NSString * const kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_AdminWrite = @"ADMIN_WRITE";
-NSString * const kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_DataRead = @"DATA_READ";
-NSString * const kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRDataFusion_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified = @"PERMISSION_TYPE_UNSPECIFIED";
-
-// GTLRDataFusion_CloudAuditOptions.logName
-NSString * const kGTLRDataFusion_CloudAuditOptions_LogName_AdminActivity = @"ADMIN_ACTIVITY";
-NSString * const kGTLRDataFusion_CloudAuditOptions_LogName_DataAccess = @"DATA_ACCESS";
-NSString * const kGTLRDataFusion_CloudAuditOptions_LogName_UnspecifiedLogName = @"UNSPECIFIED_LOG_NAME";
-
-// GTLRDataFusion_Condition.iam
-NSString * const kGTLRDataFusion_Condition_Iam_Approver        = @"APPROVER";
-NSString * const kGTLRDataFusion_Condition_Iam_Attribution     = @"ATTRIBUTION";
-NSString * const kGTLRDataFusion_Condition_Iam_Authority       = @"AUTHORITY";
-NSString * const kGTLRDataFusion_Condition_Iam_CredentialsType = @"CREDENTIALS_TYPE";
-NSString * const kGTLRDataFusion_Condition_Iam_JustificationType = @"JUSTIFICATION_TYPE";
-NSString * const kGTLRDataFusion_Condition_Iam_NoAttr          = @"NO_ATTR";
-NSString * const kGTLRDataFusion_Condition_Iam_SecurityRealm   = @"SECURITY_REALM";
-
-// GTLRDataFusion_Condition.op
-NSString * const kGTLRDataFusion_Condition_Op_Discharged = @"DISCHARGED";
-NSString * const kGTLRDataFusion_Condition_Op_Equals     = @"EQUALS";
-NSString * const kGTLRDataFusion_Condition_Op_In         = @"IN";
-NSString * const kGTLRDataFusion_Condition_Op_NoOp       = @"NO_OP";
-NSString * const kGTLRDataFusion_Condition_Op_NotEquals  = @"NOT_EQUALS";
-NSString * const kGTLRDataFusion_Condition_Op_NotIn      = @"NOT_IN";
-
-// GTLRDataFusion_Condition.sys
-NSString * const kGTLRDataFusion_Condition_Sys_Ip      = @"IP";
-NSString * const kGTLRDataFusion_Condition_Sys_Name    = @"NAME";
-NSString * const kGTLRDataFusion_Condition_Sys_NoAttr  = @"NO_ATTR";
-NSString * const kGTLRDataFusion_Condition_Sys_Region  = @"REGION";
-NSString * const kGTLRDataFusion_Condition_Sys_Service = @"SERVICE";
-
-// GTLRDataFusion_DataAccessOptions.logMode
-NSString * const kGTLRDataFusion_DataAccessOptions_LogMode_LogFailClosed = @"LOG_FAIL_CLOSED";
-NSString * const kGTLRDataFusion_DataAccessOptions_LogMode_LogModeUnspecified = @"LOG_MODE_UNSPECIFIED";
-
 // GTLRDataFusion_Instance.state
 NSString * const kGTLRDataFusion_Instance_State_AutoUpdating   = @"AUTO_UPDATING";
 NSString * const kGTLRDataFusion_Instance_State_AutoUpgrading  = @"AUTO_UPGRADING";
@@ -85,26 +45,17 @@ NSString * const kGTLRDataFusion_Instance_Type_Basic           = @"BASIC";
 NSString * const kGTLRDataFusion_Instance_Type_Enterprise      = @"ENTERPRISE";
 NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRDataFusion_Rule.action
-NSString * const kGTLRDataFusion_Rule_Action_Allow        = @"ALLOW";
-NSString * const kGTLRDataFusion_Rule_Action_AllowWithLog = @"ALLOW_WITH_LOG";
-NSString * const kGTLRDataFusion_Rule_Action_Deny         = @"DENY";
-NSString * const kGTLRDataFusion_Rule_Action_DenyWithLog  = @"DENY_WITH_LOG";
-NSString * const kGTLRDataFusion_Rule_Action_Log          = @"LOG";
-NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
-
 // ----------------------------------------------------------------------------
 //
 //   GTLRDataFusion_AuditConfig
 //
 
 @implementation GTLRDataFusion_AuditConfig
-@dynamic auditLogConfigs, exemptedMembers, service;
+@dynamic auditLogConfigs, service;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRDataFusion_AuditLogConfig class],
-    @"exemptedMembers" : [NSString class]
+    @"auditLogConfigs" : [GTLRDataFusion_AuditLogConfig class]
   };
   return map;
 }
@@ -118,7 +69,7 @@ NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRDataFusion_AuditLogConfig
-@dynamic exemptedMembers, ignoreChildExemptions, logType;
+@dynamic exemptedMembers, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -127,16 +78,6 @@ NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataFusion_AuthorizationLoggingOptions
-//
-
-@implementation GTLRDataFusion_AuthorizationLoggingOptions
-@dynamic permissionType;
 @end
 
 
@@ -164,72 +105,6 @@ NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRDataFusion_CancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataFusion_CloudAuditOptions
-//
-
-@implementation GTLRDataFusion_CloudAuditOptions
-@dynamic authorizationLoggingOptions, logName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataFusion_Condition
-//
-
-@implementation GTLRDataFusion_Condition
-@dynamic iam, op, svc, sys, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataFusion_CounterOptions
-//
-
-@implementation GTLRDataFusion_CounterOptions
-@dynamic customFields, field, metric;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"customFields" : [GTLRDataFusion_CustomField class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataFusion_CustomField
-//
-
-@implementation GTLRDataFusion_CustomField
-@dynamic name, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataFusion_DataAccessOptions
-//
-
-@implementation GTLRDataFusion_DataAccessOptions
-@dynamic logMode;
 @end
 
 
@@ -265,9 +140,9 @@ NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
 @implementation GTLRDataFusion_Instance
 @dynamic apiEndpoint, availableVersion, createTime, descriptionProperty,
          displayName, enableStackdriverLogging, enableStackdriverMonitoring,
-         labels, name, networkConfig, options, privateInstance, serviceAccount,
-         serviceEndpoint, state, stateMessage, type, updateTime, version,
-         zoneProperty;
+         gcsBucket, labels, name, networkConfig, options, privateInstance,
+         serviceAccount, serviceEndpoint, state, stateMessage, type, updateTime,
+         version, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -422,16 +297,6 @@ NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataFusion_LogConfig
-//
-
-@implementation GTLRDataFusion_LogConfig
-@dynamic cloudAudit, counter, dataAccess;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataFusion_NetworkConfig
 //
 
@@ -495,7 +360,7 @@ NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRDataFusion_Policy
-@dynamic auditConfigs, bindings, ETag, iamOwned, rules, version;
+@dynamic auditConfigs, bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -504,8 +369,7 @@ NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"auditConfigs" : [GTLRDataFusion_AuditConfig class],
-    @"bindings" : [GTLRDataFusion_Binding class],
-    @"rules" : [GTLRDataFusion_Rule class]
+    @"bindings" : [GTLRDataFusion_Binding class]
   };
   return map;
 }
@@ -519,37 +383,6 @@ NSString * const kGTLRDataFusion_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRDataFusion_RestartInstanceRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataFusion_Rule
-//
-
-@implementation GTLRDataFusion_Rule
-@dynamic action, conditions, descriptionProperty, inProperty, logConfig, notIn,
-         permissions;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"inProperty" : @"in"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRDataFusion_Condition class],
-    @"in" : [NSString class],
-    @"logConfig" : [GTLRDataFusion_LogConfig class],
-    @"notIn" : [NSString class],
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 

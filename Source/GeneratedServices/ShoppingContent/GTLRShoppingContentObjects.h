@@ -79,6 +79,8 @@
 @class GTLRShoppingContent_LiaSettings;
 @class GTLRShoppingContent_LiasettingsCustomBatchRequestEntry;
 @class GTLRShoppingContent_LiasettingsCustomBatchResponseEntry;
+@class GTLRShoppingContent_LinkedAccount;
+@class GTLRShoppingContent_LinkService;
 @class GTLRShoppingContent_LocationIdSet;
 @class GTLRShoppingContent_LoyaltyPoints;
 @class GTLRShoppingContent_MerchantOrderReturn;
@@ -599,6 +601,36 @@ NS_ASSUME_NONNULL_BEGIN
  *  "content#accountsLinkResponse".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_AccountsListLinksResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "links" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_AccountsListLinksResponse : GTLRCollectionObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#accountsListLinksResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The list of available links.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_LinkedAccount *> *links;
+
+/** The token for the retrieval of the next page of links. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -2579,6 +2611,34 @@ NS_ASSUME_NONNULL_BEGIN
  *  "content#liasettingsSetPosDataProviderResponse".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LinkedAccount
+ */
+@interface GTLRShoppingContent_LinkedAccount : GTLRObject
+
+/** The ID of the linked account. */
+@property(nonatomic, copy, nullable) NSString *linkedAccountId;
+
+/** List of provided services. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_LinkService *> *services;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_LinkService
+ */
+@interface GTLRShoppingContent_LinkService : GTLRObject
+
+/** Service provided to or by the linked account. */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/** Status of the link */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 

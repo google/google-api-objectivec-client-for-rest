@@ -16,6 +16,7 @@
 // Constants
 
 // view
+NSString * const kGTLRCloudHealthcareViewBasic                 = @"BASIC";
 NSString * const kGTLRCloudHealthcareViewFull                  = @"FULL";
 NSString * const kGTLRCloudHealthcareViewMessageViewUnspecified = @"MESSAGE_VIEW_UNSPECIFIED";
 NSString * const kGTLRCloudHealthcareViewParsedOnly            = @"PARSED_ONLY";
@@ -1772,7 +1773,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

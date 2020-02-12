@@ -1238,6 +1238,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *expiryTimeMillis;
 
 /**
+ *  User account identifier in the third-party service. Only present if account
+ *  linking happened as part of the subscription purchase flow.
+ */
+@property(nonatomic, copy, nullable) NSString *externalAccountId;
+
+/**
  *  The family name of the user when the subscription was purchased. Only
  *  present for purchases made with 'Subscribe with Google'.
  */
@@ -1505,6 +1511,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Control *> *controls;
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_CountryTargeting *countryTargeting;
+
+/**
+ *  In-app update priority of the release. All newly added APKs in the release
+ *  will be considered at this priority. in_app_update_priority can take values
+ *  between [0, 5]. 5 is the highest priority. Default priority is 0. See
+ *  https://developer.android.com/guide/playcore/in-app-updates.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inAppUpdatePriority;
 
 /**
  *  The release name, used to identify this release in the Play Console UI. Not

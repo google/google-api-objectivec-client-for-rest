@@ -133,6 +133,16 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_EmailPreferences
+//
+
+@implementation GTLRBigQueryDataTransfer_EmailPreferences
+@dynamic enableFailureEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_Empty
 //
 
@@ -403,8 +413,9 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 @implementation GTLRBigQueryDataTransfer_TransferConfig
 @dynamic dataRefreshWindowDays, datasetRegion, dataSourceId,
-         destinationDatasetId, disabled, displayName, name, nextRunTime, params,
-         schedule, scheduleOptions, state, updateTime, userId;
+         destinationDatasetId, disabled, displayName, emailPreferences, name,
+         nextRunTime, notificationPubsubTopic, params, schedule,
+         scheduleOptions, state, updateTime, userId;
 @end
 
 
@@ -438,8 +449,9 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 //
 
 @implementation GTLRBigQueryDataTransfer_TransferRun
-@dynamic dataSourceId, destinationDatasetId, endTime, errorStatus, name, params,
-         runTime, schedule, scheduleTime, startTime, state, updateTime, userId;
+@dynamic dataSourceId, destinationDatasetId, emailPreferences, endTime,
+         errorStatus, name, notificationPubsubTopic, params, runTime, schedule,
+         scheduleTime, startTime, state, updateTime, userId;
 @end
 
 

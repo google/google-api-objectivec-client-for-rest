@@ -270,6 +270,12 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuild
  */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_InvalidArgument;
 /**
+ *  The local casproxy is not running.
+ *
+ *  Value: "LOCAL_CASPROXY_NOT_RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_LocalCasproxyNotRunning;
+/**
  *  The command failed with "no cuda-capable device is detected" error.
  *
  *  Value: "NO_CUDA_CAPABLE_DEVICE"
@@ -1983,6 +1989,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *        (Value: "INTERNAL")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_InvalidArgument
  *        The command input was invalid. (Value: "INVALID_ARGUMENT")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_LocalCasproxyNotRunning
+ *        The local casproxy is not running. (Value:
+ *        "LOCAL_CASPROXY_NOT_RUNNING")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_NoCudaCapableDevice
  *        The command failed with "no cuda-capable device is detected" error.
  *        (Value: "NO_CUDA_CAPABLE_DEVICE")

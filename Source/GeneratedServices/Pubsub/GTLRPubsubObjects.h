@@ -21,6 +21,7 @@
 
 @class GTLRPubsub_Binding;
 @class GTLRPubsub_CreateSnapshotRequest_Labels;
+@class GTLRPubsub_DeadLetterPolicy;
 @class GTLRPubsub_ExpirationPolicy;
 @class GTLRPubsub_Expr;
 @class GTLRPubsub_Message;
@@ -157,6 +158,44 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Dead lettering is done on a best effort basis. The same message might be
+ *  dead lettered multiple times.
+ *  If validation on any of the fields fails at subscription creation/updation,
+ *  the create/update subscription request will fail.
+ */
+@interface GTLRPubsub_DeadLetterPolicy : GTLRObject
+
+/**
+ *  The name of the topic to which dead letter messages should be published.
+ *  Format is `projects/{project}/topics/{topic}`.The Cloud Pub/Sub service
+ *  account associated with the enclosing subscription's parent project (i.e.,
+ *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com) must have
+ *  permission to Publish() to this topic.
+ *  The operation will fail if the topic does not exist.
+ *  Users should ensure that there is a subscription attached to this topic
+ *  since messages published to a topic with no subscriptions are lost.
+ */
+@property(nonatomic, copy, nullable) NSString *deadLetterTopic;
+
+/**
+ *  The maximum number of delivery attempts for any message. The value must be
+ *  between 5 and 100.
+ *  The number of delivery attempts is defined as 1 + (the sum of number of
+ *  NACKs and number of times the acknowledgement deadline has been exceeded
+ *  for the message).
+ *  A NACK is any call to ModifyAckDeadline with a 0 deadline. Note that
+ *  client libraries may automatically extend ack_deadlines.
+ *  This field will be honored on a best effort basis.
+ *  If this parameter is 0, a default value of 5 is used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDeliveryAttempts;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -189,15 +228,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Represents an expression text. Example:
- *  title: "User account presence"
- *  description: "Determines whether the request has a user account"
- *  expression: "size(request.user) > 0"
+ *  Represents a textual expression in the Common Expression Language (CEL)
+ *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
+ *  are documented at https://github.com/google/cel-spec.
+ *  Example (Comparison):
+ *  title: "Summary size limit"
+ *  description: "Determines if a summary is less than 100 chars"
+ *  expression: "document.summary.size() < 100"
+ *  Example (Equality):
+ *  title: "Requestor is owner"
+ *  description: "Determines if requestor is the document owner"
+ *  expression: "document.owner == request.auth.claims.email"
+ *  Example (Logic):
+ *  title: "Public documents"
+ *  description: "Determine whether the document should be publicly visible"
+ *  expression: "document.type != 'private' && document.type != 'internal'"
+ *  Example (Data Manipulation):
+ *  title: "Notification string"
+ *  description: "Create a notification string with a timestamp."
+ *  expression: "'New message received at ' + string(document.create_time)"
+ *  The exact variables and functions that may be referenced within an
+ *  expression
+ *  are determined by the service that evaluates it. See the service
+ *  documentation for additional information.
  */
 @interface GTLRPubsub_Expr : GTLRObject
 
 /**
- *  An optional description of the expression. This is a longer text which
+ *  Optional. Description of the expression. This is a longer text which
  *  describes the expression, e.g. when hovered over it in a UI.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -205,21 +263,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Textual representation of an expression in
- *  Common Expression Language syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
+ *  Textual representation of an expression in Common Expression Language
+ *  syntax.
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  An optional string indicating the location of the expression for error
+ *  Optional. String indicating the location of the expression for error
  *  reporting, e.g. a file name and a position in the file.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  An optional title for the expression, i.e. a short string describing
+ *  Optional. Title for the expression, i.e. a short string describing
  *  its purpose. This can be used e.g. in UIs which allow to enter the
  *  expression.
  */
@@ -747,6 +803,25 @@ NS_ASSUME_NONNULL_BEGIN
 /** This ID can be used to acknowledge the received message. */
 @property(nonatomic, copy, nullable) NSString *ackId;
 
+/**
+ *  Delivery attempt counter is 1 + (the sum of number of NACKs and number of
+ *  ack_deadline exceeds) for this message.
+ *  A NACK is any call to ModifyAckDeadline with a 0 deadline. An ack_deadline
+ *  exceeds event is whenever a message is not acknowledged within
+ *  ack_deadline. Note that ack_deadline is initially
+ *  Subscription.ackDeadlineSeconds, but may get extended automatically by
+ *  the client library.
+ *  The first delivery of a given message will have this value as 1. The value
+ *  is calculated at best effort and is approximate.
+ *  If a DeadLetterPolicy is not set on the subscription, this will be 0.
+ *  <b>EXPERIMENTAL:</b> This feature is part of a closed alpha release. This
+ *  API might be changed in backward-incompatible ways and is not recommended
+ *  for production use. It is not subject to any SLA or deprecation policy.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deliveryAttempt;
+
 /** The message. */
 @property(nonatomic, strong, nullable) GTLRPubsub_Message *message;
 
@@ -885,6 +960,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ackDeadlineSeconds;
+
+/**
+ *  A policy that specifies the conditions for dead lettering messages in
+ *  this subscription. If dead_letter_policy is not set, dead lettering
+ *  is disabled.
+ *  The Cloud Pub/Sub service account associated with this subscriptions's
+ *  parent project (i.e.,
+ *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com) must have
+ *  permission to Acknowledge() messages on this subscription.
+ *  <b>EXPERIMENTAL:</b> This feature is part of a closed alpha release. This
+ *  API might be changed in backward-incompatible ways and is not recommended
+ *  for production use. It is not subject to any SLA or deprecation policy.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_DeadLetterPolicy *deadLetterPolicy;
 
 /**
  *  A policy that specifies the conditions for this subscription's expiration.

@@ -135,6 +135,15 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_SshRsa;
 // GTLRCloudShell_StartEnvironmentMetadata.state
 
 /**
+ *  Startup is waiting for a VM to be assigned to the environment. This
+ *  should normally happen very quickly, but an environment might stay in
+ *  this state for an extended period of time if the system is experiencing
+ *  heavy load.
+ *
+ *  Value: "AWAITING_VM"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_AwaitingVm;
+/**
  *  Startup is complete and the user should be able to establish an SSH
  *  connection to their environment.
  *
@@ -466,6 +475,12 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Unar
  *  Current state of the environment being started.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudShell_StartEnvironmentMetadata_State_AwaitingVm Startup
+ *        is waiting for a VM to be assigned to the environment. This
+ *        should normally happen very quickly, but an environment might stay in
+ *        this state for an extended period of time if the system is
+ *        experiencing
+ *        heavy load. (Value: "AWAITING_VM")
  *    @arg @c kGTLRCloudShell_StartEnvironmentMetadata_State_Finished Startup is
  *        complete and the user should be able to establish an SSH
  *        connection to their environment. (Value: "FINISHED")

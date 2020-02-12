@@ -226,6 +226,29 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 @end
 
+@implementation GTLRShoppingContentQuery_AccountsListlinks
+
+@dynamic accountId, maxResults, merchantId, pageToken;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId {
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/accounts/{accountId}/listlinks";
+  GTLRShoppingContentQuery_AccountsListlinks *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_AccountsListLinksResponse class];
+  query.loggingName = @"content.accounts.listlinks";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_AccountstatusesCustombatch
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_AccountstatusesCustomBatchRequest *)object {

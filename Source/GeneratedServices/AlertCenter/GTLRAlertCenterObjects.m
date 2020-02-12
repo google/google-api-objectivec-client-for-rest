@@ -28,6 +28,26 @@ NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_NoOperation = @"
 NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_RemovedFromInbox = @"REMOVED_FROM_INBOX";
 NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionTypeUnspecified = @"SYSTEM_ACTION_TYPE_UNSPECIFIED";
 
+// GTLRAlertCenter_RuleViolationInfo.dataSource
+NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_DataSourceUnspecified = @"DATA_SOURCE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive = @"DRIVE";
+
+// GTLRAlertCenter_RuleViolationInfo.suppressedActionTypes
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert = @"ALERT";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveBlockExternalSharing = @"DRIVE_BLOCK_EXTERNAL_SHARING";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveWarnOnExternalSharing = @"DRIVE_WARN_ON_EXTERNAL_SHARING";
+
+// GTLRAlertCenter_RuleViolationInfo.trigger
+NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_DriveShare = @"DRIVE_SHARE";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_TriggerUnspecified = @"TRIGGER_UNSPECIFIED";
+
+// GTLRAlertCenter_RuleViolationInfo.triggeredActionTypes
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert = @"ALERT";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveBlockExternalSharing = @"DRIVE_BLOCK_EXTERNAL_SHARING";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveWarnOnExternalSharing = @"DRIVE_WARN_ON_EXTERNAL_SHARING";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAlertCenter_AccountWarning
@@ -343,6 +363,16 @@ NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_DlpRuleViolation
+//
+
+@implementation GTLRAlertCenter_DlpRuleViolation
+@dynamic ruleViolationInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_DomainId
 //
 
@@ -491,6 +521,16 @@ NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_MatchInfo
+//
+
+@implementation GTLRAlertCenter_MatchInfo
+@dynamic predefinedDetector, userDefinedDetector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_Notification
 //
 
@@ -519,6 +559,16 @@ NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_PredefinedDetectorInfo
+//
+
+@implementation GTLRAlertCenter_PredefinedDetectorInfo
+@dynamic detectorName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_RequestInfo
 //
 
@@ -528,6 +578,49 @@ NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionType
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"appDeveloperEmail" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_ResourceInfo
+//
+
+@implementation GTLRAlertCenter_ResourceInfo
+@dynamic documentId, resourceTitle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_RuleInfo
+//
+
+@implementation GTLRAlertCenter_RuleInfo
+@dynamic displayName, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_RuleViolationInfo
+//
+
+@implementation GTLRAlertCenter_RuleViolationInfo
+@dynamic dataSource, matchInfo, recipients, resourceInfo, ruleInfo,
+         suppressedActionTypes, trigger, triggeredActionTypes,
+         triggeringUserEmail;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"matchInfo" : [GTLRAlertCenter_MatchInfo class],
+    @"recipients" : [NSString class],
+    @"suppressedActionTypes" : [NSString class],
+    @"triggeredActionTypes" : [NSString class]
   };
   return map;
 }
@@ -641,4 +734,14 @@ NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionType
 
 @implementation GTLRAlertCenter_User
 @dynamic displayName, emailAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_UserDefinedDetectorInfo
+//
+
+@implementation GTLRAlertCenter_UserDefinedDetectorInfo
+@dynamic displayName, resourceName;
 @end

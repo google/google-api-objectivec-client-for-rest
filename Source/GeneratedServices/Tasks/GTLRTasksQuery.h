@@ -98,6 +98,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new task list and adds it to the authenticated user's task lists.
+ *  Fails with HTTP code 403 or 429 after reaching the storage limit of 2,000
+ *  lists.
  *
  *  Method: tasks.tasklists.insert
  *
@@ -112,6 +114,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRTasks_TaskList.
  *
  *  Creates a new task list and adds it to the authenticated user's task lists.
+ *  Fails with HTTP code 403 or 429 after reaching the storage limit of 2,000
+ *  lists.
  *
  *  @param object The @c GTLRTasks_TaskList to include in the query.
  *
@@ -322,7 +326,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new task on the specified task list.
+ *  Creates a new task on the specified task list. Fails with HTTP code 403 or
+ *  429 after reaching the storage limit of 100,000 tasks per account.
  *
  *  Method: tasks.tasks.insert
  *
@@ -351,7 +356,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTasks_Task.
  *
- *  Creates a new task on the specified task list.
+ *  Creates a new task on the specified task list. Fails with HTTP code 403 or
+ *  429 after reaching the storage limit of 100,000 tasks per account.
  *
  *  @param object The @c GTLRTasks_Task to include in the query.
  *  @param tasklist Task list identifier.

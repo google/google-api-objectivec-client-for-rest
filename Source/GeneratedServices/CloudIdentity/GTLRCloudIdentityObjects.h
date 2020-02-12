@@ -19,6 +19,10 @@
 #endif
 
 @class GTLRCloudIdentity_EntityKey;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1EndpointApp;
 @class GTLRCloudIdentity_Group;
 @class GTLRCloudIdentity_Group_Labels;
 @class GTLRCloudIdentity_Membership;
@@ -34,6 +38,301 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes.encryptionState
+
+/**
+ *  Device is encrypted.
+ *
+ *  Value: "ENCRYPTED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_EncryptionState_Encrypted;
+/**
+ *  Encryption Status is not set.
+ *
+ *  Value: "ENCRYPTION_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_EncryptionState_EncryptionStateUnspecified;
+/**
+ *  Device is not encrypted.
+ *
+ *  Value: "NOT_ENCRYPTED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_EncryptionState_NotEncrypted;
+/**
+ *  Device doesn't support encryption.
+ *
+ *  Value: "UNSUPPORTED_BY_DEVICE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_EncryptionState_UnsupportedByDevice;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes.ownershipPrivilege
+
+/**
+ *  Active device administrator privileges on the device.
+ *
+ *  Value: "DEVICE_ADMINISTRATOR"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_OwnershipPrivilege_DeviceAdministrator;
+/**
+ *  Device Owner privileges on the device.
+ *
+ *  Value: "DEVICE_OWNER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_OwnershipPrivilege_DeviceOwner;
+/**
+ *  Ownership privilege is not set.
+ *
+ *  Value: "OWNERSHIP_PRIVILEGE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_OwnershipPrivilege_OwnershipPrivilegeUnspecified;
+/**
+ *  Profile Owner privileges.
+ *  The account is in a managed corporate profile.
+ *
+ *  Value: "PROFILE_OWNER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_OwnershipPrivilege_ProfileOwner;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device.compromisedState
+
+/**
+ *  The device is compromised (currently, this means Android device is
+ *  rooted).
+ *
+ *  Value: "COMPROMISED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_CompromisedState_Compromised;
+/**
+ *  Default value.
+ *
+ *  Value: "COMPROMISED_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_CompromisedState_CompromisedStateUnspecified;
+/**
+ *  The device is safe (currently, this means Android device is unrooted).
+ *
+ *  Value: "UNCOMPROMISED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_CompromisedState_Uncompromised;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device.deviceType
+
+/**
+ *  Device is an Android device
+ *
+ *  Value: "ANDROID"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_Android;
+/**
+ *  Device is a ChromeOS device.
+ *
+ *  Value: "CHROME_OS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_ChromeOs;
+/**
+ *  Unknown device type
+ *
+ *  Value: "DEVICE_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_DeviceTypeUnspecified;
+/**
+ *  Device is a Google Sync device.
+ *
+ *  Value: "GOOGLE_SYNC"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_GoogleSync;
+/**
+ *  Device is an iOS device
+ *
+ *  Value: "IOS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_Ios;
+/**
+ *  Device is a Linux device.
+ *
+ *  Value: "LINUX"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_Linux;
+/**
+ *  Device is a MacOS device.
+ *
+ *  Value: "MAC_OS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_MacOs;
+/**
+ *  Device is a Windows device.
+ *
+ *  Value: "WINDOWS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_Windows;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device.managementState
+
+/**
+ *  Device is approved.
+ *
+ *  Value: "APPROVED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Approved;
+/**
+ *  Device is blocked.
+ *
+ *  Value: "BLOCKED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Blocked;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "MANAGEMENT_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_ManagementStateUnspecified;
+/**
+ *  Device is pending approval.
+ *
+ *  Value: "PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Pending;
+/**
+ *  The device is not provisioned. Device will start from this state until
+ *  some action is taken (i.e. a user starts using the device).
+ *
+ *  Value: "UNPROVISIONED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Unprovisioned;
+/**
+ *  All data and settings on the device are removed.
+ *
+ *  Value: "WIPED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Wiped;
+/**
+ *  Data and settings on the device are being removed.
+ *
+ *  Value: "WIPING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Wiping;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device.ownerType
+
+/**
+ *  Bring Your Own Device (i.e. individual owns the device)
+ *
+ *  Value: "BYOD"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_OwnerType_Byod;
+/**
+ *  Company owns the device.
+ *
+ *  Value: "COMPANY"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_OwnerType_Company;
+/**
+ *  Default value. The value is unused.
+ *
+ *  Value: "DEVICE_OWNERSHIP_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_OwnerType_DeviceOwnershipUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser.compromisedState
+
+/**
+ *  Device User Account is compromised.
+ *
+ *  Value: "COMPROMISED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_CompromisedState_Compromised;
+/**
+ *  Compromised state of Device User account is unknown or unspecified.
+ *
+ *  Value: "COMPROMISED_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_CompromisedState_CompromisedStateUnspecified;
+/**
+ *  Device User Account is not compromised.
+ *
+ *  Value: "NOT_COMPROMISED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_CompromisedState_NotCompromised;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser.managementState
+
+/**
+ *  User is approved to access data on the device.
+ *
+ *  Value: "APPROVED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Approved;
+/**
+ *  User is blocked from accessing data on the device.
+ *
+ *  Value: "BLOCKED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Blocked;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "MANAGEMENT_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_ManagementStateUnspecified;
+/**
+ *  User is awaiting approval.
+ *
+ *  Value: "PENDING_APPROVAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_PendingApproval;
+/**
+ *  User is unenrolled from Advanced Windows Management, but the Windows
+ *  account is still intact.
+ *
+ *  Value: "UNENROLLED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Unenrolled;
+/**
+ *  This user's data and profile is removed from the device.
+ *
+ *  Value: "WIPED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Wiped;
+/**
+ *  This user's data and profile is being removed from the device.
+ *
+ *  Value: "WIPING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Wiping;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser.passwordState
+
+/**
+ *  Password not set in object.
+ *
+ *  Value: "PASSWORD_NOT_SET"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_PasswordState_PasswordNotSet;
+/**
+ *  Password set in object.
+ *
+ *  Value: "PASSWORD_SET"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_PasswordState_PasswordSet;
+/**
+ *  Password state not set.
+ *
+ *  Value: "PASSWORD_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_PasswordState_PasswordStateUnspecified;
 
 /**
  *  An EntityKey uniquely identifies an Entity. Namespaces are used to provide
@@ -60,6 +359,526 @@ NS_ASSUME_NONNULL_BEGIN
  *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
  */
 @property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+@end
+
+
+/**
+ *  Resource representing the Android specific attributes of a Device.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes : GTLRObject
+
+/** Baseband version of Android device. */
+@property(nonatomic, copy, nullable) NSString *basebandVersion;
+
+/** Device bootloader version. Example: 0.6.7. */
+@property(nonatomic, copy, nullable) NSString *bootloaderVersion;
+
+/** Build number of Android device. */
+@property(nonatomic, copy, nullable) NSString *buildNumber;
+
+/**
+ *  Whether developer options is enabled on device.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabledDeveloperOptions;
+
+/**
+ *  Whether applications from unknown sources can be installed on device.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabledUnknownSources;
+
+/**
+ *  Whether adb (USB debugging) is enabled on device.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabledUsbDebugging;
+
+/**
+ *  Device encryption state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_EncryptionState_Encrypted
+ *        Device is encrypted. (Value: "ENCRYPTED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_EncryptionState_EncryptionStateUnspecified
+ *        Encryption Status is not set. (Value: "ENCRYPTION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_EncryptionState_NotEncrypted
+ *        Device is not encrypted. (Value: "NOT_ENCRYPTED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_EncryptionState_UnsupportedByDevice
+ *        Device doesn't support encryption. (Value: "UNSUPPORTED_BY_DEVICE")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionState;
+
+/** Device hardware. Example: Sprout. */
+@property(nonatomic, copy, nullable) NSString *hardware;
+
+/** Kernel version of Android device. */
+@property(nonatomic, copy, nullable) NSString *kernelVersion;
+
+/**
+ *  Domain name for Google accounts on device. Type for other accounts on
+ *  device. Will only be populated if |ownership_privilege| is
+ *  |PROFILE_OWNER| or |DEVICE_OWNER|. Does not include the account signed in
+ *  to the device policy app if that account's domain has only one account.
+ *  Examples: "com.example", "xyz.com".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *otherAccounts;
+
+/**
+ *  Whether this account is on an owner/primary profile.
+ *  For phones, only true for owner profiles. Android 4+ devices
+ *  can have secondary or restricted user profiles.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ownerProfileAccount;
+
+/**
+ *  Ownership privileges on device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_OwnershipPrivilege_DeviceAdministrator
+ *        Active device administrator privileges on the device. (Value:
+ *        "DEVICE_ADMINISTRATOR")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_OwnershipPrivilege_DeviceOwner
+ *        Device Owner privileges on the device. (Value: "DEVICE_OWNER")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_OwnershipPrivilege_OwnershipPrivilegeUnspecified
+ *        Ownership privilege is not set. (Value:
+ *        "OWNERSHIP_PRIVILEGE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_OwnershipPrivilege_ProfileOwner
+ *        Profile Owner privileges.
+ *        The account is in a managed corporate profile. (Value:
+ *        "PROFILE_OWNER")
+ */
+@property(nonatomic, copy, nullable) NSString *ownershipPrivilege;
+
+/** OS security patch update time on device. */
+@property(nonatomic, strong, nullable) GTLRDateTime *securityPatchTime;
+
+/**
+ *  Whether device supports Android work profiles. If false, this service
+ *  will not block access to corp data even if an administrator turns on the
+ *  "Enforce Work Profile" policy.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportsWorkProfile;
+
+@end
+
+
+/**
+ *  Response message for approving the device to access user data.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1ApproveDeviceUserResponse : GTLRObject
+
+/** Resultant DeviceUser object for the action. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser *deviceUser;
+
+@end
+
+
+/**
+ *  Response message for blocking the device from accessing user data.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1BlockDeviceUserResponse : GTLRObject
+
+/** Resultant DeviceUser object for the action. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser *deviceUser;
+
+@end
+
+
+/**
+ *  Response message for cancelling an unfinished device wipe.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1CancelWipeDeviceResponse : GTLRObject
+
+/**
+ *  Resultant Device object for the action. Note that asset tags will not be
+ *  returned in the device object.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device *device;
+
+@end
+
+
+/**
+ *  Response message for cancelling an unfinished user account wipe.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1CancelWipeDeviceUserResponse : GTLRObject
+
+/** Resultant DeviceUser object for the action. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser *deviceUser;
+
+@end
+
+
+/**
+ *  Resource representing a Device.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device : GTLRObject
+
+/** Output only. Attributes specific to Android devices. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes *androidSpecificAttributes;
+
+/** Asset tag of the device. */
+@property(nonatomic, copy, nullable) NSString *assetTag;
+
+/** Output only. Device brand. Example: Samsung. */
+@property(nonatomic, copy, nullable) NSString *brand;
+
+/**
+ *  Output only. Represents whether the Device is compromised.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_CompromisedState_Compromised
+ *        The device is compromised (currently, this means Android device is
+ *        rooted). (Value: "COMPROMISED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_CompromisedState_CompromisedStateUnspecified
+ *        Default value. (Value: "COMPROMISED_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_CompromisedState_Uncompromised
+ *        The device is safe (currently, this means Android device is unrooted).
+ *        (Value: "UNCOMPROMISED")
+ */
+@property(nonatomic, copy, nullable) NSString *compromisedState;
+
+/**
+ *  Output only. When the Company-Owned device was imported. This field is empty
+ *  for BYOD
+ *  devices.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Type of device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_Android
+ *        Device is an Android device (Value: "ANDROID")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_ChromeOs
+ *        Device is a ChromeOS device. (Value: "CHROME_OS")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_DeviceTypeUnspecified
+ *        Unknown device type (Value: "DEVICE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_GoogleSync
+ *        Device is a Google Sync device. (Value: "GOOGLE_SYNC")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_Ios
+ *        Device is an iOS device (Value: "IOS")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_Linux
+ *        Device is a Linux device. (Value: "LINUX")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_MacOs
+ *        Device is a MacOS device. (Value: "MAC_OS")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_Windows
+ *        Device is a Windows device. (Value: "WINDOWS")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceType;
+
+/** Output only. IMEI number of device if GSM device; empty otherwise. */
+@property(nonatomic, copy, nullable) NSString *imei;
+
+/** Most recent time when device synced with this service. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSyncTime;
+
+/**
+ *  Output only. Management state of the device
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Approved
+ *        Device is approved. (Value: "APPROVED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Blocked
+ *        Device is blocked. (Value: "BLOCKED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_ManagementStateUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "MANAGEMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Pending
+ *        Device is pending approval. (Value: "PENDING")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Unprovisioned
+ *        The device is not provisioned. Device will start from this state until
+ *        some action is taken (i.e. a user starts using the device). (Value:
+ *        "UNPROVISIONED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Wiped
+ *        All data and settings on the device are removed. (Value: "WIPED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Wiping
+ *        Data and settings on the device are being removed. (Value: "WIPING")
+ */
+@property(nonatomic, copy, nullable) NSString *managementState;
+
+/** Output only. Device manufacturer. Example: Motorola. */
+@property(nonatomic, copy, nullable) NSString *manufacturer;
+
+/** Output only. MEID number of device if CDMA device; empty otherwise. */
+@property(nonatomic, copy, nullable) NSString *meid;
+
+/** Output only. Model name of device. Example: Pixel 3. */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Output only. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names)
+ *  of the Device in format: `devices/{device_id}`, where device_id is
+ *  the unique id assigned to the Device.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Mobile or network operator of device, if available. */
+@property(nonatomic, copy, nullable) NSString *networkOperator;
+
+/** Output only. OS version of the device. Example: Android 8.1.0. */
+@property(nonatomic, copy, nullable) NSString *osVersion;
+
+/**
+ *  Whether the device is owned by the company or an individual
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_OwnerType_Byod
+ *        Bring Your Own Device (i.e. individual owns the device) (Value:
+ *        "BYOD")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_OwnerType_Company
+ *        Company owns the device. (Value: "COMPANY")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_OwnerType_DeviceOwnershipUnspecified
+ *        Default value. The value is unused. (Value:
+ *        "DEVICE_OWNERSHIP_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ownerType;
+
+/** Output only. OS release version. Example: 6.0. */
+@property(nonatomic, copy, nullable) NSString *releaseVersion;
+
+/** Serial Number of device. Example: HT82V1A01076. */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+/** WiFi MAC addresses of device. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *wifiMacAddresses;
+
+@end
+
+
+/**
+ *  Resource representing a user's use of a Device
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser : GTLRObject
+
+/**
+ *  Compromised State of the DeviceUser object
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_CompromisedState_Compromised
+ *        Device User Account is compromised. (Value: "COMPROMISED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_CompromisedState_CompromisedStateUnspecified
+ *        Compromised state of Device User account is unknown or unspecified.
+ *        (Value: "COMPROMISED_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_CompromisedState_NotCompromised
+ *        Device User Account is not compromised. (Value: "NOT_COMPROMISED")
+ */
+@property(nonatomic, copy, nullable) NSString *compromisedState;
+
+/** Output only. Most recent time when user registered with this service. */
+@property(nonatomic, strong, nullable) GTLRDateTime *firstSyncTime;
+
+/** Output only. Default locale used on device, in IETF BCP-47 format. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Output only. Last time when user synced with policies. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSyncTime;
+
+/**
+ *  Output only. Management state of the user on the device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Approved
+ *        User is approved to access data on the device. (Value: "APPROVED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Blocked
+ *        User is blocked from accessing data on the device. (Value: "BLOCKED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_ManagementStateUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "MANAGEMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_PendingApproval
+ *        User is awaiting approval. (Value: "PENDING_APPROVAL")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Unenrolled
+ *        User is unenrolled from Advanced Windows Management, but the Windows
+ *        account is still intact. (Value: "UNENROLLED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Wiped
+ *        This user's data and profile is removed from the device. (Value:
+ *        "WIPED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Wiping
+ *        This user's data and profile is being removed from the device. (Value:
+ *        "WIPING")
+ */
+@property(nonatomic, copy, nullable) NSString *managementState;
+
+/**
+ *  Output only. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of
+ *  the DeviceUser in format: `devices/{device_id}/deviceUsers/{user_id}`,
+ *  where user_id is the ID of the user associated with the user session.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Password state of the DeviceUser object
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_PasswordState_PasswordNotSet
+ *        Password not set in object. (Value: "PASSWORD_NOT_SET")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_PasswordState_PasswordSet
+ *        Password set in object. (Value: "PASSWORD_SET")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_PasswordState_PasswordStateUnspecified
+ *        Password state not set. (Value: "PASSWORD_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *passwordState;
+
+/** Output only. User agent on the device for this specific user */
+@property(nonatomic, copy, nullable) NSString *userAgent;
+
+/** Email address of the user registered on the device. */
+@property(nonatomic, copy, nullable) NSString *userEmail;
+
+@end
+
+
+/**
+ *  Next ID to use: 7
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1EndpointApp : GTLRObject
+
+/** Output only. Name of the app displayed to the user */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of
+ *  the EndpointApp in format:
+ *  `devices/{device}/deviceUsers/{device_user}/endpointApps/{endpoint_app}`,
+ *  where client_app_id is the ID of the app associated with the Device.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Full package name of the installed app */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Output only. Names of all permissions granted to the installed app */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  Output only. Version code of the installed app
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionCode;
+
+/** Output only. Version name of the installed app */
+@property(nonatomic, copy, nullable) NSString *versionName;
+
+@end
+
+
+/**
+ *  Response message that is returned in LRO result of ListDevices Operation.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "devices" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1ListDevicesResponse : GTLRCollectionObject
+
+/**
+ *  Devices meeting the list restrictions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device *> *devices;
+
+/**
+ *  Token to retrieve the next page of results. Empty if there are no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message that is returned in LRO result of ListDeviceUsers
+ *  Operation.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "deviceUsers" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1ListDeviceUsersResponse : GTLRCollectionObject
+
+/**
+ *  Devices meeting the list restrictions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser *> *deviceUsers;
+
+/**
+ *  Token to retrieve the next page of results. Empty if there are no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for listing all apps on the device.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "endpointApps" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1ListEndpointAppsResponse : GTLRCollectionObject
+
+/**
+ *  The list of matching EndpointApps found as a result of the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1EndpointApp *> *endpointApps;
+
+/**
+ *  Token to retrieve the next page of results. Empty if there are no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for wiping all data on the device.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1WipeDeviceResponse : GTLRObject
+
+/**
+ *  Resultant Device object for the action. Note that asset tags will not be
+ *  returned in the device object.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device *device;
+
+@end
+
+
+/**
+ *  Response message for wiping the user's account from the device.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1WipeDeviceUserResponse : GTLRObject
+
+/** Resultant DeviceUser object for the action. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser *deviceUser;
 
 @end
 

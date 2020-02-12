@@ -29,6 +29,15 @@
 @class GTLRSecurityCommandCenter_Finding;
 @class GTLRSecurityCommandCenter_Finding_SourceProperties;
 @class GTLRSecurityCommandCenter_GetPolicyOptions;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset_ResourceProperties;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_SourceProperties;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1IamPolicy;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks_Marks;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset;
 @class GTLRSecurityCommandCenter_GroupResult;
 @class GTLRSecurityCommandCenter_GroupResult_Properties;
 @class GTLRSecurityCommandCenter_IamPolicy;
@@ -160,6 +169,86 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycente
  *  Value: "TERMINATED"
  */
 GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Terminated;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding.state
+
+/**
+ *  The finding requires attention and has not been addressed yet.
+ *
+ *  Value: "ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_Active;
+/**
+ *  The finding has been fixed, triaged as a non-issue or otherwise addressed
+ *  and is no longer active.
+ *
+ *  Value: "INACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_Inactive;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse.state
+
+/**
+ *  Asset discovery run completed successfully.
+ *
+ *  Value: "COMPLETED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Completed;
+/**
+ *  Asset discovery run state was unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_StateUnspecified;
+/**
+ *  Asset discovery run was cancelled with tasks still pending, as another
+ *  run for the same organization was started with a higher priority.
+ *
+ *  Value: "SUPERSEDED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Superseded;
+/**
+ *  Asset discovery run was killed and terminated.
+ *
+ *  Value: "TERMINATED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset.changeType
+
+/**
+ *  Unspecified or default.
+ *
+ *  Value: "CHANGE_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_ChangeTypeUnspecified;
+/**
+ *  Newly created Asset
+ *
+ *  Value: "CREATED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Created;
+/**
+ *  Asset was deleted.
+ *
+ *  Value: "DELETED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Deleted;
+/**
+ *  Asset was updated.
+ *
+ *  Value: "UPDATED"
+ */
+GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Updated;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse.state
@@ -779,6 +868,378 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *        Asset discovery run was killed and terminated. (Value: "TERMINATED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Cloud Security Command Center's (Cloud SCC) representation of a Google Cloud
+ *  Platform (GCP) resource.
+ *  The Asset is a Cloud SCC resource that captures information about a single
+ *  GCP resource. All modifications to an Asset are only within the context of
+ *  Cloud SCC and don't affect the referenced GCP resource.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset : GTLRObject
+
+/** The time at which the asset was created in Cloud SCC. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  IAM Policy information associated with the GCP resource described by the
+ *  Cloud SCC asset. This information is managed and defined by the GCP
+ *  resource and cannot be modified by the user.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1IamPolicy *iamPolicy;
+
+/**
+ *  The relative resource name of this asset. See:
+ *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *  Example:
+ *  "organizations/{organization_id}/assets/{asset_id}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Resource managed properties. These properties are managed and defined by
+ *  the GCP resource and cannot be modified by the user.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset_ResourceProperties *resourceProperties;
+
+/**
+ *  Cloud SCC managed properties. These properties are managed by
+ *  Cloud SCC and cannot be modified by the user.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties *securityCenterProperties;
+
+/**
+ *  User specified security marks. These marks are entirely managed by the user
+ *  and come from the SecurityMarks resource that belongs to the asset.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks *securityMarks;
+
+/**
+ *  The time at which the asset was last updated, added, or deleted in Cloud
+ *  SCC.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Resource managed properties. These properties are managed and defined by
+ *  the GCP resource and cannot be modified by the user.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset_ResourceProperties : GTLRObject
+@end
+
+
+/**
+ *  Cloud Security Command Center (Cloud SCC) finding.
+ *  A finding is a record of assessment data (security, risk, health or privacy)
+ *  ingested into Cloud SCC for presentation, notification, analysis,
+ *  policy testing, and enforcement. For example, an XSS vulnerability in an
+ *  App Engine application is a finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding : GTLRObject
+
+/**
+ *  The additional taxonomy group within findings from a given source.
+ *  This field is immutable after creation time.
+ *  Example: "XSS_FLASH_INJECTION"
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/** The time at which the finding was created in Cloud SCC. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The time at which the event took place. For example, if the finding
+ *  represents an open firewall it would capture the time the detector believes
+ *  the firewall became open. The accuracy is determined by the detector.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  The URI that, if available, points to a web page outside of Cloud SCC
+ *  where additional information about the finding can be found. This field is
+ *  guaranteed to be either empty or a well formed URL.
+ */
+@property(nonatomic, copy, nullable) NSString *externalUri;
+
+/**
+ *  The relative resource name of this finding. See:
+ *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *  Example:
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The relative resource name of the source the finding belongs to. See:
+ *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *  This field is immutable after creation time.
+ *  For example:
+ *  "organizations/{organization_id}/sources/{source_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  For findings on Google Cloud Platform (GCP) resources, the full resource
+ *  name of the GCP resource this finding is for. See:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ *  When the finding is for a non-GCP resource, the resourceName can be a
+ *  customer or partner defined string.
+ *  This field is immutable after creation time.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Output only. User specified security marks. These marks are entirely
+ *  managed by the user and come from the SecurityMarks resource that belongs
+ *  to the finding.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks *securityMarks;
+
+/**
+ *  Source specific properties. These properties are managed by the source
+ *  that writes the finding. The key names in the source_properties map must be
+ *  between 1 and 255 characters, and must start with a letter and contain
+ *  alphanumeric characters or underscores only.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_SourceProperties *sourceProperties;
+
+/**
+ *  The state of the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_Active
+ *        The finding requires attention and has not been addressed yet. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_Inactive
+ *        The finding has been fixed, triaged as a non-issue or otherwise
+ *        addressed
+ *        and is no longer active. (Value: "INACTIVE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Source specific properties. These properties are managed by the source
+ *  that writes the finding. The key names in the source_properties map must be
+ *  between 1 and 255 characters, and must start with a letter and contain
+ *  alphanumeric characters or underscores only.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_SourceProperties : GTLRObject
+@end
+
+
+/**
+ *  IAM Policy information associated with the GCP resource described by the
+ *  Cloud SCC asset. This information is managed and defined by the GCP
+ *  resource and cannot be modified by the user.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1IamPolicy : GTLRObject
+
+/**
+ *  The JSON representation of the Policy associated with the asset.
+ *  See https://cloud.google.com/iam/reference/rest/v1p1beta1/Policy for
+ *  format details.
+ */
+@property(nonatomic, copy, nullable) NSString *policyBlob;
+
+@end
+
+
+/**
+ *  Cloud SCC's Notification
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1NotificationMessage : GTLRObject
+
+/**
+ *  If it's a Finding based notification config, this field will be
+ *  populated.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding *finding;
+
+/** Name of the notification config that generated current notification. */
+@property(nonatomic, copy, nullable) NSString *notificationConfigName;
+
+/**
+ *  If it's an asset based notification config, this field will be
+ *  populated.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset *temporalAsset;
+
+@end
+
+
+/**
+ *  Response of asset discovery run
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse : GTLRObject
+
+/** The duration between asset discovery run start and end */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  The state of an asset discovery run.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Completed
+ *        Asset discovery run completed successfully. (Value: "COMPLETED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_StateUnspecified
+ *        Asset discovery run state was unspecified. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Superseded
+ *        Asset discovery run was cancelled with tasks still pending, as another
+ *        run for the same organization was started with a higher priority.
+ *        (Value: "SUPERSEDED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated
+ *        Asset discovery run was killed and terminated. (Value: "TERMINATED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Cloud SCC managed properties. These properties are managed by Cloud SCC and
+ *  cannot be modified by the user.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties : GTLRObject
+
+/** The user defined display name for this resource. */
+@property(nonatomic, copy, nullable) NSString *resourceDisplayName;
+
+/**
+ *  The full resource name of the GCP resource this asset
+ *  represents. This field is immutable after create time. See:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/** Owners of the Google Cloud resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceOwners;
+
+/**
+ *  The full resource name of the immediate parent of the resource. See:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *resourceParent;
+
+/** The user defined display name for the parent of this resource. */
+@property(nonatomic, copy, nullable) NSString *resourceParentDisplayName;
+
+/**
+ *  The full resource name of the project the resource belongs to. See:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *resourceProject;
+
+/** The user defined display name for the project of this resource. */
+@property(nonatomic, copy, nullable) NSString *resourceProjectDisplayName;
+
+/**
+ *  The type of the GCP resource. Examples include: APPLICATION,
+ *  PROJECT, and ORGANIZATION. This is a case insensitive field defined by
+ *  Cloud SCC and/or the producer of the resource and is immutable
+ *  after create time.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
+ *  User specified security marks that are attached to the parent Cloud Security
+ *  Command Center (Cloud SCC) resource. Security marks are scoped within a
+ *  Cloud
+ *  SCC organization -- they can be modified and viewed by all users who have
+ *  proper permissions on the organization.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks : GTLRObject
+
+/**
+ *  Mutable user specified security marks belonging to the parent resource.
+ *  Constraints are as follows:
+ *  * Keys and values are treated as case insensitive
+ *  * Keys must be between 1 - 256 characters (inclusive)
+ *  * Keys must be letters, numbers, underscores, or dashes
+ *  * Values have leading and trailing whitespace trimmed, remaining
+ *  characters must be between 1 - 4096 characters (inclusive)
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks_Marks *marks;
+
+/**
+ *  The relative resource name of the SecurityMarks. See:
+ *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *  Examples:
+ *  "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Mutable user specified security marks belonging to the parent resource.
+ *  Constraints are as follows:
+ *  * Keys and values are treated as case insensitive
+ *  * Keys must be between 1 - 256 characters (inclusive)
+ *  * Keys must be letters, numbers, underscores, or dashes
+ *  * Values have leading and trailing whitespace trimmed, remaining
+ *  characters must be between 1 - 4096 characters (inclusive)
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks_Marks : GTLRObject
+@end
+
+
+/**
+ *  Wrapper over asset object that also captures the state change for the asset
+ *  e.g. if it was a newly created asset vs updated or deleted asset.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset : GTLRObject
+
+/**
+ *  Asset data that includes attributes, properties and marks about the asset.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset *asset;
+
+/**
+ *  Represents if the asset was created/updated/deleted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_ChangeTypeUnspecified
+ *        Unspecified or default. (Value: "CHANGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Created
+ *        Newly created Asset (Value: "CREATED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Deleted
+ *        Asset was deleted. (Value: "DELETED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Updated
+ *        Asset was updated. (Value: "UPDATED")
+ */
+@property(nonatomic, copy, nullable) NSString *changeType;
 
 @end
 

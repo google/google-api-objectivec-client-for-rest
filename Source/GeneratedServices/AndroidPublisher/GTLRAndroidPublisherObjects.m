@@ -649,11 +649,11 @@
 @implementation GTLRAndroidPublisher_SubscriptionPurchase
 @dynamic acknowledgementState, autoRenewing, autoResumeTimeMillis, cancelReason,
          cancelSurveyResult, countryCode, developerPayload, emailAddress,
-         expiryTimeMillis, familyName, givenName, introductoryPriceInfo, kind,
-         linkedPurchaseToken, orderId, paymentState, priceAmountMicros,
-         priceChange, priceCurrencyCode, profileId, profileName, promotionCode,
-         promotionType, purchaseType, startTimeMillis,
-         userCancellationTimeMillis;
+         expiryTimeMillis, externalAccountId, familyName, givenName,
+         introductoryPriceInfo, kind, linkedPurchaseToken, orderId,
+         paymentState, priceAmountMicros, priceChange, priceCurrencyCode,
+         profileId, profileName, promotionCode, promotionType, purchaseType,
+         startTimeMillis, userCancellationTimeMillis;
 @end
 
 
@@ -777,8 +777,8 @@
 //
 
 @implementation GTLRAndroidPublisher_TrackRelease
-@dynamic controls, countryTargeting, name, releaseNotes, sampling, status,
-         userFraction, versionCodes;
+@dynamic controls, countryTargeting, inAppUpdatePriority, name, releaseNotes,
+         sampling, status, userFraction, versionCodes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

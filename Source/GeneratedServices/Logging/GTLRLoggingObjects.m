@@ -98,7 +98,7 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 //
 
 @implementation GTLRLogging_BigQueryOptions
-@dynamic usePartitionedTables;
+@dynamic usePartitionedTables, usesTimestampColumnPartitioning;
 @end
 
 

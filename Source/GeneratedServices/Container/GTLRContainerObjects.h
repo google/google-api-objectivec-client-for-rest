@@ -72,6 +72,7 @@
 @class GTLRContainer_ShieldedNodes;
 @class GTLRContainer_StatusCondition;
 @class GTLRContainer_TimeWindow;
+@class GTLRContainer_UpgradeSettings;
 @class GTLRContainer_UsableSubnetwork;
 @class GTLRContainer_UsableSubnetworkSecondaryRange;
 @class GTLRContainer_VerticalPodAutoscaling;
@@ -648,6 +649,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  */
 @interface GTLRContainer_AutoprovisioningNodePoolDefaults : GTLRObject
 
+/** Specifies the node management options for NAP created node-pools. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
+
 /**
  *  Scopes that are used by NAP when creating node pools. If oauth_scopes are
  *  specified, service_account should be empty.
@@ -659,6 +663,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  service_account is specified, scopes should be empty.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Specifies the upgrade settings for NAP created node pools */
+@property(nonatomic, strong, nullable) GTLRContainer_UpgradeSettings *upgradeSettings;
 
 @end
 
@@ -2262,8 +2269,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 @property(nonatomic, strong, nullable) GTLRContainer_SandboxConfig *sandboxConfig;
 
 /**
- *  The Google Cloud Platform Service Account to be used by the node VMs. If
- *  no Service Account is specified, the "default" service account is used.
+ *  The Google Cloud Platform Service Account to be used by the node VMs.
+ *  Specify the email address of the Service Account; otherwise, if no Service
+ *  Account is specified, the "default" service account is used.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -2417,6 +2425,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls;
 
+/**
+ *  The list of Google Compute Engine [zones](/compute/docs/zones#available)
+ *  in which the NodePool's nodes should be located.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
+
 /** NodeManagement configuration for this NodePool. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
 
@@ -2472,6 +2486,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  node pool instance, if available.
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/** Upgrade settings control disruption and speed of the upgrade. */
+@property(nonatomic, strong, nullable) GTLRContainer_UpgradeSettings *upgradeSettings;
 
 /** The version of the Kubernetes of this node. */
 @property(nonatomic, copy, nullable) NSString *version;
@@ -3749,6 +3766,15 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
+ *  The desired list of Google Compute Engine
+ *  [zones](/compute/docs/zones#available) in which the node pool's nodes
+ *  should be located. Changing the locations for a node pool will result
+ *  in nodes being either created or removed from the node pool, depending
+ *  on whether locations are being added or removed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
+
+/**
  *  The name (project, location, cluster, node pool) of the node pool to
  *  update. Specified in the format
  *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
@@ -3781,6 +3807,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
+/** Upgrade settings control disruption and speed of the upgrade. */
+@property(nonatomic, strong, nullable) GTLRContainer_UpgradeSettings *upgradeSettings;
+
 /**
  *  Required. Deprecated. The name of the Google Compute Engine
  *  [zone](/compute/docs/zones#available) in which the cluster
@@ -3790,6 +3819,48 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  These upgrade settings control the level of parallelism and the level of
+ *  disruption caused by an upgrade.
+ *  maxUnavailable controls the number of nodes that can be simultaneously
+ *  unavailable.
+ *  maxSurge controls the number of additional nodes that can be added to the
+ *  node pool temporarily for the time of the upgrade to increase the number of
+ *  available nodes.
+ *  (maxUnavailable + maxSurge) determines the level of parallelism (how many
+ *  nodes are being upgraded at the same time).
+ *  Note: upgrades inevitably introduce some disruption since workloads need to
+ *  be moved from old nodes to new, upgraded ones. Even if maxUnavailable=0,
+ *  this holds true. (Disruption stays within the limits of
+ *  PodDisruptionBudget, if it is configured.)
+ *  Consider a hypothetical node pool with 5 nodes having maxSurge=2,
+ *  maxUnavailable=1. This means the upgrade process upgrades 3 nodes
+ *  simultaneously. It creates 2 additional (upgraded) nodes, then it brings
+ *  down 3 old (not yet upgraded) nodes at the same time. This ensures that
+ *  there are always at least 4 nodes available.
+ */
+@interface GTLRContainer_UpgradeSettings : GTLRObject
+
+/**
+ *  The maximum number of nodes that can be created beyond the current size
+ *  of the node pool during the upgrade process.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSurge;
+
+/**
+ *  The maximum number of nodes that can be simultaneously unavailable during
+ *  the upgrade process. A node is considered available if its status is
+ *  Ready.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxUnavailable;
 
 @end
 

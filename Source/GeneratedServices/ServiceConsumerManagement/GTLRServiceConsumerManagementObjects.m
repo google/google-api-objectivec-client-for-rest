@@ -257,7 +257,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 @implementation GTLRServiceConsumerManagement_BackendRule
 @dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, selector;
+         operationDeadline, pathTranslation, protocol, selector;
 @end
 
 

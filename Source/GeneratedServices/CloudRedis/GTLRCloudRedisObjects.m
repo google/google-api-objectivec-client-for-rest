@@ -18,6 +18,11 @@ NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_Data
 NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_ForceDataLoss = @"FORCE_DATA_LOSS";
 NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_LimitedDataLoss = @"LIMITED_DATA_LOSS";
 
+// GTLRCloudRedis_Instance.connectMode
+NSString * const kGTLRCloudRedis_Instance_ConnectMode_ConnectModeUnspecified = @"CONNECT_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_Instance_ConnectMode_DirectPeering = @"DIRECT_PEERING";
+NSString * const kGTLRCloudRedis_Instance_ConnectMode_PrivateServiceAccess = @"PRIVATE_SERVICE_ACCESS";
+
 // GTLRCloudRedis_Instance.state
 NSString * const kGTLRCloudRedis_Instance_State_Creating       = @"CREATING";
 NSString * const kGTLRCloudRedis_Instance_State_Deleting       = @"DELETING";
@@ -153,7 +158,7 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
 //
 
 @implementation GTLRCloudRedis_Instance
-@dynamic alternativeLocationId, authorizedNetwork, createTime,
+@dynamic alternativeLocationId, authorizedNetwork, connectMode, createTime,
          currentLocationId, displayName, host, labels, locationId, memorySizeGb,
          name, persistenceIamIdentity, port, redisConfigs, redisVersion,
          reservedIpRange, state, statusMessage, tier;
