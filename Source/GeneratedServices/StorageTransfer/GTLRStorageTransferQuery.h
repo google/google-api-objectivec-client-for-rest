@@ -263,34 +263,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  This method is not supported and the server returns `UNIMPLEMENTED`.
- *
- *  Method: storagetransfer.transferOperations.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeStorageTransferCloudPlatform
- */
-@interface GTLRStorageTransferQuery_TransferOperationsDelete : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForTransferOperationsDeleteWithname:]
-
-/** The name of the operation resource to be deleted. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRStorageTransfer_Empty.
- *
- *  This method is not supported and the server returns `UNIMPLEMENTED`.
- *
- *  @param name The name of the operation resource to be deleted.
- *
- *  @return GTLRStorageTransferQuery_TransferOperationsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.

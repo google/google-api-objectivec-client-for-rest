@@ -98,6 +98,7 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1CelebrityRecognitionAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1CelebrityTrack;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1DetectedAttribute;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1DetectedLandmark;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame;
@@ -111,6 +112,7 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedVertex;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1PersonDetectionAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1RecognizedCelebrity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechRecognitionAlternative;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1SpeechTranscription;
@@ -583,6 +585,12 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  Value: "OBJECT_TRACKING"
  */
 GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ObjectTracking;
+/**
+ *  Person detection.
+ *
+ *  Value: "PERSON_DETECTION"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_PersonDetection;
 /**
  *  Shot change detection.
  *
@@ -3094,6 +3102,31 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  A generic detected landmark represented by name in string format and a 2D
+ *  location.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1DetectedLandmark : GTLRObject
+
+/**
+ *  The confidence score of the detected landmark. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** The name of this landmark, i.e. left_hand, right_shoulder. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The 2D point of the detected landmark using the normalized image
+ *  coordindate system. The normalized coordinates have the range from 0 to 1.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedVertex *point;
+
+@end
+
+
+/**
  *  Detected entity from video analysis.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity : GTLRObject
@@ -3423,6 +3456,17 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 
 /**
+ *  Person detection annotation per video.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1PersonDetectionAnnotation : GTLRObject
+
+/** The trackes that a person is detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Track *> *tracks;
+
+@end
+
+
+/**
  *  The recognized celebrity with confidence score.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1RecognizedCelebrity : GTLRObject
@@ -3606,6 +3650,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** Optional. The attributes of the object in the bounding box. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1DetectedAttribute *> *attributes;
 
+/** Optional. The detected landmarks. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1DetectedLandmark *> *landmarks;
+
 /** Normalized Bounding box in a frame, where the object is located. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedBoundingBox *normalizedBoundingBox;
 
@@ -3667,6 +3714,8 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *        Logo detection, tracking, and recognition. (Value: "LOGO_RECOGNITION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ObjectTracking
  *        Object detection and tracking. (Value: "OBJECT_TRACKING")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_PersonDetection
+ *        Person detection. (Value: "PERSON_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ShotChangeDetection
  *        Shot change detection. (Value: "SHOT_CHANGE_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_SpeechTranscription
@@ -3744,6 +3793,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** Annotations for list of objects detected and tracked in video. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingAnnotation *> *objectAnnotations;
+
+/** Person detection annotations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1PersonDetectionAnnotation *> *personDetectionAnnotations;
 
 /** Video segment on which the annotation is run. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment *segment;

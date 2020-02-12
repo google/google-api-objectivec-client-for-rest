@@ -283,6 +283,13 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_TrailingSlashBeh
  */
 GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Abandoned;
 /**
+ *  The version is being cloned from another version. All content is still
+ *  being copied over.
+ *
+ *  Value: "CLONING"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Cloning;
+/**
  *  The version has been created, and content is currently being added to the
  *  version.
  *
@@ -1285,6 +1292,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
  *    @arg @c kGTLRFirebaseHosting_Version_Status_Abandoned The version was not
  *        updated to `FINALIZED` within 12&nbsp;hours and was
  *        automatically deleted. (Value: "ABANDONED")
+ *    @arg @c kGTLRFirebaseHosting_Version_Status_Cloning The version is being
+ *        cloned from another version. All content is still
+ *        being copied over. (Value: "CLONING")
  *    @arg @c kGTLRFirebaseHosting_Version_Status_Created The version has been
  *        created, and content is currently being added to the
  *        version. (Value: "CREATED")

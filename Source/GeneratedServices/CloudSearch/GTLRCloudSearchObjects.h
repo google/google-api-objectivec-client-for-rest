@@ -630,14 +630,16 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_Unspecified;
 // GTLRCloudSearch_QueryInterpretation.interpretationType
 
 /**
- *  The natural language results is mixed with results from original query.
+ *  The results from original query are blended with other results. The
+ *  reason for blending these other results with the results from original
+ *  query is populated in the 'Reason' field below.
  *
  *  Value: "BLEND"
  */
 GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_Blend;
 /**
- *  No natural language interpretation or the natural language interpretation
- *  is not used to fetch the search results.
+ *  Neither the natural language interpretation, nor a broader version of the
+ *  query is used to fetch the search results.
  *
  *  Value: "NONE"
  */
@@ -654,8 +656,9 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Interpretation
 // GTLRCloudSearch_QueryInterpretation.reason
 
 /**
- *  A much broader version of the query is used to retrieve the search
- *  results since enough results were not found for the user query.
+ *  Query and document terms similarity is used to selectively broaden the
+ *  query to retrieve additional search results since enough results were not
+ *  found for the user query.
  *  Interpreted query will be empty for this case.
  *
  *  Value: "NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY"
@@ -3528,11 +3531,13 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_InterpretationType_Blend The
- *        natural language results is mixed with results from original query.
- *        (Value: "BLEND")
- *    @arg @c kGTLRCloudSearch_QueryInterpretation_InterpretationType_None No
- *        natural language interpretation or the natural language interpretation
- *        is not used to fetch the search results. (Value: "NONE")
+ *        results from original query are blended with other results. The
+ *        reason for blending these other results with the results from original
+ *        query is populated in the 'Reason' field below. (Value: "BLEND")
+ *    @arg @c kGTLRCloudSearch_QueryInterpretation_InterpretationType_None
+ *        Neither the natural language interpretation, nor a broader version of
+ *        the
+ *        query is used to fetch the search results. (Value: "NONE")
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_InterpretationType_Replace
  *        The results from original query are replaced. The reason for replacing
  *        the results from original query is populated in the 'Reason' field
@@ -3554,8 +3559,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_NotEnoughResultsFoundForUserQuery
- *        A much broader version of the query is used to retrieve the search
- *        results since enough results were not found for the user query.
+ *        Query and document terms similarity is used to selectively broaden the
+ *        query to retrieve additional search results since enough results were
+ *        not
+ *        found for the user query.
  *        Interpreted query will be empty for this case. (Value:
  *        "NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY")
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_QueryHasNaturalLanguageIntent

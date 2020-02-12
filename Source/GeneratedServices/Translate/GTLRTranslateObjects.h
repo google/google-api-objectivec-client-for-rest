@@ -830,8 +830,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_TextGlossaryConfig : GTLRObject
 
 /**
- *  Required. Specifies the glossary used for this translation. Use
- *  this format: projects/ * /locations/ * /glossaries/ *
+ *  Required. The `glossary` to be applied for this translation.
+ *  The format depends on glossary:
+ *  - User provided custom glossary:
+ *  `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`
  */
 @property(nonatomic, copy, nullable) NSString *glossary;
 

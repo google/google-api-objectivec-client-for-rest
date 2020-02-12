@@ -912,6 +912,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the locations for a specific cluster.
+ *  Deprecated. Use
+ *  [projects.locations.clusters.update](/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.update)
+ *  instead.
  *
  *  Method: container.projects.locations.clusters.setLocations
  *
@@ -932,6 +935,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRContainer_Operation.
  *
  *  Sets the locations for a specific cluster.
+ *  Deprecated. Use
+ *  [projects.locations.clusters.update](/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.update)
+ *  instead.
  *
  *  @param object The @c GTLRContainer_SetLocationsRequest to include in the
  *    query.
@@ -1974,6 +1980,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the locations for a specific cluster.
+ *  Deprecated. Use
+ *  [projects.locations.clusters.update](/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.update)
+ *  instead.
  *
  *  Method: container.projects.zones.clusters.locations
  *
@@ -2011,6 +2020,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRContainer_Operation.
  *
  *  Sets the locations for a specific cluster.
+ *  Deprecated. Use
+ *  [projects.locations.clusters.update](/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.update)
+ *  instead.
  *
  *  @param object The @c GTLRContainer_SetLocationsRequest to include in the
  *    query.

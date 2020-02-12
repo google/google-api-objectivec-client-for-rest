@@ -236,54 +236,6 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Updates the device policy. This method supports patch semantics.
- *
- *  Method: androidenterprise.devices.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_DevicesPatch : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForDevicesPatchWithObject:enterpriseId:userId:deviceId:]
-
-/** The ID of the device. */
-@property(nonatomic, copy, nullable) NSString *deviceId;
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/**
- *  Mask that identifies which fields to update. If not set, all modifiable
- *  fields will be modified.
- *  When set in a query parameter, this field should be specified as
- *  updateMask=<field1>,<field2>,...
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/** The ID of the user. */
-@property(nonatomic, copy, nullable) NSString *userId;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_Device.
- *
- *  Updates the device policy. This method supports patch semantics.
- *
- *  @param object The @c GTLRAndroidEnterprise_Device to include in the query.
- *  @param enterpriseId The ID of the enterprise.
- *  @param userId The ID of the user.
- *  @param deviceId The ID of the device.
- *
- *  @return GTLRAndroidEnterpriseQuery_DevicesPatch
- */
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_Device *)object
-                   enterpriseId:(NSString *)enterpriseId
-                         userId:(NSString *)userId
-                       deviceId:(NSString *)deviceId;
-
-@end
-
-/**
  *  Sets whether a device's access to Google services is enabled or disabled.
  *  The device state takes effect only if enforcing EMM policies on Android
  *  devices is enabled in the Google Admin Console. Otherwise, the device state
@@ -1024,60 +976,6 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 @end
 
 /**
- *  Adds or updates an entitlement to an app for a user. This method supports
- *  patch semantics.
- *
- *  Method: androidenterprise.entitlements.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_EntitlementsPatch : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEntitlementsPatchWithObject:enterpriseId:userId:entitlementId:]
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/**
- *  The ID of the entitlement (a product ID), e.g. "app:com.google.android.gm".
- */
-@property(nonatomic, copy, nullable) NSString *entitlementId;
-
-/**
- *  Set to true to also install the product on all the user's devices where
- *  possible. Failure to install on one or more devices will not prevent this
- *  operation from returning successfully, as long as the entitlement was
- *  successfully assigned to the user.
- */
-@property(nonatomic, assign) BOOL install;
-
-/** The ID of the user. */
-@property(nonatomic, copy, nullable) NSString *userId;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_Entitlement.
- *
- *  Adds or updates an entitlement to an app for a user. This method supports
- *  patch semantics.
- *
- *  @param object The @c GTLRAndroidEnterprise_Entitlement to include in the
- *    query.
- *  @param enterpriseId The ID of the enterprise.
- *  @param userId The ID of the user.
- *  @param entitlementId The ID of the entitlement (a product ID), e.g.
- *    "app:com.google.android.gm".
- *
- *  @return GTLRAndroidEnterpriseQuery_EntitlementsPatch
- */
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_Entitlement *)object
-                   enterpriseId:(NSString *)enterpriseId
-                         userId:(NSString *)userId
-                  entitlementId:(NSString *)entitlementId;
-
-@end
-
-/**
  *  Adds or updates an entitlement to an app for a user.
  *
  *  Method: androidenterprise.entitlements.update
@@ -1371,59 +1269,6 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 /**
  *  Requests to install the latest version of an app to a device. If the app is
  *  already installed, then it is updated to the latest version if necessary.
- *  This method supports patch semantics.
- *
- *  Method: androidenterprise.installs.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_InstallsPatch : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForInstallsPatchWithObject:enterpriseId:userId:deviceId:installId:]
-
-/** The Android ID of the device. */
-@property(nonatomic, copy, nullable) NSString *deviceId;
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/**
- *  The ID of the product represented by the install, e.g.
- *  "app:com.google.android.gm".
- */
-@property(nonatomic, copy, nullable) NSString *installId;
-
-/** The ID of the user. */
-@property(nonatomic, copy, nullable) NSString *userId;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_Install.
- *
- *  Requests to install the latest version of an app to a device. If the app is
- *  already installed, then it is updated to the latest version if necessary.
- *  This method supports patch semantics.
- *
- *  @param object The @c GTLRAndroidEnterprise_Install to include in the query.
- *  @param enterpriseId The ID of the enterprise.
- *  @param userId The ID of the user.
- *  @param deviceId The Android ID of the device.
- *  @param installId The ID of the product represented by the install, e.g.
- *    "app:com.google.android.gm".
- *
- *  @return GTLRAndroidEnterpriseQuery_InstallsPatch
- */
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_Install *)object
-                   enterpriseId:(NSString *)enterpriseId
-                         userId:(NSString *)userId
-                       deviceId:(NSString *)deviceId
-                      installId:(NSString *)installId;
-
-@end
-
-/**
- *  Requests to install the latest version of an app to a device. If the app is
- *  already installed, then it is updated to the latest version if necessary.
  *
  *  Method: androidenterprise.installs.update
  *
@@ -1612,58 +1457,6 @@ GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotificatio
 
 /**
  *  Adds or updates a per-device managed configuration for an app for the
- *  specified device. This method supports patch semantics.
- *
- *  Method: androidenterprise.managedconfigurationsfordevice.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordevicePatch : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsfordevicePatchWithObject:enterpriseId:userId:deviceId:managedConfigurationForDeviceId:]
-
-/** The Android ID of the device. */
-@property(nonatomic, copy, nullable) NSString *deviceId;
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/**
- *  The ID of the managed configuration (a product ID), e.g.
- *  "app:com.google.android.gm".
- */
-@property(nonatomic, copy, nullable) NSString *managedConfigurationForDeviceId;
-
-/** The ID of the user. */
-@property(nonatomic, copy, nullable) NSString *userId;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_ManagedConfiguration.
- *
- *  Adds or updates a per-device managed configuration for an app for the
- *  specified device. This method supports patch semantics.
- *
- *  @param object The @c GTLRAndroidEnterprise_ManagedConfiguration to include
- *    in the query.
- *  @param enterpriseId The ID of the enterprise.
- *  @param userId The ID of the user.
- *  @param deviceId The Android ID of the device.
- *  @param managedConfigurationForDeviceId The ID of the managed configuration
- *    (a product ID), e.g. "app:com.google.android.gm".
- *
- *  @return GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordevicePatch
- */
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_ManagedConfiguration *)object
-                   enterpriseId:(NSString *)enterpriseId
-                         userId:(NSString *)userId
-                       deviceId:(NSString *)deviceId
-managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
-
-@end
-
-/**
- *  Adds or updates a per-device managed configuration for an app for the
  *  specified device.
  *
  *  Method: androidenterprise.managedconfigurationsfordevice.update
@@ -1833,61 +1626,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  */
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
                                userId:(NSString *)userId;
-
-@end
-
-/**
- *  Adds or updates the managed configuration settings for an app for the
- *  specified user. If you support the Managed configurations iframe, you can
- *  apply managed configurations to a user by specifying an mcmId and its
- *  associated configuration variables (if any) in the request. Alternatively,
- *  all EMMs can apply managed configurations by passing a list of managed
- *  properties. This method supports patch semantics.
- *
- *  Method: androidenterprise.managedconfigurationsforuser.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserPatch : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsforuserPatchWithObject:enterpriseId:userId:managedConfigurationForUserId:]
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/**
- *  The ID of the managed configuration (a product ID), e.g.
- *  "app:com.google.android.gm".
- */
-@property(nonatomic, copy, nullable) NSString *managedConfigurationForUserId;
-
-/** The ID of the user. */
-@property(nonatomic, copy, nullable) NSString *userId;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_ManagedConfiguration.
- *
- *  Adds or updates the managed configuration settings for an app for the
- *  specified user. If you support the Managed configurations iframe, you can
- *  apply managed configurations to a user by specifying an mcmId and its
- *  associated configuration variables (if any) in the request. Alternatively,
- *  all EMMs can apply managed configurations by passing a list of managed
- *  properties. This method supports patch semantics.
- *
- *  @param object The @c GTLRAndroidEnterprise_ManagedConfiguration to include
- *    in the query.
- *  @param enterpriseId The ID of the enterprise.
- *  @param userId The ID of the user.
- *  @param managedConfigurationForUserId The ID of the managed configuration (a
- *    product ID), e.g. "app:com.google.android.gm".
- *
- *  @return GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserPatch
- */
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_ManagedConfiguration *)object
-                   enterpriseId:(NSString *)enterpriseId
-                         userId:(NSString *)userId
-  managedConfigurationForUserId:(NSString *)managedConfigurationForUserId;
 
 @end
 
@@ -2593,47 +2331,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @end
 
 /**
- *  Updates a cluster. This method supports patch semantics.
- *
- *  Method: androidenterprise.storelayoutclusters.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_StorelayoutclustersPatch : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForStorelayoutclustersPatchWithObject:enterpriseId:pageId:clusterId:]
-
-/** The ID of the cluster. */
-@property(nonatomic, copy, nullable) NSString *clusterId;
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/** The ID of the page. */
-@property(nonatomic, copy, nullable) NSString *pageId;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_StoreCluster.
- *
- *  Updates a cluster. This method supports patch semantics.
- *
- *  @param object The @c GTLRAndroidEnterprise_StoreCluster to include in the
- *    query.
- *  @param enterpriseId The ID of the enterprise.
- *  @param pageId The ID of the page.
- *  @param clusterId The ID of the cluster.
- *
- *  @return GTLRAndroidEnterpriseQuery_StorelayoutclustersPatch
- */
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_StoreCluster *)object
-                   enterpriseId:(NSString *)enterpriseId
-                         pageId:(NSString *)pageId
-                      clusterId:(NSString *)clusterId;
-
-@end
-
-/**
  *  Updates a cluster.
  *
  *  Method: androidenterprise.storelayoutclusters.update
@@ -2797,42 +2494,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  @return GTLRAndroidEnterpriseQuery_StorelayoutpagesList
  */
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId;
-
-@end
-
-/**
- *  Updates the content of a store page. This method supports patch semantics.
- *
- *  Method: androidenterprise.storelayoutpages.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_StorelayoutpagesPatch : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForStorelayoutpagesPatchWithObject:enterpriseId:pageId:]
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/** The ID of the page. */
-@property(nonatomic, copy, nullable) NSString *pageId;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_StorePage.
- *
- *  Updates the content of a store page. This method supports patch semantics.
- *
- *  @param object The @c GTLRAndroidEnterprise_StorePage to include in the
- *    query.
- *  @param enterpriseId The ID of the enterprise.
- *  @param pageId The ID of the page.
- *
- *  @return GTLRAndroidEnterpriseQuery_StorelayoutpagesPatch
- */
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_StorePage *)object
-                   enterpriseId:(NSString *)enterpriseId
-                         pageId:(NSString *)pageId;
 
 @end
 
@@ -3130,49 +2791,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @end
 
 /**
- *  Updates the details of an EMM-managed user.
- *  Can be used with EMM-managed users only (not Google managed users). Pass the
- *  new details in the Users resource in the request body. Only the displayName
- *  field can be changed. Other fields must either be unset or have the
- *  currently active value. This method supports patch semantics.
- *
- *  Method: androidenterprise.users.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_UsersPatch : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForUsersPatchWithObject:enterpriseId:userId:]
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/** The ID of the user. */
-@property(nonatomic, copy, nullable) NSString *userId;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_User.
- *
- *  Updates the details of an EMM-managed user.
- *  Can be used with EMM-managed users only (not Google managed users). Pass the
- *  new details in the Users resource in the request body. Only the displayName
- *  field can be changed. Other fields must either be unset or have the
- *  currently active value. This method supports patch semantics.
- *
- *  @param object The @c GTLRAndroidEnterprise_User to include in the query.
- *  @param enterpriseId The ID of the enterprise.
- *  @param userId The ID of the user.
- *
- *  @return GTLRAndroidEnterpriseQuery_UsersPatch
- */
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_User *)object
-                   enterpriseId:(NSString *)enterpriseId
-                         userId:(NSString *)userId;
-
-@end
-
-/**
  *  Revokes access to all devices currently provisioned to the user. The user
  *  will no longer be able to use the managed Play store on any of their managed
  *  devices.
@@ -3453,41 +3071,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  @return GTLRAndroidEnterpriseQuery_WebappsList
  */
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId;
-
-@end
-
-/**
- *  Updates an existing web app. This method supports patch semantics.
- *
- *  Method: androidenterprise.webapps.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_WebappsPatch : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForWebappsPatchWithObject:enterpriseId:webAppId:]
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/** The ID of the web app. */
-@property(nonatomic, copy, nullable) NSString *webAppId;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_WebApp.
- *
- *  Updates an existing web app. This method supports patch semantics.
- *
- *  @param object The @c GTLRAndroidEnterprise_WebApp to include in the query.
- *  @param enterpriseId The ID of the enterprise.
- *  @param webAppId The ID of the web app.
- *
- *  @return GTLRAndroidEnterpriseQuery_WebappsPatch
- */
-+ (instancetype)queryWithObject:(GTLRAndroidEnterprise_WebApp *)object
-                   enterpriseId:(NSString *)enterpriseId
-                       webAppId:(NSString *)webAppId;
 
 @end
 

@@ -44,6 +44,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1SampledShapleyAttribution;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Scheduling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version;
@@ -1955,7 +1956,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Required. Fully qualified BigQuery table name in the following format:
  *  "<var>project_id</var>.<var>dataset_name</var>.<var>table_name</var>"
- *  The specifcied table must already exist, and the "Cloud ML Service Agent"
+ *  The specified table must already exist, and the "Cloud ML Service Agent"
  *  for your project must have permission to write to it. The table must have
  *  the following [schema](/bigquery/docs/schemas):
  *  <table>
@@ -1997,6 +1998,36 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numPaths;
+
+@end
+
+
+/**
+ *  All parameters related to queuing and scheduling of training jobs.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Scheduling : GTLRObject
+
+/**
+ *  Optional. The maximum job running time, expressed in seconds. By default
+ *  there is no limit.
+ *  If the training job is still running after this duration, AI Platform
+ *  Training cancels it.
+ *  For example, if you want to ensure your job runs for no more than 2 hours,
+ *  set this field to `7200s` (2 hours * 60 minutes / hour * 60 seconds /
+ *  minute).
+ *  If you submit your training job using the `gcloud` tool, you can [provide
+ *  this field in a `config.yaml`
+ *  file](/ml-engine/docs/training-jobs#formatting_your_configuration_parameters).
+ *  For example:
+ *  ```yaml
+ *  trainingInput:
+ *  ...
+ *  scheduling:
+ *  maxRunningTime: 7200s
+ *  ...
+ *  ```
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxRunningTime;
 
 @end
 
@@ -2229,6 +2260,9 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        Many workers and a few parameter servers. (Value: "STANDARD_1")
  */
 @property(nonatomic, copy, nullable) NSString *scaleTier;
+
+/** Optional. Scheduling options for a training job. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Scheduling *scheduling;
 
 /**
  *  Optional. Use 'chief' instead of 'master' in TF_CONFIG when Custom
@@ -3165,15 +3199,34 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  Represents an expression text. Example:
- *  title: "User account presence"
- *  description: "Determines whether the request has a user account"
- *  expression: "size(request.user) > 0"
+ *  Represents a textual expression in the Common Expression Language (CEL)
+ *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
+ *  are documented at https://github.com/google/cel-spec.
+ *  Example (Comparison):
+ *  title: "Summary size limit"
+ *  description: "Determines if a summary is less than 100 chars"
+ *  expression: "document.summary.size() < 100"
+ *  Example (Equality):
+ *  title: "Requestor is owner"
+ *  description: "Determines if requestor is the document owner"
+ *  expression: "document.owner == request.auth.claims.email"
+ *  Example (Logic):
+ *  title: "Public documents"
+ *  description: "Determine whether the document should be publicly visible"
+ *  expression: "document.type != 'private' && document.type != 'internal'"
+ *  Example (Data Manipulation):
+ *  title: "Notification string"
+ *  description: "Create a notification string with a timestamp."
+ *  expression: "'New message received at ' + string(document.create_time)"
+ *  The exact variables and functions that may be referenced within an
+ *  expression
+ *  are determined by the service that evaluates it. See the service
+ *  documentation for additional information.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleTypeExpr : GTLRObject
 
 /**
- *  An optional description of the expression. This is a longer text which
+ *  Optional. Description of the expression. This is a longer text which
  *  describes the expression, e.g. when hovered over it in a UI.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -3181,21 +3234,19 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Textual representation of an expression in
- *  Common Expression Language syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
+ *  Textual representation of an expression in Common Expression Language
+ *  syntax.
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  An optional string indicating the location of the expression for error
+ *  Optional. String indicating the location of the expression for error
  *  reporting, e.g. a file name and a position in the file.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  An optional title for the expression, i.e. a short string describing
+ *  Optional. Title for the expression, i.e. a short string describing
  *  its purpose. This can be used e.g. in UIs which allow to enter the
  *  expression.
  */

@@ -566,7 +566,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_LocationMetadata
-@dynamic hsmAvailable;
+@dynamic ekmAvailable, hsmAvailable;
 @end
 
 

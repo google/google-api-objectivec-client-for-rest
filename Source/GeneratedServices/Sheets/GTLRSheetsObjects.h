@@ -3295,12 +3295,27 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @property(nonatomic, strong, nullable) GTLRSheets_Color *firstBandColor;
 
 /**
+ *  The first color that is alternating. (Required)
+ *  If first_band_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *firstBandColorStyle;
+
+/**
  *  The color of the last row or column. If this field is not set, the last
  *  row or column will be filled with either first_band_color or
  *  second_band_color, depending on the color of the previous row or
  *  column.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *footerColor;
+
+/**
+ *  The color of the last row or column. If this field is not set, the last
+ *  row or column will be filled with either first_band_color or
+ *  second_band_color, depending on the color of the previous row or
+ *  column.
+ *  If footer_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *footerColorStyle;
 
 /**
  *  The color of the first row or column. If this field is set, the first
@@ -3312,8 +3327,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *headerColor;
 
+/**
+ *  The color of the first row or column. If this field is set, the first
+ *  row or column will be filled with this color and the colors will
+ *  alternate between first_band_color and second_band_color starting
+ *  from the second row or column. Otherwise, the first row or column will be
+ *  filled with first_band_color and the colors will proceed to alternate
+ *  as they normally would.
+ *  If header_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *headerColorStyle;
+
 /** The second color that is alternating. (Required) */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *secondBandColor;
+
+/**
+ *  The second color that is alternating. (Required)
+ *  If second_band_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *secondBandColorStyle;
 
 @end
 
@@ -3464,14 +3496,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @interface GTLRSheets_BasicChartSeries : GTLRObject
 
 /**
- *  The color for elements (i.e. bars, lines, points) associated with this
- *  series. If empty, a default color is used.
+ *  The color for elements (such as bars, lines, and points) associated with
+ *  this series. If empty, a default color is used.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *color;
 
 /**
- *  The color for elements (i.e. bars, lines, points) associated with this
- *  series. If empty, a default color is used.
+ *  The color for elements (such as bars, lines, and points) associated with
+ *  this series. If empty, a default color is used.
  *  If color is also set, this field takes precedence.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *colorStyle;
@@ -4448,6 +4480,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @property(nonatomic, strong, nullable) GTLRSheets_Color *color;
 
 /**
+ *  The color of the border.
+ *  If color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *colorStyle;
+
+/**
  *  The style of the border.
  *
  *  Likely values:
@@ -4778,6 +4816,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The background color of the cell. */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor;
+
+/**
+ *  The background color of the cell.
+ *  If background_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *backgroundColorStyle;
 
 /** The borders of the cell. */
 @property(nonatomic, strong, nullable) GTLRSheets_Borders *borders;
@@ -6548,11 +6592,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @property(nonatomic, strong, nullable) GTLRSheets_Color *visibleBackgroundColor;
 
 /**
+ *  The background fill color to filter by; only cells with this fill color are
+ *  shown. Mutually exclusive with all other filter criteria. Requests to set
+ *  this field will fail with a 400 error if any other filter criteria field is
+ *  set.
+ *  If visible_background_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *visibleBackgroundColorStyle;
+
+/**
  *  The text color to filter by; only cells with this text color are shown.
  *  Mutually exclusive with all other filter criteria. Requests to set this
  *  field will fail with a 400 error if any other filter criteria field is set.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *visibleForegroundColor;
+
+/**
+ *  The text color to filter by; only cells with this text color are shown.
+ *  Mutually exclusive with all other filter criteria. Requests to set this
+ *  field will fail with a 400 error if any other filter criteria field is set.
+ *  If visible_foreground_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *visibleForegroundColorStyle;
 
 @end
 
@@ -7190,6 +7251,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The color this interpolation point should use. */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *color;
+
+/**
+ *  The color this interpolation point should use.
+ *  If color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *colorStyle;
 
 /**
  *  How the value should be interpreted.
@@ -8764,6 +8831,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /** The color of the tab in the UI. */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *tabColor;
 
+/**
+ *  The color of the tab in the UI.
+ *  If tab_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *tabColorStyle;
+
 /** The name of the sheet. */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -8810,6 +8883,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The background color of the slicer. */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor;
+
+/**
+ *  The background color of the slicer.
+ *  If background_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *backgroundColorStyle;
 
 /**
  *  The column index in the data table on which the filter is applied to.
@@ -8880,6 +8959,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 @property(nonatomic, strong, nullable) GTLRSheets_Color *backgroundColor;
 
 /**
+ *  The background fill color to sort by. Mutually exclusive with sorting by
+ *  text color. Requests to set this field will fail with a 400 error if
+ *  foreground color is also set.
+ *  If background_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *backgroundColorStyle;
+
+/**
  *  The dimension the sort should be applied to.
  *
  *  Uses NSNumber of intValue.
@@ -8892,6 +8979,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
  *  background color is also set.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *foregroundColor;
+
+/**
+ *  The text color to sort by. Mutually exclusive with sorting by background
+ *  fill color. Requests to set this field will fail with a 400 error if
+ *  background color is also set.
+ *  If foreground_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *foregroundColorStyle;
 
 /**
  *  The order data should be sorted.
@@ -9078,6 +9173,12 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /** The foreground color of the text. */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *foregroundColor;
+
+/**
+ *  The foreground color of the text.
+ *  If foreground_color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *foregroundColorStyle;
 
 /**
  *  True if the text is italicized.

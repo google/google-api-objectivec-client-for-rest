@@ -241,12 +241,6 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDe
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDeviceModel;
 /** Value: "FILTER_DEVICE_TYPE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDeviceType;
-/** Value: "FILTER_DFP_INSERTION_ORDER" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDfpInsertionOrder;
-/** Value: "FILTER_DFP_LINE_ITEM" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDfpLineItem;
-/** Value: "FILTER_DFP_LINE_ITEM_ID" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDfpLineItemId;
 /** Value: "FILTER_DFP_ORDER_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDfpOrderId;
 /** Value: "FILTER_DIGITAL_CONTENT_LABEL" */
@@ -285,6 +279,12 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterFl
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterFloodlightActivityId;
 /** Value: "FILTER_FORMAT" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterFormat;
+/** Value: "FILTER_GAM_INSERTION_ORDER" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterGamInsertionOrder;
+/** Value: "FILTER_GAM_LINE_ITEM" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterGamLineItem;
+/** Value: "FILTER_GAM_LINE_ITEM_ID" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterGamLineItemId;
 /** Value: "FILTER_GENDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterGender;
 /** Value: "FILTER_GMAIL_AGE" */
@@ -759,12 +759,6 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDeviceModel;
 /** Value: "FILTER_DEVICE_TYPE" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDeviceType;
-/** Value: "FILTER_DFP_INSERTION_ORDER" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDfpInsertionOrder;
-/** Value: "FILTER_DFP_LINE_ITEM" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDfpLineItem;
-/** Value: "FILTER_DFP_LINE_ITEM_ID" */
-GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDfpLineItemId;
 /** Value: "FILTER_DFP_ORDER_ID" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDfpOrderId;
 /** Value: "FILTER_DIGITAL_CONTENT_LABEL" */
@@ -803,6 +797,12 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterFloodlightActivityId;
 /** Value: "FILTER_FORMAT" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterFormat;
+/** Value: "FILTER_GAM_INSERTION_ORDER" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterGamInsertionOrder;
+/** Value: "FILTER_GAM_LINE_ITEM" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterGamLineItem;
+/** Value: "FILTER_GAM_LINE_ITEM_ID" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterGamLineItemId;
 /** Value: "FILTER_GENDER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterGender;
 /** Value: "FILTER_GMAIL_AGE" */
@@ -2562,12 +2562,6 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        "FILTER_DEVICE_MODEL"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterDeviceType Value
  *        "FILTER_DEVICE_TYPE"
- *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterDfpInsertionOrder
- *        Value "FILTER_DFP_INSERTION_ORDER"
- *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterDfpLineItem Value
- *        "FILTER_DFP_LINE_ITEM"
- *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterDfpLineItemId
- *        Value "FILTER_DFP_LINE_ITEM_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterDfpOrderId Value
  *        "FILTER_DFP_ORDER_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterDigitalContentLabel
@@ -2605,6 +2599,12 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "FILTER_FLOODLIGHT_ACTIVITY_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterFormat Value
  *        "FILTER_FORMAT"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterGamInsertionOrder
+ *        Value "FILTER_GAM_INSERTION_ORDER"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterGamLineItem Value
+ *        "FILTER_GAM_LINE_ITEM"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterGamLineItemId
+ *        Value "FILTER_GAM_LINE_ITEM_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterGender Value
  *        "FILTER_GENDER"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterGmailAge Value

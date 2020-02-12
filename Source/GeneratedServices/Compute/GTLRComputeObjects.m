@@ -1300,6 +1300,14 @@ NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_SingleInstan
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_InstanceGroupManagersApplyUpdatesRequest.minimalAction
+NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace = @"REPLACE";
+NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Restart = @"RESTART";
+
+// GTLRCompute_InstanceGroupManagersApplyUpdatesRequest.mostDisruptiveAllowedAction
+NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace = @"REPLACE";
+NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart = @"RESTART";
+
 // GTLRCompute_InstanceGroupManagersScopedList_Warning.code
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -2677,6 +2685,14 @@ NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_Schema
 NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest.minimalAction
+NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace = @"REPLACE";
+NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Restart = @"RESTART";
+
+// GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest.mostDisruptiveAllowedAction
+NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace = @"REPLACE";
+NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart = @"RESTART";
 
 // GTLRCompute_RegionInstanceGroupsListInstances_Warning.code
 NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -7924,6 +7940,24 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_InstanceGroupManagersApplyUpdatesRequest
+//
+
+@implementation GTLRCompute_InstanceGroupManagersApplyUpdatesRequest
+@dynamic instances, minimalAction, mostDisruptiveAllowedAction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_InstanceGroupManagersCreateInstancesRequest
 //
 
@@ -11758,6 +11792,24 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest
 @dynamic instances;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest
+//
+
+@implementation GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest
+@dynamic instances, minimalAction, mostDisruptiveAllowedAction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

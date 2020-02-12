@@ -19,11 +19,14 @@ NSString * const kGTLRSASPortal_Device_State_Reserved          = @"RESERVED";
 
 // GTLRSASPortal_DeviceAirInterface.radioTechnology
 NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_CambiumNetworks = @"CAMBIUM_NETWORKS";
+NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Cw = @"CW";
 NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_DoodleCbrs = @"DOODLE_CBRS";
 NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_EUtra = @"E_UTRA";
 NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_FourGBbwSaa1 = @"FOUR_G_BBW_SAA_1";
 NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Nr = @"NR";
 NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_RadioTechnologyUnspecified = @"RADIO_TECHNOLOGY_UNSPECIFIED";
+NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Redline = @"REDLINE";
+NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_TaranaWireless = @"TARANA_WIRELESS";
 
 // GTLRSASPortal_DeviceConfig.category
 NSString * const kGTLRSASPortal_DeviceConfig_Category_DeviceCategoryA = @"DEVICE_CATEGORY_A";

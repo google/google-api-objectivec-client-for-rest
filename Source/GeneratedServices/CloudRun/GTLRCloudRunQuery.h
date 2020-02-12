@@ -1212,34 +1212,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets information about a location.
- *
- *  Method: run.projects.locations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudRunCloudPlatform
- */
-@interface GTLRCloudRunQuery_ProjectsLocationsGet : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsGetWithname:]
-
-/** Resource name for the location. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudRun_Location.
- *
- *  Gets information about a location.
- *
- *  @param name Resource name for the location.
- *
- *  @return GTLRCloudRunQuery_ProjectsLocationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: run.projects.locations.list

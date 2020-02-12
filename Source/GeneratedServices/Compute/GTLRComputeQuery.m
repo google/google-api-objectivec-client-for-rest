@@ -2987,6 +2987,41 @@ NSString * const kGTLRComputeDirectionOutgoing = @"OUTGOING";
 
 @end
 
+@implementation GTLRComputeQuery_InstanceGroupManagersApplyUpdatesToInstances
+
+@dynamic instanceGroupManager, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersApplyUpdatesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/applyUpdatesToInstances";
+  GTLRComputeQuery_InstanceGroupManagersApplyUpdatesToInstances *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instanceGroupManagers.applyUpdatesToInstances";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstanceGroupManagersCreateInstances
 
 @dynamic instanceGroupManager, project, requestId, zoneProperty;
@@ -8275,6 +8310,37 @@ NSString * const kGTLRComputeDirectionOutgoing = @"OUTGOING";
   query.instanceGroupManager = instanceGroupManager;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.regionInstanceGroupManagers.abandonInstances";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionInstanceGroupManagersApplyUpdatesToInstances
+
+@dynamic instanceGroupManager, project, region;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/applyUpdatesToInstances";
+  GTLRComputeQuery_RegionInstanceGroupManagersApplyUpdatesToInstances *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionInstanceGroupManagers.applyUpdatesToInstances";
   return query;
 }
 

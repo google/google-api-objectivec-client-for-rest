@@ -160,6 +160,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_TagF
  */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_Dstu2;
 /**
+ *  [Release 4](https://www.hl7.org/fhir/R4)
+ *
+ *  Value: "R4"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_R4;
+/**
  *  Standard for Trial Use, [Release 3](https://www.hl7.org/fhir/STU3)
  *
  *  Value: "STU3"
@@ -195,7 +201,10 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTran
  */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform;
 /**
- *  Transform the entire field.
+ *  Transform the entire field based on transformations specified in
+ *  TextConfig. When the specified transformation cannot be applied to a
+ *  field (for example, a Crypto Hash transformation cannot be applied
+ *  to a FHIR Date field), RedactConfig is used.
  *
  *  Value: "TRANSFORM"
  */
@@ -588,8 +597,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /**
  *  The name of the dataset resource to create and write the redacted data to.
  *  * The destination dataset must not exist.
- *  * The destination dataset must be in the same project as the source
- *  dataset. De-identifying data across multiple projects is not supported.
+ *  * The destination dataset must be in the same project and location as the
+ *  source dataset. De-identifying data across multiple projects or locations
+ *  is not supported.
  */
 @property(nonatomic, copy, nullable) NSString *destinationDataset;
 
@@ -935,15 +945,34 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
- *  Represents an expression text. Example:
- *  title: "User account presence"
- *  description: "Determines whether the request has a user account"
- *  expression: "size(request.user) > 0"
+ *  Represents a textual expression in the Common Expression Language (CEL)
+ *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
+ *  are documented at https://github.com/google/cel-spec.
+ *  Example (Comparison):
+ *  title: "Summary size limit"
+ *  description: "Determines if a summary is less than 100 chars"
+ *  expression: "document.summary.size() < 100"
+ *  Example (Equality):
+ *  title: "Requestor is owner"
+ *  description: "Determines if requestor is the document owner"
+ *  expression: "document.owner == request.auth.claims.email"
+ *  Example (Logic):
+ *  title: "Public documents"
+ *  description: "Determine whether the document should be publicly visible"
+ *  expression: "document.type != 'private' && document.type != 'internal'"
+ *  Example (Data Manipulation):
+ *  title: "Notification string"
+ *  description: "Create a notification string with a timestamp."
+ *  expression: "'New message received at ' + string(document.create_time)"
+ *  The exact variables and functions that may be referenced within an
+ *  expression
+ *  are determined by the service that evaluates it. See the service
+ *  documentation for additional information.
  */
 @interface GTLRCloudHealthcare_Expr : GTLRObject
 
 /**
- *  An optional description of the expression. This is a longer text which
+ *  Optional. Description of the expression. This is a longer text which
  *  describes the expression, e.g. when hovered over it in a UI.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -951,21 +980,19 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Textual representation of an expression in
- *  Common Expression Language syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
+ *  Textual representation of an expression in Common Expression Language
+ *  syntax.
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  An optional string indicating the location of the expression for error
+ *  Optional. String indicating the location of the expression for error
  *  reporting, e.g. a file name and a position in the file.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  An optional title for the expression, i.e. a short string describing
+ *  Optional. Title for the expression, i.e. a short string describing
  *  its purpose. This can be used e.g. in UIs which allow to enter the
  *  expression.
  */
@@ -983,6 +1010,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Specifies FHIR paths to match and how to transform them. Any field that
  *  is not matched by a FieldMetadata is passed through to the output
  *  dataset unmodified. All extensions are removed in the output.
+ *  If a field can be matched by more than one FieldMetadata, the first
+ *  FieldMetadata.Action is applied.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_FieldMetadata *> *fieldMetadataList;
 
@@ -1088,6 +1117,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_Dstu2 Draft Standard for
  *        Trial Use, [Release 2](https://www.hl7.org/fhir/DSTU2) (Value:
  *        "DSTU2")
+ *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_R4 [Release
+ *        4](https://www.hl7.org/fhir/R4) (Value: "R4")
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_Stu3 Standard for Trial
  *        Use, [Release 3](https://www.hl7.org/fhir/STU3) (Value: "STU3")
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_VersionUnspecified
@@ -1137,20 +1168,29 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform
  *        Inspect and transform any found PHI. (Value: "INSPECT_AND_TRANSFORM")
  *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_Transform Transform the
- *        entire field. (Value: "TRANSFORM")
+ *        entire field based on transformations specified in
+ *        TextConfig. When the specified transformation cannot be applied to a
+ *        field (for example, a Crypto Hash transformation cannot be applied
+ *        to a FHIR Date field), RedactConfig is used. (Value: "TRANSFORM")
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  List of paths to FHIR fields to be redacted. Each path is a
+ *  List of paths to FHIR fields to redact. Each path is a
  *  period-separated list where each component is either a field name or
- *  FHIR type name, for example: Patient, HumanName.
- *  For "choice" types (those defined in the FHIR spec with the form:
- *  field[x]) we use two separate components. For example,
- *  "deceasedAge.unit" is matched by "Deceased.Age.unit".
- *  Supported types are: AdministrativeGenderCode, Code, Date, DateTime,
- *  Decimal, HumanName, Id, LanguageCode, Markdown, Oid, String, Uri, Uuid,
- *  Xhtml.
+ *  FHIR type name. All types begin with an upper case letter. For example,
+ *  the resource field "Patient.Address.city", which uses a string type,
+ *  can be matched by "Patient.Address.String". Path also supports partial
+ *  matching. For example, "Patient.Address.city" can be matched by
+ *  "Address.city" (Patient omitted). Partial matching and type matching
+ *  can be combined, for example "Patient.Address.city" can be matched by
+ *  "Address.String". For "choice" types (those defined in the FHIR spec
+ *  with the form: field[x]), use two separate components. For example,
+ *  "deceasedAge.unit" is matched by "Deceased.Age.unit". Supported types
+ *  are: AdministrativeGenderCode, Code, Date, DateTime, Decimal,
+ *  HumanName, Id, LanguageCode, Markdown, Oid, String, Uri, Uuid, Xhtml.
+ *  The sub-type for HumanName(for example HumanName.given,
+ *  HumanName.family) can be omitted.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
@@ -1230,7 +1270,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  `.../{study_id}/{series_id}/{instance_id}[/{frame_number}].{extension}`
  *  The frame_number component exists only for multi-frame instances.
  *  Refer to the DICOM conformance statement for permissible MIME types:
- *  https://cloud.google.com/healthcare/docs/dicom#wado-rs
+ *  https://cloud.google.com/healthcare/docs/dicom#retrieve_transaction
  *  The following extensions are used for output files:
  *  application/dicom -> .dcm
  *  image/jpeg -> .jpg
@@ -1520,6 +1560,23 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ParserConfig *parserConfig;
 
+/**
+ *  Determines whether duplicate messages should be rejected. A duplicate
+ *  message is a message with the same raw bytes as a message that has already
+ *  been ingested/created in this HL7v2 store.
+ *  The default value is false, meaning that the store accepts the duplicate
+ *  messages and it also returns the same ACK message in the
+ *  IngestMessageResponse as has been returned previously. Note that only
+ *  one resource is created in the store.
+ *  When this field is set to true,
+ *  CreateMessage/IngestMessage
+ *  requests with a duplicate message will be rejected by the store, and
+ *  IngestMessageErrorDetail returns a NACK message upon rejection.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rejectDuplicateMessage;
+
 @end
 
 
@@ -1725,8 +1782,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DateShiftConfig *dateShiftConfig;
 
 /**
- *  InfoTypes to apply this transformation to. If this is not specified, the
- *  transformation applies to any info_type.
+ *  InfoTypes to apply this transformation to. If this is not specified, this
+ *  transformation becomes the default transformation, and is used for any
+ *  info_type that is not specified in another transformation.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *infoTypes;
 
@@ -1907,10 +1965,27 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /**
  *  Lists the messages in the specified HL7v2 store.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "hl7V2Messages" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRCloudHealthcare_ListMessagesResponse : GTLRObject
+@interface GTLRCloudHealthcare_ListMessagesResponse : GTLRCollectionObject
 
 /**
+ *  The returned Messages. Won't be more Messages than the value of
+ *  page_size in the request. See
+ *  view for
+ *  populated fields.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Message *> *hl7V2Messages;
+
+/**
+ *  Deprecated. Use `hl7_v2_messages` instead.
  *  The returned message names. Won't be more values than the value of
  *  page_size in the request.
  */
@@ -2487,7 +2562,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  The FHIR resource type to search, such as Patient or Observation. For a
  *  complete list, see the FHIR Resource Index
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html)).
+ *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
+ *  [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 

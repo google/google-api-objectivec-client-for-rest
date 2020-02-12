@@ -138,25 +138,6 @@
 
 @end
 
-@implementation GTLRStorageTransferQuery_TransferOperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRStorageTransferQuery_TransferOperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRStorageTransfer_Empty class];
-  query.loggingName = @"storagetransfer.transferOperations.delete";
-  return query;
-}
-
-@end
-
 @implementation GTLRStorageTransferQuery_TransferOperationsGet
 
 @dynamic name;

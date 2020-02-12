@@ -433,6 +433,57 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 @end
 
 /**
+ *  Returns the list of accounts linked to your Merchant Center account.
+ *
+ *  Method: content.accounts.listlinks
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsListlinks : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForAccountsListlinksWithmerchantId:accountId:]
+
+/** The ID of the account for which to list links. */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/**
+ *  The maximum number of links to return in the response, used for pagination.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  The ID of the managing account. If this parameter is not the same as
+ *  accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The token returned by the previous request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_AccountsListLinksResponse.
+ *
+ *  Returns the list of accounts linked to your Merchant Center account.
+ *
+ *  @param merchantId The ID of the managing account. If this parameter is not
+ *    the same as accountId, then this account must be a multi-client account
+ *    and accountId must be the ID of a sub-account of this account.
+ *  @param accountId The ID of the account for which to list links.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsListlinks
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                          accountId:(unsigned long long)accountId;
+
+@end
+
+/**
  *  Retrieves multiple Merchant Center account statuses in a single request.
  *
  *  Method: content.accountstatuses.custombatch

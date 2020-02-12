@@ -19,6 +19,11 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryView = @"BIGQUERY_VIEW";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_TableSourceTypeUnspecified = @"TABLE_SOURCE_TYPE_UNSPECIFIED";
 
+// GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.integratedSystem
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Bigquery = @"BIGQUERY";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub = @"CLOUD_PUBSUB";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_IntegratedSystemUnspecified = @"INTEGRATED_SYSTEM_UNSPECIFIED";
+
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.type
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_DataStream = @"DATA_STREAM";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_EntryTypeUnspecified = @"ENTRY_TYPE_UNSPECIFIED";
@@ -154,8 +159,9 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry
 @dynamic bigqueryDateShardedSpec, bigqueryTableSpec, descriptionProperty,
-         displayName, gcsFilesetSpec, linkedResource, name, schema,
-         sourceSystemTimestamps, type;
+         displayName, gcsFilesetSpec, integratedSystem, linkedResource, name,
+         schema, sourceSystemTimestamps, type, userSpecifiedSystem,
+         userSpecifiedType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -305,6 +311,50 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
     @"taxonomies" : [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntriesResponse
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntriesResponse
+@dynamic entries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"entries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntryGroupsResponse
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntryGroupsResponse
+@dynamic entryGroups, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entryGroups" : [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"entryGroups";
 }
 
 @end

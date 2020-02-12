@@ -230,6 +230,28 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_AccountsListLinksResponse
+//
+
+@implementation GTLRShoppingContent_AccountsListLinksResponse
+@dynamic kind, links, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"links" : [GTLRShoppingContent_LinkedAccount class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"links";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_AccountsListResponse
 //
 
@@ -1312,6 +1334,34 @@
 
 @implementation GTLRShoppingContent_LiasettingsSetPosDataProviderResponse
 @dynamic kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LinkedAccount
+//
+
+@implementation GTLRShoppingContent_LinkedAccount
+@dynamic linkedAccountId, services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"services" : [GTLRShoppingContent_LinkService class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LinkService
+//
+
+@implementation GTLRShoppingContent_LinkService
+@dynamic service, status;
 @end
 
 

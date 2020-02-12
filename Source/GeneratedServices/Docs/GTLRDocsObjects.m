@@ -1784,8 +1784,8 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 @dynamic columnProperties, columnSeparatorStyle, contentDirection,
          defaultFooterId, defaultHeaderId, evenPageFooterId, evenPageHeaderId,
          firstPageFooterId, firstPageHeaderId, marginBottom, marginFooter,
-         marginHeader, marginLeft, marginRight, marginTop, sectionType,
-         useFirstPageHeaderFooter;
+         marginHeader, marginLeft, marginRight, marginTop, pageNumberStart,
+         sectionType, useFirstPageHeaderFooter;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -188,6 +188,25 @@
 
 @end
 
+@implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesList
+
+@dynamic pageSize, pageToken, parent, readMask;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/entries";
+  GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntriesResponse class];
+  query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesPatch
 
 @dynamic name, updateMask;
@@ -365,6 +384,50 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRDataCatalog_Policy class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/entryGroups";
+  GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntryGroupsResponse class];
+  query.loggingName = @"datacatalog.projects.locations.entryGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup class];
+  query.loggingName = @"datacatalog.projects.locations.entryGroups.patch";
   return query;
 }
 

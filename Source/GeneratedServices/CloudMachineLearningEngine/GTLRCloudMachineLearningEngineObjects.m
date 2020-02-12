@@ -642,6 +642,16 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1Scheduling
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Scheduling
+@dynamic maxRunningTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMachineLearningEngine_GoogleCloudMlV1SetDefaultVersionRequest
 //
 
@@ -658,7 +668,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 @dynamic args, hyperparameters, jobDir, masterConfig, masterType, packageUris,
          parameterServerConfig, parameterServerCount, parameterServerType,
          pythonModule, pythonVersion, region, runtimeVersion, scaleTier,
-         useChiefInTfConfig, workerConfig, workerCount, workerType;
+         scheduling, useChiefInTfConfig, workerConfig, workerCount, workerType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

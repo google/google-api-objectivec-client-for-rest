@@ -4277,6 +4277,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
+ *  ============================================================================
+ *  Requests and responses for custom methods.
  *  The request to detect user's intent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest : GTLRObject

@@ -41,6 +41,7 @@ NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Upload = @"upload";
 
 // GTLRAppsactivity_Permission.role
 NSString * const kGTLRAppsactivity_Permission_Role_Commenter   = @"commenter";
+NSString * const kGTLRAppsactivity_Permission_Role_FileOrganizer = @"fileOrganizer";
 NSString * const kGTLRAppsactivity_Permission_Role_Owner       = @"owner";
 NSString * const kGTLRAppsactivity_Permission_Role_PublishedReader = @"publishedReader";
 NSString * const kGTLRAppsactivity_Permission_Role_Reader      = @"reader";

@@ -28,6 +28,7 @@ NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_TagFilterProfile
 
 // GTLRCloudHealthcare_FhirStore.version
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_Dstu2  = @"DSTU2";
+NSString * const kGTLRCloudHealthcare_FhirStore_Version_R4     = @"R4";
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_Stu3   = @"STU3";
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_VersionUnspecified = @"VERSION_UNSPECIFIED";
 
@@ -515,7 +516,7 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_Hl7V2Store
-@dynamic labels, name, notificationConfig, parserConfig;
+@dynamic labels, name, notificationConfig, parserConfig, rejectDuplicateMessage;
 @end
 
 
@@ -768,13 +769,18 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_ListMessagesResponse
-@dynamic messages, nextPageToken;
+@dynamic hl7V2Messages, messages, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"hl7V2Messages" : [GTLRCloudHealthcare_Message class],
     @"messages" : [NSString class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"hl7V2Messages";
 }
 
 @end

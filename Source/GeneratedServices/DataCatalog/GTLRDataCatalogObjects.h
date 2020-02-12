@@ -25,6 +25,8 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryDateShardedSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ColumnSchema;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumType;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumTypeEnumValue;
@@ -82,6 +84,28 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQu
 GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_TableSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.integratedSystem
+
+/**
+ *  BigQuery.
+ *
+ *  Value: "BIGQUERY"
+ */
+GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Bigquery;
+/**
+ *  Cloud Pub/Sub.
+ *
+ *  Value: "CLOUD_PUBSUB"
+ */
+GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub;
+/**
+ *  Default unknown system.
+ *
+ *  Value: "INTEGRATED_SYSTEM_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_IntegratedSystemUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.type
 
 /**
@@ -98,7 +122,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry
  */
 GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_EntryTypeUnspecified;
 /**
- *  Alpha feature. An entry type which is a set of files or objects. Example:
+ *  An entry type which is a set of files or objects. Example:
  *  Cloud Storage fileset.
  *
  *  Value: "FILESET"
@@ -259,15 +283,34 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 
 
 /**
- *  Represents an expression text. Example:
- *  title: "User account presence"
- *  description: "Determines whether the request has a user account"
- *  expression: "size(request.user) > 0"
+ *  Represents a textual expression in the Common Expression Language (CEL)
+ *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
+ *  are documented at https://github.com/google/cel-spec.
+ *  Example (Comparison):
+ *  title: "Summary size limit"
+ *  description: "Determines if a summary is less than 100 chars"
+ *  expression: "document.summary.size() < 100"
+ *  Example (Equality):
+ *  title: "Requestor is owner"
+ *  description: "Determines if requestor is the document owner"
+ *  expression: "document.owner == request.auth.claims.email"
+ *  Example (Logic):
+ *  title: "Public documents"
+ *  description: "Determine whether the document should be publicly visible"
+ *  expression: "document.type != 'private' && document.type != 'internal'"
+ *  Example (Data Manipulation):
+ *  title: "Notification string"
+ *  description: "Create a notification string with a timestamp."
+ *  expression: "'New message received at ' + string(document.create_time)"
+ *  The exact variables and functions that may be referenced within an
+ *  expression
+ *  are determined by the service that evaluates it. See the service
+ *  documentation for additional information.
  */
 @interface GTLRDataCatalog_Expr : GTLRObject
 
 /**
- *  An optional description of the expression. This is a longer text which
+ *  Optional. Description of the expression. This is a longer text which
  *  describes the expression, e.g. when hovered over it in a UI.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -275,21 +318,19 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Textual representation of an expression in
- *  Common Expression Language syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
+ *  Textual representation of an expression in Common Expression Language
+ *  syntax.
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  An optional string indicating the location of the expression for error
+ *  Optional. String indicating the location of the expression for error
  *  reporting, e.g. a file name and a position in the file.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  An optional title for the expression, i.e. a short string describing
+ *  Optional. Title for the expression, i.e. a short string describing
  *  its purpose. This can be used e.g. in UIs which allow to enter the
  *  expression.
  */
@@ -482,13 +523,31 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1GcsFilesetSpec *gcsFilesetSpec;
 
 /**
- *  Output only. The resource this metadata entry refers to.
+ *  Output only. This field indicates the entry's source system that Data
+ *  Catalog
+ *  integrates with, such as BigQuery or Cloud Pub/Sub.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Bigquery
+ *        BigQuery. (Value: "BIGQUERY")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub
+ *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_IntegratedSystemUnspecified
+ *        Default unknown system. (Value: "INTEGRATED_SYSTEM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *integratedSystem;
+
+/**
+ *  The resource this metadata entry refers to.
  *  For Google Cloud Platform resources, `linked_resource` is the [full name of
  *  the
  *  resource](https://cloud.google.com/apis/design/resource_names#full_resource_name).
  *  For example, the `linked_resource` for a table resource from BigQuery is:
  *  *
  *  //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId
+ *  Output only when Entry is of type in the EntryType enum. For entries with
+ *  user_specified_type, this field is optional and defaults to an empty
+ *  string.
  */
 @property(nonatomic, copy, nullable) NSString *linkedResource;
 
@@ -505,13 +564,17 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Schema *schema;
 
 /**
- *  Output only. Timestamps about the underlying Google Cloud Platform
- *  resource, not about this Data Catalog Entry.
+ *  Output only. Timestamps about the underlying resource, not about this Data
+ *  Catalog
+ *  entry. Output only when Entry is of type in the EntryType enum. For entries
+ *  with user_specified_type, this field is optional and defaults to an empty
+ *  timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SystemTimestamps *sourceSystemTimestamps;
 
 /**
  *  The type of the entry.
+ *  Only used for Entries with types in the EntryType enum.
  *
  *  Likely values:
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_DataStream
@@ -521,8 +584,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_EntryTypeUnspecified
  *        Default unknown type (Value: "ENTRY_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Fileset
- *        Alpha feature. An entry type which is a set of files or objects.
- *        Example:
+ *        An entry type which is a set of files or objects. Example:
  *        Cloud Storage fileset. (Value: "FILESET")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Model
  *        Output only. The type of models. (Value: "MODEL")
@@ -531,6 +593,28 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
  *        logical views. (Value: "TABLE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  This field indicates the entry's source system that Data Catalog does not
+ *  integrate with. `user_specified_system` strings must begin with a letter
+ *  or underscore and can only contain letters, numbers, and underscores; are
+ *  case insensitive; must be at least 1 character and at most 64 characters
+ *  long.
+ */
+@property(nonatomic, copy, nullable) NSString *userSpecifiedSystem;
+
+/**
+ *  Entry type if it does not fit any of the input-allowed values listed in
+ *  `EntryType` enum above. When creating an entry, users should check the
+ *  enum values first, if nothing matches the entry to be created, then
+ *  provide a custom value, for example "my_special_type".
+ *  `user_specified_type` strings must begin with a letter or underscore and
+ *  can only contain letters, numbers, and underscores; are case insensitive;
+ *  must be at least 1 character and at most 64 characters long.
+ *  Currently, only FILESET enum value is allowed. All other entries created
+ *  through Data Catalog must use `user_specified_type`.
+ */
+@property(nonatomic, copy, nullable) NSString *userSpecifiedType;
 
 @end
 
@@ -663,9 +747,18 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
  *  spanning all subdirectories.
  *  * `gs://bucket_name/file*`: matches files prefixed by `file` in
  *  `bucket_name`
+ *  * `gs://bucket_name/??.txt`: matches files with two characters followed by
+ *  `.txt` in `bucket_name`
+ *  * `gs://bucket_name/[aeiou].txt`: matches files that contain a single
+ *  vowel character followed by `.txt` in
+ *  `bucket_name`
+ *  * `gs://bucket_name/[a-m].txt`: matches files that contain `a`, `b`, ...
+ *  or `m` followed by `.txt` in `bucket_name`
  *  * `gs://bucket_name/a/ * /b`: matches all files in `bucket_name` that match
  *  `a/ * /b` pattern, such as `a/c/b`, `a/d/b`
  *  * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
+ *  You can combine wildcards to provide more powerful matches, for example:
+ *  * `gs://bucket_name/[a-m]??.j*g`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *filePatterns;
 
@@ -731,6 +824,62 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 
 /** Required. Taxonomies to be imported. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy *> *taxonomies;
+
+@end
+
+
+/**
+ *  Response message for
+ *  ListEntries.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "entries" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntriesResponse : GTLRCollectionObject
+
+/**
+ *  Entry details.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry *> *entries;
+
+/**
+ *  Token to retrieve the next page of results. It is set to empty if no items
+ *  remain in results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for
+ *  ListEntryGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "entryGroups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntryGroupsResponse : GTLRCollectionObject
+
+/**
+ *  EntryGroup details.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup *> *entryGroups;
+
+/**
+ *  Token to retrieve the next page of results. It is set to empty if no items
+ *  remain in results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -821,7 +970,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 
 /**
  *  Denotes one policy tag in a taxonomy (e.g. ssn). Policy Tags can be defined
- *  in a hierarchy. For example, consider the following hierachy:
+ *  in a hierarchy. For example, consider the following hierarchy:
  *  Geolocation -&gt; (LatLong, City, ZipCode). PolicyTag "Geolocation"
  *  contains three child policy tags: "LatLong", "City", and "ZipCode".
  */
@@ -907,9 +1056,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 /**
  *  Specifies the ordering of results, currently supported case-sensitive
  *  choices are:
- *  * `relevance`, only supports desecending
- *  * `last_access_timestamp [asc|desc]`, defaults to descending if not
- *  specified
+ *  * `relevance`, only supports descending
  *  * `last_modified_timestamp [asc|desc]`, defaults to descending if not
  *  specified
  *  If not specified, defaults to `relevance` descending.

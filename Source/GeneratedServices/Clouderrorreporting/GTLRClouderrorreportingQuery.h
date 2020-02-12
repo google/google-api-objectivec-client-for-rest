@@ -463,7 +463,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
 
 /**
  *  The group resource name.
- *  Example: <code>projects/my-project-123/groups/my-groupid</code>
+ *  Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -476,7 +476,7 @@ GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspec
  *  @param object The @c GTLRClouderrorreporting_ErrorGroup to include in the
  *    query.
  *  @param name The group resource name.
- *    Example: <code>projects/my-project-123/groups/my-groupid</code>
+ *    Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsGroupsUpdate
  */
