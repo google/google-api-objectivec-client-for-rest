@@ -605,6 +605,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterYo
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeChannel;
 /** Value: "FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_ADVERTISER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeProgrammaticGuaranteedAdvertiser;
+/** Value: "FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_INSERTION_ORDER" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeProgrammaticGuaranteedInsertionOrder;
 /** Value: "FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_PARTNER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeProgrammaticGuaranteedPartner;
 /** Value: "FILTER_YOUTUBE_VIDEO" */
@@ -1123,6 +1125,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_Filt
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeChannel;
 /** Value: "FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_ADVERTISER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeProgrammaticGuaranteedAdvertiser;
+/** Value: "FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_INSERTION_ORDER" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeProgrammaticGuaranteedInsertionOrder;
 /** Value: "FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_PARTNER" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeProgrammaticGuaranteedPartner;
 /** Value: "FILTER_YOUTUBE_VIDEO" */
@@ -2379,7 +2383,7 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
 
 /**
  *  SDF Version (column names, types, order) in which the entities will be
- *  returned. Default to 3.1.
+ *  returned. Default to 5.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -2925,6 +2929,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "FILTER_YOUTUBE_CHANNEL"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeProgrammaticGuaranteedAdvertiser
  *        Value "FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_ADVERTISER"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeProgrammaticGuaranteedInsertionOrder
+ *        Value "FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_INSERTION_ORDER"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeProgrammaticGuaranteedPartner
  *        Value "FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_PARTNER"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeVideo

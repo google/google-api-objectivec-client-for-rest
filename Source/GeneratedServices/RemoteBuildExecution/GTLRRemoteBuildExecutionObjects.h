@@ -209,6 +209,18 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuild
  */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DeadlineExceeded;
 /**
+ *  Docker failed to run containers with CreateComputeSystem error.
+ *
+ *  Value: "DOCKER_CREATE_COMPUTE_SYSTEM_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateComputeSystemError;
+/**
+ *  The bot couldn't start the container.
+ *
+ *  Value: "DOCKER_CREATE_CONTAINER_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateContainerError;
+/**
  *  The bot failed to check docker images.
  *
  *  Value: "DOCKER_IMAGE_EXIST_ERROR"
@@ -233,17 +245,53 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuild
  */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImagePullError;
 /**
+ *  Docker incompatible operating system error.
+ *
+ *  Value: "DOCKER_INCOMPATIBLE_OS_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerIncompatibleOsError;
+/**
+ *  The docker ulimit is not valid.
+ *
+ *  Value: "DOCKER_INVALID_ULIMIT"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerInvalidUlimit;
+/**
  *  The bot failed to login to docker.
  *
  *  Value: "DOCKER_LOGIN_ERROR"
  */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerLoginError;
 /**
+ *  Docker failed to run containers with hcsshim::PrepareLayer error.
+ *
+ *  Value: "DOCKER_PREPARELAYER_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerPreparelayerError;
+/**
  *  There are issues with docker service/runtime.
  *
  *  Value: "DOCKER_UNAVAILABLE"
  */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnavailable;
+/**
+ *  The docker capability is unknown.
+ *
+ *  Value: "DOCKER_UNKNOWN_CAPABILITY"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownCapability;
+/**
+ *  The command failed with unknown docker errors.
+ *
+ *  Value: "DOCKER_UNKNOWN_ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownError;
+/**
+ *  The docker runtime is unknown.
+ *
+ *  Value: "DOCKER_UNKNOWN_RUNTIME"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownRuntime;
 /**
  *  The bot failed to download the inputs.
  *
@@ -1961,6 +2009,12 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DeadlineExceeded
  *        The command had passed its expiry time while it was still running.
  *        (Value: "DEADLINE_EXCEEDED")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateComputeSystemError
+ *        Docker failed to run containers with CreateComputeSystem error.
+ *        (Value: "DOCKER_CREATE_COMPUTE_SYSTEM_ERROR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateContainerError
+ *        The bot couldn't start the container. (Value:
+ *        "DOCKER_CREATE_CONTAINER_ERROR")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageExistError
  *        The bot failed to check docker images. (Value:
  *        "DOCKER_IMAGE_EXIST_ERROR")
@@ -1972,11 +2026,26 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImagePullError
  *        The bot failed to pull docker image. (Value:
  *        "DOCKER_IMAGE_PULL_ERROR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerIncompatibleOsError
+ *        Docker incompatible operating system error. (Value:
+ *        "DOCKER_INCOMPATIBLE_OS_ERROR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerInvalidUlimit
+ *        The docker ulimit is not valid. (Value: "DOCKER_INVALID_ULIMIT")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerLoginError
  *        The bot failed to login to docker. (Value: "DOCKER_LOGIN_ERROR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerPreparelayerError
+ *        Docker failed to run containers with hcsshim::PrepareLayer error.
+ *        (Value: "DOCKER_PREPARELAYER_ERROR")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnavailable
  *        There are issues with docker service/runtime. (Value:
  *        "DOCKER_UNAVAILABLE")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownCapability
+ *        The docker capability is unknown. (Value: "DOCKER_UNKNOWN_CAPABILITY")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownError
+ *        The command failed with unknown docker errors. (Value:
+ *        "DOCKER_UNKNOWN_ERROR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownRuntime
+ *        The docker runtime is unknown. (Value: "DOCKER_UNKNOWN_RUNTIME")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DownloadInputsError
  *        The bot failed to download the inputs. (Value:
  *        "DOWNLOAD_INPUTS_ERROR")

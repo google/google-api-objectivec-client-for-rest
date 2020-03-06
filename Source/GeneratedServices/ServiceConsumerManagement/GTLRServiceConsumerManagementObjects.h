@@ -42,6 +42,7 @@
 @class GTLRServiceConsumerManagement_Field;
 @class GTLRServiceConsumerManagement_Http;
 @class GTLRServiceConsumerManagement_HttpRule;
+@class GTLRServiceConsumerManagement_JwtLocation;
 @class GTLRServiceConsumerManagement_LabelDescriptor;
 @class GTLRServiceConsumerManagement_LogDescriptor;
 @class GTLRServiceConsumerManagement_Logging;
@@ -973,6 +974,24 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIde
  */
 @property(nonatomic, copy, nullable) NSString *jwksUri;
 
+/**
+ *  Defines the locations to extract the JWT.
+ *  JWT locations can be either from HTTP headers or URL query parameters.
+ *  The rule is that the first match wins. The checking order is: checking
+ *  all headers first, then URL query parameters.
+ *  If not specified, default to use following 3 locations:
+ *  1) Authorization: Bearer
+ *  2) x-goog-iap-jwt-assertion
+ *  3) access_token query parameter
+ *  Default locations can be specified as followings:
+ *  jwt_locations:
+ *  - header: Authorization
+ *  value_prefix: "Bearer "
+ *  - header: x-goog-iap-jwt-assertion
+ *  - query: access_token
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_JwtLocation *> *jwtLocations;
+
 @end
 
 
@@ -1043,8 +1062,8 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIde
  *  If the port is unspecified, the default is:
  *  - 80 for schemes without TLS
  *  - 443 for schemes with TLS
- *  For HTTP backends, use http_protocol
- *  to specify the http protocol version.
+ *  For HTTP backends, use protocol
+ *  to specify the protocol version.
  */
 @property(nonatomic, copy, nullable) NSString *address;
 
@@ -2115,6 +2134,31 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIde
  *  Refer to selector for syntax details.
  */
 @property(nonatomic, copy, nullable) NSString *selector;
+
+@end
+
+
+/**
+ *  Specifies a location to extract JWT from an API request.
+ */
+@interface GTLRServiceConsumerManagement_JwtLocation : GTLRObject
+
+/** Specifies HTTP header name to extract JWT token. */
+@property(nonatomic, copy, nullable) NSString *header;
+
+/** Specifies URL query parameter name to extract JWT token. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  The value prefix. The value format is "value_prefix{token}"
+ *  Only applies to "in" header type. Must be empty for "in" query type.
+ *  If not empty, the header value has to match (case sensitive) this prefix.
+ *  If not matched, JWT will not be extracted. If matched, JWT will be
+ *  extracted after the prefix is removed.
+ *  For example, for "Authorization: Bearer {JWT}",
+ *  value_prefix="Bearer " with a space at the end.
+ */
+@property(nonatomic, copy, nullable) NSString *valuePrefix;
 
 @end
 
@@ -4154,17 +4198,18 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIde
  *  could contain an entry with the key "region" and the value "us-east-1";
  *  the override is only applied to quota consumed in that region.
  *  This map has the following restrictions:
- *  - Keys that are not defined in the limit's unit are not valid keys.
+ *  * Keys that are not defined in the limit's unit are not valid keys.
  *  Any string appearing in {brackets} in the unit (besides {project} or
  *  {user}) is a defined key.
- *  - "project" is not a valid key; the project is already specified in
+ *  * "project" is not a valid key; the project is already specified in
  *  the parent resource name.
- *  - "user" is not a valid key; the API does not support quota overrides
+ *  * "user" is not a valid key; the API does not support quota overrides
  *  that apply only to a specific user.
- *  - If "region" appears as a key, its value must be a valid Cloud region.
- *  - If "zone" appears as a key, its value must be a valid Cloud zone.
- *  - If any valid key other than "region" or "zone" appears in the map, then
- *  all valid keys other than "region" or "zone" must also appear in the map.
+ *  * If "region" appears as a key, its value must be a valid Cloud region.
+ *  * If "zone" appears as a key, its value must be a valid Cloud zone.
+ *  * If any valid key other than "region" or "zone" appears in the map, then
+ *  all valid keys other than "region" or "zone" must also appear in the
+ *  map.
  */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_V1Beta1QuotaOverride_Dimensions *dimensions;
 
@@ -4209,17 +4254,18 @@ GTLR_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIde
  *  could contain an entry with the key "region" and the value "us-east-1";
  *  the override is only applied to quota consumed in that region.
  *  This map has the following restrictions:
- *  - Keys that are not defined in the limit's unit are not valid keys.
+ *  * Keys that are not defined in the limit's unit are not valid keys.
  *  Any string appearing in {brackets} in the unit (besides {project} or
  *  {user}) is a defined key.
- *  - "project" is not a valid key; the project is already specified in
+ *  * "project" is not a valid key; the project is already specified in
  *  the parent resource name.
- *  - "user" is not a valid key; the API does not support quota overrides
+ *  * "user" is not a valid key; the API does not support quota overrides
  *  that apply only to a specific user.
- *  - If "region" appears as a key, its value must be a valid Cloud region.
- *  - If "zone" appears as a key, its value must be a valid Cloud zone.
- *  - If any valid key other than "region" or "zone" appears in the map, then
- *  all valid keys other than "region" or "zone" must also appear in the map.
+ *  * If "region" appears as a key, its value must be a valid Cloud region.
+ *  * If "zone" appears as a key, its value must be a valid Cloud zone.
+ *  * If any valid key other than "region" or "zone" appears in the map, then
+ *  all valid keys other than "region" or "zone" must also appear in the
+ *  map.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

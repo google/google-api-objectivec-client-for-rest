@@ -73,6 +73,13 @@ NSString * const kGTLRContainer_Operation_Status_Pending       = @"PENDING";
 NSString * const kGTLRContainer_Operation_Status_Running       = @"RUNNING";
 NSString * const kGTLRContainer_Operation_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
+// GTLRContainer_OperationProgress.status
+NSString * const kGTLRContainer_OperationProgress_Status_Aborting = @"ABORTING";
+NSString * const kGTLRContainer_OperationProgress_Status_Done  = @"DONE";
+NSString * const kGTLRContainer_OperationProgress_Status_Pending = @"PENDING";
+NSString * const kGTLRContainer_OperationProgress_Status_Running = @"RUNNING";
+NSString * const kGTLRContainer_OperationProgress_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
 // GTLRContainer_ReservationAffinity.consumeReservationType
 NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservation = @"ANY_RESERVATION";
 NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_NoReservation = @"NO_RESERVATION";
@@ -103,6 +110,11 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseServi
 NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseShareablePod = @"IN_USE_SHAREABLE_POD";
 NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unknown = @"UNKNOWN";
 NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @"UNUSED";
+
+// GTLRContainer_WorkloadMetadataConfig.mode
+NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_GceMetadata = @"GCE_METADATA";
+NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_GkeMetadata = @"GKE_METADATA";
+NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -251,7 +263,8 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
          networkConfig, networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePools,
          privateClusterConfig, resourceLabels, resourceUsageExportConfig,
          selfLink, servicesIpv4Cidr, shieldedNodes, status, statusMessage,
-         subnetwork, tpuIpv4CidrBlock, verticalPodAutoscaling, zoneProperty;
+         subnetwork, tpuIpv4CidrBlock, verticalPodAutoscaling,
+         workloadIdentityConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -321,7 +334,7 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
          desiredMasterVersion, desiredMonitoringService,
          desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
          desiredResourceUsageExportConfig, desiredShieldedNodes,
-         desiredVerticalPodAutoscaling;
+         desiredVerticalPodAutoscaling, desiredWorkloadIdentityConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -707,6 +720,16 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_Metric
+//
+
+@implementation GTLRContainer_Metric
+@dynamic doubleValue, intValue, name, stringValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_NetworkConfig
 //
 
@@ -744,7 +767,7 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 @dynamic accelerators, diskSizeGb, diskType, imageType, labels, localSsdCount,
          machineType, metadata, minCpuPlatform, oauthScopes, preemptible,
          reservationAffinity, sandboxConfig, serviceAccount,
-         shieldedInstanceConfig, tags, taints;
+         shieldedInstanceConfig, tags, taints, workloadMetadataConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -846,8 +869,8 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_Operation
 @dynamic clusterConditions, detail, endTime, location, name, nodepoolConditions,
-         operationType, selfLink, startTime, status, statusMessage, targetLink,
-         zoneProperty;
+         operationType, progress, selfLink, startTime, status, statusMessage,
+         targetLink, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -857,6 +880,25 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
   NSDictionary<NSString *, Class> *map = @{
     @"clusterConditions" : [GTLRContainer_StatusCondition class],
     @"nodepoolConditions" : [GTLRContainer_StatusCondition class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_OperationProgress
+//
+
+@implementation GTLRContainer_OperationProgress
+@dynamic metrics, name, stages, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [GTLRContainer_Metric class],
+    @"stages" : [GTLRContainer_OperationProgress class]
   };
   return map;
 }
@@ -1264,7 +1306,7 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_UpdateNodePoolRequest
 @dynamic clusterId, imageType, locations, name, nodePoolId, nodeVersion,
-         projectId, upgradeSettings, zoneProperty;
+         projectId, upgradeSettings, workloadMetadataConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -1325,4 +1367,24 @@ NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused = @
 
 @implementation GTLRContainer_VerticalPodAutoscaling
 @dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_WorkloadIdentityConfig
+//
+
+@implementation GTLRContainer_WorkloadIdentityConfig
+@dynamic workloadPool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_WorkloadMetadataConfig
+//
+
+@implementation GTLRContainer_WorkloadMetadataConfig
+@dynamic mode;
 @end

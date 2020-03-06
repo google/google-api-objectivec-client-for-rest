@@ -23,6 +23,8 @@ NSString * const kGTLRAndroidPublisherExpansionFileTypeMain  = @"main";
 NSString * const kGTLRAndroidPublisherExpansionFileTypePatch = @"patch";
 
 // imageType
+NSString * const kGTLRAndroidPublisherImageTypeAutomotiveScreenshots = @"automotiveScreenshots";
+NSString * const kGTLRAndroidPublisherImageTypeDaydreamStereoImage = @"daydreamStereoImage";
 NSString * const kGTLRAndroidPublisherImageTypeFeatureGraphic  = @"featureGraphic";
 NSString * const kGTLRAndroidPublisherImageTypeIcon            = @"icon";
 NSString * const kGTLRAndroidPublisherImageTypePhoneScreenshots = @"phoneScreenshots";

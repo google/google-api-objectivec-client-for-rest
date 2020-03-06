@@ -293,6 +293,7 @@ NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeAdVideo
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeAdVideoId = @"FILTER_YOUTUBE_AD_VIDEO_ID";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeChannel = @"FILTER_YOUTUBE_CHANNEL";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeProgrammaticGuaranteedAdvertiser = @"FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_ADVERTISER";
+NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeProgrammaticGuaranteedInsertionOrder = @"FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_INSERTION_ORDER";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeProgrammaticGuaranteedPartner = @"FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_PARTNER";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterYoutubeVideo = @"FILTER_YOUTUBE_VIDEO";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterZipCode = @"FILTER_ZIP_CODE";
@@ -551,6 +552,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeAdV
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeAdVideoId = @"FILTER_YOUTUBE_AD_VIDEO_ID";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeChannel = @"FILTER_YOUTUBE_CHANNEL";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeProgrammaticGuaranteedAdvertiser = @"FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_ADVERTISER";
+NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeProgrammaticGuaranteedInsertionOrder = @"FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_INSERTION_ORDER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeProgrammaticGuaranteedPartner = @"FILTER_YOUTUBE_PROGRAMMATIC_GUARANTEED_PARTNER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterYoutubeVideo = @"FILTER_YOUTUBE_VIDEO";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterZipCode = @"FILTER_ZIP_CODE";

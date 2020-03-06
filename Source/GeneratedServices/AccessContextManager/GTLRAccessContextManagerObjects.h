@@ -34,6 +34,7 @@
 @class GTLRAccessContextManager_ServicePerimeterConfig;
 @class GTLRAccessContextManager_Status;
 @class GTLRAccessContextManager_Status_Details_Item;
+@class GTLRAccessContextManager_VpcAccessibleServices;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -89,6 +90,12 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncry
 // GTLRAccessContextManager_OsConstraint.osType
 
 /**
+ *  An Android operating system.
+ *
+ *  Value: "ANDROID"
+ */
+GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Android;
+/**
  *  A desktop ChromeOS operating system.
  *
  *  Value: "DESKTOP_CHROME_OS"
@@ -113,6 +120,12 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Deskt
  */
 GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows;
 /**
+ *  An iOS operating system.
+ *
+ *  Value: "IOS"
+ */
+GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Ios;
+/**
  *  The operating system of the device is not specified or not known.
  *
  *  Value: "OS_UNSPECIFIED"
@@ -136,8 +149,9 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular;
 
 /**
- *  An `AccessLevel` is a label that can be applied to requests to GCP services,
- *  along with a list of requirements necessary for the label to be applied.
+ *  An `AccessLevel` is a label that can be applied to requests to Google Cloud
+ *  services, along with a list of requirements necessary for the label to be
+ *  applied.
  */
 @interface GTLRAccessContextManager_AccessLevel : GTLRObject
 
@@ -175,12 +189,10 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 
 /**
  *  `AccessPolicy` is a container for `AccessLevels` (which define the necessary
- *  attributes to use GCP services) and `ServicePerimeters` (which define
- *  regions
- *  of services able to freely pass data within a perimeter). An access policy
- *  is
- *  globally visible within an organization, and the restrictions it specifies
- *  apply to all projects within an organization.
+ *  attributes to use Google Cloud services) and `ServicePerimeters` (which
+ *  define regions of services able to freely pass data within a perimeter). An
+ *  access policy is globally visible within an organization, and the
+ *  restrictions it specifies apply to all projects within an organization.
  */
 @interface GTLRAccessContextManager_AccessPolicy : GTLRObject
 
@@ -241,6 +253,40 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRAccessContextManager_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  A request to commit dry-run specs in all Service Perimeters belonging to
+ *  an Access Policy.
+ */
+@interface GTLRAccessContextManager_CommitServicePerimetersRequest : GTLRObject
+
+/**
+ *  Optional. The etag for the version of the Access Policy that this
+ *  commit operation is to be performed on. If, at the time of commit, the
+ *  etag for the Access Policy stored in Access Context Manager is different
+ *  from the specified etag, then the commit operation will not be performed
+ *  and the call will fail. This field is not required. If etag is not
+ *  provided, the operation will be performed as if a valid etag is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+@end
+
+
+/**
+ *  A response to CommitServicePerimetersRequest. This will be put inside of
+ *  Operation.response field.
+ */
+@interface GTLRAccessContextManager_CommitServicePerimetersResponse : GTLRObject
+
+/**
+ *  List of all the Service Perimeter instances in
+ *  the Access Policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ServicePerimeter *> *servicePerimeters;
+
 @end
 
 
@@ -647,6 +693,8 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *  Required. The allowed OS type.
  *
  *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_Android An Android
+ *        operating system. (Value: "ANDROID")
  *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_DesktopChromeOs A
  *        desktop ChromeOS operating system. (Value: "DESKTOP_CHROME_OS")
  *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_DesktopLinux A
@@ -655,6 +703,8 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *        Mac operating system. (Value: "DESKTOP_MAC")
  *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows A
  *        desktop Windows operating system. (Value: "DESKTOP_WINDOWS")
+ *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_Ios An iOS operating
+ *        system. (Value: "IOS")
  *    @arg @c kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified The
  *        operating system of the device is not specified or not known. (Value:
  *        "OS_UNSPECIFIED")
@@ -675,16 +725,94 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 
 
 /**
- *  `ServicePerimeter` describes a set of GCP resources which can freely import
- *  and export data amongst themselves, but not export outside of the
+ *  A request to replace all existing Access Levels in an Access Policy with
+ *  the Access Levels provided. This is done atomically.
+ */
+@interface GTLRAccessContextManager_ReplaceAccessLevelsRequest : GTLRObject
+
+/**
+ *  Required. The desired Access Levels that should
+ *  replace all existing Access Levels in the
+ *  Access Policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_AccessLevel *> *accessLevels;
+
+/**
+ *  Optional. The etag for the version of the Access Policy that this
+ *  replace operation is to be performed on. If, at the time of replace, the
+ *  etag for the Access Policy stored in Access Context Manager is different
+ *  from the specified etag, then the replace operation will not be performed
+ *  and the call will fail. This field is not required. If etag is not
+ *  provided, the operation will be performed as if a valid etag is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+@end
+
+
+/**
+ *  A response to ReplaceAccessLevelsRequest. This will be put inside of
+ *  Operation.response field.
+ */
+@interface GTLRAccessContextManager_ReplaceAccessLevelsResponse : GTLRObject
+
+/** List of the Access Level instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_AccessLevel *> *accessLevels;
+
+@end
+
+
+/**
+ *  A request to replace all existing Service Perimeters in an Access Policy
+ *  with the Service Perimeters provided. This is done atomically.
+ */
+@interface GTLRAccessContextManager_ReplaceServicePerimetersRequest : GTLRObject
+
+/**
+ *  Optional. The etag for the version of the Access Policy that this
+ *  replace operation is to be performed on. If, at the time of replace, the
+ *  etag for the Access Policy stored in Access Context Manager is different
+ *  from the specified etag, then the replace operation will not be performed
+ *  and the call will fail. This field is not required. If etag is not
+ *  provided, the operation will be performed as if a valid etag is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The desired Service Perimeters that should
+ *  replace all existing Service Perimeters in the
+ *  Access Policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ServicePerimeter *> *servicePerimeters;
+
+@end
+
+
+/**
+ *  A response to ReplaceServicePerimetersRequest. This will be put inside of
+ *  Operation.response field.
+ */
+@interface GTLRAccessContextManager_ReplaceServicePerimetersResponse : GTLRObject
+
+/** List of the Service Perimeter instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ServicePerimeter *> *servicePerimeters;
+
+@end
+
+
+/**
+ *  `ServicePerimeter` describes a set of Google Cloud resources which can
+ *  freely
+ *  import and export data amongst themselves, but not export outside of the
  *  `ServicePerimeter`. If a request with a source within this
  *  `ServicePerimeter`
  *  has a target outside of the `ServicePerimeter`, the request will be blocked.
  *  Otherwise the request is allowed. There are two types of Service Perimeter -
- *  Regular and Bridge. Regular Service Perimeters cannot overlap, a single GCP
- *  project can only belong to a single regular Service Perimeter. Service
- *  Perimeter Bridges can contain only GCP projects as members, a single GCP
- *  project may belong to multiple Service Perimeter Bridges.
+ *  Regular and Bridge. Regular Service Perimeters cannot overlap, a single
+ *  Google Cloud project can only belong to a single regular Service Perimeter.
+ *  Service Perimeter Bridges can contain only Google Cloud projects as members,
+ *  a single Google Cloud project may belong to multiple Service Perimeter
+ *  Bridges.
  */
 @interface GTLRAccessContextManager_ServicePerimeter : GTLRObject
 
@@ -723,6 +851,14 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 @property(nonatomic, copy, nullable) NSString *perimeterType;
 
 /**
+ *  Proposed (or dry run) ServicePerimeter configuration. This configuration
+ *  allows to specify and test ServicePerimeter configuration without enforcing
+ *  actual access restrictions. Only allowed to be set when the
+ *  "use_explicit_dry_run_spec" flag is set.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_ServicePerimeterConfig *spec;
+
+/**
  *  Current ServicePerimeter configuration. Specifies sets of resources,
  *  restricted services and access levels that determine perimeter
  *  content and boundaries.
@@ -735,12 +871,28 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 /** Output only. Time the `ServicePerimeter` was updated in UTC. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/**
+ *  Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly
+ *  exists for all Service Perimeters, and that spec is identical to the
+ *  status for those Service Perimeters. When this flag is set, it inhibits the
+ *  generation of the implicit spec, thereby allowing the user to explicitly
+ *  provide a configuration ("spec") to use in a dry-run version of the Service
+ *  Perimeter. This allows the user to test changes to the enforced config
+ *  ("status") without actually enforcing them. This testing is done through
+ *  analyzing the differences between currently enforced and suggested
+ *  restrictions. use_explicit_dry_run_spec must bet set to True if any of the
+ *  fields in the spec are set to non-default values.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useExplicitDryRunSpec;
+
 @end
 
 
 /**
- *  `ServicePerimeterConfig` specifies a set of GCP resources that describe
- *  specific Service Perimeter configuration.
+ *  `ServicePerimeterConfig` specifies a set of Google Cloud resources that
+ *  describe specific Service Perimeter configuration.
  */
 @interface GTLRAccessContextManager_ServicePerimeterConfig : GTLRObject
 
@@ -749,25 +901,29 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *  `ServicePerimeter` to be accessed from the internet. `AccessLevels` listed
  *  must be in the same policy as this `ServicePerimeter`. Referencing a
  *  nonexistent `AccessLevel` is a syntax error. If no `AccessLevel` names are
- *  listed, resources within the perimeter can only be accessed via GCP calls
- *  with request origins within the perimeter. Example:
+ *  listed, resources within the perimeter can only be accessed via Google
+ *  Cloud calls with request origins within the perimeter. Example:
  *  `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`.
  *  For Service Perimeter Bridge, must be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
 
 /**
- *  A list of GCP resources that are inside of the service perimeter.
+ *  A list of Google Cloud resources that are inside of the service perimeter.
  *  Currently only projects are allowed. Format: `projects/{project_number}`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
 /**
- *  GCP services that are subject to the Service Perimeter restrictions. For
- *  example, if `storage.googleapis.com` is specified, access to the storage
- *  buckets inside the perimeter must meet the perimeter's access restrictions.
+ *  Google Cloud services that are subject to the Service Perimeter
+ *  restrictions. For example, if `storage.googleapis.com` is specified, access
+ *  to the storage buckets inside the perimeter must meet the perimeter's
+ *  access restrictions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedServices;
+
+/** Configuration for APIs allowed within Perimeter. */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_VpcAccessibleServices *vpcAccessibleServices;
 
 @end
 
@@ -814,6 +970,29 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAccessContextManager_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Specifies how APIs are allowed to communicate within the Service
+ *  Perimeter.
+ */
+@interface GTLRAccessContextManager_VpcAccessibleServices : GTLRObject
+
+/**
+ *  The list of APIs usable within the Service Perimeter. Must be empty
+ *  unless 'enable_restriction' is True.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedServices;
+
+/**
+ *  Whether to restrict API calls within the Service Perimeter to the list of
+ *  APIs specified in 'allowed_services'.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableRestriction;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -1562,6 +1562,31 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @end
 
+@implementation GTLRDLPQuery_ProjectsLocationsDlpJobsFinish
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2FinishDlpJobRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:finish";
+  GTLRDLPQuery_ProjectsLocationsDlpJobsFinish *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GoogleProtobufEmpty class];
+  query.loggingName = @"dlp.projects.locations.dlpJobs.finish";
+  return query;
+}
+
+@end
+
 @implementation GTLRDLPQuery_ProjectsLocationsDlpJobsGet
 
 @dynamic name;
@@ -1576,6 +1601,31 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
   query.name = name;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DlpJob class];
   query.loggingName = @"dlp.projects.locations.dlpJobs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsLocationsDlpJobsHybridInspect
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2HybridInspectDlpJobRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:hybridInspect";
+  GTLRDLPQuery_ProjectsLocationsDlpJobsHybridInspect *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2HybridInspectResponse class];
+  query.loggingName = @"dlp.projects.locations.dlpJobs.hybridInspect";
   return query;
 }
 
@@ -1835,6 +1885,31 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
   query.name = name;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2JobTrigger class];
   query.loggingName = @"dlp.projects.locations.jobTriggers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDLPQuery_ProjectsLocationsJobTriggersHybridInspect
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2HybridInspectJobTriggerRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:hybridInspect";
+  GTLRDLPQuery_ProjectsLocationsJobTriggersHybridInspect *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2HybridInspectResponse class];
+  query.loggingName = @"dlp.projects.locations.jobTriggers.hybridInspect";
   return query;
 }
 

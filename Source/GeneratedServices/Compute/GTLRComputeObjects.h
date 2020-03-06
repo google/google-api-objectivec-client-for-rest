@@ -75,6 +75,7 @@
 @class GTLRCompute_BackendServiceIAP;
 @class GTLRCompute_BackendServiceList_Warning;
 @class GTLRCompute_BackendServiceList_Warning_Data_Item;
+@class GTLRCompute_BackendServiceLogConfig;
 @class GTLRCompute_BackendServiceReference;
 @class GTLRCompute_BackendServicesScopedList;
 @class GTLRCompute_BackendServicesScopedList_Warning;
@@ -5590,6 +5591,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Commitments;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedC2Cpus;
 /** Value: "COMMITTED_CPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedCpus;
+/** Value: "COMMITTED_LICENSES" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedLicenses;
 /** Value: "COMMITTED_LOCAL_SSD_TOTAL_GB" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb;
 /** Value: "COMMITTED_N2_CPUS" */
@@ -12006,6 +12009,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *localityLbPolicy;
 
 /**
+ *  This field denotes the logging options for the load balancer traffic served
+ *  by this backend service. If logging is enabled, logs will be exported to
+ *  Stackdriver.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_BackendServiceLogConfig *logConfig;
+
+/**
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
@@ -12015,6 +12025,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  dash.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The URL of the network to which this backend service belongs. This field can
+ *  only be spcified when the load balancing scheme is set to INTERNAL.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
 
 /**
  *  Settings controlling the eviction of unhealthy hosts from the load balancing
@@ -12473,6 +12489,34 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  The available logging options for the load balancer traffic served by this
+ *  backend service.
+ */
+@interface GTLRCompute_BackendServiceLogConfig : GTLRObject
+
+/**
+ *  This field denotes whether to enable logging for the load balancer traffic
+ *  served by this backend service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enable;
+
+/**
+ *  This field can only be specified if logging is enabled for this backend
+ *  service. The value of the field must be in [0, 1]. This configures the
+ *  sampling rate of requests to the load balancer where 1.0 means all logged
+ *  requests are reported and 0.0 means no logged requests are reported. The
+ *  default value is 1.0.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleRate;
 
 @end
 
@@ -15072,14 +15116,31 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
- *  Represents an expression text. Example:
- *  title: "User account presence" description: "Determines whether the request
- *  has a user account" expression: "size(request.user) > 0"
+ *  Represents a textual expression in the Common Expression Language (CEL)
+ *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
+ *  are documented at https://github.com/google/cel-spec.
+ *  Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100"
+ *  Example (Equality):
+ *  title: "Requestor is owner" description: "Determines if requestor is the
+ *  document owner" expression: "document.owner == request.auth.claims.email"
+ *  Example (Logic):
+ *  title: "Public documents" description: "Determine whether the document
+ *  should be publicly visible" expression: "document.type != 'private' &&
+ *  document.type != 'internal'"
+ *  Example (Data Manipulation):
+ *  title: "Notification string" description: "Create a notification string with
+ *  a timestamp." expression: "'New message received at ' +
+ *  string(document.create_time)"
+ *  The exact variables and functions that may be referenced within an
+ *  expression are determined by the service that evaluates it. See the service
+ *  documentation for additional information.
  */
 @interface GTLRCompute_Expr : GTLRObject
 
 /**
- *  An optional description of the expression. This is a longer text which
+ *  Optional. Description of the expression. This is a longer text which
  *  describes the expression, e.g. when hovered over it in a UI.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -15089,19 +15150,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  Textual representation of an expression in Common Expression Language
  *  syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  An optional string indicating the location of the expression for error
+ *  Optional. String indicating the location of the expression for error
  *  reporting, e.g. a file name and a position in the file.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  An optional title for the expression, i.e. a short string describing its
+ *  Optional. Title for the expression, i.e. a short string describing its
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
@@ -17261,11 +17320,12 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /** URL of the instance resource. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** The IP address represented by this resource. */
+/** A forwarding rule IP address assigned to this instance. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
- *  The port on the instance.
+ *  The named port of the instance group, not necessarily the port that is
+ *  health-checked.
  *
  *  Uses NSNumber of intValue.
  */
@@ -19958,9 +20018,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetPools;
 
 /**
- *  The target number of running instances for this managed instance group.
- *  Deleting or abandoning instances reduces this number. Resizing the group
- *  changes this number.
+ *  The target number of running instances for this managed instance group. You
+ *  can reduce this number by using the instanceGroupManager deleteInstances or
+ *  abandonInstances methods. Resizing the group also changes this number.
  *
  *  Uses NSNumber of intValue.
  */
@@ -29828,6 +29888,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedC2Cpus Value
  *        "COMMITTED_C2_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedCpus Value "COMMITTED_CPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_CommittedLicenses Value
+ *        "COMMITTED_LICENSES"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb Value
  *        "COMMITTED_LOCAL_SSD_TOTAL_GB"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedN2Cpus Value
@@ -34313,6 +34375,13 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  specified if versioned_expr is not specified.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_SecurityPolicyRuleMatcherConfig *config;
+
+/**
+ *  User defined CEVAL expression. A CEVAL expression is used to specify match
+ *  criteria such as origin.ip, source.region_code and contents in the request
+ *  header.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Expr *expr;
 
 /**
  *  Preconfigured versioned expression. If this field is specified, config must

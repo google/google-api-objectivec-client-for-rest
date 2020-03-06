@@ -2502,6 +2502,7 @@ NSString * const kGTLRCompute_Quota_Metric_C2Cpus              = @"C2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_Commitments         = @"COMMITMENTS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedC2Cpus     = @"COMMITTED_C2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedCpus       = @"COMMITTED_CPUS";
+NSString * const kGTLRCompute_Quota_Metric_CommittedLicenses   = @"COMMITTED_LICENSES";
 NSString * const kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb = @"COMMITTED_LOCAL_SSD_TOTAL_GB";
 NSString * const kGTLRCompute_Quota_Metric_CommittedN2Cpus     = @"COMMITTED_N2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedN2dCpus    = @"COMMITTED_N2D_CPUS";
@@ -5136,8 +5137,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          connectionDraining, consistentHash, creationTimestamp,
          customRequestHeaders, descriptionProperty, enableCDN, fingerprint,
          healthChecks, iap, identifier, kind, loadBalancingScheme,
-         localityLbPolicy, name, outlierDetection, port, portName, protocol,
-         region, securityPolicy, selfLink, sessionAffinity, timeoutSec;
+         localityLbPolicy, logConfig, name, network, outlierDetection, port,
+         portName, protocol, region, securityPolicy, selfLink, sessionAffinity,
+         timeoutSec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -5309,6 +5311,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_BackendServiceList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceLogConfig
+//
+
+@implementation GTLRCompute_BackendServiceLogConfig
+@dynamic enable, sampleRate;
 @end
 
 
@@ -13315,7 +13327,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_SecurityPolicyRuleMatcher
-@dynamic config, versionedExpr;
+@dynamic config, expr, versionedExpr;
 @end
 
 

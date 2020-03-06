@@ -50,6 +50,7 @@
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_MasterAuthorizedNetworksConfig;
 @class GTLRContainer_MaxPodsConstraint;
+@class GTLRContainer_Metric;
 @class GTLRContainer_NetworkConfig;
 @class GTLRContainer_NetworkPolicy;
 @class GTLRContainer_NetworkPolicyConfig;
@@ -61,6 +62,7 @@
 @class GTLRContainer_NodePoolAutoscaling;
 @class GTLRContainer_NodeTaint;
 @class GTLRContainer_Operation;
+@class GTLRContainer_OperationProgress;
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_RecurringTimeWindow;
 @class GTLRContainer_ReservationAffinity;
@@ -76,6 +78,8 @@
 @class GTLRContainer_UsableSubnetwork;
 @class GTLRContainer_UsableSubnetworkSecondaryRange;
 @class GTLRContainer_VerticalPodAutoscaling;
+@class GTLRContainer_WorkloadIdentityConfig;
+@class GTLRContainer_WorkloadMetadataConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -399,6 +403,40 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_Running;
 GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_OperationProgress.status
+
+/**
+ *  The operation is aborting.
+ *
+ *  Value: "ABORTING"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Aborting;
+/**
+ *  The operation is done, either cancelled or completed.
+ *
+ *  Value: "DONE"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Done;
+/**
+ *  The operation has been created.
+ *
+ *  Value: "PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Pending;
+/**
+ *  The operation is currently running.
+ *
+ *  Value: "RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Running;
+/**
+ *  Not set.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_ReservationAffinity.consumeReservationType
 
 /**
@@ -555,6 +593,32 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  Value: "UNUSED"
  */
 GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_WorkloadMetadataConfig.mode
+
+/**
+ *  Expose all GCE metadata to pods.
+ *
+ *  Value: "GCE_METADATA"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_GceMetadata;
+/**
+ *  Run the GKE Metadata Server on this node. The GKE Metadata Server exposes
+ *  a metadata API to workloads that is compatible with the V1 Compute
+ *  Metadata APIs exposed by the Compute Engine and App Engine Metadata
+ *  Servers. This feature can only be enabled if Workload Identity is enabled
+ *  at the cluster level.
+ *
+ *  Value: "GKE_METADATA"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_GkeMetadata;
+/**
+ *  Not set.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified;
 
 /**
  *  AcceleratorConfig represents a Hardware Accelerator request.
@@ -1135,6 +1199,12 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 @property(nonatomic, strong, nullable) GTLRContainer_VerticalPodAutoscaling *verticalPodAutoscaling;
 
 /**
+ *  Configuration for the use of Kubernetes Service Accounts in GCP IAM
+ *  policies.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_WorkloadIdentityConfig *workloadIdentityConfig;
+
+/**
  *  [Output only] The name of the Google Compute Engine
  *  [zone](/compute/docs/zones#available) in which the cluster
  *  resides.
@@ -1308,6 +1378,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /** Cluster-level Vertical Pod Autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_VerticalPodAutoscaling *desiredVerticalPodAutoscaling;
+
+/** Configuration for Workload Identity. */
+@property(nonatomic, strong, nullable) GTLRContainer_WorkloadIdentityConfig *desiredWorkloadIdentityConfig;
 
 @end
 
@@ -1573,8 +1646,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 /**
  *  Whether the Horizontal Pod Autoscaling feature is enabled in the cluster.
- *  When enabled, it ensures that a Heapster pod is running in the cluster,
- *  which is also used by the Cloud Monitoring service.
+ *  When enabled, it ensures that metrics are collected into Stackdriver
+ *  Monitoring.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2050,6 +2123,34 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 
 
 /**
+ *  Progress metric is (string, int|float|string) pair.
+ */
+@interface GTLRContainer_Metric : GTLRObject
+
+/**
+ *  For metrics with floating point value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *doubleValue;
+
+/**
+ *  For metrics with integer value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *intValue;
+
+/** Required. Metric name, e.g., "nodes total", "percent done". */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** For metrics with custom values (ratios, visual progress, etc.). */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+@end
+
+
+/**
  *  NetworkConfig reports the relative names of network & subnetwork.
  */
 @interface GTLRContainer_NetworkConfig : GTLRObject
@@ -2292,6 +2393,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_NodeTaint *> *taints;
+
+/** The workload metadata configuration for this node. */
+@property(nonatomic, strong, nullable) GTLRContainer_WorkloadMetadataConfig *workloadMetadataConfig;
 
 @end
 
@@ -2641,6 +2745,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  */
 @property(nonatomic, copy, nullable) NSString *operationType;
 
+/** Output only. [Output only] Progress information for an operation. */
+@property(nonatomic, strong, nullable) GTLRContainer_OperationProgress *progress;
+
 /** Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -2667,7 +2774,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/** If an error has occurred, a textual description of the error. */
+/**
+ *  Output only. If an error has occurred, a textual description of the error.
+ */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
 /** Server-defined URL for the target of the operation. */
@@ -2682,6 +2791,51 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  Information about operation (or operation stage) progress.
+ */
+@interface GTLRContainer_OperationProgress : GTLRObject
+
+/**
+ *  Progress metric bundle, for example:
+ *  metrics: [{name: "nodes done", int_value: 15},
+ *  {name: "nodes total", int_value: 32}]
+ *  or
+ *  metrics: [{name: "progress", double_value: 0.56},
+ *  {name: "progress scale", double_value: 1.0}]
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_Metric *> *metrics;
+
+/**
+ *  A non-parameterized string describing an operation stage.
+ *  Unset for single-stage operations.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Substages of an operation or a stage. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_OperationProgress *> *stages;
+
+/**
+ *  Status of an operation stage.
+ *  Unset for single-stage operations.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_OperationProgress_Status_Aborting The operation is
+ *        aborting. (Value: "ABORTING")
+ *    @arg @c kGTLRContainer_OperationProgress_Status_Done The operation is
+ *        done, either cancelled or completed. (Value: "DONE")
+ *    @arg @c kGTLRContainer_OperationProgress_Status_Pending The operation has
+ *        been created. (Value: "PENDING")
+ *    @arg @c kGTLRContainer_OperationProgress_Status_Running The operation is
+ *        currently running. (Value: "RUNNING")
+ *    @arg @c kGTLRContainer_OperationProgress_Status_StatusUnspecified Not set.
+ *        (Value: "STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -2792,7 +2946,11 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  */
 @property(nonatomic, copy, nullable) NSString *consumeReservationType;
 
-/** Corresponds to the label key of reservation resource. */
+/**
+ *  Corresponds to the label key of a reservation resource. To target a
+ *  SPECIFIC_RESERVATION by name, specify "googleapis.com/reservation-name" as
+ *  the key and specify the name of your reservation as its value.
+ */
 @property(nonatomic, copy, nullable) NSString *key;
 
 /** Corresponds to the label value(s) of reservation resource(s). */
@@ -3810,6 +3968,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
 /** Upgrade settings control disruption and speed of the upgrade. */
 @property(nonatomic, strong, nullable) GTLRContainer_UpgradeSettings *upgradeSettings;
 
+/** The desired workload metadata config for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_WorkloadMetadataConfig *workloadMetadataConfig;
+
 /**
  *  Required. Deprecated. The name of the Google Compute Engine
  *  [zone](/compute/docs/zones#available) in which the cluster
@@ -3957,6 +4118,46 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Configuration for the use of Kubernetes Service Accounts in GCP IAM
+ *  policies.
+ */
+@interface GTLRContainer_WorkloadIdentityConfig : GTLRObject
+
+/** The workload pool to attach all Kubernetes service accounts to. */
+@property(nonatomic, copy, nullable) NSString *workloadPool;
+
+@end
+
+
+/**
+ *  WorkloadMetadataConfig defines the metadata configuration to expose to
+ *  workloads on the node pool.
+ */
+@interface GTLRContainer_WorkloadMetadataConfig : GTLRObject
+
+/**
+ *  Mode is the configuration for how to expose metadata to workloads running
+ *  on the node pool.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_WorkloadMetadataConfig_Mode_GceMetadata Expose all
+ *        GCE metadata to pods. (Value: "GCE_METADATA")
+ *    @arg @c kGTLRContainer_WorkloadMetadataConfig_Mode_GkeMetadata Run the GKE
+ *        Metadata Server on this node. The GKE Metadata Server exposes
+ *        a metadata API to workloads that is compatible with the V1 Compute
+ *        Metadata APIs exposed by the Compute Engine and App Engine Metadata
+ *        Servers. This feature can only be enabled if Workload Identity is
+ *        enabled
+ *        at the cluster level. (Value: "GKE_METADATA")
+ *    @arg @c kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified Not
+ *        set. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
 
 @end
 

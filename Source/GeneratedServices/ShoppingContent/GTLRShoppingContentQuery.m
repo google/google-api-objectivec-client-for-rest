@@ -1938,6 +1938,50 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 @end
 
+@implementation GTLRShoppingContentQuery_PubsubnotificationsettingsGet
+
+@dynamic merchantId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/pubsubnotificationsettings";
+  GTLRShoppingContentQuery_PubsubnotificationsettingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_PubsubNotificationSettings class];
+  query.loggingName = @"content.pubsubnotificationsettings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_PubsubnotificationsettingsUpdate
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_PubsubNotificationSettings *)object
+                     merchantId:(unsigned long long)merchantId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/pubsubnotificationsettings";
+  GTLRShoppingContentQuery_PubsubnotificationsettingsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_PubsubNotificationSettings class];
+  query.loggingName = @"content.pubsubnotificationsettings.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_RegionalinventoryCustombatch
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_RegionalinventoryCustomBatchRequest *)object {

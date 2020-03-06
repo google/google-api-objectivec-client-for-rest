@@ -36,24 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  GTLROauth2Query_GetCertForOpenIdConnect
- *
- *  Method: oauth2.getCertForOpenIdConnect
- */
-@interface GTLROauth2Query_GetCertForOpenIdConnect : GTLROauth2Query
-// Previous library name was
-//   +[GTLQueryOauth2 queryForGetCertForOpenIdConnect]
-
-/**
- *  Fetches a @c GTLROauth2_Jwk.
- *
- *  @return GTLROauth2Query_GetCertForOpenIdConnect
- */
-+ (instancetype)query;
-
-@end
-
-/**
  *  GTLROauth2Query_Tokeninfo
  *
  *  Method: oauth2.tokeninfo

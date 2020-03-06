@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Debugger API (clouddebugger/v2)
+//   Cloud Debugger API (clouddebugger/v2)
 // Description:
 //   Examines the call stack and variables of a running application without
 //   stopping or slowing it down.
@@ -48,7 +48,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudPlatform;
 //
 
 /**
- *  Service for executing Stackdriver Debugger API queries.
+ *  Service for executing Cloud Debugger API queries.
  *
  *  Examines the call stack and variables of a running application without
  *  stopping or slowing it down.

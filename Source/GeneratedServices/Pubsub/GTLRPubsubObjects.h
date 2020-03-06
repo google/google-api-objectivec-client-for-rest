@@ -52,7 +52,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_AcknowledgeRequest : GTLRObject
 
 /**
- *  The acknowledgment ID for the messages being acknowledged that was returned
+ *  Required. The acknowledgment ID for the messages being acknowledged that was
+ *  returned
  *  by the Pub/Sub system in the `Pull` response. Must not be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ackIds;
@@ -129,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPubsub_CreateSnapshotRequest_Labels *labels;
 
 /**
- *  The subscription whose backlog the snapshot retains.
+ *  Required. The subscription whose backlog the snapshot retains.
  *  Specifically, the created snapshot is guaranteed to retain:
  *  (a) The existing backlog on the subscription. More precisely, this is
  *  defined as the messages in the subscription's backlog that are
@@ -484,7 +485,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_ModifyAckDeadlineRequest : GTLRObject
 
 /**
- *  The new ack deadline with respect to the time this request was sent to
+ *  Required. The new ack deadline with respect to the time this request was
+ *  sent to
  *  the Pub/Sub system. For example, if the value is 10, the new
  *  ack deadline will expire 10 seconds after the `ModifyAckDeadline` call
  *  was made. Specifying zero might immediately make the message available for
@@ -497,7 +499,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *ackDeadlineSeconds;
 
-/** List of acknowledgment IDs. */
+/** Required. List of acknowledgment IDs. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ackIds;
 
 @end
@@ -509,7 +511,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_ModifyPushConfigRequest : GTLRObject
 
 /**
- *  The push configuration for future deliveries.
+ *  Required. The push configuration for future deliveries.
  *  An empty `pushConfig` indicates that the Pub/Sub system should
  *  stop pushing messages from the given subscription and allow
  *  messages to be pulled and acknowledged - effectively pausing
@@ -664,7 +666,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPubsub_PublishRequest : GTLRObject
 
-/** The messages to publish. */
+/** Required. The messages to publish. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Message *> *messages;
 
 @end
@@ -691,7 +693,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_PullRequest : GTLRObject
 
 /**
- *  The maximum number of messages to return for this request. Must be a
+ *  Required. The maximum number of messages to return for this request. Must be
+ *  a
  *  positive integer. The Pub/Sub system may return fewer than the number
  *  specified.
  *
@@ -1002,7 +1005,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDuration *messageRetentionDuration;
 
 /**
- *  The name of the subscription. It must have the format
+ *  Required. The name of the subscription. It must have the format
  *  `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
  *  start with a letter, and contain only letters (`[A-Za-z]`), numbers
  *  (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`),
@@ -1032,7 +1035,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *retainAckedMessages;
 
 /**
- *  The name of the topic from which this subscription is receiving messages.
+ *  Required. The name of the topic from which this subscription is receiving
+ *  messages.
  *  Format is `projects/{project}/topics/{topic}`.
  *  The value of this field will be `_deleted-topic_` if the topic has been
  *  deleted.
@@ -1112,7 +1116,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPubsub_MessageStoragePolicy *messageStoragePolicy;
 
 /**
- *  The name of the topic. It must have the format
+ *  Required. The name of the topic. It must have the format
  *  `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
  *  and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
  *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
@@ -1142,11 +1146,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPubsub_UpdateSnapshotRequest : GTLRObject
 
-/** The updated snapshot object. */
+/** Required. The updated snapshot object. */
 @property(nonatomic, strong, nullable) GTLRPubsub_Snapshot *snapshot;
 
 /**
- *  Indicates which fields in the provided snapshot to update.
+ *  Required. Indicates which fields in the provided snapshot to update.
  *  Must be specified and non-empty.
  *
  *  String format is a comma-separated list of fields.
@@ -1161,11 +1165,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPubsub_UpdateSubscriptionRequest : GTLRObject
 
-/** The updated subscription object. */
+/** Required. The updated subscription object. */
 @property(nonatomic, strong, nullable) GTLRPubsub_Subscription *subscription;
 
 /**
- *  Indicates which fields in the provided subscription to update.
+ *  Required. Indicates which fields in the provided subscription to update.
  *  Must be specified and non-empty.
  *
  *  String format is a comma-separated list of fields.
@@ -1180,11 +1184,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPubsub_UpdateTopicRequest : GTLRObject
 
-/** The updated topic object. */
+/** Required. The updated topic object. */
 @property(nonatomic, strong, nullable) GTLRPubsub_Topic *topic;
 
 /**
- *  Indicates which fields in the provided topic to update. Must be specified
+ *  Required. Indicates which fields in the provided topic to update. Must be
+ *  specified
  *  and non-empty. Note that if `update_mask` contains
  *  "message_storage_policy" then the new value will be determined based on the
  *  policy configured at the project or organization level. The

@@ -44,6 +44,7 @@
 @class GTLRServiceNetworking_Field;
 @class GTLRServiceNetworking_Http;
 @class GTLRServiceNetworking_HttpRule;
+@class GTLRServiceNetworking_JwtLocation;
 @class GTLRServiceNetworking_LabelDescriptor;
 @class GTLRServiceNetworking_LogDescriptor;
 @class GTLRServiceNetworking_Logging;
@@ -753,6 +754,14 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigRespon
 @property(nonatomic, strong, nullable) NSNumber *ipPrefixLength;
 
 /**
+ *  Optional. The private IPv6 google access type for the VMs in this subnet.
+ *  For information about the access types that can be set using this field,
+ *  see [subnetwork](/compute/docs/reference/rest/v1/subnetworks)
+ *  in the Compute API documentation.
+ */
+@property(nonatomic, copy, nullable) NSString *privateIpv6GoogleAccess;
+
+/**
  *  Required. The name of a [region](/compute/docs/regions-zones)
  *  for the subnet, such `europe-west1`.
  */
@@ -975,6 +984,24 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigRespon
  */
 @property(nonatomic, copy, nullable) NSString *jwksUri;
 
+/**
+ *  Defines the locations to extract the JWT.
+ *  JWT locations can be either from HTTP headers or URL query parameters.
+ *  The rule is that the first match wins. The checking order is: checking
+ *  all headers first, then URL query parameters.
+ *  If not specified, default to use following 3 locations:
+ *  1) Authorization: Bearer
+ *  2) x-goog-iap-jwt-assertion
+ *  3) access_token query parameter
+ *  Default locations can be specified as followings:
+ *  jwt_locations:
+ *  - header: Authorization
+ *  value_prefix: "Bearer "
+ *  - header: x-goog-iap-jwt-assertion
+ *  - query: access_token
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_JwtLocation *> *jwtLocations;
+
 @end
 
 
@@ -1045,8 +1072,8 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigRespon
  *  If the port is unspecified, the default is:
  *  - 80 for schemes without TLS
  *  - 443 for schemes with TLS
- *  For HTTP backends, use http_protocol
- *  to specify the http protocol version.
+ *  For HTTP backends, use protocol
+ *  to specify the protocol version.
  */
 @property(nonatomic, copy, nullable) NSString *address;
 
@@ -2200,6 +2227,31 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigRespon
  *  Refer to selector for syntax details.
  */
 @property(nonatomic, copy, nullable) NSString *selector;
+
+@end
+
+
+/**
+ *  Specifies a location to extract JWT from an API request.
+ */
+@interface GTLRServiceNetworking_JwtLocation : GTLRObject
+
+/** Specifies HTTP header name to extract JWT token. */
+@property(nonatomic, copy, nullable) NSString *header;
+
+/** Specifies URL query parameter name to extract JWT token. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  The value prefix. The value format is "value_prefix{token}"
+ *  Only applies to "in" header type. Must be empty for "in" query type.
+ *  If not empty, the header value has to match (case sensitive) this prefix.
+ *  If not matched, JWT will not be extracted. If matched, JWT will be
+ *  extracted after the prefix is removed.
+ *  For example, for "Authorization: Bearer {JWT}",
+ *  value_prefix="Bearer " with a space at the end.
+ */
+@property(nonatomic, copy, nullable) NSString *valuePrefix;
 
 @end
 
@@ -3454,6 +3506,17 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigRespon
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ipPrefixLength;
+
+/**
+ *  Optional. DO NOT USE - Under development.
+ *  The size of the desired secondary ranges for the subnet. Use usual CIDR
+ *  range notation. For example, '30' to find unused x.x.x.x/30 CIDR range. The
+ *  goal is to determine that the allocated ranges have enough free space for
+ *  all the requested secondary ranges.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *secondaryRangeIpPrefixLengths;
 
 @end
 

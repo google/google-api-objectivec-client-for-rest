@@ -55,10 +55,12 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolic
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_Unencrypted = @"UNENCRYPTED";
 
 // GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint.osType
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_Android = @"ANDROID";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopChromeOs = @"DESKTOP_CHROME_OS";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopLinux = @"DESKTOP_LINUX";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopMac = @"DESKTOP_MAC";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopWindows = @"DESKTOP_WINDOWS";
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_Ios = @"IOS";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_OsUnspecified = @"OS_UNSPECIFIED";
 
 // GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter.perimeterType
@@ -427,8 +429,8 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter
-@dynamic createTime, descriptionProperty, name, perimeterType, status, title,
-         updateTime;
+@dynamic createTime, descriptionProperty, name, perimeterType, spec, status,
+         title, updateTime, useExplicitDryRunSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -443,13 +445,31 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig
-@dynamic accessLevels, resources, restrictedServices;
+@dynamic accessLevels, resources, restrictedServices, vpcAccessibleServices;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accessLevels" : [NSString class],
     @"resources" : [NSString class],
     @"restrictedServices" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices
+@dynamic allowedServices, enableRestriction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedServices" : [NSString class]
   };
   return map;
 }

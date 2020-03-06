@@ -64,6 +64,8 @@
 @class GTLRBooks_Review_Author;
 @class GTLRBooks_Review_Source;
 @class GTLRBooks_Series_Series_Item;
+@class GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo;
+@class GTLRBooks_SubscriptionReleaseInfo;
 @class GTLRBooks_Usersettings_NotesExport;
 @class GTLRBooks_Usersettings_Notification;
 @class GTLRBooks_Usersettings_Notification_MatchMyInterests;
@@ -1653,10 +1655,36 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *isComplete;
 
+@property(nonatomic, copy, nullable) NSString *seriesFormatType;
 @property(nonatomic, copy, nullable) NSString *seriesId;
+@property(nonatomic, strong, nullable) GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo *seriesSubscriptionReleaseInfo;
 @property(nonatomic, copy, nullable) NSString *seriesType;
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo
+ */
+@interface GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo : GTLRObject
+
+/**
+ *  Cancellation date of the series subscription (or when it ends).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancellationTimestampUs;
+
+/** Release information for the last release. */
+@property(nonatomic, strong, nullable) GTLRBooks_SubscriptionReleaseInfo *currentReleaseInfo;
+
+/** Release information for the next release. */
+@property(nonatomic, strong, nullable) GTLRBooks_SubscriptionReleaseInfo *nextReleaseInfo;
+
+/** series subscription type. */
+@property(nonatomic, copy, nullable) NSString *seriesSubscriptionType;
 
 @end
 
@@ -1683,6 +1711,34 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRBooks_Volume *> *member;
 
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  GTLRBooks_SubscriptionReleaseInfo
+ */
+@interface GTLRBooks_SubscriptionReleaseInfo : GTLRObject
+
+/**
+ *  Amount in micros of the specified currency code.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *amountInMicros;
+
+/** Currency code of the amount. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/** The release number of this issue/volume/book. */
+@property(nonatomic, copy, nullable) NSString *releaseNumber;
+
+/**
+ *  The release date.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *releaseTimestampUs;
 
 @end
 

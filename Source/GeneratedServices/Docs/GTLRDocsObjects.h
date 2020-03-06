@@ -2373,6 +2373,20 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 @property(nonatomic, strong, nullable) NSNumber *marginBottomSuggested;
 
 /**
+ *  Indicates if there was a suggested change to margin_footer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *marginFooterSuggested;
+
+/**
+ *  Indicates if there was a suggested change to margin_header.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *marginHeaderSuggested;
+
+/**
  *  Indicates if there was a suggested change to margin_left.
  *
  *  Uses NSNumber of boolValue.
@@ -2405,6 +2419,14 @@ GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
  *  suggestion.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_SizeSuggestionState *pageSizeSuggestionState;
+
+/**
+ *  Indicates if there was a suggested change to
+ *  use_custom_header_footer_margins.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useCustomHeaderFooterMarginsSuggested;
 
 /**
  *  Indicates if there was a suggested change to use_even_page_header_footer.

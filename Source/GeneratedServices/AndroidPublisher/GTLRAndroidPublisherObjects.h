@@ -45,6 +45,8 @@
 @class GTLRAndroidPublisher_Review;
 @class GTLRAndroidPublisher_ReviewReplyResult;
 @class GTLRAndroidPublisher_Sampling;
+@class GTLRAndroidPublisher_StratifiedSampling;
+@class GTLRAndroidPublisher_Stratum;
 @class GTLRAndroidPublisher_SubscriptionCancelSurveyResult;
 @class GTLRAndroidPublisher_SubscriptionDeferralInfo;
 @class GTLRAndroidPublisher_SubscriptionPriceChange;
@@ -52,6 +54,9 @@
 @class GTLRAndroidPublisher_TokenPagination;
 @class GTLRAndroidPublisher_Track;
 @class GTLRAndroidPublisher_TrackRelease;
+@class GTLRAndroidPublisher_TrackReleasePin;
+@class GTLRAndroidPublisher_TrackReleasePinPinTargeting;
+@class GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin;
 @class GTLRAndroidPublisher_UserComment;
 @class GTLRAndroidPublisher_Variant;
 @class GTLRAndroidPublisher_VoidedPurchase;
@@ -70,6 +75,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Information about the binary payload of this APK. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_ApkBinary *binary;
+
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ApkBinary *testBinary;
 
 /**
  *  The version code of the APK, as specified in the APK's manifest file.
@@ -245,6 +252,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidPublisher_Control : GTLRObject
 
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ModRange *> *modRanges;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_StratifiedSampling *> *stratifiedSamplings;
 
 /**
  *  versionCodes
@@ -1073,6 +1081,36 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *salt;
 
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_StratifiedSampling *> *stratifiedSamplings;
+
+/**
+ *  useAndroidId
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useAndroidId;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_StratifiedSampling
+ */
+@interface GTLRAndroidPublisher_StratifiedSampling : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ModRange *> *modRanges;
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Stratum *stratum;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_Stratum
+ */
+@interface GTLRAndroidPublisher_Stratum : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *brand;
+
 @end
 
 
@@ -1445,6 +1483,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidPublisher_Testers : GTLRObject
 
+@property(nonatomic, strong, nullable) NSArray<NSString *> *autoEnrolledAndroidGroups;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *autoEnrolledGoogleGroups;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedGoogleGroups;
+
 /**
  *  A list of all Google Groups, as email addresses, that define testers for
  *  this track.
@@ -1529,8 +1571,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_TrackReleasePin *> *pinnedVersions;
+
 /** The description of what is new in the app in this release. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_LocalizedText *> *releaseNotes;
+
+/**
+ *  rollbackEnabled
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rollbackEnabled;
 
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Sampling *sampling;
 
@@ -1554,6 +1605,60 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *versionCodes;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_TrackReleasePin
+ */
+@interface GTLRAndroidPublisher_TrackReleasePin : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_TrackReleasePinPinTargeting *> *targetings;
+
+/**
+ *  versionCodes
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *versionCodes;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_TrackReleasePinPinTargeting
+ */
+@interface GTLRAndroidPublisher_TrackReleasePinPinTargeting : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *countryCodes;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin *> *devices;
+
+/**
+ *  phoneskyVersions
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *phoneskyVersions;
+
+/**
+ *  sdkVersions
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *sdkVersions;
+
+@end
+
+
+/**
+ *  GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin
+ */
+@interface GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *brand;
+@property(nonatomic, copy, nullable) NSString *device;
+@property(nonatomic, copy, nullable) NSString *product;
 
 @end
 

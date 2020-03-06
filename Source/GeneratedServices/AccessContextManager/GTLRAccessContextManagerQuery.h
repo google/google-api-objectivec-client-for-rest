@@ -22,6 +22,9 @@
 @class GTLRAccessContextManager_AccessLevel;
 @class GTLRAccessContextManager_AccessPolicy;
 @class GTLRAccessContextManager_CancelOperationRequest;
+@class GTLRAccessContextManager_CommitServicePerimetersRequest;
+@class GTLRAccessContextManager_ReplaceAccessLevelsRequest;
+@class GTLRAccessContextManager_ReplaceServicePerimetersRequest;
 @class GTLRAccessContextManager_ServicePerimeter;
 
 // Generated comments include content from the discovery document; avoid them
@@ -319,6 +322,65 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
 @end
 
 /**
+ *  Replace all existing Access Levels in an Access
+ *  Policy with
+ *  the Access Levels provided. This
+ *  is done atomically. The longrunning operation from this RPC will have a
+ *  successful status once all replacements have propagated to long-lasting
+ *  storage. Replacements containing errors will result in an error response
+ *  for the first error encountered. Replacement will be cancelled on error,
+ *  existing Access Levels will not be
+ *  affected. Operation.response field will contain
+ *  ReplaceAccessLevelsResponse. Removing Access Levels contained in existing
+ *  Service Perimeters will result in
+ *  error.
+ *
+ *  Method: accesscontextmanager.accessPolicies.accessLevels.replaceAll
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsReplaceAll : GTLRAccessContextManagerQuery
+// Previous library name was
+//   +[GTLQueryAccessContextManager queryForAccessPoliciesAccessLevelsReplaceAllWithObject:parent:]
+
+/**
+ *  Required. Resource name for the access policy which owns these
+ *  Access Levels.
+ *  Format: `accessPolicies/{policy_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_Operation.
+ *
+ *  Replace all existing Access Levels in an Access
+ *  Policy with
+ *  the Access Levels provided. This
+ *  is done atomically. The longrunning operation from this RPC will have a
+ *  successful status once all replacements have propagated to long-lasting
+ *  storage. Replacements containing errors will result in an error response
+ *  for the first error encountered. Replacement will be cancelled on error,
+ *  existing Access Levels will not be
+ *  affected. Operation.response field will contain
+ *  ReplaceAccessLevelsResponse. Removing Access Levels contained in existing
+ *  Service Perimeters will result in
+ *  error.
+ *
+ *  @param object The @c GTLRAccessContextManager_ReplaceAccessLevelsRequest to
+ *    include in the query.
+ *  @param parent Required. Resource name for the access policy which owns these
+ *    Access Levels.
+ *    Format: `accessPolicies/{policy_id}`
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsReplaceAll
+ */
++ (instancetype)queryWithObject:(GTLRAccessContextManager_ReplaceAccessLevelsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Create an `AccessPolicy`. Fails if this organization already has a
  *  `AccessPolicy`. The longrunning Operation will have a successful status
  *  once the `AccessPolicy` has propagated to long-lasting storage.
@@ -515,6 +577,68 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
  */
 + (instancetype)queryWithObject:(GTLRAccessContextManager_AccessPolicy *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Commit the dry-run spec for all the Service Perimeters in an
+ *  Access Policy.
+ *  A commit operation on a Service Perimeter involves copying its `spec` field
+ *  to that Service Perimeter's `status` field. Only Service Perimeters with
+ *  `use_explicit_dry_run_spec` field set to true are affected by a commit
+ *  operation. The longrunning operation from this RPC will have a successful
+ *  status once the dry-run specs for all the Service Perimeters have been
+ *  committed. If a commit fails, it will cause the longrunning operation to
+ *  return an error response and the entire commit operation will be cancelled.
+ *  When successful, Operation.response field will contain
+ *  CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will
+ *  be cleared after a successful commit operation.
+ *
+ *  Method: accesscontextmanager.accessPolicies.servicePerimeters.commit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersCommit : GTLRAccessContextManagerQuery
+// Previous library name was
+//   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersCommitWithObject:parent:]
+
+/**
+ *  Required. Resource name for the parent Access Policy which owns all
+ *  Service Perimeters in scope for
+ *  the commit operation.
+ *  Format: `accessPolicies/{policy_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_Operation.
+ *
+ *  Commit the dry-run spec for all the Service Perimeters in an
+ *  Access Policy.
+ *  A commit operation on a Service Perimeter involves copying its `spec` field
+ *  to that Service Perimeter's `status` field. Only Service Perimeters with
+ *  `use_explicit_dry_run_spec` field set to true are affected by a commit
+ *  operation. The longrunning operation from this RPC will have a successful
+ *  status once the dry-run specs for all the Service Perimeters have been
+ *  committed. If a commit fails, it will cause the longrunning operation to
+ *  return an error response and the entire commit operation will be cancelled.
+ *  When successful, Operation.response field will contain
+ *  CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will
+ *  be cleared after a successful commit operation.
+ *
+ *  @param object The @c GTLRAccessContextManager_CommitServicePerimetersRequest
+ *    to include in the query.
+ *  @param parent Required. Resource name for the parent Access Policy which
+ *    owns all
+ *    Service Perimeters in scope for
+ *    the commit operation.
+ *    Format: `accessPolicies/{policy_id}`
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersCommit
+ */
++ (instancetype)queryWithObject:(GTLRAccessContextManager_CommitServicePerimetersRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -744,6 +868,62 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
  */
 + (instancetype)queryWithObject:(GTLRAccessContextManager_ServicePerimeter *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Replace all existing Service Perimeters in an
+ *  Access Policy
+ *  with the Service Perimeters provided.
+ *  This is done atomically. The longrunning operation from this
+ *  RPC will have a successful status once all replacements have propagated to
+ *  long-lasting storage. Replacements containing errors will result in an
+ *  error response for the first error encountered. Replacement will be
+ *  cancelled on error, existing Service Perimeters will not be
+ *  affected. Operation.response field will contain
+ *  ReplaceServicePerimetersResponse.
+ *
+ *  Method: accesscontextmanager.accessPolicies.servicePerimeters.replaceAll
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersReplaceAll : GTLRAccessContextManagerQuery
+// Previous library name was
+//   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersReplaceAllWithObject:parent:]
+
+/**
+ *  Required. Resource name for the access policy which owns these
+ *  Service Perimeters.
+ *  Format: `accessPolicies/{policy_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_Operation.
+ *
+ *  Replace all existing Service Perimeters in an
+ *  Access Policy
+ *  with the Service Perimeters provided.
+ *  This is done atomically. The longrunning operation from this
+ *  RPC will have a successful status once all replacements have propagated to
+ *  long-lasting storage. Replacements containing errors will result in an
+ *  error response for the first error encountered. Replacement will be
+ *  cancelled on error, existing Service Perimeters will not be
+ *  affected. Operation.response field will contain
+ *  ReplaceServicePerimetersResponse.
+ *
+ *  @param object The @c
+ *    GTLRAccessContextManager_ReplaceServicePerimetersRequest to include in the
+ *    query.
+ *  @param parent Required. Resource name for the access policy which owns these
+ *    Service Perimeters.
+ *    Format: `accessPolicies/{policy_id}`
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersReplaceAll
+ */
++ (instancetype)queryWithObject:(GTLRAccessContextManager_ReplaceServicePerimetersRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

@@ -261,6 +261,7 @@ NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableDirectionNo
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableFunctionality = @"EXPANDABLE_FUNCTIONALITY";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableIncorrectDirection = @"EXPANDABLE_INCORRECT_DIRECTION";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableInvalidVendor = @"EXPANDABLE_INVALID_VENDOR";
+NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExperimentalMedicalTreatment = @"EXPERIMENTAL_MEDICAL_TREATMENT";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_FourthPartyBrowserCookies = @"FOURTH_PARTY_BROWSER_COOKIES";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_GainingAnUnfairAdvantage = @"GAINING_AN_UNFAIR_ADVANTAGE";
 NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_GamingTheGoogleNetwork = @"GAMING_THE_GOOGLE_NETWORK";

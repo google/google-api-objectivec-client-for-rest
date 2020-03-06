@@ -138,6 +138,31 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 @end
 
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsReplaceAll
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_ReplaceAccessLevelsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/accessLevels:replaceAll";
+  GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsReplaceAll *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.accessLevels.replaceAll";
+  return query;
+}
+
+@end
+
 @implementation GTLRAccessContextManagerQuery_AccessPoliciesCreate
 
 + (instancetype)queryWithObject:(GTLRAccessContextManager_AccessPolicy *)object {
@@ -233,6 +258,31 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
   query.name = name;
   query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
   query.loggingName = @"accesscontextmanager.accessPolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersCommit
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_CommitServicePerimetersRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/servicePerimeters:commit";
+  GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersCommit *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.servicePerimeters.commit";
   return query;
 }
 
@@ -340,6 +390,31 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
   query.name = name;
   query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
   query.loggingName = @"accesscontextmanager.accessPolicies.servicePerimeters.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersReplaceAll
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_ReplaceServicePerimetersRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/servicePerimeters:replaceAll";
+  GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersReplaceAll *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.servicePerimeters.replaceAll";
   return query;
 }
 

@@ -477,10 +477,11 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 /**
  *  Entry Metadata.
  *  A Data Catalog Entry resource represents another resource in Google
- *  Cloud Platform, such as a BigQuery dataset or a Cloud Pub/Sub topic.
- *  Clients can use the `linked_resource` field in the Entry resource to refer
- *  to
- *  the original resource ID of the source system.
+ *  Cloud Platform (such as a BigQuery dataset or a Cloud Pub/Sub topic), or
+ *  outside of Google Cloud Platform. Clients can use the `linked_resource`
+ *  field
+ *  in the Entry resource to refer to the original resource ID of the source
+ *  system.
  *  An Entry resource contains resource details, such as its schema. An Entry
  *  can
  *  also be used to attach flexible metadata, such as a
@@ -1094,14 +1095,19 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
-/** Required. The scope of this search request. */
+/**
+ *  Required. The scope of this search request. A `scope` that has empty
+ *  `include_org_ids`, `include_project_ids` AND false
+ *  `include_gcp_public_datasets` is considered invalid. Data Catalog will
+ *  return an error in such a case.
+ */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope *scope;
 
 @end
 
 
 /**
- *  GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope
+ *  The criteria that select the subspace used for query matching.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope : GTLRObject
 
@@ -1116,19 +1122,14 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 @property(nonatomic, strong, nullable) NSNumber *includeGcpPublicDatasets;
 
 /**
- *  Data Catalog tries to automatically choose the right corpus of data to
- *  search through. You can ensure an organization is included by adding it
- *  to `include_org_ids`. You can ensure a project's org is included with
- *  `include_project_ids`. You must specify at least one organization
- *  using `include_org_ids` or `include_project_ids` in all search requests.
- *  List of organization IDs to search within. To find your organization ID,
- *  follow instructions in
+ *  The list of organization IDs to search within. To find your organization
+ *  ID, follow instructions in
  *  https://cloud.google.com/resource-manager/docs/creating-managing-organization.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeOrgIds;
 
 /**
- *  List of project IDs to search within. To learn more about the
+ *  The list of project IDs to search within. To learn more about the
  *  distinction between project names/IDs/numbers, go to
  *  https://cloud.google.com/docs/overview/#projects.
  */
@@ -1397,6 +1398,18 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagFieldEnumValue *enumValue;
 
+/**
+ *  Output only. The order of this field with respect to other fields in this
+ *  tag. It can be
+ *  set in Tag. For
+ *  example, a higher value can indicate a more important field. The value can
+ *  be negative. Multiple fields can have the same order, and field orders
+ *  within a tag do not have to be sequential.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *order;
+
 /** Holds the value for a tag field with string type. */
 @property(nonatomic, copy, nullable) NSString *stringValue;
 
@@ -1495,6 +1508,16 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
  *  in this name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The order of this field with respect to other fields in this tag
+ *  template. A higher value indicates a more important field. The value can
+ *  be negative. Multiple fields can have the same order, and field orders
+ *  within a tag do not have to be sequential.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *order;
 
 /** Required. The type of value this tag field can contain. */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType *type;

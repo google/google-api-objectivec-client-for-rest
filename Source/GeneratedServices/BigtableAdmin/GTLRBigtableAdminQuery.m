@@ -215,6 +215,81 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Policy class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.backups.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Policy class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.backups.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:testIamPermissions";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigtableAdmin_TestIamPermissionsResponse class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.backups.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersCreate
 
 @dynamic clusterId, parent;

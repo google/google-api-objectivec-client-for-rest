@@ -620,6 +620,20 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  */
 @property(nonatomic, strong, nullable) NSNumber *column;
 
+/**
+ *  Start position relative to the beginning of the file.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentOffset;
+
+/**
+ *  End position relative to the beginning of the file.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endOffset;
+
 /** Name of the `File`. */
 @property(nonatomic, copy, nullable) NSString *fileName;
 

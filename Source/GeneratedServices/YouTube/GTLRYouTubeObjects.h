@@ -112,6 +112,8 @@
 @class GTLRYouTube_LocalizedString;
 @class GTLRYouTube_Member;
 @class GTLRYouTube_MembershipsDetails;
+@class GTLRYouTube_MembershipsDuration;
+@class GTLRYouTube_MembershipsDurationAtLevel;
 @class GTLRYouTube_MembershipsLevel;
 @class GTLRYouTube_MembershipsLevelSnippet;
 @class GTLRYouTube_MemberSnippet;
@@ -6111,7 +6113,11 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *latencyPreference;
 
 /**
- *  mesh
+ *  The mesh for projecting the video if projection is mesh. The mesh value must
+ *  be a UTF-8 string containing the base-64 encoding of 3D mesh data that
+ *  follows the Spherical Video V2 RFC specification for an mshp box, excluding
+ *  the box size and type but including the following four reserved zero bytes
+ *  for the version and flags.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -7548,19 +7554,36 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @interface GTLRYouTube_MembershipsDetails : GTLRObject
 
 /**
- *  All levels that the user has access to. This includes the currently active
- *  level and all other levels that are included because of a higher purchase.
+ *  Ids of all levels that the user has access to. This includes the currently
+ *  active level and all other levels that are included because of a higher
+ *  purchase.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessibleLevels;
 
-/** The highest level that the user has access to at the moment. */
+/** Id of the highest level that the user has access to at the moment. */
 @property(nonatomic, copy, nullable) NSString *highestAccessibleLevel;
 
 /**
- *  Display name for the highest level that the user has access to at the
- *  moment.
+ *  Display name of the highest level that the user has access to at the moment.
  */
 @property(nonatomic, copy, nullable) NSString *highestAccessibleLevelDisplayName;
+
+/**
+ *  Data about memberships duration without taking into consideration pricing
+ *  levels.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_MembershipsDuration *membershipsDuration;
+
+/** Data about memberships duration on particular pricing levels. */
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_MembershipsDurationAtLevel *> *membershipsDurationAtLevels;
+
+@end
+
+
+/**
+ *  GTLRYouTube_MembershipsDuration
+ */
+@interface GTLRYouTube_MembershipsDuration : GTLRObject
 
 /**
  *  The date and time when the user became a continuous member across all
@@ -7569,33 +7592,37 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *memberSince;
 
 /**
- *  The date and time when the user started to continuously have access to the
- *  currently highest level.
- */
-@property(nonatomic, copy, nullable) NSString *memberSinceCurrentLevel;
-
-/**
  *  The cumulative time the user has been a member across all levels in complete
  *  months (the time is rounded down to the nearest integer).
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *memberTotalDuration;
+@property(nonatomic, strong, nullable) NSNumber *memberTotalDurationMonths;
+
+@end
+
 
 /**
- *  The cumulative time the user has had access to the currently highest level
- *  in complete months (the time is rounded down to the nearest integer).
+ *  GTLRYouTube_MembershipsDurationAtLevel
+ */
+@interface GTLRYouTube_MembershipsDurationAtLevel : GTLRObject
+
+/** Pricing level id. */
+@property(nonatomic, copy, nullable) NSString *level;
+
+/**
+ *  The date and time when the user became a continuous member for the given
+ *  level.
+ */
+@property(nonatomic, copy, nullable) NSString *memberSince;
+
+/**
+ *  The cumulative time the user has been a member for the given level in
+ *  complete months (the time is rounded down to the nearest integer).
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *memberTotalDurationCurrentLevel;
-
-/**
- *  The highest level that the user has access to at the moment. DEPRECATED -
- *  highest_accessible_level should be used instead. This will be removed after
- *  we make sure there are no 3rd parties relying on it.
- */
-@property(nonatomic, copy, nullable) NSString *purchasedLevel;
+@property(nonatomic, strong, nullable) NSNumber *memberTotalDurationMonths;
 
 @end
 
@@ -10376,9 +10403,7 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, copy, nullable) NSString *rejectionReason;
 
 /**
- *  Allows clients to set the Crosswalk self_declared state for a Video. This
- *  maps to VAPI.Video.creator_flags.is_crosswalk_self_declared() and
- *  VAPI.Video.creator_flags.is_not_crosswalk_self_declared().
+ *  selfDeclaredMadeForKids
  *
  *  Uses NSNumber of boolValue.
  */

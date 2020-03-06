@@ -114,6 +114,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns a budget.
+ *  WARNING: There are some fields exposed on the Google Cloud Console that
+ *  aren’t available on this API. When reading from the API, you will not
+ *  see these fields in the return value, though they may have been set
+ *  in the cloud console.
  *
  *  Method: billingbudgets.billingAccounts.budgets.get
  *
@@ -134,6 +138,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget.
  *
  *  Returns a budget.
+ *  WARNING: There are some fields exposed on the Google Cloud Console that
+ *  aren’t available on this API. When reading from the API, you will not
+ *  see these fields in the return value, though they may have been set
+ *  in the cloud console.
  *
  *  @param name Required. Name of budget to get. Values are of the form
  *    `billingAccounts/{billingAccountId}/budgets/{budgetId}`.
@@ -146,6 +154,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns a list of budgets for a billing account.
+ *  WARNING: There are some fields exposed on the Google Cloud Console that
+ *  aren’t available on this API. When reading from the API, you will not
+ *  see these fields in the return value, though they may have been set
+ *  in the cloud console.
  *
  *  Method: billingbudgets.billingAccounts.budgets.list
  *
@@ -180,6 +192,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ListBudgetsResponse.
  *
  *  Returns a list of budgets for a billing account.
+ *  WARNING: There are some fields exposed on the Google Cloud Console that
+ *  aren’t available on this API. When reading from the API, you will not
+ *  see these fields in the return value, though they may have been set
+ *  in the cloud console.
  *
  *  @param parent Required. Name of billing account to list budgets under.
  *    Values
@@ -197,6 +213,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a budget and returns the updated budget.
+ *  WARNING: There are some fields exposed on the Google Cloud Console that
+ *  aren’t available on this API. Budget fields that are not exposed in
+ *  this API will not be changed by this method.
  *
  *  Method: billingbudgets.billingAccounts.budgets.patch
  *
@@ -218,6 +237,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget.
  *
  *  Updates a budget and returns the updated budget.
+ *  WARNING: There are some fields exposed on the Google Cloud Console that
+ *  aren’t available on this API. Budget fields that are not exposed in
+ *  this API will not be changed by this method.
  *
  *  @param object The @c
  *    GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1UpdateBudgetRequest

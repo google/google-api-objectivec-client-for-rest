@@ -1065,6 +1065,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_MeshIstio
+//
+
+@implementation GTLRMonitoring_MeshIstio
+@dynamic meshUid, serviceName, serviceNamespace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_Metric
 //
 
@@ -1418,8 +1428,8 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_Service
-@dynamic appEngine, cloudEndpoints, clusterIstio, custom, displayName, name,
-         telemetry;
+@dynamic appEngine, cloudEndpoints, clusterIstio, custom, displayName,
+         meshIstio, name, telemetry;
 @end
 
 

@@ -689,7 +689,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Input video location. Currently, only
- *  [Google Cloud Storage](https://cloud.google.com/storage/) URIs are
+ *  [Cloud Storage](https://cloud.google.com/storage/) URIs are
  *  supported, which must be specified in the following format:
  *  `gs://bucket-id/object-id` (other URI formats return
  *  google.rpc.Code.INVALID_ARGUMENT). For more information, see
@@ -710,7 +710,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Optional. Location where the output (in JSON format) should be stored.
- *  Currently, only [Google Cloud Storage](https://cloud.google.com/storage/)
+ *  Currently, only [Cloud Storage](https://cloud.google.com/storage/)
  *  URIs are supported, which must be specified in the following format:
  *  `gs://bucket-id/object-id` (other URI formats return
  *  google.rpc.Code.INVALID_ARGUMENT). For more information, see
@@ -1185,7 +1185,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Video file location in
- *  [Google Cloud Storage](https://cloud.google.com/storage/).
+ *  [Cloud Storage](https://cloud.google.com/storage/).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
@@ -1234,7 +1234,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Video file location in
- *  [Google Cloud Storage](https://cloud.google.com/storage/).
+ *  [Cloud Storage](https://cloud.google.com/storage/).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
@@ -2190,7 +2190,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Video file location in
- *  [Google Cloud Storage](https://cloud.google.com/storage/).
+ *  [Cloud Storage](https://cloud.google.com/storage/).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
@@ -2239,7 +2239,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Video file location in
- *  [Google Cloud Storage](https://cloud.google.com/storage/).
+ *  [Cloud Storage](https://cloud.google.com/storage/).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
@@ -2815,7 +2815,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Video file location in
- *  [Google Cloud Storage](https://cloud.google.com/storage/).
+ *  [Cloud Storage](https://cloud.google.com/storage/).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
@@ -2864,7 +2864,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Video file location in
- *  [Google Cloud Storage](https://cloud.google.com/storage/).
+ *  [Cloud Storage](https://cloud.google.com/storage/).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
@@ -3549,7 +3549,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1StreamingVideoAnnotationResults *annotationResults;
 
 /**
- *  GCS URI that stores annotation results of one streaming session.
+ *  Cloud Storage URI that stores annotation results of one streaming session.
  *  It is a directory that can hold multiple files in JSON format.
  *  Example uri format:
  *  gs://bucket_id/object_id/cloud_project_name-session_id
@@ -3727,7 +3727,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Video file location in
- *  [Google Cloud Storage](https://cloud.google.com/storage/).
+ *  [Cloud Storage](https://cloud.google.com/storage/).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
@@ -3782,7 +3782,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Video file location in
- *  [Google Cloud Storage](https://cloud.google.com/storage/).
+ *  [Cloud Storage](https://cloud.google.com/storage/).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
@@ -4207,7 +4207,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Video file location in
- *  [Google Cloud Storage](https://cloud.google.com/storage/).
+ *  [Cloud Storage](https://cloud.google.com/storage/).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
@@ -4256,7 +4256,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Video file location in
- *  [Google Cloud Storage](https://cloud.google.com/storage/).
+ *  [Cloud Storage](https://cloud.google.com/storage/).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 

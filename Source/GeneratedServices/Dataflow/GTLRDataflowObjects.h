@@ -110,6 +110,7 @@
 @class GTLRDataflow_RuntimeEnvironment;
 @class GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels;
 @class GTLRDataflow_RuntimeMetadata;
+@class GTLRDataflow_SdkHarnessContainerImage;
 @class GTLRDataflow_SDKInfo;
 @class GTLRDataflow_SdkVersion;
 @class GTLRDataflow_SeqMapTask;
@@ -4738,6 +4739,28 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Defines a SDK harness container for executing Dataflow pipelines.
+ */
+@interface GTLRDataflow_SdkHarnessContainerImage : GTLRObject
+
+/** A docker container image that resides in Google Container Registry. */
+@property(nonatomic, copy, nullable) NSString *containerImage;
+
+/**
+ *  If true, recommends the Dataflow service to use only one core per SDK
+ *  container instance with this image. If false (or unset) recommends using
+ *  more than one core per SDK container instance with this image for
+ *  efficiency. Note that Dataflow service may choose to override this property
+ *  if needed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useSingleCorePerContainer;
+
+@end
+
+
+/**
  *  SDK Information.
  */
 @interface GTLRDataflow_SDKInfo : GTLRObject
@@ -6466,6 +6489,14 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 @property(nonatomic, strong, nullable) GTLRDataflow_WorkerPool_PoolArgs *poolArgs;
 
 /**
+ *  Set of SDK harness containers needed to execute this pipeline. This will
+ *  only be set in the Fn API path. For non-cross-language pipelines this
+ *  should have only one entry. Cross-language pipelines will have two or more
+ *  entries.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_SdkHarnessContainerImage *> *sdkHarnessContainerImages;
+
+/**
  *  Subnetwork to which VMs will be assigned, if desired. Expected to be of
  *  the form "regions/REGION/subnetworks/SUBNETWORK".
  */
@@ -6512,6 +6543,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /**
  *  Required. Docker container image that executes the Cloud Dataflow worker
  *  harness, residing in Google Container Registry.
+ *  Deprecated for the Fn API path. Use sdk_harness_container_images instead.
  */
 @property(nonatomic, copy, nullable) NSString *workerHarnessContainerImage;
 

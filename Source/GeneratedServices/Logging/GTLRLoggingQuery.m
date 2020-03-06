@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Logging API (logging/v2)
+//   Cloud Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Stackdriver Logging configuration. The
-//   table entries below are presented in alphabetical order, not in order of
-//   common use. For explanations of the concepts found in the table entries,
-//   read the <a href=https://cloud.google.com/logging/docs>Stackdriver Logging
+//   Writes log entries and manages your Cloud Logging configuration. The table
+//   entries below are presented in alphabetical order, not in order of common
+//   use. For explanations of the concepts found in the table entries, read the
+//   <a href=https://cloud.google.com/logging/docs>Cloud Logging
 //   documentation</a>.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
@@ -19,6 +19,25 @@
 @implementation GTLRLoggingQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRLoggingQuery_BillingAccountsBucketsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_BillingAccountsBucketsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogBucket class];
+  query.loggingName = @"logging.billingAccounts.buckets.get";
+  return query;
+}
 
 @end
 
@@ -124,6 +143,50 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_LogExclusion class];
   query.loggingName = @"logging.billingAccounts.exclusions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_BillingAccountsLocationsBucketsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/buckets";
+  GTLRLoggingQuery_BillingAccountsLocationsBucketsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListBucketsResponse class];
+  query.loggingName = @"logging.billingAccounts.locations.buckets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_BillingAccountsLocationsBucketsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_BillingAccountsLocationsBucketsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogBucket class];
+  query.loggingName = @"logging.billingAccounts.locations.buckets.patch";
   return query;
 }
 
@@ -553,6 +616,69 @@
 
 @end
 
+@implementation GTLRLoggingQuery_FoldersLocationsBucketsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_FoldersLocationsBucketsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogBucket class];
+  query.loggingName = @"logging.folders.locations.buckets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLocationsBucketsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/buckets";
+  GTLRLoggingQuery_FoldersLocationsBucketsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListBucketsResponse class];
+  query.loggingName = @"logging.folders.locations.buckets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLocationsBucketsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_FoldersLocationsBucketsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogBucket class];
+  query.loggingName = @"logging.folders.locations.buckets.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_FoldersLogsDelete
 
 @dynamic logName;
@@ -718,6 +844,69 @@
   query.sinkName = sinkName;
   query.expectedObjectClass = [GTLRLogging_LogSink class];
   query.loggingName = @"logging.folders.sinks.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_LocationsBucketsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_LocationsBucketsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogBucket class];
+  query.loggingName = @"logging.locations.buckets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_LocationsBucketsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/buckets";
+  GTLRLoggingQuery_LocationsBucketsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListBucketsResponse class];
+  query.loggingName = @"logging.locations.buckets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_LocationsBucketsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_LocationsBucketsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogBucket class];
+  query.loggingName = @"logging.locations.buckets.patch";
   return query;
 }
 
@@ -899,6 +1088,69 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_CmekSettings class];
   query.loggingName = @"logging.organizations.getCmekSettings";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsBucketsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_OrganizationsLocationsBucketsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogBucket class];
+  query.loggingName = @"logging.organizations.locations.buckets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsBucketsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/buckets";
+  GTLRLoggingQuery_OrganizationsLocationsBucketsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListBucketsResponse class];
+  query.loggingName = @"logging.organizations.locations.buckets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsBucketsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_OrganizationsLocationsBucketsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogBucket class];
+  query.loggingName = @"logging.organizations.locations.buckets.patch";
   return query;
 }
 
@@ -1201,6 +1453,69 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_LogExclusion class];
   query.loggingName = @"logging.projects.exclusions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsBucketsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_ProjectsLocationsBucketsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogBucket class];
+  query.loggingName = @"logging.projects.locations.buckets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsBucketsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/buckets";
+  GTLRLoggingQuery_ProjectsLocationsBucketsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRLogging_ListBucketsResponse class];
+  query.loggingName = @"logging.projects.locations.buckets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsBucketsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_ProjectsLocationsBucketsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_LogBucket class];
+  query.loggingName = @"logging.projects.locations.buckets.patch";
   return query;
 }
 

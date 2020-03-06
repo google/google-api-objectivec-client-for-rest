@@ -736,10 +736,11 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 @dynamic backgroundSuggestionState, defaultFooterIdSuggested,
          defaultHeaderIdSuggested, evenPageFooterIdSuggested,
          evenPageHeaderIdSuggested, firstPageFooterIdSuggested,
-         firstPageHeaderIdSuggested, marginBottomSuggested, marginLeftSuggested,
+         firstPageHeaderIdSuggested, marginBottomSuggested,
+         marginFooterSuggested, marginHeaderSuggested, marginLeftSuggested,
          marginRightSuggested, marginTopSuggested, pageNumberStartSuggested,
-         pageSizeSuggestionState, useEvenPageHeaderFooterSuggested,
-         useFirstPageHeaderFooterSuggested;
+         pageSizeSuggestionState, useCustomHeaderFooterMarginsSuggested,
+         useEvenPageHeaderFooterSuggested, useFirstPageHeaderFooterSuggested;
 @end
 
 

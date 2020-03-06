@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Logging API (logging/v2)
+//   Cloud Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Stackdriver Logging configuration. The
-//   table entries below are presented in alphabetical order, not in order of
-//   common use. For explanations of the concepts found in the table entries,
-//   read the <a href=https://cloud.google.com/logging/docs>Stackdriver Logging
+//   Writes log entries and manages your Cloud Logging configuration. The table
+//   entries below are presented in alphabetical order, not in order of common
+//   use. For explanations of the concepts found in the table entries, read the
+//   <a href=https://cloud.google.com/logging/docs>Cloud Logging
 //   documentation</a>.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
@@ -21,6 +21,11 @@
 NSString * const kGTLRLogging_LabelDescriptor_ValueType_Bool   = @"BOOL";
 NSString * const kGTLRLogging_LabelDescriptor_ValueType_Int64  = @"INT64";
 NSString * const kGTLRLogging_LabelDescriptor_ValueType_String = @"STRING";
+
+// GTLRLogging_LogBucket.lifecycleState
+NSString * const kGTLRLogging_LogBucket_LifecycleState_Active  = @"ACTIVE";
+NSString * const kGTLRLogging_LogBucket_LifecycleState_DeleteRequested = @"DELETE_REQUESTED";
+NSString * const kGTLRLogging_LogBucket_LifecycleState_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
 
 // GTLRLogging_LogEntry.severity
 NSString * const kGTLRLogging_LogEntry_Severity_Alert     = @"ALERT";
@@ -198,6 +203,28 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_ListBucketsResponse
+//
+
+@implementation GTLRLogging_ListBucketsResponse
+@dynamic buckets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buckets" : [GTLRLogging_LogBucket class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"buckets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_ListExclusionsResponse
 //
 
@@ -345,6 +372,22 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_LogBucket
+//
+
+@implementation GTLRLogging_LogBucket
+@dynamic createTime, descriptionProperty, lifecycleState, name, retentionDays,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_LogEntry
 //
 
@@ -485,8 +528,8 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 
 @implementation GTLRLogging_LogSink
 @dynamic bigqueryOptions, createTime, descriptionProperty, destination,
-         disabled, endTime, filter, includeChildren, name, outputVersionFormat,
-         startTime, updateTime, writerIdentity;
+         disabled, filter, includeChildren, name, outputVersionFormat,
+         updateTime, writerIdentity;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

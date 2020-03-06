@@ -8134,13 +8134,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @interface GTLRDfareporting_DirectorySite : GTLRObject
 
 /**
- *  Whether this directory site is active.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *active;
-
-/**
  *  ID of this directory site. This is a read-only, auto-generated field.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').

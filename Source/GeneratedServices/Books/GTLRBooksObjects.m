@@ -896,7 +896,19 @@
 
 @implementation GTLRBooks_Series_Series_Item
 @dynamic bannerImageUrl, eligibleForSubscription, imageUrl, isComplete,
-         seriesId, seriesType, subscriptionId, title;
+         seriesFormatType, seriesId, seriesSubscriptionReleaseInfo, seriesType,
+         subscriptionId, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo
+//
+
+@implementation GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo
+@dynamic cancellationTimestampUs, currentReleaseInfo, nextReleaseInfo,
+         seriesSubscriptionType;
 @end
 
 
@@ -919,6 +931,16 @@
   return @"member";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_SubscriptionReleaseInfo
+//
+
+@implementation GTLRBooks_SubscriptionReleaseInfo
+@dynamic amountInMicros, currencyCode, releaseNumber, releaseTimestampUs;
 @end
 
 

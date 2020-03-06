@@ -153,12 +153,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an EntryGroup.
- *  The user should enable the Data Catalog API in the project identified by
- *  the `parent` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
  *  A maximum of 10,000 entry groups may be created per organization across all
  *  locations.
+ *  Users should enable the Data Catalog API in the project identified by
+ *  the `parent` parameter (see [Data Catalog Resource Project]
+ *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
  *  Method: datacatalog.projects.locations.entryGroups.create
  *
@@ -187,12 +186,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup.
  *
- *  Creates an EntryGroup.
- *  The user should enable the Data Catalog API in the project identified by
- *  the `parent` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
  *  A maximum of 10,000 entry groups may be created per organization across all
  *  locations.
+ *  Users should enable the Data Catalog API in the project identified by
+ *  the `parent` parameter (see [Data Catalog Resource Project]
+ *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup
  *    to include in the query.
@@ -211,7 +209,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes an EntryGroup. Only entry groups that do not contain entries can be
- *  deleted. The user should enable the Data Catalog API in the project
+ *  deleted. Users should enable the Data Catalog API in the project
  *  identified by the `name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -237,7 +235,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataCatalog_Empty.
  *
  *  Deletes an EntryGroup. Only entry groups that do not contain entries can be
- *  deleted. The user should enable the Data Catalog API in the project
+ *  deleted. Users should enable the Data Catalog API in the project
  *  identified by the `name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -253,7 +251,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates an entry. Only entries of 'FILESET' type or user-specified type can
  *  be created.
- *  The user should enable the Data Catalog API in the project identified by
+ *  Users should enable the Data Catalog API in the project identified by
  *  the `parent` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *  A maximum of 100,000 entries may be created per entry group.
@@ -283,7 +281,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates an entry. Only entries of 'FILESET' type or user-specified type can
  *  be created.
- *  The user should enable the Data Catalog API in the project identified by
+ *  Users should enable the Data Catalog API in the project identified by
  *  the `parent` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *  A maximum of 100,000 entries may be created per entry group.
@@ -307,7 +305,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an existing entry. Only entries created through
  *  CreateEntry
  *  method can be deleted.
- *  The user should enable the Data Catalog API in the project identified by
+ *  Users should enable the Data Catalog API in the project identified by
  *  the `name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -333,7 +331,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an existing entry. Only entries created through
  *  CreateEntry
  *  method can be deleted.
- *  The user should enable the Data Catalog API in the project identified by
+ *  Users should enable the Data Catalog API in the project identified by
  *  the `name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -363,10 +361,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The name of the entry. Example:
  *  *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
- *  Entry groups are logical groupings of entries. Currently, users cannot
- *  create/modify entry groups. They are created by Data Catalog; they include
- *  `\@bigquery` for all BigQuery entries, and `\@pubsub` for all Cloud Pub/Sub
- *  entries.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -378,11 +372,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. The name of the entry. Example:
  *    *
  *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
- *    Entry groups are logical groupings of entries. Currently, users cannot
- *    create/modify entry groups. They are created by Data Catalog; they include
- *    `\@bigquery` for all BigQuery entries, and `\@pubsub` for all Cloud
- *    Pub/Sub
- *    entries.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGet
  */
@@ -518,7 +507,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates an existing entry.
- *  The user should enable the Data Catalog API in the project identified by
+ *  Users should enable the Data Catalog API in the project identified by
  *  the `entry.name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -552,6 +541,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  * `description`
  *  * `gcs_fileset_spec`
  *  * `gcs_fileset_spec.file_patterns`
+ *  * For entries with `user_specified_type`
+ *  * `schema`
+ *  * `display_name`
+ *  * `description`
+ *  * user_specified_type
+ *  * user_specified_system
+ *  * linked_resource
+ *  * source_system_timestamps
  *
  *  String format is a comma-separated list of fields.
  */
@@ -561,7 +558,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.
  *
  *  Updates an existing entry.
- *  The user should enable the Data Catalog API in the project identified by
+ *  Users should enable the Data Catalog API in the project identified by
  *  the `entry.name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -695,7 +692,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the Data Catalog resource to list the tags of. The
- *  resource could be an Entry.
+ *  resource
+ *  could be an Entry or an
+ *  EntryGroup.
+ *  Examples:
+ *  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+ *  *
+ *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -705,8 +708,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the tags on an Entry.
  *
  *  @param parent Required. The name of the Data Catalog resource to list the
- *    tags of. The
- *    resource could be an Entry.
+ *    tags of. The resource
+ *    could be an Entry or an
+ *    EntryGroup.
+ *    Examples:
+ *    * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+ *    *
+ *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsList
  *
@@ -1100,6 +1108,204 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a tag on an Entry.
+ *  Note: The project identified by the `parent` parameter for the
+ *  [tag](/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
+ *  and the
+ *  [tag
+ *  template](/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
+ *  used to create the tag must be from the same organization.
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.tags.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsCreate : GTLRDataCatalogQuery
+// Previous library name was
+//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsTagsCreateWithObject:parent:]
+
+/**
+ *  Required. The name of the resource to attach this tag to. Tags can be
+ *  attached to
+ *  Entries. Example:
+ *  *
+ *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
+ *  Note that this Tag and its child resources may not actually be stored in
+ *  the location in this name.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag.
+ *
+ *  Creates a tag on an Entry.
+ *  Note: The project identified by the `parent` parameter for the
+ *  [tag](/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
+ *  and the
+ *  [tag
+ *  template](/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
+ *  used to create the tag must be from the same organization.
+ *
+ *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag to
+ *    include in the query.
+ *  @param parent Required. The name of the resource to attach this tag to. Tags
+ *    can be attached to
+ *    Entries. Example:
+ *    *
+ *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
+ *    Note that this Tag and its child resources may not actually be stored in
+ *    the location in this name.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a tag.
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.tags.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsDelete : GTLRDataCatalogQuery
+// Previous library name was
+//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsTagsDeleteWithname:]
+
+/**
+ *  Required. The name of the tag to delete. Example:
+ *  *
+ *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_Empty.
+ *
+ *  Deletes a tag.
+ *
+ *  @param name Required. The name of the tag to delete. Example:
+ *    *
+ *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the tags on an Entry.
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.tags.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsList : GTLRDataCatalogQuery
+// Previous library name was
+//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsTagsListWithparent:]
+
+/** The maximum number of tags to return. Default is 10. Max limit is 1000. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Token that specifies which page is requested. If empty, the first page is
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the Data Catalog resource to list the tags of. The
+ *  resource
+ *  could be an Entry or an
+ *  EntryGroup.
+ *  Examples:
+ *  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+ *  *
+ *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListTagsResponse.
+ *
+ *  Lists the tags on an Entry.
+ *
+ *  @param parent Required. The name of the Data Catalog resource to list the
+ *    tags of. The resource
+ *    could be an Entry or an
+ *    EntryGroup.
+ *    Examples:
+ *    * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+ *    *
+ *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing tag.
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.tags.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsPatch : GTLRDataCatalogQuery
+// Previous library name was
+//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsTagsPatchWithObject:name:]
+
+/**
+ *  The resource name of the tag in URL format. Example:
+ *  *
+ *  projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
+ *  where `tag_id` is a system-generated identifier.
+ *  Note that this Tag may not actually be stored in the location in this name.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The fields to update on the Tag. If absent or empty, all modifiable fields
+ *  are updated. Currently the only modifiable field is the field `fields`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag.
+ *
+ *  Updates an existing tag.
+ *
+ *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag to
+ *    include in the query.
+ *  @param name The resource name of the tag in URL format. Example:
+ *    *
+ *    projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
+ *    where `tag_id` is a system-generated identifier.
+ *    Note that this Tag may not actually be stored in the location in this
+ *    name.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Returns the caller's permissions on a resource.
  *  If the resource does not exist, an empty set of permissions is returned
  *  (We don't return a `NOT_FOUND` error).
@@ -1210,7 +1416,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes a tag template and all tags using the template.
- *  The user should enable the Data Catalog API in the project identified by
+ *  Users should enable the Data Catalog API in the project identified by
  *  the `name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -1240,7 +1446,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataCatalog_Empty.
  *
  *  Deletes a tag template and all tags using the template.
- *  The user should enable the Data Catalog API in the project identified by
+ *  Users should enable the Data Catalog API in the project identified by
  *  the `name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -1316,7 +1522,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes a field in a tag template and all uses of that field.
- *  The user should enable the Data Catalog API in the project identified by
+ *  Users should enable the Data Catalog API in the project identified by
  *  the `name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -1347,7 +1553,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataCatalog_Empty.
  *
  *  Deletes a field in a tag template and all uses of that field.
- *  The user should enable the Data Catalog API in the project identified by
+ *  Users should enable the Data Catalog API in the project identified by
  *  the `name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -1363,7 +1569,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a field in a tag template. This method cannot be used to update the
- *  field type. The user should enable the Data Catalog API in the project
+ *  field type. Users should enable the Data Catalog API in the project
  *  identified by the `name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -1404,7 +1610,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField.
  *
  *  Updates a field in a tag template. This method cannot be used to update the
- *  field type. The user should enable the Data Catalog API in the project
+ *  field type. Users should enable the Data Catalog API in the project
  *  identified by the `name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -1567,7 +1773,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a tag template. This method cannot be used to update the fields of
  *  a template. The tag template fields are represented as separate resources
  *  and should be updated using their own create/update/delete methods.
- *  The user should enable the Data Catalog API in the project identified by
+ *  Users should enable the Data Catalog API in the project identified by
  *  the `tag_template.name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *
@@ -1604,7 +1810,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a tag template. This method cannot be used to update the fields of
  *  a template. The tag template fields are represented as separate resources
  *  and should be updated using their own create/update/delete methods.
- *  The user should enable the Data Catalog API in the project identified by
+ *  Users should enable the Data Catalog API in the project identified by
  *  the `tag_template.name` parameter (see [Data Catalog Resource Project]
  *  (/data-catalog/docs/concepts/resource-project) for more information).
  *

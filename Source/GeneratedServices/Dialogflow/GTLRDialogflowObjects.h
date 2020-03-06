@@ -95,6 +95,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature;
+@class GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService;
+@class GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService_RequestHeaders;
 @class GTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentBatch;
@@ -150,6 +153,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2SpeechContext;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SynthesizeSpeechConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2TextInput;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ValidationError;
 @class GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams;
 @class GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleLongrunningOperation;
@@ -913,6 +917,22 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_K
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature.type
+
+/**
+ *  Fulfillment is enabled for SmallTalk.
+ *
+ *  Value: "SMALLTALK"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature_Type_Smalltalk;
+/**
+ *  Feature type not specified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig.audioEncoding
 
 /**
@@ -1427,6 +1447,40 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *  Value: "ENTITY_OVERRIDE_MODE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2ValidationError.severity
+
+/**
+ *  The agent may completely fail.
+ *
+ *  Value: "CRITICAL"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Critical;
+/**
+ *  The agent may experience partial failures.
+ *
+ *  Value: "ERROR"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Error;
+/**
+ *  The agent doesn't follow Dialogflow best practicies.
+ *
+ *  Value: "INFO"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Info;
+/**
+ *  Not specified. This value should never be used.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_SeverityUnspecified;
+/**
+ *  The agent may not behave as expected.
+ *
+ *  Value: "WARNING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams.ssmlGender
@@ -2088,14 +2142,14 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /** Required. The unique identifier of the event. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Optional. The collection of parameters associated with the event. */
+/** The collection of parameters associated with the event. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput_Parameters *parameters;
 
 @end
 
 
 /**
- *  Optional. The collection of parameters associated with the event.
+ *  The collection of parameters associated with the event.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4176,9 +4230,14 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Required. The unique identifier of the context. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
+ *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
+ *  or `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *  The `Context ID` is always converted to lowercase, may only contain
- *  characters in [a-zA-Z0-9_-%] and may be at most 250 bytes long.
+ *  characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  *  The following context names are reserved for internal use by Dialogflow.
  *  You should not use these contexts or create contexts with these names:
  *  * `__system_counters__`
@@ -4284,7 +4343,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @interface GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest : GTLRObject
 
 /**
- *  Optional. The natural language speech audio to be processed. This field
+ *  The natural language speech audio to be processed. This field
  *  should be populated iff `query_input` is set to an input audio config.
  *  A single request can contain up to 1 minute of speech audio data.
  *
@@ -4294,11 +4353,22 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, copy, nullable) NSString *inputAudio;
 
 /**
- *  Optional. Instructs the speech synthesizer how to generate the output
+ *  Instructs the speech synthesizer how to generate the output
  *  audio. If this field is not set and agent-level speech synthesizer is not
  *  configured, no output audio is generated.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig *outputAudioConfig;
+
+/**
+ *  Mask for output_audio_config indicating which settings in this
+ *  request-level config should override speech synthesizer settings defined at
+ *  agent-level.
+ *  If unspecified or empty, output_audio_config replaces the agent-level
+ *  config in its entirety.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *outputAudioConfigMask;
 
 /**
  *  Required. The input specification. It can be set to:
@@ -4309,7 +4379,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryInput *queryInput;
 
-/** Optional. The parameters of this query. */
+/** The parameters of this query. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters *queryParams;
 
 @end
@@ -4485,14 +4555,14 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /** Required. The unique identifier of the event. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Optional. The collection of parameters associated with the event. */
+/** The collection of parameters associated with the event. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2EventInput_Parameters *parameters;
 
 @end
 
 
 /**
- *  Optional. The collection of parameters associated with the event.
+ *  The collection of parameters associated with the event.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4538,6 +4608,111 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
 
+@end
+
+
+/**
+ *  Represents a fulfillment.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2Fulfillment : GTLRObject
+
+/**
+ *  Optional. The human-readable name of the fulfillment, unique within the
+ *  agent.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Whether fulfillment is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Optional. The field defines whether the fulfillment is enabled for certain
+ *  features.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature *> *features;
+
+/** Configuration for a generic web service. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService *genericWebService;
+
+/**
+ *  Required. The unique identifier of the fulfillment.
+ *  Format: `projects/<Project ID>/agent/fulfillment`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Whether fulfillment is enabled for the specific feature.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature : GTLRObject
+
+/**
+ *  The type of the feature that enabled for fulfillment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature_Type_Smalltalk
+ *        Fulfillment is enabled for SmallTalk. (Value: "SMALLTALK")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature_Type_TypeUnspecified
+ *        Feature type not specified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents configuration for a generic web service.
+ *  Dialogflow supports two mechanisms for authentications:
+ *  - Basic authentication with username and password.
+ *  - Authentication with additional authentication headers.
+ *  More information could be found at:
+ *  https://cloud.google.com/dialogflow/docs/fulfillment-configure.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService : GTLRObject
+
+/**
+ *  Optional. Indicates if generic web service is created through Cloud
+ *  Functions
+ *  integration. Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isCloudFunction;
+
+/** Optional. The password for HTTP Basic authentication. */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. The HTTP request headers to send together with fulfillment
+ *  requests.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService_RequestHeaders *requestHeaders;
+
+/** Required. The fulfillment URI for receiving POST requests. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/** Optional. The user name for HTTP Basic authentication. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Optional. The HTTP request headers to send together with fulfillment
+ *  requests.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService_RequestHeaders : GTLRObject
 @end
 
 
@@ -6035,6 +6210,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  Instructs the speech synthesizer on how to generate the output audio
  *  content.
+ *  If this audio config is supplied in a request, it overrides all existing
+ *  text-to-speech settings applied to the agent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig : GTLRObject
 
@@ -6062,7 +6239,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, copy, nullable) NSString *audioEncoding;
 
 /**
- *  Optional. The synthesis sample rate (in hertz) for this audio. If not
+ *  The synthesis sample rate (in hertz) for this audio. If not
  *  provided, then the synthesizer will use the default sample rate based on
  *  the audio encoding. If this is different from the voice's natural sample
  *  rate, then the synthesizer will honor this request by converting to the
@@ -6072,7 +6249,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  */
 @property(nonatomic, strong, nullable) NSNumber *sampleRateHertz;
 
-/** Optional. Configuration of how speech should be synthesized. */
+/** Configuration of how speech should be synthesized. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SynthesizeSpeechConfig *synthesizeSpeechConfig;
 
 @end
@@ -6105,22 +6282,22 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @interface GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters : GTLRObject
 
 /**
- *  Optional. The collection of contexts to be activated before this query is
+ *  The collection of contexts to be activated before this query is
  *  executed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Context *> *contexts;
 
-/** Optional. The geo location of this conversational query. */
+/** The geo location of this conversational query. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleTypeLatLng *geoLocation;
 
 /**
- *  Optional. This field can be used to pass custom data into the webhook
+ *  This field can be used to pass custom data into the webhook
  *  associated with the agent. Arbitrary JSON objects are supported.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters_Payload *payload;
 
 /**
- *  Optional. Specifies whether to delete all contexts in the current session
+ *  Specifies whether to delete all contexts in the current session
  *  before the new ones are activated.
  *
  *  Uses NSNumber of boolValue.
@@ -6128,20 +6305,20 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, strong, nullable) NSNumber *resetContexts;
 
 /**
- *  Optional. Configures the type of sentiment analysis to perform. If not
+ *  Configures the type of sentiment analysis to perform. If not
  *  provided, sentiment analysis is not performed.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisRequestConfig *sentimentAnalysisRequestConfig;
 
 /**
- *  Optional. Additional session entity types to replace or extend developer
+ *  Additional session entity types to replace or extend developer
  *  entity types with. The entity synonyms apply to all languages and persist
  *  for the session of this query.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType *> *sessionEntityTypes;
 
 /**
- *  Optional. The time zone of this conversational query from the
+ *  The time zone of this conversational query from the
  *  [time zone database](https://www.iana.org/time-zones), e.g.,
  *  America/New_York, Europe/Paris. If not provided, the time zone specified in
  *  agent settings is used.
@@ -6152,7 +6329,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Optional. This field can be used to pass custom data into the webhook
+ *  This field can be used to pass custom data into the webhook
  *  associated with the agent. Arbitrary JSON objects are supported.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -6412,7 +6589,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisRequestConfig : GTLRObject
 
 /**
- *  Optional. Instructs the service to perform sentiment analysis on
+ *  Instructs the service to perform sentiment analysis on
  *  `query_text`. If not provided, sentiment analysis is not performed on
  *  `query_text`.
  *
@@ -6480,7 +6657,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Required. The unique identifier of this session entity type. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
  *  ID>/entityTypes/<Entity Type 
- Display Name>`.
+ Display Name>`, or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User ID>/sessions/<Session
+ *  ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  *  `<Entity Type Display Name>` must be the display name of an existing entity
  *  type in the same agent that will be overridden or supplemented.
  */
@@ -6602,6 +6785,66 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  The request message for Agents.TrainAgent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2TrainAgentRequest : GTLRObject
+@end
+
+
+/**
+ *  Represents a single validation error.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ValidationError : GTLRObject
+
+/**
+ *  The names of the entries that the error is associated with.
+ *  Format:
+ *  - "projects/<Project ID>/agent", if the error is associated with the entire
+ *  agent.
+ *  - "projects/<Project ID>/agent/intents/<Intent ID>", if the error is
+ *  associated with certain intents.
+ *  - "projects/<Project 
+ ID>/agent/intents/<Intent
+ *  Id>/trainingPhrases/<Training Phrase ID>", if the
+ *  error is associated with certain intent training phrases.
+ *  - "projects/<Project ID>/agent/intents/<Intent
+ *  Id>/parameters/<Parameter 
+ ID>", if the error is associated with certain
+ *  intent parameters.
+ *  - "projects/<Project ID>/agent/entities/<Entity ID>", if the error is
+ *  associated with certain entities.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entries;
+
+/** The detailed error messsage. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  The severity of the error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Critical
+ *        The agent may completely fail. (Value: "CRITICAL")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Error
+ *        The agent may experience partial failures. (Value: "ERROR")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Info
+ *        The agent doesn't follow Dialogflow best practicies. (Value: "INFO")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_SeverityUnspecified
+ *        Not specified. This value should never be used. (Value:
+ *        "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Warning
+ *        The agent may not behave as expected. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
+ *  Represents the output of agent validation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ValidationResult : GTLRObject
+
+/** Contains all validation errors. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2ValidationError *> *validationErrors;
+
 @end
 
 

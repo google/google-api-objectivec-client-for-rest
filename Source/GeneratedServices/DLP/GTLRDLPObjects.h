@@ -43,6 +43,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Color;
 @class GTLRDLP_GooglePrivacyDlpV2Condition;
 @class GTLRDLP_GooglePrivacyDlpV2Conditions;
+@class GTLRDLP_GooglePrivacyDlpV2Container;
 @class GTLRDLP_GooglePrivacyDlpV2ContentItem;
 @class GTLRDLP_GooglePrivacyDlpV2ContentLocation;
 @class GTLRDLP_GooglePrivacyDlpV2CryptoDeterministicConfig;
@@ -73,9 +74,16 @@
 @class GTLRDLP_GooglePrivacyDlpV2FieldTransformation;
 @class GTLRDLP_GooglePrivacyDlpV2FileSet;
 @class GTLRDLP_GooglePrivacyDlpV2Finding;
+@class GTLRDLP_GooglePrivacyDlpV2Finding_Labels;
 @class GTLRDLP_GooglePrivacyDlpV2FindingLimits;
 @class GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig;
 @class GTLRDLP_GooglePrivacyDlpV2HotwordRule;
+@class GTLRDLP_GooglePrivacyDlpV2HybridContentItem;
+@class GTLRDLP_GooglePrivacyDlpV2HybridFindingDetails;
+@class GTLRDLP_GooglePrivacyDlpV2HybridFindingDetails_Labels;
+@class GTLRDLP_GooglePrivacyDlpV2HybridInspectStatistics;
+@class GTLRDLP_GooglePrivacyDlpV2HybridOptions;
+@class GTLRDLP_GooglePrivacyDlpV2HybridOptions_Labels;
 @class GTLRDLP_GooglePrivacyDlpV2ImageLocation;
 @class GTLRDLP_GooglePrivacyDlpV2ImageRedactionConfig;
 @class GTLRDLP_GooglePrivacyDlpV2InfoType;
@@ -113,6 +121,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2LeaveUntransformed;
 @class GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment;
 @class GTLRDLP_GooglePrivacyDlpV2Location;
+@class GTLRDLP_GooglePrivacyDlpV2Manual;
 @class GTLRDLP_GooglePrivacyDlpV2NumericalStatsConfig;
 @class GTLRDLP_GooglePrivacyDlpV2NumericalStatsResult;
 @class GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig;
@@ -156,6 +165,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2SurrogateType;
 @class GTLRDLP_GooglePrivacyDlpV2Table;
 @class GTLRDLP_GooglePrivacyDlpV2TableLocation;
+@class GTLRDLP_GooglePrivacyDlpV2TableOptions;
 @class GTLRDLP_GooglePrivacyDlpV2TaggedField;
 @class GTLRDLP_GooglePrivacyDlpV2ThrowError;
 @class GTLRDLP_GooglePrivacyDlpV2TimePartConfig;
@@ -520,6 +530,15 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Wedne
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.state
 
 /**
+ *  The job is currently accepting findings via hybridInspect.
+ *  A hybrid job in ACTIVE state may continue to have findings added to it
+ *  through calling of hybridInspect. After the job has finished no more
+ *  calls to hybridInspect may be made. ACTIVE jobs can transition to DONE.
+ *
+ *  Value: "ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Active;
+/**
  *  The job was canceled before it could complete.
  *
  *  Value: "CANCELED"
@@ -550,7 +569,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_JobStateUns
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Pending;
 /**
- *  The job is currently running.
+ *  The job is currently running. Once a job has finished it will transition
+ *  to FAILED or DONE.
  *
  *  Value: "RUNNING"
  */
@@ -1719,6 +1739,66 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  Represents a container that may contain DLP findings.
+ *  Examples of a container include a file, table, or database record.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2Container : GTLRObject
+
+/**
+ *  A string representation of the full container name.
+ *  Examples:
+ *  - BigQuery: 'Project:DataSetId.TableId'
+ *  - Google Cloud Storage: 'gs://Bucket/folders/filename.txt'
+ */
+@property(nonatomic, copy, nullable) NSString *fullPath;
+
+/**
+ *  Project where the finding was found.
+ *  Can be different from the project that owns the finding.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  The rest of the path after the root.
+ *  Examples:
+ *  - For BigQuery table `project_id:dataset_id.table_id`, the relative path is
+ *  `table_id`
+ *  - Google Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
+ *  path is `folder/filename.txt`
+ */
+@property(nonatomic, copy, nullable) NSString *relativePath;
+
+/**
+ *  The root of the container.
+ *  Examples:
+ *  - For BigQuery table `project_id:dataset_id.table_id`, the root is
+ *  `dataset_id`
+ *  - For Google Cloud Storage file `gs://bucket/folder/filename.txt`, the root
+ *  is `gs://bucket`
+ */
+@property(nonatomic, copy, nullable) NSString *rootPath;
+
+/** Container type, for example BigQuery or Google Cloud Storage. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Findings container modification timestamp, if applicable.
+ *  For Google Cloud Storage contains last file modification timestamp.
+ *  For BigQuery table contains last_modified_time property.
+ *  For Datastore - not populated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Findings container version, if available
+ *  ("generation" for Google Cloud Storage).
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  Container structure for the content to inspect.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ContentItem : GTLRObject
@@ -2652,6 +2732,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  State of a job.
  *
  *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Active The job is
+ *        currently accepting findings via hybridInspect.
+ *        A hybrid job in ACTIVE state may continue to have findings added to it
+ *        through calling of hybridInspect. After the job has finished no more
+ *        calls to hybridInspect may be made. ACTIVE jobs can transition to
+ *        DONE. (Value: "ACTIVE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Canceled The job was
  *        canceled before it could complete. (Value: "CANCELED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Done The job is no longer
@@ -2663,7 +2749,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Pending The job has not
  *        yet started. (Value: "PENDING")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running The job is
- *        currently running. (Value: "RUNNING")
+ *        currently running. Once a job has finished it will transition
+ *        to FAILED or DONE. (Value: "RUNNING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -2900,6 +2987,24 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
+/** Time the job started that produced this finding. */
+@property(nonatomic, strong, nullable) GTLRDateTime *jobCreateTime;
+
+/** The job that stored the finding. */
+@property(nonatomic, copy, nullable) NSString *jobName;
+
+/**
+ *  The labels associated with this `InspectFinding`.
+ *  Label keys must be between 1 and 63 characters long and must conform
+ *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  Label values must be between 0 and 63 characters long and must conform
+ *  to the regular expression (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?.
+ *  No more than 10 labels can be associated with a given finding.
+ *  Example: <code>"environment" : "production"</code>
+ *  Example: <code>"pipeline" : "etl"</code>
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Finding_Labels *labels;
+
 /**
  *  Confidence of how likely it is that the `info_type` is correct.
  *
@@ -2923,6 +3028,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Location *location;
 
 /**
+ *  Resource name in format projects/{id}/locations/{id}/inspectFindings/{id}
+ *  Populated only when viewing persisted findings.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
  *  The content that was found. Even if the content is not textual, it
  *  may be converted to a textual representation here.
  *  Provided if `include_quote` is true and the finding is
@@ -2938,6 +3049,31 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2QuoteInfo *quoteInfo;
 
+/** The job that stored the finding. */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/** Job trigger name, if applicable, for this finding. */
+@property(nonatomic, copy, nullable) NSString *triggerName;
+
+@end
+
+
+/**
+ *  The labels associated with this `InspectFinding`.
+ *  Label keys must be between 1 and 63 characters long and must conform
+ *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  Label values must be between 0 and 63 characters long and must conform
+ *  to the regular expression (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?.
+ *  No more than 10 labels can be associated with a given finding.
+ *  Example: <code>"environment" : "production"</code>
+ *  Example: <code>"pipeline" : "etl"</code>
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2Finding_Labels : GTLRObject
 @end
 
 
@@ -2951,7 +3087,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Max number of findings that will be returned for each item scanned.
- *  When set within `InspectDataSourceRequest`,
+ *  When set within `InspectJobConfig`,
  *  the maximum returned is 2000 regardless if this is set higher.
  *  When set within `InspectContentRequest`, this field is ignored.
  *
@@ -2968,6 +3104,16 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) NSNumber *maxFindingsPerRequest;
 
+@end
+
+
+/**
+ *  The request message for finishing a DLP hybrid job.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FinishDlpJobRequest : GTLRObject
 @end
 
 
@@ -3042,6 +3188,245 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Proximity *proximity;
 
+@end
+
+
+/**
+ *  An individual hybrid item to inspect. Will be stored temporarily during
+ *  processing.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2HybridContentItem : GTLRObject
+
+/** Supplementary information that will be added to each finding. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridFindingDetails *findingDetails;
+
+/** The item to inspect. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ContentItem *item;
+
+@end
+
+
+/**
+ *  Populate to associate additional data with each finding.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2HybridFindingDetails : GTLRObject
+
+/** Details about the container where the content being inspected is from. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Container *containerDetails;
+
+/**
+ *  Offset in bytes of the line, from the beginning of the file, where the
+ *  finding is located. Populate if the item being scanned is only part of a
+ *  bigger item, such as a shard of a file and you want to track the absolute
+ *  position of the finding.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fileOffset;
+
+/**
+ *  Labels to represent user provided metadata about the data being inspected.
+ *  If configured by the job, some key values may be required.
+ *  The labels associated with `Finding`'s produced by hybrid
+ *  inspection.
+ *  Label keys must be between 1 and 63 characters long and must conform
+ *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  Label values must be between 0 and 63 characters long and must conform
+ *  to the regular expression (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?.
+ *  No more than 10 labels can be associated with a given finding.
+ *  Example: <code>"environment" : "production"</code>
+ *  Example: <code>"pipeline" : "etl"</code>
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridFindingDetails_Labels *labels;
+
+/**
+ *  Offset of the row for tables. Populate if the row(s) being scanned are
+ *  part of a bigger dataset and you want to keep track of their absolute
+ *  position.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowOffset;
+
+/**
+ *  If the container is a table, additional information to make findings
+ *  meaningful such as the columns that are primary keys. If not known ahead
+ *  of time, can also be set within each inspect hybrid call and the two
+ *  will be merged. Note that identifying_fields will only be stored to
+ *  BigQuery, and only if the BigQuery action has been included.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TableOptions *tableOptions;
+
+@end
+
+
+/**
+ *  Labels to represent user provided metadata about the data being inspected.
+ *  If configured by the job, some key values may be required.
+ *  The labels associated with `Finding`'s produced by hybrid
+ *  inspection.
+ *  Label keys must be between 1 and 63 characters long and must conform
+ *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  Label values must be between 0 and 63 characters long and must conform
+ *  to the regular expression (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?.
+ *  No more than 10 labels can be associated with a given finding.
+ *  Example: <code>"environment" : "production"</code>
+ *  Example: <code>"pipeline" : "etl"</code>
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2HybridFindingDetails_Labels : GTLRObject
+@end
+
+
+/**
+ *  Request to search for potentially sensitive info in a custom location.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2HybridInspectDlpJobRequest : GTLRObject
+
+/** The item to inspect. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridContentItem *hybridItem;
+
+@end
+
+
+/**
+ *  Request to search for potentially sensitive info in a custom location.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2HybridInspectJobTriggerRequest : GTLRObject
+
+/** The item to inspect. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridContentItem *hybridItem;
+
+@end
+
+
+/**
+ *  Quota exceeded errors will be thrown once quota has been met.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2HybridInspectResponse : GTLRObject
+@end
+
+
+/**
+ *  Statistics related to processing hybrid inspect requests
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2HybridInspectStatistics : GTLRObject
+
+/**
+ *  The number of hybrid inspection requests aborted because the job ran
+ *  out of quota or was ended before they could be processed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hybridRequestsAborted;
+
+/**
+ *  The number of hybrid requests currently being processed. Only populated
+ *  when called via method `getDlpJob`.
+ *  A burst of traffic may cause hybrid inspect requests to be enqueued.
+ *  Processing will take place as quickly as possible, but resource limitations
+ *  may impact how long a request is enqueued for.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hybridRequestsPending;
+
+/**
+ *  The number of hybrid inspection requests processed within this job.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hybridRequestsProcessed;
+
+@end
+
+
+/**
+ *  Configuration to control jobs where the content being inspected is outside
+ *  of Google Cloud Platform.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2HybridOptions : GTLRObject
+
+/**
+ *  A short description of where the data is coming from. Will be stored once
+ *  in the job. 256 max length.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  To organize findings, these labels will be added to each finding.
+ *  Label keys must be between 1 and 63 characters long and must conform
+ *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  Label values must be between 0 and 63 characters long and must conform
+ *  to the regular expression (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?.
+ *  No more than 10 labels can be associated with a given finding.
+ *  Example: <code>"environment" : "production"</code>
+ *  Example: <code>"pipeline" : "etl"</code>
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridOptions_Labels *labels;
+
+/**
+ *  These are labels that each inspection request must include within their
+ *  'finding_labels' map. Request may contain others, but any missing one of
+ *  these will be rejected.
+ *  Label keys must be between 1 and 63 characters long and must conform
+ *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  No more than 10 keys can be required.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requiredFindingLabelKeys;
+
+/**
+ *  If the container is a table, additional information to make findings
+ *  meaningful such as the columns that are primary keys.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TableOptions *tableOptions;
+
+@end
+
+
+/**
+ *  To organize findings, these labels will be added to each finding.
+ *  Label keys must be between 1 and 63 characters long and must conform
+ *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  Label values must be between 0 and 63 characters long and must conform
+ *  to the regular expression (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?.
+ *  No more than 10 labels can be associated with a given finding.
+ *  Example: <code>"environment" : "production"</code>
+ *  Example: <code>"pipeline" : "etl"</code>
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2HybridOptions_Labels : GTLRObject
 @end
 
 
@@ -4212,6 +4597,17 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  Job trigger option for hybrid jobs. Jobs must be manually created
+ *  and finished.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2Manual : GTLRObject
+@end
+
+
+/**
  *  Compute numerical stats over an individual column, including
  *  min, max, and quantiles.
  */
@@ -4260,6 +4656,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  If unspecified, then all available columns will be used for a new table or
  *  an (existing) table with no schema, and no changes will be made to an
  *  existing table that has a schema.
+ *  Only for use with external storage.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_AllColumns
@@ -4883,6 +5280,14 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @interface GTLRDLP_GooglePrivacyDlpV2Result : GTLRObject
 
 /**
+ *  Statistics related to the processing of hybrid inspect.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridInspectStatistics *hybridStats;
+
+/**
  *  Statistics of how many instances of each info type were found during
  *  inspect job.
  */
@@ -5000,14 +5405,22 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @interface GTLRDLP_GooglePrivacyDlpV2StorageConfig : GTLRObject
 
-/** BigQuery options specification. */
+/** BigQuery options. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryOptions *bigQueryOptions;
 
-/** Google Cloud Storage options specification. */
+/** Google Cloud Storage options. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions *cloudStorageOptions;
 
-/** Google Cloud Datastore options specification. */
+/** Google Cloud Datastore options. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DatastoreOptions *datastoreOptions;
+
+/**
+ *  Hybrid inspection options.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridOptions *hybridOptions;
 
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TimespanConfig *timespanConfig;
 
@@ -5049,11 +5462,17 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Store dictionary-based CustomInfoType. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Dictionary *dictionary;
+
 /** Display name of the StoredInfoType (max 256 characters). */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** StoredInfoType where findings are defined by a dictionary of phrases. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryConfig *largeCustomDictionary;
+
+/** Store regular expression-based StoredInfoType. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Regex *regex;
 
 @end
 
@@ -5226,6 +5645,25 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rowIndex;
+
+@end
+
+
+/**
+ *  Instructions regarding the table content being inspected.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TableOptions : GTLRObject
+
+/**
+ *  The columns that are the primary keys for table objects included in
+ *  ContentItem. A copy of this cell's value will stored alongside alongside
+ *  each finding so that the finding can be traced to the specific row it came
+ *  from. No more than 3 may be provided.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *identifyingFields;
 
 @end
 
@@ -5463,6 +5901,14 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  What event needs to occur for a new job to be started.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Trigger : GTLRObject
+
+/**
+ *  For use with hybrid jobs. Jobs must be manually created and finished.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Manual *manual;
 
 /** Create a job on a repeating basis based on the elapse of time. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Schedule *schedule;
