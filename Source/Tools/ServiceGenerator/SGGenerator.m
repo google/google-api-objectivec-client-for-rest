@@ -3539,7 +3539,7 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
 }
 
 + (NSArray *)sg_acceptedUnknowns {
-  return @[ @"fullyEncodeReservedExpansion" ];
+  return @[ @"fullyEncodeReservedExpansion", @"mtlsRootUrl" ];
 }
 
 @end
