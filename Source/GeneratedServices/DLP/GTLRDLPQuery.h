@@ -28,6 +28,9 @@
 @class GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest;
 @class GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest;
 @class GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest;
+@class GTLRDLP_GooglePrivacyDlpV2FinishDlpJobRequest;
+@class GTLRDLP_GooglePrivacyDlpV2HybridInspectDlpJobRequest;
+@class GTLRDLP_GooglePrivacyDlpV2HybridInspectJobTriggerRequest;
 @class GTLRDLP_GooglePrivacyDlpV2InspectContentRequest;
 @class GTLRDLP_GooglePrivacyDlpV2RedactImageRequest;
 @class GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest;
@@ -3313,6 +3316,45 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
+ *  Finish a running hybrid DlpJob. Triggers the finalization steps and running
+ *  of any enabled actions that have not yet run.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ *
+ *  Method: dlp.projects.locations.dlpJobs.finish
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsDlpJobsFinish : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsFinishWithObject:name:]
+
+/** Required. The name of the DlpJob resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
+ *
+ *  Finish a running hybrid DlpJob. Triggers the finalization steps and running
+ *  of any enabled actions that have not yet run.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2FinishDlpJobRequest to
+ *    include in the query.
+ *  @param name Required. The name of the DlpJob resource to be cancelled.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsFinish
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2FinishDlpJobRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the latest state of a long-running DlpJob.
  *  See https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
@@ -3341,6 +3383,53 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Inspect hybrid content and store findings to a job.
+ *  To review the findings inspect the job. Inspection will occur
+ *  asynchronously.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ *
+ *  Method: dlp.projects.locations.dlpJobs.hybridInspect
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsDlpJobsHybridInspect : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsHybridInspectWithObject:name:]
+
+/**
+ *  Required. Resource name of the job to execute a hybrid inspect on, for
+ *  example
+ *  `projects/dlp-test-project/dlpJob/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2HybridInspectResponse.
+ *
+ *  Inspect hybrid content and store findings to a job.
+ *  To review the findings inspect the job. Inspection will occur
+ *  asynchronously.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2HybridInspectDlpJobRequest to
+ *    include in the query.
+ *  @param name Required. Resource name of the job to execute a hybrid inspect
+ *    on, for example
+ *    `projects/dlp-test-project/dlpJob/53234423`.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsHybridInspect
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2HybridInspectDlpJobRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -3892,6 +3981,54 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Inspect hybrid content and store findings to a trigger. The inspection
+ *  will be processed asynchronously. To review the findings monitor the
+ *  jobs within the trigger.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ *
+ *  Method: dlp.projects.locations.jobTriggers.hybridInspect
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_ProjectsLocationsJobTriggersHybridInspect : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForProjectsLocationsJobTriggersHybridInspectWithObject:name:]
+
+/**
+ *  Required. Resource name of the trigger to execute a hybrid inspect on, for
+ *  example
+ *  `projects/dlp-test-project/jobTriggers/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2HybridInspectResponse.
+ *
+ *  Inspect hybrid content and store findings to a trigger. The inspection
+ *  will be processed asynchronously. To review the findings monitor the
+ *  jobs within the trigger.
+ *  Early access feature is in a pre-release state and might change or have
+ *  limited support. For more information, see
+ *  https://cloud.google.com/products#product-launch-stages.
+ *
+ *  @param object The @c
+ *    GTLRDLP_GooglePrivacyDlpV2HybridInspectJobTriggerRequest to include in the
+ *    query.
+ *  @param name Required. Resource name of the trigger to execute a hybrid
+ *    inspect on, for example
+ *    `projects/dlp-test-project/jobTriggers/53234423`.
+ *
+ *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersHybridInspect
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2HybridInspectJobTriggerRequest *)object
+                           name:(NSString *)name;
 
 @end
 

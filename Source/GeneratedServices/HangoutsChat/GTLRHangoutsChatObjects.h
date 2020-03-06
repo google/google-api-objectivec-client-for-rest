@@ -26,6 +26,7 @@
 @class GTLRHangoutsChat_CardAction;
 @class GTLRHangoutsChat_CardHeader;
 @class GTLRHangoutsChat_FormAction;
+@class GTLRHangoutsChat_FormInput;
 @class GTLRHangoutsChat_Image;
 @class GTLRHangoutsChat_ImageButton;
 @class GTLRHangoutsChat_KeyValue;
@@ -113,6 +114,35 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Avatar;
 GTLR_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image;
 /** Value: "IMAGE_STYLE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_ImageStyleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_DeprecatedEvent.dialogEventType
+
+/**
+ *  For native cancellation button.
+ *
+ *  Value: "CANCEL_DIALOG"
+ */
+GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog;
+/**
+ *  For any user action that would result in a dialog opening.
+ *
+ *  Value: "REQUEST_DIALOG"
+ */
+GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_RequestDialog;
+/**
+ *  For card click events from any dialog.
+ *
+ *  Value: "SUBMIT_DIALOG"
+ */
+GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_SubmitDialog;
+/**
+ *  This could be used when the corresponding event is not dialog related.
+ *  For example an \@mention.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_DeprecatedEvent.type
@@ -587,8 +617,40 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnsp
  */
 @property(nonatomic, copy, nullable) NSString *configCompleteRedirectUrl;
 
+/**
+ *  The type of dialog event we have received.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog For
+ *        native cancellation button. (Value: "CANCEL_DIALOG")
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_RequestDialog
+ *        For any user action that would result in a dialog opening. (Value:
+ *        "REQUEST_DIALOG")
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_SubmitDialog For
+ *        card click events from any dialog. (Value: "SUBMIT_DIALOG")
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_TypeUnspecified
+ *        This could be used when the corresponding event is not dialog related.
+ *        For example an \@mention. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *dialogEventType;
+
 /** The timestamp indicating when the event was dispatched. */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  The list of form inputs we will supply to the bot. These are just the
+ *  inputs from the dialog that are populated by the user. This will only be
+ *  populated for CARD_CLICKED events.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_FormInput *> *formInputs;
+
+/**
+ *  Whether or not this event is related to dialogs request, submit or cancel.
+ *  This will be set to true when we want a request/submit/cancel event.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDialogEvent;
 
 /** The message that triggered the event, if applicable. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Message *message;
@@ -666,12 +728,29 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnsp
 
 
 /**
+ *  A single user input from an editable widget from Card API.
+ */
+@interface GTLRHangoutsChat_FormInput : GTLRObject
+
+/** The name of the editable widget. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Value entered by user. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  An image that is specified by a URL and can have an onclick action.
  */
 @interface GTLRHangoutsChat_Image : GTLRObject
 
 /**
- *  The aspect ratio of this image (width/height).
+ *  The aspect ratio of this image (width/height). This field allows clients
+ *  to reserve the right height for the image while waiting for it to load.
+ *  It's not meant to override the native aspect ratio of the image.
+ *  If unset, server will fill it by prefetching the image.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1117,6 +1196,9 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnsp
 
 /** The user's display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Obfuscated domain information. */
+@property(nonatomic, copy, nullable) NSString *domainId;
 
 /** Resource name, in the format "users/ *". */
 @property(nonatomic, copy, nullable) NSString *name;

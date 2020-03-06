@@ -18,21 +18,6 @@
 
 @end
 
-@implementation GTLROauth2Query_GetCertForOpenIdConnect
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"oauth2/v2/certs";
-  GTLROauth2Query_GetCertForOpenIdConnect *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLROauth2_Jwk class];
-  query.loggingName = @"oauth2.getCertForOpenIdConnect";
-  return query;
-}
-
-@end
-
 @implementation GTLROauth2Query_Tokeninfo
 
 @dynamic accessToken, idToken, tokenHandle;

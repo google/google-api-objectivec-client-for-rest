@@ -60,6 +60,7 @@
 @class GTLRMonitoring_LabelDescriptor;
 @class GTLRMonitoring_LatencyCriteria;
 @class GTLRMonitoring_Linear;
+@class GTLRMonitoring_MeshIstio;
 @class GTLRMonitoring_Metric;
 @class GTLRMonitoring_Metric_Labels;
 @class GTLRMonitoring_MetricAbsence;
@@ -425,9 +426,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignS
 
 /**
  *  Combine conditions using the logical AND operator. An incident is created
- *  only if all conditions are met simultaneously. This combiner is satisfied if
- *  all conditions are met, even if they are met on completely different
- *  resources.
+ *  only if all the conditions are met simultaneously. This combiner is
+ *  satisfied if all conditions are met, even if they are met on completely
+ *  different resources.
  *
  *  Value: "AND"
  */
@@ -1647,7 +1648,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *
  *  Likely values:
  *    @arg @c kGTLRMonitoring_AlertPolicy_Combiner_And Combine conditions using
- *        the logical AND operator. An incident is created only if all
+ *        the logical AND operator. An incident is created only if all the
  *        conditions are met simultaneously. This combiner is satisfied if all
  *        conditions are met, even if they are met on completely different
  *        resources. (Value: "AND")
@@ -1668,8 +1669,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  A list of conditions for the policy. The conditions are combined by AND or
  *  OR according to the combiner field. If the combined conditions evaluate to
  *  true, then an incident is created. A policy can have from one to six
- *  conditions. If |condition_time_series_uery_language| is present, it must be
- *  the only |condition|.
+ *  conditions. If condition_time_series_query_language is present, it must be
+ *  the only condition.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Condition *> *conditions;
 
@@ -1714,9 +1715,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) GTLRMonitoring_MutationRecord *mutationRecord;
 
 /**
- *  Required if the policy exists. The resource name for this policy. The syntax
+ *  Required if the policy exists. The resource name for this policy. The format
  *  is:
- *  projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+ *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  *  [ALERT_POLICY_ID] is assigned by Stackdriver Monitoring when the policy is
  *  created. When calling the alertPolicies.create method, do not include the
  *  name field in the alerting policy passed as part of the request.
@@ -1728,8 +1729,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  when incidents are opened or closed or when new violations occur on an
  *  already opened incident. Each element of this array corresponds to the name
  *  field in each of the NotificationChannel objects that are returned from the
- *  ListNotificationChannels method. The syntax of the entries in this field is:
- *  projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]
+ *  ListNotificationChannels method. The format of the entries in this field is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *notificationChannels;
 
@@ -1902,7 +1903,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
- *  Istio service. Learn more at http://istio.io.
+ *  Istio service scoped to a single Kubernetes cluster. Learn more at
+ *  http://istio.io.
  */
 @interface GTLRMonitoring_ClusterIstio : GTLRObject
 
@@ -2093,8 +2095,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /**
  *  Required if the condition exists. The unique resource name for this
- *  condition. Its syntax is:
- *  projects/[PROJECT_ID]/alertPolicies/[POLICY_ID]/conditions/[CONDITION_ID]
+ *  condition. Its format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID]/conditions/[CONDITION_ID]
  *  [CONDITION_ID] is assigned by Stackdriver Monitoring when the condition is
  *  created as part of a new or updated alerting policy.When calling the
  *  alertPolicies.create method, do not include the name field in the conditions
@@ -2768,18 +2770,18 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) NSNumber *isCluster;
 
 /**
- *  Output only. The name of this group. The format is
- *  "projects/{project_id_or_number}/groups/{group_id}". When creating a group,
- *  this field is ignored and a new name is created consisting of the project
- *  specified in the call to CreateGroup and a unique {group_id} that is
- *  generated automatically.
+ *  Output only. The name of this group. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+ *  When creating a group, this field is ignored and a new name is created
+ *  consisting of the project specified in the call to CreateGroup and a unique
+ *  [GROUP_ID] that is generated automatically.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The name of the group's parent, if it has one. The format is
- *  "projects/{project_id_or_number}/groups/{group_id}". For groups with no
- *  parent, parentName is the empty string, "".
+ *  The name of the group's parent, if it has one. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+ *  For groups with no parent, parent_name is the empty string, "".
  */
 @property(nonatomic, copy, nullable) NSString *parentName;
 
@@ -2895,10 +2897,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *gcpZone;
 
 /**
- *  A unique resource name for this InternalChecker. The format
- *  is:projects/[PROJECT_ID]/internalCheckers/[INTERNAL_CHECKER_ID].[PROJECT_ID]
- *  is the Stackdriver Workspace project for the Uptime check config associated
- *  with the internal checker.
+ *  A unique resource name for this InternalChecker. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/internalCheckers/[INTERNAL_CHECKER_ID]
+ *  [PROJECT_ID_OR_NUMBER] is the Stackdriver Workspace project for the Uptime
+ *  check config associated with the internal checker.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3048,7 +3050,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  If there might be more results than were returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  pageToken in the next call to this method.
+ *  page_token in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3076,7 +3078,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  pageToken in the next call to this method.
+ *  page_token in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3111,7 +3113,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  pageToken in the next call to this method.
+ *  page_token in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3140,7 +3142,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  pageToken in the next call to this method.
+ *  page_token in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3160,7 +3162,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  pageToken in the next call to this method.
+ *  page_token in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3246,7 +3248,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  pageToken in the next call to this method.
+ *  page_token in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3274,7 +3276,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  pageToken in the next call to this method.
+ *  page_token in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3303,7 +3305,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  If there are more results than have been returned, then this field is set to
  *  a non-empty value. To see the additional results, use that value as
- *  pageToken in the next call to this method.
+ *  page_token in the next call to this method.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -3383,6 +3385,32 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  Istio service scoped to an Istio mesh
+ */
+@interface GTLRMonitoring_MeshIstio : GTLRObject
+
+/**
+ *  Identifier for the mesh in which this Istio service is defined. Corresponds
+ *  to the mesh_uid metric label in Istio metrics.
+ */
+@property(nonatomic, copy, nullable) NSString *meshUid;
+
+/**
+ *  The name of the Istio service underlying this service. Corresponds to the
+ *  destination_service_name metric label in Istio metrics.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceName;
+
+/**
+ *  The namespace of the Istio service underlying this service. Corresponds to
+ *  the destination_service_namespace metric label in Istio metrics.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceNamespace;
+
+@end
+
+
+/**
  *  A specific metric, identified by specifying values for all of the labels of
  *  a MetricDescriptor.
  */
@@ -3445,12 +3473,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
- *  A filter that identifies which time series should be compared with the
- *  threshold.The filter is similar to the one that is specified in the
- *  ListTimeSeries request (that call is useful to verify the time series that
- *  will be retrieved / processed) and must specify the metric type and
- *  optionally may contain restrictions on resource type, resource labels, and
- *  metric labels. This field may not exceed 2048 Unicode characters in length.
+ *  A filter (https://cloud.google.com/monitoring/api/v3/filters) that
+ *  identifies which time series should be compared with the threshold.The
+ *  filter is similar to the one that is specified in the ListTimeSeries request
+ *  (that call is useful to verify the time series that will be retrieved /
+ *  processed) and must specify the metric type and optionally may contain
+ *  restrictions on resource type, resource labels, and metric labels. This
+ *  field may not exceed 2048 Unicode characters in length.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3833,13 +3862,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Aggregation *> *denominatorAggregations;
 
 /**
- *  A filter that identifies a time series that should be used as the
- *  denominator of a ratio that will be compared with the threshold. If a
- *  denominator_filter is specified, the time series specified by the filter
- *  field will be used as the numerator.The filter must specify the metric type
- *  and optionally may contain restrictions on resource type, resource labels,
- *  and metric labels. This field may not exceed 2048 Unicode characters in
- *  length.
+ *  A filter (https://cloud.google.com/monitoring/api/v3/filters) that
+ *  identifies a time series that should be used as the denominator of a ratio
+ *  that will be compared with the threshold. If a denominator_filter is
+ *  specified, the time series specified by the filter field will be used as the
+ *  numerator.The filter must specify the metric type and optionally may contain
+ *  restrictions on resource type, resource labels, and metric labels. This
+ *  field may not exceed 2048 Unicode characters in length.
  */
 @property(nonatomic, copy, nullable) NSString *denominatorFilter;
 
@@ -3857,12 +3886,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
- *  A filter that identifies which time series should be compared with the
- *  threshold.The filter is similar to the one that is specified in the
- *  ListTimeSeries request (that call is useful to verify the time series that
- *  will be retrieved / processed) and must specify the metric type and
- *  optionally may contain restrictions on resource type, resource labels, and
- *  metric labels. This field may not exceed 2048 Unicode characters in length.
+ *  A filter (https://cloud.google.com/monitoring/api/v3/filters) that
+ *  identifies which time series should be compared with the threshold.The
+ *  filter is similar to the one that is specified in the ListTimeSeries request
+ *  (that call is useful to verify the time series that will be retrieved /
+ *  processed) and must specify the metric type and optionally may contain
+ *  restrictions on resource type, resource labels, and metric labels. This
+ *  field may not exceed 2048 Unicode characters in length.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4145,8 +4175,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) GTLRMonitoring_NotificationChannel_Labels *labels;
 
 /**
- *  The full REST resource name for this channel. The syntax is:
- *  projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]
+ *  The full REST resource name for this channel. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
  *  The [CHANNEL_ID] is automatically assigned by the server on creation.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4307,8 +4337,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, copy, nullable) NSString *launchStage;
 
 /**
- *  The full REST resource name for this descriptor. The syntax is:
- *  projects/[PROJECT_ID]/notificationChannelDescriptors/[TYPE]
+ *  The full REST resource name for this descriptor. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[TYPE]
  *  In the above, [TYPE] is the value of the type field.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4459,7 +4489,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /**
  *  The group of resources being monitored. Should be only the [GROUP_ID], and
- *  not the full-path projects/[PROJECT_ID]/groups/[GROUP_ID].
+ *  not the full-path projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID].
  */
 @property(nonatomic, copy, nullable) NSString *groupId;
 
@@ -4511,9 +4541,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /** Name used for UI elements listing this Service. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** Type used for Istio services scoped to an Istio mesh. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_MeshIstio *meshIstio;
+
 /**
- *  Resource name for this Service. Of the form
- *  projects/{project_id}/services/{service_id}.
+ *  Resource name for this Service. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4605,8 +4638,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) NSNumber *goal;
 
 /**
- *  Resource name for this ServiceLevelObjective. Of the form
- *  projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ *  Resource name for this ServiceLevelObjective. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4642,17 +4675,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
- *  The context of a span, attached to google.api.Distribution.Exemplars in
- *  google.api.Distribution values during aggregation.It contains the name of a
- *  span with format: projects/PROJECT_ID/traces/TRACE_ID/spans/SPAN_ID
+ *  The context of a span, attached to Exemplars in Distribution values during
+ *  aggregation.It contains the name of a span with format:
+ *  projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID]
  */
 @interface GTLRMonitoring_SpanContext : GTLRObject
 
 /**
- *  The resource name of the span in the following format:
- *  projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/[SPAN_ID]
- *  TRACE_ID is a unique identifier for a trace within a project; it is a
- *  32-character hexadecimal encoding of a 16-byte array.SPAN_ID is a unique
+ *  The resource name of the span. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID]
+ *  [TRACE_ID] is a unique identifier for a trace within a project; it is a
+ *  32-character hexadecimal encoding of a 16-byte array.[SPAN_ID] is a unique
  *  identifier for a span within a trace; it is a 16-character hexadecimal
  *  encoding of an 8-byte array.
  */
@@ -5047,10 +5080,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *monitoredResource;
 
 /**
- *  A unique resource name for this Uptime check configuration. The format
- *  is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field
- *  should be omitted when creating the Uptime check configuration; on create,
- *  the resource name is assigned by the server and included in the response.
+ *  A unique resource name for this Uptime check configuration. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+ *  This field should be omitted when creating the Uptime check configuration;
+ *  on create, the resource name is assigned by the server and included in the
+ *  response.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

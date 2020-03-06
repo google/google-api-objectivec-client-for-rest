@@ -82,7 +82,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSnapshotsCreateWithObject:name:]
 
 /**
- *  User-provided name for this snapshot. If the name is not provided in the
+ *  Required. User-provided name for this snapshot. If the name is not provided
+ *  in the
  *  request, the server will assign a random name for this snapshot on the same
  *  project as the subscription. Note that for REST API requests, you must
  *  specify a name. See the
@@ -117,8 +118,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRPubsub_CreateSnapshotRequest to include in the
  *    query.
- *  @param name User-provided name for this snapshot. If the name is not
- *    provided in the
+ *  @param name Required. User-provided name for this snapshot. If the name is
+ *    not provided in the
  *    request, the server will assign a random name for this snapshot on the
  *    same
  *    project as the subscription. Note that for REST API requests, you must
@@ -158,7 +159,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSnapshotsDeleteWithsnapshot:]
 
 /**
- *  The name of the snapshot to delete.
+ *  Required. The name of the snapshot to delete.
  *  Format is `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *snapshot;
@@ -177,7 +178,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  created with the same name, but the new one has no association with the old
  *  snapshot or its subscription, unless the same subscription is specified.
  *
- *  @param snapshot The name of the snapshot to delete.
+ *  @param snapshot Required. The name of the snapshot to delete.
  *    Format is `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsDelete
@@ -204,7 +205,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSnapshotsGetWithsnapshot:]
 
 /**
- *  The name of the snapshot to get.
+ *  Required. The name of the snapshot to get.
  *  Format is `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *snapshot;
@@ -218,7 +219,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  is, you can set the acknowledgment state of messages in an existing
  *  subscription to the state captured by a snapshot.
  *
- *  @param snapshot The name of the snapshot to get.
+ *  @param snapshot Required. The name of the snapshot to get.
  *    Format is `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsGet
@@ -304,7 +305,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The name of the project in which to list snapshots.
+ *  Required. The name of the project in which to list snapshots.
  *  Format is `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -319,7 +320,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.
  *
- *  @param project The name of the project in which to list snapshots.
+ *  @param project Required. The name of the project in which to list snapshots.
  *    Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsList
@@ -480,7 +481,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsAcknowledgeWithObject:subscription:]
 
 /**
- *  The subscription whose message is being acknowledged.
+ *  Required. The subscription whose message is being acknowledged.
  *  Format is `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
@@ -496,7 +497,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  than once will not result in an error.
  *
  *  @param object The @c GTLRPubsub_AcknowledgeRequest to include in the query.
- *  @param subscription The subscription whose message is being acknowledged.
+ *  @param subscription Required. The subscription whose message is being
+ *    acknowledged.
  *    Format is `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsAcknowledge
@@ -531,7 +533,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsCreateWithObject:name:]
 
 /**
- *  The name of the subscription. It must have the format
+ *  Required. The name of the subscription. It must have the format
  *  `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
  *  start with a letter, and contain only letters (`[A-Za-z]`), numbers
  *  (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`),
@@ -557,7 +559,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  for REST API requests, you must specify a name in the request.
  *
  *  @param object The @c GTLRPubsub_Subscription to include in the query.
- *  @param name The name of the subscription. It must have the format
+ *  @param name Required. The name of the subscription. It must have the format
  *    `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
  *    start with a letter, and contain only letters (`[A-Za-z]`), numbers
  *    (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`),
@@ -589,7 +591,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsDeleteWithsubscription:]
 
 /**
- *  The subscription to delete.
+ *  Required. The subscription to delete.
  *  Format is `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
@@ -603,7 +605,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the same name, but the new one has no association with the old
  *  subscription or its topic unless the same topic is specified.
  *
- *  @param subscription The subscription to delete.
+ *  @param subscription Required. The subscription to delete.
  *    Format is `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsDelete
@@ -626,7 +628,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsGetWithsubscription:]
 
 /**
- *  The name of the subscription to get.
+ *  Required. The name of the subscription to get.
  *  Format is `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
@@ -636,7 +638,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the configuration details of a subscription.
  *
- *  @param subscription The name of the subscription to get.
+ *  @param subscription Required. The name of the subscription to get.
  *    Format is `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsGet
@@ -717,7 +719,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The name of the project in which to list subscriptions.
+ *  Required. The name of the project in which to list subscriptions.
  *  Format is `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -727,7 +729,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists matching subscriptions.
  *
- *  @param project The name of the project in which to list subscriptions.
+ *  @param project Required. The name of the project in which to list
+ *    subscriptions.
  *    Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsList
@@ -758,7 +761,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsModifyAckDeadlineWithObject:subscription:]
 
 /**
- *  The name of the subscription.
+ *  Required. The name of the subscription.
  *  Format is `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
@@ -774,7 +777,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRPubsub_ModifyAckDeadlineRequest to include in the
  *    query.
- *  @param subscription The name of the subscription.
+ *  @param subscription Required. The name of the subscription.
  *    Format is `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsModifyAckDeadline
@@ -802,7 +805,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsModifyPushConfigWithObject:subscription:]
 
 /**
- *  The name of the subscription.
+ *  Required. The name of the subscription.
  *  Format is `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
@@ -818,7 +821,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRPubsub_ModifyPushConfigRequest to include in the
  *    query.
- *  @param subscription The name of the subscription.
+ *  @param subscription Required. The name of the subscription.
  *    Format is `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsModifyPushConfig
@@ -843,7 +846,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsPatchWithObject:name:]
 
 /**
- *  The name of the subscription. It must have the format
+ *  Required. The name of the subscription. It must have the format
  *  `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
  *  start with a letter, and contain only letters (`[A-Za-z]`), numbers
  *  (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`),
@@ -860,7 +863,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRPubsub_UpdateSubscriptionRequest to include in the
  *    query.
- *  @param name The name of the subscription. It must have the format
+ *  @param name Required. The name of the subscription. It must have the format
  *    `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
  *    start with a letter, and contain only letters (`[A-Za-z]`), numbers
  *    (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`),
@@ -890,7 +893,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsPullWithObject:subscription:]
 
 /**
- *  The subscription from which messages should be pulled.
+ *  Required. The subscription from which messages should be pulled.
  *  Format is `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
@@ -903,7 +906,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  subscription.
  *
  *  @param object The @c GTLRPubsub_PullRequest to include in the query.
- *  @param subscription The subscription from which messages should be pulled.
+ *  @param subscription Required. The subscription from which messages should be
+ *    pulled.
  *    Format is `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsPull
@@ -933,7 +937,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsSeekWithObject:subscription:]
 
-/** The subscription to affect. */
+/** Required. The subscription to affect. */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
 /**
@@ -949,7 +953,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  must be on the same topic.
  *
  *  @param object The @c GTLRPubsub_SeekRequest to include in the query.
- *  @param subscription The subscription to affect.
+ *  @param subscription Required. The subscription to affect.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsSeek
  */
@@ -1061,7 +1065,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsCreateWithObject:name:]
 
 /**
- *  The name of the topic. It must have the format
+ *  Required. The name of the topic. It must have the format
  *  `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
  *  and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
  *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
@@ -1078,7 +1082,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  resource name rules</a>.
  *
  *  @param object The @c GTLRPubsub_Topic to include in the query.
- *  @param name The name of the topic. It must have the format
+ *  @param name Required. The name of the topic. It must have the format
  *    `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
  *    and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
  *    underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
@@ -1110,7 +1114,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsDeleteWithtopic:]
 
 /**
- *  Name of the topic to delete.
+ *  Required. Name of the topic to delete.
  *  Format is `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
@@ -1124,7 +1128,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  configuration or subscriptions. Existing subscriptions to this topic are
  *  not deleted, but their `topic` field is set to `_deleted-topic_`.
  *
- *  @param topic Name of the topic to delete.
+ *  @param topic Required. Name of the topic to delete.
  *    Format is `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsDelete
@@ -1147,7 +1151,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsGetWithtopic:]
 
 /**
- *  The name of the topic to get.
+ *  Required. The name of the topic to get.
  *  Format is `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
@@ -1157,7 +1161,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the configuration of a topic.
  *
- *  @param topic The name of the topic to get.
+ *  @param topic Required. The name of the topic to get.
  *    Format is `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsGet
@@ -1238,7 +1242,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The name of the project in which to list topics.
+ *  Required. The name of the project in which to list topics.
  *  Format is `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1248,7 +1252,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists matching topics.
  *
- *  @param project The name of the project in which to list topics.
+ *  @param project Required. The name of the project in which to list topics.
  *    Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsList
@@ -1276,7 +1280,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsPatchWithObject:name:]
 
 /**
- *  The name of the topic. It must have the format
+ *  Required. The name of the topic. It must have the format
  *  `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
  *  and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
  *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
@@ -1292,7 +1296,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  topic are not modifiable.
  *
  *  @param object The @c GTLRPubsub_UpdateTopicRequest to include in the query.
- *  @param name The name of the topic. It must have the format
+ *  @param name Required. The name of the topic. It must have the format
  *    `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
  *    and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
  *    underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
@@ -1321,7 +1325,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsPublishWithObject:topic:]
 
 /**
- *  The messages in the request will be published on this topic.
+ *  Required. The messages in the request will be published on this topic.
  *  Format is `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
@@ -1333,7 +1337,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  does not exist.
  *
  *  @param object The @c GTLRPubsub_PublishRequest to include in the query.
- *  @param topic The messages in the request will be published on this topic.
+ *  @param topic Required. The messages in the request will be published on this
+ *    topic.
  *    Format is `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsPublish
@@ -1460,7 +1465,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The name of the topic that subscriptions are attached to.
+ *  Required. The name of the topic that subscriptions are attached to.
  *  Format is `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
@@ -1470,7 +1475,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists the names of the subscriptions on this topic.
  *
- *  @param topic The name of the topic that subscriptions are attached to.
+ *  @param topic Required. The name of the topic that subscriptions are attached
+ *    to.
  *    Format is `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsSubscriptionsList

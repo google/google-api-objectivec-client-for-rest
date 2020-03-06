@@ -53,6 +53,7 @@
 @class GTLRShoppingContent_Product;
 @class GTLRShoppingContent_ProductsCustomBatchRequest;
 @class GTLRShoppingContent_ProductstatusesCustomBatchRequest;
+@class GTLRShoppingContent_PubsubNotificationSettings;
 @class GTLRShoppingContent_RegionalInventory;
 @class GTLRShoppingContent_RegionalinventoryCustomBatchRequest;
 @class GTLRShoppingContent_ReturnAddress;
@@ -3172,7 +3173,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 @end
 
 /**
- *  Lists the products in your Merchant Center account.
+ *  Lists the products in your Merchant Center account. The response might
+ *  contain fewer items than specified by maxResults. Rely on nextPageToken to
+ *  determine if there are more items to be requested.
  *
  *  Method: content.products.list
  *
@@ -3200,7 +3203,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 /**
  *  Fetches a @c GTLRShoppingContent_ProductsListResponse.
  *
- *  Lists the products in your Merchant Center account.
+ *  Lists the products in your Merchant Center account. The response might
+ *  contain fewer items than specified by maxResults. Rely on nextPageToken to
+ *  determine if there are more items to be requested.
  *
  *  @param merchantId The ID of the account that contains the products. This
  *    account cannot be a multi-client account.
@@ -3332,6 +3337,68 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *        information.
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Retrieves a Merchant Center account's pubsub notification settings.
+ *
+ *  Method: content.pubsubnotificationsettings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_PubsubnotificationsettingsGet : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForPubsubnotificationsettingsGetWithmerchantId:]
+
+/** The ID of the account for which to get pubsub notification settings. */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_PubsubNotificationSettings.
+ *
+ *  Retrieves a Merchant Center account's pubsub notification settings.
+ *
+ *  @param merchantId The ID of the account for which to get pubsub notification
+ *    settings.
+ *
+ *  @return GTLRShoppingContentQuery_PubsubnotificationsettingsGet
+ */
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Register a Merchant Center account for pubsub notifications. Note that cloud
+ *  topic name should not be provided as part of the request.
+ *
+ *  Method: content.pubsubnotificationsettings.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_PubsubnotificationsettingsUpdate : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForPubsubnotificationsettingsUpdateWithObject:merchantId:]
+
+/** The ID of the account. */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_PubsubNotificationSettings.
+ *
+ *  Register a Merchant Center account for pubsub notifications. Note that cloud
+ *  topic name should not be provided as part of the request.
+ *
+ *  @param object The @c GTLRShoppingContent_PubsubNotificationSettings to
+ *    include in the query.
+ *  @param merchantId The ID of the account.
+ *
+ *  @return GTLRShoppingContentQuery_PubsubnotificationsettingsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_PubsubNotificationSettings *)object
+                     merchantId:(unsigned long long)merchantId;
 
 @end
 

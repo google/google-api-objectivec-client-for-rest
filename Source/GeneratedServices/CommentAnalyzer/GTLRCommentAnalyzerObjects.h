@@ -198,7 +198,7 @@ GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_TextEntry_Type_TextTypeUnspeci
  *  For the prod installation, known as Perspective API, at
  *  blade:commentanalyzer-esf and commentanalyzer.googleapis.com, see
  *  go/checker-models (internal) and
- *  https://github.com/conversationai/perspectiveapi/blob/master/api_reference.md#models.
+ *  https://github.com/conversationai/perspectiveapi/blob/master/2-api/models.md#all-attribute-types.
  */
 @property(nonatomic, strong, nullable) GTLRCommentAnalyzer_AnalyzeCommentRequest_RequestedAttributes *requestedAttributes;
 
@@ -230,7 +230,7 @@ GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_TextEntry_Type_TextTypeUnspeci
  *  For the prod installation, known as Perspective API, at
  *  blade:commentanalyzer-esf and commentanalyzer.googleapis.com, see
  *  go/checker-models (internal) and
- *  https://github.com/conversationai/perspectiveapi/blob/master/api_reference.md#models.
+ *  https://github.com/conversationai/perspectiveapi/blob/master/2-api/models.md#all-attribute-types.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCommentAnalyzer_AttributeParameters. Use @c -additionalJSONKeys

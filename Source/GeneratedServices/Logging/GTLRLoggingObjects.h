@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Logging API (logging/v2)
+//   Cloud Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Stackdriver Logging configuration. The
-//   table entries below are presented in alphabetical order, not in order of
-//   common use. For explanations of the concepts found in the table entries,
-//   read the <a href=https://cloud.google.com/logging/docs>Stackdriver Logging
+//   Writes log entries and manages your Cloud Logging configuration. The table
+//   entries below are presented in alphabetical order, not in order of common
+//   use. For explanations of the concepts found in the table entries, read the
+//   <a href=https://cloud.google.com/logging/docs>Cloud Logging
 //   documentation</a>.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
@@ -29,6 +29,7 @@
 @class GTLRLogging_HttpRequest;
 @class GTLRLogging_LabelDescriptor;
 @class GTLRLogging_Linear;
+@class GTLRLogging_LogBucket;
 @class GTLRLogging_LogEntry;
 @class GTLRLogging_LogEntry_JsonPayload;
 @class GTLRLogging_LogEntry_Labels;
@@ -83,6 +84,28 @@ GTLR_EXTERN NSString * const kGTLRLogging_LabelDescriptor_ValueType_Int64;
  *  Value: "STRING"
  */
 GTLR_EXTERN NSString * const kGTLRLogging_LabelDescriptor_ValueType_String;
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_LogBucket.lifecycleState
+
+/**
+ *  The normal and active state.
+ *
+ *  Value: "ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_LogBucket_LifecycleState_Active;
+/**
+ *  The bucket has been marked for deletion by the user.
+ *
+ *  Value: "DELETE_REQUESTED"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_LogBucket_LifecycleState_DeleteRequested;
+/**
+ *  Unspecified state. This is only used/useful for distinguishing unset values.
+ *
+ *  Value: "LIFECYCLE_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_LogBucket_LifecycleState_LifecycleStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_LogEntry.severity
@@ -587,11 +610,11 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
-/** Output Only. The resource name of the CMEK settings. */
+/** Output only. The resource name of the CMEK settings. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output Only. The service account that will be used by the Logs Router to
+ *  Output only. The service account that will be used by the Logs Router to
  *  access your Cloud KMS key.Before enabling CMEK for Logs Router, you must
  *  first assign the role roles/cloudkms.cryptoKeyEncrypterDecrypter to the
  *  service account that the Logs Router will use to access your Cloud KMS key.
@@ -845,6 +868,34 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 
 
 /**
+ *  The response from ListBuckets (Beta).
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "buckets" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRLogging_ListBucketsResponse : GTLRCollectionObject
+
+/**
+ *  A list of buckets.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogBucket *> *buckets;
+
+/**
+ *  If there might be more results than appear in this response, then
+ *  nextPageToken is included. To get the next set of results, call the same
+ *  method again using the value of nextPageToken as pageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Result returned from ListExclusions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -915,8 +966,8 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Deprecated. Use resource_names instead. One or more project identifiers or
- *  project numbers from which to retrieve log entries. Example:
+ *  Optional. Deprecated. Use resource_names instead. One or more project
+ *  identifiers or project numbers from which to retrieve log entries. Example:
  *  "my-project-1A".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds;
@@ -1077,6 +1128,63 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 
 
 /**
+ *  Describes a repository of logs (Beta).
+ */
+@interface GTLRLogging_LogBucket : GTLRObject
+
+/**
+ *  Output only. The creation timestamp of the bucket. This is not set for any
+ *  of the default buckets.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Describes this bucket.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The bucket lifecycle state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_LogBucket_LifecycleState_Active The normal and active
+ *        state. (Value: "ACTIVE")
+ *    @arg @c kGTLRLogging_LogBucket_LifecycleState_DeleteRequested The bucket
+ *        has been marked for deletion by the user. (Value: "DELETE_REQUESTED")
+ *    @arg @c kGTLRLogging_LogBucket_LifecycleState_LifecycleStateUnspecified
+ *        Unspecified state. This is only used/useful for distinguishing unset
+ *        values. (Value: "LIFECYCLE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *lifecycleState;
+
+/**
+ *  The resource name of the bucket. For example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id The
+ *  supported locations are: "global" "us-central1"For the location of global it
+ *  is unspecified where logs are actually stored. Once a bucket has been
+ *  created, the location can not be changed.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Logs will be retained by default for this amount of time, after which they
+ *  will automatically be deleted. The minimum retention period is 1 day. If
+ *  this value is set to zero at bucket creation time, the default time of 30
+ *  days will be used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retentionDays;
+
+/** Output only. The last update timestamp of the bucket. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  An individual entry in a log.
  */
 @interface GTLRLogging_LogEntry : GTLRObject
@@ -1117,10 +1225,10 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
  *  "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *  A project number may optionally be used in place of PROJECT_ID. The project
- *  number is translated to its corresponding PROJECT_ID internally and the
- *  log_name field will contain PROJECT_ID in queries and exports.[LOG_ID] must
- *  be URL-encoded within log_name. Example:
+ *  A project number may be used in place of PROJECT_ID. The project number is
+ *  translated to its corresponding PROJECT_ID internally and the log_name field
+ *  will contain PROJECT_ID in queries and exports.[LOG_ID] must be URL-encoded
+ *  within log_name. Example:
  *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
  *  [LOG_ID] must be less than 512 characters long and can only include the
  *  following characters: upper and lower case alphanumeric characters,
@@ -1133,7 +1241,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 @property(nonatomic, copy, nullable) NSString *logName;
 
 /**
- *  Deprecated. Output only. Additional metadata about the monitored
+ *  Output only. Deprecated. Additional metadata about the monitored
  *  resource.Only k8s_container, k8s_pod, and k8s_node MonitoredResources have
  *  this field populated for GKE versions older than 1.12.6. For GKE versions
  *  1.12.6 and above, the metadata field has been deprecated. The Kubernetes pod
@@ -1206,7 +1314,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *  Optional. The span ID within the trace associated with the log entry.For
  *  Trace spans, this is the same format that the Trace API v2 uses: a
  *  16-character hexadecimal encoding of an 8-byte array, such as
- *  <code>"000000000000004a"</code>.
+ *  000000000000004a.
  */
 @property(nonatomic, copy, nullable) NSString *spanId;
 
@@ -1653,9 +1761,6 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
 
-/** Do not use. This field is ignored. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
 /**
  *  Optional. An advanced logs filter. The only exported log entries are those
  *  that are in the resource owning the sink and that match the filter. For
@@ -1705,9 +1810,6 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *        "VERSION_FORMAT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *outputVersionFormat;
-
-/** Do not use. This field is ignored. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Output only. The last update timestamp of the sink.This field may not be
@@ -2485,10 +2587,9 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *  [LOG_ID] must be URL-encoded. For example:
  *  "projects/my-project-id/logs/syslog"
  *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"
- *  The permission <code>logging.logEntries.create</code> is needed on each
- *  project, organization, billing account, or folder that is receiving new log
- *  entries, whether the resource is specified in <code>logName</code> or in an
- *  individual log entry.
+ *  The permission logging.logEntries.create is needed on each project,
+ *  organization, billing account, or folder that is receiving new log entries,
+ *  whether the resource is specified in logName or in an individual log entry.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 
@@ -2532,7 +2633,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
 
 
 /**
- *  Result returned from WriteLogEntries. empty
+ *  Result returned from WriteLogEntries.
  */
 @interface GTLRLogging_WriteLogEntriesResponse : GTLRObject
 @end

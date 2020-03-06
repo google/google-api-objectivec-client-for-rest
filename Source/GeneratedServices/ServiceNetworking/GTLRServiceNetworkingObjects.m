@@ -127,8 +127,9 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_AddSubnetworkRequest
-@dynamic consumer, consumerNetwork, descriptionProperty, ipPrefixLength, region,
-         requestedAddress, subnetwork, subnetworkUsers;
+@dynamic consumer, consumerNetwork, descriptionProperty, ipPrefixLength,
+         privateIpv6GoogleAccess, region, requestedAddress, subnetwork,
+         subnetworkUsers;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -207,10 +208,17 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_AuthProvider
-@dynamic audiences, authorizationUrl, identifier, issuer, jwksUri;
+@dynamic audiences, authorizationUrl, identifier, issuer, jwksUri, jwtLocations;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jwtLocations" : [GTLRServiceNetworking_JwtLocation class]
+  };
+  return map;
 }
 
 @end
@@ -616,6 +624,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_JwtLocation
+//
+
+@implementation GTLRServiceNetworking_JwtLocation
+@dynamic header, query, valuePrefix;
 @end
 
 
@@ -1034,7 +1052,15 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_RangeReservation
-@dynamic ipPrefixLength;
+@dynamic ipPrefixLength, secondaryRangeIpPrefixLengths;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"secondaryRangeIpPrefixLengths" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 

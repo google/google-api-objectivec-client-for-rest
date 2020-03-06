@@ -51,6 +51,8 @@
 @class GTLRCloudRun_Location;
 @class GTLRCloudRun_Location_Labels;
 @class GTLRCloudRun_Location_Metadata;
+@class GTLRCloudRun_NamespaceSpec;
+@class GTLRCloudRun_NamespaceStatus;
 @class GTLRCloudRun_ObjectMeta;
 @class GTLRCloudRun_ObjectMeta_Annotations;
 @class GTLRCloudRun_ObjectMeta_Labels;
@@ -68,6 +70,8 @@
 @class GTLRCloudRun_Route;
 @class GTLRCloudRun_RouteSpec;
 @class GTLRCloudRun_RouteStatus;
+@class GTLRCloudRun_Secret_Data;
+@class GTLRCloudRun_Secret_StringData;
 @class GTLRCloudRun_SecretEnvSource;
 @class GTLRCloudRun_SecretKeySelector;
 @class GTLRCloudRun_SecretVolumeSource;
@@ -124,7 +128,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_AuditLogConfig_LogType_LogTypeUnspeci
 // GTLRCloudRun_DomainMappingSpec.certificateMode
 
 /**
- *  Automatically provisions an HTTPS certificate via LetsEncrypt.
+ *  Automatically provisions an HTTPS certificate via GoogleCA or LetsEncrypt.
  *
  *  Value: "AUTOMATIC"
  */
@@ -856,8 +860,8 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_DomainMappingSpec_CertificateMode_Automatic
- *        Automatically provisions an HTTPS certificate via LetsEncrypt. (Value:
- *        "AUTOMATIC")
+ *        Automatically provisions an HTTPS certificate via GoogleCA or
+ *        LetsEncrypt. (Value: "AUTOMATIC")
  *    @arg @c kGTLRCloudRun_DomainMappingSpec_CertificateMode_CertificateModeUnspecified
  *        Value "CERTIFICATE_MODE_UNSPECIFIED"
  *    @arg @c kGTLRCloudRun_DomainMappingSpec_CertificateMode_None Do not
@@ -1633,6 +1637,71 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudRun_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Cloud Run fully managed: not supported
+ *  Cloud Run on GKE: supported
+ *  Namespace provides a scope for Names.
+ *  Use of multiple namespaces is optional.
+ */
+@interface GTLRCloudRun_Namespace : GTLRObject
+
+/**
+ *  Standard object's metadata.
+ *  More info:
+ *  https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_ObjectMeta *metadata;
+
+/**
+ *  Spec defines the behavior of the Namespace.
+ *  More info:
+ *  https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_NamespaceSpec *spec;
+
+/**
+ *  Status describes the current status of a Namespace.
+ *  More info:
+ *  https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_NamespaceStatus *status;
+
+@end
+
+
+/**
+ *  Cloud Run fully managed: not supported
+ *  Cloud Run on GKE: supported
+ *  NamespaceSpec describes the attributes on a Namespace.
+ */
+@interface GTLRCloudRun_NamespaceSpec : GTLRObject
+
+/**
+ *  Finalizers is an opaque list of values that must be empty to permanently
+ *  remove object from storage. More info:
+ *  https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *finalizers;
+
+@end
+
+
+/**
+ *  Cloud Run fully managed: not supported
+ *  Cloud Run on GKE: supported
+ *  NamespaceStatus is information about the current status of a Namespace.
+ */
+@interface GTLRCloudRun_NamespaceStatus : GTLRObject
+
+/**
+ *  Phase is the current lifecycle phase of the namespace.
+ *  More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
+ */
+@property(nonatomic, copy, nullable) NSString *phase;
+
 @end
 
 
@@ -2473,6 +2542,76 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
+@end
+
+
+/**
+ *  Cloud Run fully managed: not supported
+ *  Cloud Run on GKE: supported
+ *  Secret holds secret data of a certain type. The total bytes of the values in
+ *  the Data field must be less than MaxSecretSize bytes.
+ */
+@interface GTLRCloudRun_Secret : GTLRObject
+
+/**
+ *  Data contains the secret data. Each key must consist of alphanumeric
+ *  characters, '-', '_' or '.'. The serialized form of the secret data is a
+ *  base64 encoded string, representing the arbitrary (possibly non-string)
+ *  data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_Secret_Data *data;
+
+/**
+ *  Standard object's metadata.
+ *  More info:
+ *  https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_ObjectMeta *metadata;
+
+/**
+ *  stringData allows specifying non-binary secret data in string form.
+ *  It is provided as a write-only convenience method.
+ *  All keys and values are merged into the data field on write, overwriting
+ *  any existing values. It is never output when reading from the API.
+ *  +k8s:conversion-gen=false
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_Secret_StringData *stringData;
+
+/** Used to facilitate programmatic handling of secret data. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Data contains the secret data. Each key must consist of alphanumeric
+ *  characters, '-', '_' or '.'. The serialized form of the secret data is a
+ *  base64 encoded string, representing the arbitrary (possibly non-string)
+ *  data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
+ *
+ *  @note This class is documented as having more properties of NSString
+ *        (Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *        web-safe format).). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudRun_Secret_Data : GTLRObject
+@end
+
+
+/**
+ *  stringData allows specifying non-binary secret data in string form.
+ *  It is provided as a write-only convenience method.
+ *  All keys and values are merged into the data field on write, overwriting
+ *  any existing values. It is never output when reading from the API.
+ *  +k8s:conversion-gen=false
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_Secret_StringData : GTLRObject
 @end
 
 

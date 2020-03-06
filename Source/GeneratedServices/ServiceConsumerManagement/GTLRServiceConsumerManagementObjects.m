@@ -213,10 +213,17 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_AuthProvider
-@dynamic audiences, authorizationUrl, identifier, issuer, jwksUri;
+@dynamic audiences, authorizationUrl, identifier, issuer, jwksUri, jwtLocations;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jwtLocations" : [GTLRServiceConsumerManagement_JwtLocation class]
+  };
+  return map;
 }
 
 @end
@@ -594,6 +601,16 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_JwtLocation
+//
+
+@implementation GTLRServiceConsumerManagement_JwtLocation
+@dynamic header, query, valuePrefix;
 @end
 
 

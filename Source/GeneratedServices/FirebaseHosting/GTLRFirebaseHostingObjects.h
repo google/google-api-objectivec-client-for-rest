@@ -64,8 +64,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainActive;
 /**
- *  An operation is in progress on the domain association and no further
- *  operations can be performed until it is complete.
+ *  An external operation is in progress on the domain association and no
+ *  further operations can be performed until it is complete. Formerly used for
+ *  metabase updates. Not currently used
  *
  *  Value: "DOMAIN_CHANGE_PENDING"
  */
@@ -485,10 +486,11 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
  *    @arg @c kGTLRFirebaseHosting_Domain_Status_DomainActive The domain
  *        association is active and no additional action is required. (Value:
  *        "DOMAIN_ACTIVE")
- *    @arg @c kGTLRFirebaseHosting_Domain_Status_DomainChangePending An
- *        operation is in progress on the domain association and no further
- *        operations can be performed until it is complete. (Value:
- *        "DOMAIN_CHANGE_PENDING")
+ *    @arg @c kGTLRFirebaseHosting_Domain_Status_DomainChangePending An external
+ *        operation is in progress on the domain association and no
+ *        further operations can be performed until it is complete. Formerly
+ *        used for
+ *        metabase updates. Not currently used (Value: "DOMAIN_CHANGE_PENDING")
  *    @arg @c kGTLRFirebaseHosting_Domain_Status_DomainStatusUnspecified
  *        Unspecified domain association status. (Value:
  *        "DOMAIN_STATUS_UNSPECIFIED")

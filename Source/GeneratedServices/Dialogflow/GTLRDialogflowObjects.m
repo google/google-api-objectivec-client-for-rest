@@ -159,6 +159,10 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindMap 
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindRegexp = @"KIND_REGEXP";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature.type
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature_Type_Smalltalk = @"SMALLTALK";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig.audioEncoding
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingAmr = @"AUDIO_ENCODING_AMR";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingAmrWb = @"AUDIO_ENCODING_AMR_WB";
@@ -247,6 +251,13 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioE
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride = @"ENTITY_OVERRIDE_MODE_OVERRIDE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement = @"ENTITY_OVERRIDE_MODE_SUPPLEMENT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified = @"ENTITY_OVERRIDE_MODE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2ValidationError.severity
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Error = @"ERROR";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Info = @"INFO";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Warning = @"WARNING";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams.ssmlGender
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderFemale = @"SSML_VOICE_GENDER_FEMALE";
@@ -1534,7 +1545,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest
-@dynamic inputAudio, outputAudioConfig, queryInput, queryParams;
+@dynamic inputAudio, outputAudioConfig, outputAudioConfigMask, queryInput,
+         queryParams;
 @end
 
 
@@ -1650,6 +1662,58 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2ExportAgentResponse
 @dynamic agentContent, agentUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2Fulfillment
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2Fulfillment
+@dynamic displayName, enabled, features, genericWebService, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"features" : [GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService
+@dynamic isCloudFunction, password, requestHeaders, uri, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService_RequestHeaders
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService_RequestHeaders
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -2600,6 +2664,42 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2TrainAgentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ValidationError
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ValidationError
+@dynamic entries, errorMessage, severity;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ValidationResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ValidationResult
+@dynamic validationErrors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"validationErrors" : [GTLRDialogflow_GoogleCloudDialogflowV2ValidationError class]
+  };
+  return map;
+}
+
 @end
 
 

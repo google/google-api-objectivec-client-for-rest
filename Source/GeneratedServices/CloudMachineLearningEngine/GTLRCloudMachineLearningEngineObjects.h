@@ -25,6 +25,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters;
@@ -906,6 +907,22 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /** The service account Cloud ML uses to run on TPU node. */
 @property(nonatomic, copy, nullable) NSString *tpuServiceAccount;
+
+@end
+
+
+/**
+ *  Represents a custom encryption key configuration that can be applied to
+ *  a resource.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig : GTLRObject
+
+/**
+ *  The Cloud KMS resource identifier of the customer managed encryption key
+ *  used to protect a resource, such as a training job. Has the form:
+ *  `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 @end
 
@@ -2003,13 +2020,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  All parameters related to queuing and scheduling of training jobs.
+ *  All parameters related to scheduling of training jobs.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Scheduling : GTLRObject
 
 /**
- *  Optional. The maximum job running time, expressed in seconds. By default
- *  there is no limit.
+ *  Optional. The maximum job running time, expressed in seconds. The field can
+ *  contain up to nine fractional digits, terminated by `s`. By default there
+ *  is no limit to the running time.
  *  If the training job is still running after this duration, AI Platform
  *  Training cancels it.
  *  For example, if you want to ensure your job runs for no more than 2 hours,
@@ -2017,7 +2035,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  minute).
  *  If you submit your training job using the `gcloud` tool, you can [provide
  *  this field in a `config.yaml`
- *  file](/ml-engine/docs/training-jobs#formatting_your_configuration_parameters).
+ *  file](/ai-platform/training/docs/training-jobs#formatting_your_configuration_parameters).
  *  For example:
  *  ```yaml
  *  trainingInput:
@@ -2040,19 +2058,25 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  Represents input parameters for a training job. When using the
- *  gcloud command to submit your training job, you can specify
- *  the input parameters as command-line arguments and/or in a YAML
- *  configuration
- *  file referenced from the --config command-line argument. For
- *  details, see the guide to
- *  <a href="/ml-engine/docs/tensorflow/training-jobs">submitting a training
- *  job</a>.
+ *  Represents input parameters for a training job. When using the gcloud
+ *  command
+ *  to submit your training job, you can specify the input parameters as
+ *  command-line arguments and/or in a YAML configuration file referenced from
+ *  the --config command-line argument. For details, see the guide to
+ *  [submitting
+ *  a training job](/ai-platform/training/docs/training-jobs).
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput : GTLRObject
 
 /** Optional. Command line arguments to pass to the program. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Custom encryption key options for a training job. If this is set,
+ *  then all resources created by the training job will be encrypted with the
+ *  provided encryption key.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig *encryptionConfig;
 
 /** Optional. The set of Hyperparameters to tune. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec *hyperparameters;
@@ -2072,8 +2096,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  configurations for
  *  training.](/ml-engine/docs/tensorflow/using-gpus#compute-engine-machine-types-with-gpu)
  *  Set `masterConfig.imageUri` only if you build a custom image. Only one of
- *  `masterConfig.imageUri` and `runtimeVersion` should be set. Learn more about
- *  [configuring custom
+ *  `masterConfig.imageUri` and `runtimeVersion` should be set. Learn more
+ *  about [configuring custom
  *  containers](/ml-engine/docs/distributed-training-containers).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *masterConfig;
@@ -2177,40 +2201,32 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *pythonModule;
 
 /**
- *  Optional. The version of Python used in training. If not set, the default
- *  version is '2.7'. Starting [January 13,
- *  2020](/ml-engine/docs/release-notes#december_10_2019), this field is
- *  required.
+ *  Optional. The version of Python used in training. You must either specify
+ *  this field or specify `masterConfig.imageUri`.
  *  The following Python versions are available:
  *  * Python '3.7' is available when `runtime_version` is set to '1.15' or
  *  later.
  *  * Python '3.5' is available when `runtime_version` is set to a version
  *  from '1.4' to '1.14'.
  *  * Python '2.7' is available when `runtime_version` is set to '1.15' or
- *  earlier. (Runtime versions released [after January 1,
- *  2020](/ml-engine/docs/release-notes#december_10_2019) do not support
- *  Python 2.7.)
+ *  earlier.
  *  Read more about the Python versions available for [each runtime
  *  version](/ml-engine/docs/runtime-version-list).
  */
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
 
 /**
- *  Required. The Google Compute Engine region to run the training job in.
- *  See the <a href="/ml-engine/docs/tensorflow/regions">available regions</a>
- *  for AI Platform services.
+ *  Required. The region to run the training job in. See the [available
+ *  regions](/ai-platform/training/docs/regions) for AI Platform Training.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. The AI Platform runtime version to use for training. If not
- *  set, AI Platform uses the default stable version, 1.0. Starting [January
- *  13, 2020](/ml-engine/docs/release-notes#december_10_2019), this field is
- *  required.
- *  For more information, see the
- *  <a href="/ml-engine/docs/runtime-version-list">runtime version list</a>
- *  and
- *  <a href="/ml-engine/docs/versioning">how to manage runtime versions</a>.
+ *  Optional. The AI Platform runtime version to use for training. You must
+ *  either specify this field or specify `masterConfig.imageUri`.
+ *  For more information, see the [runtime version
+ *  list](/ai-platform/training/docs/runtime-version-list) and learn [how to
+ *  manage runtime versions](/ai-platform/training/docs/versioning).
  */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
@@ -2608,19 +2624,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *predictionClass;
 
 /**
- *  Optional. The version of Python used in prediction. If not set, the default
- *  version is '2.7'. Starting [January 13,
- *  2020](/ml-engine/docs/release-notes#december_10_2019), this field is
- *  required.
+ *  Required. The version of Python used in prediction.
  *  The following Python versions are available:
  *  * Python '3.7' is available when `runtime_version` is set to '1.15' or
  *  later.
  *  * Python '3.5' is available when `runtime_version` is set to a version
  *  from '1.4' to '1.14'.
  *  * Python '2.7' is available when `runtime_version` is set to '1.15' or
- *  earlier. (Runtime versions released [after January 1,
- *  2020](/ml-engine/docs/release-notes#december_10_2019) do not support
- *  Python 2.7.)
+ *  earlier.
  *  Read more about the Python versions available for [each runtime
  *  version](/ml-engine/docs/runtime-version-list).
  */
@@ -2638,10 +2649,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig *requestLoggingConfig;
 
 /**
- *  Optional. The AI Platform runtime version to use for this deployment.
- *  If not set, AI Platform uses the default stable version, 1.0. Starting
- *  [January 13, 2020](/ml-engine/docs/release-notes#december_10_2019), this
- *  field is required.
+ *  Required. The AI Platform runtime version to use for this deployment.
  *  For more information, see the
  *  [runtime version list](/ml-engine/docs/runtime-version-list) and
  *  [how to manage runtime versions](/ml-engine/docs/versioning).

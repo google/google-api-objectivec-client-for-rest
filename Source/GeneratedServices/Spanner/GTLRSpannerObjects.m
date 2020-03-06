@@ -275,8 +275,8 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_ExecuteSqlRequest
-@dynamic params, paramTypes, partitionToken, queryMode, resumeToken, seqno, sql,
-         transaction;
+@dynamic params, paramTypes, partitionToken, queryMode, queryOptions,
+         resumeToken, seqno, sql, transaction;
 @end
 
 
@@ -817,6 +817,16 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_QueryOptions
+//
+
+@implementation GTLRSpanner_QueryOptions
+@dynamic optimizerVersion;
 @end
 
 

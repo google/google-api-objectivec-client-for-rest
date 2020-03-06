@@ -32,6 +32,9 @@ NSString * const kGTLRCloudFilestore_Instance_State_Repairing  = @"REPAIRING";
 NSString * const kGTLRCloudFilestore_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCloudFilestore_Instance.tier
+NSString * const kGTLRCloudFilestore_Instance_Tier_BasicHdd    = @"BASIC_HDD";
+NSString * const kGTLRCloudFilestore_Instance_Tier_BasicSsd    = @"BASIC_SSD";
+NSString * const kGTLRCloudFilestore_Instance_Tier_HighScaleSsd = @"HIGH_SCALE_SSD";
 NSString * const kGTLRCloudFilestore_Instance_Tier_Premium     = @"PREMIUM";
 NSString * const kGTLRCloudFilestore_Instance_Tier_Standard    = @"STANDARD";
 NSString * const kGTLRCloudFilestore_Instance_Tier_TierUnspecified = @"TIER_UNSPECIFIED";
@@ -76,8 +79,8 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance
 @dynamic consumerDefinedName, createTime, labels, maintenancePolicyNames,
          maintenanceSchedules, name, producerMetadata, provisionedResources,
-         rolloutMetadata, slmInstanceTemplate, sloMetadata, softwareVersions,
-         state, tenantProjectId, updateTime;
+         slmInstanceTemplate, sloMetadata, softwareVersions, state,
+         tenantProjectId, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -147,20 +150,6 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata
-//
-
-@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions
 //
 
@@ -203,31 +192,11 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata
-//
-
-@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata
-@dynamic rescheduled, scheduledEndTime, scheduledStartTime, targetRelease;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource
 //
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource
 @dynamic resourceType, resourceUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata
-//
-
-@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata
-@dynamic notification, releaseName, rolloutName;
 @end
 
 

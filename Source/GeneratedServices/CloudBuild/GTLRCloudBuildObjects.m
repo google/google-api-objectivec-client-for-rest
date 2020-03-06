@@ -15,6 +15,7 @@
 
 // GTLRCloudBuild_Build.status
 NSString * const kGTLRCloudBuild_Build_Status_Cancelled     = @"CANCELLED";
+NSString * const kGTLRCloudBuild_Build_Status_Expired       = @"EXPIRED";
 NSString * const kGTLRCloudBuild_Build_Status_Failure       = @"FAILURE";
 NSString * const kGTLRCloudBuild_Build_Status_InternalError = @"INTERNAL_ERROR";
 NSString * const kGTLRCloudBuild_Build_Status_Queued        = @"QUEUED";
@@ -53,6 +54,7 @@ NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_MustMatch = @"M
 
 // GTLRCloudBuild_BuildStep.status
 NSString * const kGTLRCloudBuild_BuildStep_Status_Cancelled    = @"CANCELLED";
+NSString * const kGTLRCloudBuild_BuildStep_Status_Expired      = @"EXPIRED";
 NSString * const kGTLRCloudBuild_BuildStep_Status_Failure      = @"FAILURE";
 NSString * const kGTLRCloudBuild_BuildStep_Status_InternalError = @"INTERNAL_ERROR";
 NSString * const kGTLRCloudBuild_BuildStep_Status_Queued       = @"QUEUED";

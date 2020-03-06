@@ -51,6 +51,40 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRWebSecurityScanner_Finding.severity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_High;
+/**
+ *  Low severity.
+ *
+ *  Value: "LOW"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_Low;
+/**
+ *  Medium severity.
+ *
+ *  Value: "MEDIUM"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_Medium;
+/**
+ *  No severity specified. The default value.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRWebSecurityScanner_ScanConfig.exportToSecurityCommandCenter
 
 /**
@@ -792,6 +826,23 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName
  *  reproduce the vulnerability.
  */
 @property(nonatomic, copy, nullable) NSString *reproductionUrl;
+
+/**
+ *  Output only. The severity level of the reported vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWebSecurityScanner_Finding_Severity_Critical Critical
+ *        severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRWebSecurityScanner_Finding_Severity_High High severity.
+ *        (Value: "HIGH")
+ *    @arg @c kGTLRWebSecurityScanner_Finding_Severity_Low Low severity. (Value:
+ *        "LOW")
+ *    @arg @c kGTLRWebSecurityScanner_Finding_Severity_Medium Medium severity.
+ *        (Value: "MEDIUM")
+ *    @arg @c kGTLRWebSecurityScanner_Finding_Severity_SeverityUnspecified No
+ *        severity specified. The default value. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
 
 /**
  *  Output only. The tracking ID uniquely identifies a vulnerability instance

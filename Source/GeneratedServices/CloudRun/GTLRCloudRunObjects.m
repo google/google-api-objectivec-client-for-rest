@@ -638,6 +638,44 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_Namespace
+//
+
+@implementation GTLRCloudRun_Namespace
+@dynamic metadata, spec, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_NamespaceSpec
+//
+
+@implementation GTLRCloudRun_NamespaceSpec
+@dynamic finalizers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"finalizers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_NamespaceStatus
+//
+
+@implementation GTLRCloudRun_NamespaceStatus
+@dynamic phase;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_ObjectMeta
 //
 
@@ -903,6 +941,44 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
     @"traffic" : [GTLRCloudRun_TrafficTarget class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_Secret
+//
+
+@implementation GTLRCloudRun_Secret
+@dynamic data, metadata, stringData, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_Secret_Data
+//
+
+@implementation GTLRCloudRun_Secret_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_Secret_StringData
+//
+
+@implementation GTLRCloudRun_Secret_StringData
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

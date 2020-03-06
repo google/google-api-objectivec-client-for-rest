@@ -276,7 +276,7 @@ NSString * const kGTLRFirebaseRules_TestResult_State_Success   = @"SUCCESS";
 //
 
 @implementation GTLRFirebaseRules_SourcePosition
-@dynamic column, fileName, line;
+@dynamic column, currentOffset, endOffset, fileName, line;
 @end
 
 

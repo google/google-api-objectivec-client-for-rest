@@ -12,34 +12,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROauth2_Jwk
-//
-
-@implementation GTLROauth2_Jwk
-@dynamic keys;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"keys" : [GTLROauth2_Jwk_Keys_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROauth2_Jwk_Keys_Item
-//
-
-@implementation GTLROauth2_Jwk_Keys_Item
-@dynamic alg, e, kid, kty, n, use;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLROauth2_Tokeninfo
 //
 

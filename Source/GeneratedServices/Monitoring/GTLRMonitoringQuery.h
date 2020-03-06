@@ -160,13 +160,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsAlertPoliciesCreateWithObject:name:]
 
 /**
- *  Required. The project in which to create the alerting policy. The format is
- *  projects/[PROJECT_ID].Note that this field names the parent container in
- *  which the alerting policy will be written, not the name of the created
- *  policy. The alerting policy that is returned will have a name that contains
- *  a normalized representation of this name as a prefix but adds a suffix of
- *  the form /alertPolicies/[POLICY_ID], identifying the policy in the
- *  container.
+ *  Required. The project in which to create the alerting policy. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
+ *  Note that this field names the parent container in which the alerting policy
+ *  will be written, not the name of the created policy. The alerting policy
+ *  that is returned will have a name that contains a normalized representation
+ *  of this name as a prefix but adds a suffix of the form
+ *  /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -177,12 +177,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_AlertPolicy to include in the query.
  *  @param name Required. The project in which to create the alerting policy.
- *    The format is projects/[PROJECT_ID].Note that this field names the parent
- *    container in which the alerting policy will be written, not the name of
- *    the created policy. The alerting policy that is returned will have a name
- *    that contains a normalized representation of this name as a prefix but
- *    adds a suffix of the form /alertPolicies/[POLICY_ID], identifying the
- *    policy in the container.
+ *    The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
+ *    Note that this field names the parent container in which the alerting
+ *    policy will be written, not the name of the created policy. The alerting
+ *    policy that is returned will have a name that contains a normalized
+ *    representation of this name as a prefix but adds a suffix of the form
+ *    /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
  *
  *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesCreate
  */
@@ -206,7 +207,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The alerting policy to delete. The format is:
- *  projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+ *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  *  For more information, see AlertPolicy.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -217,7 +218,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Deletes an alerting policy.
  *
  *  @param name Required. The alerting policy to delete. The format is:
- *    projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+ *    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  *    For more information, see AlertPolicy.
  *
  *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesDelete
@@ -241,8 +242,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsAlertPoliciesGetWithname:]
 
 /**
- *  Required. The alerting policy to retrieve. The format is
- *  projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+ *  Required. The alerting policy to retrieve. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -251,8 +252,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  Gets a single alerting policy.
  *
- *  @param name Required. The alerting policy to retrieve. The format is
- *    projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+ *  @param name Required. The alerting policy to retrieve. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  *
  *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesGet
  */
@@ -277,13 +278,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  If provided, this field specifies the criteria that must be met by alert
  *  policies to be included in the response.For more details, see sorting and
- *  filtering.
+ *  filtering
+ *  (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Required. The project whose alert policies are to be listed. The format is
- *  projects/[PROJECT_ID]
+ *  Required. The project whose alert policies are to be listed. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
  *  Note that this field names the parent container in which the alerting
  *  policies to be listed are stored. To retrieve a single alerting policy by
  *  name, use the GetAlertPolicy operation, instead.
@@ -294,7 +296,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  A comma-separated list of fields by which to sort the result. Supports the
  *  same set of field references as the filter field. Entries can be prefixed
  *  with a minus sign to sort by the field in descending order.For more details,
- *  see sorting and filtering.
+ *  see sorting and filtering
+ *  (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -314,8 +317,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists the existing alerting policies for the project.
  *
  *  @param name Required. The project whose alert policies are to be listed. The
- *    format is
- *    projects/[PROJECT_ID]
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *    Note that this field names the parent container in which the alerting
  *    policies to be listed are stored. To retrieve a single alerting policy by
  *    name, use the GetAlertPolicy operation, instead.
@@ -347,9 +350,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsAlertPoliciesPatchWithObject:name:]
 
 /**
- *  Required if the policy exists. The resource name for this policy. The syntax
+ *  Required if the policy exists. The resource name for this policy. The format
  *  is:
- *  projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+ *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  *  [ALERT_POLICY_ID] is assigned by Stackdriver Monitoring when the policy is
  *  created. When calling the alertPolicies.create method, do not include the
  *  name field in the alerting policy passed as part of the request.
@@ -389,8 +392,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_AlertPolicy to include in the query.
  *  @param name Required if the policy exists. The resource name for this
- *    policy. The syntax is:
- *    projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+ *    policy. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  *    [ALERT_POLICY_ID] is assigned by Stackdriver Monitoring when the policy is
  *    created. When calling the alertPolicies.create method, do not include the
  *    name field in the alerting policy passed as part of the request.
@@ -419,8 +422,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsCollectdTimeSeriesCreateWithObject:name:]
 
 /**
- *  The project in which to create the time series. The format is
- *  "projects/PROJECT_ID_OR_NUMBER".
+ *  The project in which to create the time series. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -433,8 +436,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_CreateCollectdTimeSeriesRequest to
  *    include in the query.
- *  @param name The project in which to create the time series. The format is
- *    "projects/PROJECT_ID_OR_NUMBER".
+ *  @param name The project in which to create the time series. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsCollectdTimeSeriesCreate
  */
@@ -457,8 +460,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsGroupsCreateWithObject:name:]
 
 /**
- *  Required. The project in which to create the group. The format is
- *  "projects/{project_id_or_number}".
+ *  Required. The project in which to create the group. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -472,7 +475,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_Group to include in the query.
  *  @param name Required. The project in which to create the group. The format
- *    is "projects/{project_id_or_number}".
+ *    is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsGroupsCreate
  */
@@ -495,8 +499,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsGroupsDeleteWithname:]
 
 /**
- *  Required. The group to delete. The format is
- *  "projects/{project_id_or_number}/groups/{group_id}".
+ *  Required. The group to delete. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -512,8 +516,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  Deletes an existing group.
  *
- *  @param name Required. The group to delete. The format is
- *    "projects/{project_id_or_number}/groups/{group_id}".
+ *  @param name Required. The group to delete. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
  *
  *  @return GTLRMonitoringQuery_ProjectsGroupsDelete
  */
@@ -536,8 +540,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsGroupsGetWithname:]
 
 /**
- *  Required. The group to retrieve. The format is
- *  "projects/{project_id_or_number}/groups/{group_id}".
+ *  Required. The group to retrieve. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -546,8 +550,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  Gets a single group.
  *
- *  @param name Required. The group to retrieve. The format is
- *    "projects/{project_id_or_number}/groups/{group_id}".
+ *  @param name Required. The group to retrieve. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
  *
  *  @return GTLRMonitoringQuery_ProjectsGroupsGet
  */
@@ -570,32 +574,35 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsGroupsListWithname:]
 
 /**
- *  A group name: "projects/{project_id_or_number}/groups/{group_id}". Returns
- *  groups that are ancestors of the specified group. The groups are returned in
- *  order, starting with the immediate parent and ending with the most distant
- *  ancestor. If the specified group has no immediate parent, the results are
- *  empty.
+ *  A group name. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+ *  Returns groups that are ancestors of the specified group. The groups are
+ *  returned in order, starting with the immediate parent and ending with the
+ *  most distant ancestor. If the specified group has no immediate parent, the
+ *  results are empty.
  */
 @property(nonatomic, copy, nullable) NSString *ancestorsOfGroup;
 
 /**
- *  A group name: "projects/{project_id_or_number}/groups/{group_id}". Returns
- *  groups whose parentName field contains the group name. If no groups have
- *  this parent, the results are empty.
+ *  A group name. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+ *  Returns groups whose parent_name field contains the group name. If no groups
+ *  have this parent, the results are empty.
  */
 @property(nonatomic, copy, nullable) NSString *childrenOfGroup;
 
 /**
- *  A group name: "projects/{project_id_or_number}/groups/{group_id}". Returns
- *  the descendants of the specified group. This is a superset of the results
- *  returned by the childrenOfGroup filter, and includes children-of-children,
- *  and so forth.
+ *  A group name. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+ *  Returns the descendants of the specified group. This is a superset of the
+ *  results returned by the children_of_group filter, and includes
+ *  children-of-children, and so forth.
  */
 @property(nonatomic, copy, nullable) NSString *descendantsOfGroup;
 
 /**
- *  Required. The project whose groups are to be listed. The format is
- *  "projects/{project_id_or_number}".
+ *  Required. The project whose groups are to be listed. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -603,7 +610,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  If this field is not empty then it must contain the nextPageToken value
+ *  If this field is not empty then it must contain the next_page_token value
  *  returned by a previous call to this method. Using this field causes the
  *  method to return additional results from the previous method call.
  */
@@ -615,7 +622,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists the existing groups.
  *
  *  @param name Required. The project whose groups are to be listed. The format
- *    is "projects/{project_id_or_number}".
+ *    is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsGroupsList
  *
@@ -642,11 +650,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsGroupsMembersListWithname:]
 
 /**
- *  An optional list filter describing the members to be returned. The filter
- *  may reference the type, labels, and metadata of monitored resources that
- *  comprise the group. For example, to return only resources representing
- *  Compute Engine VM instances, use this filter:
- *  resource.type = "gce_instance"
+ *  An optional list filter
+ *  (https://cloud.google.com/monitoring/api/learn_more#filtering) describing
+ *  the members to be returned. The filter may reference the type, labels, and
+ *  metadata of monitored resources that comprise the group. For example, to
+ *  return only resources representing Compute Engine VM instances, use this
+ *  filter:
+ *  `resource.type = "gce_instance"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -661,8 +671,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
 
 /**
- *  Required. The group whose members are listed. The format is
- *  "projects/{project_id_or_number}/groups/{group_id}".
+ *  Required. The group whose members are listed. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -670,7 +680,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  If this field is not empty then it must contain the nextPageToken value
+ *  If this field is not empty then it must contain the next_page_token value
  *  returned by a previous call to this method. Using this field causes the
  *  method to return additional results from the previous method call.
  */
@@ -681,8 +691,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  Lists the monitored resources that are members of a group.
  *
- *  @param name Required. The group whose members are listed. The format is
- *    "projects/{project_id_or_number}/groups/{group_id}".
+ *  @param name Required. The group whose members are listed. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
  *
  *  @return GTLRMonitoringQuery_ProjectsGroupsMembersList
  *
@@ -708,11 +718,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsGroupsUpdateWithObject:name:]
 
 /**
- *  Output only. The name of this group. The format is
- *  "projects/{project_id_or_number}/groups/{group_id}". When creating a group,
- *  this field is ignored and a new name is created consisting of the project
- *  specified in the call to CreateGroup and a unique {group_id} that is
- *  generated automatically.
+ *  Output only. The name of this group. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+ *  When creating a group, this field is ignored and a new name is created
+ *  consisting of the project specified in the call to CreateGroup and a unique
+ *  [GROUP_ID] that is generated automatically.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -725,11 +735,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Updates an existing group. You can change any group attributes except name.
  *
  *  @param object The @c GTLRMonitoring_Group to include in the query.
- *  @param name Output only. The name of this group. The format is
- *    "projects/{project_id_or_number}/groups/{group_id}". When creating a
- *    group, this field is ignored and a new name is created consisting of the
- *    project specified in the call to CreateGroup and a unique {group_id} that
- *    is generated automatically.
+ *  @param name Output only. The name of this group. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
+ *    When creating a group, this field is ignored and a new name is created
+ *    consisting of the project specified in the call to CreateGroup and a
+ *    unique [GROUP_ID] that is generated automatically.
  *
  *  @return GTLRMonitoringQuery_ProjectsGroupsUpdate
  */
@@ -740,7 +750,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Creates a new metric descriptor. User-created metric descriptors define
- *  custom metrics.
+ *  custom metrics (https://cloud.google.com/monitoring/custom-metrics).
  *
  *  Method: monitoring.projects.metricDescriptors.create
  *
@@ -754,8 +764,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsMetricDescriptorsCreateWithObject:name:]
 
 /**
- *  Required. The project on which to execute the request. The format is
- *  "projects/{project_id_or_number}".
+ *  Required. The project on which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -763,12 +773,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Fetches a @c GTLRMonitoring_MetricDescriptor.
  *
  *  Creates a new metric descriptor. User-created metric descriptors define
- *  custom metrics.
+ *  custom metrics (https://cloud.google.com/monitoring/custom-metrics).
  *
  *  @param object The @c GTLRMonitoring_MetricDescriptor to include in the
  *    query.
  *  @param name Required. The project on which to execute the request. The
- *    format is "projects/{project_id_or_number}".
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsCreate
  */
@@ -778,8 +789,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Deletes a metric descriptor. Only user-created custom metrics can be
- *  deleted.
+ *  Deletes a metric descriptor. Only user-created custom metrics
+ *  (https://cloud.google.com/monitoring/custom-metrics) can be deleted.
  *
  *  Method: monitoring.projects.metricDescriptors.delete
  *
@@ -793,21 +804,22 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The metric descriptor on which to execute the request. The format
- *  is "projects/{project_id_or_number}/metricDescriptors/{metric_id}". An
- *  example of {metric_id} is: "custom.googleapis.com/my_test_metric".
+ *  is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
+ *  An example of [METRIC_ID] is: "custom.googleapis.com/my_test_metric".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMonitoring_Empty.
  *
- *  Deletes a metric descriptor. Only user-created custom metrics can be
- *  deleted.
+ *  Deletes a metric descriptor. Only user-created custom metrics
+ *  (https://cloud.google.com/monitoring/custom-metrics) can be deleted.
  *
  *  @param name Required. The metric descriptor on which to execute the request.
- *    The format is
- *    "projects/{project_id_or_number}/metricDescriptors/{metric_id}". An
- *    example of {metric_id} is: "custom.googleapis.com/my_test_metric".
+ *    The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
+ *    An example of [METRIC_ID] is: "custom.googleapis.com/my_test_metric".
  *
  *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsDelete
  */
@@ -833,8 +845,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The metric descriptor on which to execute the request. The format
- *  is "projects/{project_id_or_number}/metricDescriptors/{metric_id}". An
- *  example value of {metric_id} is
+ *  is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
+ *  An example value of [METRIC_ID] is
  *  "compute.googleapis.com/instance/disk/read_bytes_count".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -846,9 +859,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  account.
  *
  *  @param name Required. The metric descriptor on which to execute the request.
- *    The format is
- *    "projects/{project_id_or_number}/metricDescriptors/{metric_id}". An
- *    example value of {metric_id} is
+ *    The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
+ *    An example value of [METRIC_ID] is
  *    "compute.googleapis.com/instance/disk/read_bytes_count".
  *
  *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsGet
@@ -875,15 +888,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  If this field is empty, all custom and system-defined metric descriptors are
- *  returned. Otherwise, the filter specifies which metric descriptors are to be
- *  returned. For example, the following filter matches all custom metrics:
+ *  returned. Otherwise, the filter
+ *  (https://cloud.google.com/monitoring/api/v3/filters) specifies which metric
+ *  descriptors are to be returned. For example, the following filter matches
+ *  all custom metrics (https://cloud.google.com/monitoring/custom-metrics):
  *  metric.type = starts_with("custom.googleapis.com/")
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Required. The project on which to execute the request. The format is
- *  "projects/{project_id_or_number}".
+ *  Required. The project on which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -904,7 +919,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Stackdriver account.
  *
  *  @param name Required. The project on which to execute the request. The
- *    format is "projects/{project_id_or_number}".
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsList
  *
@@ -933,9 +949,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsMonitoredResourceDescriptorsGetWithname:]
 
 /**
- *  Required. The monitored resource descriptor to get. The format is
- *  "projects/{project_id_or_number}/monitoredResourceDescriptors/{resource_type}".
- *  The {resource_type} is a predefined type, such as cloudsql_database.
+ *  Required. The monitored resource descriptor to get. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/monitoredResourceDescriptors/[RESOURCE_TYPE]
+ *  The [RESOURCE_TYPE] is a predefined type, such as cloudsql_database.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -946,9 +962,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Stackdriver account.
  *
  *  @param name Required. The monitored resource descriptor to get. The format
- *    is
- *    "projects/{project_id_or_number}/monitoredResourceDescriptors/{resource_type}".
- *    The {resource_type} is a predefined type, such as cloudsql_database.
+ *    is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/monitoredResourceDescriptors/[RESOURCE_TYPE]
+ *    The [RESOURCE_TYPE] is a predefined type, such as cloudsql_database.
  *
  *  @return GTLRMonitoringQuery_ProjectsMonitoredResourceDescriptorsGet
  */
@@ -973,16 +989,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsMonitoredResourceDescriptorsListWithname:]
 
 /**
- *  An optional filter describing the descriptors to be returned. The filter can
- *  reference the descriptor's type and labels. For example, the following
- *  filter returns only Google Compute Engine descriptors that have an id label:
+ *  An optional filter (https://cloud.google.com/monitoring/api/v3/filters)
+ *  describing the descriptors to be returned. The filter can reference the
+ *  descriptor's type and labels. For example, the following filter returns only
+ *  Google Compute Engine descriptors that have an id label:
  *  resource.type = starts_with("gce_") AND resource.label:id
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Required. The project on which to execute the request. The format is
- *  "projects/{project_id_or_number}".
+ *  Required. The project on which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1003,7 +1020,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  not require a Stackdriver account.
  *
  *  @param name Required. The project on which to execute the request. The
- *    format is "projects/{project_id_or_number}".
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsMonitoredResourceDescriptorsList
  *
@@ -1031,8 +1049,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsNotificationChannelDescriptorsGetWithname:]
 
 /**
- *  Required. The channel type for which to execute the request. The format is
- *  projects/[PROJECT_ID]/notificationChannelDescriptors/{channel_type}.
+ *  Required. The channel type for which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[CHANNEL_TYPE]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1043,8 +1061,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  expected / permitted for a notification channel of the given type.
  *
  *  @param name Required. The channel type for which to execute the request. The
- *    format is
- *    projects/[PROJECT_ID]/notificationChannelDescriptors/{channel_type}.
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[CHANNEL_TYPE]
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsGet
  */
@@ -1070,7 +1088,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Required. The REST resource name of the parent from which to retrieve the
  *  notification channel descriptors. The expected syntax is:
- *  projects/[PROJECT_ID]
+ *  projects/[PROJECT_ID_OR_NUMBER]
  *  Note that this names the parent container in which to look for the
  *  descriptors; to retrieve a single descriptor by name, use the
  *  GetNotificationChannelDescriptor operation, instead.
@@ -1097,7 +1115,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param name Required. The REST resource name of the parent from which to
  *    retrieve the notification channel descriptors. The expected syntax is:
- *    projects/[PROJECT_ID]
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *    Note that this names the parent container in which to look for the
  *    descriptors; to retrieve a single descriptor by name, use the
  *    GetNotificationChannelDescriptor operation, instead.
@@ -1128,10 +1146,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The project on which to execute the request. The format is:
- *  projects/[PROJECT_ID]
- *  Note that this names the container into which the channel will be written.
- *  This does not name the newly created channel. The resulting channel's name
- *  will have a normalized version of this field as a prefix, but will add
+ *  projects/[PROJECT_ID_OR_NUMBER]
+ *  This names the container into which the channel will be written, this does
+ *  not name the newly created channel. The resulting channel's name will have a
+ *  normalized version of this field as a prefix, but will add
  *  /notificationChannels/[CHANNEL_ID] to identify the channel.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1146,10 +1164,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    query.
  *  @param name Required. The project on which to execute the request. The
  *    format is:
- *    projects/[PROJECT_ID]
- *    Note that this names the container into which the channel will be written.
- *    This does not name the newly created channel. The resulting channel's name
- *    will have a normalized version of this field as a prefix, but will add
+ *    projects/[PROJECT_ID_OR_NUMBER]
+ *    This names the container into which the channel will be written, this does
+ *    not name the newly created channel. The resulting channel's name will have
+ *    a normalized version of this field as a prefix, but will add
  *    /notificationChannels/[CHANNEL_ID] to identify the channel.
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsCreate
@@ -1181,8 +1199,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. The channel for which to execute the request. The format is
- *  projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID].
+ *  Required. The channel for which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1192,7 +1210,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Deletes a notification channel.
  *
  *  @param name Required. The channel for which to execute the request. The
- *    format is projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID].
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsDelete
  */
@@ -1219,8 +1238,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsNotificationChannelsGetWithname:]
 
 /**
- *  Required. The channel for which to execute the request. The format is
- *  projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID].
+ *  Required. The channel for which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1234,7 +1253,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  that was supplied in the call to the create method.
  *
  *  @param name Required. The channel for which to execute the request. The
- *    format is projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID].
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsGet
  */
@@ -1332,16 +1352,17 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  If provided, this field specifies the criteria that must be met by
  *  notification channels to be included in the response.For more details, see
- *  sorting and filtering.
+ *  sorting and filtering
+ *  (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Required. The project on which to execute the request. The format is
- *  projects/[PROJECT_ID]. That is, this names the container in which to look
- *  for the notification channels; it does not name a specific channel. To query
- *  a specific channel by REST resource name, use the GetNotificationChannel
- *  operation.
+ *  Required. The project on which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
+ *  This names the container in which to look for the notification channels; it
+ *  does not name a specific channel. To query a specific channel by REST
+ *  resource name, use the GetNotificationChannel operation.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1349,7 +1370,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  A comma-separated list of fields by which to sort the result. Supports the
  *  same set of fields as in filter. Entries can be prefixed with a minus sign
  *  to sort in descending rather than ascending order.For more details, see
- *  sorting and filtering.
+ *  sorting and filtering
+ *  (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1371,10 +1393,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists the notification channels that have been created for the project.
  *
  *  @param name Required. The project on which to execute the request. The
- *    format is projects/[PROJECT_ID]. That is, this names the container in
- *    which to look for the notification channels; it does not name a specific
- *    channel. To query a specific channel by REST resource name, use the
- *    GetNotificationChannel operation.
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
+ *    This names the container in which to look for the notification channels;
+ *    it does not name a specific channel. To query a specific channel by REST
+ *    resource name, use the GetNotificationChannel operation.
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsList
  *
@@ -1401,8 +1424,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsNotificationChannelsPatchWithObject:name:]
 
 /**
- *  The full REST resource name for this channel. The syntax is:
- *  projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]
+ *  The full REST resource name for this channel. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
  *  The [CHANNEL_ID] is automatically assigned by the server on creation.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1422,8 +1445,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_NotificationChannel to include in the
  *    query.
- *  @param name The full REST resource name for this channel. The syntax is:
- *    projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]
+ *  @param name The full REST resource name for this channel. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
  *    The [CHANNEL_ID] is automatically assigned by the server on creation.
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsPatch
@@ -1522,8 +1545,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsTimeSeriesCreateWithObject:name:]
 
 /**
- *  Required. The project on which to execute the request. The format is
- *  "projects/{project_id_or_number}".
+ *  Required. The project on which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1537,7 +1560,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  @param object The @c GTLRMonitoring_CreateTimeSeriesRequest to include in
  *    the query.
  *  @param name Required. The project on which to execute the request. The
- *    format is "projects/{project_id_or_number}".
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsTimeSeriesCreate
  */
@@ -1690,9 +1714,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *aggregationPerSeriesAligner;
 
 /**
- *  Required. A monitoring filter that specifies which time series should be
- *  returned. The filter must specify a single metric type, and can additionally
- *  specify metric labels and other information. For example:
+ *  Required. A monitoring filter
+ *  (https://cloud.google.com/monitoring/api/v3/filters) that specifies which
+ *  time series should be returned. The filter must specify a single metric
+ *  type, and can additionally specify metric labels and other information. For
+ *  example:
  *  metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
  *  metric.labels.instance_name = "my-instance-name"
  */
@@ -1709,8 +1735,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
 
 /**
- *  Required. The project on which to execute the request. The format is
- *  "projects/{project_id_or_number}".
+ *  Required. The project on which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1752,7 +1778,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Stackdriver account.
  *
  *  @param name Required. The project on which to execute the request. The
- *    format is "projects/{project_id_or_number}".
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsTimeSeriesList
  */
@@ -1774,8 +1801,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsCreateWithObject:parent:]
 
 /**
- *  Required. The project in which to create the Uptime check. The format is
- *  projects/[PROJECT_ID].
+ *  Required. The project in which to create the Uptime check. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1787,7 +1814,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  @param object The @c GTLRMonitoring_UptimeCheckConfig to include in the
  *    query.
  *  @param parent Required. The project in which to create the Uptime check. The
- *    format is projects/[PROJECT_ID].
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsCreate
  */
@@ -1812,8 +1840,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsDeleteWithname:]
 
 /**
- *  Required. The Uptime check configuration to delete. The format is
- *  projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ *  Required. The Uptime check configuration to delete. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1825,7 +1853,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  dependent configs that would be rendered invalid by the deletion.
  *
  *  @param name Required. The Uptime check configuration to delete. The format
- *    is projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ *    is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsDelete
  */
@@ -1848,8 +1877,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsGetWithname:]
 
 /**
- *  Required. The Uptime check configuration to retrieve. The format is
- *  projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ *  Required. The Uptime check configuration to retrieve. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1859,7 +1888,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Gets a single Uptime check configuration.
  *
  *  @param name Required. The Uptime check configuration to retrieve. The format
- *    is projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+ *    is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsGet
  */
@@ -1899,7 +1929,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The project whose Uptime check configurations are listed. The
- *  format is projects/[PROJECT_ID].
+ *  format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1910,7 +1941,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  (leaving out any invalid configurations).
  *
  *  @param parent Required. The project whose Uptime check configurations are
- *    listed. The format is projects/[PROJECT_ID].
+ *    listed. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList
  *
@@ -1939,10 +1971,11 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsPatchWithObject:name:]
 
 /**
- *  A unique resource name for this Uptime check configuration. The format
- *  is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This field
- *  should be omitted when creating the Uptime check configuration; on create,
- *  the resource name is assigned by the server and included in the response.
+ *  A unique resource name for this Uptime check configuration. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+ *  This field should be omitted when creating the Uptime check configuration;
+ *  on create, the resource name is assigned by the server and included in the
+ *  response.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1967,9 +2000,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  @param object The @c GTLRMonitoring_UptimeCheckConfig to include in the
  *    query.
  *  @param name A unique resource name for this Uptime check configuration. The
- *    format is:projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].This
- *    field should be omitted when creating the Uptime check configuration; on
- *    create, the resource name is assigned by the server and included in the
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+ *    This field should be omitted when creating the Uptime check configuration;
+ *    on create, the resource name is assigned by the server and included in the
  *    response.
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch
@@ -1993,14 +2027,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForServicesCreateWithObject:parent:]
 
 /**
- *  Required. Resource name of the parent workspace. Of the form
- *  projects/{project_id}.
+ *  Required. Resource name of the parent workspace. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Optional. The Service id to use for this Service. If omitted, an id will be
- *  generated instead. Must match the pattern a-z0-9-+
+ *  generated instead. Must match the pattern [a-z0-9\\-]+
  */
 @property(nonatomic, copy, nullable) NSString *serviceId;
 
@@ -2010,8 +2044,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Create a Service.
  *
  *  @param object The @c GTLRMonitoring_Service to include in the query.
- *  @param parent Required. Resource name of the parent workspace. Of the form
- *    projects/{project_id}.
+ *  @param parent Required. Resource name of the parent workspace. The format
+ *    is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ServicesCreate
  */
@@ -2034,8 +2069,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForServicesDeleteWithname:]
 
 /**
- *  Required. Resource name of the Service to delete. Of the form
- *  projects/{project_id}/services/{service_id}.
+ *  Required. Resource name of the Service to delete. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2044,8 +2079,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  Soft delete this Service.
  *
- *  @param name Required. Resource name of the Service to delete. Of the form
- *    projects/{project_id}/services/{service_id}.
+ *  @param name Required. Resource name of the Service to delete. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  *
  *  @return GTLRMonitoringQuery_ServicesDelete
  */
@@ -2068,8 +2103,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForServicesGetWithname:]
 
 /**
- *  Required. Resource name of the Service. Of the form
- *  projects/{project_id}/services/{service_id}.
+ *  Required. Resource name of the Service. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2078,8 +2113,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  Get the named Service.
  *
- *  @param name Required. Resource name of the Service. Of the form
- *    projects/{project_id}/services/{service_id}.
+ *  @param name Required. Resource name of the Service. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  *
  *  @return GTLRMonitoringQuery_ServicesGet
  */
@@ -2133,8 +2168,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. Resource name of the parent containing the listed services, either
- *  a project or Stackdriver Account (workspace).One of the forms:
- *  "projects/{project_id}" "workspaces/{host_project_id}"
+ *  a project or Stackdriver Account (workspace). The formats are:
+ *  projects/[PROJECT_ID_OR_NUMBER]
+ *  workspaces/[HOST_PROJECT_ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2144,8 +2180,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  List Services for this workspace.
  *
  *  @param parent Required. Resource name of the parent containing the listed
- *    services, either a project or Stackdriver Account (workspace).One of the
- *    forms: "projects/{project_id}" "workspaces/{host_project_id}"
+ *    services, either a project or Stackdriver Account (workspace). The formats
+ *    are:
+ *    projects/[PROJECT_ID_OR_NUMBER]
+ *    workspaces/[HOST_PROJECT_ID]
  *
  *  @return GTLRMonitoringQuery_ServicesList
  *
@@ -2171,8 +2209,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForServicesPatchWithObject:name:]
 
 /**
- *  Resource name for this Service. Of the form
- *  projects/{project_id}/services/{service_id}.
+ *  Resource name for this Service. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2189,8 +2227,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Update this Service.
  *
  *  @param object The @c GTLRMonitoring_Service to include in the query.
- *  @param name Resource name for this Service. Of the form
- *    projects/{project_id}/services/{service_id}.
+ *  @param name Resource name for this Service. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID}
  *
  *  @return GTLRMonitoringQuery_ServicesPatch
  */
@@ -2213,15 +2251,15 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesCreateWithObject:parent:]
 
 /**
- *  Required. Resource name of the parent Service. Of the form
- *  projects/{project_id}/services/{service_id}.
+ *  Required. Resource name of the parent Service. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Optional. The ServiceLevelObjective id to use for this
  *  ServiceLevelObjective. If omitted, an id will be generated instead. Must
- *  match the pattern a-z0-9-+
+ *  match the pattern [a-z0-9\\-]+
  */
 @property(nonatomic, copy, nullable) NSString *serviceLevelObjectiveId;
 
@@ -2232,8 +2270,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_ServiceLevelObjective to include in the
  *    query.
- *  @param parent Required. Resource name of the parent Service. Of the form
- *    projects/{project_id}/services/{service_id}.
+ *  @param parent Required. Resource name of the parent Service. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  *
  *  @return GTLRMonitoringQuery_ServicesServiceLevelObjectivesCreate
  */
@@ -2256,8 +2294,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesDeleteWithname:]
 
 /**
- *  Required. Resource name of the ServiceLevelObjective to delete. Of the form
- *  projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ *  Required. Resource name of the ServiceLevelObjective to delete. The format
+ *  is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2267,8 +2306,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Delete the given ServiceLevelObjective.
  *
  *  @param name Required. Resource name of the ServiceLevelObjective to delete.
- *    Of the form
- *    projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ *    The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
  *
  *  @return GTLRMonitoringQuery_ServicesServiceLevelObjectivesDelete
  */
@@ -2291,8 +2330,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesGetWithname:]
 
 /**
- *  Required. Resource name of the ServiceLevelObjective to get. Of the form
- *  projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ *  Required. Resource name of the ServiceLevelObjective to get. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2314,9 +2353,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  Get a ServiceLevelObjective by name.
  *
- *  @param name Required. Resource name of the ServiceLevelObjective to get. Of
- *    the form
- *    projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ *  @param name Required. Resource name of the ServiceLevelObjective to get. The
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
  *
  *  @return GTLRMonitoringQuery_ServicesServiceLevelObjectivesGet
  */
@@ -2355,8 +2394,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Resource name of the parent Service. Of the form
- *  projects/{project_id}/services/{service_id}.
+ *  Required. Resource name of the parent Service. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2378,8 +2417,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  List the ServiceLevelObjectives for the given Service.
  *
- *  @param parent Required. Resource name of the parent Service. Of the form
- *    projects/{project_id}/services/{service_id}.
+ *  @param parent Required. Resource name of the parent Service. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  *
  *  @return GTLRMonitoringQuery_ServicesServiceLevelObjectivesList
  *
@@ -2405,8 +2444,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 //   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesPatchWithObject:name:]
 
 /**
- *  Resource name for this ServiceLevelObjective. Of the form
- *  projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ *  Resource name for this ServiceLevelObjective. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2424,8 +2463,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_ServiceLevelObjective to include in the
  *    query.
- *  @param name Resource name for this ServiceLevelObjective. Of the form
- *    projects/{project_id}/services/{service_id}/serviceLevelObjectives/{slo_name}.
+ *  @param name Resource name for this ServiceLevelObjective. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
  *
  *  @return GTLRMonitoringQuery_ServicesServiceLevelObjectivesPatch
  */

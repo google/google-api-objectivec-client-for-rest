@@ -20,6 +20,8 @@
 #endif
 
 @class GTLRCloudRun_DomainMapping;
+@class GTLRCloudRun_Namespace;
+@class GTLRCloudRun_Secret;
 @class GTLRCloudRun_Service;
 @class GTLRCloudRun_SetIamPolicyRequest;
 @class GTLRCloudRun_TestIamPermissionsRequest;
@@ -38,6 +40,195 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Rpc to get information about a namespace.
+ *
+ *  Method: run.api.v1.namespaces.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ApiV1NamespacesGet : GTLRCloudRunQuery
+// Previous library name was
+//   +[GTLQueryCloudRun queryForApiV1NamespacesGetWithname:]
+
+/**
+ *  Required. The name of the namespace being retrieved. If needed, replace
+ *  {namespace_id} with the project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_Namespace.
+ *
+ *  Rpc to get information about a namespace.
+ *
+ *  @param name Required. The name of the namespace being retrieved. If needed,
+ *    replace
+ *    {namespace_id} with the project ID.
+ *
+ *  @return GTLRCloudRunQuery_ApiV1NamespacesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Rpc to update a namespace.
+ *
+ *  Method: run.api.v1.namespaces.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ApiV1NamespacesPatch : GTLRCloudRunQuery
+// Previous library name was
+//   +[GTLQueryCloudRun queryForApiV1NamespacesPatchWithObject:name:]
+
+/**
+ *  Required. The name of the namespace being retrieved. If needed, replace
+ *  {namespace_id} with the project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Indicates which fields in the provided namespace to update.
+ *  This field is currently unused.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudRun_Namespace.
+ *
+ *  Rpc to update a namespace.
+ *
+ *  @param object The @c GTLRCloudRun_Namespace to include in the query.
+ *  @param name Required. The name of the namespace being retrieved. If needed,
+ *    replace
+ *    {namespace_id} with the project ID.
+ *
+ *  @return GTLRCloudRunQuery_ApiV1NamespacesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_Namespace *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new secret.
+ *
+ *  Method: run.api.v1.namespaces.secrets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ApiV1NamespacesSecretsCreate : GTLRCloudRunQuery
+// Previous library name was
+//   +[GTLQueryCloudRun queryForApiV1NamespacesSecretsCreateWithObject:parent:]
+
+/**
+ *  Required. The project ID or project number in which this secret should
+ *  be created.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRun_Secret.
+ *
+ *  Creates a new secret.
+ *
+ *  @param object The @c GTLRCloudRun_Secret to include in the query.
+ *  @param parent Required. The project ID or project number in which this
+ *    secret should
+ *    be created.
+ *
+ *  @return GTLRCloudRunQuery_ApiV1NamespacesSecretsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_Secret *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Rpc to get information about a secret.
+ *
+ *  Method: run.api.v1.namespaces.secrets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ApiV1NamespacesSecretsGet : GTLRCloudRunQuery
+// Previous library name was
+//   +[GTLQueryCloudRun queryForApiV1NamespacesSecretsGetWithname:]
+
+/**
+ *  Required. The name of the secret being retrieved. If needed, replace
+ *  {namespace_id} with the project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_Secret.
+ *
+ *  Rpc to get information about a secret.
+ *
+ *  @param name Required. The name of the secret being retrieved. If needed,
+ *    replace
+ *    {namespace_id} with the project ID.
+ *
+ *  @return GTLRCloudRunQuery_ApiV1NamespacesSecretsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Rpc to replace a secret.
+ *  Only the spec and metadata labels and annotations are modifiable. After
+ *  the Update request, Cloud Run will work to make the 'status'
+ *  match the requested 'spec'.
+ *  May provide metadata.resourceVersion to enforce update from last read for
+ *  optimistic concurrency control.
+ *
+ *  Method: run.api.v1.namespaces.secrets.replaceSecret
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ApiV1NamespacesSecretsReplaceSecret : GTLRCloudRunQuery
+// Previous library name was
+//   +[GTLQueryCloudRun queryForApiV1NamespacesSecretsReplaceSecretWithObject:name:]
+
+/**
+ *  Required. The name of the secret being retrieved. If needed, replace
+ *  {namespace_id} with the project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_Secret.
+ *
+ *  Rpc to replace a secret.
+ *  Only the spec and metadata labels and annotations are modifiable. After
+ *  the Update request, Cloud Run will work to make the 'status'
+ *  match the requested 'spec'.
+ *  May provide metadata.resourceVersion to enforce update from last read for
+ *  optimistic concurrency control.
+ *
+ *  @param object The @c GTLRCloudRun_Secret to include in the query.
+ *  @param name Required. The name of the secret being retrieved. If needed,
+ *    replace
+ *    {namespace_id} with the project ID.
+ *
+ *  @return GTLRCloudRunQuery_ApiV1NamespacesSecretsReplaceSecret
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_Secret *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1253,6 +1444,82 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Rpc to get information about a namespace.
+ *
+ *  Method: run.projects.locations.namespaces.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsNamespacesGet : GTLRCloudRunQuery
+// Previous library name was
+//   +[GTLQueryCloudRun queryForProjectsLocationsNamespacesGetWithname:]
+
+/**
+ *  Required. The name of the namespace being retrieved. If needed, replace
+ *  {namespace_id} with the project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_Namespace.
+ *
+ *  Rpc to get information about a namespace.
+ *
+ *  @param name Required. The name of the namespace being retrieved. If needed,
+ *    replace
+ *    {namespace_id} with the project ID.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsNamespacesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Rpc to update a namespace.
+ *
+ *  Method: run.projects.locations.namespaces.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsNamespacesPatch : GTLRCloudRunQuery
+// Previous library name was
+//   +[GTLQueryCloudRun queryForProjectsLocationsNamespacesPatchWithObject:name:]
+
+/**
+ *  Required. The name of the namespace being retrieved. If needed, replace
+ *  {namespace_id} with the project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Indicates which fields in the provided namespace to update.
+ *  This field is currently unused.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudRun_Namespace.
+ *
+ *  Rpc to update a namespace.
+ *
+ *  @param object The @c GTLRCloudRun_Namespace to include in the query.
+ *  @param name Required. The name of the namespace being retrieved. If needed,
+ *    replace
+ *    {namespace_id} with the project ID.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsNamespacesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_Namespace *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Delete a revision.
  *
  *  Method: run.projects.locations.revisions.delete
@@ -1509,6 +1776,119 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudRunQuery_ProjectsLocationsRoutesList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new secret.
+ *
+ *  Method: run.projects.locations.secrets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsSecretsCreate : GTLRCloudRunQuery
+// Previous library name was
+//   +[GTLQueryCloudRun queryForProjectsLocationsSecretsCreateWithObject:parent:]
+
+/**
+ *  Required. The project ID or project number in which this secret should
+ *  be created.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRun_Secret.
+ *
+ *  Creates a new secret.
+ *
+ *  @param object The @c GTLRCloudRun_Secret to include in the query.
+ *  @param parent Required. The project ID or project number in which this
+ *    secret should
+ *    be created.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsSecretsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_Secret *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Rpc to get information about a secret.
+ *
+ *  Method: run.projects.locations.secrets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsSecretsGet : GTLRCloudRunQuery
+// Previous library name was
+//   +[GTLQueryCloudRun queryForProjectsLocationsSecretsGetWithname:]
+
+/**
+ *  Required. The name of the secret being retrieved. If needed, replace
+ *  {namespace_id} with the project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_Secret.
+ *
+ *  Rpc to get information about a secret.
+ *
+ *  @param name Required. The name of the secret being retrieved. If needed,
+ *    replace
+ *    {namespace_id} with the project ID.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsSecretsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Rpc to replace a secret.
+ *  Only the spec and metadata labels and annotations are modifiable. After
+ *  the Update request, Cloud Run will work to make the 'status'
+ *  match the requested 'spec'.
+ *  May provide metadata.resourceVersion to enforce update from last read for
+ *  optimistic concurrency control.
+ *
+ *  Method: run.projects.locations.secrets.replaceSecret
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsSecretsReplaceSecret : GTLRCloudRunQuery
+// Previous library name was
+//   +[GTLQueryCloudRun queryForProjectsLocationsSecretsReplaceSecretWithObject:name:]
+
+/**
+ *  Required. The name of the secret being retrieved. If needed, replace
+ *  {namespace_id} with the project ID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_Secret.
+ *
+ *  Rpc to replace a secret.
+ *  Only the spec and metadata labels and annotations are modifiable. After
+ *  the Update request, Cloud Run will work to make the 'status'
+ *  match the requested 'spec'.
+ *  May provide metadata.resourceVersion to enforce update from last read for
+ *  optimistic concurrency control.
+ *
+ *  @param object The @c GTLRCloudRun_Secret to include in the query.
+ *  @param name Required. The name of the secret being retrieved. If needed,
+ *    replace
+ *    {namespace_id} with the project ID.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsSecretsReplaceSecret
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_Secret *)object
+                           name:(NSString *)name;
 
 @end
 

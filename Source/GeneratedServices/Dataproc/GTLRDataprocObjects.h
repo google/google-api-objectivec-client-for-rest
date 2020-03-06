@@ -74,6 +74,8 @@
 @class GTLRDataproc_PigJob_Properties;
 @class GTLRDataproc_PigJob_ScriptVariables;
 @class GTLRDataproc_Policy;
+@class GTLRDataproc_PrestoJob;
+@class GTLRDataproc_PrestoJob_Properties;
 @class GTLRDataproc_PySparkJob;
 @class GTLRDataproc_PySparkJob_Properties;
 @class GTLRDataproc_QueryList;
@@ -203,6 +205,31 @@ GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unhealthy;
  *  Value: "UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_InstanceGroupConfig.preemptibility
+
+/**
+ *  Instances are non-preemptible.This option is allowed for all instance groups
+ *  and is the only valid value for Master and Worker instance groups.
+ *
+ *  Value: "NON_PREEMPTIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_NonPreemptible;
+/**
+ *  Preemptibility is unspecified, the system will choose the appropriate
+ *  setting for each instance group.
+ *
+ *  Value: "PREEMPTIBILITY_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_PreemptibilityUnspecified;
+/**
+ *  Instances are preemptible.This option is allowed only for secondary worker
+ *  group.
+ *
+ *  Value: "PREEMPTIBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Preemptible;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_JobStatus.state
@@ -1631,6 +1658,23 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, strong, nullable) NSNumber *numInstances;
 
+/**
+ *  Optional. Specifies the preemptibility of the instance group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_InstanceGroupConfig_Preemptibility_NonPreemptible
+ *        Instances are non-preemptible.This option is allowed for all instance
+ *        groups and is the only valid value for Master and Worker instance
+ *        groups. (Value: "NON_PREEMPTIBLE")
+ *    @arg @c kGTLRDataproc_InstanceGroupConfig_Preemptibility_PreemptibilityUnspecified
+ *        Preemptibility is unspecified, the system will choose the appropriate
+ *        setting for each instance group. (Value: "PREEMPTIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_InstanceGroupConfig_Preemptibility_Preemptible
+ *        Instances are preemptible.This option is allowed only for secondary
+ *        worker group. (Value: "PREEMPTIBLE")
+ */
+@property(nonatomic, copy, nullable) NSString *preemptibility;
+
 @end
 
 
@@ -1687,6 +1731,15 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @interface GTLRDataproc_Job : GTLRObject
 
 /**
+ *  Output only. Indicates whether the job is completed. If the value is false,
+ *  the job is still in progress. If true, the job is completed, and
+ *  status.state field will indicate if it was successful, failed, or cancelled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/**
  *  Output only. If present, the location of miscellaneous control files which
  *  may be used as part of job setup and handling. If not present, control files
  *  may be placed in the same location as driver_output_uri.
@@ -1699,7 +1752,10 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, copy, nullable) NSString *driverOutputResourceUri;
 
+/** Optional. Job is a Hadoop job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_HadoopJob *hadoopJob;
+
+/** Optional. Job is a Hive job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_HiveJob *hiveJob;
 
 /**
@@ -1719,6 +1775,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_Job_Labels *labels;
 
+/** Optional. Job is a Pig job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_PigJob *pigJob;
 
 /**
@@ -1726,6 +1783,10 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobPlacement *placement;
 
+/** Optional. Job is a Presto job. */
+@property(nonatomic, strong, nullable) GTLRDataproc_PrestoJob *prestoJob;
+
+/** Optional. Job is a PySpark job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_PySparkJob *pysparkJob;
 
 /**
@@ -1738,8 +1799,13 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 /** Optional. Job scheduling configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobScheduling *scheduling;
 
+/** Optional. Job is a Spark job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkJob *sparkJob;
+
+/** Optional. Job is a SparkR job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkRJob *sparkRJob;
+
+/** Optional. Job is a SparkSql job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkSqlJob *sparkSqlJob;
 
 /**
@@ -2632,6 +2698,62 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
 
+@end
+
+
+/**
+ *  A Dataproc job for running Presto (https://prestosql.io/) queries
+ */
+@interface GTLRDataproc_PrestoJob : GTLRObject
+
+/** Optional. Presto client tags to attach to this query */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *clientTags;
+
+/**
+ *  Optional. Whether to continue executing queries if a query fails. The
+ *  default value is false. Setting to true can be useful when executing
+ *  independent parallel queries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *continueOnFailure;
+
+/** Optional. The runtime log config for job execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_LoggingConfig *loggingConfig;
+
+/**
+ *  Optional. The format in which query output will be displayed. See the Presto
+ *  documentation for supported output formats
+ */
+@property(nonatomic, copy, nullable) NSString *outputFormat;
+
+/**
+ *  Optional. A mapping of property names to values. Used to set Presto session
+ *  properties (https://prestodb.io/docs/current/sql/set-session.html)
+ *  Equivalent to using the --session flag in the Presto CLI
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_PrestoJob_Properties *properties;
+
+/** The HCFS URI of the script that contains SQL queries. */
+@property(nonatomic, copy, nullable) NSString *queryFileUri;
+
+/** A list of queries. */
+@property(nonatomic, strong, nullable) GTLRDataproc_QueryList *queryList;
+
+@end
+
+
+/**
+ *  Optional. A mapping of property names to values. Used to set Presto session
+ *  properties (https://prestodb.io/docs/current/sql/set-session.html)
+ *  Equivalent to using the --session flag in the Presto CLI
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_PrestoJob_Properties : GTLRObject
 @end
 
 

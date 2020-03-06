@@ -32,6 +32,11 @@ NSString * const kGTLRDataproc_ClusterStatus_Substate_StaleStatus = @"STALE_STAT
 NSString * const kGTLRDataproc_ClusterStatus_Substate_Unhealthy = @"UNHEALTHY";
 NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecified = @"UNSPECIFIED";
 
+// GTLRDataproc_InstanceGroupConfig.preemptibility
+NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_NonPreemptible = @"NON_PREEMPTIBLE";
+NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_PreemptibilityUnspecified = @"PREEMPTIBILITY_UNSPECIFIED";
+NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Preemptible = @"PREEMPTIBLE";
+
 // GTLRDataproc_JobStatus.state
 NSString * const kGTLRDataproc_JobStatus_State_AttemptFailure  = @"ATTEMPT_FAILURE";
 NSString * const kGTLRDataproc_JobStatus_State_Cancelled       = @"CANCELLED";
@@ -588,7 +593,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_InstanceGroupConfig
 @dynamic accelerators, diskConfig, imageUri, instanceNames, isPreemptible,
-         machineTypeUri, managedGroupConfig, minCpuPlatform, numInstances;
+         machineTypeUri, managedGroupConfig, minCpuPlatform, numInstances,
+         preemptibility;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -631,10 +637,10 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_Job
-@dynamic driverControlFilesUri, driverOutputResourceUri, hadoopJob, hiveJob,
-         jobUuid, labels, pigJob, placement, pysparkJob, reference, scheduling,
-         sparkJob, sparkRJob, sparkSqlJob, status, statusHistory,
-         yarnApplications;
+@dynamic done, driverControlFilesUri, driverOutputResourceUri, hadoopJob,
+         hiveJob, jobUuid, labels, pigJob, placement, prestoJob, pysparkJob,
+         reference, scheduling, sparkJob, sparkRJob, sparkSqlJob, status,
+         statusHistory, yarnApplications;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1048,6 +1054,39 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
     @"bindings" : [GTLRDataproc_Binding class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_PrestoJob
+//
+
+@implementation GTLRDataproc_PrestoJob
+@dynamic clientTags, continueOnFailure, loggingConfig, outputFormat, properties,
+         queryFileUri, queryList;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"clientTags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_PrestoJob_Properties
+//
+
+@implementation GTLRDataproc_PrestoJob_Properties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

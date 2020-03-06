@@ -1204,6 +1204,12 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Expandabl
  */
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableInvalidVendor;
 /**
+ *  Promotes speculative and/or experimental medical treatments.
+ *
+ *  Value: "EXPERIMENTAL_MEDICAL_TREATMENT"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExperimentalMedicalTreatment;
+/**
  *  The creative attempts to set cookies from a fourth party that is not
  *  certified.
  *
@@ -3653,6 +3659,9 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableInvalidVendor
  *        The ad uses an expandable vendor that is not supported. (Value:
  *        "EXPANDABLE_INVALID_VENDOR")
+ *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_ExperimentalMedicalTreatment
+ *        Promotes speculative and/or experimental medical treatments. (Value:
+ *        "EXPERIMENTAL_MEDICAL_TREATMENT")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_FourthPartyBrowserCookies
  *        The creative attempts to set cookies from a fourth party that is not
  *        certified. (Value: "FOURTH_PARTY_BROWSER_COOKIES")

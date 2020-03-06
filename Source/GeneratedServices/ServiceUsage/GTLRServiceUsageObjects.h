@@ -48,6 +48,7 @@
 @class GTLRServiceUsage_GoogleApiServiceusageV1ServiceConfig;
 @class GTLRServiceUsage_Http;
 @class GTLRServiceUsage_HttpRule;
+@class GTLRServiceUsage_JwtLocation;
 @class GTLRServiceUsage_LabelDescriptor;
 @class GTLRServiceUsage_LogDescriptor;
 @class GTLRServiceUsage_Logging;
@@ -888,6 +889,24 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *jwksUri;
 
+/**
+ *  Defines the locations to extract the JWT.
+ *  JWT locations can be either from HTTP headers or URL query parameters.
+ *  The rule is that the first match wins. The checking order is: checking
+ *  all headers first, then URL query parameters.
+ *  If not specified, default to use following 3 locations:
+ *  1) Authorization: Bearer
+ *  2) x-goog-iap-jwt-assertion
+ *  3) access_token query parameter
+ *  Default locations can be specified as followings:
+ *  jwt_locations:
+ *  - header: Authorization
+ *  value_prefix: "Bearer "
+ *  - header: x-goog-iap-jwt-assertion
+ *  - query: access_token
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_JwtLocation *> *jwtLocations;
+
 @end
 
 
@@ -944,7 +963,23 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @interface GTLRServiceUsage_BackendRule : GTLRObject
 
-/** The address of the API backend. */
+/**
+ *  The address of the API backend.
+ *  The scheme is used to determine the backend protocol and security.
+ *  The following schemes are accepted:
+ *  SCHEME PROTOCOL SECURITY
+ *  http:// HTTP None
+ *  https:// HTTP TLS
+ *  grpc:// gRPC None
+ *  grpcs:// gRPC TLS
+ *  It is recommended to explicitly include a scheme. Leaving out the scheme
+ *  may cause constrasting behaviors across platforms.
+ *  If the port is unspecified, the default is:
+ *  - 80 for schemes without TLS
+ *  - 443 for schemes with TLS
+ *  For HTTP backends, use protocol
+ *  to specify the protocol version.
+ */
 @property(nonatomic, copy, nullable) NSString *address;
 
 /**
@@ -956,9 +991,6 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSNumber *deadline;
 
 /**
- *  When disable_auth is false, a JWT ID token will be generated with the
- *  value from BackendRule.address as jwt_audience, overrode to the HTTP
- *  "Authorization" request header and sent to the backend.
  *  When disable_auth is true, a JWT ID token won't be generated and the
  *  original "Authorization" HTTP header will be preserved. If the header is
  *  used to carry the original token and is expected by the backend, this
@@ -1034,6 +1066,26 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        Value "PATH_TRANSLATION_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *pathTranslation;
+
+/**
+ *  The protocol used for sending a request to the backend.
+ *  The supported values are "http/1.1" and "h2".
+ *  The default value is inferred from the scheme in the
+ *  address field:
+ *  SCHEME PROTOCOL
+ *  http:// http/1.1
+ *  https:// http/1.1
+ *  grpc:// h2
+ *  grpcs:// h2
+ *  For secure HTTP backends (https://) that support HTTP/2, set this field
+ *  to "h2" for improved performance.
+ *  Configuring this field to non-default values is only supported for secure
+ *  HTTP backends. This field will be ignored for all other backends.
+ *  See
+ *  https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids
+ *  for more details on the supported values.
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
 
 /**
  *  Selects the methods to which this rule applies.
@@ -2466,6 +2518,31 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Specifies a location to extract JWT from an API request.
+ */
+@interface GTLRServiceUsage_JwtLocation : GTLRObject
+
+/** Specifies HTTP header name to extract JWT token. */
+@property(nonatomic, copy, nullable) NSString *header;
+
+/** Specifies URL query parameter name to extract JWT token. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  The value prefix. The value format is "value_prefix{token}"
+ *  Only applies to "in" header type. Must be empty for "in" query type.
+ *  If not empty, the header value has to match (case sensitive) this prefix.
+ *  If not matched, JWT will not be extracted. If matched, JWT will be
+ *  extracted after the prefix is removed.
+ *  For example, for "Authorization: Bearer {JWT}",
+ *  value_prefix="Bearer " with a space at the end.
+ */
+@property(nonatomic, copy, nullable) NSString *valuePrefix;
+
+@end
+
+
+/**
  *  A description of a label.
  */
 @interface GTLRServiceUsage_LabelDescriptor : GTLRObject
@@ -3719,17 +3796,18 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  could contain an entry with the key "region" and the value "us-east-1";
  *  the override is only applied to quota consumed in that region.
  *  This map has the following restrictions:
- *  - Keys that are not defined in the limit's unit are not valid keys.
+ *  * Keys that are not defined in the limit's unit are not valid keys.
  *  Any string appearing in {brackets} in the unit (besides {project} or
  *  {user}) is a defined key.
- *  - "project" is not a valid key; the project is already specified in
+ *  * "project" is not a valid key; the project is already specified in
  *  the parent resource name.
- *  - "user" is not a valid key; the API does not support quota overrides
+ *  * "user" is not a valid key; the API does not support quota overrides
  *  that apply only to a specific user.
- *  - If "region" appears as a key, its value must be a valid Cloud region.
- *  - If "zone" appears as a key, its value must be a valid Cloud zone.
- *  - If any valid key other than "region" or "zone" appears in the map, then
- *  all valid keys other than "region" or "zone" must also appear in the map.
+ *  * If "region" appears as a key, its value must be a valid Cloud region.
+ *  * If "zone" appears as a key, its value must be a valid Cloud zone.
+ *  * If any valid key other than "region" or "zone" appears in the map, then
+ *  all valid keys other than "region" or "zone" must also appear in the
+ *  map.
  */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_QuotaOverride_Dimensions *dimensions;
 
@@ -3762,17 +3840,18 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  could contain an entry with the key "region" and the value "us-east-1";
  *  the override is only applied to quota consumed in that region.
  *  This map has the following restrictions:
- *  - Keys that are not defined in the limit's unit are not valid keys.
+ *  * Keys that are not defined in the limit's unit are not valid keys.
  *  Any string appearing in {brackets} in the unit (besides {project} or
  *  {user}) is a defined key.
- *  - "project" is not a valid key; the project is already specified in
+ *  * "project" is not a valid key; the project is already specified in
  *  the parent resource name.
- *  - "user" is not a valid key; the API does not support quota overrides
+ *  * "user" is not a valid key; the API does not support quota overrides
  *  that apply only to a specific user.
- *  - If "region" appears as a key, its value must be a valid Cloud region.
- *  - If "zone" appears as a key, its value must be a valid Cloud zone.
- *  - If any valid key other than "region" or "zone" appears in the map, then
- *  all valid keys other than "region" or "zone" must also appear in the map.
+ *  * If "region" appears as a key, its value must be a valid Cloud region.
+ *  * If "zone" appears as a key, its value must be a valid Cloud zone.
+ *  * If any valid key other than "region" or "zone" appears in the map, then
+ *  all valid keys other than "region" or "zone" must also appear in the
+ *  map.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

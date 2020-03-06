@@ -244,9 +244,7 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest : GTLRObject
 
-/**
- *  Required. Fingerprint of the Recommendation. Provides optimistic locking.
- */
+/** Fingerprint of the Recommendation. Provides optimistic locking. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**

@@ -1094,7 +1094,6 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  specific item, as users need to have ACL permissions on the contained
  *  items. This ensures a high level access on the entire datasource, and
  *  that the individual items are not shared outside this visibility.
- *  This should not be set if anonymous search is enabled for the data source.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_GSuitePrincipal *> *itemsVisibility;
 
@@ -3332,7 +3331,6 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
  *  property. Only supported for Text properties. IsReturnable must be true to
  *  set this option. In a given datasource maximum of 5 properties can be
  *  marked as is_wildcard_searchable.
- *  Note: This is an alpha feature and is enabled for whitelisted users only.
  *
  *  Uses NSNumber of boolValue.
  */

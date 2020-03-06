@@ -13,91 +13,72 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes.encryptionState
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_EncryptionState_Encrypted = @"ENCRYPTED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_EncryptionState_EncryptionStateUnspecified = @"ENCRYPTION_STATE_UNSPECIFIED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_EncryptionState_NotEncrypted = @"NOT_ENCRYPTED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_EncryptionState_UnsupportedByDevice = @"UNSUPPORTED_BY_DEVICE";
+// GTLRCloudIdentity_AndroidAttributes.encryptionState
+NSString * const kGTLRCloudIdentity_AndroidAttributes_EncryptionState_Encrypted = @"ENCRYPTED";
+NSString * const kGTLRCloudIdentity_AndroidAttributes_EncryptionState_EncryptionStateUnspecified = @"ENCRYPTION_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_AndroidAttributes_EncryptionState_NotEncrypted = @"NOT_ENCRYPTED";
+NSString * const kGTLRCloudIdentity_AndroidAttributes_EncryptionState_UnsupportedByDevice = @"UNSUPPORTED_BY_DEVICE";
 
-// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes.ownershipPrivilege
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_OwnershipPrivilege_DeviceAdministrator = @"DEVICE_ADMINISTRATOR";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_OwnershipPrivilege_DeviceOwner = @"DEVICE_OWNER";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_OwnershipPrivilege_OwnershipPrivilegeUnspecified = @"OWNERSHIP_PRIVILEGE_UNSPECIFIED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes_OwnershipPrivilege_ProfileOwner = @"PROFILE_OWNER";
+// GTLRCloudIdentity_AndroidAttributes.ownershipPrivilege
+NSString * const kGTLRCloudIdentity_AndroidAttributes_OwnershipPrivilege_DeviceAdministrator = @"DEVICE_ADMINISTRATOR";
+NSString * const kGTLRCloudIdentity_AndroidAttributes_OwnershipPrivilege_DeviceOwner = @"DEVICE_OWNER";
+NSString * const kGTLRCloudIdentity_AndroidAttributes_OwnershipPrivilege_OwnershipPrivilegeUnspecified = @"OWNERSHIP_PRIVILEGE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_AndroidAttributes_OwnershipPrivilege_ProfileOwner = @"PROFILE_OWNER";
 
-// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device.compromisedState
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_CompromisedState_Compromised = @"COMPROMISED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_CompromisedState_CompromisedStateUnspecified = @"COMPROMISED_STATE_UNSPECIFIED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_CompromisedState_Uncompromised = @"UNCOMPROMISED";
+// GTLRCloudIdentity_Device.compromisedState
+NSString * const kGTLRCloudIdentity_Device_CompromisedState_Compromised = @"COMPROMISED";
+NSString * const kGTLRCloudIdentity_Device_CompromisedState_CompromisedStateUnspecified = @"COMPROMISED_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_Device_CompromisedState_Uncompromised = @"UNCOMPROMISED";
 
-// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device.deviceType
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_Android = @"ANDROID";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_ChromeOs = @"CHROME_OS";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_DeviceTypeUnspecified = @"DEVICE_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_GoogleSync = @"GOOGLE_SYNC";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_Ios = @"IOS";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_Linux = @"LINUX";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_MacOs = @"MAC_OS";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_DeviceType_Windows = @"WINDOWS";
+// GTLRCloudIdentity_Device.deviceType
+NSString * const kGTLRCloudIdentity_Device_DeviceType_Android  = @"ANDROID";
+NSString * const kGTLRCloudIdentity_Device_DeviceType_ChromeOs = @"CHROME_OS";
+NSString * const kGTLRCloudIdentity_Device_DeviceType_DeviceTypeUnspecified = @"DEVICE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_Device_DeviceType_GoogleSync = @"GOOGLE_SYNC";
+NSString * const kGTLRCloudIdentity_Device_DeviceType_Ios      = @"IOS";
+NSString * const kGTLRCloudIdentity_Device_DeviceType_Linux    = @"LINUX";
+NSString * const kGTLRCloudIdentity_Device_DeviceType_MacOs    = @"MAC_OS";
+NSString * const kGTLRCloudIdentity_Device_DeviceType_Windows  = @"WINDOWS";
 
-// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device.managementState
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Approved = @"APPROVED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Blocked = @"BLOCKED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_ManagementStateUnspecified = @"MANAGEMENT_STATE_UNSPECIFIED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Pending = @"PENDING";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Unprovisioned = @"UNPROVISIONED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Wiped = @"WIPED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_ManagementState_Wiping = @"WIPING";
+// GTLRCloudIdentity_Device.managementState
+NSString * const kGTLRCloudIdentity_Device_ManagementState_Approved = @"APPROVED";
+NSString * const kGTLRCloudIdentity_Device_ManagementState_Blocked = @"BLOCKED";
+NSString * const kGTLRCloudIdentity_Device_ManagementState_ManagementStateUnspecified = @"MANAGEMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_Device_ManagementState_Pending = @"PENDING";
+NSString * const kGTLRCloudIdentity_Device_ManagementState_Unprovisioned = @"UNPROVISIONED";
+NSString * const kGTLRCloudIdentity_Device_ManagementState_Wiped = @"WIPED";
+NSString * const kGTLRCloudIdentity_Device_ManagementState_Wiping = @"WIPING";
 
-// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device.ownerType
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_OwnerType_Byod = @"BYOD";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_OwnerType_Company = @"COMPANY";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device_OwnerType_DeviceOwnershipUnspecified = @"DEVICE_OWNERSHIP_UNSPECIFIED";
+// GTLRCloudIdentity_Device.ownerType
+NSString * const kGTLRCloudIdentity_Device_OwnerType_Byod      = @"BYOD";
+NSString * const kGTLRCloudIdentity_Device_OwnerType_Company   = @"COMPANY";
+NSString * const kGTLRCloudIdentity_Device_OwnerType_DeviceOwnershipUnspecified = @"DEVICE_OWNERSHIP_UNSPECIFIED";
 
-// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser.compromisedState
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_CompromisedState_Compromised = @"COMPROMISED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_CompromisedState_CompromisedStateUnspecified = @"COMPROMISED_STATE_UNSPECIFIED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_CompromisedState_NotCompromised = @"NOT_COMPROMISED";
+// GTLRCloudIdentity_DeviceUser.compromisedState
+NSString * const kGTLRCloudIdentity_DeviceUser_CompromisedState_Compromised = @"COMPROMISED";
+NSString * const kGTLRCloudIdentity_DeviceUser_CompromisedState_CompromisedStateUnspecified = @"COMPROMISED_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_DeviceUser_CompromisedState_NotCompromised = @"NOT_COMPROMISED";
 
-// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser.managementState
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Approved = @"APPROVED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Blocked = @"BLOCKED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_ManagementStateUnspecified = @"MANAGEMENT_STATE_UNSPECIFIED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_PendingApproval = @"PENDING_APPROVAL";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Unenrolled = @"UNENROLLED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Wiped = @"WIPED";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_ManagementState_Wiping = @"WIPING";
+// GTLRCloudIdentity_DeviceUser.managementState
+NSString * const kGTLRCloudIdentity_DeviceUser_ManagementState_Approved = @"APPROVED";
+NSString * const kGTLRCloudIdentity_DeviceUser_ManagementState_Blocked = @"BLOCKED";
+NSString * const kGTLRCloudIdentity_DeviceUser_ManagementState_ManagementStateUnspecified = @"MANAGEMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_DeviceUser_ManagementState_PendingApproval = @"PENDING_APPROVAL";
+NSString * const kGTLRCloudIdentity_DeviceUser_ManagementState_Unenrolled = @"UNENROLLED";
+NSString * const kGTLRCloudIdentity_DeviceUser_ManagementState_Wiped = @"WIPED";
+NSString * const kGTLRCloudIdentity_DeviceUser_ManagementState_Wiping = @"WIPING";
 
-// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser.passwordState
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_PasswordState_PasswordNotSet = @"PASSWORD_NOT_SET";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_PasswordState_PasswordSet = @"PASSWORD_SET";
-NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser_PasswordState_PasswordStateUnspecified = @"PASSWORD_STATE_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudIdentity_EntityKey
-//
-
-@implementation GTLRCloudIdentity_EntityKey
-@dynamic identifier, namespaceProperty;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"identifier" : @"id",
-    @"namespaceProperty" : @"namespace"
-  };
-  return map;
-}
-
-@end
-
+// GTLRCloudIdentity_DeviceUser.passwordState
+NSString * const kGTLRCloudIdentity_DeviceUser_PasswordState_PasswordNotSet = @"PASSWORD_NOT_SET";
+NSString * const kGTLRCloudIdentity_DeviceUser_PasswordState_PasswordSet = @"PASSWORD_SET";
+NSString * const kGTLRCloudIdentity_DeviceUser_PasswordState_PasswordStateUnspecified = @"PASSWORD_STATE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes
+//   GTLRCloudIdentity_AndroidAttributes
 //
 
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1AndroidAttributes
+@implementation GTLRCloudIdentity_AndroidAttributes
 @dynamic basebandVersion, bootloaderVersion, buildNumber,
          enabledDeveloperOptions, enabledUnknownSources, enabledUsbDebugging,
          encryptionState, hardware, kernelVersion, otherAccounts,
@@ -116,50 +97,50 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1ApproveDeviceUserResponse
+//   GTLRCloudIdentity_ApproveDeviceUserResponse
 //
 
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1ApproveDeviceUserResponse
+@implementation GTLRCloudIdentity_ApproveDeviceUserResponse
 @dynamic deviceUser;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1BlockDeviceUserResponse
+//   GTLRCloudIdentity_BlockDeviceUserResponse
 //
 
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1BlockDeviceUserResponse
+@implementation GTLRCloudIdentity_BlockDeviceUserResponse
 @dynamic deviceUser;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1CancelWipeDeviceResponse
+//   GTLRCloudIdentity_CancelWipeDeviceResponse
 //
 
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1CancelWipeDeviceResponse
+@implementation GTLRCloudIdentity_CancelWipeDeviceResponse
 @dynamic device;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1CancelWipeDeviceUserResponse
+//   GTLRCloudIdentity_CancelWipeDeviceUserResponse
 //
 
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1CancelWipeDeviceUserResponse
+@implementation GTLRCloudIdentity_CancelWipeDeviceUserResponse
 @dynamic deviceUser;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device
+//   GTLRCloudIdentity_Device
 //
 
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device
+@implementation GTLRCloudIdentity_Device
 @dynamic androidSpecificAttributes, assetTag, brand, compromisedState,
          createTime, deviceType, imei, lastSyncTime, managementState,
          manufacturer, meid, model, name, networkOperator, osVersion, ownerType,
@@ -177,10 +158,10 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser
+//   GTLRCloudIdentity_DeviceUser
 //
 
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser
+@implementation GTLRCloudIdentity_DeviceUser
 @dynamic compromisedState, firstSyncTime, languageCode, lastSyncTime,
          managementState, name, passwordState, userAgent, userEmail;
 @end
@@ -188,10 +169,10 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1EndpointApp
+//   GTLRCloudIdentity_EndpointApp
 //
 
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1EndpointApp
+@implementation GTLRCloudIdentity_EndpointApp
 @dynamic displayName, name, packageName, permissions, versionCode, versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -206,87 +187,20 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1ListDevicesResponse
+//   GTLRCloudIdentity_EntityKey
 //
 
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1ListDevicesResponse
-@dynamic devices, nextPageToken;
+@implementation GTLRCloudIdentity_EntityKey
+@dynamic identifier, namespaceProperty;
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"devices" : [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device class]
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"identifier" : @"id",
+    @"namespaceProperty" : @"namespace"
   };
   return map;
 }
 
-+ (NSString *)collectionItemsKey {
-  return @"devices";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1ListDeviceUsersResponse
-//
-
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1ListDeviceUsersResponse
-@dynamic deviceUsers, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"deviceUsers" : [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1DeviceUser class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"deviceUsers";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1ListEndpointAppsResponse
-//
-
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1ListEndpointAppsResponse
-@dynamic endpointApps, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"endpointApps" : [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1EndpointApp class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"endpointApps";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1WipeDeviceResponse
-//
-
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1WipeDeviceResponse
-@dynamic device;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1WipeDeviceUserResponse
-//
-
-@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1WipeDeviceUserResponse
-@dynamic deviceUser;
 @end
 
 
@@ -315,6 +229,72 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ListDevicesResponse
+//
+
+@implementation GTLRCloudIdentity_ListDevicesResponse
+@dynamic devices, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"devices" : [GTLRCloudIdentity_Device class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"devices";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ListDeviceUsersResponse
+//
+
+@implementation GTLRCloudIdentity_ListDeviceUsersResponse
+@dynamic deviceUsers, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceUsers" : [GTLRCloudIdentity_DeviceUser class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"deviceUsers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ListEndpointAppsResponse
+//
+
+@implementation GTLRCloudIdentity_ListEndpointAppsResponse
+@dynamic endpointApps, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"endpointApps" : [GTLRCloudIdentity_EndpointApp class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"endpointApps";
 }
 
 @end
@@ -501,4 +481,24 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1alpha1Device
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_WipeDeviceResponse
+//
+
+@implementation GTLRCloudIdentity_WipeDeviceResponse
+@dynamic device;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_WipeDeviceUserResponse
+//
+
+@implementation GTLRCloudIdentity_WipeDeviceUserResponse
+@dynamic deviceUser;
 @end

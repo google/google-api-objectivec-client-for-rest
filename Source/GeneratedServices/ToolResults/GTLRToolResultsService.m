@@ -16,7 +16,7 @@
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://toolresults.googleapis.com/";
+    self.rootURLString = @"https://www.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

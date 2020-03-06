@@ -24,13 +24,10 @@
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata;
-@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata;
-@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
-@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
@@ -149,13 +146,36 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_StateUnspecified
 // GTLRCloudFilestore_Instance.tier
 
 /**
- *  PREMIUM tier.
+ *  BASIC instances offer a maximum capacity of 63.9 TB.
+ *  BASIC_HDD is an alias for STANDARD Tier, offering economical
+ *  performance backed by Persistent Disk HDD.
+ *
+ *  Value: "BASIC_HDD"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_BasicHdd;
+/**
+ *  BASIC instances offer a maximum capacity of 63.9 TB.
+ *  BASIC_SSD is an alias for PREMIUM Tier, and offers improved
+ *  performance backed by Persistent Disk SSD.
+ *
+ *  Value: "BASIC_SSD"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_BasicSsd;
+/**
+ *  HIGH_SCALE instances offer larger capacity and professional
+ *  performance backed by Persistent Disk SSD.
+ *
+ *  Value: "HIGH_SCALE_SSD"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_HighScaleSsd;
+/**
+ *  PREMIUM tier. BASIC_SSD is the preferred term for this tier.
  *
  *  Value: "PREMIUM"
  */
 GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_Premium;
 /**
- *  STANDARD tier.
+ *  STANDARD tier. BASIC_HDD is the preferred term for this tier.
  *
  *  Value: "STANDARD"
  */
@@ -215,78 +235,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 
 
 /**
- *  Instance represents the interface for SLM services to actuate the state
- *  of control plane resources.
- *  Example Instance in JSON, where
- *  consumer-project=snapchat,
- *  producer-project=cloud-sql:
- *  ```json
- *  Instance:
- *  {
- *  "name":
- *  "projects/snapchat/locations/us-east1/instances/prod-instance",
- *  "create_time": {
- *  "seconds": 1526406431,
- *  },
- *  "labels": {
- *  "env": "prod",
- *  "foo": "bar"
- *  },
- *  "state": READY,
- *  "software_versions": {
- *  "software_update": "cloud-sql-09-28-2018",
- *  },
- *  "maintenance_policy_names": {
- *  "UpdatePolicy":
- *  "projects/snapchat/locations/us-east1/maintenancePolicies/prod-update-policy",
- *  }
- *  "rollout_metadata": {
- *  "projects/cloud-sql/locations/global/rolloutTypes/software_update": {
- *  "release":
- *  "projects/cloud-sql/locations/global/releases/cloud-sql-09-28-2018",
- *  "rollout":
- *  "projects/cloud-sql/locations/us-east1/rollouts/cloud-sql-09-28-2018-canary",
- *  },
- *  "projects/cloud-sql/locations/global/rolloutTypes/instance_restart": {
- *  "release":
- *  "projects/cloud-sql/locations/global/releases/cloud-sql-09-20-repair",
- *  "rollout":
- *  "projects/cloud-sql/locations/us-east1/rollouts/cloud-sql-09-20-repair-100-percent",
- *  }
- *  }
- *  "tenant_project_id": "cloud-sql-test-tenant",
- *  "producer_metadata": {
- *  "cloud-sql-tier": "basic",
- *  "cloud-sql-instance-size": "1G",
- *  },
- *  "provisioned_resources": [
- *  {
- *  "resource-type": "compute-instance",
- *  "resource-url":
- *  "https://www.googleapis.com/compute/v1/projects/cloud-sql/zones/us-east1-b/instances/vm-1",
- *  }
- *  ],
- *  "maintenance_schedules": {
- *  "csa_rollout": {
- *  "start_time": {
- *  "seconds": 1526406431,
- *  },
- *  "end_time": {
- *  "seconds": 1535406431,
- *  },
- *  },
- *  "ncsa_rollout": {
- *  "start_time": {
- *  "seconds": 1526406431,
- *  },
- *  "end_time": {
- *  "seconds": 1535406431,
- *  },
- *  }
- *  },
- *  "consumer_defined_name": "my-sql-instance1",
- *  }
- *  ```
+ *  GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance : GTLRObject
 
@@ -342,16 +291,6 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  instance, e.g. compute VMs. See go/get-instance-metadata.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource *> *provisionedResources;
-
-/**
- *  The map between RolloutType and the corresponding RolloutMetadata.
- *  This is only mutated by rollout service. For actuation implementation,
- *  this information is pass-through for Rollout management. Producer shall
- *  not modify by itself.
- *  For update of a single entry in this map, the update field mask shall
- *  follow this sementics: go/advanced-field-masks
- */
-@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata *rolloutMetadata;
 
 /**
  *  Link to the SLM instance template. Only populated when updating SLM
@@ -468,24 +407,6 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 
 
 /**
- *  The map between RolloutType and the corresponding RolloutMetadata.
- *  This is only mutated by rollout service. For actuation implementation,
- *  this information is pass-through for Rollout management. Producer shall
- *  not modify by itself.
- *  For update of a single entry in this map, the update field mask shall
- *  follow this sementics: go/advanced-field-masks
- *
- *  @note This class is documented as having more properties of
- *        GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata.
- *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
- *        the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata : GTLRObject
-@end
-
-
-/**
  *  Software versions that are used to deploy this instance. This can be
  *  mutated by rollout services.
  *
@@ -560,36 +481,6 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 
 
 /**
- *  NotificationMetadata is the notification state for an instance.
- */
-@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata : GTLRObject
-
-/**
- *  Whether the instance update has been rescheduled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *rescheduled;
-
-/**
- *  The scheduled end time for the maintenance window during which update
- *  can be performed on the instance.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
-
-/**
- *  The scheduled start time for the maintenance window during which
- *  update can be performed on the instance.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *scheduledStartTime;
-
-/** The target release to be applied to the instance. */
-@property(nonatomic, copy, nullable) NSString *targetRelease;
-
-@end
-
-
-/**
  *  Describes provisioned dataplane resources.
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource : GTLRObject
@@ -609,23 +500,6 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  "https://www.googleapis.com/compute/v1/projects/...)".
  */
 @property(nonatomic, copy, nullable) NSString *resourceUrl;
-
-@end
-
-
-/**
- *  RolloutMetadata for an actuation instance. It maps to a single RolloutType.
- */
-@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata : GTLRObject
-
-/** Instance level notification metadata. */
-@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata *notification;
-
-/** The last Release that has been applied to the instance. */
-@property(nonatomic, copy, nullable) NSString *releaseName;
-
-/** The last rollout that has been applied to the instance. */
-@property(nonatomic, copy, nullable) NSString *rolloutName;
 
 @end
 
@@ -699,7 +573,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata : GTLRObject
 
-/** Optional: user-defined instance eligibility. */
+/** Optional. User-defined instance eligibility. */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility *eligibility;
 
 /**
@@ -718,7 +592,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
 
 /**
- *  Optional: list of nodes.
+ *  Optional. List of nodes.
  *  Some producers need to use per-node metadata to calculate SLO.
  *  This field allows such producers to publish per-node SLO meta data,
  *  which will be consumed by SSA Eligibility Exporter and published in the
@@ -745,7 +619,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. A description of the instance (2048 characters or less).
+ *  Optional. The description of the instance (2048 characters or less).
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -768,7 +642,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 
 /**
  *  Output only. The resource name of the instance, in the format
- *  projects/{project_id}/locations/{location_id}/instances/{instance_id}.
+ *  projects/{project}/locations/{location}/instances/{instance}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -809,10 +683,21 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *  The service tier of the instance.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudFilestore_Instance_Tier_Premium PREMIUM tier. (Value:
- *        "PREMIUM")
- *    @arg @c kGTLRCloudFilestore_Instance_Tier_Standard STANDARD tier. (Value:
- *        "STANDARD")
+ *    @arg @c kGTLRCloudFilestore_Instance_Tier_BasicHdd BASIC instances offer a
+ *        maximum capacity of 63.9 TB.
+ *        BASIC_HDD is an alias for STANDARD Tier, offering economical
+ *        performance backed by Persistent Disk HDD. (Value: "BASIC_HDD")
+ *    @arg @c kGTLRCloudFilestore_Instance_Tier_BasicSsd BASIC instances offer a
+ *        maximum capacity of 63.9 TB.
+ *        BASIC_SSD is an alias for PREMIUM Tier, and offers improved
+ *        performance backed by Persistent Disk SSD. (Value: "BASIC_SSD")
+ *    @arg @c kGTLRCloudFilestore_Instance_Tier_HighScaleSsd HIGH_SCALE
+ *        instances offer larger capacity and professional
+ *        performance backed by Persistent Disk SSD. (Value: "HIGH_SCALE_SSD")
+ *    @arg @c kGTLRCloudFilestore_Instance_Tier_Premium PREMIUM tier. BASIC_SSD
+ *        is the preferred term for this tier. (Value: "PREMIUM")
+ *    @arg @c kGTLRCloudFilestore_Instance_Tier_Standard STANDARD tier.
+ *        BASIC_HDD is the preferred term for this tier. (Value: "STANDARD")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_TierUnspecified Not set. (Value:
  *        "TIER_UNSPECIFIED")
  */

@@ -2,10 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Secret Manager API (secretmanager/v1beta1)
+//   Secret Manager API (secretmanager/v1)
 // Description:
-//   Stores and manages access to application secrets. Provides convenience
-//   while improving security.
+//   Stores API keys, passwords, certificates, and other sensitive data.
+//   Provides convenience while improving security.
 // Documentation:
 //   https://cloud.google.com/secret-manager/
 

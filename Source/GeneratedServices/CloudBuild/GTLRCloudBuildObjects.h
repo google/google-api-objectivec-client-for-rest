@@ -70,6 +70,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Cancelled;
 /**
+ *  Build was enqueued for longer than the value of `queue_ttl`.
+ *
+ *  Value: "EXPIRED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Expired;
+/**
  *  Build or step failed to complete successfully.
  *
  *  Value: "FAILURE"
@@ -232,6 +238,12 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_Mus
  *  Value: "CANCELLED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Cancelled;
+/**
+ *  Build was enqueued for longer than the value of `queue_ttl`.
+ *
+ *  Value: "EXPIRED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Expired;
 /**
  *  Build or step failed to complete successfully.
  *
@@ -488,6 +500,8 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_Build_Status_Cancelled Build or step was canceled
  *        by a user. (Value: "CANCELLED")
+ *    @arg @c kGTLRCloudBuild_Build_Status_Expired Build was enqueued for longer
+ *        than the value of `queue_ttl`. (Value: "EXPIRED")
  *    @arg @c kGTLRCloudBuild_Build_Status_Failure Build or step failed to
  *        complete successfully. (Value: "FAILURE")
  *    @arg @c kGTLRCloudBuild_Build_Status_InternalError Build or step failed
@@ -794,6 +808,8 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildStep_Status_Cancelled Build or step was
  *        canceled by a user. (Value: "CANCELLED")
+ *    @arg @c kGTLRCloudBuild_BuildStep_Status_Expired Build was enqueued for
+ *        longer than the value of `queue_ttl`. (Value: "EXPIRED")
  *    @arg @c kGTLRCloudBuild_BuildStep_Status_Failure Build or step failed to
  *        complete successfully. (Value: "FAILURE")
  *    @arg @c kGTLRCloudBuild_BuildStep_Status_InternalError Build or step

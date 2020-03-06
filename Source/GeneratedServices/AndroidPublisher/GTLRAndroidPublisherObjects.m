@@ -16,7 +16,7 @@
 //
 
 @implementation GTLRAndroidPublisher_Apk
-@dynamic binary, versionCode;
+@dynamic binary, testBinary, versionCode;
 @end
 
 
@@ -137,11 +137,12 @@
 //
 
 @implementation GTLRAndroidPublisher_Control
-@dynamic modRanges, versionCodes;
+@dynamic modRanges, stratifiedSamplings, versionCodes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"modRanges" : [GTLRAndroidPublisher_ModRange class],
+    @"stratifiedSamplings" : [GTLRAndroidPublisher_StratifiedSampling class],
     @"versionCodes" : [NSNumber class]
   };
   return map;
@@ -599,7 +600,26 @@
 //
 
 @implementation GTLRAndroidPublisher_Sampling
-@dynamic modRanges, modulus, salt;
+@dynamic modRanges, modulus, salt, stratifiedSamplings, useAndroidId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"modRanges" : [GTLRAndroidPublisher_ModRange class],
+    @"stratifiedSamplings" : [GTLRAndroidPublisher_StratifiedSampling class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_StratifiedSampling
+//
+
+@implementation GTLRAndroidPublisher_StratifiedSampling
+@dynamic modRanges, stratum;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -608,6 +628,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_Stratum
+//
+
+@implementation GTLRAndroidPublisher_Stratum
+@dynamic brand;
 @end
 
 
@@ -721,10 +751,14 @@
 //
 
 @implementation GTLRAndroidPublisher_Testers
-@dynamic googleGroups;
+@dynamic autoEnrolledAndroidGroups, autoEnrolledGoogleGroups,
+         excludedGoogleGroups, googleGroups;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"autoEnrolledAndroidGroups" : [NSString class],
+    @"autoEnrolledGoogleGroups" : [NSString class],
+    @"excludedGoogleGroups" : [NSString class],
     @"googleGroups" : [NSString class]
   };
   return map;
@@ -777,18 +811,70 @@
 //
 
 @implementation GTLRAndroidPublisher_TrackRelease
-@dynamic controls, countryTargeting, inAppUpdatePriority, name, releaseNotes,
-         sampling, status, userFraction, versionCodes;
+@dynamic controls, countryTargeting, inAppUpdatePriority, name, pinnedVersions,
+         releaseNotes, rollbackEnabled, sampling, status, userFraction,
+         versionCodes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"controls" : [GTLRAndroidPublisher_Control class],
+    @"pinnedVersions" : [GTLRAndroidPublisher_TrackReleasePin class],
     @"releaseNotes" : [GTLRAndroidPublisher_LocalizedText class],
     @"versionCodes" : [NSNumber class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TrackReleasePin
+//
+
+@implementation GTLRAndroidPublisher_TrackReleasePin
+@dynamic targetings, versionCodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetings" : [GTLRAndroidPublisher_TrackReleasePinPinTargeting class],
+    @"versionCodes" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TrackReleasePinPinTargeting
+//
+
+@implementation GTLRAndroidPublisher_TrackReleasePinPinTargeting
+@dynamic countryCodes, devices, phoneskyVersions, sdkVersions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"countryCodes" : [NSString class],
+    @"devices" : [GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin class],
+    @"phoneskyVersions" : [NSNumber class],
+    @"sdkVersions" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin
+//
+
+@implementation GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin
+@dynamic brand, device, product;
 @end
 
 

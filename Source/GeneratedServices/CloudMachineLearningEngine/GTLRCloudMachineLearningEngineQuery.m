@@ -286,6 +286,44 @@
 
 @end
 
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleProtobufEmpty class];
+  query.loggingName = @"ml.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"ml.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsCreate
 
 @dynamic parent;

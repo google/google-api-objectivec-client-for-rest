@@ -31,10 +31,12 @@ NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuse
 NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_Unencrypted = @"UNENCRYPTED";
 
 // GTLRAccessContextManager_OsConstraint.osType
+NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Android = @"ANDROID";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopChromeOs = @"DESKTOP_CHROME_OS";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopLinux = @"DESKTOP_LINUX";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopMac = @"DESKTOP_MAC";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows = @"DESKTOP_WINDOWS";
+NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Ios = @"IOS";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified = @"OS_UNSPECIFIED";
 
 // GTLRAccessContextManager_ServicePerimeter.perimeterType
@@ -91,6 +93,39 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_CommitServicePerimetersRequest
+//
+
+@implementation GTLRAccessContextManager_CommitServicePerimetersRequest
+@dynamic ETag;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_CommitServicePerimetersResponse
+//
+
+@implementation GTLRAccessContextManager_CommitServicePerimetersResponse
+@dynamic servicePerimeters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servicePerimeters" : [GTLRAccessContextManager_ServicePerimeter class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -310,12 +345,92 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_ReplaceAccessLevelsRequest
+//
+
+@implementation GTLRAccessContextManager_ReplaceAccessLevelsRequest
+@dynamic accessLevels, ETag;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessLevels" : [GTLRAccessContextManager_AccessLevel class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_ReplaceAccessLevelsResponse
+//
+
+@implementation GTLRAccessContextManager_ReplaceAccessLevelsResponse
+@dynamic accessLevels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessLevels" : [GTLRAccessContextManager_AccessLevel class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_ReplaceServicePerimetersRequest
+//
+
+@implementation GTLRAccessContextManager_ReplaceServicePerimetersRequest
+@dynamic ETag, servicePerimeters;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servicePerimeters" : [GTLRAccessContextManager_ServicePerimeter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_ReplaceServicePerimetersResponse
+//
+
+@implementation GTLRAccessContextManager_ReplaceServicePerimetersResponse
+@dynamic servicePerimeters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servicePerimeters" : [GTLRAccessContextManager_ServicePerimeter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_ServicePerimeter
 //
 
 @implementation GTLRAccessContextManager_ServicePerimeter
-@dynamic createTime, descriptionProperty, name, perimeterType, status, title,
-         updateTime;
+@dynamic createTime, descriptionProperty, name, perimeterType, spec, status,
+         title, updateTime, useExplicitDryRunSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -330,7 +445,7 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_ServicePerimeterConfig
-@dynamic accessLevels, resources, restrictedServices;
+@dynamic accessLevels, resources, restrictedServices, vpcAccessibleServices;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -371,6 +486,24 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_VpcAccessibleServices
+//
+
+@implementation GTLRAccessContextManager_VpcAccessibleServices
+@dynamic allowedServices, enableRestriction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedServices" : [NSString class]
+  };
+  return map;
 }
 
 @end

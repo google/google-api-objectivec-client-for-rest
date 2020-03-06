@@ -2899,6 +2899,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_PubsubNotificationSettings
+//
+
+@implementation GTLRShoppingContent_PubsubNotificationSettings
+@dynamic cloudTopicName, kind, registeredEvents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"registeredEvents" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_RateGroup
 //
 

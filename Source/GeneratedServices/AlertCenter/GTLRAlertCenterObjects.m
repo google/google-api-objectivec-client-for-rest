@@ -23,6 +23,10 @@ NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful = @"VERY_USEFUL"
 NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Json = @"JSON";
 NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified = @"PAYLOAD_FORMAT_UNSPECIFIED";
 
+// GTLRAlertCenter_DriveFile.abuseType
+NSString * const kGTLRAlertCenter_DriveFile_AbuseType_DriveAbuseTypeUnspecified = @"DRIVE_ABUSE_TYPE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_DriveFile_AbuseType_SuspectedMalware = @"SUSPECTED_MALWARE";
+
 // GTLRAlertCenter_MailPhishing.systemActionType
 NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_NoOperation = @"NO_OPERATION";
 NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_RemovedFromInbox = @"REMOVED_FROM_INBOX";
@@ -388,6 +392,39 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveWa
 
 @implementation GTLRAlertCenter_DomainWideTakeoutInitiated
 @dynamic email, takeoutRequestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_DriveFile
+//
+
+@implementation GTLRAlertCenter_DriveFile
+@dynamic abuseType, identifier, name, numRecentDownload, owner;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_DriveFileWarning
+//
+
+@implementation GTLRAlertCenter_DriveFileWarning
+@dynamic files;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"files" : [GTLRAlertCenter_DriveFile class]
+  };
+  return map;
+}
+
 @end
 
 

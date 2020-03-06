@@ -95,6 +95,7 @@ NSString * const kGTLRServiceControl_QuotaError_Code_Unspecified = @"UNSPECIFIED
 NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_BestEffort = @"BEST_EFFORT";
 NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_CheckOnly = @"CHECK_ONLY";
 NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Normal = @"NORMAL";
+NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_QueryOnly = @"QUERY_ONLY";
 NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Unspecified = @"UNSPECIFIED";
 
 // GTLRServiceControl_QuotaProperties.quotaMode

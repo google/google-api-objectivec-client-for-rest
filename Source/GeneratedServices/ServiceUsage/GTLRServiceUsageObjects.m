@@ -183,10 +183,17 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_AuthProvider
-@dynamic audiences, authorizationUrl, identifier, issuer, jwksUri;
+@dynamic audiences, authorizationUrl, identifier, issuer, jwksUri, jwtLocations;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jwtLocations" : [GTLRServiceUsage_JwtLocation class]
+  };
+  return map;
 }
 
 @end
@@ -227,7 +234,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUsage_BackendRule
 @dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, selector;
+         operationDeadline, pathTranslation, protocol, selector;
 @end
 
 
@@ -782,6 +789,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_JwtLocation
+//
+
+@implementation GTLRServiceUsage_JwtLocation
+@dynamic header, query, valuePrefix;
 @end
 
 

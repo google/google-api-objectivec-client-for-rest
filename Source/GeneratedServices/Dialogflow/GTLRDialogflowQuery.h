@@ -31,6 +31,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2ExportAgentRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowV2Fulfillment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2ImportAgentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2RestoreAgentRequest;
@@ -66,49 +67,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
-
-@end
-
-/**
- *  Creates/updates the specified agent.
- *
- *  Method: dialogflow.projects.agent
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDialogflow
- *    @c kGTLRAuthScopeDialogflowCloudPlatform
- */
-@interface GTLRDialogflowQuery_ProjectsAgent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsAgentWithObject:parent:]
-
-/**
- *  Required. The project of this agent.
- *  Format: `projects/<Project ID>`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. The mask to control which fields get updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2Agent.
- *
- *  Creates/updates the specified agent.
- *
- *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Agent to include
- *    in the query.
- *  @param parent Required. The project of this agent.
- *    Format: `projects/<Project ID>`.
- *
- *  @return GTLRDialogflowQuery_ProjectsAgent
- */
-+ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2Agent *)object
-                         parent:(NSString *)parent;
 
 @end
 
@@ -554,6 +512,674 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 @end
 
 /**
+ *  Creates a context.
+ *  If the specified context already exists, overrides the context.
+ *
+ *  Method: dialogflow.projects.agent.environments.users.sessions.contexts.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsContextsCreate : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsUsersSessionsContextsCreateWithObject:parent:]
+
+/**
+ *  Required. The session to create a context for.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2Context.
+ *
+ *  Creates a context.
+ *  If the specified context already exists, overrides the context.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Context to
+ *    include in the query.
+ *  @param parent Required. The session to create a context for.
+ *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User 
+ ID>/sessions/<Session ID>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsContextsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2Context *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified context.
+ *
+ *  Method: dialogflow.projects.agent.environments.users.sessions.contexts.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsContextsDelete : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsUsersSessionsContextsDeleteWithname:]
+
+/**
+ *  Required. The name of the context to delete. Format:
+ *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
+ *  or `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
+ *
+ *  Deletes the specified context.
+ *
+ *  @param name Required. The name of the context to delete. Format:
+ *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
+ *    or `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsContextsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the specified context.
+ *
+ *  Method: dialogflow.projects.agent.environments.users.sessions.contexts.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsContextsGet : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsUsersSessionsContextsGetWithname:]
+
+/**
+ *  Required. The name of the context. Format:
+ *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
+ *  or `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2Context.
+ *
+ *  Retrieves the specified context.
+ *
+ *  @param name Required. The name of the context. Format:
+ *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
+ *    or `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsContextsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of all contexts in the specified session.
+ *
+ *  Method: dialogflow.projects.agent.environments.users.sessions.contexts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsContextsList : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsUsersSessionsContextsListWithparent:]
+
+/**
+ *  Optional. The maximum number of items to return in a single page. By
+ *  default 100 and at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous list request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The session to list all contexts from.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2ListContextsResponse.
+ *
+ *  Returns the list of all contexts in the specified session.
+ *
+ *  @param parent Required. The session to list all contexts from.
+ *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User 
+ ID>/sessions/<Session ID>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsContextsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the specified context.
+ *
+ *  Method: dialogflow.projects.agent.environments.users.sessions.contexts.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsContextsPatch : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsUsersSessionsContextsPatchWithObject:name:]
+
+/**
+ *  Required. The unique identifier of the context. Format:
+ *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
+ *  or `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  The `Context ID` is always converted to lowercase, may only contain
+ *  characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
+ *  The following context names are reserved for internal use by Dialogflow.
+ *  You should not use these contexts or create contexts with these names:
+ *  * `__system_counters__`
+ *  * `*_id_dialog_context`
+ *  * `*_dialog_params_size`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The mask to control which fields get updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2Context.
+ *
+ *  Updates the specified context.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Context to
+ *    include in the query.
+ *  @param name Required. The unique identifier of the context. Format:
+ *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
+ *    or `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *    The `Context ID` is always converted to lowercase, may only contain
+ *    characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
+ *    The following context names are reserved for internal use by Dialogflow.
+ *    You should not use these contexts or create contexts with these names:
+ *    * `__system_counters__`
+ *    * `*_id_dialog_context`
+ *    * `*_dialog_params_size`
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsContextsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2Context *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes all active contexts in the specified session.
+ *
+ *  Method: dialogflow.projects.agent.environments.users.sessions.deleteContexts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsDeleteContexts : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsUsersSessionsDeleteContextsWithparent:]
+
+/**
+ *  Required. The name of the session to delete all contexts from. Format:
+ *  `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *  `projects/<Project 
+ ID>/agent/environments/<Environment
+ *  ID>/users/<User ID>/sessions/<Session
+ *  ID>`.
+ *  If `Environment ID` is not specified we assume default 'draft' environment.
+ *  If `User ID` is not specified, we assume default '-' user.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
+ *
+ *  Deletes all active contexts in the specified session.
+ *
+ *  @param parent Required. The name of the session to delete all contexts from.
+ *    Format:
+ *    `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *    `projects/<Project 
+ ID>/agent/environments/<Environment
+ *    ID>/users/<User ID>/sessions/<Session
+ *    ID>`.
+ *    If `Environment ID` is not specified we assume default 'draft'
+ *    environment.
+ *    If `User ID` is not specified, we assume default '-' user.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsDeleteContexts
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Processes a natural language query and returns structured, actionable data
+ *  as a result. This method is not idempotent, because it may cause contexts
+ *  and session entity types to be updated, which in turn might affect
+ *  results of future queries.
+ *
+ *  Method: dialogflow.projects.agent.environments.users.sessions.detectIntent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsDetectIntent : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsUsersSessionsDetectIntentWithObject:session:]
+
+/**
+ *  Required. The name of the session this query is sent to. Format:
+ *  `projects/<Project ID>/agent/sessions/<Session ID>`, or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>`. If `Environment ID` is not
+ *  specified, we assume
+ *  default 'draft' environment. If `User ID` is not specified, we are using
+ *  "-". It's up to the API caller to choose an appropriate `Session ID` and
+ *  `User Id`. They can be a random number or some type of user and session
+ *  identifiers (preferably hashed). The length of the `Session ID` and
+ *  `User ID` must not exceed 36 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *session;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentResponse.
+ *
+ *  Processes a natural language query and returns structured, actionable data
+ *  as a result. This method is not idempotent, because it may cause contexts
+ *  and session entity types to be updated, which in turn might affect
+ *  results of future queries.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest to include in
+ *    the query.
+ *  @param session Required. The name of the session this query is sent to.
+ *    Format:
+ *    `projects/<Project ID>/agent/sessions/<Session ID>`, or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User 
+ ID>/sessions/<Session ID>`. If `Environment ID` is not
+ *    specified, we assume
+ *    default 'draft' environment. If `User ID` is not specified, we are using
+ *    "-". It's up to the API caller to choose an appropriate `Session ID` and
+ *    `User Id`. They can be a random number or some type of user and session
+ *    identifiers (preferably hashed). The length of the `Session ID` and
+ *    `User ID` must not exceed 36 characters.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsDetectIntent
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest *)object
+                        session:(NSString *)session;
+
+@end
+
+/**
+ *  Creates a session entity type.
+ *  If the specified session entity type already exists, overrides the session
+ *  entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
+ *
+ *  Method: dialogflow.projects.agent.environments.users.sessions.entityTypes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsEntityTypesCreate : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsUsersSessionsEntityTypesCreateWithObject:parent:]
+
+/**
+ *  Required. The session to create a session entity type for.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *  `projects/<Project ID>/agent/environments/<Environment ID>/users/<User ID>/
+ *  sessions/<Session ID>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.
+ *
+ *  Creates a session entity type.
+ *  If the specified session entity type already exists, overrides the session
+ *  entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType
+ *    to include in the query.
+ *  @param parent Required. The session to create a session entity type for.
+ *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User ID>/
+ *    sessions/<Session ID>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsEntityTypesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified session entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
+ *
+ *  Method: dialogflow.projects.agent.environments.users.sessions.entityTypes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsEntityTypesDelete : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsUsersSessionsEntityTypesDeleteWithname:]
+
+/**
+ *  Required. The name of the entity type to delete. Format:
+ *  `projects/<Project ID>/agent/sessions/<Session
+ *  ID>/entityTypes/<Entity Type 
+ Display Name>` or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User ID>/sessions/<Session
+ *  ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
+ *
+ *  Deletes the specified session entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
+ *
+ *  @param name Required. The name of the entity type to delete. Format:
+ *    `projects/<Project ID>/agent/sessions/<Session
+ *    ID>/entityTypes/<Entity Type 
+ Display Name>` or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User ID>/sessions/<Session
+ *    ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsEntityTypesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the specified session entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
+ *
+ *  Method: dialogflow.projects.agent.environments.users.sessions.entityTypes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsEntityTypesGet : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsUsersSessionsEntityTypesGetWithname:]
+
+/**
+ *  Required. The name of the session entity type. Format:
+ *  `projects/<Project ID>/agent/sessions/<Session
+ *  ID>/entityTypes/<Entity Type 
+ Display Name>` or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User ID>/sessions/<Session
+ *  ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.
+ *
+ *  Retrieves the specified session entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
+ *
+ *  @param name Required. The name of the session entity type. Format:
+ *    `projects/<Project ID>/agent/sessions/<Session
+ *    ID>/entityTypes/<Entity Type 
+ Display Name>` or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User ID>/sessions/<Session
+ *    ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsEntityTypesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of all session entity types in the specified session.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
+ *
+ *  Method: dialogflow.projects.agent.environments.users.sessions.entityTypes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsEntityTypesList : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsUsersSessionsEntityTypesListWithparent:]
+
+/**
+ *  Optional. The maximum number of items to return in a single page. By
+ *  default 100 and at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous list request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The session to list all session entity types from.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *  `projects/<Project ID>/agent/environments/<Environment ID>/users/<User ID>/
+ *  sessions/<Session ID>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowV2ListSessionEntityTypesResponse.
+ *
+ *  Returns the list of all session entity types in the specified session.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
+ *
+ *  @param parent Required. The session to list all session entity types from.
+ *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User ID>/
+ *    sessions/<Session ID>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsEntityTypesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the specified session entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
+ *
+ *  Method: dialogflow.projects.agent.environments.users.sessions.entityTypes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsEntityTypesPatch : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsUsersSessionsEntityTypesPatchWithObject:name:]
+
+/**
+ *  Required. The unique identifier of this session entity type. Format:
+ *  `projects/<Project ID>/agent/sessions/<Session
+ *  ID>/entityTypes/<Entity Type 
+ Display Name>`, or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User ID>/sessions/<Session
+ *  ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
+ *  `<Entity Type Display Name>` must be the display name of an existing entity
+ *  type in the same agent that will be overridden or supplemented.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The mask to control which fields get updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.
+ *
+ *  Updates the specified session entity type.
+ *  This method doesn't work with Google Assistant integration.
+ *  Contact Dialogflow support if you need to use session entities
+ *  with Google Assistant integration.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType
+ *    to include in the query.
+ *  @param name Required. The unique identifier of this session entity type.
+ *    Format:
+ *    `projects/<Project ID>/agent/sessions/<Session
+ *    ID>/entityTypes/<Entity Type 
+ Display Name>`, or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User ID>/sessions/<Session
+ *    ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
+ *    `<Entity Type Display Name>` must be the display name of an existing
+ *    entity
+ *    type in the same agent that will be overridden or supplemented.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsEntityTypesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Exports the specified agent to a ZIP file.
  *  Operation <response: ExportAgentResponse>
  *
@@ -590,6 +1216,83 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2ExportAgentRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Retrieves the fulfillment.
+ *
+ *  Method: dialogflow.projects.agent.getFulfillment
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentGetFulfillment : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentGetFulfillmentWithname:]
+
+/**
+ *  Required. The name of the fulfillment.
+ *  Format: `projects/<Project ID>/agent/fulfillment`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2Fulfillment.
+ *
+ *  Retrieves the fulfillment.
+ *
+ *  @param name Required. The name of the fulfillment.
+ *    Format: `projects/<Project ID>/agent/fulfillment`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentGetFulfillment
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets agent validation result. Agent validation is performed during
+ *  training time and is updated automatically when training is completed.
+ *
+ *  Method: dialogflow.projects.agent.getValidationResult
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentGetValidationResult : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentGetValidationResultWithparent:]
+
+/**
+ *  Optional. The language for which you want a validation result. If not
+ *  specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Required. The project that the agent is associated with.
+ *  Format: `projects/<Project ID>`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2ValidationResult.
+ *
+ *  Gets agent validation result. Agent validation is performed during
+ *  training time and is updated automatically when training is completed.
+ *
+ *  @param parent Required. The project that the agent is associated with.
+ *    Format: `projects/<Project ID>`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentGetValidationResult
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1115,7 +1818,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The session to create a context for.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1128,7 +1836,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Context to
  *    include in the query.
  *  @param parent Required. The session to create a context for.
- *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
+ *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User 
+ ID>/sessions/<Session ID>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsContextsCreate
  */
@@ -1152,7 +1865,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The name of the context to delete. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
+ *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
+ *  or `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1162,7 +1880,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Deletes the specified context.
  *
  *  @param name Required. The name of the context to delete. Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
+ *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
+ *    or `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsContextsDelete
  */
@@ -1185,7 +1908,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The name of the context. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
+ *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
+ *  or `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1195,7 +1923,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Retrieves the specified context.
  *
  *  @param name Required. The name of the context. Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
+ *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
+ *    or `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsContextsGet
  */
@@ -1229,7 +1962,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The session to list all contexts from.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1239,7 +1977,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Returns the list of all contexts in the specified session.
  *
  *  @param parent Required. The session to list all contexts from.
- *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
+ *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User 
+ ID>/sessions/<Session ID>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsContextsList
  *
@@ -1266,9 +2009,14 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The unique identifier of the context. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
+ *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
+ *  or `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *  The `Context ID` is always converted to lowercase, may only contain
- *  characters in [a-zA-Z0-9_-%] and may be at most 250 bytes long.
+ *  characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  *  The following context names are reserved for internal use by Dialogflow.
  *  You should not use these contexts or create contexts with these names:
  *  * `__system_counters__`
@@ -1292,9 +2040,14 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Context to
  *    include in the query.
  *  @param name Required. The unique identifier of the context. Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`.
+ *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
+ *    or `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User 
+ ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *    The `Context ID` is always converted to lowercase, may only contain
- *    characters in [a-zA-Z0-9_-%] and may be at most 250 bytes long.
+ *    characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
  *    The following context names are reserved for internal use by Dialogflow.
  *    You should not use these contexts or create contexts with these names:
  *    * `__system_counters__`
@@ -1323,7 +2076,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The name of the session to delete all contexts from. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>`.
+ *  `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *  `projects/<Project 
+ ID>/agent/environments/<Environment
+ *  ID>/users/<User ID>/sessions/<Session
+ *  ID>`.
+ *  If `Environment ID` is not specified we assume default 'draft' environment.
+ *  If `User ID` is not specified, we assume default '-' user.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1334,7 +2093,14 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *
  *  @param parent Required. The name of the session to delete all contexts from.
  *    Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>`.
+ *    `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *    `projects/<Project 
+ ID>/agent/environments/<Environment
+ *    ID>/users/<User ID>/sessions/<Session
+ *    ID>`.
+ *    If `Environment ID` is not specified we assume default 'draft'
+ *    environment.
+ *    If `User ID` is not specified, we assume default '-' user.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsDeleteContexts
  */
@@ -1360,10 +2126,16 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The name of the session this query is sent to. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>`. It's up to the API
- *  caller to choose an appropriate session ID. It can be a random number or
- *  some type of user identifier (preferably hashed). The length of the session
- *  ID must not exceed 36 bytes.
+ *  `projects/<Project ID>/agent/sessions/<Session ID>`, or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User 
+ ID>/sessions/<Session ID>`. If `Environment ID` is not
+ *  specified, we assume
+ *  default 'draft' environment. If `User ID` is not specified, we are using
+ *  "-". It's up to the API caller to choose an appropriate `Session ID` and
+ *  `User Id`. They can be a random number or some type of user and session
+ *  identifiers (preferably hashed). The length of the `Session ID` and
+ *  `User ID` must not exceed 36 characters.
  */
 @property(nonatomic, copy, nullable) NSString *session;
 
@@ -1380,11 +2152,16 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    the query.
  *  @param session Required. The name of the session this query is sent to.
  *    Format:
- *    `projects/<Project ID>/agent/sessions/<Session ID>`. It's up to the API
- *    caller to choose an appropriate session ID. It can be a random number or
- *    some type of user identifier (preferably hashed). The length of the
- *    session
- *    ID must not exceed 36 bytes.
+ *    `projects/<Project ID>/agent/sessions/<Session ID>`, or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User 
+ ID>/sessions/<Session ID>`. If `Environment ID` is not
+ *    specified, we assume
+ *    default 'draft' environment. If `User ID` is not specified, we are using
+ *    "-". It's up to the API caller to choose an appropriate `Session ID` and
+ *    `User Id`. They can be a random number or some type of user and session
+ *    identifiers (preferably hashed). The length of the `Session ID` and
+ *    `User ID` must not exceed 36 characters.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsDetectIntent
  */
@@ -1413,7 +2190,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The session to create a session entity type for.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *  `projects/<Project ID>/agent/environments/<Environment ID>/users/<User ID>/
+ *  sessions/<Session ID>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1430,7 +2211,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType
  *    to include in the query.
  *  @param parent Required. The session to create a session entity type for.
- *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
+ *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User ID>/
+ *    sessions/<Session ID>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesCreate
  */
@@ -1459,7 +2245,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Required. The name of the entity type to delete. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
  *  ID>/entityTypes/<Entity Type 
- Display Name>`.
+ Display Name>` or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User ID>/sessions/<Session
+ *  ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1474,7 +2266,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param name Required. The name of the entity type to delete. Format:
  *    `projects/<Project ID>/agent/sessions/<Session
  *    ID>/entityTypes/<Entity Type 
- Display Name>`.
+ Display Name>` or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User ID>/sessions/<Session
+ *    ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesDelete
  */
@@ -1502,7 +2300,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Required. The name of the session entity type. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
  *  ID>/entityTypes/<Entity Type 
- Display Name>`.
+ Display Name>` or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User ID>/sessions/<Session
+ *  ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1517,7 +2321,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  @param name Required. The name of the session entity type. Format:
  *    `projects/<Project ID>/agent/sessions/<Session
  *    ID>/entityTypes/<Entity Type 
- Display Name>`.
+ Display Name>` or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User ID>/sessions/<Session
+ *    ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesGet
  */
@@ -1554,7 +2364,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 /**
  *  Required. The session to list all session entity types from.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
+ *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *  `projects/<Project ID>/agent/environments/<Environment ID>/users/<User ID>/
+ *  sessions/<Session ID>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1568,7 +2382,12 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  with Google Assistant integration.
  *
  *  @param parent Required. The session to list all session entity types from.
- *    Format: `projects/<Project ID>/agent/sessions/<Session ID>`.
+ *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User ID>/
+ *    sessions/<Session ID>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsEntityTypesList
  *
@@ -1600,7 +2419,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *  Required. The unique identifier of this session entity type. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
  *  ID>/entityTypes/<Entity Type 
- Display Name>`.
+ Display Name>`, or
+ *  `projects/<Project ID>/agent/environments/<Environment
+ *  ID>/users/<User ID>/sessions/<Session
+ *  ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *  If `Environment ID` is not specified, we assume default 'draft'
+ *  environment. If `User ID` is not specified, we assume default '-' user.
  *  `<Entity Type Display Name>` must be the display name of an existing entity
  *  type in the same agent that will be overridden or supplemented.
  */
@@ -1627,7 +2452,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *    Format:
  *    `projects/<Project ID>/agent/sessions/<Session
  *    ID>/entityTypes/<Entity Type 
- Display Name>`.
+ Display Name>`, or
+ *    `projects/<Project ID>/agent/environments/<Environment
+ *    ID>/users/<User ID>/sessions/<Session
+ *    ID>/entityTypes/<Entity Type Display 
+ Name>`.
+ *    If `Environment ID` is not specified, we assume default 'draft'
+ *    environment. If `User ID` is not specified, we assume default '-' user.
  *    `<Entity Type Display Name>` must be the display name of an existing
  *    entity
  *    type in the same agent that will be overridden or supplemented.
@@ -1675,6 +2506,50 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2TrainAgentRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the fulfillment.
+ *
+ *  Method: dialogflow.projects.agent.updateFulfillment
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentUpdateFulfillment : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentUpdateFulfillmentWithObject:name:]
+
+/**
+ *  Required. The unique identifier of the fulfillment.
+ *  Format: `projects/<Project ID>/agent/fulfillment`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The mask to control which fields get updated. If the mask is not
+ *  present, all fields will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2Fulfillment.
+ *
+ *  Updates the fulfillment.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Fulfillment to
+ *    include in the query.
+ *  @param name Required. The unique identifier of the fulfillment.
+ *    Format: `projects/<Project ID>/agent/fulfillment`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentUpdateFulfillment
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2Fulfillment *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -2019,6 +2894,49 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates/updates the specified agent.
+ *
+ *  Method: dialogflow.projects.setAgent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsSetAgent : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsSetAgentWithObject:parent:]
+
+/**
+ *  Required. The project of this agent.
+ *  Format: `projects/<Project ID>`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The mask to control which fields get updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2Agent.
+ *
+ *  Creates/updates the specified agent.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Agent to include
+ *    in the query.
+ *  @param parent Required. The project of this agent.
+ *    Format: `projects/<Project ID>`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsSetAgent
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowV2Agent *)object
+                         parent:(NSString *)parent;
 
 @end
 

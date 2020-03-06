@@ -59,6 +59,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherExpansionFileTypePatch;
 // ----------------------------------------------------------------------------
 // imageType
 
+/** Value: "automotiveScreenshots" */
+GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeAutomotiveScreenshots;
+/** Value: "daydreamStereoImage" */
+GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeDaydreamStereoImage;
 /** Value: "featureGraphic" */
 GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeFeatureGraphic;
 /** Value: "icon" */
@@ -885,6 +889,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  imageType
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
+ *        "automotiveScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
+ *        "daydreamStereoImage"
  *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
  *        "featureGraphic"
  *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
@@ -932,6 +940,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    to this edit.
  *
  *  Likely values for @c imageType:
+ *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
+ *        "automotiveScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
+ *        "daydreamStereoImage"
  *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
  *        "featureGraphic"
  *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
@@ -976,6 +988,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  imageType
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
+ *        "automotiveScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
+ *        "daydreamStereoImage"
  *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
  *        "featureGraphic"
  *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
@@ -1020,6 +1036,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param imageType NSString
  *
  *  Likely values for @c imageType:
+ *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
+ *        "automotiveScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
+ *        "daydreamStereoImage"
  *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
  *        "featureGraphic"
  *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
@@ -1063,6 +1083,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  imageType
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
+ *        "automotiveScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
+ *        "daydreamStereoImage"
  *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
  *        "featureGraphic"
  *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
@@ -1107,6 +1131,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param imageType NSString
  *
  *  Likely values for @c imageType:
+ *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
+ *        "automotiveScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
+ *        "daydreamStereoImage"
  *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
  *        "featureGraphic"
  *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
@@ -1151,6 +1179,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  imageType
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
+ *        "automotiveScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
+ *        "daydreamStereoImage"
  *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
  *        "featureGraphic"
  *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
@@ -1196,6 +1228,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param imageType NSString
  *
  *  Likely values for @c imageType:
+ *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
+ *        "automotiveScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
+ *        "daydreamStereoImage"
  *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
  *        "featureGraphic"
  *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"

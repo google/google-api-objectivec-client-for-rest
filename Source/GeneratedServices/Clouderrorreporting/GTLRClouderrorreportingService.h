@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Error Reporting API (clouderrorreporting/v1beta1)
+//   Error Reporting API (clouderrorreporting/v1beta1)
 // Description:
 //   Groups and counts similar errors from cloud services and applications,
 //   reports new errors, and provides access to error groups and their
@@ -43,7 +43,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeClouderrorreportingCloudPlatform;
 //
 
 /**
- *  Service for executing Stackdriver Error Reporting API queries.
+ *  Service for executing Error Reporting API queries.
  *
  *  Groups and counts similar errors from cloud services and applications,
  *  reports new errors, and provides access to error groups and their associated

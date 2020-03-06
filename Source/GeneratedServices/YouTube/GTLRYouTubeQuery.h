@@ -3858,7 +3858,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *  be returned in the result set.
  *
  *  @note If not set, the documented server-side default will be 5 (from the
- *        range 0..50).
+ *        range 0..50000).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 

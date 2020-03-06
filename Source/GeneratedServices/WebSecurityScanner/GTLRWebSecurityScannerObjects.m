@@ -13,6 +13,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRWebSecurityScanner_Finding.severity
+NSString * const kGTLRWebSecurityScanner_Finding_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRWebSecurityScanner_Finding_Severity_High = @"HIGH";
+NSString * const kGTLRWebSecurityScanner_Finding_Severity_Low  = @"LOW";
+NSString * const kGTLRWebSecurityScanner_Finding_Severity_Medium = @"MEDIUM";
+NSString * const kGTLRWebSecurityScanner_Finding_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
 // GTLRWebSecurityScanner_ScanConfig.exportToSecurityCommandCenter
 NSString * const kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_Disabled = @"DISABLED";
 NSString * const kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_Enabled = @"ENABLED";
@@ -166,8 +173,8 @@ NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName = @"WINDOW_
 @implementation GTLRWebSecurityScanner_Finding
 @dynamic body, descriptionProperty, finalUrl, findingType, form, frameUrl,
          fuzzedUrl, httpMethod, name, outdatedLibrary, reproductionUrl,
-         trackingId, violatingResource, vulnerableHeaders, vulnerableParameters,
-         xss;
+         severity, trackingId, violatingResource, vulnerableHeaders,
+         vulnerableParameters, xss;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

@@ -514,7 +514,9 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  */
 @interface GTLRBigtableAdmin_CheckConsistencyRequest : GTLRObject
 
-/** The token created using GenerateConsistencyToken for the Table. */
+/**
+ *  Required. The token created using GenerateConsistencyToken for the Table.
+ */
 @property(nonatomic, copy, nullable) NSString *consistencyToken;
 
 @end
@@ -565,19 +567,20 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  *  The location where this cluster's nodes and storage reside. For best
  *  performance, clients should be located as close as possible to this
  *  cluster. Currently only zones are supported, so values should be of the
- *  form `projects/<project>/locations/<zone>`.
+ *  form `projects/{project}/locations/{zone}`.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  (`OutputOnly`)
+ *  Required. (`OutputOnly`)
  *  The unique name of the cluster. Values are of the form
- *  `projects/<project>/instances/<instance>/clusters/a-z*`.
+ *  `projects/{project}/instances/{instance}/clusters/a-z*`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The number of nodes allocated to this cluster. More nodes enable higher
+ *  Required. The number of nodes allocated to this cluster. More nodes enable
+ *  higher
  *  throughput and more consistent performance.
  *
  *  Uses NSNumber of intValue.
@@ -720,22 +723,24 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @interface GTLRBigtableAdmin_CreateClusterRequest : GTLRObject
 
 /**
- *  The cluster to be created.
+ *  Required. The cluster to be created.
  *  Fields marked `OutputOnly` must be left blank.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Cluster *cluster;
 
 /**
- *  The ID to be used when referring to the new cluster within its instance,
+ *  Required. The ID to be used when referring to the new cluster within its
+ *  instance,
  *  e.g., just `mycluster` rather than
  *  `projects/myproject/instances/myinstance/clusters/mycluster`.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The unique name of the instance in which to create the new cluster.
+ *  Required. The unique name of the instance in which to create the new
+ *  cluster.
  *  Values are of the form
- *  `projects/<project>/instances/<instance>`.
+ *  `projects/{project}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -767,7 +772,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @interface GTLRBigtableAdmin_CreateInstanceRequest : GTLRObject
 
 /**
- *  The clusters to be created within the instance, mapped by desired
+ *  Required. The clusters to be created within the instance, mapped by desired
  *  cluster ID, e.g., just `mycluster` rather than
  *  `projects/myproject/instances/myinstance/clusters/mycluster`.
  *  Fields marked `OutputOnly` must be left blank.
@@ -776,21 +781,23 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_CreateInstanceRequest_Clusters *clusters;
 
 /**
- *  The instance to create.
+ *  Required. The instance to create.
  *  Fields marked `OutputOnly` must be left blank.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Instance *instance;
 
 /**
- *  The ID to be used when referring to the new instance within its project,
+ *  Required. The ID to be used when referring to the new instance within its
+ *  project,
  *  e.g., just `myinstance` rather than
  *  `projects/myproject/instances/myinstance`.
  */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
- *  The unique name of the project in which to create the new instance.
- *  Values are of the form `projects/<project>`.
+ *  Required. The unique name of the project in which to create the new
+ *  instance.
+ *  Values are of the form `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -798,7 +805,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 
 
 /**
- *  The clusters to be created within the instance, mapped by desired
+ *  Required. The clusters to be created within the instance, mapped by desired
  *  cluster ID, e.g., just `mycluster` rather than
  *  `projects/myproject/instances/myinstance/clusters/mycluster`.
  *  Fields marked `OutputOnly` must be left blank.
@@ -837,12 +844,13 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_Split *> *initialSplits;
 
-/** The Table to create. */
+/** Required. The Table to create. */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Table *table;
 
 /**
- *  The name by which the new table should be referred to within the parent
- *  instance, e.g., `foobar` rather than `<parent>/tables/foobar`.
+ *  Required. The name by which the new table should be referred to within the
+ *  parent
+ *  instance, e.g., `foobar` rather than `{parent}/tables/foobar`.
  *  Maximum 50 characters.
  */
 @property(nonatomic, copy, nullable) NSString *tableId;
@@ -889,15 +897,34 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 
 
 /**
- *  Represents an expression text. Example:
- *  title: "User account presence"
- *  description: "Determines whether the request has a user account"
- *  expression: "size(request.user) > 0"
+ *  Represents a textual expression in the Common Expression Language (CEL)
+ *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
+ *  are documented at https://github.com/google/cel-spec.
+ *  Example (Comparison):
+ *  title: "Summary size limit"
+ *  description: "Determines if a summary is less than 100 chars"
+ *  expression: "document.summary.size() < 100"
+ *  Example (Equality):
+ *  title: "Requestor is owner"
+ *  description: "Determines if requestor is the document owner"
+ *  expression: "document.owner == request.auth.claims.email"
+ *  Example (Logic):
+ *  title: "Public documents"
+ *  description: "Determine whether the document should be publicly visible"
+ *  expression: "document.type != 'private' && document.type != 'internal'"
+ *  Example (Data Manipulation):
+ *  title: "Notification string"
+ *  description: "Create a notification string with a timestamp."
+ *  expression: "'New message received at ' + string(document.create_time)"
+ *  The exact variables and functions that may be referenced within an
+ *  expression
+ *  are determined by the service that evaluates it. See the service
+ *  documentation for additional information.
  */
 @interface GTLRBigtableAdmin_Expr : GTLRObject
 
 /**
- *  An optional description of the expression. This is a longer text which
+ *  Optional. Description of the expression. This is a longer text which
  *  describes the expression, e.g. when hovered over it in a UI.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -905,21 +932,19 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Textual representation of an expression in
- *  Common Expression Language syntax.
- *  The application context of the containing message determines which
- *  well-known feature set of CEL is supported.
+ *  Textual representation of an expression in Common Expression Language
+ *  syntax.
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  An optional string indicating the location of the expression for error
+ *  Optional. String indicating the location of the expression for error
  *  reporting, e.g. a file name and a position in the file.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  An optional title for the expression, i.e. a short string describing
+ *  Optional. Title for the expression, i.e. a short string describing
  *  its purpose. This can be used e.g. in UIs which allow to enter the
  *  expression.
  */
@@ -1023,14 +1048,15 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @interface GTLRBigtableAdmin_Instance : GTLRObject
 
 /**
- *  The descriptive name for this instance as it appears in UIs.
+ *  Required. The descriptive name for this instance as it appears in UIs.
  *  Can be changed at any time, but should be kept globally unique
  *  to avoid confusion.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Labels are a flexible and lightweight mechanism for organizing cloud
+ *  Required. Labels are a flexible and lightweight mechanism for organizing
+ *  cloud
  *  resources into groups that reflect a customer's organizational needs and
  *  deployment strategies. They can be used to filter resources and aggregate
  *  metrics.
@@ -1044,9 +1070,9 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Instance_Labels *labels;
 
 /**
- *  (`OutputOnly`)
+ *  Required. (`OutputOnly`)
  *  The unique name of the instance. Values are of the form
- *  `projects/<project>/instances/a-z+[a-z0-9]`.
+ *  `projects/{project}/instances/a-z+[a-z0-9]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1067,7 +1093,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  The type of the instance. Defaults to `PRODUCTION`.
+ *  Required. The type of the instance. Defaults to `PRODUCTION`.
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_Instance_Type_Development The instance is meant
@@ -1095,7 +1121,8 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 
 
 /**
- *  Labels are a flexible and lightweight mechanism for organizing cloud
+ *  Required. Labels are a flexible and lightweight mechanism for organizing
+ *  cloud
  *  resources into groups that reflect a customer's organizational needs and
  *  deployment strategies. They can be used to filter resources and aggregate
  *  metrics.
@@ -1409,7 +1436,8 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
 @interface GTLRBigtableAdmin_ModifyColumnFamiliesRequest : GTLRObject
 
 /**
- *  Modifications to be atomically applied to the specified table's families.
+ *  Required. Modifications to be atomically applied to the specified table's
+ *  families.
  *  Entries are applied in order, meaning that earlier modifications can be
  *  masked by later ones (in the case of repeated updates to the same family,
  *  for example).
@@ -1517,11 +1545,13 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspeci
  */
 @interface GTLRBigtableAdmin_PartialUpdateInstanceRequest : GTLRObject
 
-/** The Instance which will (partially) replace the current value. */
+/**
+ *  Required. The Instance which will (partially) replace the current value.
+ */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Instance *instance;
 
 /**
- *  The subset of Instance fields which should be replaced.
+ *  Required. The subset of Instance fields which should be replaced.
  *  Must be explicitly set.
  *
  *  String format is a comma-separated list of fields.

@@ -1713,6 +1713,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_SdkHarnessContainerImage
+//
+
+@implementation GTLRDataflow_SdkHarnessContainerImage
+@dynamic containerImage, useSingleCorePerContainer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_SDKInfo
 //
 
@@ -2628,8 +2638,9 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 @dynamic autoscalingSettings, dataDisks, defaultPackageSet, diskSizeGb,
          diskSourceImage, diskType, ipConfiguration, kind, machineType,
          metadata, network, numThreadsPerWorker, numWorkers, onHostMaintenance,
-         packages, poolArgs, subnetwork, taskrunnerSettings, teardownPolicy,
-         workerHarnessContainerImage, zoneProperty;
+         packages, poolArgs, sdkHarnessContainerImages, subnetwork,
+         taskrunnerSettings, teardownPolicy, workerHarnessContainerImage,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -2638,7 +2649,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"dataDisks" : [GTLRDataflow_Disk class],
-    @"packages" : [GTLRDataflow_Package class]
+    @"packages" : [GTLRDataflow_Package class],
+    @"sdkHarnessContainerImages" : [GTLRDataflow_SdkHarnessContainerImage class]
   };
   return map;
 }

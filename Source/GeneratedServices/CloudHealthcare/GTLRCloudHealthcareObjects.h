@@ -684,9 +684,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  * The destination dataset must exist.
  *  * The source dataset and destination dataset must both reside in the same
  *  project. De-identifying data across multiple projects is not supported.
- *  * The destination FHIR store must not exist.
- *  * The caller must have the necessary permissions to create the destination
- *  FHIR store.
+ *  * The destination FHIR store must exist.
+ *  * The caller must have the healthcare.fhirResources.update permission to
+ *  write to the destination FHIR store.
  */
 @property(nonatomic, copy, nullable) NSString *destinationStore;
 
@@ -2184,6 +2184,10 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  to a project. cloud-healthcare\@system.gserviceaccount.com must have
  *  publisher permissions on the given Cloud Pub/Sub topic. Not having adequate
  *  permissions causes the calls that send notifications to fail.
+ *  If a notification can't be published to Cloud Pub/Sub, errors are logged to
+ *  Stackdriver (see [Viewing
+ *  logs](/healthcare/docs/how-tos/stackdriver-logging)). If the number of
+ *  errors exceeds a certain rate, some aren't submitted.
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 

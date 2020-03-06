@@ -581,6 +581,16 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_CheckO
  */
 GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Normal;
 /**
+ *  Unimplemented. When used in AllocateQuotaRequest, this returns the
+ *  effective quota limit(s) in the response, and no quota check will be
+ *  performed. Not supported for other requests, and even for
+ *  AllocateQuotaRequest, this is currently supported only for whitelisted
+ *  services.
+ *
+ *  Value: "QUERY_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_QueryOnly;
+/**
  *  Guard against implicit default. Must not be used.
  *
  *  Value: "UNSPECIFIED"
@@ -2613,6 +2623,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnsp
  *        returned and no quota will be allocated.
  *        If multiple quotas are part of the request, and one fails, none of the
  *        quotas are allocated or released. (Value: "NORMAL")
+ *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_QueryOnly
+ *        Unimplemented. When used in AllocateQuotaRequest, this returns the
+ *        effective quota limit(s) in the response, and no quota check will be
+ *        performed. Not supported for other requests, and even for
+ *        AllocateQuotaRequest, this is currently supported only for whitelisted
+ *        services. (Value: "QUERY_ONLY")
  *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_Unspecified Guard
  *        against implicit default. Must not be used. (Value: "UNSPECIFIED")
  */
@@ -3048,19 +3064,20 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnsp
 
 
 /**
- *  The context of a span, attached to google.api.Distribution.Exemplars
- *  in google.api.Distribution values during aggregation.
+ *  The context of a span, attached to
+ *  Exemplars
+ *  in Distribution values during aggregation.
  *  It contains the name of a span with format:
- *  projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/[SPAN_ID]
+ *  projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID]
  */
 @interface GTLRServiceControl_SpanContext : GTLRObject
 
 /**
- *  The resource name of the span in the following format:
- *  projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier
- *  for a trace within a project;
+ *  The resource name of the span. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID]
+ *  `[TRACE_ID]` is a unique identifier for a trace within a project;
  *  it is a 32-character hexadecimal encoding of a 16-byte array.
- *  [SPAN_ID] is a unique identifier for a span within a trace; it
+ *  `[SPAN_ID]` is a unique identifier for a span within a trace; it
  *  is a 16-character hexadecimal encoding of an 8-byte array.
  */
 @property(nonatomic, copy, nullable) NSString *spanName;

@@ -2903,8 +2903,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_DirectorySite
-@dynamic active, identifier, idDimensionValue, inpageTagFormats,
-         interstitialTagFormats, kind, name, settings, url;
+@dynamic identifier, idDimensionValue, inpageTagFormats, interstitialTagFormats,
+         kind, name, settings, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

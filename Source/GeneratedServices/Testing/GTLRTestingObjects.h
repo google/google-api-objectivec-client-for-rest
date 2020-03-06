@@ -70,6 +70,7 @@
 @class GTLRTesting_Shard;
 @class GTLRTesting_ShardingOption;
 @class GTLRTesting_StartActivityIntent;
+@class GTLRTesting_SystraceSetup;
 @class GTLRTesting_TestDetails;
 @class GTLRTesting_TestExecution;
 @class GTLRTesting_TestSetup;
@@ -1079,6 +1080,9 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
+/** URL of a thumbnail image of the device. */
+@property(nonatomic, copy, nullable) NSString *thumbnailUrl;
+
 @end
 
 
@@ -1689,7 +1693,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  A description of an iOS device tests may be run on.
- *  Next tag: 11
+ *  Next tag: 12
  */
 @interface GTLRTesting_IosModel : GTLRObject
 
@@ -2231,6 +2235,22 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  GTLRTesting_SystraceSetup
+ */
+@interface GTLRTesting_SystraceSetup : GTLRObject
+
+/**
+ *  Systrace duration in seconds.
+ *  Should be between 1 and 30 seconds. 0 disables systrace.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationSeconds;
+
+@end
+
+
+/**
  *  Additional details about the progress of the running test.
  */
 @interface GTLRTesting_TestDetails : GTLRObject
@@ -2660,6 +2680,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  TestEnvironmentDiscoveryService.GetTestEnvironmentCatalog.
  */
 @property(nonatomic, copy, nullable) NSString *networkProfile;
+
+/**
+ *  Systrace configuration for the run.
+ *  If set a systrace will be taken, starting on test start and lasting for the
+ *  configured duration. The systrace file thus obtained is put in the results
+ *  bucket together with the other artifacts from the run.
+ */
+@property(nonatomic, strong, nullable) GTLRTesting_SystraceSetup *systrace;
 
 @end
 

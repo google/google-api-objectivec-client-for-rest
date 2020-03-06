@@ -556,6 +556,84 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  Method: ml.projects.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsOperationsCancel : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsOperationsCancelWithname:]
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not
+ *  guaranteed. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
+ *  Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation,
+ *  the operation is not deleted; instead, it becomes an operation with
+ *  an Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsLocationsOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: ml.projects.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsOperationsGet : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a model which will later contain one or more versions.
  *  You must add at least one version before you can request predictions from
  *  the model. Add versions by calling

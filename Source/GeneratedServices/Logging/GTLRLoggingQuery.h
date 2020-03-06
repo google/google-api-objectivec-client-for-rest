@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Logging API (logging/v2)
+//   Cloud Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Stackdriver Logging configuration. The
-//   table entries below are presented in alphabetical order, not in order of
-//   common use. For explanations of the concepts found in the table entries,
-//   read the <a href=https://cloud.google.com/logging/docs>Stackdriver Logging
+//   Writes log entries and manages your Cloud Logging configuration. The table
+//   entries below are presented in alphabetical order, not in order of common
+//   use. For explanations of the concepts found in the table entries, read the
+//   <a href=https://cloud.google.com/logging/docs>Cloud Logging
 //   documentation</a>.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
@@ -24,6 +24,7 @@
 
 @class GTLRLogging_CmekSettings;
 @class GTLRLogging_ListLogEntriesRequest;
+@class GTLRLogging_LogBucket;
 @class GTLRLogging_LogExclusion;
 @class GTLRLogging_LogMetric;
 @class GTLRLogging_LogSink;
@@ -43,6 +44,51 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Gets a bucket (Beta).
+ *
+ *  Method: logging.billingAccounts.buckets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsBucketsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsBucketsGetWithname:]
+
+/**
+ *  Required. The resource name of the bucket:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Gets a bucket (Beta).
+ *
+ *  @param name Required. The resource name of the bucket:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsBucketsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -290,6 +336,141 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRLoggingQuery_BillingAccountsExclusionsPatch
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Lists buckets (Beta).
+ *
+ *  Method: logging.billingAccounts.locations.buckets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsBucketsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose buckets are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
+ *  Note: The locations portion of the resource must be specified, but supplying
+ *  the character - in place of LOCATION_ID will return all buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListBucketsResponse.
+ *
+ *  Lists buckets (Beta).
+ *
+ *  @param parent Required. The parent resource whose buckets are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
+ *    Note: The locations portion of the resource must be specified, but
+ *    supplying the character - in place of LOCATION_ID will return all buckets.
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a bucket. This method replaces the following fields in the existing
+ *  bucket with values from the new bucket: retention_periodIf the retention
+ *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
+ *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
+ *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
+ *  after it is created. This method is in Beta.
+ *
+ *  Method: logging.billingAccounts.locations.buckets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsBucketsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsPatchWithObject:name:]
+
+/**
+ *  Required. The full resource name of the bucket to update.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
+ *  requires permission "resourcemanager.projects.updateLiens" to set the locked
+ *  property
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Field mask that specifies the fields in bucket that need an
+ *  update. A bucket field will be overwritten if, and only if, it is in the
+ *  update mask. name and output only fields cannot be updated.For a detailed
+ *  FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+ *  updateMask=retention_days.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Updates a bucket. This method replaces the following fields in the existing
+ *  bucket with values from the new bucket: retention_periodIf the retention
+ *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
+ *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
+ *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
+ *  after it is created. This method is in Beta.
+ *
+ *  @param object The @c GTLRLogging_LogBucket to include in the query.
+ *  @param name Required. The full resource name of the bucket to update.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
+ *    requires permission "resourcemanager.projects.updateLiens" to set the
+ *    locked property
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
                            name:(NSString *)name;
 
 @end
@@ -1335,6 +1516,186 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a bucket (Beta).
+ *
+ *  Method: logging.folders.locations.buckets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsBucketsGetWithname:]
+
+/**
+ *  Required. The resource name of the bucket:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Gets a bucket (Beta).
+ *
+ *  @param name Required. The resource name of the bucket:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists buckets (Beta).
+ *
+ *  Method: logging.folders.locations.buckets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsBucketsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose buckets are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
+ *  Note: The locations portion of the resource must be specified, but supplying
+ *  the character - in place of LOCATION_ID will return all buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListBucketsResponse.
+ *
+ *  Lists buckets (Beta).
+ *
+ *  @param parent Required. The parent resource whose buckets are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
+ *    Note: The locations portion of the resource must be specified, but
+ *    supplying the character - in place of LOCATION_ID will return all buckets.
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a bucket. This method replaces the following fields in the existing
+ *  bucket with values from the new bucket: retention_periodIf the retention
+ *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
+ *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
+ *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
+ *  after it is created. This method is in Beta.
+ *
+ *  Method: logging.folders.locations.buckets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsBucketsPatchWithObject:name:]
+
+/**
+ *  Required. The full resource name of the bucket to update.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
+ *  requires permission "resourcemanager.projects.updateLiens" to set the locked
+ *  property
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Field mask that specifies the fields in bucket that need an
+ *  update. A bucket field will be overwritten if, and only if, it is in the
+ *  update mask. name and output only fields cannot be updated.For a detailed
+ *  FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+ *  updateMask=retention_days.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Updates a bucket. This method replaces the following fields in the existing
+ *  bucket with values from the new bucket: retention_periodIf the retention
+ *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
+ *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
+ *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
+ *  after it is created. This method is in Beta.
+ *
+ *  @param object The @c GTLRLogging_LogBucket to include in the query.
+ *  @param name Required. The full resource name of the bucket to update.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
+ *    requires permission "resourcemanager.projects.updateLiens" to set the
+ *    locked property
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
  *  be deleted. Entries received after the delete operation with a timestamp
@@ -1810,6 +2171,186 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a bucket (Beta).
+ *
+ *  Method: logging.locations.buckets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_LocationsBucketsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsBucketsGetWithname:]
+
+/**
+ *  Required. The resource name of the bucket:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Gets a bucket (Beta).
+ *
+ *  @param name Required. The resource name of the bucket:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists buckets (Beta).
+ *
+ *  Method: logging.locations.buckets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_LocationsBucketsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsBucketsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose buckets are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
+ *  Note: The locations portion of the resource must be specified, but supplying
+ *  the character - in place of LOCATION_ID will return all buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListBucketsResponse.
+ *
+ *  Lists buckets (Beta).
+ *
+ *  @param parent Required. The parent resource whose buckets are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
+ *    Note: The locations portion of the resource must be specified, but
+ *    supplying the character - in place of LOCATION_ID will return all buckets.
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a bucket. This method replaces the following fields in the existing
+ *  bucket with values from the new bucket: retention_periodIf the retention
+ *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
+ *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
+ *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
+ *  after it is created. This method is in Beta.
+ *
+ *  Method: logging.locations.buckets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_LocationsBucketsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsBucketsPatchWithObject:name:]
+
+/**
+ *  Required. The full resource name of the bucket to update.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
+ *  requires permission "resourcemanager.projects.updateLiens" to set the locked
+ *  property
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Field mask that specifies the fields in bucket that need an
+ *  update. A bucket field will be overwritten if, and only if, it is in the
+ *  update mask. name and output only fields cannot be updated.For a detailed
+ *  FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+ *  updateMask=retention_days.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Updates a bucket. This method replaces the following fields in the existing
+ *  bucket with values from the new bucket: retention_periodIf the retention
+ *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
+ *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
+ *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
+ *  after it is created. This method is in Beta.
+ *
+ *  @param object The @c GTLRLogging_LogBucket to include in the query.
+ *  @param name Required. The full resource name of the bucket to update.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
+ *    requires permission "resourcemanager.projects.updateLiens" to set the
+ *    locked property
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
  *  be deleted. Entries received after the delete operation with a timestamp
@@ -2263,6 +2804,186 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRLoggingQuery_OrganizationsGetCmekSettings
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a bucket (Beta).
+ *
+ *  Method: logging.organizations.locations.buckets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsGetWithname:]
+
+/**
+ *  Required. The resource name of the bucket:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Gets a bucket (Beta).
+ *
+ *  @param name Required. The resource name of the bucket:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists buckets (Beta).
+ *
+ *  Method: logging.organizations.locations.buckets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose buckets are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
+ *  Note: The locations portion of the resource must be specified, but supplying
+ *  the character - in place of LOCATION_ID will return all buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListBucketsResponse.
+ *
+ *  Lists buckets (Beta).
+ *
+ *  @param parent Required. The parent resource whose buckets are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
+ *    Note: The locations portion of the resource must be specified, but
+ *    supplying the character - in place of LOCATION_ID will return all buckets.
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a bucket. This method replaces the following fields in the existing
+ *  bucket with values from the new bucket: retention_periodIf the retention
+ *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
+ *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
+ *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
+ *  after it is created. This method is in Beta.
+ *
+ *  Method: logging.organizations.locations.buckets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsPatchWithObject:name:]
+
+/**
+ *  Required. The full resource name of the bucket to update.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
+ *  requires permission "resourcemanager.projects.updateLiens" to set the locked
+ *  property
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Field mask that specifies the fields in bucket that need an
+ *  update. A bucket field will be overwritten if, and only if, it is in the
+ *  update mask. name and output only fields cannot be updated.For a detailed
+ *  FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+ *  updateMask=retention_days.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Updates a bucket. This method replaces the following fields in the existing
+ *  bucket with values from the new bucket: retention_periodIf the retention
+ *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
+ *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
+ *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
+ *  after it is created. This method is in Beta.
+ *
+ *  @param object The @c GTLRLogging_LogBucket to include in the query.
+ *  @param name Required. The full resource name of the bucket to update.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
+ *    requires permission "resourcemanager.projects.updateLiens" to set the
+ *    locked property
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -3061,6 +3782,186 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a bucket (Beta).
+ *
+ *  Method: logging.projects.locations.buckets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsBucketsGetWithname:]
+
+/**
+ *  Required. The resource name of the bucket:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Gets a bucket (Beta).
+ *
+ *  @param name Required. The resource name of the bucket:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists buckets (Beta).
+ *
+ *  Method: logging.projects.locations.buckets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsBucketsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource whose buckets are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
+ *  Note: The locations portion of the resource must be specified, but supplying
+ *  the character - in place of LOCATION_ID will return all buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListBucketsResponse.
+ *
+ *  Lists buckets (Beta).
+ *
+ *  @param parent Required. The parent resource whose buckets are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
+ *    Note: The locations portion of the resource must be specified, but
+ *    supplying the character - in place of LOCATION_ID will return all buckets.
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a bucket. This method replaces the following fields in the existing
+ *  bucket with values from the new bucket: retention_periodIf the retention
+ *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
+ *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
+ *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
+ *  after it is created. This method is in Beta.
+ *
+ *  Method: logging.projects.locations.buckets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsBucketsPatchWithObject:name:]
+
+/**
+ *  Required. The full resource name of the bucket to update.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
+ *  requires permission "resourcemanager.projects.updateLiens" to set the locked
+ *  property
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Field mask that specifies the fields in bucket that need an
+ *  update. A bucket field will be overwritten if, and only if, it is in the
+ *  update mask. name and output only fields cannot be updated.For a detailed
+ *  FieldMask definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+ *  updateMask=retention_days.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Updates a bucket. This method replaces the following fields in the existing
+ *  bucket with values from the new bucket: retention_periodIf the retention
+ *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
+ *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
+ *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
+ *  after it is created. This method is in Beta.
+ *
+ *  @param object The @c GTLRLogging_LogBucket to include in the query.
+ *  @param name Required. The full resource name of the bucket to update.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
+ *    requires permission "resourcemanager.projects.updateLiens" to set the
+ *    locked property
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes all the log entries in a log. The log reappears if it receives new
  *  entries. Log entries written shortly before the delete operation might not
  *  be deleted. Entries received after the delete operation with a timestamp
@@ -3186,7 +4087,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsMetricsCreateWithObject:parent:]
 
 /**
- *  The resource name of the project in which to create the metric:
+ *  Required. The resource name of the project in which to create the metric:
  *  "projects/[PROJECT_ID]"
  *  The new metric must be provided in the request.
  */
@@ -3198,8 +4099,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a logs-based metric.
  *
  *  @param object The @c GTLRLogging_LogMetric to include in the query.
- *  @param parent The resource name of the project in which to create the
- *    metric:
+ *  @param parent Required. The resource name of the project in which to create
+ *    the metric:
  *    "projects/[PROJECT_ID]"
  *    The new metric must be provided in the request.
  *
@@ -3225,7 +4126,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsMetricsDeleteWithmetricName:]
 
 /**
- *  The resource name of the metric to delete:
+ *  Required. The resource name of the metric to delete:
  *  "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *metricName;
@@ -3235,7 +4136,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a logs-based metric.
  *
- *  @param metricName The resource name of the metric to delete:
+ *  @param metricName Required. The resource name of the metric to delete:
  *    "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
  *
  *  @return GTLRLoggingQuery_ProjectsMetricsDelete
@@ -3260,7 +4161,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsMetricsGetWithmetricName:]
 
 /**
- *  The resource name of the desired metric:
+ *  Required. The resource name of the desired metric:
  *  "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *metricName;
@@ -3270,7 +4171,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a logs-based metric.
  *
- *  @param metricName The resource name of the desired metric:
+ *  @param metricName Required. The resource name of the desired metric:
  *    "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
  *
  *  @return GTLRLoggingQuery_ProjectsMetricsGet
@@ -3348,7 +4249,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsMetricsUpdateWithObject:metricName:]
 
 /**
- *  The resource name of the metric to update:
+ *  Required. The resource name of the metric to update:
  *  "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
  *  The updated metric must be provided in the request and it's name field must
  *  be the same as [METRIC_ID] If the metric does not exist in [PROJECT_ID],
@@ -3362,7 +4263,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates or updates a logs-based metric.
  *
  *  @param object The @c GTLRLogging_LogMetric to include in the query.
- *  @param metricName The resource name of the metric to update:
+ *  @param metricName Required. The resource name of the metric to update:
  *    "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
  *    The updated metric must be provided in the request and it's name field
  *    must be the same as [METRIC_ID] If the metric does not exist in

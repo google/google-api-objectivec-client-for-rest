@@ -1130,6 +1130,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  G Suite Apps, such as Gmail or Google Drive, or they can come from data
  *  that you have indexed from a third party.
  *  **Note:** This API requires a standard end user account to execute.
+ *  A service account can't perform Query API requests directly; to use a
+ *  service account to perform queries, set up [G Suite domain-wide delegation
+ *  of
+ *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.search
  *
@@ -1149,6 +1153,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *  G Suite Apps, such as Gmail or Google Drive, or they can come from data
  *  that you have indexed from a third party.
  *  **Note:** This API requires a standard end user account to execute.
+ *  A service account can't perform Query API requests directly; to use a
+ *  service account to perform queries, set up [G Suite domain-wide delegation
+ *  of
+ *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  @param object The @c GTLRCloudSearch_SearchRequest to include in the query.
  *
@@ -1161,6 +1169,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 /**
  *  Returns list of sources that user can use for Search and Suggest APIs.
  *  **Note:** This API requires a standard end user account to execute.
+ *  A service account can't perform Query API requests directly; to use a
+ *  service account to perform queries, set up [G Suite domain-wide delegation
+ *  of
+ *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.sources.list
  *
@@ -1215,6 +1227,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *
  *  Returns list of sources that user can use for Search and Suggest APIs.
  *  **Note:** This API requires a standard end user account to execute.
+ *  A service account can't perform Query API requests directly; to use a
+ *  service account to perform queries, set up [G Suite domain-wide delegation
+ *  of
+ *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  @return GTLRCloudSearchQuery_QuerySourcesList
  *
@@ -1229,6 +1245,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 /**
  *  Provides suggestions for autocompleting the query.
  *  **Note:** This API requires a standard end user account to execute.
+ *  A service account can't perform Query API requests directly; to use a
+ *  service account to perform queries, set up [G Suite domain-wide delegation
+ *  of
+ *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.suggest
  *
@@ -1245,6 +1265,10 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *
  *  Provides suggestions for autocompleting the query.
  *  **Note:** This API requires a standard end user account to execute.
+ *  A service account can't perform Query API requests directly; to use a
+ *  service account to perform queries, set up [G Suite domain-wide delegation
+ *  of
+ *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  @param object The @c GTLRCloudSearch_SuggestRequest to include in the query.
  *

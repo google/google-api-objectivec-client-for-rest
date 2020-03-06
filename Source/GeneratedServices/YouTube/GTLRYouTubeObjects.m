@@ -2741,17 +2741,37 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_MembershipsDetails
 @dynamic accessibleLevels, highestAccessibleLevel,
-         highestAccessibleLevelDisplayName, memberSince,
-         memberSinceCurrentLevel, memberTotalDuration,
-         memberTotalDurationCurrentLevel, purchasedLevel;
+         highestAccessibleLevelDisplayName, membershipsDuration,
+         membershipsDurationAtLevels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"accessibleLevels" : [NSString class]
+    @"accessibleLevels" : [NSString class],
+    @"membershipsDurationAtLevels" : [GTLRYouTube_MembershipsDurationAtLevel class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_MembershipsDuration
+//
+
+@implementation GTLRYouTube_MembershipsDuration
+@dynamic memberSince, memberTotalDurationMonths;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_MembershipsDurationAtLevel
+//
+
+@implementation GTLRYouTube_MembershipsDurationAtLevel
+@dynamic level, memberSince, memberTotalDurationMonths;
 @end
 
 
