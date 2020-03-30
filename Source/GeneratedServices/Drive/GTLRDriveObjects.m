@@ -326,11 +326,11 @@
          isAppAuthorized, kind, lastModifyingUser, md5Checksum, mimeType,
          modifiedByMe, modifiedByMeTime, modifiedTime, name, originalFilename,
          ownedByMe, owners, parents, permissionIds, permissions, properties,
-         quotaBytesUsed, shared, sharedWithMeTime, sharingUser, size, spaces,
-         starred, teamDriveId, thumbnailLink, thumbnailVersion, trashed,
-         trashedTime, trashingUser, version, videoMediaMetadata, viewedByMe,
-         viewedByMeTime, viewersCanCopyContent, webContentLink, webViewLink,
-         writersCanShare;
+         quotaBytesUsed, shared, sharedWithMeTime, sharingUser, shortcutDetails,
+         size, spaces, starred, teamDriveId, thumbnailLink, thumbnailVersion,
+         trashed, trashedTime, trashingUser, version, videoMediaMetadata,
+         viewedByMe, viewedByMeTime, viewersCanCopyContent, webContentLink,
+         webViewLink, writersCanShare;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -374,17 +374,17 @@
 //
 
 @implementation GTLRDrive_File_Capabilities
-@dynamic canAddChildren, canChangeCopyRequiresWriterPermission,
-         canChangeViewersCanCopyContent, canComment, canCopy, canDelete,
-         canDeleteChildren, canDownload, canEdit, canListChildren,
-         canModifyContent, canMoveChildrenOutOfDrive,
+@dynamic canAddChildren, canAddMyDriveParent,
+         canChangeCopyRequiresWriterPermission, canChangeViewersCanCopyContent,
+         canComment, canCopy, canDelete, canDeleteChildren, canDownload,
+         canEdit, canListChildren, canModifyContent, canMoveChildrenOutOfDrive,
          canMoveChildrenOutOfTeamDrive, canMoveChildrenWithinDrive,
          canMoveChildrenWithinTeamDrive, canMoveItemIntoTeamDrive,
          canMoveItemOutOfDrive, canMoveItemOutOfTeamDrive,
          canMoveItemWithinDrive, canMoveItemWithinTeamDrive,
          canMoveTeamDriveItem, canReadDrive, canReadRevisions, canReadTeamDrive,
-         canRemoveChildren, canRename, canShare, canTrash, canTrashChildren,
-         canUntrash;
+         canRemoveChildren, canRemoveMyDriveParent, canRename, canShare,
+         canTrash, canTrashChildren, canUntrash;
 @end
 
 
@@ -436,6 +436,16 @@
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_File_ShortcutDetails
+//
+
+@implementation GTLRDrive_File_ShortcutDetails
+@dynamic targetId, targetMimeType;
 @end
 
 

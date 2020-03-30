@@ -385,7 +385,7 @@ NSString * const kGTLRAdSenseHostProductCodeAfv  = @"AFV";
 
 @implementation GTLRAdSenseHostQuery_AssociationsessionsStart
 
-@dynamic productCode, userLocale, websiteLocale, websiteUrl;
+@dynamic callbackUrl, productCode, userLocale, websiteLocale, websiteUrl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

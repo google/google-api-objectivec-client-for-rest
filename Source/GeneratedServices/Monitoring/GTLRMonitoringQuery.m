@@ -2,13 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Monitoring API (monitoring/v3)
+//   Cloud Monitoring API (monitoring/v3)
 // Description:
-//   Manages your Stackdriver Monitoring data and configurations. Most projects
-//   must be associated with a Stackdriver account, with a few exceptions as
-//   noted on the individual method pages. The table entries below are presented
-//   in alphabetical order, not in order of common use. For explanations of the
-//   concepts found in the table entries, read the Stackdriver Monitoring
+//   Manages your Cloud Monitoring data and configurations. Most projects must
+//   be associated with a Workspace, with a few exceptions as noted on the
+//   individual method pages. The table entries below are presented in
+//   alphabetical order, not in order of common use. For explanations of the
+//   concepts found in the table entries, read the Cloud Monitoring
 //   documentation.
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
@@ -741,6 +741,31 @@ NSString * const kGTLRMonitoringViewViewUnspecified = @"VIEW_UNSPECIFIED";
   query.name = name;
   query.expectedObjectClass = [GTLRMonitoring_ListTimeSeriesResponse class];
   query.loggingName = @"monitoring.projects.timeSeries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsTimeSeriesQuery
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_QueryTimeSeriesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/timeSeries:query";
+  GTLRMonitoringQuery_ProjectsTimeSeriesQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_QueryTimeSeriesResponse class];
+  query.loggingName = @"monitoring.projects.timeSeries.query";
   return query;
 }
 

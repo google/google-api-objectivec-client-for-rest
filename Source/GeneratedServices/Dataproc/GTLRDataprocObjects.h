@@ -388,6 +388,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Com
 GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat;
 /** Value: "JUPYTER" */
 GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter;
+/** Value: "PRESTO" */
+GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto;
 /** Value: "ZEPPELIN" */
 GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin;
 /** Value: "ZOOKEEPER" */
@@ -1842,6 +1844,26 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *        fetch them all at once.
  */
 @interface GTLRDataproc_Job_Labels : GTLRObject
+@end
+
+
+/**
+ *  Job Operation metadata.
+ */
+@interface GTLRDataproc_JobMetadata : GTLRObject
+
+/** Output only. The job id. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** Output only. Operation type. */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/** Output only. Job submission time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/** Output only. Most recent job status. */
+@property(nonatomic, strong, nullable) GTLRDataproc_JobStatus *status;
+
 @end
 
 

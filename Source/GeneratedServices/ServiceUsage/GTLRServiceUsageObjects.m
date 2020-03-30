@@ -84,6 +84,8 @@ NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Deprecated = @"D
 NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRServiceUsage_MetricDescriptor.metricKind
 NSString * const kGTLRServiceUsage_MetricDescriptor_MetricKind_Cumulative = @"CUMULATIVE";
@@ -107,6 +109,8 @@ NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Deprecat
 NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRServiceUsage_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
@@ -115,6 +119,8 @@ NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Depre
 NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRServiceUsage_Type.syntax
 NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
@@ -234,7 +240,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUsage_BackendRule
 @dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, selector;
+         operationDeadline, pathTranslation, protocol, renameTo, selector;
 @end
 
 
@@ -303,6 +309,24 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"failures" : [GTLRServiceUsage_EnableFailure class],
+    @"services" : [GTLRServiceUsage_GoogleApiServiceusageV1Service class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_BatchGetServicesResponse
+//
+
+@implementation GTLRServiceUsage_BatchGetServicesResponse
+@dynamic services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
     @"services" : [GTLRServiceUsage_GoogleApiServiceusageV1Service class]
   };
   return map;
@@ -785,6 +809,42 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"additionalBindings" : [GTLRServiceUsage_HttpRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_ImportAdminOverridesResponse
+//
+
+@implementation GTLRServiceUsage_ImportAdminOverridesResponse
+@dynamic overrides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrides" : [GTLRServiceUsage_QuotaOverride class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_ImportConsumerOverridesResponse
+//
+
+@implementation GTLRServiceUsage_ImportConsumerOverridesResponse
+@dynamic overrides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrides" : [GTLRServiceUsage_QuotaOverride class]
   };
   return map;
 }

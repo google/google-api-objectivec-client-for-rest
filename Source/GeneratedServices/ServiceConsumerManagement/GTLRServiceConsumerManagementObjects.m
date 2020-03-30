@@ -69,6 +69,8 @@ NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_LaunchStage_Dep
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRServiceConsumerManagement_MetricDescriptor.metricKind
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptor_MetricKind_Cumulative = @"CUMULATIVE";
@@ -92,6 +94,8 @@ NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchS
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceConsumerManagement_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRServiceConsumerManagement_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
@@ -100,6 +104,8 @@ NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_Laun
 NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceConsumerManagement_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRServiceConsumerManagement_TenantResource.status
 NSString * const kGTLRServiceConsumerManagement_TenantResource_Status_Active = @"ACTIVE";
@@ -264,7 +270,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 @implementation GTLRServiceConsumerManagement_BackendRule
 @dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, selector;
+         operationDeadline, pathTranslation, protocol, renameTo, selector;
 @end
 
 

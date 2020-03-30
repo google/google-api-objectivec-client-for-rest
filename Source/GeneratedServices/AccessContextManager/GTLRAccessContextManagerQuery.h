@@ -287,7 +287,8 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
 /**
  *  Required. Resource name for the Access Level. The `short_name` component
  *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{policy_id}/accessLevels/{short_name}`
+ *  `accessPolicies/{policy_id}/accessLevels/{short_name}`. The maximum length
+ *  of the `short_name` component is 50 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -312,7 +313,8 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
  *  @param name Required. Resource name for the Access Level. The `short_name`
  *    component
  *    must begin with a letter and only include alphanumeric and '_'. Format:
- *    `accessPolicies/{policy_id}/accessLevels/{short_name}`
+ *    `accessPolicies/{policy_id}/accessLevels/{short_name}`. The maximum length
+ *    of the `short_name` component is 50 characters.
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsPatch
  */
@@ -643,7 +645,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
 @end
 
 /**
- *  Create an Service Perimeter. The
+ *  Create a Service Perimeter. The
  *  longrunning operation from this RPC will have a successful status once the
  *  Service Perimeter has
  *  propagated to long-lasting storage. Service Perimeters containing
@@ -668,7 +670,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Create an Service Perimeter. The
+ *  Create a Service Perimeter. The
  *  longrunning operation from this RPC will have a successful status once the
  *  Service Perimeter has
  *  propagated to long-lasting storage. Service Perimeters containing
@@ -689,7 +691,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
 @end
 
 /**
- *  Delete an Service Perimeter by resource
+ *  Delete a Service Perimeter by resource
  *  name. The longrunning operation from this RPC will have a successful status
  *  once the Service Perimeter has been
  *  removed from long-lasting storage.
@@ -713,7 +715,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Delete an Service Perimeter by resource
+ *  Delete a Service Perimeter by resource
  *  name. The longrunning operation from this RPC will have a successful status
  *  once the Service Perimeter has been
  *  removed from long-lasting storage.
@@ -729,7 +731,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
 @end
 
 /**
- *  Get an Service Perimeter by resource
+ *  Get a Service Perimeter by resource
  *  name.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.get
@@ -751,7 +753,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
 /**
  *  Fetches a @c GTLRAccessContextManager_ServicePerimeter.
  *
- *  Get an Service Perimeter by resource
+ *  Get a Service Perimeter by resource
  *  name.
  *
  *  @param name Required. Resource name for the Service Perimeter.
@@ -819,7 +821,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
 @end
 
 /**
- *  Update an Service Perimeter. The
+ *  Update a Service Perimeter. The
  *  longrunning operation from this RPC will have a successful status once the
  *  changes to the Service Perimeter have
  *  propagated to long-lasting storage. Service Perimeter containing
@@ -851,7 +853,7 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelForm
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Update an Service Perimeter. The
+ *  Update a Service Perimeter. The
  *  longrunning operation from this RPC will have a successful status once the
  *  changes to the Service Perimeter have
  *  propagated to long-lasting storage. Service Perimeter containing

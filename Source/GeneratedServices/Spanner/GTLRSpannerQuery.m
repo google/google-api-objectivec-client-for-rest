@@ -57,6 +57,88 @@
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstancesBackupOperationsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backupOperations";
+  GTLRSpannerQuery_ProjectsInstancesBackupOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSpanner_ListBackupOperationsResponse class];
+  query.loggingName = @"spanner.projects.instances.backupOperations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesBackupsCreate
+
+@dynamic backupId, parent;
+
++ (instancetype)queryWithObject:(GTLRSpanner_Backup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backups";
+  GTLRSpannerQuery_ProjectsInstancesBackupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSpanner_Operation class];
+  query.loggingName = @"spanner.projects.instances.backups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesBackupsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSpannerQuery_ProjectsInstancesBackupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Empty class];
+  query.loggingName = @"spanner.projects.instances.backups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesBackupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSpannerQuery_ProjectsInstancesBackupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Backup class];
+  query.loggingName = @"spanner.projects.instances.backups.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesBackupsGetIamPolicy
 
 @dynamic resource;
@@ -77,6 +159,25 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRSpanner_Policy class];
   query.loggingName = @"spanner.projects.instances.backups.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesBackupsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backups";
+  GTLRSpannerQuery_ProjectsInstancesBackupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSpanner_ListBackupsResponse class];
+  query.loggingName = @"spanner.projects.instances.backups.list";
   return query;
 }
 
@@ -158,6 +259,31 @@
 
 @end
 
+@implementation GTLRSpannerQuery_ProjectsInstancesBackupsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSpanner_Backup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSpannerQuery_ProjectsInstancesBackupsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Backup class];
+  query.loggingName = @"spanner.projects.instances.backups.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRSpannerQuery_ProjectsInstancesBackupsSetIamPolicy
 
 @dynamic resource;
@@ -228,6 +354,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRSpanner_Operation class];
   query.loggingName = @"spanner.projects.instances.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabaseOperationsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/databaseOperations";
+  GTLRSpannerQuery_ProjectsInstancesDatabaseOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSpanner_ListDatabaseOperationsResponse class];
+  query.loggingName = @"spanner.projects.instances.databaseOperations.list";
   return query;
 }
 
@@ -430,6 +575,31 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSpanner_ListOperationsResponse class];
   query.loggingName = @"spanner.projects.instances.databases.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabasesRestore
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSpanner_RestoreDatabaseRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/databases:restore";
+  GTLRSpannerQuery_ProjectsInstancesDatabasesRestore *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSpanner_Operation class];
+  query.loggingName = @"spanner.projects.instances.databases.restore";
   return query;
 }
 

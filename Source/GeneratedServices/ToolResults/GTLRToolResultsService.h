@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Tool Results API (toolresults/v1)
+//   Cloud Tool Results API (toolresults/v1beta3)
 // Description:
-//   API to publish and access results from developer tools.
+//   Reads and publishes results from Firebase Test Lab.
 // Documentation:
 //   https://firebase.google.com/docs/test-lab/
 
@@ -25,10 +25,25 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeToolResultsCloudPlatform;
+
+// ----------------------------------------------------------------------------
+//   GTLRToolResultsService
+//
+
 /**
  *  Service for executing Cloud Tool Results API queries.
  *
- *  API to publish and access results from developer tools.
+ *  Reads and publishes results from Firebase Test Lab.
  */
 @interface GTLRToolResultsService : GTLRService
 

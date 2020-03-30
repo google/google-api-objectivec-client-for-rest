@@ -16,7 +16,7 @@
 //
 
 @implementation GTLRCloudIAP_AccessSettings
-@dynamic corsSettings, gcipSettings, oauthSettings;
+@dynamic corsSettings, gcipSettings, oauthSettings, policyDelegationSettings;
 @end
 
 
@@ -234,10 +234,59 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIAP_PolicyDelegationSettings
+//
+
+@implementation GTLRCloudIAP_PolicyDelegationSettings
+@dynamic iamPermission, iamServiceName, policyName, resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_PolicyName
+//
+
+@implementation GTLRCloudIAP_PolicyName
+@dynamic identifier, region, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIAP_ResetIdentityAwareProxyClientSecretRequest
 //
 
 @implementation GTLRCloudIAP_ResetIdentityAwareProxyClientSecretRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_Resource
+//
+
+@implementation GTLRCloudIAP_Resource
+@dynamic labels, name, service, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_Resource_Labels
+//
+
+@implementation GTLRCloudIAP_Resource_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

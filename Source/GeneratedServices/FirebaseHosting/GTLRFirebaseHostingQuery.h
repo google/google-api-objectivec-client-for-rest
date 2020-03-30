@@ -97,6 +97,285 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
 @end
 
 /**
+ *  Creates a new release which makes the content of the specified version
+ *  actively display on the appropriate URL(s).
+ *
+ *  Method: firebasehosting.projects.sites.channels.releases.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesChannelsReleasesCreate : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesChannelsReleasesCreateWithObject:parent:]
+
+/**
+ *  The site that the release belongs to, in the format:
+ *  <code>sites/<var>site-name</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The unique identifier for a version, in the format:
+ *  <code>/sites/<var>site-name</var>/versions/<var>versionID</var></code>
+ *  The <var>site-name</var> in this version identifier must match the
+ *  <var>site-name</var> in the `parent` parameter.
+ *  <br>
+ *  <br>This query parameter must be empty if the `type` field in the
+ *  request body is `SITE_DISABLE`.
+ */
+@property(nonatomic, copy, nullable) NSString *versionName;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Release.
+ *
+ *  Creates a new release which makes the content of the specified version
+ *  actively display on the appropriate URL(s).
+ *
+ *  @param object The @c GTLRFirebaseHosting_Release to include in the query.
+ *  @param parent The site that the release belongs to, in the format:
+ *    <code>sites/<var>site-name</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesChannelsReleasesCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Release *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the releases that have been created on the specified site.
+ *
+ *  Method: firebasehosting.projects.sites.channels.releases.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ *    @c kGTLRAuthScopeFirebaseHostingFirebaseReadonly
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesChannelsReleasesList : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesChannelsReleasesListWithparent:]
+
+/** The page size to return. Defaults to 100. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token from a previous request, if provided. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent for which to list files, in the format:
+ *  <code>sites/<var>site-name</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_ListReleasesResponse.
+ *
+ *  Lists the releases that have been created on the specified site.
+ *
+ *  @param parent Required. The parent for which to list files, in the format:
+ *    <code>sites/<var>site-name</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesChannelsReleasesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new release which makes the content of the specified version
+ *  actively display on the appropriate URL(s).
+ *
+ *  Method: firebasehosting.projects.sites.releases.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesReleasesCreate : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesReleasesCreateWithObject:parent:]
+
+/**
+ *  The site that the release belongs to, in the format:
+ *  <code>sites/<var>site-name</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The unique identifier for a version, in the format:
+ *  <code>/sites/<var>site-name</var>/versions/<var>versionID</var></code>
+ *  The <var>site-name</var> in this version identifier must match the
+ *  <var>site-name</var> in the `parent` parameter.
+ *  <br>
+ *  <br>This query parameter must be empty if the `type` field in the
+ *  request body is `SITE_DISABLE`.
+ */
+@property(nonatomic, copy, nullable) NSString *versionName;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Release.
+ *
+ *  Creates a new release which makes the content of the specified version
+ *  actively display on the appropriate URL(s).
+ *
+ *  @param object The @c GTLRFirebaseHosting_Release to include in the query.
+ *  @param parent The site that the release belongs to, in the format:
+ *    <code>sites/<var>site-name</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesReleasesCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Release *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the releases that have been created on the specified site.
+ *
+ *  Method: firebasehosting.projects.sites.releases.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ *    @c kGTLRAuthScopeFirebaseHostingFirebaseReadonly
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesReleasesList : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesReleasesListWithparent:]
+
+/** The page size to return. Defaults to 100. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token from a previous request, if provided. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent for which to list files, in the format:
+ *  <code>sites/<var>site-name</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_ListReleasesResponse.
+ *
+ *  Lists the releases that have been created on the specified site.
+ *
+ *  @param parent Required. The parent for which to list files, in the format:
+ *    <code>sites/<var>site-name</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesReleasesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new release which makes the content of the specified version
+ *  actively display on the appropriate URL(s).
+ *
+ *  Method: firebasehosting.sites.channels.releases.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_SitesChannelsReleasesCreate : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForSitesChannelsReleasesCreateWithObject:parent:]
+
+/**
+ *  The site that the release belongs to, in the format:
+ *  <code>sites/<var>site-name</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The unique identifier for a version, in the format:
+ *  <code>/sites/<var>site-name</var>/versions/<var>versionID</var></code>
+ *  The <var>site-name</var> in this version identifier must match the
+ *  <var>site-name</var> in the `parent` parameter.
+ *  <br>
+ *  <br>This query parameter must be empty if the `type` field in the
+ *  request body is `SITE_DISABLE`.
+ */
+@property(nonatomic, copy, nullable) NSString *versionName;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Release.
+ *
+ *  Creates a new release which makes the content of the specified version
+ *  actively display on the appropriate URL(s).
+ *
+ *  @param object The @c GTLRFirebaseHosting_Release to include in the query.
+ *  @param parent The site that the release belongs to, in the format:
+ *    <code>sites/<var>site-name</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_SitesChannelsReleasesCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Release *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the releases that have been created on the specified site.
+ *
+ *  Method: firebasehosting.sites.channels.releases.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ *    @c kGTLRAuthScopeFirebaseHostingFirebaseReadonly
+ */
+@interface GTLRFirebaseHostingQuery_SitesChannelsReleasesList : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForSitesChannelsReleasesListWithparent:]
+
+/** The page size to return. Defaults to 100. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token from a previous request, if provided. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent for which to list files, in the format:
+ *  <code>sites/<var>site-name</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_ListReleasesResponse.
+ *
+ *  Lists the releases that have been created on the specified site.
+ *
+ *  @param parent Required. The parent for which to list files, in the format:
+ *    <code>sites/<var>site-name</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_SitesChannelsReleasesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a domain mapping on the specified site.
  *
  *  Method: firebasehosting.sites.domains.create
@@ -313,7 +592,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
 
 /**
  *  Creates a new release which makes the content of the specified version
- *  actively display on the site.
+ *  actively display on the appropriate URL(s).
  *
  *  Method: firebasehosting.sites.releases.create
  *
@@ -346,7 +625,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
  *  Fetches a @c GTLRFirebaseHosting_Release.
  *
  *  Creates a new release which makes the content of the specified version
- *  actively display on the site.
+ *  actively display on the appropriate URL(s).
  *
  *  @param object The @c GTLRFirebaseHosting_Release to include in the query.
  *  @param parent The site that the release belongs to, in the format:

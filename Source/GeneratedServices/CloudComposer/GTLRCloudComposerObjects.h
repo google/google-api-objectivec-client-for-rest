@@ -22,10 +22,13 @@
 @class GTLRCloudComposer_Environment_Labels;
 @class GTLRCloudComposer_EnvironmentConfig;
 @class GTLRCloudComposer_ImageVersion;
+@class GTLRCloudComposer_IPAllocationPolicy;
 @class GTLRCloudComposer_NodeConfig;
 @class GTLRCloudComposer_Operation;
 @class GTLRCloudComposer_Operation_Metadata;
 @class GTLRCloudComposer_Operation_Response;
+@class GTLRCloudComposer_PrivateClusterConfig;
+@class GTLRCloudComposer_PrivateEnvironmentConfig;
 @class GTLRCloudComposer_SoftwareConfig;
 @class GTLRCloudComposer_SoftwareConfig_AirflowConfigOverrides;
 @class GTLRCloudComposer_SoftwareConfig_EnvVariables;
@@ -281,6 +284,9 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  */
 @property(nonatomic, strong, nullable) NSNumber *nodeCount;
 
+/** The configuration used for the Private IP Cloud Composer environment. */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_PrivateEnvironmentConfig *privateEnvironmentConfig;
+
 /** The configuration settings for software inside the environment. */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_SoftwareConfig *softwareConfig;
 
@@ -308,6 +314,67 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
 
 /** supported python versions */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedPythonVersions;
+
+@end
+
+
+/**
+ *  Configuration for controlling how IPs are allocated in the
+ *  GKE cluster running the Apache Airflow software.
+ */
+@interface GTLRCloudComposer_IPAllocationPolicy : GTLRObject
+
+/**
+ *  Optional. The IP address range used to allocate IP addresses to pods in
+ *  the GKE cluster.
+ *  This field is applicable only when `use_ip_aliases` is true.
+ *  Set to blank to have GKE choose a range with the default size.
+ *  Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
+ *  netmask.
+ *  Set to a
+ *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
+ *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
+ *  to use.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterIpv4CidrBlock;
+
+/**
+ *  Optional. The name of the GKE cluster's secondary range used to allocate
+ *  IP addresses to pods.
+ *  This field is applicable only when `use_ip_aliases` is true.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterSecondaryRangeName;
+
+/**
+ *  Optional. The IP address range of the services IP addresses in this
+ *  GKE cluster.
+ *  This field is applicable only when `use_ip_aliases` is true.
+ *  Set to blank to have GKE choose a range with the default size.
+ *  Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
+ *  netmask.
+ *  Set to a
+ *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
+ *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
+ *  to use.
+ */
+@property(nonatomic, copy, nullable) NSString *servicesIpv4CidrBlock;
+
+/**
+ *  Optional. The name of the services' secondary range used to allocate
+ *  IP addresses to the GKE cluster.
+ *  This field is applicable only when `use_ip_aliases` is true.
+ */
+@property(nonatomic, copy, nullable) NSString *servicesSecondaryRangeName;
+
+/**
+ *  Optional. Whether or not to enable Alias IPs in the GKE cluster.
+ *  If `true`, a VPC-native cluster is created.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useIpAliases;
 
 @end
 
@@ -397,6 +464,12 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  Optional. The configuration for controlling how IPs are allocated in the GKE
+ *  cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_IPAllocationPolicy *ipAllocationPolicy;
 
 /**
  *  Optional. The Compute Engine [zone](/compute/docs/regions-zones) in which
@@ -627,6 +700,84 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successf
  *        "SUCCESSFUL"
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Configuration options for the private GKE cluster in a Cloud Composer
+ *  environment.
+ */
+@interface GTLRCloudComposer_PrivateClusterConfig : GTLRObject
+
+/**
+ *  Optional. If `true`, access to the public endpoint of the GKE cluster is
+ *  denied.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePrivateEndpoint;
+
+/**
+ *  Optional. The CIDR block from which IPv4 range for GKE master will be
+ *  reserved. If
+ *  left blank, the default value of '172.16.0.0/23' is used.
+ */
+@property(nonatomic, copy, nullable) NSString *masterIpv4CidrBlock;
+
+/**
+ *  Output only. The IP range in CIDR notation to use for the hosted master
+ *  network. This
+ *  range is used for assigning internal IP addresses to the GKE cluster
+ *  master or set of masters and to the internal load balancer virtual IP.
+ *  This range must not overlap with any other ranges in use
+ *  within the cluster's network.
+ */
+@property(nonatomic, copy, nullable) NSString *masterIpv4ReservedRange;
+
+@end
+
+
+/**
+ *  The configuration information for configuring a Private IP Cloud Composer
+ *  environment.
+ */
+@interface GTLRCloudComposer_PrivateEnvironmentConfig : GTLRObject
+
+/**
+ *  Optional. The CIDR block from which IP range in tenant project will be
+ *  reserved for
+ *  Cloud SQL. Needs to be disjoint from `web_server_ipv4_cidr_block`.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudSqlIpv4CidrBlock;
+
+/**
+ *  Optional. If `true`, a Private IP Cloud Composer environment is created.
+ *  If this field is set to true, `IPAllocationPolicy.use_ip_aliases` must be
+ *  set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePrivateEnvironment;
+
+/**
+ *  Optional. Configuration for the private GKE cluster for a Private IP
+ *  Cloud Composer environment.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_PrivateClusterConfig *privateClusterConfig;
+
+/**
+ *  Optional. The CIDR block from which IP range for web server will be
+ *  reserved. Needs
+ *  to be disjoint from `private_cluster_config.master_ipv4_cidr_block` and
+ *  `cloud_sql_ipv4_cidr_block`.
+ */
+@property(nonatomic, copy, nullable) NSString *webServerIpv4CidrBlock;
+
+/**
+ *  Output only. The IP range reserved for the tenant project's App Engine VMs.
+ */
+@property(nonatomic, copy, nullable) NSString *webServerIpv4ReservedRange;
 
 @end
 

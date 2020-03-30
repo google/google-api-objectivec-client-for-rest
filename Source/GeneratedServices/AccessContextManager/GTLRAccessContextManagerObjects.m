@@ -65,7 +65,12 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_AccessPolicy
-@dynamic createTime, name, parent, title, updateTime;
+@dynamic createTime, ETag, name, parent, title, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 

@@ -1081,6 +1081,35 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsRegionsJobsSubmitAsOperation
+
+@dynamic projectId, region;
+
++ (instancetype)queryWithObject:(GTLRDataproc_SubmitJobRequest *)object
+                      projectId:(NSString *)projectId
+                         region:(NSString *)region {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"projectId", @"region"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/regions/{region}/jobs:submitAsOperation";
+  GTLRDataprocQuery_ProjectsRegionsJobsSubmitAsOperation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.region = region;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.regions.jobs.submitAsOperation";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsRegionsJobsTestIamPermissions
 
 @dynamic resource;

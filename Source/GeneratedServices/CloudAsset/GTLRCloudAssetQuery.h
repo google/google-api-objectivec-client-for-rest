@@ -339,8 +339,8 @@ GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  End time of the time window (inclusive).
- *  Current timestamp if not specified.
+ *  End time of the time window (inclusive). If not specified, the current
+ *  timestamp is used instead.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTimeWindowEndTime;
 

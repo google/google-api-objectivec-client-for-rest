@@ -43,6 +43,7 @@
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirBigQueryDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestGcsDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestGcsSource;
+@class GTLRCloudHealthcare_Hl7V2NotificationConfig;
 @class GTLRCloudHealthcare_Hl7V2Store;
 @class GTLRCloudHealthcare_Hl7V2Store_Labels;
 @class GTLRCloudHealthcare_HttpBody_Extensions_Item;
@@ -70,6 +71,7 @@
 @class GTLRCloudHealthcare_Segment_Fields;
 @class GTLRCloudHealthcare_Status;
 @class GTLRCloudHealthcare_Status_Details_Item;
+@class GTLRCloudHealthcare_StreamConfig;
 @class GTLRCloudHealthcare_TagFilterList;
 @class GTLRCloudHealthcare_TextConfig;
 
@@ -464,6 +466,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
+@end
+
+
+/**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRCloudHealthcare_CancelOperationRequest : GTLRObject
 @end
 
 
@@ -918,6 +927,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
+ *  Returns additional information in regards to a completed DICOM store export.
+ */
+@interface GTLRCloudHealthcare_ExportDicomDataResponse : GTLRObject
+@end
+
+
+/**
  *  Request to export resources.
  */
 @interface GTLRCloudHealthcare_ExportResourcesRequest : GTLRObject
@@ -1106,6 +1122,23 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  For example, "action":"CreateResource".
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig;
+
+/**
+ *  A list of streaming configs that configure the destinations of streaming
+ *  export for every resource mutation in this FHIR store. Each store is
+ *  allowed to have up to 10 streaming configs.
+ *  After a new config is added, the next resource mutation is streamed to
+ *  the new location in addition to the existing ones.
+ *  When a location is removed from the list, the server stops
+ *  streaming to that location. Before adding a new config, you must add the
+ *  required
+ *  [`bigquery.dataEditor`](https://cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor)
+ *  role to your project's **Cloud Healthcare Service Agent**
+ *  [service account](https://cloud.google.com/iam/docs/service-accounts).
+ *  Some lag (typically on the order of dozens of seconds) is expected before
+ *  the results show up in the streaming destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_StreamConfig *> *streamConfigs;
 
 /**
  *  The FHIR specification version that this FHIR store supports natively. This
@@ -1524,6 +1557,61 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
+ *  Specifies where and whether to send notifications upon changes to a
+ *  data store.
+ */
+@interface GTLRCloudHealthcare_Hl7V2NotificationConfig : GTLRObject
+
+/**
+ *  Restricts notifications sent for messages matching a filter. If this is
+ *  empty, all messages are matched. Syntax:
+ *  https://cloud.google.com/appengine/docs/standard/python/search/query_strings
+ *  Fields/functions available for filtering are:
+ *  * `message_type`, from the MSH-9.1 field. For example,
+ *  `NOT message_type = "ADT"`.
+ *  * `send_date` or `sendDate`, the YYYY-MM-DD date the message was sent in
+ *  the dataset's time_zone, from the MSH-7 segment. For example,
+ *  `send_date < "2017-01-02"`.
+ *  * `send_time`, the timestamp when the message was sent, using the
+ *  RFC3339 time format for comparisons, from the MSH-7 segment. For example,
+ *  `send_time < "2017-01-02T00:00:00-05:00"`.
+ *  * `send_facility`, the care center that the message came from, from the
+ *  MSH-4 segment. For example, `send_facility = "ABC"`.
+ *  * `PatientId(value, type)`, which matches if the message lists a patient
+ *  having an ID of the given value and type in the PID-2, PID-3, or PID-4
+ *  segments. For example, `PatientId("123456", "MRN")`.
+ *  * `labels.x`, a string value of the label with key `x` as set using the
+ *  Message.labels
+ *  map. For example, `labels."priority"="high"`. The operator `:*` can be
+ *  used to assert the existence of a label. For example,
+ *  `labels."priority":*`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The [Cloud Pubsub](https://cloud.google.com/pubsub/docs/) topic that
+ *  notifications of changes are published on. Supplied by the client. The
+ *  notification is a `PubsubMessage` with the following fields:
+ *  * `PubsubMessage.Data` contains the resource name.
+ *  * `PubsubMessage.MessageId` is the ID of this notification. It is
+ *  guaranteed to be unique within the topic.
+ *  * `PubsubMessage.PublishTime` is the time at which the message was
+ *  published.
+ *  Note that notifications are only sent if the topic is non-empty. [Topic
+ *  names](https://cloud.google.com/pubsub/docs/overview#names) must be
+ *  scoped to a project. cloud-healthcare\@system.gserviceaccount.com must
+ *  have publisher permissions on the given Pubsub topic. Not having adequate
+ *  permissions causes the calls that send notifications to fail.
+ *  If a notification cannot be published to Cloud Pub/Sub, errors will be
+ *  logged to Stackdriver (see [Viewing logs](/healthcare/docs/how-
+ *  tos/stackdriver-logging)).
+ */
+@property(nonatomic, copy, nullable) NSString *pubsubTopic;
+
+@end
+
+
+/**
  *  Represents an HL7v2 store.
  */
 @interface GTLRCloudHealthcare_Hl7V2Store : GTLRObject
@@ -1553,6 +1641,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  this is unset, no notifications are sent. Supplied by the client.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig;
+
+/**
+ *  A list of notification configs. Each configuration uses a filter to
+ *  determine whether to publish a message (both Ingest & Create) on
+ *  the corresponding notification destination. Only the message name is sent
+ *  as part of the notification. Supplied by the client.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Hl7V2NotificationConfig *> *notificationConfigs;
 
 /**
  *  The configuration for the parser. It determines how the server parses the
@@ -1721,6 +1817,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DicomGcsSource *gcsSource;
 
+@end
+
+
+/**
+ *  Returns additional information in regards to a completed DICOM store import.
+ */
+@interface GTLRCloudHealthcare_ImportDicomDataResponse : GTLRObject
 @end
 
 
@@ -1985,13 +2088,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Message *> *hl7V2Messages;
 
 /**
- *  Deprecated. Use `hl7_v2_messages` instead.
- *  The returned message names. Won't be more values than the value of
- *  page_size in the request.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *messages;
-
-/**
  *  Token to retrieve the next page of results or empty if there are no more
  *  results in the list.
  */
@@ -2118,7 +2214,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Message_Labels *labels;
 
-/** The message type and trigger event for this message. MSH-9. */
+/** The message type for this message. MSH-9.1. */
 @property(nonatomic, copy, nullable) NSString *messageType;
 
 /**
@@ -2285,6 +2381,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /** The name of the API method that initiated the operation. */
 @property(nonatomic, copy, nullable) NSString *apiMethodName;
 
+/**
+ *  Specifies if cancellation was requested for the operation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
+
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ProgressCounter *counter;
 
 /** The time at which the operation was created by the API. */
@@ -2293,11 +2396,18 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /** The time at which execution was completed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/**
+ *  A link to audit and error logs in the log viewer. Error logs are generated
+ *  only by some operations, listed at
+ *  https://cloud.google.com/healthcare/docs/how-tos/stackdriver-logging.
+ */
+@property(nonatomic, copy, nullable) NSString *logsUrl;
+
 @end
 
 
 /**
- *  The content of a HL7v2 message in a structured format.
+ *  The content of an HL7v2 message in a structured format.
  */
 @interface GTLRCloudHealthcare_ParsedData : GTLRObject
 
@@ -2321,7 +2431,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /**
  *  Byte(s) to use as the segment terminator. If this is unset, '\\r' is
- *  used as segment terminator.
+ *  used as segment terminator, matching the HL7 version 2
+ *  specification.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2489,7 +2600,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /**
  *  Define how to redact sensitive values. Default behaviour is erase.
- *  For example, "My name is Jake." becomes "My name is ."
+ *  For example, "My name is Jane." becomes "My name is ."
  */
 @interface GTLRCloudHealthcare_RedactConfig : GTLRObject
 @end
@@ -2499,7 +2610,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  When using the
  *  INSPECT_AND_TRANSFORM
  *  action, each match is replaced with the name of the info_type. For example,
- *  "My name is Jake" becomes "My name is [PERSON_NAME]." The
+ *  "My name is Jane" becomes "My name is [PERSON_NAME]." The
  *  TRANSFORM
  *  action is equivalent to redacting.
  */
@@ -2699,6 +2810,52 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudHealthcare_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  This structure contains configuration for streaming FHIR export.
+ */
+@interface GTLRCloudHealthcare_StreamConfig : GTLRObject
+
+/**
+ *  The destination BigQuery structure that contains both the dataset
+ *  location and corresponding schema config.
+ *  The output is organized in one table per resource type. The server
+ *  reuses the existing tables (if any) that are named after the resource
+ *  types, e.g. "Patient", "Observation". When there is no existing table
+ *  for a given resource type, the server attempts to create one.
+ *  When a table schema doesn't align with the schema config, either
+ *  because of existing incompatible schema or out of band incompatible
+ *  modification, the server does not stream in new data.
+ *  One resolution in this case is to delete the incompatible
+ *  table and let the server recreate one, though the newly created table
+ *  only contains data after the table recreation.
+ *  BigQuery imposes a 1 MB limit on streaming insert row size, therefore
+ *  any resource mutation that generates more than 1 MB of BigQuery data
+ *  will not be streamed.
+ *  Results are appended to the corresponding BigQuery tables. Different
+ *  versions of the same resource are distinguishable by the meta.versionId
+ *  and meta.lastUpdated columns. The operation (CREATE/UPDATE/DELETE) that
+ *  results in the new version is recorded in the meta.tag.
+ *  The tables contain all historical resource versions since streaming was
+ *  enabled. For query convenience, the server also creates one view per
+ *  table of the same name containing only the current resource version.
+ *  If a resource mutation cannot be streamed to BigQuery, errors will be
+ *  logged to Stackdriver (see [Viewing logs](/healthcare/docs/how-
+ *  tos/stackdriver-logging)).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirBigQueryDestination *bigqueryDestination;
+
+/**
+ *  Supply a FHIR resource type (such as "Patient" or "Observation").
+ *  See https://www.hl7.org/fhir/valueset-resource-types.html for a list of
+ *  all FHIR resource types.
+ *  The server treats an empty list as an intent to stream all the
+ *  supported resource types in this FHIR store.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
+
 @end
 
 

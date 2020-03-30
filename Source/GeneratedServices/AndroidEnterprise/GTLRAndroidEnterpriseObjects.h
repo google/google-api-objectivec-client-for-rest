@@ -230,6 +230,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_AppRestrictionsSchema : GTLRObject
 
+/** Deprecated. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The set of restrictions that make up this schema. */
@@ -1941,6 +1942,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *completionToken;
 
+/** Deprecated. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**

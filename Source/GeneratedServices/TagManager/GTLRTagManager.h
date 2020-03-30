@@ -4,9 +4,10 @@
 // API:
 //   Tag Manager API (tagmanager/v2)
 // Description:
-//   Accesses Tag Manager accounts and containers.
+//   This API allows clients to access and modify container and tag
+//   configuration.
 // Documentation:
-//   https://developers.google.com/tag-manager/api/v2/
+//   https://developers.google.com/tag-manager
 
 #import "GTLRTagManagerObjects.h"
 #import "GTLRTagManagerQuery.h"

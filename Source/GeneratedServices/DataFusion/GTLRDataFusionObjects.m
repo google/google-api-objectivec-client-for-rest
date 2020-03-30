@@ -22,6 +22,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDataFusion_Accelerator.acceleratorType
+NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cdc = @"CDC";
+NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare = @"HEALTHCARE";
+
 // GTLRDataFusion_AuditLogConfig.logType
 NSString * const kGTLRDataFusion_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -42,8 +47,19 @@ NSString * const kGTLRDataFusion_Instance_State_Upgrading      = @"UPGRADING";
 
 // GTLRDataFusion_Instance.type
 NSString * const kGTLRDataFusion_Instance_Type_Basic           = @"BASIC";
+NSString * const kGTLRDataFusion_Instance_Type_Developer       = @"DEVELOPER";
 NSString * const kGTLRDataFusion_Instance_Type_Enterprise      = @"ENTERPRISE";
 NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_Accelerator
+//
+
+@implementation GTLRDataFusion_Accelerator
+@dynamic acceleratorType;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -138,11 +154,11 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRDataFusion_Instance
-@dynamic apiEndpoint, availableVersion, createTime, descriptionProperty,
-         displayName, enableStackdriverLogging, enableStackdriverMonitoring,
-         gcsBucket, labels, name, networkConfig, options, privateInstance,
-         serviceAccount, serviceEndpoint, state, stateMessage, type, updateTime,
-         version, zoneProperty;
+@dynamic accelerators, apiEndpoint, availableVersion, createTime,
+         descriptionProperty, displayName, enableStackdriverLogging,
+         enableStackdriverMonitoring, gcsBucket, labels, name, networkConfig,
+         options, privateInstance, serviceAccount, serviceEndpoint, state,
+         stateMessage, type, updateTime, version, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -154,6 +170,7 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"accelerators" : [GTLRDataFusion_Accelerator class],
     @"availableVersion" : [GTLRDataFusion_Version class]
   };
   return map;

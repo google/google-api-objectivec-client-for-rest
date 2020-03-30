@@ -20,7 +20,9 @@
 
 @class GTLRBigquery_Dataset;
 @class GTLRBigquery_Job;
+@class GTLRBigquery_Model;
 @class GTLRBigquery_QueryRequest;
+@class GTLRBigquery_Routine;
 @class GTLRBigquery_Table;
 @class GTLRBigquery_TableDataInsertAllRequest;
 
@@ -656,6 +658,182 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @end
 
 /**
+ *  Deletes the model specified by modelId from the dataset.
+ *
+ *  Method: bigquery.models.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ */
+@interface GTLRBigqueryQuery_ModelsDelete : GTLRBigqueryQuery
+// Previous library name was
+//   +[GTLQueryBigquery queryForModelsDeleteWithprojectId:datasetId:modelId:]
+
+/** Required. Dataset ID of the model to delete. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Model ID of the model to delete. */
+@property(nonatomic, copy, nullable) NSString *modelId;
+
+/** Required. Project ID of the model to delete. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes the model specified by modelId from the dataset.
+ *
+ *  @param projectId Required. Project ID of the model to delete.
+ *  @param datasetId Required. Dataset ID of the model to delete.
+ *  @param modelId Required. Model ID of the model to delete.
+ *
+ *  @return GTLRBigqueryQuery_ModelsDelete
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           modelId:(NSString *)modelId;
+
+@end
+
+/**
+ *  Gets the specified model resource by model ID.
+ *
+ *  Method: bigquery.models.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeBigqueryReadonly
+ */
+@interface GTLRBigqueryQuery_ModelsGet : GTLRBigqueryQuery
+// Previous library name was
+//   +[GTLQueryBigquery queryForModelsGetWithprojectId:datasetId:modelId:]
+
+/** Required. Dataset ID of the requested model. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Model ID of the requested model. */
+@property(nonatomic, copy, nullable) NSString *modelId;
+
+/** Required. Project ID of the requested model. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRBigquery_Model.
+ *
+ *  Gets the specified model resource by model ID.
+ *
+ *  @param projectId Required. Project ID of the requested model.
+ *  @param datasetId Required. Dataset ID of the requested model.
+ *  @param modelId Required. Model ID of the requested model.
+ *
+ *  @return GTLRBigqueryQuery_ModelsGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           modelId:(NSString *)modelId;
+
+@end
+
+/**
+ *  Lists all models in the specified dataset. Requires the READER dataset
+ *  role.
+ *
+ *  Method: bigquery.models.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeBigqueryReadonly
+ */
+@interface GTLRBigqueryQuery_ModelsList : GTLRBigqueryQuery
+// Previous library name was
+//   +[GTLQueryBigquery queryForModelsListWithprojectId:datasetId:]
+
+/** Required. Dataset ID of the models to list. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  The maximum number of results to return in a single response page.
+ *  Leverage the page tokens to iterate through the entire collection.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Page token, returned by a previous call to request the next page of
+ *  results
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Project ID of the models to list. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRBigquery_ListModelsResponse.
+ *
+ *  Lists all models in the specified dataset. Requires the READER dataset
+ *  role.
+ *
+ *  @param projectId Required. Project ID of the models to list.
+ *  @param datasetId Required. Dataset ID of the models to list.
+ *
+ *  @return GTLRBigqueryQuery_ModelsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId;
+
+@end
+
+/**
+ *  Patch specific fields in the specified model.
+ *
+ *  Method: bigquery.models.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ */
+@interface GTLRBigqueryQuery_ModelsPatch : GTLRBigqueryQuery
+// Previous library name was
+//   +[GTLQueryBigquery queryForModelsPatchWithObject:projectId:datasetId:modelId:]
+
+/** Required. Dataset ID of the model to patch. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Model ID of the model to patch. */
+@property(nonatomic, copy, nullable) NSString *modelId;
+
+/** Required. Project ID of the model to patch. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRBigquery_Model.
+ *
+ *  Patch specific fields in the specified model.
+ *
+ *  @param object The @c GTLRBigquery_Model to include in the query.
+ *  @param projectId Required. Project ID of the model to patch.
+ *  @param datasetId Required. Dataset ID of the model to patch.
+ *  @param modelId Required. Model ID of the model to patch.
+ *
+ *  @return GTLRBigqueryQuery_ModelsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_Model *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        modelId:(NSString *)modelId;
+
+@end
+
+/**
  *  Returns the email address of the service account for your project used for
  *  interactions with Google Cloud KMS.
  *
@@ -723,6 +901,247 @@ GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Deletes the routine specified by routineId from the dataset.
+ *
+ *  Method: bigquery.routines.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ */
+@interface GTLRBigqueryQuery_RoutinesDelete : GTLRBigqueryQuery
+// Previous library name was
+//   +[GTLQueryBigquery queryForRoutinesDeleteWithprojectId:datasetId:routineId:]
+
+/** Required. Dataset ID of the routine to delete */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Project ID of the routine to delete */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Routine ID of the routine to delete */
+@property(nonatomic, copy, nullable) NSString *routineId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes the routine specified by routineId from the dataset.
+ *
+ *  @param projectId Required. Project ID of the routine to delete
+ *  @param datasetId Required. Dataset ID of the routine to delete
+ *  @param routineId Required. Routine ID of the routine to delete
+ *
+ *  @return GTLRBigqueryQuery_RoutinesDelete
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                         routineId:(NSString *)routineId;
+
+@end
+
+/**
+ *  Gets the specified routine resource by routine ID.
+ *
+ *  Method: bigquery.routines.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeBigqueryReadonly
+ */
+@interface GTLRBigqueryQuery_RoutinesGet : GTLRBigqueryQuery
+// Previous library name was
+//   +[GTLQueryBigquery queryForRoutinesGetWithprojectId:datasetId:routineId:]
+
+/** Required. Dataset ID of the requested routine */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Project ID of the requested routine */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  If set, only the Routine fields in the field mask are returned in the
+ *  response. If unset, all Routine fields are returned.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/** Required. Routine ID of the requested routine */
+@property(nonatomic, copy, nullable) NSString *routineId;
+
+/**
+ *  Fetches a @c GTLRBigquery_Routine.
+ *
+ *  Gets the specified routine resource by routine ID.
+ *
+ *  @param projectId Required. Project ID of the requested routine
+ *  @param datasetId Required. Dataset ID of the requested routine
+ *  @param routineId Required. Routine ID of the requested routine
+ *
+ *  @return GTLRBigqueryQuery_RoutinesGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                         routineId:(NSString *)routineId;
+
+@end
+
+/**
+ *  Creates a new routine in the dataset.
+ *
+ *  Method: bigquery.routines.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ */
+@interface GTLRBigqueryQuery_RoutinesInsert : GTLRBigqueryQuery
+// Previous library name was
+//   +[GTLQueryBigquery queryForRoutinesInsertWithObject:projectId:datasetId:]
+
+/** Required. Dataset ID of the new routine */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Project ID of the new routine */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRBigquery_Routine.
+ *
+ *  Creates a new routine in the dataset.
+ *
+ *  @param object The @c GTLRBigquery_Routine to include in the query.
+ *  @param projectId Required. Project ID of the new routine
+ *  @param datasetId Required. Dataset ID of the new routine
+ *
+ *  @return GTLRBigqueryQuery_RoutinesInsert
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_Routine *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId;
+
+@end
+
+/**
+ *  Lists all routines in the specified dataset. Requires the READER dataset
+ *  role.
+ *
+ *  Method: bigquery.routines.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeBigqueryReadonly
+ */
+@interface GTLRBigqueryQuery_RoutinesList : GTLRBigqueryQuery
+// Previous library name was
+//   +[GTLQueryBigquery queryForRoutinesListWithprojectId:datasetId:]
+
+/** Required. Dataset ID of the routines to list */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  If set, then only the Routines matching this filter are returned.
+ *  The current supported form is either "routine_type:<RoutineType>" or
+ *  "routineType:<RoutineType>", where <RoutineType> is a RoutineType enum.
+ *  Example: "routineType:SCALAR_FUNCTION".
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results to return in a single response page.
+ *  Leverage the page tokens to iterate through the entire collection.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Page token, returned by a previous call, to request the next page of
+ *  results
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Project ID of the routines to list */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  If set, then only the Routine fields in the field mask, as well as
+ *  project_id, dataset_id and routine_id, are returned in the response.
+ *  If unset, then the following Routine fields are returned:
+ *  etag, project_id, dataset_id, routine_id, routine_type, creation_time,
+ *  last_modified_time, and language.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRBigquery_ListRoutinesResponse.
+ *
+ *  Lists all routines in the specified dataset. Requires the READER dataset
+ *  role.
+ *
+ *  @param projectId Required. Project ID of the routines to list
+ *  @param datasetId Required. Dataset ID of the routines to list
+ *
+ *  @return GTLRBigqueryQuery_RoutinesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId;
+
+@end
+
+/**
+ *  Updates information in an existing routine. The update method replaces the
+ *  entire Routine resource.
+ *
+ *  Method: bigquery.routines.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ */
+@interface GTLRBigqueryQuery_RoutinesUpdate : GTLRBigqueryQuery
+// Previous library name was
+//   +[GTLQueryBigquery queryForRoutinesUpdateWithObject:projectId:datasetId:routineId:]
+
+/** Required. Dataset ID of the routine to update */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Project ID of the routine to update */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Routine ID of the routine to update */
+@property(nonatomic, copy, nullable) NSString *routineId;
+
+/**
+ *  Fetches a @c GTLRBigquery_Routine.
+ *
+ *  Updates information in an existing routine. The update method replaces the
+ *  entire Routine resource.
+ *
+ *  @param object The @c GTLRBigquery_Routine to include in the query.
+ *  @param projectId Required. Project ID of the routine to update
+ *  @param datasetId Required. Dataset ID of the routine to update
+ *  @param routineId Required. Routine ID of the routine to update
+ *
+ *  @return GTLRBigqueryQuery_RoutinesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_Routine *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                      routineId:(NSString *)routineId;
 
 @end
 

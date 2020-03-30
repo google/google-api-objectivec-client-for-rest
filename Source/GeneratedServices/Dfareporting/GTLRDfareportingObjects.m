@@ -2182,8 +2182,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
          creativeFieldAssignments, customKeyValues, dynamicAssetSelection,
          exitCustomEvents, fsCommand, htmlCode, htmlCodeLocked, identifier,
          idDimensionValue, kind, lastModifiedInfo, latestTraffickedCreativeId,
-         mediaDescription, mediaDuration, name, overrideCss, progressOffset,
-         redirectUrl, renderingId, renderingIdDimensionValue,
+         mediaDescription, mediaDuration, name, obaIcon, overrideCss,
+         progressOffset, redirectUrl, renderingId, renderingIdDimensionValue,
          requiredFlashPluginVersion, requiredFlashVersion, size, skipOffset,
          skippable, sslCompliant, sslOverride, studioAdvertiserId,
          studioCreativeId, studioTraffickedCreativeId, subaccountId,
@@ -2268,8 +2268,9 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_CreativeAssetMetadata
-@dynamic assetIdentifier, clickTags, detectedFeatures, identifier,
-         idDimensionValue, kind, warnedValidationRules;
+@dynamic assetIdentifier, clickTags, counterCustomEvents, detectedFeatures,
+         exitCustomEvents, identifier, idDimensionValue, kind, richMedia,
+         timerCustomEvents, warnedValidationRules;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2278,7 +2279,10 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"clickTags" : [GTLRDfareporting_ClickTag class],
+    @"counterCustomEvents" : [GTLRDfareporting_CreativeCustomEvent class],
     @"detectedFeatures" : [NSString class],
+    @"exitCustomEvents" : [GTLRDfareporting_CreativeCustomEvent class],
+    @"timerCustomEvents" : [GTLRDfareporting_CreativeCustomEvent class],
     @"warnedValidationRules" : [NSString class]
   };
   return map;
@@ -2579,8 +2583,9 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_CustomEvent
-@dynamic annotateClickEvent, customVariables, eventType,
-         floodlightConfigurationId, insertEvent, kind, ordinal, timestampMicros;
+@dynamic annotateClickEvent, annotateImpressionEvent, customVariables,
+         eventType, floodlightConfigurationId, insertEvent, kind, ordinal,
+         timestampMicros;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2609,6 +2614,16 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_CustomEventError
 @dynamic code, kind, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CustomEventImpressionAnnotation
+//
+
+@implementation GTLRDfareporting_CustomEventImpressionAnnotation
+@dynamic kind, pathImpressionId;
 @end
 
 
@@ -3679,6 +3694,16 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_ObaIcon
+//
+
+@implementation GTLRDfareporting_ObaIcon
+@dynamic iconClickThroughUrl, program, resourceUrl, size, xPosition, yPosition;
 @end
 
 

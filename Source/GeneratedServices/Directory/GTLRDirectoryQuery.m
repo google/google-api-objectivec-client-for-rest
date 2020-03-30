@@ -1327,36 +1327,6 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @end
 
-@implementation GTLRDirectoryQuery_ResolvedAppAccessSettingsGetSettings
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"resolvedappaccesssettings";
-  GTLRDirectoryQuery_ResolvedAppAccessSettingsGetSettings *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRDirectory_AppAccessCollections class];
-  query.loggingName = @"directory.resolvedAppAccessSettings.GetSettings";
-  return query;
-}
-
-@end
-
-@implementation GTLRDirectoryQuery_ResolvedAppAccessSettingsListTrustedApps
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"trustedapps";
-  GTLRDirectoryQuery_ResolvedAppAccessSettingsListTrustedApps *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRDirectory_TrustedApps class];
-  query.loggingName = @"directory.resolvedAppAccessSettings.ListTrustedApps";
-  return query;
-}
-
-@end
-
 @implementation GTLRDirectoryQuery_ResourcesBuildingsDelete
 
 @dynamic buildingId, customer;

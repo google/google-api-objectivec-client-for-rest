@@ -409,7 +409,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirebaseManagement queryForProjectsAndroidAppsCreateWithObject:parent:]
 
 /**
- *  The parent Project for which to list Apps, in the format:
+ *  The parent Project in which to create an App, in the format:
  *  <br><code>projects/<var>projectId</var></code>
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -425,7 +425,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRFirebaseManagement_AndroidApp to include in the
  *    query.
- *  @param parent The parent Project for which to list Apps, in the format:
+ *  @param parent The parent Project in which to create an App, in the format:
  *    <br><code>projects/<var>projectId</var></code>
  *
  *  @return GTLRFirebaseManagementQuery_ProjectsAndroidAppsCreate
@@ -1107,7 +1107,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirebaseManagement queryForProjectsIosAppsCreateWithObject:parent:]
 
 /**
- *  The parent Project for which to list Apps, in the format:
+ *  The parent Project in which to create an App, in the format:
  *  <br><code>projects/<var>projectId</var></code>
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1122,7 +1122,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  completion, so there is no need to call `DeleteOperation`.
  *
  *  @param object The @c GTLRFirebaseManagement_IosApp to include in the query.
- *  @param parent The parent Project for which to list Apps, in the format:
+ *  @param parent The parent Project in which to create an App, in the format:
  *    <br><code>projects/<var>projectId</var></code>
  *
  *  @return GTLRFirebaseManagementQuery_ProjectsIosAppsCreate
@@ -1604,7 +1604,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirebaseManagement queryForProjectsWebAppsCreateWithObject:parent:]
 
 /**
- *  The parent Project for which to list Apps, in the format:
+ *  The parent Project in which to create an App, in the format:
  *  <br><code>projects/<var>projectId</var></code>
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1619,7 +1619,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  completion, so there is no need to call `DeleteOperation`.
  *
  *  @param object The @c GTLRFirebaseManagement_WebApp to include in the query.
- *  @param parent The parent Project for which to list Apps, in the format:
+ *  @param parent The parent Project in which to create an App, in the format:
  *    <br><code>projects/<var>projectId</var></code>
  *
  *  @return GTLRFirebaseManagementQuery_ProjectsWebAppsCreate

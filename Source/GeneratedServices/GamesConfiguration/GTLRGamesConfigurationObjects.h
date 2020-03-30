@@ -4,9 +4,10 @@
 // API:
 //   Google Play Game Services Publishing API (gamesConfiguration/v1configuration)
 // Description:
-//   The Publishing API for Google Play Game Services.
+//   The Google Play Game Services Publishing API allows developers to configure
+//   their games in Game Services.
 // Documentation:
-//   https://developers.google.com/games/services
+//   https://developers.google.com/games/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
@@ -34,16 +35,143 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRGamesConfiguration_AchievementConfiguration.achievementType
+
 /**
- *  This is a JSON template for an achievement configuration resource.
+ *  Default value. This value is unused.
+ *
+ *  Value: "ACHIEVEMENT_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_AchievementTypeUnspecified;
+/**
+ *  Achievement is incremental.
+ *
+ *  Value: "INCREMENTAL"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_Incremental;
+/**
+ *  Achievement is either locked or unlocked.
+ *
+ *  Value: "STANDARD"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_Standard;
+
+// ----------------------------------------------------------------------------
+// GTLRGamesConfiguration_AchievementConfiguration.initialState
+
+/**
+ *  Achievement is hidden.
+ *
+ *  Value: "HIDDEN"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_InitialState_Hidden;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "INITIAL_STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_InitialState_InitialStateUnspecified;
+/**
+ *  Achievement is revealed.
+ *
+ *  Value: "REVEALED"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_InitialState_Revealed;
+
+// ----------------------------------------------------------------------------
+// GTLRGamesConfiguration_GamesNumberFormatConfiguration.numberFormatType
+
+/**
+ *  Numbers are formatted to currency according to locale.
+ *
+ *  Value: "CURRENCY"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_Currency;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "NUMBER_FORMAT_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_NumberFormatTypeUnspecified;
+/**
+ *  Numbers are formatted to have no digits or fixed number of digits after
+ *  the decimal point according to locale. An optional custom unit can be
+ *  added.
+ *
+ *  Value: "NUMERIC"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_Numeric;
+/**
+ *  Numbers are formatted to hours, minutes and seconds.
+ *
+ *  Value: "TIME_DURATION"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_TimeDuration;
+
+// ----------------------------------------------------------------------------
+// GTLRGamesConfiguration_ImageConfiguration.imageType
+
+/**
+ *  The icon image for an achievement resource.
+ *
+ *  Value: "ACHIEVEMENT_ICON"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_AchievementIcon;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "IMAGE_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_ImageTypeUnspecified;
+/**
+ *  The icon image for a leaderboard resource.
+ *
+ *  Value: "LEADERBOARD_ICON"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_LeaderboardIcon;
+
+// ----------------------------------------------------------------------------
+// GTLRGamesConfiguration_LeaderboardConfiguration.scoreOrder
+
+/**
+ *  Larger scores posted are ranked higher.
+ *
+ *  Value: "LARGER_IS_BETTER"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_LargerIsBetter;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SCORE_ORDER_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_ScoreOrderUnspecified;
+/**
+ *  Smaller scores posted are ranked higher.
+ *
+ *  Value: "SMALLER_IS_BETTER"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_SmallerIsBetter;
+
+/**
+ *  An achievement configuration resource.
  */
 @interface GTLRGamesConfiguration_AchievementConfiguration : GTLRObject
 
 /**
  *  The type of the achievement.
- *  Possible values are:
- *  - "STANDARD" - Achievement is either locked or unlocked.
- *  - "INCREMENTAL" - Achievement is incremental.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_AchievementTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "ACHIEVEMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_Incremental
+ *        Achievement is incremental. (Value: "INCREMENTAL")
+ *    @arg @c kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_Standard
+ *        Achievement is either locked or unlocked. (Value: "STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *achievementType;
 
@@ -59,16 +187,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The initial state of the achievement.
- *  Possible values are:
- *  - "HIDDEN" - Achievement is hidden.
- *  - "REVEALED" - Achievement is revealed.
- *  - "UNLOCKED" - Achievement is unlocked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGamesConfiguration_AchievementConfiguration_InitialState_Hidden
+ *        Achievement is hidden. (Value: "HIDDEN")
+ *    @arg @c kGTLRGamesConfiguration_AchievementConfiguration_InitialState_InitialStateUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "INITIAL_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGamesConfiguration_AchievementConfiguration_InitialState_Revealed
+ *        Achievement is revealed. (Value: "REVEALED")
  */
 @property(nonatomic, copy, nullable) NSString *initialState;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesConfiguration#achievementConfiguration.
+ *  string <code>gamesConfiguration#achievementConfiguration</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -89,7 +222,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an achievement configuration detail.
+ *  An achievement configuration detail.
  */
 @interface GTLRGamesConfiguration_AchievementConfigurationDetail : GTLRObject
 
@@ -105,7 +238,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesConfiguration#achievementConfigurationDetail.
+ *  string <code>gamesConfiguration#achievementConfigurationDetail</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -130,7 +263,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a ListConfigurations response.
+ *  A ListConfigurations response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -149,7 +282,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#achievementConfigurationListResponse.
+ *  string
+ *  <code>gamesConfiguration#achievementConfigurationListResponse</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -160,7 +294,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a number affix resource.
+ *  A number affix resource.
  */
 @interface GTLRGamesConfiguration_GamesNumberAffixConfiguration : GTLRObject
 
@@ -197,7 +331,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *two;
 
 /**
- *  When the language requires special treatment of the number 0 (as in Arabic).
+ *  When the language requires special treatment of the number 0 (as in
+ *  Arabic).
  */
 @property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *zero;
 
@@ -205,7 +340,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a number format resource.
+ *  A number format resource.
  */
 @interface GTLRGamesConfiguration_GamesNumberFormatConfiguration : GTLRObject
 
@@ -214,12 +349,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The formatting for the number.
- *  Possible values are:
- *  - "NUMERIC" - Numbers are formatted to have no digits or a fixed number of
- *  digits after the decimal point according to locale. An optional custom unit
- *  can be added.
- *  - "TIME_DURATION" - Numbers are formatted to hours, minutes and seconds.
- *  - "CURRENCY" - Numbers are formatted to currency according to locale.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_Currency
+ *        Numbers are formatted to currency according to locale. (Value:
+ *        "CURRENCY")
+ *    @arg @c kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_NumberFormatTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "NUMBER_FORMAT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_Numeric
+ *        Numbers are formatted to have no digits or fixed number of digits
+ *        after
+ *        the decimal point according to locale. An optional custom unit can be
+ *        added. (Value: "NUMERIC")
+ *    @arg @c kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_TimeDuration
+ *        Numbers are formatted to hours, minutes and seconds. (Value:
+ *        "TIME_DURATION")
  */
 @property(nonatomic, copy, nullable) NSString *numberFormatType;
 
@@ -232,7 +377,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An optional suffix for the NUMERIC format type. These strings follow the
- *  same plural rules as all Android string resources.
+ *  same
+ *  <a 
+ href="http://developer.android.com/guide/topics/resources/string-resource.html#Plurals">
+ *  plural rules</a> as all Android string resources.
  */
 @property(nonatomic, strong, nullable) GTLRGamesConfiguration_GamesNumberAffixConfiguration *suffix;
 
@@ -240,16 +388,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an image configuration resource.
+ *  An image configuration resource.
  */
 @interface GTLRGamesConfiguration_ImageConfiguration : GTLRObject
 
-/** The image type for the image. */
+/**
+ *  The image type for the image.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGamesConfiguration_ImageConfiguration_ImageType_AchievementIcon
+ *        The icon image for an achievement resource. (Value:
+ *        "ACHIEVEMENT_ICON")
+ *    @arg @c kGTLRGamesConfiguration_ImageConfiguration_ImageType_ImageTypeUnspecified
+ *        Default value. This value is unused. (Value: "IMAGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGamesConfiguration_ImageConfiguration_ImageType_LeaderboardIcon
+ *        The icon image for a leaderboard resource. (Value: "LEADERBOARD_ICON")
+ */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesConfiguration#imageConfiguration.
+ *  string <code>gamesConfiguration#imageConfiguration</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -263,7 +422,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an leaderboard configuration resource.
+ *  An leaderboard configuration resource.
  */
 @interface GTLRGamesConfiguration_LeaderboardConfiguration : GTLRObject
 
@@ -279,7 +438,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesConfiguration#leaderboardConfiguration.
+ *  string <code>gamesConfiguration#leaderboardConfiguration</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -301,10 +460,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *scoreMin;
 
 /**
- *  The type of the leaderboard.
- *  Possible values are:
- *  - "LARGER_IS_BETTER" - Larger scores posted are ranked higher.
- *  - "SMALLER_IS_BETTER" - Smaller scores posted are ranked higher.
+ *  scoreOrder
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_LargerIsBetter
+ *        Larger scores posted are ranked higher. (Value: "LARGER_IS_BETTER")
+ *    @arg @c kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_ScoreOrderUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "SCORE_ORDER_UNSPECIFIED")
+ *    @arg @c kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_SmallerIsBetter
+ *        Smaller scores posted are ranked higher. (Value: "SMALLER_IS_BETTER")
  */
 @property(nonatomic, copy, nullable) NSString *scoreOrder;
 
@@ -315,7 +480,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a leaderboard configuration detail.
+ *  A leaderboard configuration detail.
  */
 @interface GTLRGamesConfiguration_LeaderboardConfigurationDetail : GTLRObject
 
@@ -324,7 +489,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesConfiguration#leaderboardConfigurationDetail.
+ *  string <code>gamesConfiguration#leaderboardConfigurationDetail</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -345,7 +510,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a ListConfigurations response.
+ *  A ListConfigurations response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -364,7 +529,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#leaderboardConfigurationListResponse.
+ *  string
+ *  <code>gamesConfiguration#leaderboardConfigurationListResponse</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -375,13 +541,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a localized string resource.
+ *  A localized string resource.
  */
 @interface GTLRGamesConfiguration_LocalizedString : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesConfiguration#localizedString.
+ *  string <code>gamesConfiguration#localizedString</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -395,13 +561,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a localized string bundle resource.
+ *  A localized string bundle resource.
  */
 @interface GTLRGamesConfiguration_LocalizedStringBundle : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesConfiguration#localizedStringBundle.
+ *  string <code>gamesConfiguration#localizedStringBundle</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 

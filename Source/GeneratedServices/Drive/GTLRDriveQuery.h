@@ -917,6 +917,15 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 // Previous library name was
 //   +[GTLQueryDrive queryForFilesCopyWithObject:fileId:]
 
+/**
+ *  Set to true to opt in to API behavior that aims for all items to have
+ *  exactly one parent. This parameter will only take effect if the item is not
+ *  in a shared drive. Requests that specify more than one parent will fail.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL enforceSingleParent;
+
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
@@ -990,6 +999,15 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @interface GTLRDriveQuery_FilesCreate : GTLRDriveQuery
 // Previous library name was
 //   +[GTLQueryDrive queryForFilesCreateWithObject:]
+
+/**
+ *  Set to true to opt in to API behavior that aims for all items to have
+ *  exactly one parent. This parameter will only take effect if the item is not
+ *  in a shared drive. Requests that specify more than one parent will fail.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL enforceSingleParent;
 
 /**
  *  Whether to ignore the domain's default visibility settings for the created
@@ -1430,6 +1448,19 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 /** A comma-separated list of parent IDs to add. */
 @property(nonatomic, copy, nullable) NSString *addParents;
 
+/**
+ *  Set to true to opt in to API behavior that aims for all items to have
+ *  exactly one parent. This parameter will only take effect if the item is not
+ *  in a shared drive. If the item's owner makes a request to add a single
+ *  parent, the item will be removed from all current folders and placed in the
+ *  requested folder. Other requests that increase the number of parents will
+ *  fail, except when the canAddMyDriveParent file capability is true and a
+ *  single parent is being added.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL enforceSingleParent;
+
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
@@ -1581,8 +1612,31 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 /** A plain text custom message to include in the notification email. */
 @property(nonatomic, copy, nullable) NSString *emailMessage;
 
+/**
+ *  Set to true to opt in to API behavior that aims for all items to have
+ *  exactly one parent. This parameter will only take effect if the item is not
+ *  in a shared drive. See moveToNewOwnersRoot for details.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL enforceSingleParent;
+
 /** The ID of the file or shared drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  This parameter will only take effect if the item is not in a shared drive
+ *  and the request is attempting to transfer the ownership of the item. When
+ *  set to true, the item will be moved to the new owner's My Drive root folder
+ *  and all prior parents removed. If set to false, when
+ *  enforceSingleParent=true, parents are not changed. If set to false, when
+ *  enforceSingleParent=false, existing parents are not changed; however, the
+ *  file will be added to the new owner's My Drive root folder, unless it is
+ *  already in the new owner's My Drive.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL moveToNewOwnersRoot;
 
 /**
  *  Whether to send a notification email when sharing to users or groups. This

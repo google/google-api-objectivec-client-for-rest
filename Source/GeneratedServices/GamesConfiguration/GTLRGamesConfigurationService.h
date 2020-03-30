@@ -4,9 +4,10 @@
 // API:
 //   Google Play Game Services Publishing API (gamesConfiguration/v1configuration)
 // Description:
-//   The Publishing API for Google Play Game Services.
+//   The Google Play Game Services Publishing API allows developers to configure
+//   their games in Game Services.
 // Documentation:
-//   https://developers.google.com/games/services
+//   https://developers.google.com/games/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -42,7 +43,8 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeGamesConfigurationAndroidpublisher;
 /**
  *  Service for executing Google Play Game Services Publishing API queries.
  *
- *  The Publishing API for Google Play Game Services.
+ *  The Google Play Game Services Publishing API allows developers to configure
+ *  their games in Game Services.
  */
 @interface GTLRGamesConfigurationService : GTLRService
 

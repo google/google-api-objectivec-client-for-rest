@@ -34,6 +34,7 @@
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionPolicy;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2FileNode;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2LogFile;
+@class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputDirectory;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputFile;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputSymlink;
@@ -84,6 +85,10 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecution
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha1;
 /** Value: "SHA256" */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha256;
+/** Value: "SHA384" */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha384;
+/** Value: "SHA512" */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha512;
 /** Value: "UNKNOWN" */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Unknown;
 /** Value: "VSO" */
@@ -159,17 +164,29 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecution
  */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Md5;
 /**
- *  The Sha-1 digest function.
+ *  The SHA-1 digest function.
  *
  *  Value: "SHA1"
  */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha1;
 /**
- *  The Sha-256 digest function.
+ *  The SHA-256 digest function.
  *
  *  Value: "SHA256"
  */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha256;
+/**
+ *  The SHA-384 digest function.
+ *
+ *  Value: "SHA384"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha384;
+/**
+ *  The SHA-512 digest function.
+ *
+ *  Value: "SHA512"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha512;
 /**
  *  It is an error for the server to return this value.
  *
@@ -220,6 +237,12 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuild
  *  Value: "DOCKER_CREATE_CONTAINER_ERROR"
  */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateContainerError;
+/**
+ *  Docker failed to create OCI runtime because of file not found.
+ *
+ *  Value: "DOCKER_CREATE_RUNTIME_FILE_NOT_FOUND"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimeFileNotFound;
 /**
  *  The bot failed to check docker images.
  *
@@ -553,6 +576,18 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Digest *inputRootDigest;
 
 /**
+ *  List of required supported NodeProperty
+ *  keys. In order to ensure that equivalent `Action`s always hash to the same
+ *  value, the supported node properties MUST be lexicographically sorted by
+ *  name.
+ *  Sorting of strings is done by code point, equivalently, by the UTF-8 bytes.
+ *  The interpretation of these properties is server-dependent. If a property is
+ *  not recognized by the server, the server will return an `INVALID_ARGUMENT`
+ *  error.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *outputNodeProperties;
+
+/**
  *  A timeout after which the execution should be killed. If the timeout is
  *  absent, then the client is specifying that the execution should continue
  *  as long as the server will let it. The server SHOULD impose a timeout if
@@ -607,9 +642,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 
 /**
  *  The output directories of the action. For each output directory requested
- *  in the `output_directories` field of the Action, if the corresponding
- *  directory existed after the action completed, a single entry will be
- *  present in the output list, which will contain the digest of a
+ *  in the `output_directories` or `output_paths` field of the Action, if the
+ *  corresponding directory existed after the action completed, a single entry
+ *  will be present in the output list, which will contain the digest of a
  *  Tree message containing the
  *  directory tree, and the path equal exactly to the corresponding Action
  *  output_directories member.
@@ -663,7 +698,8 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  }
  *  }
  *  ```
- *  If an output of the same name was found, but was not a directory, the
+ *  If an output of the same name as listed in `output_files` of
+ *  the Command was found in `output_directories`, but was not a directory, the
  *  server will return a FAILED_PRECONDITION.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputDirectory *> *outputDirectories;
@@ -683,16 +719,18 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  If the action does not produce the requested output, then that output
  *  will be omitted from the list. The server is free to arrange the output
  *  list as desired; clients MUST NOT assume that the output list is sorted.
+ *  DEPRECATED as of v2.1. Servers that wish to be compatible with v2.0 API
+ *  should still populate this field in addition to `output_symlinks`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputSymlink *> *outputDirectorySymlinks;
 
 /**
  *  The output files of the action. For each output file requested in the
- *  `output_files` field of the Action, if the corresponding file existed after
- *  the action completed, a single entry will be present either in this field,
- *  or the `output_file_symlinks` field if the file was a symbolic link to
- *  another file.
- *  If an output of the same name was found, but was a directory rather
+ *  `output_files` or `output_paths` field of the Action, if the corresponding
+ *  file existed after the action completed, a single entry will be present
+ *  either in this field, or the `output_file_symlinks` field if the file was
+ *  a symbolic link to another file (`output_symlinks` field after v2.1).
+ *  If an output listed in `output_files` was found, but was a directory rather
  *  than a regular file, the server will return a FAILED_PRECONDITION.
  *  If the action does not produce the requested output, then that output
  *  will be omitted from the list. The server is free to arrange the output
@@ -705,17 +743,37 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  may be links to other output files, or input files, or even absolute paths
  *  outside of the working directory, if the server supports
  *  SymlinkAbsolutePathStrategy.ALLOWED.
- *  For each output file requested in the `output_files` field of the Action,
- *  if the corresponding file existed after
+ *  For each output file requested in the `output_files` or `output_paths`
+ *  field of the Action, if the corresponding file existed after
  *  the action completed, a single entry will be present either in this field,
  *  or in the `output_files` field, if the file was not a symbolic link.
- *  If an output symbolic link of the same name was found, but its target
- *  type was not a regular file, the server will return a FAILED_PRECONDITION.
+ *  If an output symbolic link of the same name as listed in `output_files` of
+ *  the Command was found, but its target type was not a regular file, the
+ *  server will return a FAILED_PRECONDITION.
  *  If the action does not produce the requested output, then that output
  *  will be omitted from the list. The server is free to arrange the output
  *  list as desired; clients MUST NOT assume that the output list is sorted.
+ *  DEPRECATED as of v2.1. Servers that wish to be compatible with v2.0 API
+ *  should still populate this field in addition to `output_symlinks`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputSymlink *> *outputFileSymlinks;
+
+/**
+ *  New in v2.1: this field will only be populated if the command
+ *  `output_paths` field was used, and not the pre v2.1 `output_files` or
+ *  `output_directories` fields.
+ *  The output paths of the action that are symbolic links to other paths. Those
+ *  may be links to other outputs, or inputs, or even absolute paths
+ *  outside of the working directory, if the server supports
+ *  SymlinkAbsolutePathStrategy.ALLOWED.
+ *  A single entry for each output requested in `output_paths`
+ *  field of the Action, if the corresponding path existed after
+ *  the action completed and was a symbolic link.
+ *  If the action does not produce a requested output, then that output
+ *  will be omitted from the list. The server is free to arrange the output
+ *  list as desired; clients MUST NOT assume that the output list is sorted.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputSymlink *> *outputSymlinks;
 
 /**
  *  The digest for a blob containing the standard error of the action, which
@@ -966,6 +1024,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  Directories leading up to the output directories (but not the output
  *  directories themselves) are created by the worker prior to execution, even
  *  if they are not explicitly part of the input root.
+ *  DEPRECATED since 2.1: Use `output_paths` instead.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *outputDirectories;
 
@@ -987,8 +1046,37 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  have the same path as any of the listed output directories.
  *  Directories leading up to the output files are created by the worker prior
  *  to execution, even if they are not explicitly part of the input root.
+ *  DEPRECATED since v2.1: Use `output_paths` instead.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *outputFiles;
+
+/**
+ *  A list of the output paths that the client expects to retrieve from the
+ *  action. Only the listed paths will be returned to the client as output.
+ *  The type of the output (file or directory) is not specified, and will be
+ *  determined by the server after action execution. If the resulting path is
+ *  a file, it will be returned in an
+ *  OutputFile) typed field.
+ *  If the path is a directory, the entire directory structure will be returned
+ *  as a Tree message digest, see
+ *  OutputDirectory)
+ *  Other files or directories that may be created during command execution
+ *  are discarded.
+ *  The paths are relative to the working directory of the action execution.
+ *  The paths are specified using a single forward slash (`/`) as a path
+ *  separator, even if the execution platform natively uses a different
+ *  separator. The path MUST NOT include a trailing slash, nor a leading slash,
+ *  being a relative path.
+ *  In order to ensure consistent hashing of the same Action, the output paths
+ *  MUST be deduplicated and sorted lexicographically by code point (or,
+ *  equivalently, by UTF-8 bytes).
+ *  Directories leading up to the output paths are created by the worker prior
+ *  to execution, even if they are not explicitly part of the input root.
+ *  New in v2.1: this field supersedes the DEPRECATED `output_files` and
+ *  `output_directories` fields. If `output_paths` is used, `output_files` and
+ *  `output_directories` will be ignored!
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *outputPaths;
 
 /**
  *  The platform requirements for the execution environment. The server MAY
@@ -1026,9 +1114,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 
 /**
  *  A content digest. A digest for a given blob consists of the size of the blob
- *  and its hash. The hash algorithm to use is defined by the server, but
- *  servers
- *  SHOULD use SHA-256.
+ *  and its hash. The hash algorithm to use is defined by the server.
  *  The size is considered to be an integral part of the digest and cannot be
  *  separated. That is, even if the `hash` field is correctly specified but
  *  `size_bytes` is not, the server MUST reject the request.
@@ -1098,6 +1184,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  * The files, directories and symlinks in the directory must each be sorted
  *  in lexicographical order by path. The path strings must be sorted by code
  *  point, equivalently, by UTF-8 bytes.
+ *  * The NodeProperties of files,
+ *  directories, and symlinks must be sorted in lexicographical order by
+ *  property name.
  *  A `Directory` that obeys the restrictions is said to be in canonical form.
  *  As an example, the following could be used for a file named `bar` and a
  *  directory named `foo` with an executable file named `baz` (hashes shortened
@@ -1111,7 +1200,13 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  digest: {
  *  hash: "4a73bc9d03...",
  *  size: 65534
+ *  },
+ *  node_properties: [
+ *  {
+ *  "name": "MTime",
+ *  "value": "2017-01-15T01:30:15.01Z"
  *  }
+ *  ]
  *  }
  *  ],
  *  directories: [
@@ -1146,6 +1241,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 
 /** The files in the directory. */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2FileNode *> *files;
+
+/** The node properties of the Directory. */
+@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty *> *nodeProperties;
 
 /** The symlinks in the directory. */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2SymlinkNode *> *symlinks;
@@ -1391,9 +1489,13 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Md5
  *        The MD5 digest function. (Value: "MD5")
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha1
- *        The Sha-1 digest function. (Value: "SHA1")
+ *        The SHA-1 digest function. (Value: "SHA1")
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha256
- *        The Sha-256 digest function. (Value: "SHA256")
+ *        The SHA-256 digest function. (Value: "SHA256")
+ *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha384
+ *        The SHA-384 digest function. (Value: "SHA384")
+ *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha512
+ *        The SHA-512 digest function. (Value: "SHA512")
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Unknown
  *        It is an error for the server to return this value. (Value: "UNKNOWN")
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Vso
@@ -1413,6 +1515,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 
 /** Supported execution priority range. */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2PriorityCapabilities *executionPriorityCapabilities;
+
+/** Supported node properties. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedNodeProperties;
 
 @end
 
@@ -1457,6 +1562,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 
 /** The name of the file. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** The node properties of the FileNode. */
+@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty *> *nodeProperties;
 
 @end
 
@@ -1538,6 +1646,24 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 
 
 /**
+ *  A single property for FileNodes,
+ *  DirectoryNodes, and
+ *  SymlinkNodes. The server is
+ *  responsible for specifying the property `name`s that it accepts. If
+ *  permitted by the server, the same `name` may occur multiple times.
+ */
+@interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty : GTLRObject
+
+/** The property name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The property value. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  An `OutputDirectory` is the output in an `ActionResult` corresponding to a
  *  directory's full contents rather than a single file.
  */
@@ -1594,6 +1720,11 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 @property(nonatomic, strong, nullable) NSNumber *isExecutable;
 
 /**
+ *  The supported node properties of the OutputFile, if requested by the Action.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty *> *nodeProperties;
+
+/**
  *  The full path of the file relative to the working directory, including the
  *  filename. The path separator is a forward slash `/`. Since this is a
  *  relative path, it MUST NOT begin with a leading forward slash.
@@ -1610,6 +1741,12 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  `OutputSymlink` is binary-compatible with `SymlinkNode`.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputSymlink : GTLRObject
+
+/**
+ *  The supported node properties of the OutputSymlink, if requested by the
+ *  Action.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty *> *nodeProperties;
 
 /**
  *  The full path of the symlink relative to the working directory, including
@@ -1812,6 +1949,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 /** The name of the symlink. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The node properties of the SymlinkNode. */
+@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty *> *nodeProperties;
+
 /**
  *  The target path of the symlink. The path separator is a forward slash `/`.
  *  The target path can be relative to the parent directory of the symlink or
@@ -1916,7 +2056,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  */
 @property(nonatomic, strong, nullable) GTLRDuration *dockerPrep;
 
-/** The timestamp when docker prepartion begins. */
+/** The timestamp when docker preparation begins. */
 @property(nonatomic, strong, nullable) GTLRDateTime *dockerPrepStartTime;
 
 /**
@@ -2015,6 +2155,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateContainerError
  *        The bot couldn't start the container. (Value:
  *        "DOCKER_CREATE_CONTAINER_ERROR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimeFileNotFound
+ *        Docker failed to create OCI runtime because of file not found. (Value:
+ *        "DOCKER_CREATE_RUNTIME_FILE_NOT_FOUND")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageExistError
  *        The bot failed to check docker images. (Value:
  *        "DOCKER_IMAGE_EXIST_ERROR")
@@ -2606,7 +2749,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
 
 /**
  *  The desired number of workers in the worker pool. Must be a value between
- *  0 and 1000.
+ *  0 and 15000.
  *
  *  Uses NSNumber of longLongValue.
  */

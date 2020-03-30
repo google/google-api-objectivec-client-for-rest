@@ -65,6 +65,7 @@
 @class GTLRDfareporting_CustomEvent;
 @class GTLRDfareporting_CustomEventClickAnnotation;
 @class GTLRDfareporting_CustomEventError;
+@class GTLRDfareporting_CustomEventImpressionAnnotation;
 @class GTLRDfareporting_CustomEventInsert;
 @class GTLRDfareporting_CustomEventStatus;
 @class GTLRDfareporting_CustomFloodlightVariable;
@@ -115,6 +116,7 @@
 @class GTLRDfareporting_Metro;
 @class GTLRDfareporting_MobileApp;
 @class GTLRDfareporting_MobileCarrier;
+@class GTLRDfareporting_ObaIcon;
 @class GTLRDfareporting_ObjectFilter;
 @class GTLRDfareporting_OffsetPosition;
 @class GTLRDfareporting_OmnitureSettings;
@@ -5637,6 +5639,12 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Online behavioral advertising icon to be added to the creative. Applicable
+ *  to the following creative types: all INSTREAM_VIDEO.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_ObaIcon *obaIcon;
+
+/**
  *  Override CSS value for rich media creatives. Applicable to the following
  *  creative types: all RICH_MEDIA.
  */
@@ -6460,10 +6468,16 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, strong, nullable) GTLRDfareporting_CreativeAssetId *assetIdentifier;
 
 /**
- *  List of detected click tags for assets. This is a read-only auto-generated
- *  field.
+ *  List of detected click tags for assets. This is a read-only, auto-generated
+ *  field. This field is empty for a rich media asset.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_ClickTag *> *clickTags;
+
+/**
+ *  List of counter events configured for the asset. This is a read-only,
+ *  auto-generated field and only applicable to a rich media asset.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CreativeCustomEvent *> *counterCustomEvents;
 
 /**
  *  List of feature dependencies for the creative asset that are detected by
@@ -6472,6 +6486,12 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  read-only, auto-generated field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedFeatures;
+
+/**
+ *  List of exit events configured for the asset. This is a read-only,
+ *  auto-generated field and only applicable to a rich media asset.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CreativeCustomEvent *> *exitCustomEvents;
 
 /**
  *  Numeric ID of the asset. This is a read-only, auto-generated field.
@@ -6493,6 +6513,20 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  *  "dfareporting#creativeAssetMetadata".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  True if the uploaded asset is a rich media asset. This is a read-only,
+ *  auto-generated field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *richMedia;
+
+/**
+ *  List of timer events configured for the asset. This is a read-only,
+ *  auto-generated field and only applicable to a rich media asset.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CreativeCustomEvent *> *timerCustomEvents;
 
 /**
  *  Rules validated during code generation that generated a warning. This is a
@@ -7248,17 +7282,27 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @interface GTLRDfareporting_CustomEvent : GTLRObject
 
-/** Annotate a click event. */
+/**
+ *  Annotate an impression. This field is mutually exclusive with insertEvent
+ *  and annotateImpressionEvent. This or insertEvent and annotateImpressionEvent
+ *  is a required field.
+ */
 @property(nonatomic, strong, nullable) GTLRDfareporting_CustomEventClickAnnotation *annotateClickEvent;
+
+/**
+ *  Annotate an impression. This field is mutually exclusive with insertEvent
+ *  and annotateClickEvent. This or insertEvent and annotateClickEvent is a
+ *  required field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_CustomEventImpressionAnnotation *annotateImpressionEvent;
 
 /** Custom variables associated with the event. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomVariable *> *customVariables;
 
 /**
  *  The type of event. If INSERT, the fields in insertEvent need to be
- *  populated. If ANNOTATE_CLICK, the fields in annotateClickEvent need to be
- *  populated. A custom event cannot have both insertEvent and
- *  annotateClickEvent populated.
+ *  populated. If ANNOTATE, the fields in either annotateClickEvent or
+ *  annotateImpressionEvent need to be populated.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CustomEvent_EventType_Annotate Value "ANNOTATE"
@@ -7275,7 +7319,11 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @property(nonatomic, strong, nullable) NSNumber *floodlightConfigurationId;
 
-/** Insert custom event. */
+/**
+ *  Annotate an impression. This field is mutually exclusive with
+ *  annotateClickEvent and annotateImpressionEvent. This or annotateClickEvent
+ *  and annotateImpressionEvent is a required field.
+ */
 @property(nonatomic, strong, nullable) GTLRDfareporting_CustomEventInsert *insertEvent;
 
 /**
@@ -7345,6 +7393,26 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /** A description of the error. */
 @property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  Annotate an impression.
+ */
+@interface GTLRDfareporting_CustomEventImpressionAnnotation : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#customEventImpressionAnnotation".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The path impression ID. Use this field to annotate the impression associated
+ *  with the pathImpressionId.
+ */
+@property(nonatomic, copy, nullable) NSString *pathImpressionId;
 
 @end
 
@@ -10277,6 +10345,38 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /** Mobile carrier collection. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_MobileCarrier *> *mobileCarriers;
+
+@end
+
+
+/**
+ *  Online Behavioral Advertiser icon.
+ */
+@interface GTLRDfareporting_ObaIcon : GTLRObject
+
+/** URL to redirect to when an OBA icon is clicked. */
+@property(nonatomic, copy, nullable) NSString *iconClickThroughUrl;
+
+/**
+ *  Identifies the industry initiative that the icon supports. For example,
+ *  AdChoices.
+ */
+@property(nonatomic, copy, nullable) NSString *program;
+
+/**
+ *  OBA icon resource script URL. Campaign Manager only supports image,
+ *  JavaScript, and Flash icons. Learn more
+ */
+@property(nonatomic, copy, nullable) NSString *resourceUrl;
+
+/** OBA icon size. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_Size *size;
+
+/** OBA icon x coordinate position. */
+@property(nonatomic, copy, nullable) NSString *xPosition;
+
+/** OBA icon y coordinate position. */
+@property(nonatomic, copy, nullable) NSString *yPosition;
 
 @end
 
@@ -14602,7 +14702,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  Represents a UserProfile resource.
+ *  A UserProfile resource lets you list all DFA user profiles that are
+ *  associated with a Google user account. The profile_id needs to be specified
+ *  in other API requests.
  */
 @interface GTLRDfareporting_UserProfile : GTLRObject
 
@@ -14616,10 +14718,13 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 /** The account name this profile belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountName;
 
-/** The eTag of this response for caching purposes. */
+/** Etag of this resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** The kind of resource this is, in this case dfareporting#userProfile. */
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#userProfile".
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -14653,7 +14758,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @interface GTLRDfareporting_UserProfileList : GTLRCollectionObject
 
-/** The eTag of this response for caching purposes. */
+/** Etag of this resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
@@ -14664,7 +14769,10 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_UserProfile *> *items;
 
-/** The kind of list this is, in this case dfareporting#userProfileList. */
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#userProfileList".
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end

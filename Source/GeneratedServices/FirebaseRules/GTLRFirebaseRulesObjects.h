@@ -166,6 +166,12 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_L
  *  Value: "NONE"
  */
 GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_None;
+/**
+ *  Only include the expressions that were visited during evaluation.
+ *
+ *  Value: "VISITED"
+ */
+GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_Visited;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseRules_TestCase.pathEncoding
@@ -682,6 +688,9 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  *        "LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRFirebaseRules_TestCase_ExpressionReportLevel_None Do not
  *        include any additional information. (Value: "NONE")
+ *    @arg @c kGTLRFirebaseRules_TestCase_ExpressionReportLevel_Visited Only
+ *        include the expressions that were visited during evaluation. (Value:
+ *        "VISITED")
  */
 @property(nonatomic, copy, nullable) NSString *expressionReportLevel;
 

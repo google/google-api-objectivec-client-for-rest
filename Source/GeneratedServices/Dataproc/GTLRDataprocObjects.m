@@ -77,6 +77,7 @@ NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Anaconda = @"AN
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat = @"HIVE_WEBHCAT";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter = @"JUPYTER";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto = @"PRESTO";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin = @"ZEPPELIN";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper = @"ZOOKEEPER";
 
@@ -664,6 +665,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_JobMetadata
+//
+
+@implementation GTLRDataproc_JobMetadata
+@dynamic jobId, operationType, startTime, status;
 @end
 
 

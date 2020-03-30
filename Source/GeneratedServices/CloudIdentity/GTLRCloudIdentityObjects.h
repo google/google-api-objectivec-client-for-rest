@@ -711,7 +711,6 @@ GTLR_EXTERN NSString * const kGTLRCloudIdentity_DeviceUser_PasswordState_Passwor
 
 /**
  *  An EndpointApp represents an app that is installed on a device
- *  Next ID to use: 7
  */
 @interface GTLRCloudIdentity_EndpointApp : GTLRObject
 

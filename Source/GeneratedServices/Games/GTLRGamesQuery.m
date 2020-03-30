@@ -18,10 +18,10 @@
 // collection
 NSString * const kGTLRGamesCollectionAll        = @"all";
 NSString * const kGTLRGamesCollectionConnected  = @"connected";
-NSString * const kGTLRGamesCollectionPlayedWith = @"played_with";
+NSString * const kGTLRGamesCollectionFriendsAll = @"friends_all";
+NSString * const kGTLRGamesCollectionPlayedWith = @"playedWith";
 NSString * const kGTLRGamesCollectionPublic     = @"PUBLIC";
 NSString * const kGTLRGamesCollectionSocial     = @"SOCIAL";
-NSString * const kGTLRGamesCollectionSocial1p   = @"SOCIAL_1P";
 NSString * const kGTLRGamesCollectionVisible    = @"visible";
 
 // includeRankType

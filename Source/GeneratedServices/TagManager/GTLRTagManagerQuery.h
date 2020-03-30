@@ -4,9 +4,10 @@
 // API:
 //   Tag Manager API (tagmanager/v2)
 // Description:
-//   Accesses Tag Manager accounts and containers.
+//   This API allows clients to access and modify container and tag
+//   configuration.
 // Documentation:
-//   https://developers.google.com/tag-manager/api/v2/
+//   https://developers.google.com/tag-manager
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -112,6 +113,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickTarget;
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickText;
 /** Value: "clickUrl" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickUrl;
+/** Value: "clientName" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeClientName;
 /** Value: "containerId" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeContainerId;
 /** Value: "containerVersion" */
@@ -186,6 +189,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterProductId;
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterQuantity;
 /** Value: "firebaseEventParameterValue" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterValue;
+/** Value: "firstPartyServingUrl" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirstPartyServingUrl;
 /** Value: "formClasses" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormClasses;
 /** Value: "formElement" */
@@ -226,10 +231,16 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypePagePath;
 GTLR_EXTERN NSString * const kGTLRTagManagerTypePageUrl;
 /** Value: "platform" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypePlatform;
+/** Value: "queryString" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeQueryString;
 /** Value: "randomNumber" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeRandomNumber;
 /** Value: "referrer" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeReferrer;
+/** Value: "requestMethod" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeRequestMethod;
+/** Value: "requestPath" */
+GTLR_EXTERN NSString * const kGTLRTagManagerTypeRequestPath;
 /** Value: "resolution" */
 GTLR_EXTERN NSString * const kGTLRTagManagerTypeResolution;
 /** Value: "scrollDepthDirection" */
@@ -283,7 +294,10 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 // Previous library name was
 //   +[GTLQueryTagManager queryForAccountsContainersCreateWithObject:parent:]
 
-/** GTM Account's API relative path. Example: accounts/{account_id}. */
+/**
+ *  GTM Account's API relative path.
+ *  Example: accounts/{account_id}.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -292,8 +306,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a Container.
  *
  *  @param object The @c GTLRTagManager_Container to include in the query.
- *  @param parent GTM Account's API relative path. Example:
- *    accounts/{account_id}.
+ *  @param parent GTM Account's API relative path.
+ *    Example: accounts/{account_id}.
  *
  *  @return GTLRTagManagerQuery_AccountsContainersCreate
  */
@@ -315,8 +329,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersDeleteWithpath:]
 
 /**
- *  GTM Container's API relative path. Example:
- *  accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path.
+ *  Example: accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -326,8 +340,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a Container.
  *
- *  @param path GTM Container's API relative path. Example:
- *    accounts/{account_id}/containers/{container_id}
+ *  @param path GTM Container's API relative path.
+ *    Example: accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersDelete
  */
@@ -348,8 +362,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsCreateWithObject:parent:]
 
 /**
- *  GTM Container's API relative path. Example:
- *  accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path.
+ *  Example: accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -359,8 +373,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Environment.
  *
  *  @param object The @c GTLRTagManager_Environment to include in the query.
- *  @param parent GTM Container's API relative path. Example:
- *    accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM Container's API relative path.
+ *    Example: accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsCreate
  */
@@ -382,7 +396,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsDeleteWithpath:]
 
 /**
- *  GTM Environment's API relative path. Example:
+ *  GTM Environment's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -393,7 +408,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Environment.
  *
- *  @param path GTM Environment's API relative path. Example:
+ *  @param path GTM Environment's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsDelete
@@ -416,7 +432,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsGetWithpath:]
 
 /**
- *  GTM Environment's API relative path. Example:
+ *  GTM Environment's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -426,7 +443,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Environment.
  *
- *  @param path GTM Environment's API relative path. Example:
+ *  @param path GTM Environment's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsGet
@@ -452,8 +470,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Container's API relative path. Example:
- *  accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path.
+ *  Example: accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -462,8 +480,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Environments of a GTM Container.
  *
- *  @param parent GTM Container's API relative path. Example:
- *    accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM Container's API relative path.
+ *    Example: accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsList
  *
@@ -488,7 +506,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsReauthorizeWithObject:path:]
 
 /**
- *  GTM Environment's API relative path. Example:
+ *  GTM Environment's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -499,7 +518,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Re-generates the authorization code for a GTM Environment.
  *
  *  @param object The @c GTLRTagManager_Environment to include in the query.
- *  @param path GTM Environment's API relative path. Example:
+ *  @param path GTM Environment's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsReauthorize
@@ -528,7 +548,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Environment's API relative path. Example:
+ *  GTM Environment's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -539,7 +560,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Environment.
  *
  *  @param object The @c GTLRTagManager_Environment to include in the query.
- *  @param path GTM Environment's API relative path. Example:
+ *  @param path GTM Environment's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsUpdate
@@ -563,8 +585,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersGetWithpath:]
 
 /**
- *  GTM Container's API relative path. Example:
- *  accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path.
+ *  Example: accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -573,8 +595,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a Container.
  *
- *  @param path GTM Container's API relative path. Example:
- *    accounts/{account_id}/containers/{container_id}
+ *  @param path GTM Container's API relative path.
+ *    Example: accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersGet
  */
@@ -598,7 +620,10 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** GTM Accounts's API relative path. Example: accounts/{account_id}. */
+/**
+ *  GTM Accounts's API relative path.
+ *  Example: accounts/{account_id}.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -606,8 +631,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all Containers that belongs to a GTM Account.
  *
- *  @param parent GTM Accounts's API relative path. Example:
- *    accounts/{account_id}.
+ *  @param parent GTM Accounts's API relative path.
+ *    Example: accounts/{account_id}.
  *
  *  @return GTLRTagManagerQuery_AccountsContainersList
  *
@@ -632,14 +657,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersUpdateWithObject:path:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the container
- *  in storage.
+ *  When provided, this fingerprint must match the fingerprint of the
+ *  container in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Container's API relative path. Example:
- *  accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path.
+ *  Example: accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -649,8 +674,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a Container.
  *
  *  @param object The @c GTLRTagManager_Container to include in the query.
- *  @param path GTM Container's API relative path. Example:
- *    accounts/{account_id}/containers/{container_id}
+ *  @param path GTM Container's API relative path.
+ *    Example: accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersUpdate
  */
@@ -673,8 +698,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionHeadersLatestWithparent:]
 
 /**
- *  GTM Container's API relative path. Example:
- *  accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path.
+ *  Example: accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -683,8 +708,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets the latest container version header
  *
- *  @param parent GTM Container's API relative path. Example:
- *    accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM Container's API relative path.
+ *    Example: accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionHeadersLatest
  */
@@ -713,8 +738,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Container's API relative path. Example:
- *  accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path.
+ *  Example: accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -723,8 +748,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all Container Versions of a GTM Container.
  *
- *  @param parent GTM Container's API relative path. Example:
- *    accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM Container's API relative path.
+ *    Example: accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionHeadersList
  *
@@ -749,7 +774,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsDeleteWithpath:]
 
 /**
- *  GTM ContainerVersion's API relative path. Example:
+ *  GTM ContainerVersion's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -760,7 +786,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a Container Version.
  *
- *  @param path GTM ContainerVersion's API relative path. Example:
+ *  @param path GTM ContainerVersion's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsDelete
@@ -784,13 +811,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsGetWithpath:]
 
 /**
- *  The GTM ContainerVersion ID. Specify published to retrieve the currently
- *  published version.
+ *  The GTM ContainerVersion ID. Specify <code>published</code> to retrieve
+ *  the currently published version.
  */
 @property(nonatomic, copy, nullable) NSString *containerVersionId;
 
 /**
- *  GTM ContainerVersion's API relative path. Example:
+ *  GTM ContainerVersion's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -800,7 +828,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a Container Version.
  *
- *  @param path GTM ContainerVersion's API relative path. Example:
+ *  @param path GTM ContainerVersion's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsGet
@@ -823,8 +852,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsLiveWithparent:]
 
 /**
- *  GTM Container's API relative path. Example:
- *  accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path.
+ *  Example: accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -833,8 +862,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets the live (i.e. published) container version
  *
- *  @param parent GTM Container's API relative path. Example:
- *    accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM Container's API relative path.
+ *    Example: accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsLive
  */
@@ -855,13 +884,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsPublishWithpath:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the container
- *  version in storage.
+ *  When provided, this fingerprint must match the fingerprint of the
+ *  container version in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM ContainerVersion's API relative path. Example:
+ *  GTM ContainerVersion's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -871,7 +901,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Publishes a Container Version.
  *
- *  @param path GTM ContainerVersion's API relative path. Example:
+ *  @param path GTM ContainerVersion's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsPublish
@@ -894,7 +925,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsSetLatestWithpath:]
 
 /**
- *  GTM ContainerVersion's API relative path. Example:
+ *  GTM ContainerVersion's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -905,7 +937,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Sets the latest version used for synchronization of workspaces when
  *  detecting conflicts and errors.
  *
- *  @param path GTM ContainerVersion's API relative path. Example:
+ *  @param path GTM ContainerVersion's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsSetLatest
@@ -927,7 +960,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsUndeleteWithpath:]
 
 /**
- *  GTM ContainerVersion's API relative path. Example:
+ *  GTM ContainerVersion's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -937,7 +971,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Undeletes a Container Version.
  *
- *  @param path GTM ContainerVersion's API relative path. Example:
+ *  @param path GTM ContainerVersion's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsUndelete
@@ -959,13 +994,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsUpdateWithObject:path:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the container
- *  version in storage.
+ *  When provided, this fingerprint must match the fingerprint of the
+ *  container version in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM ContainerVersion's API relative path. Example:
+ *  GTM ContainerVersion's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -977,7 +1013,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  @param object The @c GTLRTagManager_ContainerVersion to include in the
  *    query.
- *  @param path GTM ContainerVersion's API relative path. Example:
+ *  @param path GTM ContainerVersion's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsUpdate
@@ -1000,7 +1037,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesCreateWithparent:]
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1009,60 +1047,78 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  The types of built-in variables to enable.
  *
  *  Likely values:
- *    @arg @c kGTLRTagManagerTypeAdvertiserId Value "advertiserId"
- *    @arg @c kGTLRTagManagerTypeAdvertisingTrackingEnabled Value
- *        "advertisingTrackingEnabled"
- *    @arg @c kGTLRTagManagerTypeAmpBrowserLanguage Value "ampBrowserLanguage"
- *    @arg @c kGTLRTagManagerTypeAmpCanonicalHost Value "ampCanonicalHost"
- *    @arg @c kGTLRTagManagerTypeAmpCanonicalPath Value "ampCanonicalPath"
- *    @arg @c kGTLRTagManagerTypeAmpCanonicalUrl Value "ampCanonicalUrl"
- *    @arg @c kGTLRTagManagerTypeAmpClientId Value "ampClientId"
- *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollX Value "ampClientMaxScrollX"
- *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollY Value "ampClientMaxScrollY"
- *    @arg @c kGTLRTagManagerTypeAmpClientScreenHeight Value
- *        "ampClientScreenHeight"
- *    @arg @c kGTLRTagManagerTypeAmpClientScreenWidth Value
- *        "ampClientScreenWidth"
- *    @arg @c kGTLRTagManagerTypeAmpClientScrollX Value "ampClientScrollX"
- *    @arg @c kGTLRTagManagerTypeAmpClientScrollY Value "ampClientScrollY"
- *    @arg @c kGTLRTagManagerTypeAmpClientTimestamp Value "ampClientTimestamp"
- *    @arg @c kGTLRTagManagerTypeAmpClientTimezone Value "ampClientTimezone"
- *    @arg @c kGTLRTagManagerTypeAmpGtmEvent Value "ampGtmEvent"
- *    @arg @c kGTLRTagManagerTypeAmpPageDownloadTime Value "ampPageDownloadTime"
- *    @arg @c kGTLRTagManagerTypeAmpPageLoadTime Value "ampPageLoadTime"
- *    @arg @c kGTLRTagManagerTypeAmpPageViewId Value "ampPageViewId"
- *    @arg @c kGTLRTagManagerTypeAmpReferrer Value "ampReferrer"
- *    @arg @c kGTLRTagManagerTypeAmpTitle Value "ampTitle"
- *    @arg @c kGTLRTagManagerTypeAmpTotalEngagedTime Value "ampTotalEngagedTime"
+ *    @arg @c kGTLRTagManagerTypeBuiltInVariableTypeUnspecified Value
+ *        "builtInVariableTypeUnspecified"
+ *    @arg @c kGTLRTagManagerTypePageUrl Value "pageUrl"
+ *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
+ *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
+ *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
+ *    @arg @c kGTLRTagManagerTypeEvent Value "event"
+ *    @arg @c kGTLRTagManagerTypeClickElement Value "clickElement"
+ *    @arg @c kGTLRTagManagerTypeClickClasses Value "clickClasses"
+ *    @arg @c kGTLRTagManagerTypeClickId Value "clickId"
+ *    @arg @c kGTLRTagManagerTypeClickTarget Value "clickTarget"
+ *    @arg @c kGTLRTagManagerTypeClickUrl Value "clickUrl"
+ *    @arg @c kGTLRTagManagerTypeClickText Value "clickText"
+ *    @arg @c kGTLRTagManagerTypeFirstPartyServingUrl Value
+ *        "firstPartyServingUrl"
+ *    @arg @c kGTLRTagManagerTypeFormElement Value "formElement"
+ *    @arg @c kGTLRTagManagerTypeFormClasses Value "formClasses"
+ *    @arg @c kGTLRTagManagerTypeFormId Value "formId"
+ *    @arg @c kGTLRTagManagerTypeFormTarget Value "formTarget"
+ *    @arg @c kGTLRTagManagerTypeFormUrl Value "formUrl"
+ *    @arg @c kGTLRTagManagerTypeFormText Value "formText"
+ *    @arg @c kGTLRTagManagerTypeErrorMessage Value "errorMessage"
+ *    @arg @c kGTLRTagManagerTypeErrorUrl Value "errorUrl"
+ *    @arg @c kGTLRTagManagerTypeErrorLine Value "errorLine"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryUrl Value "newHistoryUrl"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryUrl Value "oldHistoryUrl"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryFragment Value "newHistoryFragment"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryFragment Value "oldHistoryFragment"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
+ *    @arg @c kGTLRTagManagerTypeHistorySource Value "historySource"
+ *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
+ *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
+ *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
+ *    @arg @c kGTLRTagManagerTypeContainerId Value "containerId"
  *    @arg @c kGTLRTagManagerTypeAppId Value "appId"
  *    @arg @c kGTLRTagManagerTypeAppName Value "appName"
  *    @arg @c kGTLRTagManagerTypeAppVersionCode Value "appVersionCode"
  *    @arg @c kGTLRTagManagerTypeAppVersionName Value "appVersionName"
- *    @arg @c kGTLRTagManagerTypeBuiltInVariableTypeUnspecified Value
- *        "builtInVariableTypeUnspecified"
- *    @arg @c kGTLRTagManagerTypeClickClasses Value "clickClasses"
- *    @arg @c kGTLRTagManagerTypeClickElement Value "clickElement"
- *    @arg @c kGTLRTagManagerTypeClickId Value "clickId"
- *    @arg @c kGTLRTagManagerTypeClickTarget Value "clickTarget"
- *    @arg @c kGTLRTagManagerTypeClickText Value "clickText"
- *    @arg @c kGTLRTagManagerTypeClickUrl Value "clickUrl"
- *    @arg @c kGTLRTagManagerTypeContainerId Value "containerId"
- *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
- *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
+ *    @arg @c kGTLRTagManagerTypeLanguage Value "language"
+ *    @arg @c kGTLRTagManagerTypeOsVersion Value "osVersion"
+ *    @arg @c kGTLRTagManagerTypePlatform Value "platform"
+ *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
  *    @arg @c kGTLRTagManagerTypeDeviceName Value "deviceName"
- *    @arg @c kGTLRTagManagerTypeElementVisibilityFirstTime Value
- *        "elementVisibilityFirstTime"
- *    @arg @c kGTLRTagManagerTypeElementVisibilityRatio Value
- *        "elementVisibilityRatio"
- *    @arg @c kGTLRTagManagerTypeElementVisibilityRecentTime Value
- *        "elementVisibilityRecentTime"
- *    @arg @c kGTLRTagManagerTypeElementVisibilityTime Value
- *        "elementVisibilityTime"
+ *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
+ *    @arg @c kGTLRTagManagerTypeAdvertiserId Value "advertiserId"
+ *    @arg @c kGTLRTagManagerTypeAdvertisingTrackingEnabled Value
+ *        "advertisingTrackingEnabled"
+ *    @arg @c kGTLRTagManagerTypeHtmlId Value "htmlId"
  *    @arg @c kGTLRTagManagerTypeEnvironmentName Value "environmentName"
- *    @arg @c kGTLRTagManagerTypeErrorLine Value "errorLine"
- *    @arg @c kGTLRTagManagerTypeErrorMessage Value "errorMessage"
- *    @arg @c kGTLRTagManagerTypeErrorUrl Value "errorUrl"
- *    @arg @c kGTLRTagManagerTypeEvent Value "event"
+ *    @arg @c kGTLRTagManagerTypeAmpBrowserLanguage Value "ampBrowserLanguage"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalPath Value "ampCanonicalPath"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalUrl Value "ampCanonicalUrl"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalHost Value "ampCanonicalHost"
+ *    @arg @c kGTLRTagManagerTypeAmpReferrer Value "ampReferrer"
+ *    @arg @c kGTLRTagManagerTypeAmpTitle Value "ampTitle"
+ *    @arg @c kGTLRTagManagerTypeAmpClientId Value "ampClientId"
+ *    @arg @c kGTLRTagManagerTypeAmpClientTimezone Value "ampClientTimezone"
+ *    @arg @c kGTLRTagManagerTypeAmpClientTimestamp Value "ampClientTimestamp"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScreenWidth Value
+ *        "ampClientScreenWidth"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScreenHeight Value
+ *        "ampClientScreenHeight"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScrollX Value "ampClientScrollX"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScrollY Value "ampClientScrollY"
+ *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollX Value "ampClientMaxScrollX"
+ *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollY Value "ampClientMaxScrollY"
+ *    @arg @c kGTLRTagManagerTypeAmpTotalEngagedTime Value "ampTotalEngagedTime"
+ *    @arg @c kGTLRTagManagerTypeAmpPageViewId Value "ampPageViewId"
+ *    @arg @c kGTLRTagManagerTypeAmpPageLoadTime Value "ampPageLoadTime"
+ *    @arg @c kGTLRTagManagerTypeAmpPageDownloadTime Value "ampPageDownloadTime"
+ *    @arg @c kGTLRTagManagerTypeAmpGtmEvent Value "ampGtmEvent"
  *    @arg @c kGTLRTagManagerTypeEventName Value "eventName"
  *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaign Value
  *        "firebaseEventParameterCampaign"
@@ -1110,43 +1166,31 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *        "firebaseEventParameterQuantity"
  *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterValue Value
  *        "firebaseEventParameterValue"
- *    @arg @c kGTLRTagManagerTypeFormClasses Value "formClasses"
- *    @arg @c kGTLRTagManagerTypeFormElement Value "formElement"
- *    @arg @c kGTLRTagManagerTypeFormId Value "formId"
- *    @arg @c kGTLRTagManagerTypeFormTarget Value "formTarget"
- *    @arg @c kGTLRTagManagerTypeFormText Value "formText"
- *    @arg @c kGTLRTagManagerTypeFormUrl Value "formUrl"
- *    @arg @c kGTLRTagManagerTypeHistorySource Value "historySource"
- *    @arg @c kGTLRTagManagerTypeHtmlId Value "htmlId"
- *    @arg @c kGTLRTagManagerTypeLanguage Value "language"
- *    @arg @c kGTLRTagManagerTypeNewHistoryFragment Value "newHistoryFragment"
- *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
- *    @arg @c kGTLRTagManagerTypeNewHistoryUrl Value "newHistoryUrl"
- *    @arg @c kGTLRTagManagerTypeOldHistoryFragment Value "oldHistoryFragment"
- *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
- *    @arg @c kGTLRTagManagerTypeOldHistoryUrl Value "oldHistoryUrl"
- *    @arg @c kGTLRTagManagerTypeOsVersion Value "osVersion"
- *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
- *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
- *    @arg @c kGTLRTagManagerTypePageUrl Value "pageUrl"
- *    @arg @c kGTLRTagManagerTypePlatform Value "platform"
- *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
- *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
- *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
- *    @arg @c kGTLRTagManagerTypeScrollDepthDirection Value
- *        "scrollDepthDirection"
+ *    @arg @c kGTLRTagManagerTypeVideoProvider Value "videoProvider"
+ *    @arg @c kGTLRTagManagerTypeVideoUrl Value "videoUrl"
+ *    @arg @c kGTLRTagManagerTypeVideoTitle Value "videoTitle"
+ *    @arg @c kGTLRTagManagerTypeVideoDuration Value "videoDuration"
+ *    @arg @c kGTLRTagManagerTypeVideoPercent Value "videoPercent"
+ *    @arg @c kGTLRTagManagerTypeVideoVisible Value "videoVisible"
+ *    @arg @c kGTLRTagManagerTypeVideoStatus Value "videoStatus"
+ *    @arg @c kGTLRTagManagerTypeVideoCurrentTime Value "videoCurrentTime"
  *    @arg @c kGTLRTagManagerTypeScrollDepthThreshold Value
  *        "scrollDepthThreshold"
  *    @arg @c kGTLRTagManagerTypeScrollDepthUnits Value "scrollDepthUnits"
- *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
- *    @arg @c kGTLRTagManagerTypeVideoCurrentTime Value "videoCurrentTime"
- *    @arg @c kGTLRTagManagerTypeVideoDuration Value "videoDuration"
- *    @arg @c kGTLRTagManagerTypeVideoPercent Value "videoPercent"
- *    @arg @c kGTLRTagManagerTypeVideoProvider Value "videoProvider"
- *    @arg @c kGTLRTagManagerTypeVideoStatus Value "videoStatus"
- *    @arg @c kGTLRTagManagerTypeVideoTitle Value "videoTitle"
- *    @arg @c kGTLRTagManagerTypeVideoUrl Value "videoUrl"
- *    @arg @c kGTLRTagManagerTypeVideoVisible Value "videoVisible"
+ *    @arg @c kGTLRTagManagerTypeScrollDepthDirection Value
+ *        "scrollDepthDirection"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityRatio Value
+ *        "elementVisibilityRatio"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityTime Value
+ *        "elementVisibilityTime"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityFirstTime Value
+ *        "elementVisibilityFirstTime"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityRecentTime Value
+ *        "elementVisibilityRecentTime"
+ *    @arg @c kGTLRTagManagerTypeRequestPath Value "requestPath"
+ *    @arg @c kGTLRTagManagerTypeRequestMethod Value "requestMethod"
+ *    @arg @c kGTLRTagManagerTypeClientName Value "clientName"
+ *    @arg @c kGTLRTagManagerTypeQueryString Value "queryString"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -1155,7 +1199,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Creates one or more GTM Built-In Variables.
  *
- *  @param parent GTM Workspace's API relative path. Example:
+ *  @param parent GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesCreate
@@ -1177,7 +1222,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesDeleteWithpath:]
 
 /**
- *  GTM BuiltInVariable's API relative path. Example:
+ *  GTM BuiltInVariable's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1186,60 +1232,78 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  The types of built-in variables to delete.
  *
  *  Likely values:
- *    @arg @c kGTLRTagManagerTypeAdvertiserId Value "advertiserId"
- *    @arg @c kGTLRTagManagerTypeAdvertisingTrackingEnabled Value
- *        "advertisingTrackingEnabled"
- *    @arg @c kGTLRTagManagerTypeAmpBrowserLanguage Value "ampBrowserLanguage"
- *    @arg @c kGTLRTagManagerTypeAmpCanonicalHost Value "ampCanonicalHost"
- *    @arg @c kGTLRTagManagerTypeAmpCanonicalPath Value "ampCanonicalPath"
- *    @arg @c kGTLRTagManagerTypeAmpCanonicalUrl Value "ampCanonicalUrl"
- *    @arg @c kGTLRTagManagerTypeAmpClientId Value "ampClientId"
- *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollX Value "ampClientMaxScrollX"
- *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollY Value "ampClientMaxScrollY"
- *    @arg @c kGTLRTagManagerTypeAmpClientScreenHeight Value
- *        "ampClientScreenHeight"
- *    @arg @c kGTLRTagManagerTypeAmpClientScreenWidth Value
- *        "ampClientScreenWidth"
- *    @arg @c kGTLRTagManagerTypeAmpClientScrollX Value "ampClientScrollX"
- *    @arg @c kGTLRTagManagerTypeAmpClientScrollY Value "ampClientScrollY"
- *    @arg @c kGTLRTagManagerTypeAmpClientTimestamp Value "ampClientTimestamp"
- *    @arg @c kGTLRTagManagerTypeAmpClientTimezone Value "ampClientTimezone"
- *    @arg @c kGTLRTagManagerTypeAmpGtmEvent Value "ampGtmEvent"
- *    @arg @c kGTLRTagManagerTypeAmpPageDownloadTime Value "ampPageDownloadTime"
- *    @arg @c kGTLRTagManagerTypeAmpPageLoadTime Value "ampPageLoadTime"
- *    @arg @c kGTLRTagManagerTypeAmpPageViewId Value "ampPageViewId"
- *    @arg @c kGTLRTagManagerTypeAmpReferrer Value "ampReferrer"
- *    @arg @c kGTLRTagManagerTypeAmpTitle Value "ampTitle"
- *    @arg @c kGTLRTagManagerTypeAmpTotalEngagedTime Value "ampTotalEngagedTime"
+ *    @arg @c kGTLRTagManagerTypeBuiltInVariableTypeUnspecified Value
+ *        "builtInVariableTypeUnspecified"
+ *    @arg @c kGTLRTagManagerTypePageUrl Value "pageUrl"
+ *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
+ *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
+ *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
+ *    @arg @c kGTLRTagManagerTypeEvent Value "event"
+ *    @arg @c kGTLRTagManagerTypeClickElement Value "clickElement"
+ *    @arg @c kGTLRTagManagerTypeClickClasses Value "clickClasses"
+ *    @arg @c kGTLRTagManagerTypeClickId Value "clickId"
+ *    @arg @c kGTLRTagManagerTypeClickTarget Value "clickTarget"
+ *    @arg @c kGTLRTagManagerTypeClickUrl Value "clickUrl"
+ *    @arg @c kGTLRTagManagerTypeClickText Value "clickText"
+ *    @arg @c kGTLRTagManagerTypeFirstPartyServingUrl Value
+ *        "firstPartyServingUrl"
+ *    @arg @c kGTLRTagManagerTypeFormElement Value "formElement"
+ *    @arg @c kGTLRTagManagerTypeFormClasses Value "formClasses"
+ *    @arg @c kGTLRTagManagerTypeFormId Value "formId"
+ *    @arg @c kGTLRTagManagerTypeFormTarget Value "formTarget"
+ *    @arg @c kGTLRTagManagerTypeFormUrl Value "formUrl"
+ *    @arg @c kGTLRTagManagerTypeFormText Value "formText"
+ *    @arg @c kGTLRTagManagerTypeErrorMessage Value "errorMessage"
+ *    @arg @c kGTLRTagManagerTypeErrorUrl Value "errorUrl"
+ *    @arg @c kGTLRTagManagerTypeErrorLine Value "errorLine"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryUrl Value "newHistoryUrl"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryUrl Value "oldHistoryUrl"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryFragment Value "newHistoryFragment"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryFragment Value "oldHistoryFragment"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
+ *    @arg @c kGTLRTagManagerTypeHistorySource Value "historySource"
+ *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
+ *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
+ *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
+ *    @arg @c kGTLRTagManagerTypeContainerId Value "containerId"
  *    @arg @c kGTLRTagManagerTypeAppId Value "appId"
  *    @arg @c kGTLRTagManagerTypeAppName Value "appName"
  *    @arg @c kGTLRTagManagerTypeAppVersionCode Value "appVersionCode"
  *    @arg @c kGTLRTagManagerTypeAppVersionName Value "appVersionName"
- *    @arg @c kGTLRTagManagerTypeBuiltInVariableTypeUnspecified Value
- *        "builtInVariableTypeUnspecified"
- *    @arg @c kGTLRTagManagerTypeClickClasses Value "clickClasses"
- *    @arg @c kGTLRTagManagerTypeClickElement Value "clickElement"
- *    @arg @c kGTLRTagManagerTypeClickId Value "clickId"
- *    @arg @c kGTLRTagManagerTypeClickTarget Value "clickTarget"
- *    @arg @c kGTLRTagManagerTypeClickText Value "clickText"
- *    @arg @c kGTLRTagManagerTypeClickUrl Value "clickUrl"
- *    @arg @c kGTLRTagManagerTypeContainerId Value "containerId"
- *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
- *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
+ *    @arg @c kGTLRTagManagerTypeLanguage Value "language"
+ *    @arg @c kGTLRTagManagerTypeOsVersion Value "osVersion"
+ *    @arg @c kGTLRTagManagerTypePlatform Value "platform"
+ *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
  *    @arg @c kGTLRTagManagerTypeDeviceName Value "deviceName"
- *    @arg @c kGTLRTagManagerTypeElementVisibilityFirstTime Value
- *        "elementVisibilityFirstTime"
- *    @arg @c kGTLRTagManagerTypeElementVisibilityRatio Value
- *        "elementVisibilityRatio"
- *    @arg @c kGTLRTagManagerTypeElementVisibilityRecentTime Value
- *        "elementVisibilityRecentTime"
- *    @arg @c kGTLRTagManagerTypeElementVisibilityTime Value
- *        "elementVisibilityTime"
+ *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
+ *    @arg @c kGTLRTagManagerTypeAdvertiserId Value "advertiserId"
+ *    @arg @c kGTLRTagManagerTypeAdvertisingTrackingEnabled Value
+ *        "advertisingTrackingEnabled"
+ *    @arg @c kGTLRTagManagerTypeHtmlId Value "htmlId"
  *    @arg @c kGTLRTagManagerTypeEnvironmentName Value "environmentName"
- *    @arg @c kGTLRTagManagerTypeErrorLine Value "errorLine"
- *    @arg @c kGTLRTagManagerTypeErrorMessage Value "errorMessage"
- *    @arg @c kGTLRTagManagerTypeErrorUrl Value "errorUrl"
- *    @arg @c kGTLRTagManagerTypeEvent Value "event"
+ *    @arg @c kGTLRTagManagerTypeAmpBrowserLanguage Value "ampBrowserLanguage"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalPath Value "ampCanonicalPath"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalUrl Value "ampCanonicalUrl"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalHost Value "ampCanonicalHost"
+ *    @arg @c kGTLRTagManagerTypeAmpReferrer Value "ampReferrer"
+ *    @arg @c kGTLRTagManagerTypeAmpTitle Value "ampTitle"
+ *    @arg @c kGTLRTagManagerTypeAmpClientId Value "ampClientId"
+ *    @arg @c kGTLRTagManagerTypeAmpClientTimezone Value "ampClientTimezone"
+ *    @arg @c kGTLRTagManagerTypeAmpClientTimestamp Value "ampClientTimestamp"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScreenWidth Value
+ *        "ampClientScreenWidth"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScreenHeight Value
+ *        "ampClientScreenHeight"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScrollX Value "ampClientScrollX"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScrollY Value "ampClientScrollY"
+ *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollX Value "ampClientMaxScrollX"
+ *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollY Value "ampClientMaxScrollY"
+ *    @arg @c kGTLRTagManagerTypeAmpTotalEngagedTime Value "ampTotalEngagedTime"
+ *    @arg @c kGTLRTagManagerTypeAmpPageViewId Value "ampPageViewId"
+ *    @arg @c kGTLRTagManagerTypeAmpPageLoadTime Value "ampPageLoadTime"
+ *    @arg @c kGTLRTagManagerTypeAmpPageDownloadTime Value "ampPageDownloadTime"
+ *    @arg @c kGTLRTagManagerTypeAmpGtmEvent Value "ampGtmEvent"
  *    @arg @c kGTLRTagManagerTypeEventName Value "eventName"
  *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaign Value
  *        "firebaseEventParameterCampaign"
@@ -1287,43 +1351,31 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *        "firebaseEventParameterQuantity"
  *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterValue Value
  *        "firebaseEventParameterValue"
- *    @arg @c kGTLRTagManagerTypeFormClasses Value "formClasses"
- *    @arg @c kGTLRTagManagerTypeFormElement Value "formElement"
- *    @arg @c kGTLRTagManagerTypeFormId Value "formId"
- *    @arg @c kGTLRTagManagerTypeFormTarget Value "formTarget"
- *    @arg @c kGTLRTagManagerTypeFormText Value "formText"
- *    @arg @c kGTLRTagManagerTypeFormUrl Value "formUrl"
- *    @arg @c kGTLRTagManagerTypeHistorySource Value "historySource"
- *    @arg @c kGTLRTagManagerTypeHtmlId Value "htmlId"
- *    @arg @c kGTLRTagManagerTypeLanguage Value "language"
- *    @arg @c kGTLRTagManagerTypeNewHistoryFragment Value "newHistoryFragment"
- *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
- *    @arg @c kGTLRTagManagerTypeNewHistoryUrl Value "newHistoryUrl"
- *    @arg @c kGTLRTagManagerTypeOldHistoryFragment Value "oldHistoryFragment"
- *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
- *    @arg @c kGTLRTagManagerTypeOldHistoryUrl Value "oldHistoryUrl"
- *    @arg @c kGTLRTagManagerTypeOsVersion Value "osVersion"
- *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
- *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
- *    @arg @c kGTLRTagManagerTypePageUrl Value "pageUrl"
- *    @arg @c kGTLRTagManagerTypePlatform Value "platform"
- *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
- *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
- *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
- *    @arg @c kGTLRTagManagerTypeScrollDepthDirection Value
- *        "scrollDepthDirection"
+ *    @arg @c kGTLRTagManagerTypeVideoProvider Value "videoProvider"
+ *    @arg @c kGTLRTagManagerTypeVideoUrl Value "videoUrl"
+ *    @arg @c kGTLRTagManagerTypeVideoTitle Value "videoTitle"
+ *    @arg @c kGTLRTagManagerTypeVideoDuration Value "videoDuration"
+ *    @arg @c kGTLRTagManagerTypeVideoPercent Value "videoPercent"
+ *    @arg @c kGTLRTagManagerTypeVideoVisible Value "videoVisible"
+ *    @arg @c kGTLRTagManagerTypeVideoStatus Value "videoStatus"
+ *    @arg @c kGTLRTagManagerTypeVideoCurrentTime Value "videoCurrentTime"
  *    @arg @c kGTLRTagManagerTypeScrollDepthThreshold Value
  *        "scrollDepthThreshold"
  *    @arg @c kGTLRTagManagerTypeScrollDepthUnits Value "scrollDepthUnits"
- *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
- *    @arg @c kGTLRTagManagerTypeVideoCurrentTime Value "videoCurrentTime"
- *    @arg @c kGTLRTagManagerTypeVideoDuration Value "videoDuration"
- *    @arg @c kGTLRTagManagerTypeVideoPercent Value "videoPercent"
- *    @arg @c kGTLRTagManagerTypeVideoProvider Value "videoProvider"
- *    @arg @c kGTLRTagManagerTypeVideoStatus Value "videoStatus"
- *    @arg @c kGTLRTagManagerTypeVideoTitle Value "videoTitle"
- *    @arg @c kGTLRTagManagerTypeVideoUrl Value "videoUrl"
- *    @arg @c kGTLRTagManagerTypeVideoVisible Value "videoVisible"
+ *    @arg @c kGTLRTagManagerTypeScrollDepthDirection Value
+ *        "scrollDepthDirection"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityRatio Value
+ *        "elementVisibilityRatio"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityTime Value
+ *        "elementVisibilityTime"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityFirstTime Value
+ *        "elementVisibilityFirstTime"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityRecentTime Value
+ *        "elementVisibilityRecentTime"
+ *    @arg @c kGTLRTagManagerTypeRequestPath Value "requestPath"
+ *    @arg @c kGTLRTagManagerTypeRequestMethod Value "requestMethod"
+ *    @arg @c kGTLRTagManagerTypeClientName Value "clientName"
+ *    @arg @c kGTLRTagManagerTypeQueryString Value "queryString"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -1333,7 +1385,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes one or more GTM Built-In Variables.
  *
- *  @param path GTM BuiltInVariable's API relative path. Example:
+ *  @param path GTM BuiltInVariable's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesDelete
@@ -1359,7 +1412,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1369,7 +1423,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all the enabled Built-In Variables of a GTM Container.
  *
- *  @param parent GTM Workspace's API relative path. Example:
+ *  @param parent GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesList
@@ -1395,7 +1450,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesRevertWithpath:]
 
 /**
- *  GTM BuiltInVariable's API relative path. Example:
+ *  GTM BuiltInVariable's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1404,60 +1460,78 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  The type of built-in variable to revert.
  *
  *  Likely values:
- *    @arg @c kGTLRTagManagerTypeAdvertiserId Value "advertiserId"
- *    @arg @c kGTLRTagManagerTypeAdvertisingTrackingEnabled Value
- *        "advertisingTrackingEnabled"
- *    @arg @c kGTLRTagManagerTypeAmpBrowserLanguage Value "ampBrowserLanguage"
- *    @arg @c kGTLRTagManagerTypeAmpCanonicalHost Value "ampCanonicalHost"
- *    @arg @c kGTLRTagManagerTypeAmpCanonicalPath Value "ampCanonicalPath"
- *    @arg @c kGTLRTagManagerTypeAmpCanonicalUrl Value "ampCanonicalUrl"
- *    @arg @c kGTLRTagManagerTypeAmpClientId Value "ampClientId"
- *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollX Value "ampClientMaxScrollX"
- *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollY Value "ampClientMaxScrollY"
- *    @arg @c kGTLRTagManagerTypeAmpClientScreenHeight Value
- *        "ampClientScreenHeight"
- *    @arg @c kGTLRTagManagerTypeAmpClientScreenWidth Value
- *        "ampClientScreenWidth"
- *    @arg @c kGTLRTagManagerTypeAmpClientScrollX Value "ampClientScrollX"
- *    @arg @c kGTLRTagManagerTypeAmpClientScrollY Value "ampClientScrollY"
- *    @arg @c kGTLRTagManagerTypeAmpClientTimestamp Value "ampClientTimestamp"
- *    @arg @c kGTLRTagManagerTypeAmpClientTimezone Value "ampClientTimezone"
- *    @arg @c kGTLRTagManagerTypeAmpGtmEvent Value "ampGtmEvent"
- *    @arg @c kGTLRTagManagerTypeAmpPageDownloadTime Value "ampPageDownloadTime"
- *    @arg @c kGTLRTagManagerTypeAmpPageLoadTime Value "ampPageLoadTime"
- *    @arg @c kGTLRTagManagerTypeAmpPageViewId Value "ampPageViewId"
- *    @arg @c kGTLRTagManagerTypeAmpReferrer Value "ampReferrer"
- *    @arg @c kGTLRTagManagerTypeAmpTitle Value "ampTitle"
- *    @arg @c kGTLRTagManagerTypeAmpTotalEngagedTime Value "ampTotalEngagedTime"
+ *    @arg @c kGTLRTagManagerTypeBuiltInVariableTypeUnspecified Value
+ *        "builtInVariableTypeUnspecified"
+ *    @arg @c kGTLRTagManagerTypePageUrl Value "pageUrl"
+ *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
+ *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
+ *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
+ *    @arg @c kGTLRTagManagerTypeEvent Value "event"
+ *    @arg @c kGTLRTagManagerTypeClickElement Value "clickElement"
+ *    @arg @c kGTLRTagManagerTypeClickClasses Value "clickClasses"
+ *    @arg @c kGTLRTagManagerTypeClickId Value "clickId"
+ *    @arg @c kGTLRTagManagerTypeClickTarget Value "clickTarget"
+ *    @arg @c kGTLRTagManagerTypeClickUrl Value "clickUrl"
+ *    @arg @c kGTLRTagManagerTypeClickText Value "clickText"
+ *    @arg @c kGTLRTagManagerTypeFirstPartyServingUrl Value
+ *        "firstPartyServingUrl"
+ *    @arg @c kGTLRTagManagerTypeFormElement Value "formElement"
+ *    @arg @c kGTLRTagManagerTypeFormClasses Value "formClasses"
+ *    @arg @c kGTLRTagManagerTypeFormId Value "formId"
+ *    @arg @c kGTLRTagManagerTypeFormTarget Value "formTarget"
+ *    @arg @c kGTLRTagManagerTypeFormUrl Value "formUrl"
+ *    @arg @c kGTLRTagManagerTypeFormText Value "formText"
+ *    @arg @c kGTLRTagManagerTypeErrorMessage Value "errorMessage"
+ *    @arg @c kGTLRTagManagerTypeErrorUrl Value "errorUrl"
+ *    @arg @c kGTLRTagManagerTypeErrorLine Value "errorLine"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryUrl Value "newHistoryUrl"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryUrl Value "oldHistoryUrl"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryFragment Value "newHistoryFragment"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryFragment Value "oldHistoryFragment"
+ *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
+ *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
+ *    @arg @c kGTLRTagManagerTypeHistorySource Value "historySource"
+ *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
+ *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
+ *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
+ *    @arg @c kGTLRTagManagerTypeContainerId Value "containerId"
  *    @arg @c kGTLRTagManagerTypeAppId Value "appId"
  *    @arg @c kGTLRTagManagerTypeAppName Value "appName"
  *    @arg @c kGTLRTagManagerTypeAppVersionCode Value "appVersionCode"
  *    @arg @c kGTLRTagManagerTypeAppVersionName Value "appVersionName"
- *    @arg @c kGTLRTagManagerTypeBuiltInVariableTypeUnspecified Value
- *        "builtInVariableTypeUnspecified"
- *    @arg @c kGTLRTagManagerTypeClickClasses Value "clickClasses"
- *    @arg @c kGTLRTagManagerTypeClickElement Value "clickElement"
- *    @arg @c kGTLRTagManagerTypeClickId Value "clickId"
- *    @arg @c kGTLRTagManagerTypeClickTarget Value "clickTarget"
- *    @arg @c kGTLRTagManagerTypeClickText Value "clickText"
- *    @arg @c kGTLRTagManagerTypeClickUrl Value "clickUrl"
- *    @arg @c kGTLRTagManagerTypeContainerId Value "containerId"
- *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
- *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
+ *    @arg @c kGTLRTagManagerTypeLanguage Value "language"
+ *    @arg @c kGTLRTagManagerTypeOsVersion Value "osVersion"
+ *    @arg @c kGTLRTagManagerTypePlatform Value "platform"
+ *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
  *    @arg @c kGTLRTagManagerTypeDeviceName Value "deviceName"
- *    @arg @c kGTLRTagManagerTypeElementVisibilityFirstTime Value
- *        "elementVisibilityFirstTime"
- *    @arg @c kGTLRTagManagerTypeElementVisibilityRatio Value
- *        "elementVisibilityRatio"
- *    @arg @c kGTLRTagManagerTypeElementVisibilityRecentTime Value
- *        "elementVisibilityRecentTime"
- *    @arg @c kGTLRTagManagerTypeElementVisibilityTime Value
- *        "elementVisibilityTime"
+ *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
+ *    @arg @c kGTLRTagManagerTypeAdvertiserId Value "advertiserId"
+ *    @arg @c kGTLRTagManagerTypeAdvertisingTrackingEnabled Value
+ *        "advertisingTrackingEnabled"
+ *    @arg @c kGTLRTagManagerTypeHtmlId Value "htmlId"
  *    @arg @c kGTLRTagManagerTypeEnvironmentName Value "environmentName"
- *    @arg @c kGTLRTagManagerTypeErrorLine Value "errorLine"
- *    @arg @c kGTLRTagManagerTypeErrorMessage Value "errorMessage"
- *    @arg @c kGTLRTagManagerTypeErrorUrl Value "errorUrl"
- *    @arg @c kGTLRTagManagerTypeEvent Value "event"
+ *    @arg @c kGTLRTagManagerTypeAmpBrowserLanguage Value "ampBrowserLanguage"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalPath Value "ampCanonicalPath"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalUrl Value "ampCanonicalUrl"
+ *    @arg @c kGTLRTagManagerTypeAmpCanonicalHost Value "ampCanonicalHost"
+ *    @arg @c kGTLRTagManagerTypeAmpReferrer Value "ampReferrer"
+ *    @arg @c kGTLRTagManagerTypeAmpTitle Value "ampTitle"
+ *    @arg @c kGTLRTagManagerTypeAmpClientId Value "ampClientId"
+ *    @arg @c kGTLRTagManagerTypeAmpClientTimezone Value "ampClientTimezone"
+ *    @arg @c kGTLRTagManagerTypeAmpClientTimestamp Value "ampClientTimestamp"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScreenWidth Value
+ *        "ampClientScreenWidth"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScreenHeight Value
+ *        "ampClientScreenHeight"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScrollX Value "ampClientScrollX"
+ *    @arg @c kGTLRTagManagerTypeAmpClientScrollY Value "ampClientScrollY"
+ *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollX Value "ampClientMaxScrollX"
+ *    @arg @c kGTLRTagManagerTypeAmpClientMaxScrollY Value "ampClientMaxScrollY"
+ *    @arg @c kGTLRTagManagerTypeAmpTotalEngagedTime Value "ampTotalEngagedTime"
+ *    @arg @c kGTLRTagManagerTypeAmpPageViewId Value "ampPageViewId"
+ *    @arg @c kGTLRTagManagerTypeAmpPageLoadTime Value "ampPageLoadTime"
+ *    @arg @c kGTLRTagManagerTypeAmpPageDownloadTime Value "ampPageDownloadTime"
+ *    @arg @c kGTLRTagManagerTypeAmpGtmEvent Value "ampGtmEvent"
  *    @arg @c kGTLRTagManagerTypeEventName Value "eventName"
  *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterCampaign Value
  *        "firebaseEventParameterCampaign"
@@ -1505,43 +1579,31 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *        "firebaseEventParameterQuantity"
  *    @arg @c kGTLRTagManagerTypeFirebaseEventParameterValue Value
  *        "firebaseEventParameterValue"
- *    @arg @c kGTLRTagManagerTypeFormClasses Value "formClasses"
- *    @arg @c kGTLRTagManagerTypeFormElement Value "formElement"
- *    @arg @c kGTLRTagManagerTypeFormId Value "formId"
- *    @arg @c kGTLRTagManagerTypeFormTarget Value "formTarget"
- *    @arg @c kGTLRTagManagerTypeFormText Value "formText"
- *    @arg @c kGTLRTagManagerTypeFormUrl Value "formUrl"
- *    @arg @c kGTLRTagManagerTypeHistorySource Value "historySource"
- *    @arg @c kGTLRTagManagerTypeHtmlId Value "htmlId"
- *    @arg @c kGTLRTagManagerTypeLanguage Value "language"
- *    @arg @c kGTLRTagManagerTypeNewHistoryFragment Value "newHistoryFragment"
- *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
- *    @arg @c kGTLRTagManagerTypeNewHistoryUrl Value "newHistoryUrl"
- *    @arg @c kGTLRTagManagerTypeOldHistoryFragment Value "oldHistoryFragment"
- *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
- *    @arg @c kGTLRTagManagerTypeOldHistoryUrl Value "oldHistoryUrl"
- *    @arg @c kGTLRTagManagerTypeOsVersion Value "osVersion"
- *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
- *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
- *    @arg @c kGTLRTagManagerTypePageUrl Value "pageUrl"
- *    @arg @c kGTLRTagManagerTypePlatform Value "platform"
- *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
- *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
- *    @arg @c kGTLRTagManagerTypeResolution Value "resolution"
- *    @arg @c kGTLRTagManagerTypeScrollDepthDirection Value
- *        "scrollDepthDirection"
+ *    @arg @c kGTLRTagManagerTypeVideoProvider Value "videoProvider"
+ *    @arg @c kGTLRTagManagerTypeVideoUrl Value "videoUrl"
+ *    @arg @c kGTLRTagManagerTypeVideoTitle Value "videoTitle"
+ *    @arg @c kGTLRTagManagerTypeVideoDuration Value "videoDuration"
+ *    @arg @c kGTLRTagManagerTypeVideoPercent Value "videoPercent"
+ *    @arg @c kGTLRTagManagerTypeVideoVisible Value "videoVisible"
+ *    @arg @c kGTLRTagManagerTypeVideoStatus Value "videoStatus"
+ *    @arg @c kGTLRTagManagerTypeVideoCurrentTime Value "videoCurrentTime"
  *    @arg @c kGTLRTagManagerTypeScrollDepthThreshold Value
  *        "scrollDepthThreshold"
  *    @arg @c kGTLRTagManagerTypeScrollDepthUnits Value "scrollDepthUnits"
- *    @arg @c kGTLRTagManagerTypeSdkVersion Value "sdkVersion"
- *    @arg @c kGTLRTagManagerTypeVideoCurrentTime Value "videoCurrentTime"
- *    @arg @c kGTLRTagManagerTypeVideoDuration Value "videoDuration"
- *    @arg @c kGTLRTagManagerTypeVideoPercent Value "videoPercent"
- *    @arg @c kGTLRTagManagerTypeVideoProvider Value "videoProvider"
- *    @arg @c kGTLRTagManagerTypeVideoStatus Value "videoStatus"
- *    @arg @c kGTLRTagManagerTypeVideoTitle Value "videoTitle"
- *    @arg @c kGTLRTagManagerTypeVideoUrl Value "videoUrl"
- *    @arg @c kGTLRTagManagerTypeVideoVisible Value "videoVisible"
+ *    @arg @c kGTLRTagManagerTypeScrollDepthDirection Value
+ *        "scrollDepthDirection"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityRatio Value
+ *        "elementVisibilityRatio"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityTime Value
+ *        "elementVisibilityTime"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityFirstTime Value
+ *        "elementVisibilityFirstTime"
+ *    @arg @c kGTLRTagManagerTypeElementVisibilityRecentTime Value
+ *        "elementVisibilityRecentTime"
+ *    @arg @c kGTLRTagManagerTypeRequestPath Value "requestPath"
+ *    @arg @c kGTLRTagManagerTypeRequestMethod Value "requestMethod"
+ *    @arg @c kGTLRTagManagerTypeClientName Value "clientName"
+ *    @arg @c kGTLRTagManagerTypeQueryString Value "queryString"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1550,7 +1612,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Built-In Variables in a GTM Workspace.
  *
- *  @param path GTM BuiltInVariable's API relative path. Example:
+ *  @param path GTM BuiltInVariable's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesRevert
@@ -1572,8 +1635,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesCreateWithObject:parent:]
 
 /**
- *  GTM parent Container's API relative path. Example:
- *  accounts/{account_id}/containers/{container_id}
+ *  GTM parent Container's API relative path.
+ *  Example: accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1583,8 +1646,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a Workspace.
  *
  *  @param object The @c GTLRTagManager_Workspace to include in the query.
- *  @param parent GTM parent Container's API relative path. Example:
- *    accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM parent Container's API relative path.
+ *    Example: accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesCreate
  */
@@ -1608,7 +1671,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesCreateVersionWithObject:path:]
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1623,7 +1687,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  @param object The @c
  *    GTLRTagManager_CreateContainerVersionRequestVersionOptions to include in
  *    the query.
- *  @param path GTM Workspace's API relative path. Example:
+ *  @param path GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesCreateVersion
@@ -1646,7 +1711,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesDeleteWithpath:]
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1657,7 +1723,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a Workspace.
  *
- *  @param path GTM Workspace's API relative path. Example:
+ *  @param path GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesDelete
@@ -1679,7 +1746,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersCreateWithObject:parent:]
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1690,7 +1758,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Folder.
  *
  *  @param object The @c GTLRTagManager_Folder to include in the query.
- *  @param parent GTM Workspace's API relative path. Example:
+ *  @param parent GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersCreate
@@ -1713,7 +1782,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersDeleteWithpath:]
 
 /**
- *  GTM Folder's API relative path. Example:
+ *  GTM Folder's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1724,7 +1794,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Folder.
  *
- *  @param path GTM Folder's API relative path. Example:
+ *  @param path GTM Folder's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersDelete
@@ -1750,7 +1821,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Folder's API relative path. Example:
+ *  GTM Folder's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1760,7 +1832,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  List all entities in a GTM Folder.
  *
- *  @param path GTM Folder's API relative path. Example:
+ *  @param path GTM Folder's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersEntities
@@ -1783,7 +1856,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersGetWithpath:]
 
 /**
- *  GTM Folder's API relative path. Example:
+ *  GTM Folder's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1793,7 +1867,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Folder.
  *
- *  @param path GTM Folder's API relative path. Example:
+ *  @param path GTM Folder's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersGet
@@ -1819,7 +1894,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1829,7 +1905,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Folders of a Container.
  *
- *  @param parent GTM Workspace's API relative path. Example:
+ *  @param parent GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersList
@@ -1855,7 +1932,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersMoveEntitiesToFolderWithObject:path:]
 
 /**
- *  GTM Folder's API relative path. Example:
+ *  GTM Folder's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1876,7 +1954,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Moves entities to a GTM Folder.
  *
  *  @param object The @c GTLRTagManager_Folder to include in the query.
- *  @param path GTM Folder's API relative path. Example:
+ *  @param path GTM Folder's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersMoveEntitiesToFolder
@@ -1899,13 +1978,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersRevertWithpath:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the tag in
- *  storage.
+ *  When provided, this fingerprint must match the fingerprint of the tag
+ *  in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Folder's API relative path. Example:
+ *  GTM Folder's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1915,7 +1995,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Folder in a GTM Workspace.
  *
- *  @param path GTM Folder's API relative path. Example:
+ *  @param path GTM Folder's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersRevert
@@ -1943,7 +2024,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Folder's API relative path. Example:
+ *  GTM Folder's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1954,7 +2036,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Folder.
  *
  *  @param object The @c GTLRTagManager_Folder to include in the query.
- *  @param path GTM Folder's API relative path. Example:
+ *  @param path GTM Folder's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersUpdate
@@ -1978,7 +2061,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesGetWithpath:]
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1988,7 +2072,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a Workspace.
  *
- *  @param path GTM Workspace's API relative path. Example:
+ *  @param path GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesGet
@@ -2011,7 +2096,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesGetStatusWithpath:]
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2021,7 +2107,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Finds conflicting and modified entities in the workspace.
  *
- *  @param path GTM Workspace's API relative path. Example:
+ *  @param path GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesGetStatus
@@ -2047,8 +2134,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM parent Container's API relative path. Example:
- *  accounts/{account_id}/containers/{container_id}
+ *  GTM parent Container's API relative path.
+ *  Example: accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2057,8 +2144,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all Workspaces that belong to a GTM Container.
  *
- *  @param parent GTM parent Container's API relative path. Example:
- *    accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM parent Container's API relative path.
+ *    Example: accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesList
  *
@@ -2084,7 +2171,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesQuickPreviewWithpath:]
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2095,7 +2183,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Quick previews a workspace by creating a fake container version from all
  *  entities in the provided workspace.
  *
- *  @param path GTM Workspace's API relative path. Example:
+ *  @param path GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesQuickPreview
@@ -2124,7 +2213,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2137,7 +2227,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  resolved entity passed in the request.
  *
  *  @param object The @c GTLRTagManager_Entity to include in the query.
- *  @param path GTM Workspace's API relative path. Example:
+ *  @param path GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesResolveConflict
@@ -2148,8 +2239,9 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @end
 
 /**
- *  Syncs a workspace to the latest container version by updating all unmodified
- *  workspace entities and displaying conflicts for modified entities.
+ *  Syncs a workspace to the latest container version by updating all
+ *  unmodified workspace entities and displaying conflicts for modified
+ *  entities.
  *
  *  Method: tagmanager.accounts.containers.workspaces.sync
  *
@@ -2161,7 +2253,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesSyncWithpath:]
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2169,10 +2262,12 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 /**
  *  Fetches a @c GTLRTagManager_SyncWorkspaceResponse.
  *
- *  Syncs a workspace to the latest container version by updating all unmodified
- *  workspace entities and displaying conflicts for modified entities.
+ *  Syncs a workspace to the latest container version by updating all
+ *  unmodified workspace entities and displaying conflicts for modified
+ *  entities.
  *
- *  @param path GTM Workspace's API relative path. Example:
+ *  @param path GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesSync
@@ -2194,7 +2289,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsCreateWithObject:parent:]
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2205,7 +2301,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Tag.
  *
  *  @param object The @c GTLRTagManager_Tag to include in the query.
- *  @param parent GTM Workspace's API relative path. Example:
+ *  @param parent GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsCreate
@@ -2228,7 +2325,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsDeleteWithpath:]
 
 /**
- *  GTM Tag's API relative path. Example:
+ *  GTM Tag's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2239,7 +2337,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Tag.
  *
- *  @param path GTM Tag's API relative path. Example:
+ *  @param path GTM Tag's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsDelete
@@ -2262,7 +2361,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsGetWithpath:]
 
 /**
- *  GTM Tag's API relative path. Example:
+ *  GTM Tag's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2272,7 +2372,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Tag.
  *
- *  @param path GTM Tag's API relative path. Example:
+ *  @param path GTM Tag's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsGet
@@ -2298,7 +2399,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2308,7 +2410,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Tags of a Container.
  *
- *  @param parent GTM Workspace's API relative path. Example:
+ *  @param parent GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsList
@@ -2334,13 +2437,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsRevertWithpath:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of thetag in
- *  storage.
+ *  When provided, this fingerprint must match the fingerprint of thetag
+ *  in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Tag's API relative path. Example:
+ *  GTM Tag's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2350,7 +2454,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Tag in a GTM Workspace.
  *
- *  @param path GTM Tag's API relative path. Example:
+ *  @param path GTM Tag's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsRevert
@@ -2378,7 +2483,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Tag's API relative path. Example:
+ *  GTM Tag's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2389,7 +2495,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Tag.
  *
  *  @param object The @c GTLRTagManager_Tag to include in the query.
- *  @param path GTM Tag's API relative path. Example:
+ *  @param path GTM Tag's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsUpdate
@@ -2412,7 +2519,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesCreateWithObject:parent:]
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2423,7 +2531,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Custom Template.
  *
  *  @param object The @c GTLRTagManager_CustomTemplate to include in the query.
- *  @param parent GTM Workspace's API relative path. Example:
+ *  @param parent GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesCreate
@@ -2446,7 +2555,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesDeleteWithpath:]
 
 /**
- *  GTM Custom Template's API relative path. Example:
+ *  GTM Custom Template's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2457,7 +2567,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Template.
  *
- *  @param path GTM Custom Template's API relative path. Example:
+ *  @param path GTM Custom Template's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesDelete
@@ -2480,7 +2591,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesGetWithpath:]
 
 /**
- *  GTM Custom Template's API relative path. Example:
+ *  GTM Custom Template's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2490,7 +2602,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Template.
  *
- *  @param path GTM Custom Template's API relative path. Example:
+ *  @param path GTM Custom Template's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesGet
@@ -2516,7 +2629,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2526,7 +2640,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Templates of a GTM container workspace.
  *
- *  @param parent GTM Workspace's API relative path. Example:
+ *  @param parent GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesList
@@ -2558,7 +2673,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Custom Template's API relative path. Example:
+ *  GTM Custom Template's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2568,7 +2684,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Template in a GTM Workspace.
  *
- *  @param path GTM Custom Template's API relative path. Example:
+ *  @param path GTM Custom Template's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesRevert
@@ -2596,7 +2713,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Custom Template's API relative path. Example:
+ *  GTM Custom Template's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2607,7 +2725,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Template.
  *
  *  @param object The @c GTLRTagManager_CustomTemplate to include in the query.
- *  @param path GTM Custom Template's API relative path. Example:
+ *  @param path GTM Custom Template's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesUpdate
@@ -2630,7 +2749,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersCreateWithObject:parent:]
 
 /**
- *  GTM Workspaces's API relative path. Example:
+ *  GTM Workspaces's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2641,7 +2761,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Trigger.
  *
  *  @param object The @c GTLRTagManager_Trigger to include in the query.
- *  @param parent GTM Workspaces's API relative path. Example:
+ *  @param parent GTM Workspaces's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersCreate
@@ -2664,7 +2785,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersDeleteWithpath:]
 
 /**
- *  GTM Trigger's API relative path. Example:
+ *  GTM Trigger's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2675,7 +2797,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Trigger.
  *
- *  @param path GTM Trigger's API relative path. Example:
+ *  @param path GTM Trigger's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersDelete
@@ -2698,7 +2821,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersGetWithpath:]
 
 /**
- *  GTM Trigger's API relative path. Example:
+ *  GTM Trigger's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2708,7 +2832,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Trigger.
  *
- *  @param path GTM Trigger's API relative path. Example:
+ *  @param path GTM Trigger's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersGet
@@ -2734,7 +2859,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspaces's API relative path. Example:
+ *  GTM Workspaces's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2744,7 +2870,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Triggers of a Container.
  *
- *  @param parent GTM Workspaces's API relative path. Example:
+ *  @param parent GTM Workspaces's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersList
@@ -2770,13 +2897,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersRevertWithpath:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the trigger in
- *  storage.
+ *  When provided, this fingerprint must match the fingerprint of the trigger
+ *  in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Trigger's API relative path. Example:
+ *  GTM Trigger's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2786,7 +2914,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Trigger in a GTM Workspace.
  *
- *  @param path GTM Trigger's API relative path. Example:
+ *  @param path GTM Trigger's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersRevert
@@ -2808,13 +2937,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersUpdateWithObject:path:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the trigger in
- *  storage.
+ *  When provided, this fingerprint must match the fingerprint of the trigger
+ *  in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Trigger's API relative path. Example:
+ *  GTM Trigger's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2825,7 +2955,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Trigger.
  *
  *  @param object The @c GTLRTagManager_Trigger to include in the query.
- *  @param path GTM Trigger's API relative path. Example:
+ *  @param path GTM Trigger's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersUpdate
@@ -2848,13 +2979,14 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesUpdateWithObject:path:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the workspace
- *  in storage.
+ *  When provided, this fingerprint must match the fingerprint of the
+ *  workspace in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2865,7 +2997,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a Workspace.
  *
  *  @param object The @c GTLRTagManager_Workspace to include in the query.
- *  @param path GTM Workspace's API relative path. Example:
+ *  @param path GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesUpdate
@@ -2888,7 +3021,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesCreateWithObject:parent:]
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2899,7 +3033,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Variable.
  *
  *  @param object The @c GTLRTagManager_Variable to include in the query.
- *  @param parent GTM Workspace's API relative path. Example:
+ *  @param parent GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesCreate
@@ -2922,7 +3057,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesDeleteWithpath:]
 
 /**
- *  GTM Variable's API relative path. Example:
+ *  GTM Variable's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2933,7 +3069,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Variable.
  *
- *  @param path GTM Variable's API relative path. Example:
+ *  @param path GTM Variable's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesDelete
@@ -2956,7 +3093,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesGetWithpath:]
 
 /**
- *  GTM Variable's API relative path. Example:
+ *  GTM Variable's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2966,7 +3104,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Variable.
  *
- *  @param path GTM Variable's API relative path. Example:
+ *  @param path GTM Variable's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesGet
@@ -2992,7 +3131,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3002,7 +3142,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Variables of a Container.
  *
- *  @param parent GTM Workspace's API relative path. Example:
+ *  @param parent GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesList
@@ -3034,7 +3175,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Variable's API relative path. Example:
+ *  GTM Variable's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3044,7 +3186,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Variable in a GTM Workspace.
  *
- *  @param path GTM Variable's API relative path. Example:
+ *  @param path GTM Variable's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesRevert
@@ -3072,7 +3215,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Variable's API relative path. Example:
+ *  GTM Variable's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3083,7 +3227,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Variable.
  *
  *  @param object The @c GTLRTagManager_Variable to include in the query.
- *  @param path GTM Variable's API relative path. Example:
+ *  @param path GTM Variable's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesUpdate
@@ -3106,7 +3251,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesCreateWithObject:parent:]
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3117,7 +3263,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Zone.
  *
  *  @param object The @c GTLRTagManager_Zone to include in the query.
- *  @param parent GTM Workspace's API relative path. Example:
+ *  @param parent GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesCreate
@@ -3140,7 +3287,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesDeleteWithpath:]
 
 /**
- *  GTM Zone's API relative path. Example:
+ *  GTM Zone's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3151,7 +3299,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Zone.
  *
- *  @param path GTM Zone's API relative path. Example:
+ *  @param path GTM Zone's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesDelete
@@ -3174,7 +3323,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesGetWithpath:]
 
 /**
- *  GTM Zone's API relative path. Example:
+ *  GTM Zone's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3184,7 +3334,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Zone.
  *
- *  @param path GTM Zone's API relative path. Example:
+ *  @param path GTM Zone's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesGet
@@ -3210,7 +3361,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspace's API relative path. Example:
+ *  GTM Workspace's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3220,7 +3372,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Zones of a GTM container workspace.
  *
- *  @param parent GTM Workspace's API relative path. Example:
+ *  @param parent GTM Workspace's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesList
@@ -3252,7 +3405,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Zone's API relative path. Example:
+ *  GTM Zone's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3262,7 +3416,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Zone in a GTM Workspace.
  *
- *  @param path GTM Zone's API relative path. Example:
+ *  @param path GTM Zone's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesRevert
@@ -3290,7 +3445,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Zone's API relative path. Example:
+ *  GTM Zone's API relative path.
+ *  Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3301,7 +3457,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Zone.
  *
  *  @param object The @c GTLRTagManager_Zone to include in the query.
- *  @param path GTM Zone's API relative path. Example:
+ *  @param path GTM Zone's API relative path.
+ *    Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesUpdate
@@ -3325,7 +3482,10 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 // Previous library name was
 //   +[GTLQueryTagManager queryForAccountsGetWithpath:]
 
-/** GTM Accounts's API relative path. Example: accounts/{account_id} */
+/**
+ *  GTM Accounts's API relative path.
+ *  Example: accounts/{account_id}
+ */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
@@ -3333,7 +3493,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Account.
  *
- *  @param path GTM Accounts's API relative path. Example: accounts/{account_id}
+ *  @param path GTM Accounts's API relative path.
+ *    Example: accounts/{account_id}
  *
  *  @return GTLRTagManagerQuery_AccountsGet
  */
@@ -3386,12 +3547,15 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsUpdateWithObject:path:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the account in
- *  storage.
+ *  When provided, this fingerprint must match the fingerprint of the account
+ *  in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/** GTM Accounts's API relative path. Example: accounts/{account_id} */
+/**
+ *  GTM Accounts's API relative path.
+ *  Example: accounts/{account_id}
+ */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
@@ -3400,7 +3564,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Account.
  *
  *  @param object The @c GTLRTagManager_Account to include in the query.
- *  @param path GTM Accounts's API relative path. Example: accounts/{account_id}
+ *  @param path GTM Accounts's API relative path.
+ *    Example: accounts/{account_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUpdate
  */
@@ -3421,7 +3586,10 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 // Previous library name was
 //   +[GTLQueryTagManager queryForAccountsUserPermissionsCreateWithObject:parent:]
 
-/** GTM Account's API relative path. Example: accounts/{account_id} */
+/**
+ *  GTM Account's API relative path.
+ *  Example: accounts/{account_id}
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -3430,8 +3598,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a user's Account & Container access.
  *
  *  @param object The @c GTLRTagManager_UserPermission to include in the query.
- *  @param parent GTM Account's API relative path. Example:
- *    accounts/{account_id}
+ *  @param parent GTM Account's API relative path.
+ *    Example: accounts/{account_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUserPermissionsCreate
  */
@@ -3454,8 +3622,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsUserPermissionsDeleteWithpath:]
 
 /**
- *  GTM UserPermission's API relative path. Example:
- *  accounts/{account_id}/user_permissions/{user_permission_id}
+ *  GTM UserPermission's API relative path.
+ *  Example: accounts/{account_id}/user_permissions/{user_permission_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -3466,8 +3634,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Removes a user from the account, revoking access to it and all of its
  *  containers.
  *
- *  @param path GTM UserPermission's API relative path. Example:
- *    accounts/{account_id}/user_permissions/{user_permission_id}
+ *  @param path GTM UserPermission's API relative path.
+ *    Example: accounts/{account_id}/user_permissions/{user_permission_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUserPermissionsDelete
  */
@@ -3488,8 +3656,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsUserPermissionsGetWithpath:]
 
 /**
- *  GTM UserPermission's API relative path. Example:
- *  accounts/{account_id}/user_permissions/{user_permission_id}
+ *  GTM UserPermission's API relative path.
+ *  Example: accounts/{account_id}/user_permissions/{user_permission_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -3498,8 +3666,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a user's Account & Container access.
  *
- *  @param path GTM UserPermission's API relative path. Example:
- *    accounts/{account_id}/user_permissions/{user_permission_id}
+ *  @param path GTM UserPermission's API relative path.
+ *    Example: accounts/{account_id}/user_permissions/{user_permission_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUserPermissionsGet
  */
@@ -3523,7 +3691,10 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** GTM Accounts's API relative path. Example: accounts/{account_id} */
+/**
+ *  GTM Accounts's API relative path.
+ *  Example: accounts/{account_id}
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -3532,8 +3703,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  List all users that have access to the account along with Account and
  *  Container user access granted to each of them.
  *
- *  @param parent GTM Accounts's API relative path. Example:
- *    accounts/{account_id}
+ *  @param parent GTM Accounts's API relative path.
+ *    Example: accounts/{account_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUserPermissionsList
  *
@@ -3558,8 +3729,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsUserPermissionsUpdateWithObject:path:]
 
 /**
- *  GTM UserPermission's API relative path. Example:
- *  accounts/{account_id}/user_permissions/{user_permission_id}
+ *  GTM UserPermission's API relative path.
+ *  Example: accounts/{account_id}/user_permissions/{user_permission_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -3569,8 +3740,8 @@ GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a user's Account & Container access.
  *
  *  @param object The @c GTLRTagManager_UserPermission to include in the query.
- *  @param path GTM UserPermission's API relative path. Example:
- *    accounts/{account_id}/user_permissions/{user_permission_id}
+ *  @param path GTM UserPermission's API relative path.
+ *    Example: accounts/{account_id}/user_permissions/{user_permission_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUserPermissionsUpdate
  */

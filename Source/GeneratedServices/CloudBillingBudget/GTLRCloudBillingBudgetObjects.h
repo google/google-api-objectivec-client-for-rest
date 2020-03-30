@@ -158,7 +158,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Rules that trigger alerts (notifications of thresholds
+ *  Optional. Rules that trigger alerts (notifications of thresholds
  *  being crossed) when spend exceeds the specified percentages of the budget.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule *> *thresholdRules;
@@ -221,7 +221,7 @@ GTLR_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1
 @property(nonatomic, copy, nullable) NSString *creditTypesTreatment;
 
 /**
- *  Optional. A set of projects of the form `projects/{project_id}`,
+ *  Optional. A set of projects of the form `projects/{project}`,
  *  specifying that usage from only this set of projects should be
  *  included in the budget. If omitted, the report will include all usage for
  *  the billing account, regardless of which project the usage occurred on.

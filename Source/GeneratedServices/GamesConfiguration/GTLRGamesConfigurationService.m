@@ -4,9 +4,10 @@
 // API:
 //   Google Play Game Services Publishing API (gamesConfiguration/v1configuration)
 // Description:
-//   The Publishing API for Google Play Game Services.
+//   The Google Play Game Services Publishing API allows developers to configure
+//   their games in Game Services.
 // Documentation:
-//   https://developers.google.com/games/services
+//   https://developers.google.com/games/
 
 #import "GTLRGamesConfiguration.h"
 
@@ -26,27 +27,11 @@ NSString * const kGTLRAuthScopeGamesConfigurationAndroidpublisher = @"https://ww
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"games/v1configuration/";
-    self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch/gamesConfiguration/v1configuration";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
-}
-
-+ (NSDictionary<NSString *, Class> *)kindStringToClassMap {
-  return @{
-    @"gamesConfiguration#achievementConfiguration" : [GTLRGamesConfiguration_AchievementConfiguration class],
-    @"gamesConfiguration#achievementConfigurationDetail" : [GTLRGamesConfiguration_AchievementConfigurationDetail class],
-    @"gamesConfiguration#achievementConfigurationListResponse" : [GTLRGamesConfiguration_AchievementConfigurationListResponse class],
-    @"gamesConfiguration#imageConfiguration" : [GTLRGamesConfiguration_ImageConfiguration class],
-    @"gamesConfiguration#leaderboardConfiguration" : [GTLRGamesConfiguration_LeaderboardConfiguration class],
-    @"gamesConfiguration#leaderboardConfigurationDetail" : [GTLRGamesConfiguration_LeaderboardConfigurationDetail class],
-    @"gamesConfiguration#leaderboardConfigurationListResponse" : [GTLRGamesConfiguration_LeaderboardConfigurationListResponse class],
-    @"gamesConfiguration#localizedString" : [GTLRGamesConfiguration_LocalizedString class],
-    @"gamesConfiguration#localizedStringBundle" : [GTLRGamesConfiguration_LocalizedStringBundle class],
-  };
 }
 
 @end

@@ -390,8 +390,9 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesCopy
 
-@dynamic fileId, ignoreDefaultVisibility, keepRevisionForever, ocrLanguage,
-         supportsAllDrives, supportsTeamDrives;
+@dynamic enforceSingleParent, fileId, ignoreDefaultVisibility,
+         keepRevisionForever, ocrLanguage, supportsAllDrives,
+         supportsTeamDrives;
 
 + (instancetype)queryWithObject:(GTLRDrive_File *)object
                          fileId:(NSString *)fileId {
@@ -416,8 +417,9 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesCreate
 
-@dynamic ignoreDefaultVisibility, keepRevisionForever, ocrLanguage,
-         supportsAllDrives, supportsTeamDrives, useContentAsIndexableText;
+@dynamic enforceSingleParent, ignoreDefaultVisibility, keepRevisionForever,
+         ocrLanguage, supportsAllDrives, supportsTeamDrives,
+         useContentAsIndexableText;
 
 + (instancetype)queryWithObject:(GTLRDrive_File *)object
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
@@ -567,8 +569,9 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesUpdate
 
-@dynamic addParents, fileId, keepRevisionForever, ocrLanguage, removeParents,
-         supportsAllDrives, supportsTeamDrives, useContentAsIndexableText;
+@dynamic addParents, enforceSingleParent, fileId, keepRevisionForever,
+         ocrLanguage, removeParents, supportsAllDrives, supportsTeamDrives,
+         useContentAsIndexableText;
 
 + (instancetype)queryWithObject:(GTLRDrive_File *)object
                          fileId:(NSString *)fileId
@@ -631,8 +634,9 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsCreate
 
-@dynamic emailMessage, fileId, sendNotificationEmail, supportsAllDrives,
-         supportsTeamDrives, transferOwnership, useDomainAdminAccess;
+@dynamic emailMessage, enforceSingleParent, fileId, moveToNewOwnersRoot,
+         sendNotificationEmail, supportsAllDrives, supportsTeamDrives,
+         transferOwnership, useDomainAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRDrive_Permission *)object
                          fileId:(NSString *)fileId {

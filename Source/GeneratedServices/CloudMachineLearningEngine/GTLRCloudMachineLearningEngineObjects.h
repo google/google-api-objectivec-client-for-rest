@@ -21,6 +21,9 @@
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody;
 @class GTLRCloudMachineLearningEngine_GoogleApiHttpBody_Extensions_Item;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfig;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfigDecayCurveAutomatedStoppingConfig;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfigMedianAutomatedStoppingConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability;
@@ -36,6 +39,8 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_Labels;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Location;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ManualScaling;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1MeasurementMetric;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model_Labels;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_Labels;
@@ -46,10 +51,24 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1SampledShapleyAttribution;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Scheduling;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Study;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecCategoricalValueSpec;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecDiscreteValueSpec;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecDoubleValueSpec;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecIntegerValueSpec;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentCategoricalValueSpec;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentDiscreteValueSpec;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentIntValueSpec;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrialParameter;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1XraiAttribution;
 @class GTLRCloudMachineLearningEngine_GoogleIamV1AuditConfig;
 @class GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig;
 @class GTLRCloudMachineLearningEngine_GoogleIamV1Binding;
@@ -514,6 +533,185 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Pred
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecordGzip;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1Study.state
+
+/**
+ *  The study is active.
+ *
+ *  Value: "ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Active;
+/**
+ *  The study is done when the service exhausts the parameter search space
+ *  or max_trial_count is reached.
+ *
+ *  Value: "COMPLETED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Completed;
+/**
+ *  The study is stopped due to an internal error.
+ *
+ *  Value: "INACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Inactive;
+/**
+ *  The study state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig.algorithm
+
+/**
+ *  The default algorithm used by the Cloud AI Platform Optimization service.
+ *
+ *  Value: "ALGORITHM_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_AlgorithmUnspecified;
+/**
+ *  Gaussian Process Bandit.
+ *
+ *  Value: "GAUSSIAN_PROCESS_BANDIT"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_GaussianProcessBandit;
+/**
+ *  Simple grid search within the feasible space. To use grid search,
+ *  all parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
+ *
+ *  Value: "GRID_SEARCH"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_GridSearch;
+/**
+ *  Simple random search within the feasible space.
+ *
+ *  Value: "RANDOM_SEARCH"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_RandomSearch;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec.goal
+
+/**
+ *  Goal Type will default to maximize.
+ *
+ *  Value: "GOAL_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec_Goal_GoalTypeUnspecified;
+/**
+ *  Maximize the goal metric.
+ *
+ *  Value: "MAXIMIZE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec_Goal_Maximize;
+/**
+ *  Minimize the goal metric.
+ *
+ *  Value: "MINIMIZE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec_Goal_Minimize;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec.scaleType
+
+/**
+ *  By default, no scaling is applied.
+ *
+ *  Value: "SCALE_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_ScaleTypeUnspecified;
+/**
+ *  Scales the feasible space to (0, 1) linearly.
+ *
+ *  Value: "UNIT_LINEAR_SCALE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitLinearScale;
+/**
+ *  Scales the feasible space logarithmically to (0, 1). The entire
+ *  feasible space must be strictly positive.
+ *
+ *  Value: "UNIT_LOG_SCALE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitLogScale;
+/**
+ *  Scales the feasible space "reverse" logarithmically to (0, 1). The
+ *  result is that values close to the top of the feasible space are spread
+ *  out more than points near the bottom. The entire feasible space must be
+ *  strictly positive.
+ *
+ *  Value: "UNIT_REVERSE_LOG_SCALE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitReverseLogScale;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec.type
+
+/**
+ *  The parameter is categorical, with a value chosen from the categories
+ *  field.
+ *
+ *  Value: "CATEGORICAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Categorical;
+/**
+ *  The parameter is real valued, with a fixed set of feasible points. If
+ *  `type==DISCRETE`, feasible_points must be provided, and
+ *  {`min_value`, `max_value`} will be ignored.
+ *
+ *  Value: "DISCRETE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Discrete;
+/**
+ *  Type for real-valued parameters.
+ *
+ *  Value: "DOUBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Double;
+/**
+ *  Type for integral parameters.
+ *
+ *  Value: "INTEGER"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Integer;
+/**
+ *  You must specify a valid type. Using this unspecified type will result
+ *  in an error.
+ *
+ *  Value: "PARAMETER_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_ParameterTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse.studyState
+
+/**
+ *  The study is active.
+ *
+ *  Value: "ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Active;
+/**
+ *  The study is done when the service exhausts the parameter search space
+ *  or max_trial_count is reached.
+ *
+ *  Value: "COMPLETED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Completed;
+/**
+ *  The study is stopped due to an internal error.
+ *
+ *  Value: "INACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Inactive;
+/**
+ *  The study state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput.scaleTier
 
 /**
@@ -573,6 +771,42 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *  Value: "STANDARD_1"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Standard1;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial.state
+
+/**
+ *  Indicates that the Trial has been suggested.
+ *
+ *  Value: "ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Active;
+/**
+ *  Indicates that the Trial is done, and either has a final_measurement
+ *  set, or is marked as trial_infeasible.
+ *
+ *  Value: "COMPLETED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Completed;
+/**
+ *  Indicates that a specific Trial has been requested, but it has not yet
+ *  been suggested by the service.
+ *
+ *  Value: "REQUESTED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Requested;
+/**
+ *  The trial state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_StateUnspecified;
+/**
+ *  Indicates that the Trial should stop according to the service.
+ *
+ *  Value: "STOPPING"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Stopping;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.framework
@@ -785,6 +1019,68 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
+ *  The request message for the AddTrialMeasurement service method.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AddTrialMeasurementRequest : GTLRObject
+
+/** Required. The measurement to be added to a trial. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement *measurement;
+
+@end
+
+
+/**
+ *  Configuration for Automated Early Stopping of Trials. If no
+ *  implementation_config is set, automated early stopping will not be run.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfig : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfigDecayCurveAutomatedStoppingConfig *decayCurveStoppingConfig;
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfigMedianAutomatedStoppingConfig *medianAutomatedStoppingConfig;
+
+@end
+
+
+/**
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfigDecayCurveAutomatedStoppingConfig
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfigDecayCurveAutomatedStoppingConfig : GTLRObject
+
+/**
+ *  True if measurement.elapsed_time is used as the x-axis of each
+ *  Trials Decay Curve. Otherwise, Measurement.steps will be used as the
+ *  x-axis.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useElapsedTime;
+
+@end
+
+
+/**
+ *  The median automated stopping rule stops a pending trial if the trial's
+ *  best objective_value is strictly below the median 'performance' of all
+ *  completed trials reported up to the trial's last measurement.
+ *  Currently, 'performance' refers to the running average of the objective
+ *  values reported by the trial in each measurement.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfigMedianAutomatedStoppingConfig : GTLRObject
+
+/**
+ *  True if median automated stopping rule applies on
+ *  measurement.use_elapsed_time. it means that elapsed_time field of
+ *  latest measurement of current trial is used to compute median objective
+ *  value for each completed trials.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useElapsedTime;
+
+@end
+
+
+/**
  *  Options for automatically scaling a model.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling : GTLRObject
@@ -901,6 +1197,84 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
+ *  This message will be placed in the metadata field of a
+ *  google.longrunning.Operation associated with a CheckTrialEarlyStoppingState
+ *  request.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1CheckTrialEarlyStoppingStateMetatdata : GTLRObject
+
+/** The time operation was submitted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The name of the study that the trial belongs to. */
+@property(nonatomic, copy, nullable) NSString *study;
+
+/** The Trial name. */
+@property(nonatomic, copy, nullable) NSString *trial;
+
+@end
+
+
+/**
+ *  The request message for the CheckTrialEarlyStoppingState service method.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1CheckTrialEarlyStoppingStateRequest : GTLRObject
+@end
+
+
+/**
+ *  The message will be placed in the response field of a completed
+ *  google.longrunning.Operation associated with a CheckTrialEarlyStoppingState
+ *  request.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1CheckTrialEarlyStoppingStateResponse : GTLRObject
+
+/** The time operation processing completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  True if the Trial should stop.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shouldStop;
+
+/** The time operation was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  The request message for the CompleteTrial service method.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1CompleteTrialRequest : GTLRObject
+
+/**
+ *  Optional. If provided, it will be used as the completed trial's
+ *  final_measurement; Otherwise, the service will auto-select a
+ *  previously reported measurement as the final-measurement
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement *finalMeasurement;
+
+/**
+ *  Optional. A human readable reason why the Trial was infeasible. This should
+ *  only be provided if `trial_infeasible` is true.
+ */
+@property(nonatomic, copy, nullable) NSString *infeasibleReason;
+
+/**
+ *  Optional. True if the trial cannot be run with the given Parameter, and
+ *  final_measurement will be ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trialInfeasible;
+
+@end
+
+
+/**
  *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config : GTLRObject
@@ -945,13 +1319,32 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Message holding configuration options for explaining model predictions.
  *  There are two feature attribution methods supported for TensorFlow models:
  *  integrated gradients and sampled Shapley.
- *  <a href="/ml-engine/docs/ai-explanations/overview">Learn more about feature
- *  attributions</a>.
+ *  [Learn more about feature
+ *  attributions.](/ml-engine/docs/ai-explanations/overview)
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig : GTLRObject
 
+/**
+ *  Attributes credit by computing the Aumann-Shapley value taking advantage
+ *  of the model's fully differentiable structure. Refer to this paper for
+ *  more details: http://proceedings.mlr.press/v70/sundararajan17a.html
+ */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1IntegratedGradientsAttribution *integratedGradientsAttribution;
+
+/**
+ *  An attribution method that approximates Shapley values for features that
+ *  contribute to the label being predicted. A sampling strategy is used to
+ *  approximate the value rather than considering all subsets of features.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1SampledShapleyAttribution *sampledShapleyAttribution;
+
+/**
+ *  Attributes credit by computing the XRAI taking advantage
+ *  of the model's fully differentiable structure. Refer to this paper for
+ *  more details: https://arxiv.org/abs/1906.02825
+ *  Currently only implemented for models with natural image inputs.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1XraiAttribution *xraiAttribution;
 
 @end
 
@@ -1395,6 +1788,28 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListStudiesResponse
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListStudiesResponse : GTLRObject
+
+/** The Studies associated with the project. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Study *> *studies;
+
+@end
+
+
+/**
+ *  The response message for the ListTrials method.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListTrialsResponse : GTLRObject
+
+/** The trials associated with the study. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial *> *trials;
+
+@end
+
+
+/**
  *  Response message for the ListVersions method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1448,6 +1863,49 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nodes;
+
+@end
+
+
+/**
+ *  A message representing a Measurement.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement : GTLRObject
+
+/** Time that the Trial has been running at the point of this Measurement. */
+@property(nonatomic, strong, nullable) GTLRDuration *elapsedTime;
+
+/**
+ *  Provides a list of metrics that act as inputs into the objective
+ *  function.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1MeasurementMetric *> *metrics;
+
+/**
+ *  The number of steps a machine learning model has been trained for.
+ *  Must be non-negative.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stepCount;
+
+@end
+
+
+/**
+ *  A message representing a metric in the measurement.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1MeasurementMetric : GTLRObject
+
+/** Required. Metric name. */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+/**
+ *  Required. The value for this metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
 
 @end
 
@@ -2058,6 +2516,395 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1StopTrialRequest
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StopTrialRequest : GTLRObject
+@end
+
+
+/**
+ *  A message representing a Study.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Study : GTLRObject
+
+/** Output only. Time that the study was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. A human readable reason why the Study is inactive.
+ *  This should be empty if a study is ACTIVE or COMPLETED.
+ */
+@property(nonatomic, copy, nullable) NSString *inactiveReason;
+
+/** Output only. The name of a study. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The detailed state of a study.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Active
+ *        The study is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Completed
+ *        The study is done when the service exhausts the parameter search space
+ *        or max_trial_count is reached. (Value: "COMPLETED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Inactive
+ *        The study is stopped due to an internal error. (Value: "INACTIVE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_StateUnspecified
+ *        The study state is unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Required. Configuration of the study. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig *studyConfig;
+
+@end
+
+
+/**
+ *  Represents configuration of a study.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig : GTLRObject
+
+/**
+ *  The search algorithm specified for the study.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_AlgorithmUnspecified
+ *        The default algorithm used by the Cloud AI Platform Optimization
+ *        service. (Value: "ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_GaussianProcessBandit
+ *        Gaussian Process Bandit. (Value: "GAUSSIAN_PROCESS_BANDIT")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_GridSearch
+ *        Simple grid search within the feasible space. To use grid search,
+ *        all parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
+ *        (Value: "GRID_SEARCH")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_RandomSearch
+ *        Simple random search within the feasible space. (Value:
+ *        "RANDOM_SEARCH")
+ */
+@property(nonatomic, copy, nullable) NSString *algorithm;
+
+/** Configuration for automated stopping of unpromising Trials. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfig *automatedStoppingConfig;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec *> *metrics;
+
+/** Required. The set of parameters to tune. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec *> *parameters;
+
+@end
+
+
+/**
+ *  Represents a metric to optimize.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec : GTLRObject
+
+/**
+ *  Required. The optimization goal of the metric.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec_Goal_GoalTypeUnspecified
+ *        Goal Type will default to maximize. (Value: "GOAL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec_Goal_Maximize
+ *        Maximize the goal metric. (Value: "MAXIMIZE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec_Goal_Minimize
+ *        Minimize the goal metric. (Value: "MINIMIZE")
+ */
+@property(nonatomic, copy, nullable) NSString *goal;
+
+/** Required. The name of the metric. */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+@end
+
+
+/**
+ *  Represents a single parameter to optimize.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec : GTLRObject
+
+/** The value spec for a 'CATEGORICAL' parameter. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecCategoricalValueSpec *categoricalValueSpec;
+
+/**
+ *  A child node is active if the parameter's value matches the child node's
+ *  matching_parent_values.
+ *  If two items in child_parameter_specs have the same name, they must have
+ *  disjoint matching_parent_values.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec *> *childParameterSpecs;
+
+/** The value spec for a 'DISCRETE' parameter. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecDiscreteValueSpec *discreteValueSpec;
+
+/** The value spec for a 'DOUBLE' parameter. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecDoubleValueSpec *doubleValueSpec;
+
+/** The value spec for an 'INTEGER' parameter. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecIntegerValueSpec *integerValueSpec;
+
+/** Required. The parameter name must be unique amongst all ParameterSpecs. */
+@property(nonatomic, copy, nullable) NSString *parameter;
+
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentCategoricalValueSpec *parentCategoricalValues;
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentDiscreteValueSpec *parentDiscreteValues;
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentIntValueSpec *parentIntValues;
+
+/**
+ *  How the parameter should be scaled.
+ *  Leave unset for categorical parameters.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_ScaleTypeUnspecified
+ *        By default, no scaling is applied. (Value: "SCALE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitLinearScale
+ *        Scales the feasible space to (0, 1) linearly. (Value:
+ *        "UNIT_LINEAR_SCALE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitLogScale
+ *        Scales the feasible space logarithmically to (0, 1). The entire
+ *        feasible space must be strictly positive. (Value: "UNIT_LOG_SCALE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitReverseLogScale
+ *        Scales the feasible space "reverse" logarithmically to (0, 1). The
+ *        result is that values close to the top of the feasible space are
+ *        spread
+ *        out more than points near the bottom. The entire feasible space must
+ *        be
+ *        strictly positive. (Value: "UNIT_REVERSE_LOG_SCALE")
+ */
+@property(nonatomic, copy, nullable) NSString *scaleType;
+
+/**
+ *  Required. The type of the parameter.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Categorical
+ *        The parameter is categorical, with a value chosen from the categories
+ *        field. (Value: "CATEGORICAL")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Discrete
+ *        The parameter is real valued, with a fixed set of feasible points. If
+ *        `type==DISCRETE`, feasible_points must be provided, and
+ *        {`min_value`, `max_value`} will be ignored. (Value: "DISCRETE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Double
+ *        Type for real-valued parameters. (Value: "DOUBLE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Integer
+ *        Type for integral parameters. (Value: "INTEGER")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_ParameterTypeUnspecified
+ *        You must specify a valid type. Using this unspecified type will result
+ *        in an error. (Value: "PARAMETER_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecCategoricalValueSpec
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecCategoricalValueSpec : GTLRObject
+
+/**
+ *  Must be specified if type is `CATEGORICAL`.
+ *  The list of possible categories.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecDiscreteValueSpec
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecDiscreteValueSpec : GTLRObject
+
+/**
+ *  Must be specified if type is `DISCRETE`.
+ *  A list of feasible points.
+ *  The list should be in strictly increasing order. For instance, this
+ *  parameter might have possible settings of 1.5, 2.5, and 4.0. This list
+ *  should not contain more than 1,000 values.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *values;
+
+@end
+
+
+/**
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecDoubleValueSpec
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecDoubleValueSpec : GTLRObject
+
+/**
+ *  Must be specified if type is `DOUBLE`. Maximum value of the parameter.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxValue;
+
+/**
+ *  Must be specified if type is `DOUBLE`. Minimum value of the parameter.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minValue;
+
+@end
+
+
+/**
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecIntegerValueSpec
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecIntegerValueSpec : GTLRObject
+
+/**
+ *  Must be specified if type is `INTEGER`. Maximum value of the parameter.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxValue;
+
+/**
+ *  Must be specified if type is `INTEGER`. Minimum value of the parameter.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minValue;
+
+@end
+
+
+/**
+ *  Represents the spec to match categorical values from parent parameter.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentCategoricalValueSpec : GTLRObject
+
+/**
+ *  Matches values of the parent parameter with type 'CATEGORICAL'.
+ *  All values must exist in `categorical_value_spec` of parent parameter.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  Represents the spec to match discrete values from parent parameter.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentDiscreteValueSpec : GTLRObject
+
+/**
+ *  Matches values of the parent parameter with type 'DISCRETE'.
+ *  All values must exist in `discrete_value_spec` of parent parameter.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *values;
+
+@end
+
+
+/**
+ *  Represents the spec to match integer values from parent parameter.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentIntValueSpec : GTLRObject
+
+/**
+ *  Matches values of the parent parameter with type 'INTEGER'.
+ *  All values must lie in `integer_value_spec` of parent parameter.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *values;
+
+@end
+
+
+/**
+ *  Metadata field of a google.longrunning.Operation associated
+ *  with a SuggestTrialsRequest.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsMetadata : GTLRObject
+
+/** The identifier of the client that is requesting the suggestion. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** The time operation was submitted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The name of the study that the trial belongs to. */
+@property(nonatomic, copy, nullable) NSString *study;
+
+/**
+ *  The number of suggestions requested.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suggestionCount;
+
+@end
+
+
+/**
+ *  The request message for the SuggestTrial service method.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsRequest : GTLRObject
+
+/**
+ *  Required. The identifier of the client that is requesting the suggestion.
+ *  If multiple SuggestTrialsRequests have the same `client_id`,
+ *  the service will return the identical suggested trial if the trial is
+ *  pending, and provide a new trial if the last suggested trial was completed.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/**
+ *  Required. The number of suggestions requested.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suggestionCount;
+
+@end
+
+
+/**
+ *  This message will be placed in the response field of a completed
+ *  google.longrunning.Operation associated with a SuggestTrials request.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse : GTLRObject
+
+/** The time operation processing completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The time operation was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The state of the study.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Active
+ *        The study is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Completed
+ *        The study is done when the service exhausts the parameter search space
+ *        or max_trial_count is reached. (Value: "COMPLETED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Inactive
+ *        The study is stopped due to an internal error. (Value: "INACTIVE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_StateUnspecified
+ *        The study state is unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *studyState;
+
+/** A list of Trials. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial *> *trials;
+
+@end
+
+
+/**
  *  Represents input parameters for a training job. When using the gcloud
  *  command
  *  to submit your training job, you can specify the input parameters as
@@ -2391,6 +3238,104 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
+ *  A message representing a Trial.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial : GTLRObject
+
+/**
+ *  Output only. The identifier of the client that originally requested this
+ *  trial.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** Output only. Time the Trial's status changed to COMPLETED. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The final Measurement containing the objective value. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement *finalMeasurement;
+
+/**
+ *  Output only. A human readable string describing why the Trial is
+ *  infeasible. This should only be set if trial_infeasible is true.
+ */
+@property(nonatomic, copy, nullable) NSString *infeasibleReason;
+
+/**
+ *  A list of measurements that are strictly lexicographically
+ *  ordered by their induced tuples (steps, elapsed_time).
+ *  These are used for early stopping computations.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement *> *measurements;
+
+/** Output only. Name of the trial assigned by the service. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The parameters of the Trial. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrialParameter *> *parameters;
+
+/** Output only. Time the Trial was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The detailed state of a trial.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Active
+ *        Indicates that the Trial has been suggested. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Completed
+ *        Indicates that the Trial is done, and either has a final_measurement
+ *        set, or is marked as trial_infeasible. (Value: "COMPLETED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Requested
+ *        Indicates that a specific Trial has been requested, but it has not yet
+ *        been suggested by the service. (Value: "REQUESTED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_StateUnspecified
+ *        The trial state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Stopping
+ *        Indicates that the Trial should stop according to the service. (Value:
+ *        "STOPPING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. True if the parameters in this trial should not be attempted
+ *  again.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trialInfeasible;
+
+@end
+
+
+/**
+ *  A message representing a parameter to be tuned.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrialParameter : GTLRObject
+
+/**
+ *  Must be set if ParameterType is DOUBLE or DISCRETE.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floatValue;
+
+/**
+ *  Must be set if ParameterType is INTEGER
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *intValue;
+
+/** The name of the parameter. */
+@property(nonatomic, copy, nullable) NSString *parameter;
+
+/** Must be set if ParameterTypeis CATEGORICAL */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+@end
+
+
+/**
  *  Represents a version of the model.
  *  Each version is a trained model deployed in the cloud, ready to handle
  *  prediction requests. A model can have multiple versions. You can get
@@ -2702,6 +3647,26 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        fetch them all at once.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels : GTLRObject
+@end
+
+
+/**
+ *  Attributes credit by computing the XRAI taking advantage
+ *  of the model's fully differentiable structure. Refer to this paper for
+ *  more details: https://arxiv.org/abs/1906.02825
+ *  Currently only implemented for models with natural image inputs.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1XraiAttribution : GTLRObject
+
+/**
+ *  Number of steps for approximating the path integral.
+ *  A good value to start is 50 and gradually increase until the
+ *  sum to diff property is met within the desired error range.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numIntegralSteps;
+
 @end
 
 

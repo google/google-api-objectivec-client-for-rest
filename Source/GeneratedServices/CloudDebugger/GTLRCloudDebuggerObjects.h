@@ -196,6 +196,8 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 
 
 /**
+ *  ------------------------------------------------------------------------------
+ *  ## Breakpoint (the resource)
  *  Represents the breakpoint specification, status and results.
  */
 @interface GTLRCloudDebugger_Breakpoint : GTLRObject

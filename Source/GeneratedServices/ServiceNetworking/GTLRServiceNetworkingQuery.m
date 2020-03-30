@@ -245,6 +245,31 @@
 
 @end
 
+@implementation GTLRServiceNetworkingQuery_ServicesRolesAdd
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_AddRolesRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/roles:add";
+  GTLRServiceNetworkingQuery_ServicesRolesAdd *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.roles.add";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceNetworkingQuery_ServicesSearchRange
 
 @dynamic parent;

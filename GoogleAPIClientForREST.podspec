@@ -208,6 +208,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudMachineLearningEngine/*.{h,m}'
   end
+  s.subspec 'CloudMemorystoreforMemcached' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudMemorystoreforMemcached/*.{h,m}'
+  end
   s.subspec 'CloudNaturalLanguage' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudNaturalLanguage/*.{h,m}'
@@ -356,6 +360,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Discovery/*.{h,m}'
   end
+  s.subspec 'DisplayVideo' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/DisplayVideo/*.{h,m}'
+  end
   s.subspec 'Dns' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Dns/*.{h,m}'
@@ -484,6 +492,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Logging/*.{h,m}'
   end
+  s.subspec 'ManagedServiceforMicrosoftActiveDirectoryConsumerAPI' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ManagedServiceforMicrosoftActiveDirectoryConsumerAPI/*.{h,m}'
+  end
   s.subspec 'ManufacturerCenter' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ManufacturerCenter/*.{h,m}'
@@ -496,9 +508,17 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Monitoring/*.{h,m}'
   end
+  s.subspec 'NetworkManagement' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/NetworkManagement/*.{h,m}'
+  end
   s.subspec 'Oauth2' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Oauth2/*.{h,m}'
+  end
+  s.subspec 'PagespeedInsights' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/PagespeedInsights/*.{h,m}'
   end
   s.subspec 'Pagespeedonline' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -584,6 +604,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ServiceControl/*.{h,m}'
   end
+  s.subspec 'ServiceDirectory' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ServiceDirectory/*.{h,m}'
+  end
   s.subspec 'ServiceManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ServiceManagement/*.{h,m}'
@@ -631,6 +655,10 @@ Pod::Spec.new do |s|
   s.subspec 'StreetViewPublish' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/StreetViewPublish/*.{h,m}'
+  end
+  s.subspec 'SystemsManagement' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/SystemsManagement/*.{h,m}'
   end
   s.subspec 'TPU' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

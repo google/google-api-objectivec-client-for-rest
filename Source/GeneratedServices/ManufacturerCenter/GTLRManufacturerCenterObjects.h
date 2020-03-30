@@ -388,6 +388,12 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
 @property(nonatomic, copy, nullable) NSString *releaseDate;
 
 /**
+ *  Rich product content. For more information, see
+ *  https://support.google.com/manufacturers/answer/9389865
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *richProductContent;
+
+/**
  *  The scent of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#scent.
  */

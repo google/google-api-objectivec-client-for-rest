@@ -1417,7 +1417,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The name of the topic that snapshots are attached to.
+ *  Required. The name of the topic that snapshots are attached to.
  *  Format is `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
@@ -1432,7 +1432,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  acknowledgment state of messages in an existing subscription to the state
  *  captured by a snapshot.
  *
- *  @param topic The name of the topic that snapshots are attached to.
+ *  @param topic Required. The name of the topic that snapshots are attached to.
  *    Format is `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsSnapshotsList

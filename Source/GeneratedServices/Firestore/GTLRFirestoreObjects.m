@@ -1163,10 +1163,18 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_Write
-@dynamic currentDocument, deleteProperty, transform, update, updateMask;
+@dynamic currentDocument, deleteProperty, transform, update, updateMask,
+         updateTransforms;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"updateTransforms" : [GTLRFirestore_FieldTransform class]
+  };
+  return map;
 }
 
 @end

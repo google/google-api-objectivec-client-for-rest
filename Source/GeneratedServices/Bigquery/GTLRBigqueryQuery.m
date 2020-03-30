@@ -330,6 +330,109 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @end
 
+@implementation GTLRBigqueryQuery_ModelsDelete
+
+@dynamic datasetId, modelId, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           modelId:(NSString *)modelId {
+  NSArray *pathParams = @[
+    @"datasetId", @"modelId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/models/{+modelId}";
+  GTLRBigqueryQuery_ModelsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.modelId = modelId;
+  query.loggingName = @"bigquery.models.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_ModelsGet
+
+@dynamic datasetId, modelId, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           modelId:(NSString *)modelId {
+  NSArray *pathParams = @[
+    @"datasetId", @"modelId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/models/{+modelId}";
+  GTLRBigqueryQuery_ModelsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.modelId = modelId;
+  query.expectedObjectClass = [GTLRBigquery_Model class];
+  query.loggingName = @"bigquery.models.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_ModelsList
+
+@dynamic datasetId, maxResults, pageToken, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId {
+  NSArray *pathParams = @[
+    @"datasetId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/models";
+  GTLRBigqueryQuery_ModelsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.expectedObjectClass = [GTLRBigquery_ListModelsResponse class];
+  query.loggingName = @"bigquery.models.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_ModelsPatch
+
+@dynamic datasetId, modelId, projectId;
+
++ (instancetype)queryWithObject:(GTLRBigquery_Model *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        modelId:(NSString *)modelId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"datasetId", @"modelId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/models/{+modelId}";
+  GTLRBigqueryQuery_ModelsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.modelId = modelId;
+  query.expectedObjectClass = [GTLRBigquery_Model class];
+  query.loggingName = @"bigquery.models.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigqueryQuery_ProjectsGetServiceAccount
 
 @dynamic projectId;
@@ -361,6 +464,138 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRBigquery_ProjectList class];
   query.loggingName = @"bigquery.projects.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RoutinesDelete
+
+@dynamic datasetId, projectId, routineId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                         routineId:(NSString *)routineId {
+  NSArray *pathParams = @[
+    @"datasetId", @"projectId", @"routineId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/routines/{+routineId}";
+  GTLRBigqueryQuery_RoutinesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.routineId = routineId;
+  query.loggingName = @"bigquery.routines.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RoutinesGet
+
+@dynamic datasetId, projectId, readMask, routineId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                         routineId:(NSString *)routineId {
+  NSArray *pathParams = @[
+    @"datasetId", @"projectId", @"routineId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/routines/{+routineId}";
+  GTLRBigqueryQuery_RoutinesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.routineId = routineId;
+  query.expectedObjectClass = [GTLRBigquery_Routine class];
+  query.loggingName = @"bigquery.routines.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RoutinesInsert
+
+@dynamic datasetId, projectId;
+
++ (instancetype)queryWithObject:(GTLRBigquery_Routine *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"datasetId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/routines";
+  GTLRBigqueryQuery_RoutinesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.expectedObjectClass = [GTLRBigquery_Routine class];
+  query.loggingName = @"bigquery.routines.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RoutinesList
+
+@dynamic datasetId, filter, maxResults, pageToken, projectId, readMask;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId {
+  NSArray *pathParams = @[
+    @"datasetId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/routines";
+  GTLRBigqueryQuery_RoutinesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.expectedObjectClass = [GTLRBigquery_ListRoutinesResponse class];
+  query.loggingName = @"bigquery.routines.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RoutinesUpdate
+
+@dynamic datasetId, projectId, routineId;
+
++ (instancetype)queryWithObject:(GTLRBigquery_Routine *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                      routineId:(NSString *)routineId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"datasetId", @"projectId", @"routineId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/routines/{+routineId}";
+  GTLRBigqueryQuery_RoutinesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.routineId = routineId;
+  query.expectedObjectClass = [GTLRBigquery_Routine class];
+  query.loggingName = @"bigquery.routines.update";
   return query;
 }
 

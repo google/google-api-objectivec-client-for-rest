@@ -203,6 +203,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_Website *website;
 
+/**
+ *  The zone or zones from which the bucket is intended to use zonal quota.
+ *  Requests for data from outside the specified affinities are still allowed
+ *  but won’t be able to use zonal quota. The zone or zones need to be within
+ *  the bucket location otherwise the requests will fail with a 400 Bad Request
+ *  response.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *zoneAffinity;
+
 @end
 
 

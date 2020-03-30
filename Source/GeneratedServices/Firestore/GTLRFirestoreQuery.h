@@ -658,7 +658,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Reads the version of the document at the given time.
- *  This may not be older than 60 seconds.
+ *  This may not be older than 270 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -734,7 +734,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Reads documents as they were at the given time.
- *  This may not be older than 60 seconds.
+ *  This may not be older than 270 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 

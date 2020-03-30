@@ -133,8 +133,8 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 @implementation GTLRCloudBuild_Build
 @dynamic artifacts, buildTriggerId, createTime, finishTime, identifier, images,
-         logsBucket, logUrl, options, projectId, results, secrets, source,
-         sourceProvenance, startTime, status, statusDetail, steps,
+         logsBucket, logUrl, options, projectId, queueTtl, results, secrets,
+         source, sourceProvenance, startTime, status, statusDetail, steps,
          substitutions, tags, timeout, timing;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -471,7 +471,7 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_PullRequestFilter
-@dynamic branch, commentControl;
+@dynamic branch, commentControl, invertRegex;
 @end
 
 
@@ -481,7 +481,7 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_PushFilter
-@dynamic branch, tag;
+@dynamic branch, invertRegex, tag;
 @end
 
 
@@ -491,8 +491,8 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_RepoSource
-@dynamic branchName, commitSha, dir, projectId, repoName, substitutions,
-         tagName;
+@dynamic branchName, commitSha, dir, invertRegex, projectId, repoName,
+         substitutions, tagName;
 @end
 
 

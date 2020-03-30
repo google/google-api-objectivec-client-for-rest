@@ -33,6 +33,17 @@ NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unavailable = @"UNA
 NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unimplemented = @"UNIMPLEMENTED";
 NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unknown = @"UNKNOWN";
 
+// GTLRStorageTransfer_NotificationConfig.eventTypes
+NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationAborted = @"TRANSFER_OPERATION_ABORTED";
+NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationFailed = @"TRANSFER_OPERATION_FAILED";
+NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationSuccess = @"TRANSFER_OPERATION_SUCCESS";
+
+// GTLRStorageTransfer_NotificationConfig.payloadFormat
+NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_Json = @"JSON";
+NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_None = @"NONE";
+NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_PayloadFormatUnspecified = @"PAYLOAD_FORMAT_UNSPECIFIED";
+
 // GTLRStorageTransfer_TransferJob.status
 NSString * const kGTLRStorageTransfer_TransferJob_Status_Deleted = @"DELETED";
 NSString * const kGTLRStorageTransfer_TransferJob_Status_Disabled = @"DISABLED";
@@ -65,6 +76,26 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_AwsS3Data
 @dynamic awsAccessKey, bucketName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageTransfer_AzureBlobStorageData
+//
+
+@implementation GTLRStorageTransfer_AzureBlobStorageData
+@dynamic azureCredentials, container, storageAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageTransfer_AzureCredentials
+//
+
+@implementation GTLRStorageTransfer_AzureCredentials
+@dynamic sasToken;
 @end
 
 
@@ -199,11 +230,30 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_NotificationConfig
+//
+
+@implementation GTLRStorageTransfer_NotificationConfig
+@dynamic eventTypes, payloadFormat, pubsubTopic;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eventTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_ObjectConditions
 //
 
 @implementation GTLRStorageTransfer_ObjectConditions
-@dynamic excludePrefixes, includePrefixes, maxTimeElapsedSinceLastModification,
+@dynamic excludePrefixes, includePrefixes, lastModifiedBefore,
+         lastModifiedSince, maxTimeElapsedSinceLastModification,
          minTimeElapsedSinceLastModification;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -349,7 +399,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_TransferJob
 @dynamic creationTime, deletionTime, descriptionProperty, lastModificationTime,
-         name, projectId, schedule, status, transferSpec;
+         name, notificationConfig, projectId, schedule, status, transferSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -364,8 +414,8 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_TransferOperation
-@dynamic counters, endTime, errorBreakdowns, name, projectId, startTime, status,
-         transferJobName, transferSpec;
+@dynamic counters, endTime, errorBreakdowns, name, notificationConfig,
+         projectId, startTime, status, transferJobName, transferSpec;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -394,8 +444,8 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_TransferSpec
-@dynamic awsS3DataSource, gcsDataSink, gcsDataSource, httpDataSource,
-         objectConditions, transferOptions;
+@dynamic awsS3DataSource, azureBlobStorageDataSource, gcsDataSink,
+         gcsDataSource, httpDataSource, objectConditions, transferOptions;
 @end
 
 

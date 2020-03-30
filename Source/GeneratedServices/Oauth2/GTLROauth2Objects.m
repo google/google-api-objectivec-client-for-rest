@@ -16,15 +16,12 @@
 //
 
 @implementation GTLROauth2_Tokeninfo
-@dynamic accessType, audience, email, expiresIn, issuedTo, scope, tokenHandle,
-         userId, verifiedEmail;
+@dynamic audience, email, expiresIn, issuedTo, scope, userId, verifiedEmail;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
-    @"accessType" : @"access_type",
     @"expiresIn" : @"expires_in",
     @"issuedTo" : @"issued_to",
-    @"tokenHandle" : @"token_handle",
     @"userId" : @"user_id",
     @"verifiedEmail" : @"verified_email"
   };
@@ -36,10 +33,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROauth2_Userinfoplus
+//   GTLROauth2_Userinfo
 //
 
-@implementation GTLROauth2_Userinfoplus
+@implementation GTLROauth2_Userinfo
 @dynamic email, familyName, gender, givenName, hd, identifier, link, locale,
          name, picture, verifiedEmail;
 

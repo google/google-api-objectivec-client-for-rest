@@ -2778,6 +2778,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *delimiter;
 
 /**
+ *  Filter results to objects whose names are lexicographically before
+ *  endOffset. If startOffset is also set, the objects listed will have names
+ *  between startOffset (inclusive) and endOffset (exclusive).
+ */
+@property(nonatomic, copy, nullable) NSString *endOffset;
+
+/**
  *  If true, objects that end in exactly one instance of delimiter will have
  *  their metadata included in items in addition to prefixes.
  */
@@ -2817,6 +2824,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  requester-pays bucket.
  */
 @property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
+ *  Filter results to objects whose names are lexicographically equal to or
+ *  after startOffset. If endOffset is also set, the objects listed will have
+ *  names between startOffset (inclusive) and endOffset (exclusive).
+ */
+@property(nonatomic, copy, nullable) NSString *startOffset;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -3430,6 +3444,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *delimiter;
 
 /**
+ *  Filter results to objects whose names are lexicographically before
+ *  endOffset. If startOffset is also set, the objects listed will have names
+ *  between startOffset (inclusive) and endOffset (exclusive).
+ */
+@property(nonatomic, copy, nullable) NSString *endOffset;
+
+/**
  *  If true, objects that end in exactly one instance of delimiter will have
  *  their metadata included in items in addition to prefixes.
  */
@@ -3469,6 +3490,13 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  requester-pays bucket.
  */
 @property(nonatomic, copy, nullable) NSString *provisionalUserProject;
+
+/**
+ *  Filter results to objects whose names are lexicographically equal to or
+ *  after startOffset. If endOffset is also set, the objects listed will have
+ *  names between startOffset (inclusive) and endOffset (exclusive).
+ */
+@property(nonatomic, copy, nullable) NSString *startOffset;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays

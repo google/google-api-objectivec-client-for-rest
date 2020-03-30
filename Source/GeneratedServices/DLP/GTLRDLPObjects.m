@@ -28,7 +28,9 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp = @"IM
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageJpeg = @"IMAGE_JPEG";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImagePng = @"IMAGE_PNG";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg = @"IMAGE_SVG";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Pdf = @"PDF";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8 = @"TEXT_UTF8";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_WordDocument = @"WORD_DOCUMENT";
 
 // GTLRDLP_GooglePrivacyDlpV2CharsToIgnore.commonCharactersToIgnore
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_AlphaLowerCase = @"ALPHA_LOWER_CASE";
@@ -43,7 +45,9 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Avro =
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_BinaryFile = @"BINARY_FILE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified = @"FILE_TYPE_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Image = @"IMAGE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Pdf = @"PDF";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_TextFile = @"TEXT_FILE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Word = @"WORD";
 
 // GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.sampleMethod
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_RandomStart = @"RANDOM_START";
@@ -152,6 +156,10 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood
 NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Unlikely = @"UNLIKELY";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
+
+// GTLRDLP_GooglePrivacyDlpV2MetadataLocation.type
+NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_MetadatatypeUnspecified = @"METADATATYPE_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_StorageMetadata = @"STORAGE_METADATA";
 
 // GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig.outputSchema
 NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_AllColumns = @"ALL_COLUMNS";
@@ -552,7 +560,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ContentLocation
 @dynamic containerName, containerTimestamp, containerVersion, documentLocation,
-         imageLocation, recordLocation;
+         imageLocation, metadataLocation, recordLocation;
 @end
 
 
@@ -1122,7 +1130,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2HybridInspectStatistics
-@dynamic hybridRequestsAborted, hybridRequestsPending, hybridRequestsProcessed;
+@dynamic abortedCount, pendingCount, processedCount;
 @end
 
 
@@ -1876,7 +1884,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2Location
-@dynamic byteRange, codepointRange, contentLocations;
+@dynamic byteRange, codepointRange, container, contentLocations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1894,6 +1902,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2Manual
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2MetadataLocation
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2MetadataLocation
+@dynamic storageLabel, type;
 @end
 
 
@@ -2361,6 +2379,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 @implementation GTLRDLP_GooglePrivacyDlpV2StorageConfig
 @dynamic bigQueryOptions, cloudStorageOptions, datastoreOptions, hybridOptions,
          timespanConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2StorageMetadataLabel
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2StorageMetadataLabel
+@dynamic key;
 @end
 
 

@@ -174,7 +174,8 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 /**
  *  Required. Resource name for the Access Level. The `short_name` component
  *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{policy_id}/accessLevels/{short_name}`
+ *  `accessPolicies/{policy_id}/accessLevels/{short_name}`. The maximum length
+ *  of the `short_name` component is 50 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -198,6 +199,14 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 
 /** Output only. Time the `AccessPolicy` was created in UTC. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. An opaque identifier for the current version of the
+ *  `AccessPolicy`. This will always be a strongly validated etag, meaning that
+ *  two Access Polices will be identical if and only if their etags are
+ *  identical. Clients should not expect this to be in any specific format.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Output only. Resource name of the `AccessPolicy`. Format:

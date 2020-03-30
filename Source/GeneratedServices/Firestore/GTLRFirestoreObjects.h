@@ -653,7 +653,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Reads documents as they were at the given time.
- *  This may not be older than 60 seconds.
+ *  This may not be older than 270 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -2422,7 +2422,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Reads documents as they were at the given time.
- *  This may not be older than 60 seconds.
+ *  This may not be older than 270 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -2857,6 +2857,14 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The field paths in this mask must not contain a reserved field name.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_DocumentMask *updateMask;
+
+/**
+ *  The transforms to perform after update.
+ *  This field can be set only when the operation is `update`. If present, this
+ *  write is equivalent to performing `update` and `transform` to the same
+ *  document atomically and in order.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_FieldTransform *> *updateTransforms;
 
 @end
 

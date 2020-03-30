@@ -1039,8 +1039,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_ObjectsList
 
-@dynamic bucket, delimiter, includeTrailingDelimiter, maxResults, pageToken,
-         prefix, projection, provisionalUserProject, userProject, versions;
+@dynamic bucket, delimiter, endOffset, includeTrailingDelimiter, maxResults,
+         pageToken, prefix, projection, provisionalUserProject, startOffset,
+         userProject, versions;
 
 + (instancetype)queryWithBucket:(NSString *)bucket {
   NSArray *pathParams = @[ @"bucket" ];
@@ -1224,8 +1225,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_ObjectsWatchAll
 
-@dynamic bucket, delimiter, includeTrailingDelimiter, maxResults, pageToken,
-         prefix, projection, provisionalUserProject, userProject, versions;
+@dynamic bucket, delimiter, endOffset, includeTrailingDelimiter, maxResults,
+         pageToken, prefix, projection, provisionalUserProject, startOffset,
+         userProject, versions;
 
 + (instancetype)queryWithObject:(GTLRStorage_Channel *)object
                          bucket:(NSString *)bucket {

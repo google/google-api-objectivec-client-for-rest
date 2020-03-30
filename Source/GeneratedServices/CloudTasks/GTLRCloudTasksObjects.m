@@ -365,7 +365,7 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 @implementation GTLRCloudTasks_Queue
 @dynamic appEngineRoutingOverride, name, purgeTime, rateLimits, retryConfig,
-         state;
+         stackdriverLoggingConfig, state;
 @end
 
 
@@ -415,6 +415,16 @@ NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified = @"VIEW_UNSPECIFIED"
 
 @implementation GTLRCloudTasks_SetIamPolicyRequest
 @dynamic policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTasks_StackdriverLoggingConfig
+//
+
+@implementation GTLRCloudTasks_StackdriverLoggingConfig
+@dynamic samplingRatio;
 @end
 
 

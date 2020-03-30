@@ -133,6 +133,113 @@
 
 @end
 
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsCreate
+
+@dynamic configId, parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_NotificationConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notificationConfigs";
+  GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_NotificationConfig class];
+  query.loggingName = @"securitycenter.organizations.notificationConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.organizations.notificationConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_NotificationConfig class];
+  query.loggingName = @"securitycenter.organizations.notificationConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/notificationConfigs";
+  GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListNotificationConfigsResponse class];
+  query.loggingName = @"securitycenter.organizations.notificationConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_NotificationConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_NotificationConfig class];
+  query.loggingName = @"securitycenter.organizations.notificationConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityCommandCenterQuery_OrganizationsOperationsCancel
 
 @dynamic name;

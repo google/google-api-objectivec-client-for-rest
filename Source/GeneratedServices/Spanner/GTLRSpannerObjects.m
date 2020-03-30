@@ -14,9 +14,15 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRSpanner_Backup.state
+NSString * const kGTLRSpanner_Backup_State_Creating         = @"CREATING";
+NSString * const kGTLRSpanner_Backup_State_Ready            = @"READY";
+NSString * const kGTLRSpanner_Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRSpanner_Database.state
 NSString * const kGTLRSpanner_Database_State_Creating         = @"CREATING";
 NSString * const kGTLRSpanner_Database_State_Ready            = @"READY";
+NSString * const kGTLRSpanner_Database_State_ReadyOptimizing  = @"READY_OPTIMIZING";
 NSString * const kGTLRSpanner_Database_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRSpanner_ExecuteSqlRequest.queryMode
@@ -40,6 +46,14 @@ NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadWrite       = @"READ_WRITE";
 NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRSpanner_ReplicaInfo_Type_Witness         = @"WITNESS";
 
+// GTLRSpanner_RestoreDatabaseMetadata.sourceType
+NSString * const kGTLRSpanner_RestoreDatabaseMetadata_SourceType_Backup = @"BACKUP";
+NSString * const kGTLRSpanner_RestoreDatabaseMetadata_SourceType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRSpanner_RestoreInfo.sourceType
+NSString * const kGTLRSpanner_RestoreInfo_SourceType_Backup    = @"BACKUP";
+NSString * const kGTLRSpanner_RestoreInfo_SourceType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRSpanner_Type.code
 NSString * const kGTLRSpanner_Type_Code_Array               = @"ARRAY";
 NSString * const kGTLRSpanner_Type_Code_Bool                = @"BOOL";
@@ -51,6 +65,35 @@ NSString * const kGTLRSpanner_Type_Code_String              = @"STRING";
 NSString * const kGTLRSpanner_Type_Code_Struct              = @"STRUCT";
 NSString * const kGTLRSpanner_Type_Code_Timestamp           = @"TIMESTAMP";
 NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Backup
+//
+
+@implementation GTLRSpanner_Backup
+@dynamic createTime, database, expireTime, name, referencingDatabases,
+         sizeBytes, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"referencingDatabases" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_BackupInfo
+//
+
+@implementation GTLRSpanner_BackupInfo
+@dynamic backup, createTime, sourceDatabase;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -148,6 +191,16 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_CreateBackupMetadata
+//
+
+@implementation GTLRSpanner_CreateBackupMetadata
+@dynamic cancelTime, database, name, progress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_CreateDatabaseMetadata
 //
 
@@ -210,7 +263,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_Database
-@dynamic name, state;
+@dynamic createTime, name, restoreInfo, state;
 @end
 
 
@@ -463,6 +516,72 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_ListBackupOperationsResponse
+//
+
+@implementation GTLRSpanner_ListBackupOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRSpanner_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ListBackupsResponse
+//
+
+@implementation GTLRSpanner_ListBackupsResponse
+@dynamic backups, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backups" : [GTLRSpanner_Backup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ListDatabaseOperationsResponse
+//
+
+@implementation GTLRSpanner_ListDatabaseOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRSpanner_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_ListDatabasesResponse
 //
 
@@ -621,6 +740,26 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_OperationProgress
+//
+
+@implementation GTLRSpanner_OperationProgress
+@dynamic endTime, progressPercent, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_OptimizeRestoredDatabaseMetadata
+//
+
+@implementation GTLRSpanner_OptimizeRestoredDatabaseMetadata
+@dynamic name, progress;
 @end
 
 
@@ -894,6 +1033,37 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 @implementation GTLRSpanner_ReplicaInfo
 @dynamic defaultLeaderLocation, location, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_RestoreDatabaseMetadata
+//
+
+@implementation GTLRSpanner_RestoreDatabaseMetadata
+@dynamic backupInfo, cancelTime, name, optimizeDatabaseOperationName, progress,
+         sourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_RestoreDatabaseRequest
+//
+
+@implementation GTLRSpanner_RestoreDatabaseRequest
+@dynamic backup, databaseId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_RestoreInfo
+//
+
+@implementation GTLRSpanner_RestoreInfo
+@dynamic backupInfo, sourceType;
 @end
 
 

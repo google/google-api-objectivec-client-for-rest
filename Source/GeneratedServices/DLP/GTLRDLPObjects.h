@@ -122,6 +122,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment;
 @class GTLRDLP_GooglePrivacyDlpV2Location;
 @class GTLRDLP_GooglePrivacyDlpV2Manual;
+@class GTLRDLP_GooglePrivacyDlpV2MetadataLocation;
 @class GTLRDLP_GooglePrivacyDlpV2NumericalStatsConfig;
 @class GTLRDLP_GooglePrivacyDlpV2NumericalStatsResult;
 @class GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig;
@@ -156,6 +157,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Schedule;
 @class GTLRDLP_GooglePrivacyDlpV2StatisticalTable;
 @class GTLRDLP_GooglePrivacyDlpV2StorageConfig;
+@class GTLRDLP_GooglePrivacyDlpV2StorageMetadataLabel;
 @class GTLRDLP_GooglePrivacyDlpV2StoredInfoType;
 @class GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig;
 @class GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeStats;
@@ -260,11 +262,23 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Ima
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg;
 /**
+ *  pdf
+ *
+ *  Value: "PDF"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Pdf;
+/**
  *  plain text
  *
  *  Value: "TEXT_UTF8"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8;
+/**
+ *  docx, docm, dotx, dotm
+ *
+ *  Value: "WORD_DOCUMENT"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_WordDocument;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2CharsToIgnore.commonCharactersToIgnore
@@ -317,8 +331,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_File
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified;
 /** Value: "IMAGE" */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Image;
+/** Value: "PDF" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Pdf;
 /** Value: "TEXT_FILE" */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_TextFile;
+/** Value: "WORD" */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Word;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.sampleMethod
@@ -794,6 +812,22 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_Fix
  *  Value: "VERY_UNLIKELY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2MetadataLocation.type
+
+/**
+ *  Unused
+ *
+ *  Value: "METADATATYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_MetadatatypeUnspecified;
+/**
+ *  General file metadata provided by GCS.
+ *
+ *  Value: "STORAGE_METADATA"
+ */
+GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_StorageMetadata;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig.outputSchema
@@ -1320,8 +1354,12 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *        (Value: "IMAGE_PNG")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg svg
  *        (Value: "IMAGE_SVG")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Pdf pdf (Value:
+ *        "PDF")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8 plain
  *        text (Value: "TEXT_UTF8")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_WordDocument docx,
+ *        docm, dotx, dotm (Value: "WORD_DOCUMENT")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1857,6 +1895,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /** Location within an image's pixels. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ImageLocation *imageLocation;
+
+/** Location within the metadata for inspected content. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2MetadataLocation *metadataLocation;
 
 /** Location within a row or record of a database table. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RecordLocation *recordLocation;
@@ -2994,7 +3035,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, copy, nullable) NSString *jobName;
 
 /**
- *  The labels associated with this `InspectFinding`.
+ *  The labels associated with this `Finding`.
  *  Label keys must be between 1 and 63 characters long and must conform
  *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
  *  Label values must be between 0 and 63 characters long and must conform
@@ -3028,8 +3069,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Location *location;
 
 /**
- *  Resource name in format projects/{id}/locations/{id}/inspectFindings/{id}
- *  Populated only when viewing persisted findings.
+ *  Resource name in format
+ *  projects/{project}/locations/{location}/findings/{finding} Populated only
+ *  when viewing persisted findings.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3059,7 +3101,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
- *  The labels associated with this `InspectFinding`.
+ *  The labels associated with this `Finding`.
  *  Label keys must be between 1 and 63 characters long and must conform
  *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
  *  Label values must be between 0 and 63 characters long and must conform
@@ -3109,9 +3151,6 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  The request message for finishing a DLP hybrid job.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FinishDlpJobRequest : GTLRObject
 @end
@@ -3194,9 +3233,6 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  An individual hybrid item to inspect. Will be stored temporarily during
  *  processing.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2HybridContentItem : GTLRObject
 
@@ -3211,9 +3247,6 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Populate to associate additional data with each finding.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2HybridFindingDetails : GTLRObject
 
@@ -3290,9 +3323,6 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Request to search for potentially sensitive info in a custom location.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2HybridInspectDlpJobRequest : GTLRObject
 
@@ -3304,9 +3334,6 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Request to search for potentially sensitive info in a custom location.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2HybridInspectJobTriggerRequest : GTLRObject
 
@@ -3318,19 +3345,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Quota exceeded errors will be thrown once quota has been met.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2HybridInspectResponse : GTLRObject
 @end
 
 
 /**
- *  Statistics related to processing hybrid inspect requests
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
+ *  Statistics related to processing hybrid inspect requests.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2HybridInspectStatistics : GTLRObject
 
@@ -3340,7 +3361,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *hybridRequestsAborted;
+@property(nonatomic, strong, nullable) NSNumber *abortedCount;
 
 /**
  *  The number of hybrid requests currently being processed. Only populated
@@ -3351,14 +3372,14 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *hybridRequestsPending;
+@property(nonatomic, strong, nullable) NSNumber *pendingCount;
 
 /**
  *  The number of hybrid inspection requests processed within this job.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *hybridRequestsProcessed;
+@property(nonatomic, strong, nullable) NSNumber *processedCount;
 
 @end
 
@@ -3366,9 +3387,6 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  Configuration to control jobs where the content being inspected is outside
  *  of Google Cloud Platform.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2HybridOptions : GTLRObject
 
@@ -4588,6 +4606,11 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Range *codepointRange;
 
 /**
+ *  Information about the container where this finding occurred, if available.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Container *container;
+
+/**
  *  List of nested objects pointing to the precise location of the finding
  *  within the file or record.
  */
@@ -4599,11 +4622,30 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  Job trigger option for hybrid jobs. Jobs must be manually created
  *  and finished.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Manual : GTLRObject
+@end
+
+
+/**
+ *  Metadata Location
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2MetadataLocation : GTLRObject
+
+/** Storage metadata. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StorageMetadataLabel *storageLabel;
+
+/**
+ *  Type of metadata containing the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_MetadatatypeUnspecified
+ *        Unused (Value: "METADATATYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_StorageMetadata
+ *        General file metadata provided by GCS. (Value: "STORAGE_METADATA")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -5428,6 +5470,16 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 
 /**
+ *  Storage metadata label to indicate which metadata entry contains findings.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2StorageMetadataLabel : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *key;
+
+@end
+
+
+/**
  *  StoredInfoType resource message that contains information about the current
  *  version and any pending updates.
  */
@@ -5651,9 +5703,6 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 
 /**
  *  Instructions regarding the table content being inspected.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TableOptions : GTLRObject
 

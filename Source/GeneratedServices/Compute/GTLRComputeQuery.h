@@ -36,6 +36,8 @@
 @class GTLRCompute_ExternalVpnGateway;
 @class GTLRCompute_Firewall;
 @class GTLRCompute_ForwardingRule;
+@class GTLRCompute_GlobalNetworkEndpointGroupsAttachEndpointsRequest;
+@class GTLRCompute_GlobalNetworkEndpointGroupsDetachEndpointsRequest;
 @class GTLRCompute_GlobalSetLabelsRequest;
 @class GTLRCompute_GlobalSetPolicyRequest;
 @class GTLRCompute_HealthCheck;
@@ -58,6 +60,8 @@
 @class GTLRCompute_InstanceGroupsSetNamedPortsRequest;
 @class GTLRCompute_InstanceMoveRequest;
 @class GTLRCompute_InstanceReference;
+@class GTLRCompute_InstancesAddResourcePoliciesRequest;
+@class GTLRCompute_InstancesRemoveResourcePoliciesRequest;
 @class GTLRCompute_InstancesSetLabelsRequest;
 @class GTLRCompute_InstancesSetMachineResourcesRequest;
 @class GTLRCompute_InstancesSetMachineTypeRequest;
@@ -173,6 +177,30 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionIncoming;
 GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 
 // ----------------------------------------------------------------------------
+// minimalAction
+
+/** Value: "INVALID" */
+GTLR_EXTERN NSString * const kGTLRComputeMinimalActionInvalid;
+/** Value: "NO_EFFECT" */
+GTLR_EXTERN NSString * const kGTLRComputeMinimalActionNoEffect;
+/** Value: "REFRESH" */
+GTLR_EXTERN NSString * const kGTLRComputeMinimalActionRefresh;
+/** Value: "RESTART" */
+GTLR_EXTERN NSString * const kGTLRComputeMinimalActionRestart;
+
+// ----------------------------------------------------------------------------
+// mostDisruptiveAllowedAction
+
+/** Value: "INVALID" */
+GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionInvalid;
+/** Value: "NO_EFFECT" */
+GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionNoEffect;
+/** Value: "REFRESH" */
+GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRefresh;
+/** Value: "RESTART" */
+GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -219,6 +247,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -434,6 +473,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -746,6 +796,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -1691,6 +1752,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
@@ -1923,8 +1995,8 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 /**
  *  Creates a BackendService resource in the specified project using the data
  *  included in the request. There are several restrictions and guidelines to
- *  keep in mind when creating a backend service. Read Restrictions and
- *  Guidelines for more information.
+ *  keep in mind when creating a backend service. Read Understanding backend
+ *  services for more information.
  *
  *  Method: compute.backendServices.insert
  *
@@ -1958,8 +2030,8 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *
  *  Creates a BackendService resource in the specified project using the data
  *  included in the request. There are several restrictions and guidelines to
- *  keep in mind when creating a backend service. Read Restrictions and
- *  Guidelines for more information.
+ *  keep in mind when creating a backend service. Read Understanding backend
+ *  services for more information.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -2058,10 +2130,10 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 
 /**
  *  Patches the specified BackendService resource with the data included in the
- *  request. There are several restrictions and guidelines to keep in mind when
- *  updating a backend service. Read Restrictions and Guidelines for more
- *  information. This method supports PATCH semantics and uses the JSON merge
- *  patch format and processing rules.
+ *  request. There are several Understanding backend services to keep in mind
+ *  when updating a backend service. Read Understanding backend services for
+ *  more information. This method supports PATCH semantics and uses the JSON
+ *  merge patch format and processing rules.
  *
  *  Method: compute.backendServices.patch
  *
@@ -2097,10 +2169,10 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified BackendService resource with the data included in the
- *  request. There are several restrictions and guidelines to keep in mind when
- *  updating a backend service. Read Restrictions and Guidelines for more
- *  information. This method supports PATCH semantics and uses the JSON merge
- *  patch format and processing rules.
+ *  request. There are several Understanding backend services to keep in mind
+ *  when updating a backend service. Read Understanding backend services for
+ *  more information. This method supports PATCH semantics and uses the JSON
+ *  merge patch format and processing rules.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -2171,9 +2243,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 
 /**
  *  Updates the specified BackendService resource with the data included in the
- *  request. There are several restrictions and guidelines to keep in mind when
- *  updating a backend service. Read Restrictions and Guidelines for more
- *  information.
+ *  request. There are several Understanding backend services to keep in mind
+ *  when updating a backend service. Read Understanding backend services for
+ *  more information.
  *
  *  Method: compute.backendServices.update
  *
@@ -2209,9 +2281,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified BackendService resource with the data included in the
- *  request. There are several restrictions and guidelines to keep in mind when
- *  updating a backend service. Read Restrictions and Guidelines for more
- *  information.
+ *  request. There are several Understanding backend services to keep in mind
+ *  when updating a backend service. Read Understanding backend services for
+ *  more information.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -2320,6 +2392,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -3055,6 +3138,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -3885,6 +3979,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -4823,6 +4928,436 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
+ *  Attach a network endpoint to the specified network endpoint group.
+ *
+ *  Method: compute.globalNetworkEndpointGroups.attachNetworkEndpoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_GlobalNetworkEndpointGroupsAttachNetworkEndpoints : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsAttachNetworkEndpointsWithObject:project:networkEndpointGroup:]
+
+/**
+ *  The name of the network endpoint group where you are attaching network
+ *  endpoints to. It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Attach a network endpoint to the specified network endpoint group.
+ *
+ *  @param object The @c
+ *    GTLRCompute_GlobalNetworkEndpointGroupsAttachEndpointsRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param networkEndpointGroup The name of the network endpoint group where you
+ *    are attaching network endpoints to. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_GlobalNetworkEndpointGroupsAttachNetworkEndpoints
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalNetworkEndpointGroupsAttachEndpointsRequest *)object
+                        project:(NSString *)project
+           networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
+ *  Deletes the specified network endpoint group.Note that the NEG cannot be
+ *  deleted if there are backend services referencing it.
+ *
+ *  Method: compute.globalNetworkEndpointGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_GlobalNetworkEndpointGroupsDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsDeleteWithproject:networkEndpointGroup:]
+
+/**
+ *  The name of the network endpoint group to delete. It should comply with
+ *  RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified network endpoint group.Note that the NEG cannot be
+ *  deleted if there are backend services referencing it.
+ *
+ *  @param project Project ID for this request.
+ *  @param networkEndpointGroup The name of the network endpoint group to
+ *    delete. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_GlobalNetworkEndpointGroupsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+            networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
+ *  Detach the network endpoint from the specified network endpoint group.
+ *
+ *  Method: compute.globalNetworkEndpointGroups.detachNetworkEndpoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_GlobalNetworkEndpointGroupsDetachNetworkEndpoints : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsDetachNetworkEndpointsWithObject:project:networkEndpointGroup:]
+
+/**
+ *  The name of the network endpoint group where you are removing network
+ *  endpoints. It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Detach the network endpoint from the specified network endpoint group.
+ *
+ *  @param object The @c
+ *    GTLRCompute_GlobalNetworkEndpointGroupsDetachEndpointsRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param networkEndpointGroup The name of the network endpoint group where you
+ *    are removing network endpoints. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_GlobalNetworkEndpointGroupsDetachNetworkEndpoints
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalNetworkEndpointGroupsDetachEndpointsRequest *)object
+                        project:(NSString *)project
+           networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
+ *  Returns the specified network endpoint group. Gets a list of available
+ *  network endpoint groups by making a list() request.
+ *
+ *  Method: compute.globalNetworkEndpointGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_GlobalNetworkEndpointGroupsGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsGetWithproject:networkEndpointGroup:]
+
+/** The name of the network endpoint group. It should comply with RFC1035. */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkEndpointGroup.
+ *
+ *  Returns the specified network endpoint group. Gets a list of available
+ *  network endpoint groups by making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param networkEndpointGroup The name of the network endpoint group. It
+ *    should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_GlobalNetworkEndpointGroupsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+            networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
+ *  Creates a network endpoint group in the specified project using the
+ *  parameters that are included in the request.
+ *
+ *  Method: compute.globalNetworkEndpointGroups.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_GlobalNetworkEndpointGroupsInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsInsertWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a network endpoint group in the specified project using the
+ *  parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_NetworkEndpointGroup to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_GlobalNetworkEndpointGroupsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEndpointGroup *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Retrieves the list of network endpoint groups that are located in the
+ *  specified project.
+ *
+ *  Method: compute.globalNetworkEndpointGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_GlobalNetworkEndpointGroupsList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsListWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkEndpointGroupList.
+ *
+ *  Retrieves the list of network endpoint groups that are located in the
+ *  specified project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_GlobalNetworkEndpointGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Lists the network endpoints in the specified network endpoint group.
+ *
+ *  Method: compute.globalNetworkEndpointGroups.listNetworkEndpoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_GlobalNetworkEndpointGroupsListNetworkEndpoints : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsListNetworkEndpointsWithproject:networkEndpointGroup:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  The name of the network endpoint group from which you want to generate a
+ *  list of included network endpoints. It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints.
+ *
+ *  Lists the network endpoints in the specified network endpoint group.
+ *
+ *  @param project Project ID for this request.
+ *  @param networkEndpointGroup The name of the network endpoint group from
+ *    which you want to generate a list of included network endpoints. It should
+ *    comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_GlobalNetworkEndpointGroupsListNetworkEndpoints
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+            networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
  *  Retrieves an aggregated list of all operations.
  *
  *  Method: compute.globalOperations.aggregatedList
@@ -4855,6 +5390,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -5147,6 +5693,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -6755,6 +7312,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
@@ -6800,7 +7368,7 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
- *  Apply changes to selected instances on the managed instance group. This
+ *  Applies changes to selected instances on the managed instance group. This
  *  method can be used to apply new overrides and/or new versions.
  *
  *  Method: compute.instanceGroupManagers.applyUpdatesToInstances
@@ -6830,7 +7398,7 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Apply changes to selected instances on the managed instance group. This
+ *  Applies changes to selected instances on the managed instance group. This
  *  method can be used to apply new overrides and/or new versions.
  *
  *  @param object The @c GTLRCompute_InstanceGroupManagersApplyUpdatesRequest to
@@ -7275,6 +7843,114 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Lists all errors thrown by actions on instances for a given managed instance
+ *  group.
+ *
+ *  Method: compute.instanceGroupManagers.listErrors
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersListErrors : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstanceGroupManagersListErrorsWithproject:zoneProperty:instanceGroupManager:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The name of the managed instance group. It must be a string that meets the
+ *  requirements in RFC1035, or an unsigned long integer: must match regexp
+ *  pattern: (?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)|[1-9][0-9]{0,19}.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone where the managed instance group is located. It should
+ *  conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceGroupManagersListErrorsResponse.
+ *
+ *  Lists all errors thrown by actions on instances for a given managed instance
+ *  group.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located. It should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. It must
+ *    be a string that meets the requirements in RFC1035, or an unsigned long
+ *    integer: must match regexp pattern:
+ *    (?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)|[1-9][0-9]{0,19}.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersListErrors
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+            instanceGroupManager:(NSString *)instanceGroupManager;
 
 @end
 
@@ -7866,6 +8542,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -8479,6 +9166,70 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
+ *  Adds existing resource policies to an instance. You can only add one policy
+ *  right now which will be applied to this instance for scheduling live
+ *  migrations.
+ *
+ *  Method: compute.instances.addResourcePolicies
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesAddResourcePolicies : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesAddResourcePoliciesWithObject:project:zoneProperty:instance:]
+
+/** The instance name for this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Adds existing resource policies to an instance. You can only add one policy
+ *  right now which will be applied to this instance for scheduling live
+ *  migrations.
+ *
+ *  @param object The @c GTLRCompute_InstancesAddResourcePoliciesRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance The instance name for this request.
+ *
+ *  @return GTLRComputeQuery_InstancesAddResourcePolicies
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstancesAddResourcePoliciesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Retrieves aggregated list of all of the instances in your project across all
  *  regions and zones.
  *
@@ -8512,6 +9263,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -9327,6 +10089,66 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
                         instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Removes resource policies from an instance.
+ *
+ *  Method: compute.instances.removeResourcePolicies
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesRemoveResourcePolicies : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesRemoveResourcePoliciesWithObject:project:zoneProperty:instance:]
+
+/** The instance name for this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Removes resource policies from an instance.
+ *
+ *  @param object The @c GTLRCompute_InstancesRemoveResourcePoliciesRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance The instance name for this request.
+ *
+ *  @return GTLRComputeQuery_InstancesRemoveResourcePolicies
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstancesRemoveResourcePoliciesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
 
 @end
 
@@ -10409,6 +11231,96 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
+ *  Updates an instance only if the necessary resources are available. This
+ *  method can update only a specific set of instance properties. See Updating a
+ *  running instance for a list of updatable instance properties.
+ *
+ *  Method: compute.instances.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesUpdate : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesUpdateWithObject:project:zoneProperty:instance:]
+
+/** Name of the instance resource to update. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/**
+ *  Specifies the action to take when updating an instance even if the updated
+ *  properties do not require it. If not specified, then Compute Engine acts
+ *  based on the minimum action that the updated properties require.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeMinimalActionInvalid Value "INVALID"
+ *    @arg @c kGTLRComputeMinimalActionNoEffect Value "NO_EFFECT"
+ *    @arg @c kGTLRComputeMinimalActionRefresh Value "REFRESH"
+ *    @arg @c kGTLRComputeMinimalActionRestart Value "RESTART"
+ */
+@property(nonatomic, copy, nullable) NSString *minimalAction;
+
+/**
+ *  Specifies the most disruptive action that can be taken on the instance as
+ *  part of the update. Compute Engine returns an error if the instance
+ *  properties require a more disruptive action as part of the instance update.
+ *  Valid options from lowest to highest are NO_EFFECT, REFRESH, and RESTART.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeMostDisruptiveAllowedActionInvalid Value "INVALID"
+ *    @arg @c kGTLRComputeMostDisruptiveAllowedActionNoEffect Value "NO_EFFECT"
+ *    @arg @c kGTLRComputeMostDisruptiveAllowedActionRefresh Value "REFRESH"
+ *    @arg @c kGTLRComputeMostDisruptiveAllowedActionRestart Value "RESTART"
+ */
+@property(nonatomic, copy, nullable) NSString *mostDisruptiveAllowedAction;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates an instance only if the necessary resources are available. This
+ *  method can update only a specific set of instance properties. See Updating a
+ *  running instance for a list of updatable instance properties.
+ *
+ *  @param object The @c GTLRCompute_Instance to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance resource to update.
+ *
+ *  @return GTLRComputeQuery_InstancesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Instance *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Updates the specified access config from an instance's network interface
  *  with the data included in the request. This method supports PATCH semantics
  *  and uses the JSON merge patch format and processing rules.
@@ -11042,6 +11954,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -11815,7 +12738,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 
 /**
  *  Return a specified license code. License codes are mirrored across all
- *  projects that have permissions to read the License Code.
+ *  projects that have permissions to read the License Code. Caution This
+ *  resource is intended for use only by third-party partners who are creating
+ *  Cloud Marketplace images.
  *
  *  Method: compute.licenseCodes.get
  *
@@ -11838,7 +12763,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  Fetches a @c GTLRCompute_LicenseCode.
  *
  *  Return a specified license code. License codes are mirrored across all
- *  projects that have permissions to read the License Code.
+ *  projects that have permissions to read the License Code. Caution This
+ *  resource is intended for use only by third-party partners who are creating
+ *  Cloud Marketplace images.
  *
  *  @param project Project ID for this request.
  *  @param licenseCode Number corresponding to the License code resource to
@@ -11852,7 +12779,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. Caution
+ *  This resource is intended for use only by third-party partners who are
+ *  creating Cloud Marketplace images.
  *
  *  Method: compute.licenseCodes.testIamPermissions
  *
@@ -11874,7 +12803,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. Caution
+ *  This resource is intended for use only by third-party partners who are
+ *  creating Cloud Marketplace images.
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -11890,7 +12821,8 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
- *  Deletes the specified license.
+ *  Deletes the specified license. Caution This resource is intended for use
+ *  only by third-party partners who are creating Cloud Marketplace images.
  *
  *  Method: compute.licenses.delete
  *
@@ -11925,7 +12857,8 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified license.
+ *  Deletes the specified license. Caution This resource is intended for use
+ *  only by third-party partners who are creating Cloud Marketplace images.
  *
  *  @param project Project ID for this request.
  *  @param license Name of the license resource to delete.
@@ -11938,7 +12871,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
- *  Returns the specified License resource.
+ *  Returns the specified License resource. Caution This resource is intended
+ *  for use only by third-party partners who are creating Cloud Marketplace
+ *  images.
  *
  *  Method: compute.licenses.get
  *
@@ -11960,7 +12895,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 /**
  *  Fetches a @c GTLRCompute_License.
  *
- *  Returns the specified License resource.
+ *  Returns the specified License resource. Caution This resource is intended
+ *  for use only by third-party partners who are creating Cloud Marketplace
+ *  images.
  *
  *  @param project Project ID for this request.
  *  @param license Name of the License resource to return.
@@ -11974,7 +12911,8 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. Caution This resource is intended for use only by
+ *  third-party partners who are creating Cloud Marketplace images.
  *
  *  Method: compute.licenses.getIamPolicy
  *
@@ -11997,7 +12935,8 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists.
+ *  policy or resource exists. Caution This resource is intended for use only by
+ *  third-party partners who are creating Cloud Marketplace images.
  *
  *  @param project Project ID for this request.
  *  @param resource Name or id of the resource for this request.
@@ -12010,7 +12949,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
- *  Create a License resource in the specified project.
+ *  Create a License resource in the specified project. Caution This resource is
+ *  intended for use only by third-party partners who are creating Cloud
+ *  Marketplace images.
  *
  *  Method: compute.licenses.insert
  *
@@ -12045,7 +12986,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Create a License resource in the specified project.
+ *  Create a License resource in the specified project. Caution This resource is
+ *  intended for use only by third-party partners who are creating Cloud
+ *  Marketplace images.
  *
  *  @param object The @c GTLRCompute_License to include in the query.
  *  @param project Project ID for this request.
@@ -12063,7 +13006,8 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  licenses attached to publicly-available images, like Debian 9. If you want
  *  to get a list of publicly-available licenses, use this method to make a
  *  request to the respective image project, such as debian-cloud or
- *  windows-cloud.
+ *  windows-cloud. Caution This resource is intended for use only by third-party
+ *  partners who are creating Cloud Marketplace images.
  *
  *  Method: compute.licenses.list
  *
@@ -12136,7 +13080,8 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  licenses attached to publicly-available images, like Debian 9. If you want
  *  to get a list of publicly-available licenses, use this method to make a
  *  request to the respective image project, such as debian-cloud or
- *  windows-cloud.
+ *  windows-cloud. Caution This resource is intended for use only by third-party
+ *  partners who are creating Cloud Marketplace images.
  *
  *  @param project Project ID for this request.
  *
@@ -12152,7 +13097,8 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. Caution This resource is intended for use only by
+ *  third-party partners who are creating Cloud Marketplace images.
  *
  *  Method: compute.licenses.setIamPolicy
  *
@@ -12174,7 +13120,8 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  existing policy. Caution This resource is intended for use only by
+ *  third-party partners who are creating Cloud Marketplace images.
  *
  *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
  *    query.
@@ -12190,7 +13137,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. Caution
+ *  This resource is intended for use only by third-party partners who are
+ *  creating Cloud Marketplace images.
  *
  *  Method: compute.licenses.testIamPermissions
  *
@@ -12212,7 +13161,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
+ *  Returns permissions that a caller has on the specified resource. Caution
+ *  This resource is intended for use only by third-party partners who are
+ *  creating Cloud Marketplace images.
  *
  *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
  *    query.
@@ -12260,6 +13211,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -12477,6 +13439,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -13761,6 +14734,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
@@ -14271,6 +15255,65 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @end
 
 /**
+ *  Patch the node group.
+ *
+ *  Method: compute.nodeGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NodeGroupsPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNodeGroupsPatchWithObject:project:zoneProperty:nodeGroup:]
+
+/** Name of the NodeGroup resource to update. */
+@property(nonatomic, copy, nullable) NSString *nodeGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patch the node group.
+ *
+ *  @param object The @c GTLRCompute_NodeGroup to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param nodeGroup Name of the NodeGroup resource to update.
+ *
+ *  @return GTLRComputeQuery_NodeGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NodeGroup *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                      nodeGroup:(NSString *)nodeGroup;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
  *
@@ -14458,6 +15501,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -14903,6 +15957,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
@@ -15118,6 +16183,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -16641,7 +17717,7 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  Creates a regional BackendService resource in the specified project using
  *  the data included in the request. There are several restrictions and
  *  guidelines to keep in mind when creating a regional backend service. Read
- *  Restrictions and Guidelines for more information.
+ *  Understanding backend services for more information.
  *
  *  Method: compute.regionBackendServices.insert
  *
@@ -16679,7 +17755,7 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  Creates a regional BackendService resource in the specified project using
  *  the data included in the request. There are several restrictions and
  *  guidelines to keep in mind when creating a regional backend service. Read
- *  Restrictions and Guidelines for more information.
+ *  Understanding backend services for more information.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -16785,10 +17861,10 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 
 /**
  *  Updates the specified regional BackendService resource with the data
- *  included in the request. There are several restrictions and guidelines to
- *  keep in mind when updating a backend service. Read Restrictions and
- *  Guidelines for more information. This method supports PATCH semantics and
- *  uses the JSON merge patch format and processing rules.
+ *  included in the request. There are several Understanding backend services to
+ *  keep in mind when updating a backend service. Read Understanding backend
+ *  services for more information. This method supports PATCH semantics and uses
+ *  the JSON merge patch format and processing rules.
  *
  *  Method: compute.regionBackendServices.patch
  *
@@ -16827,10 +17903,10 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified regional BackendService resource with the data
- *  included in the request. There are several restrictions and guidelines to
- *  keep in mind when updating a backend service. Read Restrictions and
- *  Guidelines for more information. This method supports PATCH semantics and
- *  uses the JSON merge patch format and processing rules.
+ *  included in the request. There are several Understanding backend services to
+ *  keep in mind when updating a backend service. Read Understanding backend
+ *  services for more information. This method supports PATCH semantics and uses
+ *  the JSON merge patch format and processing rules.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -16848,9 +17924,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 
 /**
  *  Updates the specified regional BackendService resource with the data
- *  included in the request. There are several restrictions and guidelines to
- *  keep in mind when updating a backend service. Read Restrictions and
- *  Guidelines for more information.
+ *  included in the request. There are several Understanding backend services to
+ *  keep in mind when updating a backend service. Read Understanding backend
+ *  services for more information.
  *
  *  Method: compute.regionBackendServices.update
  *
@@ -16889,9 +17965,9 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified regional BackendService resource with the data
- *  included in the request. There are several restrictions and guidelines to
- *  keep in mind when updating a backend service. Read Restrictions and
- *  Guidelines for more information.
+ *  included in the request. There are several Understanding backend services to
+ *  keep in mind when updating a backend service. Read Understanding backend
+ *  services for more information.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -16940,6 +18016,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -18738,6 +19825,111 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
+
+@end
+
+/**
+ *  Lists all errors thrown by actions on instances for a given regional managed
+ *  instance group.
+ *
+ *  Method: compute.regionInstanceGroupManagers.listErrors
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersListErrors : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersListErrorsWithproject:region:instanceGroupManager:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named example-instance by specifying name != example-instance.
+ *  You can also filter nested fields. For example, you could specify
+ *  scheduling.automaticRestart = false to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
+ *  = "Intel Skylake"). By default, each expression is an AND expression.
+ *  However, you can include AND and OR expressions explicitly. For example,
+ *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The name of the managed instance group. It must be a string that meets the
+ *  requirements in RFC1035, or an unsigned long integer: must match regexp
+ *  pattern: (?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)|[1-9][0-9]{0,19}.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than maxResults, Compute Engine
+ *  returns a nextPageToken that can be used to get the next page of results in
+ *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
+ *  (Default: 500)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using orderBy="creationTimestamp desc". This sorts results based
+ *  on the creationTimestamp field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by name or creationTimestamp desc is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set pageToken to the nextPageToken returned
+ *  by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Name of the region scoping this request. This should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_RegionInstanceGroupManagersListErrorsResponse.
+ *
+ *  Lists all errors thrown by actions on instances for a given regional managed
+ *  instance group.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request. This should conform
+ *    to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. It must
+ *    be a string that meets the requirements in RFC1035, or an unsigned long
+ *    integer: must match regexp pattern:
+ *    (?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)|[1-9][0-9]{0,19}.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersListErrors
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            instanceGroupManager:(NSString *)instanceGroupManager;
 
 @end
 
@@ -21091,6 +22283,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
@@ -21624,6 +22827,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
@@ -22063,6 +23277,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -23641,6 +24866,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
@@ -24298,6 +25534,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -25018,6 +26265,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
@@ -25364,6 +26622,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -25885,6 +27154,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
@@ -26327,6 +27607,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -27624,6 +28915,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
@@ -27939,6 +29241,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the
@@ -28432,6 +29745,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
  *  The maximum number of results per page that should be returned. If the
  *  number of available results is larger than maxResults, Compute Engine
  *  returns a nextPageToken that can be used to get the next page of results in
@@ -28887,6 +30211,17 @@ GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
  *  (scheduling.automaticRestart = true).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
 
 /**
  *  The maximum number of results per page that should be returned. If the

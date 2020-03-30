@@ -106,6 +106,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDoubleClickBidManager queryForQueriesCreatequeryWithObject:]
 
 /**
+ *  If true, tries to run the query asynchronously. Only applicable when the
+ *  frequency is ONE_TIME.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL asynchronous;
+
+/**
  *  Fetches a @c GTLRDoubleClickBidManager_Query.
  *
  *  Creates a query.
@@ -223,6 +231,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDoubleClickBidManagerQuery_QueriesRunquery : GTLRDoubleClickBidManagerQuery
 // Previous library name was
 //   +[GTLQueryDoubleClickBidManager queryForQueriesRunqueryWithObject:queryId:]
+
+/**
+ *  If true, tries to run the query asynchronously.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL asynchronous;
 
 /** Query ID to run. */
 @property(nonatomic, assign) long long queryId;

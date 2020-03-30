@@ -618,8 +618,11 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  will complete when entire workflow is finished.The running workflow can be
  *  aborted via operations.cancel. This will cause any inflight jobs to be
  *  cancelled and workflow-owned clusters to be deleted.The Operation.metadata
- *  will be WorkflowMetadata. Also see Using WorkflowMetadata.On successful
- *  completion, Operation.response will be Empty.
+ *  will be WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata).
+ *  Also see Using WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On
+ *  successful completion, Operation.response will be Empty.
  *
  *  Method: dataproc.projects.locations.workflowTemplates.instantiate
  *
@@ -650,8 +653,11 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  will complete when entire workflow is finished.The running workflow can be
  *  aborted via operations.cancel. This will cause any inflight jobs to be
  *  cancelled and workflow-owned clusters to be deleted.The Operation.metadata
- *  will be WorkflowMetadata. Also see Using WorkflowMetadata.On successful
- *  completion, Operation.response will be Empty.
+ *  will be WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata).
+ *  Also see Using WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On
+ *  successful completion, Operation.response will be Empty.
  *
  *  @param object The @c GTLRDataproc_InstantiateWorkflowTemplateRequest to
  *    include in the query.
@@ -679,8 +685,11 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  entire workflow is finished.The running workflow can be aborted via
  *  operations.cancel. This will cause any inflight jobs to be cancelled and
  *  workflow-owned clusters to be deleted.The Operation.metadata will be
- *  WorkflowMetadata. Also see Using WorkflowMetadata.On successful completion,
- *  Operation.response will be Empty.
+ *  WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata).
+ *  Also see Using WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On
+ *  successful completion, Operation.response will be Empty.
  *
  *  Method: dataproc.projects.locations.workflowTemplates.instantiateInline
  *
@@ -723,8 +732,11 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  entire workflow is finished.The running workflow can be aborted via
  *  operations.cancel. This will cause any inflight jobs to be cancelled and
  *  workflow-owned clusters to be deleted.The Operation.metadata will be
- *  WorkflowMetadata. Also see Using WorkflowMetadata.On successful completion,
- *  Operation.response will be Empty.
+ *  WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata).
+ *  Also see Using WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On
+ *  successful completion, Operation.response will be Empty.
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
  *  @param parent Required. The resource name of the region or location, as
@@ -1294,7 +1306,8 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Creates a cluster in a project. The returned Operation.metadata will be
- *  ClusterOperationMetadata.
+ *  ClusterOperationMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
  *
  *  Method: dataproc.projects.regions.clusters.create
  *
@@ -1329,7 +1342,8 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Operation.
  *
  *  Creates a cluster in a project. The returned Operation.metadata will be
- *  ClusterOperationMetadata.
+ *  ClusterOperationMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
  *
  *  @param object The @c GTLRDataproc_Cluster to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project that
@@ -1346,7 +1360,8 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Deletes a cluster in a project. The returned Operation.metadata will be
- *  ClusterOperationMetadata.
+ *  ClusterOperationMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
  *
  *  Method: dataproc.projects.regions.clusters.delete
  *
@@ -1390,7 +1405,8 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Operation.
  *
  *  Deletes a cluster in a project. The returned Operation.metadata will be
- *  ClusterOperationMetadata.
+ *  ClusterOperationMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
  *
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
@@ -1407,8 +1423,11 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Gets cluster diagnostic information. The returned Operation.metadata will be
- *  ClusterOperationMetadata. After the operation completes, Operation.response
- *  contains DiagnoseClusterResults.
+ *  ClusterOperationMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
+ *  After the operation completes, Operation.response contains
+ *  DiagnoseClusterResults
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#diagnoseclusterresults).
  *
  *  Method: dataproc.projects.regions.clusters.diagnose
  *
@@ -1435,8 +1454,11 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Operation.
  *
  *  Gets cluster diagnostic information. The returned Operation.metadata will be
- *  ClusterOperationMetadata. After the operation completes, Operation.response
- *  contains DiagnoseClusterResults.
+ *  ClusterOperationMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
+ *  After the operation completes, Operation.response contains
+ *  DiagnoseClusterResults
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#diagnoseclusterresults).
  *
  *  @param object The @c GTLRDataproc_DiagnoseClusterRequest to include in the
  *    query.
@@ -1535,7 +1557,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
- *  Lists all regions/{region}/clusters in a project.
+ *  Lists all regions/{region}/clusters in a project alphabetically.
  *
  *  Method: dataproc.projects.regions.clusters.list
  *
@@ -1579,7 +1601,7 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /**
  *  Fetches a @c GTLRDataproc_ListClustersResponse.
  *
- *  Lists all regions/{region}/clusters in a project.
+ *  Lists all regions/{region}/clusters in a project alphabetically.
  *
  *  @param projectId Required. The ID of the Google Cloud Platform project that
  *    the cluster belongs to.
@@ -1598,7 +1620,8 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Updates a cluster in a project. The returned Operation.metadata will be
- *  ClusterOperationMetadata.
+ *  ClusterOperationMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
  *
  *  Method: dataproc.projects.regions.clusters.patch
  *
@@ -1687,7 +1710,8 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Operation.
  *
  *  Updates a cluster in a project. The returned Operation.metadata will be
- *  ClusterOperationMetadata.
+ *  ClusterOperationMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
  *
  *  @param object The @c GTLRDataproc_Cluster to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project the
@@ -1790,7 +1814,10 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Starts a job cancellation request. To access the job resource after
- *  cancellation, call regions/{region}/jobs.list or regions/{region}/jobs.get.
+ *  cancellation, call regions/{region}/jobs.list
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/list)
+ *  or regions/{region}/jobs.get
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/get).
  *
  *  Method: dataproc.projects.regions.jobs.cancel
  *
@@ -1817,7 +1844,10 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Job.
  *
  *  Starts a job cancellation request. To access the job resource after
- *  cancellation, call regions/{region}/jobs.list or regions/{region}/jobs.get.
+ *  cancellation, call regions/{region}/jobs.list
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/list)
+ *  or regions/{region}/jobs.get
+ *  (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/get).
  *
  *  @param object The @c GTLRDataproc_CancelJobRequest to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project that
@@ -2164,6 +2194,45 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param region Required. The Dataproc region in which to handle the request.
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsJobsSubmit
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_SubmitJobRequest *)object
+                      projectId:(NSString *)projectId
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Submits job to a cluster.
+ *
+ *  Method: dataproc.projects.regions.jobs.submitAsOperation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsJobsSubmitAsOperation : GTLRDataprocQuery
+// Previous library name was
+//   +[GTLQueryDataproc queryForProjectsRegionsJobsSubmitAsOperationWithObject:projectId:region:]
+
+/**
+ *  Required. The ID of the Google Cloud Platform project that the job belongs
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. The Dataproc region in which to handle the request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Submits job to a cluster.
+ *
+ *  @param object The @c GTLRDataproc_SubmitJobRequest to include in the query.
+ *  @param projectId Required. The ID of the Google Cloud Platform project that
+ *    the job belongs to.
+ *  @param region Required. The Dataproc region in which to handle the request.
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsJobsSubmitAsOperation
  */
 + (instancetype)queryWithObject:(GTLRDataproc_SubmitJobRequest *)object
                       projectId:(NSString *)projectId
@@ -2696,8 +2765,11 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  will complete when entire workflow is finished.The running workflow can be
  *  aborted via operations.cancel. This will cause any inflight jobs to be
  *  cancelled and workflow-owned clusters to be deleted.The Operation.metadata
- *  will be WorkflowMetadata. Also see Using WorkflowMetadata.On successful
- *  completion, Operation.response will be Empty.
+ *  will be WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata).
+ *  Also see Using WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On
+ *  successful completion, Operation.response will be Empty.
  *
  *  Method: dataproc.projects.regions.workflowTemplates.instantiate
  *
@@ -2728,8 +2800,11 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  will complete when entire workflow is finished.The running workflow can be
  *  aborted via operations.cancel. This will cause any inflight jobs to be
  *  cancelled and workflow-owned clusters to be deleted.The Operation.metadata
- *  will be WorkflowMetadata. Also see Using WorkflowMetadata.On successful
- *  completion, Operation.response will be Empty.
+ *  will be WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata).
+ *  Also see Using WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On
+ *  successful completion, Operation.response will be Empty.
  *
  *  @param object The @c GTLRDataproc_InstantiateWorkflowTemplateRequest to
  *    include in the query.
@@ -2757,8 +2832,11 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  entire workflow is finished.The running workflow can be aborted via
  *  operations.cancel. This will cause any inflight jobs to be cancelled and
  *  workflow-owned clusters to be deleted.The Operation.metadata will be
- *  WorkflowMetadata. Also see Using WorkflowMetadata.On successful completion,
- *  Operation.response will be Empty.
+ *  WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata).
+ *  Also see Using WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On
+ *  successful completion, Operation.response will be Empty.
  *
  *  Method: dataproc.projects.regions.workflowTemplates.instantiateInline
  *
@@ -2801,8 +2879,11 @@ GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  entire workflow is finished.The running workflow can be aborted via
  *  operations.cancel. This will cause any inflight jobs to be cancelled and
  *  workflow-owned clusters to be deleted.The Operation.metadata will be
- *  WorkflowMetadata. Also see Using WorkflowMetadata.On successful completion,
- *  Operation.response will be Empty.
+ *  WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata).
+ *  Also see Using WorkflowMetadata
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On
+ *  successful completion, Operation.response will be Empty.
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
  *  @param parent Required. The resource name of the region or location, as

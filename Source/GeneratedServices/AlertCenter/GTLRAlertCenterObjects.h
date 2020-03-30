@@ -30,7 +30,6 @@
 @class GTLRAlertCenter_CsvRow;
 @class GTLRAlertCenter_DeviceCompromisedSecurityDetail;
 @class GTLRAlertCenter_DomainId;
-@class GTLRAlertCenter_DriveFile;
 @class GTLRAlertCenter_GmailMessageInfo;
 @class GTLRAlertCenter_LoginDetails;
 @class GTLRAlertCenter_MaliciousEntity;
@@ -100,22 +99,6 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Jso
  *  Value: "PAYLOAD_FORMAT_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRAlertCenter_DriveFile.abuseType
-
-/**
- *  Not specified abuse type.
- *
- *  Value: "DRIVE_ABUSE_TYPE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_DriveFile_AbuseType_DriveAbuseTypeUnspecified;
-/**
- *  The content is detected as suspected malware.
- *
- *  Value: "SUSPECTED_MALWARE"
- */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_DriveFile_AbuseType_SuspectedMalware;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_MailPhishing.systemActionType
@@ -251,7 +234,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionT
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supersededAlerts;
 
 /**
- *  Alert id superseding this alert. It is used to indicate that superseding
+ *  Alert ID superseding this alert. It is used to indicate that superseding
  *  alert is essentially extension of this alert and we found the relationship
  *  after creating both alerts.
  */
@@ -530,7 +513,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionT
  */
 @interface GTLRAlertCenter_BatchDeleteAlertsRequest : GTLRObject
 
-/** Required. list of alert ids. */
+/** Required. list of alert IDs. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *alertId;
 
 /**
@@ -550,7 +533,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionT
 /** The status details for each failed alert_id. */
 @property(nonatomic, strong, nullable) GTLRAlertCenter_BatchDeleteAlertsResponse_FailedAlertStatus *failedAlertStatus;
 
-/** The successful list of alert ids. */
+/** The successful list of alert IDs. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *successAlertIds;
 
 @end
@@ -573,7 +556,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionT
  */
 @interface GTLRAlertCenter_BatchUndeleteAlertsRequest : GTLRObject
 
-/** Required. list of alert ids. */
+/** Required. list of alert IDs. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *alertId;
 
 /**
@@ -593,7 +576,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionT
 /** The status details for each failed alert_id. */
 @property(nonatomic, strong, nullable) GTLRAlertCenter_BatchUndeleteAlertsResponse_FailedAlertStatus *failedAlertStatus;
 
-/** The successful list of alert ids. */
+/** The successful list of alert IDs. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *successAlertIds;
 
 @end
@@ -763,58 +746,6 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionT
 
 
 /**
- *  A Drive file
- */
-@interface GTLRAlertCenter_DriveFile : GTLRObject
-
-/**
- *  Abuse type of the file.
- *
- *  Likely values:
- *    @arg @c kGTLRAlertCenter_DriveFile_AbuseType_DriveAbuseTypeUnspecified Not
- *        specified abuse type. (Value: "DRIVE_ABUSE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRAlertCenter_DriveFile_AbuseType_SuspectedMalware The content
- *        is detected as suspected malware. (Value: "SUSPECTED_MALWARE")
- */
-@property(nonatomic, copy, nullable) NSString *abuseType;
-
-/**
- *  The ID of the file.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/** The name of the file. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The number of recent downloads of the file. This is available for the
- *  following alert types:
- *  *Drive malware sharing detected
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numRecentDownload;
-
-/** The email address of the file owner. */
-@property(nonatomic, copy, nullable) NSString *owner;
-
-@end
-
-
-/**
- *  Alerts for suspicious Drive files or activities.
- */
-@interface GTLRAlertCenter_DriveFileWarning : GTLRObject
-
-/** List of files in the alert. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_DriveFile *> *files;
-
-@end
-
-
-/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -948,7 +879,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionT
 
 /**
  *  Optional. The successful login time that is associated with the warning
- *  event. This will not be present for blocked login attempts.
+ *  event. This isn't present for blocked login attempts.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *loginTime;
 
@@ -1115,7 +1046,7 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionT
 /** Drive file ID. */
 @property(nonatomic, copy, nullable) NSString *documentId;
 
-/** Title of the resource, e.g. email subject, or document title. */
+/** Title of the resource, for example email subject, or document title. */
 @property(nonatomic, copy, nullable) NSString *resourceTitle;
 
 @end

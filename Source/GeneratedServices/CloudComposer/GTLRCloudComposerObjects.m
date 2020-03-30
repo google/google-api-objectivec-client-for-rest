@@ -75,7 +75,7 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 @implementation GTLRCloudComposer_EnvironmentConfig
 @dynamic airflowUri, dagGcsPrefix, gkeCluster, nodeConfig, nodeCount,
-         softwareConfig;
+         privateEnvironmentConfig, softwareConfig;
 @end
 
 
@@ -94,6 +94,17 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_IPAllocationPolicy
+//
+
+@implementation GTLRCloudComposer_IPAllocationPolicy
+@dynamic clusterIpv4CidrBlock, clusterSecondaryRangeName, servicesIpv4CidrBlock,
+         servicesSecondaryRangeName, useIpAliases;
 @end
 
 
@@ -169,8 +180,8 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_NodeConfig
-@dynamic diskSizeGb, location, machineType, network, oauthScopes,
-         serviceAccount, subnetwork, tags;
+@dynamic diskSizeGb, ipAllocationPolicy, location, machineType, network,
+         oauthScopes, serviceAccount, subnetwork, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -228,6 +239,27 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 @implementation GTLRCloudComposer_OperationMetadata
 @dynamic createTime, endTime, operationType, resource, resourceUuid, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_PrivateClusterConfig
+//
+
+@implementation GTLRCloudComposer_PrivateClusterConfig
+@dynamic enablePrivateEndpoint, masterIpv4CidrBlock, masterIpv4ReservedRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_PrivateEnvironmentConfig
+//
+
+@implementation GTLRCloudComposer_PrivateEnvironmentConfig
+@dynamic cloudSqlIpv4CidrBlock, enablePrivateEnvironment, privateClusterConfig,
+         webServerIpv4CidrBlock, webServerIpv4ReservedRange;
 @end
 
 

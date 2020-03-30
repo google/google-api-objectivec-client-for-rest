@@ -1367,6 +1367,73 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_LocalInventory
+//
+
+@implementation GTLRShoppingContent_LocalInventory
+@dynamic availability, instoreProductLocation, kind, pickupMethod, pickupSla,
+         price, quantity, salePrice, salePriceEffectiveDate, storeCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LocalinventoryCustomBatchRequest
+//
+
+@implementation GTLRShoppingContent_LocalinventoryCustomBatchRequest
+@dynamic entries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRShoppingContent_LocalinventoryCustomBatchRequestEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LocalinventoryCustomBatchRequestEntry
+//
+
+@implementation GTLRShoppingContent_LocalinventoryCustomBatchRequestEntry
+@dynamic batchId, localInventory, merchantId, method, productId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LocalinventoryCustomBatchResponse
+//
+
+@implementation GTLRShoppingContent_LocalinventoryCustomBatchResponse
+@dynamic entries, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRShoppingContent_LocalinventoryCustomBatchResponseEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_LocalinventoryCustomBatchResponseEntry
+//
+
+@implementation GTLRShoppingContent_LocalinventoryCustomBatchResponseEntry
+@dynamic batchId, errors, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_LocationIdSet
 //
 

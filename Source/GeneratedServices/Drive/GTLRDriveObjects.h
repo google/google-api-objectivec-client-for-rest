@@ -42,6 +42,7 @@
 @class GTLRDrive_File_ImageMediaMetadata;
 @class GTLRDrive_File_ImageMediaMetadata_Location;
 @class GTLRDrive_File_Properties;
+@class GTLRDrive_File_ShortcutDetails;
 @class GTLRDrive_File_VideoMediaMetadata;
 @class GTLRDrive_Permission;
 @class GTLRDrive_Permission_PermissionDetails_Item;
@@ -1140,6 +1141,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_User *sharingUser;
 
 /**
+ *  Shortcut file details. Only populated for shortcut files, which have the
+ *  mimeType field set to application/vnd.google-apps.shortcut.
+ */
+@property(nonatomic, strong, nullable) GTLRDrive_File_ShortcutDetails *shortcutDetails;
+
+/**
  *  The size of the file's content in bytes. This is only applicable to files
  *  with binary content in Google Drive.
  *
@@ -1279,6 +1286,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canAddChildren;
+
+/**
+ *  Whether the current user can add a parent for the item without removing an
+ *  existing parent in the same request. Not populated for shared drive files.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canAddMyDriveParent;
 
 /**
  *  Whether the current user can change the copyRequiresWriterPermission
@@ -1468,6 +1483,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canRemoveChildren;
+
+/**
+ *  Whether the current user can remove a parent from the item without adding
+ *  another parent in the same request. Not populated for shared drive files.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canRemoveMyDriveParent;
 
 /**
  *  Whether the current user can rename this file.
@@ -1667,6 +1690,25 @@ NS_ASSUME_NONNULL_BEGIN
  *        fetch them all at once.
  */
 @interface GTLRDrive_File_Properties : GTLRObject
+@end
+
+
+/**
+ *  Shortcut file details. Only populated for shortcut files, which have the
+ *  mimeType field set to application/vnd.google-apps.shortcut.
+ */
+@interface GTLRDrive_File_ShortcutDetails : GTLRObject
+
+/** The ID of the file that this shortcut points to. */
+@property(nonatomic, copy, nullable) NSString *targetId;
+
+/**
+ *  The MIME type of the file that this shortcut points to. The value of this
+ *  field is a snapshot of the target's MIME type, captured when the shortcut is
+ *  created.
+ */
+@property(nonatomic, copy, nullable) NSString *targetMimeType;
+
 @end
 
 
@@ -1933,7 +1975,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The ID of the item from which this permission is inherited. This is an
- *  output-only field and is only populated for members of the shared drive.
+ *  output-only field.
  */
 @property(nonatomic, copy, nullable) NSString *inheritedFrom;
 

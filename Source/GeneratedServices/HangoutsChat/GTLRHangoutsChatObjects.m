@@ -28,12 +28,6 @@ NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Avatar = @"AVATAR";
 NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image = @"IMAGE";
 NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_ImageStyleUnspecified = @"IMAGE_STYLE_UNSPECIFIED";
 
-// GTLRHangoutsChat_DeprecatedEvent.dialogEventType
-NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog = @"CANCEL_DIALOG";
-NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_RequestDialog = @"REQUEST_DIALOG";
-NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_SubmitDialog = @"SUBMIT_DIALOG";
-NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
 // GTLRHangoutsChat_DeprecatedEvent.type
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace = @"ADDED_TO_SPACE";
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked = @"CARD_CLICKED";
@@ -213,17 +207,8 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_DeprecatedEvent
-@dynamic action, configCompleteRedirectUrl, dialogEventType, eventTime,
-         formInputs, isDialogEvent, message, space, threadKey, token, type,
-         user;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"formInputs" : [GTLRHangoutsChat_FormInput class]
-  };
-  return map;
-}
-
+@dynamic action, configCompleteRedirectUrl, eventTime, message, space,
+         threadKey, token, type, user;
 @end
 
 
@@ -251,16 +236,6 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRHangoutsChat_FormInput
-//
-
-@implementation GTLRHangoutsChat_FormInput
-@dynamic name, value;
 @end
 
 
