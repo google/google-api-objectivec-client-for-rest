@@ -542,13 +542,14 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
       [method sg_setProperty:parentResourceAsValue forKey:kWrappedResourceKey];
     }
 
+    NSString *methodID = method.identifier;
     [method.response sg_setProperty:generatorAsValue forKey:kWrappedGeneratorKey];
-    [method.response sg_setProperty:[methodName stringByAppendingString:@"-Response"]
+    [method.response sg_setProperty:[methodID stringByAppendingString:@"-Response"]
                              forKey:kNameKey];
     [method.response.sg_resolvedSchema sg_setProperty:@YES
                                                forKey:kReturnsSchemaParameterKey];
 
-    [method.request sg_setProperty:[methodName stringByAppendingString:@"-Request"]
+    [method.request sg_setProperty:[methodID stringByAppendingString:@"-Request"]
                             forKey:kNameKey];
     [method.request sg_setProperty:generatorAsValue forKey:kWrappedGeneratorKey];
 
