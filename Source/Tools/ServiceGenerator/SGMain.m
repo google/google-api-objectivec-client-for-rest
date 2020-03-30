@@ -122,6 +122,10 @@ static ArgInfo optionalFlags[] = {
     " match the guessed name, causing changes in generated symbols, so using"
     "this option comes with some risk."
   },
+  { "--parseTextHTMLReplies",
+    "Parse content-type: \"text/html\" replies as if they were JSON to work"
+    " around misconfigured servers."
+  },
   { "--verbose",
     "Generate more verbose output.  Can be used more than once."
   },
@@ -209,6 +213,7 @@ typedef enum {
 @property(assign) BOOL rootURLOverrides;
 @property(assign) BOOL auditJSON;
 @property(assign) BOOL guessFormattedNames;
+@property(assign) BOOL parseTextHTMLReplies;
 @property(assign) BOOL briefOutput;
 @property(assign) NSUInteger verboseLevel;
 @property(strong) NSMutableDictionary *additionalHTTPHeaders;
@@ -283,6 +288,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
             rootURLOverrides = _rootURLOverrides,
             auditJSON = _auditJSON,
             guessFormattedNames = _guessFormattedNames,
+            parseTextHTMLReplies = _parseTextHTMLReplies,
             verboseLevel = _verboseLevel,
             briefOutput = _briefOutput,
             additionalHTTPHeaders = _additionalHTTPHeaders,
@@ -625,6 +631,19 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
                          [responseContentType hasPrefix:@"application/json"]) &&
                         (data.length > 0));
 
+    // Should we inspect to results to see if they might still be JSON to
+    // handle misconfigured servers?
+    if (!bodyHasJSON &&
+        self.parseTextHTMLReplies &&
+        [responseContentType hasPrefix:@"text/html"] &&
+        (data.length > 2) &&
+        (((char*)data.bytes)[0] == '{')) {
+      [self reportPrefixed:nil
+                      info:@"For %@, will attempt to parse 'text/html' reply as 'applicaiton/json'.",
+       reportingName];
+      bodyHasJSON = YES;
+    }
+
     NSError *parseErr = nil;
     NSMutableDictionary *json = nil;
     if (bodyHasJSON) {
@@ -728,6 +747,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
   int generatePreferred = 0;
   int auditJSON = 0;
   int guessFormattedNames = 0;
+  int parseTextHTMLReplies = 0;
   int showUsage = 0;
   int briefOutput = 0;
 
@@ -749,6 +769,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     { "messageFilter",       required_argument, NULL,                 'f' },
     { "auditJSON",           no_argument,       &auditJSON,           1 },
     { "guessFormattedNames", no_argument,       &guessFormattedNames, 1 },
+    { "parseTextHTMLReplies", no_argument,      &parseTextHTMLReplies, 1 },
     { "verbose",             no_argument,       NULL,                 'v' },
     { "brief",               no_argument,       &briefOutput,         1 },
     { "help",                no_argument,       &showUsage,           1 },
@@ -828,6 +849,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
   self.generatePreferred = generatePreferred;
   self.auditJSON = auditJSON;
   self.guessFormattedNames = guessFormattedNames;
+  self.parseTextHTMLReplies = parseTextHTMLReplies;
   self.briefOutput = briefOutput;
 
   if (showUsage) {
