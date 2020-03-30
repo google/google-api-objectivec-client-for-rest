@@ -100,7 +100,6 @@ typedef enum {
 @property(readonly) NSDictionary *sg_objectEnumsMap;
 @property(readonly) NSArray *sg_allSchemas;
 @property(readonly) NSArray *sg_topLevelObjectSchemas;
-@property(readonly) NSArray *sg_allMethodObjectParameters;
 @property(readonly) NSArray *sg_allMethodObjectParameterReferences;
 @property(readonly) NSString *sg_resumableUploadPath;
 @property(readonly) NSString *sg_simpleUploadPath;
@@ -1186,12 +1185,6 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   NSString *queryClassStr = [self generateQueryClassesForMode:kGenerateInterface];
   [parts addObject:queryClassStr];
 
-  NSString *methodParameterObjStr =
-    [self generateQueryMethodParametersBlockForMode:kGenerateInterface];
-  if (methodParameterObjStr.length > 0) {
-    [parts addObject:methodParameterObjStr];
-  }
-
   [parts addObject:@"NS_ASSUME_NONNULL_END\n"];
 
   [parts addObject:kSuppressDocumentationWarningsEnd];
@@ -1253,12 +1246,6 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
   NSString *queryClassStr = [self generateQueryClassesForMode:kGenerateImplementation];
   [parts addObject:queryClassStr];
-
-  NSString *methodParameterObjStr =
-    [self generateQueryMethodParametersBlockForMode:kGenerateImplementation];
-  if (methodParameterObjStr.length > 0) {
-    [parts addObject:methodParameterObjStr];
-  }
 
   return [parts componentsJoinedByString:@"\n"];
 }
@@ -1419,76 +1406,6 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   }
 
   NSString *result = [generatedInfo componentsJoinedByString:@""];
-  return result;
-}
-
-- (NSString *)generateQueryMethodParametersBlockForMode:(GeneratorMode)mode {
-  NSString *result = nil;
-
-  // Query parameter objects
-  NSArray *methodObjectParameters = self.api.sg_allMethodObjectParameters;
-  if (methodObjectParameters.count > 0) {
-    NSMutableArray *classesBlock = [NSMutableArray array];
-
-    // NOTE: This is leftover/kept from the RPC implementation. None of the
-    // public apis seem to fall into this case any more when using REST.
-    [self addWarning:
-      @"This API includes objects defined inline on methods. This is an"
-      @"untested code path.  Please let us know about your hitting it."];
-
-    NSMutableString *sectionBlock = [NSMutableString string];
-    [sectionBlock appendString:@"#pragma mark -\n"];
-    [sectionBlock appendString:@"#pragma mark method parameter objects\n"];
-    [sectionBlock appendString:@"// These object are used only to pass a collection of parameters to a\n"];
-    [sectionBlock appendString:@"// method as a single item.\n"];
-    [classesBlock addObject:sectionBlock];
-
-    for (GTLRDiscovery_JsonSchema *param in methodObjectParameters) {
-      NSMutableArray *aBlock = [NSMutableArray array];
-
-      if (mode == kGenerateInterface) {
-        // TODO: this is common with object class generation, it would be nice
-        // to not repeat it.
-        // Forward declare the classes needed by the schema so they can reference
-        // each other (i.e.-tree structures, etc.)
-        NSMutableSet *allNeededClasses = [NSMutableSet set];
-        NSSet *neededClasses = [self neededClassesForSchema:param];
-        [allNeededClasses unionSet:neededClasses];
-        for (GTLRDiscovery_JsonSchema *subSchema in param.sg_childObjectSchemas) {
-          neededClasses = [self neededClassesForSchema:subSchema];
-          [allNeededClasses unionSet:neededClasses];
-        }
-        if (allNeededClasses.count > 0) {
-          NSArray *sortedAllNeededClasses =
-            [[allNeededClasses allObjects] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-          NSMutableArray *atClasses = [NSMutableArray array];
-          for (NSString *className in sortedAllNeededClasses) {
-            NSString *aLine = [NSString stringWithFormat:@"@class %@;\n", className];
-            [atClasses addObject:aLine];
-          }
-          [aBlock addObject:[atClasses componentsJoinedByString:@""]];
-        }
-      }
-      // TODO: if any of these ever reference a top level schema, we probably
-      // need to import it here in the implementation.
-
-      NSString *objectClassStr = [self generateObjectClassForSchema:param
-                                                            forMode:mode];
-      [aBlock addObject:objectClassStr];
-
-      // Child schema.
-      for (GTLRDiscovery_JsonSchema *subSchema in param.sg_childObjectSchemas) {
-        NSString *subObjectClassStr = [self generateObjectClassForSchema:subSchema
-                                                                 forMode:mode];
-        [aBlock addObject:subObjectClassStr];
-      }
-
-      [classesBlock addObject:[aBlock componentsJoinedByString:@"\n"]];
-    }
-
-    result = [classesBlock componentsJoinedByString:@"\n"];
-  }
-
   return result;
 }
 
@@ -3358,33 +3275,6 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
   return result;
 }
 
-// These are schema inlined in the method parameters themselves (ie- not $refs)
-- (NSArray *)sg_allMethodObjectParameters {
-  NSArray *result = [self sg_propertyForKey:kAllMethodObjectParametersKey];
-  if (result == nil) {
-    NSMutableArray *worker = [NSMutableArray array];
-
-    for (GTLRDiscovery_RestMethod *method in self.sg_allMethods) {
-      for (GTLRDiscovery_JsonSchema *param in method.sg_sortedParametersWithRequest) {
-        NSString *schemaType = param.type;
-        if ([schemaType isEqual:@"object"]) {
-          [worker addObject:param];
-        } else if ([schemaType isEqual:@"array"]) {
-          GTLRDiscovery_JsonSchema *paramItems =
-            [param sg_itemsSchemaResolving:NO depth:NULL];
-          if ([paramItems.type isEqual:@"object"]) {
-            [worker addObject:paramItems];
-          }
-        }
-      }
-    }
-
-    result = [NSArray arrayWithArray:worker];
-    [self sg_setProperty:result forKey:kAllMethodObjectParametersKey];
-  }
-  return result;
-}
-
 // These are resolved schema references in the method parameters (refs or
 // inline).
 - (NSArray *)sg_allMethodObjectParameterReferences {
@@ -4676,12 +4566,6 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
 @end
 
 @implementation GTLRDiscovery_RestMethod_Request (SGGeneratorAdditions)
-
-// Since this isn't a real scheme (GTLRDiscovery_JsonSchema), provide -type to
-// return nil like a schema would when it is use a $ref.
-- (NSString *)type {
-  return nil;
-}
 
 - (GTLRDiscovery_JsonSchema *)sg_resolvedSchema {
   // These aren't real schema, so look up their references (and resolve them).
