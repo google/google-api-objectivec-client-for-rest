@@ -1035,6 +1035,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
             [NSString stringWithFormat:@"%@:%@", apiName, version];
         [self.apisToSkip addObject:apiVersion];
       } else {
+        // Not what most services are moving to a model where directory only
+        // list the api, but discovery comes from a differnet server, it might
+        // make sense to eventualy drop this direct support.
         NSArray *pair = @[ apiName, version ];
         [self.apisToFetch addObject:pair];
       }
@@ -1143,24 +1146,11 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
                             info:@"Discovery included '%@:%@', but skipping as requested.",
              apiName, listItem.version];
             [apisLeftToSkip removeObject:apiName];
-          } else if ([listItem.discoveryRestUrl containsString:@"/$discovery/"]) {
-            // The URL can have a arguments (for version, etc), so parse it to
-            // get at the path only.
-            NSURL *discoveryRestURL = [NSURL URLWithString:listItem.discoveryRestUrl];
-            if ([discoveryRestURL.path hasSuffix:@"/rest"]) {
-              NSArray *tuple = @[ apiName, listItem.version, listItem.discoveryRestUrl ];
-              [self.apisToFetch addObject:tuple];
-            } else {
-              [self reportPrefixed:@" - "
-                           warning:@"Skipping '%@:%@', the discovery link appears to be some other format: %@",
-               apiName, listItem.version, listItem.discoveryRestUrl];
-            }
           } else {
-            // NOTE: Could have skipped the "/$discovery/" check and just used
-            // discoveryRestUrl in all cases, but by using the getRest method we
-            // can use a batch query to cut down on how long it takes to get all
-            // the documents.
-            NSArray *tuple = @[ apiName, listItem.version ];
+            // NOTE: Could try to check if the urls is the main discovery
+            // server and then use a batch, but it is safer to just use the
+            // return URL instead.
+            NSArray *tuple = @[ apiName, listItem.version, listItem.discoveryRestUrl ];
             [self.apisToFetch addObject:tuple];
           }
         }
