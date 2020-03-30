@@ -2111,6 +2111,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last30Days;
 /** Value: "LAST_365_DAYS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last365Days;
+/** Value: "LAST_60_DAYS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last60Days;
 /** Value: "LAST_7_DAYS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last7Days;
 /** Value: "LAST_90_DAYS" */
@@ -2239,6 +2241,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRang
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last30Days;
 /** Value: "LAST_365_DAYS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last365Days;
+/** Value: "LAST_60_DAYS" */
+GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last60Days;
 /** Value: "LAST_7_DAYS" */
 GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last7Days;
 /** Value: "LAST_90_DAYS" */
@@ -3197,6 +3201,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "LAST_30_DAYS"
  *    @arg @c kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last365Days
  *        Value "LAST_365_DAYS"
+ *    @arg @c kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last60Days
+ *        Value "LAST_60_DAYS"
  *    @arg @c kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last7Days Value
  *        "LAST_7_DAYS"
  *    @arg @c kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last90Days
@@ -3579,6 +3585,8 @@ GTLR_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_F
  *        Value "LAST_30_DAYS"
  *    @arg @c kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last365Days
  *        Value "LAST_365_DAYS"
+ *    @arg @c kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last60Days
+ *        Value "LAST_60_DAYS"
  *    @arg @c kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last7Days
  *        Value "LAST_7_DAYS"
  *    @arg @c kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last90Days

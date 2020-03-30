@@ -4,9 +4,10 @@
 // API:
 //   Tag Manager API (tagmanager/v2)
 // Description:
-//   Accesses Tag Manager accounts and containers.
+//   This API allows clients to access and modify container and tag
+//   configuration.
 // Documentation:
-//   https://developers.google.com/tag-manager/api/v2/
+//   https://developers.google.com/tag-manager
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -81,7 +82,8 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerReadonly;
 /**
  *  Service for executing Tag Manager API queries.
  *
- *  Accesses Tag Manager accounts and containers.
+ *  This API allows clients to access and modify container and tag
+ *  configuration.
  */
 @interface GTLRTagManagerService : GTLRService
 

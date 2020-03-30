@@ -668,6 +668,12 @@ GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 //   +[GTLQueryAdSenseHost queryForAssociationsessionsStartWithproductCode:websiteUrl:]
 
 /**
+ *  The URL to redirect the user to once association is completed. It receives a
+ *  token parameter that can then be used to retrieve the associated account.
+ */
+@property(nonatomic, copy, nullable) NSString *callbackUrl;
+
+/**
  *  Products to associate with the user.
  *
  *  Likely values:

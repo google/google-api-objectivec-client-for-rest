@@ -125,6 +125,32 @@
 
 @end
 
+@implementation GTLRServiceUsageQuery_ServicesBatchGet
+
+@dynamic names, parent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/services:batchGet";
+  GTLRServiceUsageQuery_ServicesBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceUsage_BatchGetServicesResponse class];
+  query.loggingName = @"serviceusage.services.batchGet";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceUsageQuery_ServicesDisable
 
 @dynamic name;

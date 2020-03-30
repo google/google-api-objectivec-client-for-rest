@@ -21,11 +21,14 @@
 
 @class GTLRStorageTransfer_AwsAccessKey;
 @class GTLRStorageTransfer_AwsS3Data;
+@class GTLRStorageTransfer_AzureBlobStorageData;
+@class GTLRStorageTransfer_AzureCredentials;
 @class GTLRStorageTransfer_Date;
 @class GTLRStorageTransfer_ErrorLogEntry;
 @class GTLRStorageTransfer_ErrorSummary;
 @class GTLRStorageTransfer_GcsData;
 @class GTLRStorageTransfer_HttpData;
+@class GTLRStorageTransfer_NotificationConfig;
 @class GTLRStorageTransfer_ObjectConditions;
 @class GTLRStorageTransfer_Operation;
 @class GTLRStorageTransfer_Operation_Metadata;
@@ -236,6 +239,42 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unimple
 GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRStorageTransfer_NotificationConfig.eventTypes
+
+/** Value: "EVENT_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_EventTypeUnspecified;
+/** Value: "TRANSFER_OPERATION_ABORTED" */
+GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationAborted;
+/** Value: "TRANSFER_OPERATION_FAILED" */
+GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationFailed;
+/** Value: "TRANSFER_OPERATION_SUCCESS" */
+GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationSuccess;
+
+// ----------------------------------------------------------------------------
+// GTLRStorageTransfer_NotificationConfig.payloadFormat
+
+/**
+ *  `TransferOperation` is [formatted as a JSON
+ *  response](https://developers.google.com/protocol-buffers/docs/proto3#json),
+ *  in application/json.
+ *
+ *  Value: "JSON"
+ */
+GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_Json;
+/**
+ *  No payload is included with the notification.
+ *
+ *  Value: "NONE"
+ */
+GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_None;
+/**
+ *  Illegal value, to avoid allowing a default.
+ *
+ *  Value: "PAYLOAD_FORMAT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_PayloadFormatUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRStorageTransfer_TransferJob.status
 
 /**
@@ -350,6 +389,45 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/create-bucket-get-location-example.html)).
  */
 @property(nonatomic, copy, nullable) NSString *bucketName;
+
+@end
+
+
+/**
+ *  An AzureBlobStorageData resource can be a data source, but not a data sink.
+ *  An AzureBlobStorageData resource represents one Azure container. The storage
+ *  account determines the [Azure
+ *  endpoint](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#storage-account-endpoints).
+ *  In an AzureBlobStorageData resource, a blobs's name is the [Azure Blob
+ *  Storage blob's key
+ *  name](https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#blob-names).
+ */
+@interface GTLRStorageTransfer_AzureBlobStorageData : GTLRObject
+
+/** Required. Credentials used to authenticate API requests to Azure. */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_AzureCredentials *azureCredentials;
+
+/** Required. The container to transfer from the Azure Storage account. */
+@property(nonatomic, copy, nullable) NSString *container;
+
+/** Required. The name of the Azure Storage account. */
+@property(nonatomic, copy, nullable) NSString *storageAccount;
+
+@end
+
+
+/**
+ *  Azure credentials
+ */
+@interface GTLRStorageTransfer_AzureCredentials : GTLRObject
+
+/**
+ *  Required. Azure shared access signature. (see
+ *  [Grant limited access to Azure Storage resources using shared access
+ *  signatures
+ *  (SAS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview)).
+ */
+@property(nonatomic, copy, nullable) NSString *sasToken;
 
 @end
 
@@ -696,6 +774,57 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 
 /**
+ *  Specification to configure notifications published to Cloud Pub/Sub.
+ *  Notifications will be published to the customer-provided topic using the
+ *  following `PubsubMessage.attributes`:
+ *  * `"eventType"`: one of the EventType values
+ *  * `"payloadFormat"`: one of the PayloadFormat values
+ *  * `"projectId"`: the project_id of the
+ *  `TransferOperation`
+ *  * `"transferJobName"`: the
+ *  transfer_job_name of the
+ *  `TransferOperation`
+ *  * `"transferOperationName"`: the name of the
+ *  `TransferOperation`
+ *  The `PubsubMessage.data` will contain a TransferOperation resource
+ *  formatted according to the specified `PayloadFormat`.
+ */
+@interface GTLRStorageTransfer_NotificationConfig : GTLRObject
+
+/**
+ *  Event types for which a notification is desired. If empty, send
+ *  notifications for all event types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *eventTypes;
+
+/**
+ *  Required. The desired format of the notification message payloads.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_NotificationConfig_PayloadFormat_Json
+ *        `TransferOperation` is [formatted as a JSON
+ *        response](https://developers.google.com/protocol-buffers/docs/proto3#json),
+ *        in application/json. (Value: "JSON")
+ *    @arg @c kGTLRStorageTransfer_NotificationConfig_PayloadFormat_None No
+ *        payload is included with the notification. (Value: "NONE")
+ *    @arg @c kGTLRStorageTransfer_NotificationConfig_PayloadFormat_PayloadFormatUnspecified
+ *        Illegal value, to avoid allowing a default. (Value:
+ *        "PAYLOAD_FORMAT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *payloadFormat;
+
+/**
+ *  Required. The `Topic.name` of the Cloud Pub/Sub topic to which to publish
+ *  notifications. Must be of the format: `projects/{project}/topics/{topic}`.
+ *  Not matching this format will result in an
+ *  INVALID_ARGUMENT error.
+ */
+@property(nonatomic, copy, nullable) NSString *pubsubTopic;
+
+@end
+
+
+/**
  *  Conditions that determine which objects will be transferred. Applies only
  *  to S3 and Cloud Storage objects.
  *  The "last modification time" refers to the time of the
@@ -741,6 +870,26 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  The max size of `include_prefixes` is 1000.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includePrefixes;
+
+/**
+ *  If specified, only objects with a "last modification time" before this
+ *  timestamp and objects that don't have a "last modification time" will be
+ *  transferred.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastModifiedBefore;
+
+/**
+ *  If specified, only objects with a "last modification time" on or after
+ *  this timestamp and objects that don't have a "last modification time" are
+ *  transferred.
+ *  The `last_modified_since` and `last_modified_before` fields can be used
+ *  together for chunked data processing. For example, consider a script that
+ *  processes each day's worth of data at a time. For that you'd set each
+ *  of the fields as follows:
+ *  * `last_modified_since` to the start of the day
+ *  * `last_modified_before` to the end of the day
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastModifiedSince;
 
 /**
  *  If specified, only objects with a "last modification time" on or after
@@ -1139,20 +1288,21 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /**
  *  A unique name (within the transfer project) assigned when the job is
- *  created.
- *  If this field is left empty in a CreateTransferJobRequest, Storage Transfer
- *  Service will assign a unique name. Otherwise, the supplied name is used as
- *  the unique name for this job.
+ *  created. If this field is empty in a CreateTransferJobRequest, Storage
+ *  Transfer Service will assign a unique name. Otherwise, the specified name
+ *  is used as the unique name for this job.
+ *  If the specified name is in use by a job, the creation request fails with
+ *  an ALREADY_EXISTS error.
  *  This name must start with `"transferJobs/"` prefix and end with a letter or
  *  a number, and should be no more than 128 characters.
- *  Example of a valid format : `"transferJobs/[A-Za-z0-9-._~]*[A-Za-z0-9]$"`
- *  **Note:** If the supplied name is already in use, the creation request
- *  results in an ALREADY_EXISTS error and
- *  the transfer job will not be created. Invalid job names will return an
- *  INVALID_ARGUMENT error and the job will
- *  not be created.
+ *  Example: `"transferJobs/[A-Za-z0-9-._~]*[A-Za-z0-9]$"`
+ *  Invalid job names will fail with an
+ *  INVALID_ARGUMENT error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Notification configuration. */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_NotificationConfig *notificationConfig;
 
 /** The ID of the Google Cloud Platform Project that owns the job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -1207,6 +1357,9 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /** A globally unique ID assigned by the system. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Notification configuration. */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_NotificationConfig *notificationConfig;
 
 /** The ID of the Google Cloud Platform Project that owns the operation. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -1287,6 +1440,9 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 /** An AWS S3 data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AwsS3Data *awsS3DataSource;
 
+/** An Azure Blob Storage data source. */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_AzureBlobStorageData *azureBlobStorageDataSource;
+
 /** A Cloud Storage data sink. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_GcsData *gcsDataSink;
 
@@ -1327,9 +1483,9 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
 
 /**
  *  Required. The job to update. `transferJob` is expected to specify only
- *  three fields:
- *  description,
- *  transfer_spec, and
+ *  four fields: description,
+ *  transfer_spec,
+ *  notification_config, and
  *  status. An `UpdateTransferJobRequest` that specifies
  *  other fields will be rejected with the error
  *  INVALID_ARGUMENT.
@@ -1340,7 +1496,8 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Succe
  *  The field mask of the fields in `transferJob` that are to be updated in
  *  this request. Fields in `transferJob` that can be updated are:
  *  description,
- *  transfer_spec, and
+ *  transfer_spec,
+ *  notification_config, and
  *  status. To update the `transfer_spec` of the job, a
  *  complete transfer specification must be provided. An incomplete
  *  specification missing any required fields will be rejected with the error

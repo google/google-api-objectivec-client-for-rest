@@ -20,12 +20,13 @@
          encryption, ETag, iamConfiguration, identifier, kind, labels,
          lifecycle, location, locationType, logging, metageneration, name,
          owner, projectNumber, retentionPolicy, selfLink, storageClass,
-         timeCreated, updated, versioning, website;
+         timeCreated, updated, versioning, website, zoneAffinity;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"ETag" : @"etag",
-    @"identifier" : @"id"
+    @"identifier" : @"id",
+    @"zoneAffinity" : @"zone_affinity"
   };
   return map;
 }
@@ -34,7 +35,8 @@
   NSDictionary<NSString *, Class> *map = @{
     @"acl" : [GTLRStorage_BucketAccessControl class],
     @"cors" : [GTLRStorage_Bucket_Cors_Item class],
-    @"defaultObjectAcl" : [GTLRStorage_ObjectAccessControl class]
+    @"defaultObjectAcl" : [GTLRStorage_ObjectAccessControl class],
+    @"zone_affinity" : [NSString class]
   };
   return map;
 }

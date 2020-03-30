@@ -26,7 +26,6 @@
 @class GTLRHangoutsChat_CardAction;
 @class GTLRHangoutsChat_CardHeader;
 @class GTLRHangoutsChat_FormAction;
-@class GTLRHangoutsChat_FormInput;
 @class GTLRHangoutsChat_Image;
 @class GTLRHangoutsChat_ImageButton;
 @class GTLRHangoutsChat_KeyValue;
@@ -114,35 +113,6 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Avatar;
 GTLR_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image;
 /** Value: "IMAGE_STYLE_UNSPECIFIED" */
 GTLR_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_ImageStyleUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRHangoutsChat_DeprecatedEvent.dialogEventType
-
-/**
- *  For native cancellation button.
- *
- *  Value: "CANCEL_DIALOG"
- */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog;
-/**
- *  For any user action that would result in a dialog opening.
- *
- *  Value: "REQUEST_DIALOG"
- */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_RequestDialog;
-/**
- *  For card click events from any dialog.
- *
- *  Value: "SUBMIT_DIALOG"
- */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_SubmitDialog;
-/**
- *  This could be used when the corresponding event is not dialog related.
- *  For example an \@mention.
- *
- *  Value: "TYPE_UNSPECIFIED"
- */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_DeprecatedEvent.type
@@ -617,40 +587,8 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnsp
  */
 @property(nonatomic, copy, nullable) NSString *configCompleteRedirectUrl;
 
-/**
- *  The type of dialog event we have received.
- *
- *  Likely values:
- *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog For
- *        native cancellation button. (Value: "CANCEL_DIALOG")
- *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_RequestDialog
- *        For any user action that would result in a dialog opening. (Value:
- *        "REQUEST_DIALOG")
- *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_SubmitDialog For
- *        card click events from any dialog. (Value: "SUBMIT_DIALOG")
- *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_TypeUnspecified
- *        This could be used when the corresponding event is not dialog related.
- *        For example an \@mention. (Value: "TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *dialogEventType;
-
 /** The timestamp indicating when the event was dispatched. */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
-
-/**
- *  The list of form inputs we will supply to the bot. These are just the
- *  inputs from the dialog that are populated by the user. This will only be
- *  populated for CARD_CLICKED events.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_FormInput *> *formInputs;
-
-/**
- *  Whether or not this event is related to dialogs request, submit or cancel.
- *  This will be set to true when we want a request/submit/cancel event.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isDialogEvent;
 
 /** The message that triggered the event, if applicable. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Message *message;
@@ -716,27 +654,15 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnsp
 @interface GTLRHangoutsChat_FormAction : GTLRObject
 
 /**
- *  Apps Script function to invoke when the containing element is
- *  clicked/activated.
+ *  The method name is used to identify which part of the form triggered the
+ *  form submission. This information is echoed back to the bot as part of
+ *  the card click event. The same method name can be used for several
+ *  elements that trigger a common behavior if desired.
  */
 @property(nonatomic, copy, nullable) NSString *actionMethodName;
 
 /** List of action parameters. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_ActionParameter *> *parameters;
-
-@end
-
-
-/**
- *  A single user input from an editable widget from Card API.
- */
-@interface GTLRHangoutsChat_FormInput : GTLRObject
-
-/** The name of the editable widget. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Value entered by user. */
-@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

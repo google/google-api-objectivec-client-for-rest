@@ -2,13 +2,22 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Tool Results API (toolresults/v1)
+//   Cloud Tool Results API (toolresults/v1beta3)
 // Description:
-//   API to publish and access results from developer tools.
+//   Reads and publishes results from Firebase Test Lab.
 // Documentation:
 //   https://firebase.google.com/docs/test-lab/
 
 #import "GTLRToolResults.h"
+
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopeToolResultsCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+
+// ----------------------------------------------------------------------------
+//   GTLRToolResultsService
+//
 
 @implementation GTLRToolResultsService
 
@@ -17,7 +26,8 @@
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.batchPath = @"batch";
+    self.servicePath = @"toolresults/v1beta3/";
+    self.batchPath = @"batch/toolresults/v1beta3";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

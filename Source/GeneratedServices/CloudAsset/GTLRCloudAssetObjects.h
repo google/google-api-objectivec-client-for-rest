@@ -284,8 +284,11 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeRegular;
 
 /**
- *  Cloud asset. This includes all Google Cloud Platform resources,
- *  Cloud IAM policies, and other non-GCP assets.
+ *  An asset in Google Cloud. An asset can be any resource in the Google Cloud
+ *  [resource
+ *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
+ *  a resource outside the Google Cloud resource hierarchy (such as Google
+ *  Kubernetes Engine clusters and objects), or a Cloud IAM policy.
  */
 @interface GTLRCloudAsset_Asset : GTLRObject
 
@@ -293,40 +296,55 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessPolicy *accessPolicy;
 
 /**
- *  Asset's ancestry path in Cloud Resource Manager (CRM) hierarchy,
- *  represented as a list of relative resource names. Ancestry path starts with
- *  the closest CRM ancestor and ends at root. If the asset is a CRM
- *  project/folder/organization, this starts from the asset itself.
- *  Example: ["projects/123456789", "folders/5432", "organizations/1234"]
+ *  The ancestry path of an asset in Google Cloud [resource
+ *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
+ *  represented as a list of relative resource names. An ancestry path starts
+ *  with the closest ancestor in the hierarchy and ends at root. If the asset
+ *  is a project, folder, or organization, the ancestry path starts from the
+ *  asset itself.
+ *  For example: `["projects/123456789", "folders/5432", "organizations/1234"]`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ancestors;
 
-/** Type of the asset. Example: "compute.googleapis.com/Disk". */
+/**
+ *  The type of the asset. For example: "compute.googleapis.com/Disk"
+ *  See [Supported asset
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+ *  for more information.
+ */
 @property(nonatomic, copy, nullable) NSString *assetType;
 
 /**
- *  Representation of the actual Cloud IAM policy set on a cloud resource. For
- *  each resource, there must be at most one Cloud IAM policy set on it.
+ *  A representation of the Cloud IAM policy set on a Google Cloud resource.
+ *  There can be a maximum of one Cloud IAM policy set on any given resource.
+ *  In addition, Cloud IAM policies inherit their granted access scope from any
+ *  policies set on parent resources in the resource hierarchy. Therefore, the
+ *  effectively policy is the union of both the policy set on this resource
+ *  and each policy set on all of the resource's ancestry resource levels in
+ *  the hierarchy. See
+ *  [this topic](https://cloud.google.com/iam/docs/policies#inheritance) for
+ *  more information.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Policy *iamPolicy;
 
 /**
  *  The full name of the asset. For example:
- *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
+ *  "//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1"
  *  See [Resource
- *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
+ *  names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
  *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Representation of the Cloud Organization Policy set on an asset. For each
- *  asset, there could be multiple Organization policies with different
- *  constraints.
+ *  A representation of an [organization
+ *  policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview#organization_policy).
+ *  There can be more than one organization policy with different constraints
+ *  set on a given resource.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy *> *orgPolicy;
 
-/** Representation of the resource. */
+/** A representation of the resource. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Resource *resource;
 
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter *servicePerimeter;
@@ -464,15 +482,15 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  Required. The BigQuery dataset in format
  *  "projects/projectId/datasets/datasetId", to which the snapshot result
  *  should be exported. If this dataset does not exist, the export call returns
- *  an error.
+ *  an INVALID_ARGUMENT error.
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
 /**
  *  If the destination table already exists and this flag is `TRUE`, the
  *  table will be overwritten by the contents of assets snapshot. If the flag
- *  is not set and the destination table already exists, the export call
- *  returns an error.
+ *  is `FALSE` or unset and the destination table already exists, the export
+ *  call returns an INVALID_ARGUMEMT error.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -623,10 +641,10 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 
 /**
  *  Timestamp to take an asset snapshot. This can only be set to a timestamp
- *  between 2018-10-02 UTC (inclusive) and the current time. If not specified,
- *  the current time will be used. Due to delays in resource data collection
- *  and indexing, there is a volatile window during which running the same
- *  query may get different results.
+ *  between the current time and the current time minus 35 days (inclusive).
+ *  If not specified, the current time will be used. Due to delays in resource
+ *  data collection and indexing, there is a volatile window during which
+ *  running the same query may get different results.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -695,7 +713,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  An asset feed filter controls what updates are exported.
  *  The asset feed must be created within a project, organization, or
  *  folder. Supported destinations are:
- *  Cloud Pub/Sub topics.
+ *  Pub/Sub topics.
  */
 @interface GTLRCloudAsset_Feed : GTLRObject
 
@@ -764,7 +782,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  */
 @interface GTLRCloudAsset_FeedOutputConfig : GTLRObject
 
-/** Destination on Cloud Pubsub. */
+/** Destination on Pub/Sub. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_PubsubDestination *pubsubDestination;
 
 @end
@@ -1111,7 +1129,8 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 /**
  *  Required. Resource name for the Access Level. The `short_name` component
  *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{policy_id}/accessLevels/{short_name}`
+ *  `accessPolicies/{policy_id}/accessLevels/{short_name}`. The maximum length
+ *  of the `short_name` component is 50 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1135,6 +1154,14 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 
 /** Output only. Time the `AccessPolicy` was created in UTC. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. An opaque identifier for the current version of the
+ *  `AccessPolicy`. This will always be a strongly validated etag, meaning that
+ *  two Access Polices will be identical if and only if their etags are
+ *  identical. Clients should not expect this to be in any specific format.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Output only. Resource name of the `AccessPolicy`. Format:
@@ -1485,7 +1512,7 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedServices;
 
-/** Configuration for within Perimeter allowed APIs. */
+/** Configuration for APIs allowed within Perimeter. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices *vpcAccessibleServices;
 
 @end
@@ -1740,12 +1767,12 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 
 
 /**
- *  A Cloud Pubsub destination.
+ *  A Pub/Sub destination.
  */
 @interface GTLRCloudAsset_PubsubDestination : GTLRObject
 
 /**
- *  The name of the Cloud Pub/Sub topic to publish to.
+ *  The name of the Pub/Sub topic to publish to.
  *  For example: `projects/PROJECT_ID/topics/TOPIC_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
@@ -1754,29 +1781,30 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 
 
 /**
- *  Representation of a cloud resource.
+ *  A representation of a Google Cloud resource.
  */
 @interface GTLRCloudAsset_Resource : GTLRObject
 
 /**
- *  The content of the resource, in which some sensitive fields are scrubbed
- *  away and may not be present.
+ *  The content of the resource, in which some sensitive fields are removed
+ *  and may not be present.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Resource_Data *data;
 
 /**
  *  The URL of the discovery document containing the resource's JSON schema.
  *  For example:
- *  `"https://www.googleapis.com/discovery/v1/apis/compute/v1/rest"`.
- *  It will be left unspecified for resources without a discovery-based API,
- *  such as Cloud Bigtable.
+ *  "https://www.googleapis.com/discovery/v1/apis/compute/v1/rest"
+ *  This value is unspecified for resources that do not have an API based on a
+ *  discovery document, such as Cloud Bigtable.
  */
 @property(nonatomic, copy, nullable) NSString *discoveryDocumentUri;
 
 /**
- *  The JSON schema name listed in the discovery document.
- *  Example: "Project". It will be left unspecified for resources (such as
- *  Cloud Bigtable) without a discovery-based API.
+ *  The JSON schema name listed in the discovery document. For example:
+ *  "Project"
+ *  This value is unspecified for resources that do not have an API based on a
+ *  discovery document, such as Cloud Bigtable.
  */
 @property(nonatomic, copy, nullable) NSString *discoveryName;
 
@@ -1785,32 +1813,32 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  [Resource
  *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
  *  for more information.
- *  For GCP assets, it is the parent resource defined in the [Cloud IAM policy
+ *  For Google Cloud assets, this value is the parent resource defined in the
+ *  [Cloud IAM policy
  *  hierarchy](https://cloud.google.com/iam/docs/overview#policy_hierarchy).
  *  For example:
- *  `"//cloudresourcemanager.googleapis.com/projects/my_project_123"`.
- *  For third-party assets, it is up to the users to define.
+ *  "//cloudresourcemanager.googleapis.com/projects/my_project_123"
+ *  For third-party assets, this field may be set differently.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The REST URL for accessing the resource. An HTTP GET operation using this
- *  URL returns the resource itself.
- *  Example:
- *  `https://cloudresourcemanager.googleapis.com/v1/projects/my-project-123`.
- *  It will be left unspecified for resources without a REST API.
+ *  The REST URL for accessing the resource. An HTTP `GET` request using this
+ *  URL returns the resource itself. For example:
+ *  "https://cloudresourcemanager.googleapis.com/v1/projects/my-project-123"
+ *  This value is unspecified for resources without a REST API.
  */
 @property(nonatomic, copy, nullable) NSString *resourceUrl;
 
-/** The API version. Example: "v1". */
+/** The API version. For example: "v1" */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
 
 /**
- *  The content of the resource, in which some sensitive fields are scrubbed
- *  away and may not be present.
+ *  The content of the resource, in which some sensitive fields are removed
+ *  and may not be present.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1867,16 +1895,17 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 
 
 /**
- *  Temporal asset. In addition to the asset, the temporal asset includes the
- *  status of the asset and valid from and to time of it.
+ *  An asset in Google Cloud and its temporal metadata, including the time
+ *  window
+ *  when it was observed and its status during that window.
  */
 @interface GTLRCloudAsset_TemporalAsset : GTLRObject
 
-/** Asset. */
+/** An asset in Google Cloud. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Asset *asset;
 
 /**
- *  If the asset is deleted or not.
+ *  Whether the asset has been deleted or not.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1889,13 +1918,13 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 
 
 /**
- *  A time window of (start_time, end_time].
+ *  A time window specified by its "start_time" and "end_time".
  */
 @interface GTLRCloudAsset_TimeWindow : GTLRObject
 
 /**
- *  End time of the time window (inclusive).
- *  Current timestamp if not specified.
+ *  End time of the time window (inclusive). If not specified, the current
+ *  timestamp is used instead.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 

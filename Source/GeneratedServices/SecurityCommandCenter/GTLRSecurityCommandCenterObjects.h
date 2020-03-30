@@ -43,6 +43,7 @@
 @class GTLRSecurityCommandCenter_IamPolicy;
 @class GTLRSecurityCommandCenter_ListAssetsResult;
 @class GTLRSecurityCommandCenter_ListFindingsResult;
+@class GTLRSecurityCommandCenter_NotificationConfig;
 @class GTLRSecurityCommandCenter_Operation;
 @class GTLRSecurityCommandCenter_Operation_Metadata;
 @class GTLRSecurityCommandCenter_Operation_Response;
@@ -54,6 +55,7 @@
 @class GTLRSecurityCommandCenter_Source;
 @class GTLRSecurityCommandCenter_Status;
 @class GTLRSecurityCommandCenter_Status_Details_Item;
+@class GTLRSecurityCommandCenter_StreamingConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -873,6 +875,23 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
+ *  Cloud SCC's Notification
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1NotificationMessage : GTLRObject
+
+/**
+ *  If it's a Finding based notification config, this field will be
+ *  populated.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Finding *finding;
+
+/** Name of the notification config that generated current notification. */
+@property(nonatomic, copy, nullable) NSString *notificationConfigName;
+
+@end
+
+
+/**
  *  Cloud Security Command Center's (Cloud SCC) representation of a Google Cloud
  *  Platform (GCP) resource.
  *  The Asset is a Cloud SCC resource that captures information about a single
@@ -1348,6 +1367,10 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  * security_center_properties.resource_project_display_name: `=`, `:`
  *  * security_center_properties.resource_owners: `=`, `:`
  *  For example, `resource_properties.size = 100` is a valid filter string.
+ *  Use a partial match on the empty string to filter based on a property
+ *  existing: "resource_properties.my_property : \\"\\""
+ *  Use a negated partial match on the empty string to filter based on a
+ *  property not existing: "-resource_properties.my_property : \\"\\""
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1504,6 +1527,10 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *  * security_marks.marks: `=`, `:`
  *  * source_properties: `=`, `:`, `>`, `<`, `>=`, `<=`
  *  For example, `source_properties.size = 100` is a valid filter string.
+ *  Use a partial match on the empty string to filter based on a property
+ *  existing: "source_properties.my_property : \\"\\""
+ *  Use a negated partial match on the empty string to filter based on a
+ *  property not existing: "-source_properties.my_property : \\"\\""
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1771,6 +1798,33 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
+ *  Response message for listing notification configs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "notificationConfigs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRSecurityCommandCenter_ListNotificationConfigsResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Notification configs belonging to the requested parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_NotificationConfig *> *notificationConfigs;
+
+@end
+
+
+/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1817,6 +1871,47 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Source *> *sources;
+
+@end
+
+
+/**
+ *  Cloud Security Command Center (Cloud SCC) notification configs.
+ *  A notification config is a Cloud SCC resource that contains the
+ *  configuration
+ *  to send notifications for create/update events of findings, assets and etc.
+ */
+@interface GTLRSecurityCommandCenter_NotificationConfig : GTLRObject
+
+/**
+ *  The description of the notification config (max of 1024 characters).
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The relative resource name of this notification config. See:
+ *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *  Example:
+ *  "organizations/{organization_id}/notificationConfigs/notify_public_bucket".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The PubSub topic to send notifications to. Its format is
+ *  "projects/[project_id]/topics/[topic]".
+ */
+@property(nonatomic, copy, nullable) NSString *pubsubTopic;
+
+/**
+ *  Output only. The service account that needs "pubsub.topics.publish"
+ *  permission to publish to the PubSub topic.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** The config for triggering streaming-based notifications. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_StreamingConfig *streamingConfig;
 
 @end
 
@@ -2315,6 +2410,35 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRSecurityCommandCenter_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  The config for streaming-based notifications, which send each event as soon
+ *  as it is detected.
+ */
+@interface GTLRSecurityCommandCenter_StreamingConfig : GTLRObject
+
+/**
+ *  Expression that defines the filter to apply across create/update events
+ *  of assets or findings as specified by the event type. The expression is a
+ *  list of zero or more restrictions combined via logical operators `AND`
+ *  and `OR`. Parentheses are supported, and `OR` has higher precedence than
+ *  `AND`.
+ *  Restrictions have the form `<field> <operator> <value>` and may have a
+ *  `-` character in front of them to indicate negation. The fields map to
+ *  those defined in the corresponding resource.
+ *  The supported operators are:
+ *  * `=` for all value types.
+ *  * `>`, `<`, `>=`, `<=` for integer values.
+ *  * `:`, meaning substring matching, for strings.
+ *  The supported value types are:
+ *  * string literals in quotes.
+ *  * integer literals without quotes.
+ *  * boolean literals `true` and `false` without quotes.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 @end
 
 

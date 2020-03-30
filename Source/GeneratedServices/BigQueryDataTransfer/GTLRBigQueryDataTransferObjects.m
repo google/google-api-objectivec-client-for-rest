@@ -17,6 +17,7 @@
 // GTLRBigQueryDataTransfer_DataSource.authorizationType
 NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationCode = @"AUTHORIZATION_CODE";
 NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationTypeUnspecified = @"AUTHORIZATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_FirstPartyOauth = @"FIRST_PARTY_OAUTH";
 NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_GooglePlusAuthorizationCode = @"GOOGLE_PLUS_AUTHORIZATION_CODE";
 
 // GTLRBigQueryDataTransfer_DataSource.dataRefreshType

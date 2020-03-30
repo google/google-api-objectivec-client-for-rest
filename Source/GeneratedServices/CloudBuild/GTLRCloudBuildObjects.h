@@ -479,6 +479,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
 /** Output only. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
+/**
+ *  TTL in queue for this build. If provided and the build is enqueued longer
+ *  than this value, the build will expire and the build status will be
+ *  `EXPIRED`.
+ *  The TTL starts ticking from create_time.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *queueTtl;
+
 /** Output only. Results of the build. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Results *results;
 
@@ -936,7 +944,11 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Substitutions data for Build resource. */
+/**
+ *  Substitutions for Build resource. The keys must match the following
+ *  regular expression: `^_[A-Z0-9_]+$`.The keys cannot conflict with the
+ *  keys in bindings.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_BuildTrigger_Substitutions *substitutions;
 
 /** Tags for annotation of a `BuildTrigger` */
@@ -955,7 +967,9 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
 
 
 /**
- *  Substitutions data for Build resource.
+ *  Substitutions for Build resource. The keys must match the following
+ *  regular expression: `^_[A-Z0-9_]+$`.The keys cannot conflict with the
+ *  keys in bindings.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1269,6 +1283,13 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
  */
 @property(nonatomic, copy, nullable) NSString *commentControl;
 
+/**
+ *  If true, branches that do NOT match the git_ref will trigger a build.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *invertRegex;
+
 @end
 
 
@@ -1283,6 +1304,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
  *  RE2 and described at https://github.com/google/re2/wiki/Syntax
  */
 @property(nonatomic, copy, nullable) NSString *branch;
+
+/**
+ *  When true, only trigger a build if the revision regex does NOT match the
+ *  git_ref regex.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *invertRegex;
 
 /**
  *  Regexes matching tags to build.
@@ -1315,6 +1344,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_Co
  *  absolute path, this value is ignored for that step's execution.
  */
 @property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Only trigger a build if the revision regex does NOT match the revision
+ *  regex.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *invertRegex;
 
 /**
  *  ID of the project that owns the Cloud Source Repository. If omitted, the

@@ -51,6 +51,138 @@ NSString * const kGTLRFirebaseHostingStatusStatusUnspecified = @"STATUS_UNSPECIF
 
 @end
 
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesChannelsReleasesCreate
+
+@dynamic parent, versionName;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Release *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/releases";
+  GTLRFirebaseHostingQuery_ProjectsSitesChannelsReleasesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Release class];
+  query.loggingName = @"firebasehosting.projects.sites.channels.releases.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesChannelsReleasesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/releases";
+  GTLRFirebaseHostingQuery_ProjectsSitesChannelsReleasesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_ListReleasesResponse class];
+  query.loggingName = @"firebasehosting.projects.sites.channels.releases.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesReleasesCreate
+
+@dynamic parent, versionName;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Release *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/releases";
+  GTLRFirebaseHostingQuery_ProjectsSitesReleasesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Release class];
+  query.loggingName = @"firebasehosting.projects.sites.releases.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesReleasesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/releases";
+  GTLRFirebaseHostingQuery_ProjectsSitesReleasesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_ListReleasesResponse class];
+  query.loggingName = @"firebasehosting.projects.sites.releases.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_SitesChannelsReleasesCreate
+
+@dynamic parent, versionName;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Release *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/releases";
+  GTLRFirebaseHostingQuery_SitesChannelsReleasesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Release class];
+  query.loggingName = @"firebasehosting.sites.channels.releases.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_SitesChannelsReleasesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/releases";
+  GTLRFirebaseHostingQuery_SitesChannelsReleasesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_ListReleasesResponse class];
+  query.loggingName = @"firebasehosting.sites.channels.releases.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseHostingQuery_SitesDomainsCreate
 
 @dynamic parent;

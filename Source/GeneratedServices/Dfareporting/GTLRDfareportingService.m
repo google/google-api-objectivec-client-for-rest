@@ -95,6 +95,7 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
     @"dfareporting#customEvent" : [GTLRDfareporting_CustomEvent class],
     @"dfareporting#customEventClickAnnotation" : [GTLRDfareporting_CustomEventClickAnnotation class],
     @"dfareporting#customEventError" : [GTLRDfareporting_CustomEventError class],
+    @"dfareporting#customEventImpressionAnnotation" : [GTLRDfareporting_CustomEventImpressionAnnotation class],
     @"dfareporting#customEventInsert" : [GTLRDfareporting_CustomEventInsert class],
     @"dfareporting#customEventsBatchInsertRequest" : [GTLRDfareporting_CustomEventsBatchInsertRequest class],
     @"dfareporting#customEventsBatchInsertResponse" : [GTLRDfareporting_CustomEventsBatchInsertResponse class],

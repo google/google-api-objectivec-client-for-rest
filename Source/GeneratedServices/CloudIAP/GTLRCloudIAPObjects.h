@@ -30,6 +30,10 @@
 @class GTLRCloudIAP_IdentityAwareProxyClient;
 @class GTLRCloudIAP_OAuthSettings;
 @class GTLRCloudIAP_Policy;
+@class GTLRCloudIAP_PolicyDelegationSettings;
+@class GTLRCloudIAP_PolicyName;
+@class GTLRCloudIAP_Resource;
+@class GTLRCloudIAP_Resource_Labels;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -51,6 +55,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Settings to configure IAP's OAuth behavior. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_OAuthSettings *oauthSettings;
+
+/**
+ *  Settings to configure Policy delegation for apps hosted in tenant projects.
+ *  INTERNAL_ONLY.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_PolicyDelegationSettings *policyDelegationSettings;
 
 @end
 
@@ -528,9 +538,149 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  PolicyDelegationConfig allows google-internal teams to use IAP for apps
+ *  hosted in a tenant project. Using these settings, the app can delegate
+ *  permission check to happen against the linked customer project.
+ *  This is only ever supposed to be used by google internal teams, hence the
+ *  restriction on the proto.
+ */
+@interface GTLRCloudIAP_PolicyDelegationSettings : GTLRObject
+
+/** Permission to check in IAM. */
+@property(nonatomic, copy, nullable) NSString *iamPermission;
+
+/**
+ *  The DNS name of the service (e.g. "resourcemanager.googleapis.com").
+ *  This should be the domain name part of the full resource names (see
+ *  https://aip.dev/122#full-resource-names), which is usually
+ *  the same as IamServiceSpec.service of the service where the resource type
+ *  is defined.
+ */
+@property(nonatomic, copy, nullable) NSString *iamServiceName;
+
+/** Policy name to be checked */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_PolicyName *policyName;
+
+/** IAM resource to check permission on */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_Resource *resource;
+
+@end
+
+
+/**
+ *  GTLRCloudIAP_PolicyName
+ */
+@interface GTLRCloudIAP_PolicyName : GTLRObject
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  For Cloud IAM:
+ *  The location of the Policy.
+ *  Must be empty or "global" for Policies owned by global IAM. Must name a
+ *  region from prodspec/cloud-iam-cloudspec for Regional IAM Policies, see
+ *  http://go/iam-faq#where-is-iam-currently-deployed.
+ *  For Local IAM:
+ *  This field should be set to "local".
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Valid values for type might be 'gce', 'gcs', 'project', 'account' etc. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  The request sent to ResetIdentityAwareProxyClientSecret.
  */
 @interface GTLRCloudIAP_ResetIdentityAwareProxyClientSecretRequest : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudIAP_Resource
+ */
+@interface GTLRCloudIAP_Resource : GTLRObject
+
+/**
+ *  The service defined labels of the resource on which the conditions will be
+ *  evaluated. The semantics - including the key names - are vague to IAM.
+ *  If the effective condition has a reference to a `resource.labels[foo]`
+ *  construct, IAM consults with this map to retrieve the values associated
+ *  with `foo` key for Conditions evaluation. If the provided key is not found
+ *  in the labels map, the condition would evaluate to false.
+ *  This field is in limited use. If your intended use case is not expected
+ *  to express resource.labels attribute in IAM Conditions, leave this field
+ *  empty. Before planning on using this attribute please:
+ *  * Read go/iam-conditions-labels-comm and ensure your service can meet the
+ *  data availability and management requirements.
+ *  * Talk to iam-conditions-eng\@ about your use case.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_Resource_Labels *labels;
+
+/**
+ *  Name of the resource on which conditions will be evaluated.
+ *  Must use the Relative Resource Name of the resource, which is the URI
+ *  path of the resource without the leading "/". Examples are
+ *  "projects/_/buckets/[BUCKET-ID]" for storage buckets or
+ *  "projects/[PROJECT-ID]/global/firewalls/[FIREWALL-ID]" for a firewall.
+ *  This field is required for evaluating conditions with rules on resource
+ *  names. For a `list` permission check, the resource.name value must be set
+ *  to the parent resource. If the parent resource is a project, this field
+ *  should be left unset.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The name of the service this resource belongs to. It is configured using
+ *  the official_service_name of the Service as defined in service
+ *  configurations under //configs/cloud/resourcetypes.
+ *  For example, the official_service_name of cloud resource manager service
+ *  is set as 'cloudresourcemanager.googleapis.com' according to
+ *  //configs/cloud/resourcetypes/google/cloud/resourcemanager/prod.yaml
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  The public resource type name of the resource on which conditions will be
+ *  evaluated. It is configured using the official_name of the ResourceType as
+ *  defined in service configurations under //configs/cloud/resourcetypes.
+ *  For example, the official_name for GCP projects is set as
+ *  'cloudresourcemanager.googleapis.com/Project' according to
+ *  //configs/cloud/resourcetypes/google/cloud/resourcemanager/prod.yaml
+ *  For details see go/iam-conditions-integration-guide.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The service defined labels of the resource on which the conditions will be
+ *  evaluated. The semantics - including the key names - are vague to IAM.
+ *  If the effective condition has a reference to a `resource.labels[foo]`
+ *  construct, IAM consults with this map to retrieve the values associated
+ *  with `foo` key for Conditions evaluation. If the provided key is not found
+ *  in the labels map, the condition would evaluate to false.
+ *  This field is in limited use. If your intended use case is not expected
+ *  to express resource.labels attribute in IAM Conditions, leave this field
+ *  empty. Before planning on using this attribute please:
+ *  * Read go/iam-conditions-labels-comm and ensure your service can meet the
+ *  data availability and management requirements.
+ *  * Talk to iam-conditions-eng\@ about your use case.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudIAP_Resource_Labels : GTLRObject
 @end
 
 

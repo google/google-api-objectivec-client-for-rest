@@ -255,6 +255,16 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1NotificationMessage
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1NotificationMessage
+@dynamic finding, notificationConfigName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset
 //
 
@@ -561,6 +571,28 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_ListNotificationConfigsResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ListNotificationConfigsResponse
+@dynamic nextPageToken, notificationConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"notificationConfigs" : [GTLRSecurityCommandCenter_NotificationConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"notificationConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_ListOperationsResponse
 //
 
@@ -598,6 +630,22 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 + (NSString *)collectionItemsKey {
   return @"sources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_NotificationConfig
+//
+
+@implementation GTLRSecurityCommandCenter_NotificationConfig
+@dynamic descriptionProperty, name, pubsubTopic, serviceAccount,
+         streamingConfig;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -801,6 +849,16 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_StreamingConfig
+//
+
+@implementation GTLRSecurityCommandCenter_StreamingConfig
+@dynamic filter;
 @end
 
 

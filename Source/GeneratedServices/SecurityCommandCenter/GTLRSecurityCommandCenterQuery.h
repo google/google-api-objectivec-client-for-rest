@@ -23,6 +23,7 @@
 @class GTLRSecurityCommandCenter_GetIamPolicyRequest;
 @class GTLRSecurityCommandCenter_GroupAssetsRequest;
 @class GTLRSecurityCommandCenter_GroupFindingsRequest;
+@class GTLRSecurityCommandCenter_NotificationConfig;
 @class GTLRSecurityCommandCenter_OrganizationSettings;
 @class GTLRSecurityCommandCenter_RunAssetDiscoveryRequest;
 @class GTLRSecurityCommandCenter_SecurityMarks;
@@ -175,6 +176,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  * security_center_properties.resource_project_display_name: `=`, `:`
  *  * security_center_properties.resource_owners: `=`, `:`
  *  For example, `resource_properties.size = 100` is a valid filter string.
+ *  Use a partial match on the empty string to filter based on a property
+ *  existing: "resource_properties.my_property : \\"\\""
+ *  Use a negated partial match on the empty string to filter based on a
+ *  property not existing: "-resource_properties.my_property : \\"\\""
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -381,6 +386,213 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsGetOrganizationSettings
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a notification config.
+ *
+ *  Method: securitycenter.organizations.notificationConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsCreate : GTLRSecurityCommandCenterQuery
+// Previous library name was
+//   +[GTLQuerySecurityCommandCenter queryForOrganizationsNotificationConfigsCreateWithObject:parent:]
+
+/**
+ *  Required.
+ *  Unique identifier provided by the client within the parent scope.
+ *  It must be between 1 and 128 characters, and contains alphanumeric
+ *  characters, underscores or hyphens only.
+ */
+@property(nonatomic, copy, nullable) NSString *configId;
+
+/**
+ *  Required. Resource name of the new notification config's parent. Its format
+ *  is
+ *  "organizations/[organization_id]".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_NotificationConfig.
+ *
+ *  Creates a notification config.
+ *
+ *  @param object The @c GTLRSecurityCommandCenter_NotificationConfig to include
+ *    in the query.
+ *  @param parent Required. Resource name of the new notification config's
+ *    parent. Its format is
+ *    "organizations/[organization_id]".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_NotificationConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a notification config.
+ *
+ *  Method: securitycenter.organizations.notificationConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsDelete : GTLRSecurityCommandCenterQuery
+// Previous library name was
+//   +[GTLQuerySecurityCommandCenter queryForOrganizationsNotificationConfigsDeleteWithname:]
+
+/**
+ *  Required. Name of the notification config to delete. Its format is
+ *  "organizations/[organization_id]/notificationConfigs/[config_id]".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_Empty.
+ *
+ *  Deletes a notification config.
+ *
+ *  @param name Required. Name of the notification config to delete. Its format
+ *    is
+ *    "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a notification config.
+ *
+ *  Method: securitycenter.organizations.notificationConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsGet : GTLRSecurityCommandCenterQuery
+// Previous library name was
+//   +[GTLQuerySecurityCommandCenter queryForOrganizationsNotificationConfigsGetWithname:]
+
+/**
+ *  Required. Name of the notification config to get. Its format is
+ *  "organizations/[organization_id]/notificationConfigs/[config_id]".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_NotificationConfig.
+ *
+ *  Gets a notification config.
+ *
+ *  @param name Required. Name of the notification config to get. Its format is
+ *    "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists notification configs.
+ *
+ *  Method: securitycenter.organizations.notificationConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsList : GTLRSecurityCommandCenterQuery
+// Previous library name was
+//   +[GTLQuerySecurityCommandCenter queryForOrganizationsNotificationConfigsListWithparent:]
+
+/**
+ *  The maximum number of results to return in a single response. Default is
+ *  10, minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListNotificationConfigsResponse`; indicates
+ *  that this is a continuation of a prior `ListNotificationConfigs` call, and
+ *  that the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the organization to list notification configs.
+ *  Its format is "organizations/[organization_id]".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListNotificationConfigsResponse.
+ *
+ *  Lists notification configs.
+ *
+ *  @param parent Required. Name of the organization to list notification
+ *    configs.
+ *    Its format is "organizations/[organization_id]".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a notification config.
+ *
+ *  Method: securitycenter.organizations.notificationConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsPatch : GTLRSecurityCommandCenterQuery
+// Previous library name was
+//   +[GTLQuerySecurityCommandCenter queryForOrganizationsNotificationConfigsPatchWithObject:name:]
+
+/**
+ *  The relative resource name of this notification config. See:
+ *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *  Example:
+ *  "organizations/{organization_id}/notificationConfigs/notify_public_bucket".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The FieldMask to use when updating the notification config.
+ *  If empty all mutable fields will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_NotificationConfig.
+ *
+ *  Updates a notification config.
+ *
+ *  @param object The @c GTLRSecurityCommandCenter_NotificationConfig to include
+ *    in the query.
+ *  @param name The relative resource name of this notification config. See:
+ *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
+ *    Example:
+ *    "organizations/{organization_id}/notificationConfigs/notify_public_bucket".
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_NotificationConfig *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -765,6 +977,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  security_marks.marks: `=`, `:`
  *  source_properties: `=`, `:`, `>`, `<`, `>=`, `<=`
  *  For example, `source_properties.size = 100` is a valid filter string.
+ *  Use a partial match on the empty string to filter based on a property
+ *  existing: "source_properties.my_property : \\"\\""
+ *  Use a negated partial match on the empty string to filter based on a
+ *  property not existing: "-source_properties.my_property : \\"\\""
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

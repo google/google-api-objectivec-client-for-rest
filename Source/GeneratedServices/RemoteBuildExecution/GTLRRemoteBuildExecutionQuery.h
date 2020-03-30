@@ -542,6 +542,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Determine if blobs are present in the CAS.
  *  Clients can use this API before uploading blobs to determine which ones are
  *  already present in the CAS and do not need to be uploaded again.
+ *  Servers SHOULD increase the TTLs of the referenced blobs if necessary and
+ *  applicable.
  *  There are no method-specific errors.
  *
  *  Method: remotebuildexecution.blobs.findMissing
@@ -569,6 +571,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Determine if blobs are present in the CAS.
  *  Clients can use this API before uploading blobs to determine which ones are
  *  already present in the CAS and do not need to be uploaded again.
+ *  Servers SHOULD increase the TTLs of the referenced blobs if necessary and
+ *  applicable.
  *  There are no method-specific errors.
  *
  *  @param object The @c
@@ -605,6 +609,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  multiple invocations of `GetTree`.
  *  If part of the tree is missing from the CAS, the server will return the
  *  portion present and omit the rest.
+ *  Errors:
  *  * `NOT_FOUND`: The requested tree root is not present in the CAS.
  *
  *  Method: remotebuildexecution.blobs.getTree
@@ -644,7 +649,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A page token, which must be a value received in a previous
  *  GetTreeResponse.
- *  If present, the server will use it to return the following page of results.
+ *  If present, the server will use that token as an offset, returning only
+ *  that page and the ones that succeed it.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -670,6 +676,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  multiple invocations of `GetTree`.
  *  If part of the tree is missing from the CAS, the server will return the
  *  portion present and omit the rest.
+ *  Errors:
  *  * `NOT_FOUND`: The requested tree root is not present in the CAS.
  *
  *  @param instanceName The instance of the execution system to operate against.

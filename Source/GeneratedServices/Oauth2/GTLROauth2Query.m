@@ -20,13 +20,12 @@
 
 @implementation GTLROauth2Query_Tokeninfo
 
-@dynamic accessToken, idToken, tokenHandle;
+@dynamic accessToken, idToken;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"accessToken" : @"access_token",
-    @"idToken" : @"id_token",
-    @"tokenHandle" : @"token_handle"
+    @"idToken" : @"id_token"
   };
   return map;
 }
@@ -52,7 +51,7 @@
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLROauth2_Userinfoplus class];
+  query.expectedObjectClass = [GTLROauth2_Userinfo class];
   query.loggingName = @"oauth2.userinfo.get";
   return query;
 }
@@ -67,7 +66,7 @@
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLROauth2_Userinfoplus class];
+  query.expectedObjectClass = [GTLROauth2_Userinfo class];
   query.loggingName = @"oauth2.userinfo.v2.me.get";
   return query;
 }

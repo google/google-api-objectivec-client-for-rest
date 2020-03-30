@@ -112,6 +112,15 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_CancelOperationRequest
+//
+
+@implementation GTLRCloudHealthcare_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_CharacterMaskConfig
 //
 
@@ -296,6 +305,15 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_ExportDicomDataResponse
+//
+
+@implementation GTLRCloudHealthcare_ExportDicomDataResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_ExportResourcesRequest
 //
 
@@ -354,7 +372,16 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 @implementation GTLRCloudHealthcare_FhirStore
 @dynamic disableReferentialIntegrity, disableResourceVersioning,
-         enableUpdateCreate, labels, name, notificationConfig, version;
+         enableUpdateCreate, labels, name, notificationConfig, streamConfigs,
+         version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"streamConfigs" : [GTLRCloudHealthcare_StreamConfig class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -512,11 +539,30 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_Hl7V2NotificationConfig
+//
+
+@implementation GTLRCloudHealthcare_Hl7V2NotificationConfig
+@dynamic filter, pubsubTopic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_Hl7V2Store
 //
 
 @implementation GTLRCloudHealthcare_Hl7V2Store
-@dynamic labels, name, notificationConfig, parserConfig, rejectDuplicateMessage;
+@dynamic labels, name, notificationConfig, notificationConfigs, parserConfig,
+         rejectDuplicateMessage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"notificationConfigs" : [GTLRCloudHealthcare_Hl7V2NotificationConfig class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -601,6 +647,15 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 @implementation GTLRCloudHealthcare_ImportDicomDataRequest
 @dynamic gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ImportDicomDataResponse
+//
+
+@implementation GTLRCloudHealthcare_ImportDicomDataResponse
 @end
 
 
@@ -769,12 +824,11 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_ListMessagesResponse
-@dynamic hl7V2Messages, messages, nextPageToken;
+@dynamic hl7V2Messages, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"hl7V2Messages" : [GTLRCloudHealthcare_Message class],
-    @"messages" : [NSString class]
+    @"hl7V2Messages" : [GTLRCloudHealthcare_Message class]
   };
   return map;
 }
@@ -933,7 +987,7 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_OperationMetadata
-@dynamic apiMethodName, counter, createTime, endTime;
+@dynamic apiMethodName, cancelRequested, counter, createTime, endTime, logsUrl;
 @end
 
 
@@ -1125,6 +1179,24 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_StreamConfig
+//
+
+@implementation GTLRCloudHealthcare_StreamConfig
+@dynamic bigqueryDestination, resourceTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceTypes" : [NSString class]
+  };
+  return map;
 }
 
 @end

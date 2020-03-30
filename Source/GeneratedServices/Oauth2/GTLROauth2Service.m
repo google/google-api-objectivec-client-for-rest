@@ -13,7 +13,7 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeOauth2PlusMe          = @"https://www.googleapis.com/auth/plus.me";
+NSString * const kGTLRAuthScopeOauth2Openid          = @"openid";
 NSString * const kGTLRAuthScopeOauth2UserinfoEmail   = @"https://www.googleapis.com/auth/userinfo.email";
 NSString * const kGTLRAuthScopeOauth2UserinfoProfile = @"https://www.googleapis.com/auth/userinfo.profile";
 

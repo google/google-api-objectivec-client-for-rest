@@ -2,13 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Monitoring API (monitoring/v3)
+//   Cloud Monitoring API (monitoring/v3)
 // Description:
-//   Manages your Stackdriver Monitoring data and configurations. Most projects
-//   must be associated with a Stackdriver account, with a few exceptions as
-//   noted on the individual method pages. The table entries below are presented
-//   in alphabetical order, not in order of common use. For explanations of the
-//   concepts found in the table entries, read the Stackdriver Monitoring
+//   Manages your Cloud Monitoring data and configurations. Most projects must
+//   be associated with a Workspace, with a few exceptions as noted on the
+//   individual method pages. The table entries below are presented in
+//   alphabetical order, not in order of common use. For explanations of the
+//   concepts found in the table entries, read the Cloud Monitoring
 //   documentation.
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
@@ -221,6 +221,21 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_RegionUnspecified = @"REGI
 NSString * const kGTLRMonitoring_UptimeCheckIp_Region_SouthAmerica = @"SOUTH_AMERICA";
 NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
+// GTLRMonitoring_ValueDescriptor.metricKind
+NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Cumulative = @"CUMULATIVE";
+NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Delta = @"DELTA";
+NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Gauge = @"GAUGE";
+NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_MetricKindUnspecified = @"METRIC_KIND_UNSPECIFIED";
+
+// GTLRMonitoring_ValueDescriptor.valueType
+NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Bool = @"BOOL";
+NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Distribution = @"DISTRIBUTION";
+NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Double = @"DOUBLE";
+NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Int64 = @"INT64";
+NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Money = @"MONEY";
+NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_String = @"STRING";
+NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRMonitoring_Aggregation
@@ -430,7 +445,8 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 //
 
 @implementation GTLRMonitoring_Condition
-@dynamic conditionAbsent, conditionThreshold, displayName, name;
+@dynamic conditionAbsent, conditionThreshold, conditionTimeSeriesQueryLanguage,
+         displayName, name;
 @end
 
 
@@ -779,6 +795,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_LabelValue
+//
+
+@implementation GTLRMonitoring_LabelValue
+@dynamic boolValue, int64Value, stringValue;
 @end
 
 
@@ -1385,6 +1411,53 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_PointData
+//
+
+@implementation GTLRMonitoring_PointData
+@dynamic timeInterval, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRMonitoring_TypedValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_QueryTimeSeriesRequest
+//
+
+@implementation GTLRMonitoring_QueryTimeSeriesRequest
+@dynamic pageSize, pageToken, query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_QueryTimeSeriesResponse
+//
+
+@implementation GTLRMonitoring_QueryTimeSeriesResponse
+@dynamic nextPageToken, partialErrors, timeSeriesData, timeSeriesDescriptor;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partialErrors" : [GTLRMonitoring_Status class],
+    @"timeSeriesData" : [GTLRMonitoring_TimeSeriesData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_Range
 //
 
@@ -1556,6 +1629,54 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_TimeSeriesData
+//
+
+@implementation GTLRMonitoring_TimeSeriesData
+@dynamic labelValues, pointData;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labelValues" : [GTLRMonitoring_LabelValue class],
+    @"pointData" : [GTLRMonitoring_PointData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_TimeSeriesDescriptor
+//
+
+@implementation GTLRMonitoring_TimeSeriesDescriptor
+@dynamic labelDescriptors, pointDescriptors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labelDescriptors" : [GTLRMonitoring_LabelDescriptor class],
+    @"pointDescriptors" : [GTLRMonitoring_ValueDescriptor class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_TimeSeriesQueryLanguageCondition
+//
+
+@implementation GTLRMonitoring_TimeSeriesQueryLanguageCondition
+@dynamic query, summary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_TimeSeriesRatio
 //
 
@@ -1633,6 +1754,16 @@ NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa      = @"USA";
 
 @implementation GTLRMonitoring_UptimeCheckIp
 @dynamic ipAddress, location, region;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_ValueDescriptor
+//
+
+@implementation GTLRMonitoring_ValueDescriptor
+@dynamic key, metricKind, valueType;
 @end
 
 

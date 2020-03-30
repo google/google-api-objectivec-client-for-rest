@@ -2,13 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Monitoring API (monitoring/v3)
+//   Cloud Monitoring API (monitoring/v3)
 // Description:
-//   Manages your Stackdriver Monitoring data and configurations. Most projects
-//   must be associated with a Stackdriver account, with a few exceptions as
-//   noted on the individual method pages. The table entries below are presented
-//   in alphabetical order, not in order of common use. For explanations of the
-//   concepts found in the table entries, read the Stackdriver Monitoring
+//   Manages your Cloud Monitoring data and configurations. Most projects must
+//   be associated with a Workspace, with a few exceptions as noted on the
+//   individual method pages. The table entries below are presented in
+//   alphabetical order, not in order of common use. For explanations of the
+//   concepts found in the table entries, read the Cloud Monitoring
 //   documentation.
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
@@ -30,6 +30,7 @@
 @class GTLRMonitoring_Group;
 @class GTLRMonitoring_MetricDescriptor;
 @class GTLRMonitoring_NotificationChannel;
+@class GTLRMonitoring_QueryTimeSeriesRequest;
 @class GTLRMonitoring_SendNotificationChannelVerificationCodeRequest;
 @class GTLRMonitoring_Service;
 @class GTLRMonitoring_ServiceLevelObjective;
@@ -828,8 +829,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Gets a single metric descriptor. This method does not require a Stackdriver
- *  account.
+ *  Gets a single metric descriptor. This method does not require a Workspace.
  *
  *  Method: monitoring.projects.metricDescriptors.get
  *
@@ -855,8 +855,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_MetricDescriptor.
  *
- *  Gets a single metric descriptor. This method does not require a Stackdriver
- *  account.
+ *  Gets a single metric descriptor. This method does not require a Workspace.
  *
  *  @param name Required. The metric descriptor on which to execute the request.
  *    The format is:
@@ -872,7 +871,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Lists metric descriptors that match a filter. This method does not require a
- *  Stackdriver account.
+ *  Workspace.
  *
  *  Method: monitoring.projects.metricDescriptors.list
  *
@@ -916,7 +915,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Fetches a @c GTLRMonitoring_ListMetricDescriptorsResponse.
  *
  *  Lists metric descriptors that match a filter. This method does not require a
- *  Stackdriver account.
+ *  Workspace.
  *
  *  @param name Required. The project on which to execute the request. The
  *    format is:
@@ -934,7 +933,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Gets a single monitored resource descriptor. This method does not require a
- *  Stackdriver account.
+ *  Workspace.
  *
  *  Method: monitoring.projects.monitoredResourceDescriptors.get
  *
@@ -959,7 +958,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Fetches a @c GTLRMonitoring_MonitoredResourceDescriptor.
  *
  *  Gets a single monitored resource descriptor. This method does not require a
- *  Stackdriver account.
+ *  Workspace.
  *
  *  @param name Required. The monitored resource descriptor to get. The format
  *    is:
@@ -974,7 +973,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Lists monitored resource descriptors that match a filter. This method does
- *  not require a Stackdriver account.
+ *  not require a Workspace.
  *
  *  Method: monitoring.projects.monitoredResourceDescriptors.list
  *
@@ -1017,7 +1016,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Fetches a @c GTLRMonitoring_ListMonitoredResourceDescriptorsResponse.
  *
  *  Lists monitored resource descriptors that match a filter. This method does
- *  not require a Stackdriver account.
+ *  not require a Workspace.
  *
  *  @param name Required. The project on which to execute the request. The
  *    format is:
@@ -1572,7 +1571,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Lists time series that match a filter. This method does not require a
- *  Stackdriver account.
+ *  Workspace.
  *
  *  Method: monitoring.projects.timeSeries.list
  *
@@ -1775,7 +1774,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Fetches a @c GTLRMonitoring_ListTimeSeriesResponse.
  *
  *  Lists time series that match a filter. This method does not require a
- *  Stackdriver account.
+ *  Workspace.
  *
  *  @param name Required. The project on which to execute the request. The
  *    format is:
@@ -1784,6 +1783,46 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  @return GTLRMonitoringQuery_ProjectsTimeSeriesList
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Queries time series using the time series query language. This method does
+ *  not require a Workspace.
+ *
+ *  Method: monitoring.projects.timeSeries.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_ProjectsTimeSeriesQuery : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForProjectsTimeSeriesQueryWithObject:name:]
+
+/**
+ *  Required. The project on which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMonitoring_QueryTimeSeriesResponse.
+ *
+ *  Queries time series using the time series query language. This method does
+ *  not require a Workspace.
+ *
+ *  @param object The @c GTLRMonitoring_QueryTimeSeriesRequest to include in the
+ *    query.
+ *  @param name Required. The project on which to execute the request. The
+ *    format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
+ *
+ *  @return GTLRMonitoringQuery_ProjectsTimeSeriesQuery
+ */
++ (instancetype)queryWithObject:(GTLRMonitoring_QueryTimeSeriesRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -2168,9 +2207,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. Resource name of the parent containing the listed services, either
- *  a project or Stackdriver Account (workspace). The formats are:
+ *  a project or a Monitoring Workspace. The formats are:
  *  projects/[PROJECT_ID_OR_NUMBER]
- *  workspaces/[HOST_PROJECT_ID]
+ *  workspaces/[HOST_PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2180,10 +2219,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  List Services for this workspace.
  *
  *  @param parent Required. Resource name of the parent containing the listed
- *    services, either a project or Stackdriver Account (workspace). The formats
- *    are:
+ *    services, either a project or a Monitoring Workspace. The formats are:
  *    projects/[PROJECT_ID_OR_NUMBER]
- *    workspaces/[HOST_PROJECT_ID]
+ *    workspaces/[HOST_PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ServicesList
  *
@@ -2210,7 +2248,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Resource name for this Service. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID}
+ *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2228,7 +2266,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_Service to include in the query.
  *  @param name Resource name for this Service. The format is:
- *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID}
+ *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  *
  *  @return GTLRMonitoringQuery_ServicesPatch
  */
@@ -2394,8 +2432,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Resource name of the parent Service. The format is:
+ *  Required. Resource name of the parent containing the listed SLOs, either a
+ *  project or a Monitoring Workspace. The formats are:
  *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+ *  workspaces/[HOST_PROJECT_ID_OR_NUMBER]/services/-
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2417,8 +2457,10 @@ GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  List the ServiceLevelObjectives for the given Service.
  *
- *  @param parent Required. Resource name of the parent Service. The format is:
+ *  @param parent Required. Resource name of the parent containing the listed
+ *    SLOs, either a project or a Monitoring Workspace. The formats are:
  *    projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
+ *    workspaces/[HOST_PROJECT_ID_OR_NUMBER]/services/-
  *
  *  @return GTLRMonitoringQuery_ServicesServiceLevelObjectivesList
  *

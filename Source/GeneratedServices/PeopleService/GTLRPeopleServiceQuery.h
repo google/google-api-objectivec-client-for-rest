@@ -344,7 +344,12 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Optional. The token of the page to be returned. */
+/**
+ *  Optional. A page token, received from a previous `ListConnections` call.
+ *  Provide this to retrieve the subsequent page.
+ *  When paginating, all other parameters provided to `ListConnections`
+ *  must match the call that provided the page token.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -396,10 +401,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /**
- *  Optional. Whether the response should include a sync token, which can be
- *  used to get
- *  all changes since the last request. For subsequent sync requests use the
- *  `sync_token` param instead. Initial sync requests that specify
+ *  Optional. Whether the response should include `next_sync_token`, which can
+ *  be used to
+ *  get all changes since the last request. For subsequent sync requests use
+ *  the `sync_token` param instead. Initial sync requests that specify
  *  `request_sync_token` have an additional rate limit.
  */
 @property(nonatomic, assign) BOOL requestSyncToken;
@@ -427,10 +432,11 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 @property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
- *  Optional. A sync token returned by a previous call to
- *  `people.connections.list`.
- *  Only resources changed since the sync token was created will be returned.
+ *  Optional. A sync token, received from a previous `ListConnections` call.
+ *  Provide this to retrieve only the resources changed since the last request.
  *  Sync requests that specify `sync_token` have an additional rate limit.
+ *  When syncing, all other parameters provided to `ListConnections`
+ *  must match the call that provided the sync token.
  */
 @property(nonatomic, copy, nullable) NSString *syncToken;
 

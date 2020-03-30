@@ -4,11 +4,41 @@
 // API:
 //   Google Play Game Services Publishing API (gamesConfiguration/v1configuration)
 // Description:
-//   The Publishing API for Google Play Game Services.
+//   The Google Play Game Services Publishing API allows developers to configure
+//   their games in Game Services.
 // Documentation:
-//   https://developers.google.com/games/services
+//   https://developers.google.com/games/
 
 #import "GTLRGamesConfigurationObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRGamesConfiguration_AchievementConfiguration.achievementType
+NSString * const kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_AchievementTypeUnspecified = @"ACHIEVEMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_Incremental = @"INCREMENTAL";
+NSString * const kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_Standard = @"STANDARD";
+
+// GTLRGamesConfiguration_AchievementConfiguration.initialState
+NSString * const kGTLRGamesConfiguration_AchievementConfiguration_InitialState_Hidden = @"HIDDEN";
+NSString * const kGTLRGamesConfiguration_AchievementConfiguration_InitialState_InitialStateUnspecified = @"INITIAL_STATE_UNSPECIFIED";
+NSString * const kGTLRGamesConfiguration_AchievementConfiguration_InitialState_Revealed = @"REVEALED";
+
+// GTLRGamesConfiguration_GamesNumberFormatConfiguration.numberFormatType
+NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_Currency = @"CURRENCY";
+NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_NumberFormatTypeUnspecified = @"NUMBER_FORMAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_Numeric = @"NUMERIC";
+NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_TimeDuration = @"TIME_DURATION";
+
+// GTLRGamesConfiguration_ImageConfiguration.imageType
+NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_AchievementIcon = @"ACHIEVEMENT_ICON";
+NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_ImageTypeUnspecified = @"IMAGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_LeaderboardIcon = @"LEADERBOARD_ICON";
+
+// GTLRGamesConfiguration_LeaderboardConfiguration.scoreOrder
+NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_LargerIsBetter = @"LARGER_IS_BETTER";
+NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_ScoreOrderUnspecified = @"SCORE_ORDER_UNSPECIFIED";
+NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_SmallerIsBetter = @"SMALLER_IS_BETTER";
 
 // ----------------------------------------------------------------------------
 //
@@ -21,6 +51,12 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -36,6 +72,12 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -54,6 +96,12 @@
     @"items" : [GTLRGamesConfiguration_AchievementConfiguration class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -86,6 +134,13 @@
 
 @implementation GTLRGamesConfiguration_ImageConfiguration
 @dynamic imageType, kind, resourceId, url;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -102,6 +157,12 @@
   return @{ @"identifier" : @"id" };
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -112,6 +173,13 @@
 
 @implementation GTLRGamesConfiguration_LeaderboardConfigurationDetail
 @dynamic iconUrl, kind, name, scoreFormat, sortRank;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -130,6 +198,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -140,6 +214,13 @@
 
 @implementation GTLRGamesConfiguration_LocalizedString
 @dynamic kind, locale, value;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -156,6 +237,12 @@
     @"translations" : [GTLRGamesConfiguration_LocalizedString class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end

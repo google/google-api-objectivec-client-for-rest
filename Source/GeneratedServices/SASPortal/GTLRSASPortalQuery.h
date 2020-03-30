@@ -607,6 +607,78 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new node.
+ *
+ *  Method: sasportal.customers.nodes.nodes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersNodesNodesCreate : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersNodesNodesCreateWithObject:parent:]
+
+/** Required. The parent resource name where the node is to be created. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Node.
+ *
+ *  Creates a new node.
+ *
+ *  @param object The @c GTLRSASPortal_Node to include in the query.
+ *  @param parent Required. The parent resource name where the node is to be
+ *    created.
+ *
+ *  @return GTLRSASPortalQuery_CustomersNodesNodesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_Node *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists nodes.
+ *
+ *  Method: sasportal.customers.nodes.nodes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersNodesNodesList : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersNodesNodesListWithparent:]
+
+/** The maximum number of nodes to return in the response. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A pagination token returned from a previous call to ListNodes method
+ *  that indicates where this listing should continue from.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource name, for example, "nodes/1". */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_ListNodesResponse.
+ *
+ *  Lists nodes.
+ *
+ *  @param parent Required. The parent resource name, for example, "nodes/1".
+ *
+ *  @return GTLRSASPortalQuery_CustomersNodesNodesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates an existing node.
  *
  *  Method: sasportal.customers.nodes.patch
@@ -1120,6 +1192,148 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a device under a node or customer. Returned devices are unordered.
+ *
+ *  Method: sasportal.nodes.nodes.devices.bulk
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesNodesDevicesBulk : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesNodesDevicesBulkWithObject:parent:]
+
+/** Required. The name of the parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_BulkCreateDeviceResponse.
+ *
+ *  Creates a device under a node or customer. Returned devices are unordered.
+ *
+ *  @param object The @c GTLRSASPortal_BulkCreateDeviceRequest to include in the
+ *    query.
+ *  @param parent Required. The name of the parent resource.
+ *
+ *  @return GTLRSASPortalQuery_NodesNodesDevicesBulk
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_BulkCreateDeviceRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a device under a node or customer.
+ *
+ *  Method: sasportal.nodes.nodes.devices.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesNodesDevicesCreate : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesNodesDevicesCreateWithObject:parent:]
+
+/** Required. The name of the parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Device.
+ *
+ *  Creates a device under a node or customer.
+ *
+ *  @param object The @c GTLRSASPortal_Device to include in the query.
+ *  @param parent Required. The name of the parent resource.
+ *
+ *  @return GTLRSASPortalQuery_NodesNodesDevicesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_Device *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a signed device under a
+ *  node or customer.
+ *
+ *  Method: sasportal.nodes.nodes.devices.createSigned
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesNodesDevicesCreateSigned : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesNodesDevicesCreateSignedWithObject:parent:]
+
+/** Required. The name of the parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Device.
+ *
+ *  Creates a signed device under a
+ *  node or customer.
+ *
+ *  @param object The @c GTLRSASPortal_CreateSignedDeviceRequest to include in
+ *    the query.
+ *  @param parent Required. The name of the parent resource.
+ *
+ *  @return GTLRSASPortalQuery_NodesNodesDevicesCreateSigned
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_CreateSignedDeviceRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists devices under a node or customer.
+ *
+ *  Method: sasportal.nodes.nodes.devices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesNodesDevicesList : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesNodesDevicesListWithparent:]
+
+/**
+ *  The filter expression. The filter should have one of the following
+ *  formats: "sn=123454" or "display_name=MyDevice". sn
+ *  corresponds to serial_number of the device. The filter is case insensitive.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The maximum number of devices to return in the response. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A pagination token returned from a previous call to ListDevices
+ *  that indicates where this listing should continue from.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The name of the parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_ListDevicesResponse.
+ *
+ *  Lists devices under a node or customer.
+ *
+ *  @param parent Required. The name of the parent resource.
+ *
+ *  @return GTLRSASPortalQuery_NodesNodesDevicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Returns a requested node.
  *
  *  Method: sasportal.nodes.nodes.get
@@ -1219,6 +1433,78 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRSASPortal_MoveNodeRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new node.
+ *
+ *  Method: sasportal.nodes.nodes.nodes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesNodesNodesCreate : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesNodesNodesCreateWithObject:parent:]
+
+/** Required. The parent resource name where the node is to be created. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Node.
+ *
+ *  Creates a new node.
+ *
+ *  @param object The @c GTLRSASPortal_Node to include in the query.
+ *  @param parent Required. The parent resource name where the node is to be
+ *    created.
+ *
+ *  @return GTLRSASPortalQuery_NodesNodesNodesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_Node *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists nodes.
+ *
+ *  Method: sasportal.nodes.nodes.nodes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesNodesNodesList : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesNodesNodesListWithparent:]
+
+/** The maximum number of nodes to return in the response. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A pagination token returned from a previous call to ListNodes method
+ *  that indicates where this listing should continue from.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource name, for example, "nodes/1". */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_ListNodesResponse.
+ *
+ *  Lists nodes.
+ *
+ *  @param parent Required. The parent resource name, for example, "nodes/1".
+ *
+ *  @return GTLRSASPortalQuery_NodesNodesNodesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

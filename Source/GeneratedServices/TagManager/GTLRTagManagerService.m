@@ -4,9 +4,10 @@
 // API:
 //   Tag Manager API (tagmanager/v2)
 // Description:
-//   Accesses Tag Manager accounts and containers.
+//   This API allows clients to access and modify container and tag
+//   configuration.
 // Documentation:
-//   https://developers.google.com/tag-manager/api/v2/
+//   https://developers.google.com/tag-manager
 
 #import "GTLRTagManager.h"
 
@@ -32,8 +33,7 @@ NSString * const kGTLRAuthScopeTagManagerReadonly              = @"https://www.g
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"tagmanager/v2/";
-    self.batchPath = @"batch/tagmanager/v2";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

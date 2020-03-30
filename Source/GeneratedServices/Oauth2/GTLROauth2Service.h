@@ -31,9 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Authorization scope: Associate you with your personal info on Google
  *
- *  Value "https://www.googleapis.com/auth/plus.me"
+ *  Value "openid"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeOauth2PlusMe;
+GTLR_EXTERN NSString * const kGTLRAuthScopeOauth2Openid;
 /**
  *  Authorization scope: View your email address
  *

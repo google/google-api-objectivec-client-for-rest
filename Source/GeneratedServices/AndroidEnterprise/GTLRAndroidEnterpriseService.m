@@ -37,7 +37,6 @@ NSString * const kGTLRAuthScopeAndroidEnterprise = @"https://www.googleapis.com/
   return @{
     @"androidenterprise#administratorWebToken" : [GTLRAndroidEnterprise_AdministratorWebToken class],
     @"androidenterprise#administratorWebTokenSpec" : [GTLRAndroidEnterprise_AdministratorWebTokenSpec class],
-    @"androidenterprise#appRestrictionsSchema" : [GTLRAndroidEnterprise_AppRestrictionsSchema class],
     @"androidenterprise#approvalUrlInfo" : [GTLRAndroidEnterprise_ApprovalUrlInfo class],
     @"androidenterprise#authenticationToken" : [GTLRAndroidEnterprise_AuthenticationToken class],
     @"androidenterprise#configurationVariables" : [GTLRAndroidEnterprise_ConfigurationVariables class],
@@ -66,7 +65,6 @@ NSString * const kGTLRAuthScopeAndroidEnterprise = @"https://www.googleapis.com/
     @"androidenterprise#productsListResponse" : [GTLRAndroidEnterprise_ProductsListResponse class],
     @"androidenterprise#serviceAccount" : [GTLRAndroidEnterprise_ServiceAccount class],
     @"androidenterprise#serviceAccountKey" : [GTLRAndroidEnterprise_ServiceAccountKey class],
-    @"androidenterprise#signupInfo" : [GTLRAndroidEnterprise_SignupInfo class],
     @"androidenterprise#storeCluster" : [GTLRAndroidEnterprise_StoreCluster class],
     @"androidenterprise#storeLayout" : [GTLRAndroidEnterprise_StoreLayout class],
     @"androidenterprise#storeLayoutClustersListResponse" : [GTLRAndroidEnterprise_StoreLayoutClustersListResponse class],

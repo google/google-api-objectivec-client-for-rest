@@ -4,9 +4,10 @@
 // API:
 //   Google Play Game Services Publishing API (gamesConfiguration/v1configuration)
 // Description:
-//   The Publishing API for Google Play Game Services.
+//   The Google Play Game Services Publishing API allows developers to configure
+//   their games in Game Services.
 // Documentation:
-//   https://developers.google.com/games/services
+//   https://developers.google.com/games/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -34,17 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // imageType
 
-/**
- *  The icon image for an achievement resource.
- *
- *  Value: "ACHIEVEMENT_ICON"
- */
+/** Value: "ACHIEVEMENT_ICON" */
 GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeAchievementIcon;
-/**
- *  The icon image for a leaderboard resource.
- *
- *  Value: "LEADERBOARD_ICON"
- */
+/** Value: "IMAGE_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeImageTypeUnspecified;
+/** Value: "LEADERBOARD_ICON" */
 GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 
 // ----------------------------------------------------------------------------
@@ -168,9 +163,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 /**
  *  The maximum number of resource configurations to return in the response,
  *  used for paging. For any response, the actual number of resources returned
- *  may be less than the specified maxResults.
- *
- *  @note The documented range is 1..200.
+ *  may be less than the specified <code>maxResults</code>.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -192,39 +185,6 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *        information.
  */
 + (instancetype)queryWithApplicationId:(NSString *)applicationId;
-
-@end
-
-/**
- *  Update the metadata of the achievement configuration with the given ID. This
- *  method supports patch semantics.
- *
- *  Method: gamesConfiguration.achievementConfigurations.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
- */
-@interface GTLRGamesConfigurationQuery_AchievementConfigurationsPatch : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForAchievementConfigurationsPatchWithObject:achievementId:]
-
-/** The ID of the achievement used by this method. */
-@property(nonatomic, copy, nullable) NSString *achievementId;
-
-/**
- *  Fetches a @c GTLRGamesConfiguration_AchievementConfiguration.
- *
- *  Update the metadata of the achievement configuration with the given ID. This
- *  method supports patch semantics.
- *
- *  @param object The @c GTLRGamesConfiguration_AchievementConfiguration to
- *    include in the query.
- *  @param achievementId The ID of the achievement used by this method.
- *
- *  @return GTLRGamesConfigurationQuery_AchievementConfigurationsPatch
- */
-+ (instancetype)queryWithObject:(GTLRGamesConfiguration_AchievementConfiguration *)object
-                  achievementId:(NSString *)achievementId;
 
 @end
 
@@ -275,10 +235,12 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *  Selects which image in a resource for this method.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesConfigurationImageTypeAchievementIcon The icon image for
- *        an achievement resource. (Value: "ACHIEVEMENT_ICON")
- *    @arg @c kGTLRGamesConfigurationImageTypeLeaderboardIcon The icon image for
- *        a leaderboard resource. (Value: "LEADERBOARD_ICON")
+ *    @arg @c kGTLRGamesConfigurationImageTypeImageTypeUnspecified Value
+ *        "IMAGE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRGamesConfigurationImageTypeAchievementIcon Value
+ *        "ACHIEVEMENT_ICON"
+ *    @arg @c kGTLRGamesConfigurationImageTypeLeaderboardIcon Value
+ *        "LEADERBOARD_ICON"
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
@@ -294,12 +256,14 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *  @param imageType Selects which image in a resource for this method.
  *
  *  Likely values for @c imageType:
- *    @arg @c kGTLRGamesConfigurationImageTypeAchievementIcon The icon image for
- *        an achievement resource. (Value: "ACHIEVEMENT_ICON")
- *    @arg @c kGTLRGamesConfigurationImageTypeLeaderboardIcon The icon image for
- *        a leaderboard resource. (Value: "LEADERBOARD_ICON")
+ *    @arg @c kGTLRGamesConfigurationImageTypeImageTypeUnspecified Value
+ *        "IMAGE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRGamesConfigurationImageTypeAchievementIcon Value
+ *        "ACHIEVEMENT_ICON"
+ *    @arg @c kGTLRGamesConfigurationImageTypeLeaderboardIcon Value
+ *        "LEADERBOARD_ICON"
  *  @param uploadParameters The media to include in this query. Maximum size
- *    15MB. Accepted MIME type: image/ *
+ *    15728640. Accepted MIME type: image/ *
  *
  *  @return GTLRGamesConfigurationQuery_ImageConfigurationsUpload
  */
@@ -416,9 +380,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 /**
  *  The maximum number of resource configurations to return in the response,
  *  used for paging. For any response, the actual number of resources returned
- *  may be less than the specified maxResults.
- *
- *  @note The documented range is 1..200.
+ *  may be less than the specified <code>maxResults</code>.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -440,39 +402,6 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
  *        information.
  */
 + (instancetype)queryWithApplicationId:(NSString *)applicationId;
-
-@end
-
-/**
- *  Update the metadata of the leaderboard configuration with the given ID. This
- *  method supports patch semantics.
- *
- *  Method: gamesConfiguration.leaderboardConfigurations.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
- */
-@interface GTLRGamesConfigurationQuery_LeaderboardConfigurationsPatch : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForLeaderboardConfigurationsPatchWithObject:leaderboardId:]
-
-/** The ID of the leaderboard. */
-@property(nonatomic, copy, nullable) NSString *leaderboardId;
-
-/**
- *  Fetches a @c GTLRGamesConfiguration_LeaderboardConfiguration.
- *
- *  Update the metadata of the leaderboard configuration with the given ID. This
- *  method supports patch semantics.
- *
- *  @param object The @c GTLRGamesConfiguration_LeaderboardConfiguration to
- *    include in the query.
- *  @param leaderboardId The ID of the leaderboard.
- *
- *  @return GTLRGamesConfigurationQuery_LeaderboardConfigurationsPatch
- */
-+ (instancetype)queryWithObject:(GTLRGamesConfiguration_LeaderboardConfiguration *)object
-                  leaderboardId:(NSString *)leaderboardId;
 
 @end
 

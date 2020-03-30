@@ -1486,6 +1486,25 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSearch
+
+@dynamic parent, resourceType;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/fhir";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.search";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSetIamPolicy
 
 @dynamic resource;
@@ -1904,6 +1923,31 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudHealthcare_ListDatasetsResponse class];
   query.loggingName = @"healthcare.projects.locations.datasets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:cancel";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Empty class];
+  query.loggingName = @"healthcare.projects.locations.datasets.operations.cancel";
   return query;
 }
 

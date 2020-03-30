@@ -290,7 +290,7 @@ NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified = @"SOURCE
 //
 
 @implementation GTLRPeopleService_Gender
-@dynamic formattedValue, metadata, value;
+@dynamic addressMeAs, formattedValue, metadata, value;
 @end
 
 

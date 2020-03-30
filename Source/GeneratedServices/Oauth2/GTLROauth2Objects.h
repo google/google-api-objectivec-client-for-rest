@@ -30,9 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLROauth2_Tokeninfo : GTLRObject
 
-/** The access type granted with this token. It can be offline or online. */
-@property(nonatomic, copy, nullable) NSString *accessType;
-
 /**
  *  Who is the intended audience for this token. In general the same as
  *  issued_to.
@@ -58,9 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** The space separated list of scopes granted to this token. */
 @property(nonatomic, copy, nullable) NSString *scope;
 
-/** The token handle associated with this token. */
-@property(nonatomic, copy, nullable) NSString *tokenHandle;
-
 /** The obfuscated user id. */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -76,9 +70,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLROauth2_Userinfoplus
+ *  GTLROauth2_Userinfo
  */
-@interface GTLROauth2_Userinfoplus : GTLRObject
+@interface GTLROauth2_Userinfo : GTLRObject
 
 /** The user's email address. */
 @property(nonatomic, copy, nullable) NSString *email;

@@ -2311,46 +2311,6 @@ GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Retrieves resolved app access settings of the logged in user.
- *
- *  Method: directory.resolvedAppAccessSettings.GetSettings
- */
-@interface GTLRDirectoryQuery_ResolvedAppAccessSettingsGetSettings : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResolvedAppAccessSettingsGetSettings]
-
-/**
- *  Fetches a @c GTLRDirectory_AppAccessCollections.
- *
- *  Retrieves resolved app access settings of the logged in user.
- *
- *  @return GTLRDirectoryQuery_ResolvedAppAccessSettingsGetSettings
- */
-+ (instancetype)query;
-
-@end
-
-/**
- *  Retrieves the list of apps trusted by the admin of the logged in user.
- *
- *  Method: directory.resolvedAppAccessSettings.ListTrustedApps
- */
-@interface GTLRDirectoryQuery_ResolvedAppAccessSettingsListTrustedApps : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResolvedAppAccessSettingsListTrustedApps]
-
-/**
- *  Fetches a @c GTLRDirectory_TrustedApps.
- *
- *  Retrieves the list of apps trusted by the admin of the logged in user.
- *
- *  @return GTLRDirectoryQuery_ResolvedAppAccessSettingsListTrustedApps
- */
-+ (instancetype)query;
-
-@end
-
-/**
  *  Deletes a building.
  *
  *  Method: directory.resources.buildings.delete

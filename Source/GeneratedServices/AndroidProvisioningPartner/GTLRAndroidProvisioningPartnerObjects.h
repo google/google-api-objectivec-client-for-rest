@@ -1522,14 +1522,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceReques
  */
 @interface GTLRAndroidProvisioningPartner_UpdateDeviceMetadataRequest : GTLRObject
 
-/** Required. The metdata to attach to the device. */
+/** Required. The metadata to attach to the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata *deviceMetadata;
 
 @end
 
 
 /**
- *  Identifies metdata updates to one device.
+ *  Identifies metadata updates to one device.
  */
 @interface GTLRAndroidProvisioningPartner_UpdateMetadataArguments : GTLRObject
 

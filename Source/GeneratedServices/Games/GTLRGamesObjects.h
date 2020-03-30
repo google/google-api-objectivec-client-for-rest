@@ -1671,6 +1671,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRGames_PlayerExperienceInfo *experienceInfo;
 
 /**
+ *  The friend status of the given player, relative to the requester. This is
+ *  unset if the player is not sharing their friends list with the game.
+ */
+@property(nonatomic, copy, nullable) NSString *friendStatus;
+
+/**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#player.
  */

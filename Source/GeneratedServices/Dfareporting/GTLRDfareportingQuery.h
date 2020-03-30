@@ -1592,7 +1592,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForAdvertiserGroupsPatchWithObject:profileId:identifier:]
 
 /**
- *  Advertiser group ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1609,7 +1609,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_AdvertiserGroup to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Advertiser group ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_AdvertiserGroupsPatch
  */
@@ -1838,7 +1838,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForAdvertiserLandingPagesPatchWithObject:profileId:identifier:]
 
 /**
- *  Landing page ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1854,7 +1854,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Landing page ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_AdvertiserLandingPagesPatch
  */
@@ -2096,7 +2096,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForAdvertisersPatchWithObject:profileId:identifier:]
 
 /**
- *  Advertiser ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2112,7 +2112,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Advertiser to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Advertiser ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_AdvertisersPatch
  */
@@ -2484,7 +2484,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForCampaignsPatchWithObject:profileId:identifier:]
 
 /**
- *  Campaign ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2500,7 +2500,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Campaign to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Campaign ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_CampaignsPatch
  */
@@ -3092,7 +3092,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForContentCategoriesPatchWithObject:profileId:identifier:]
 
 /**
- *  Content category ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -3109,7 +3109,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_ContentCategory to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Content category ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_ContentCategoriesPatch
  */
@@ -3525,7 +3525,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForCreativeFieldsPatchWithObject:profileId:identifier:]
 
 /**
- *  Creative Field ID
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -3541,7 +3541,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_CreativeField to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Creative Field ID
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_CreativeFieldsPatch
  */
@@ -3790,8 +3790,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing creative field value. This method supports patch
- *  semantics.
+ *  Updates an existing creative field. This method supports patch semantics.
  *
  *  Method: dfareporting.creativeFieldValues.patch
  *
@@ -3806,7 +3805,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @property(nonatomic, assign) long long creativeFieldId;
 
 /**
- *  Creative Field Value ID
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -3818,14 +3817,13 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_CreativeFieldValue.
  *
- *  Updates an existing creative field value. This method supports patch
- *  semantics.
+ *  Updates an existing creative field. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_CreativeFieldValue to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
  *  @param creativeFieldId Creative field ID for this creative field value.
- *  @param identifier Creative Field Value ID
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_CreativeFieldValuesPatch
  */
@@ -4053,7 +4051,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForCreativeGroupsPatchWithObject:profileId:identifier:]
 
 /**
- *  Creative group ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -4069,7 +4067,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_CreativeGroup to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Creative group ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_CreativeGroupsPatch
  */
@@ -4370,7 +4368,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForCreativesPatchWithObject:profileId:identifier:]
 
 /**
- *  Creative ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -4386,7 +4384,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Creative to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Creative ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_CreativesPatch
  */
@@ -5076,7 +5074,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForEventTagsPatchWithObject:profileId:identifier:]
 
 /**
- *  Event tag ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5092,7 +5090,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_EventTag to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Event tag ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_EventTagsPatch
  */
@@ -5554,7 +5552,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForFloodlightActivitiesPatchWithObject:profileId:identifier:]
 
 /**
- *  Floodlight activity ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5572,7 +5570,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_FloodlightActivity to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Floodlight activity ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_FloodlightActivitiesPatch
  */
@@ -5808,7 +5806,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForFloodlightActivityGroupsPatchWithObject:profileId:identifier:]
 
 /**
- *  Floodlight activity Group ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5826,7 +5824,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_FloodlightActivityGroup to include in
  *    the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Floodlight activity Group ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_FloodlightActivityGroupsPatch
  */
@@ -5954,7 +5952,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForFloodlightConfigurationsPatchWithObject:profileId:identifier:]
 
 /**
- *  Floodlight configuration ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5972,7 +5970,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_FloodlightConfiguration to include in
  *    the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Floodlight configuration ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_FloodlightConfigurationsPatch
  */
@@ -7083,7 +7081,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForPlacementGroupsPatchWithObject:profileId:identifier:]
 
 /**
- *  Placement group ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -7100,7 +7098,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_PlacementGroup to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Placement group ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_PlacementGroupsPatch
  */
@@ -7531,7 +7529,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForPlacementsPatchWithObject:profileId:identifier:]
 
 /**
- *  Placement ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -7547,7 +7545,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Placement to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Placement ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_PlacementsPatch
  */
@@ -7764,7 +7762,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForPlacementStrategiesPatchWithObject:profileId:identifier:]
 
 /**
- *  Placement strategy ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -7782,7 +7780,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_PlacementStrategy to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Placement strategy ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_PlacementStrategiesPatch
  */
@@ -8223,7 +8221,6 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
 
-/** Remarketing list ID. */
 @property(nonatomic, assign) long long remarketingListId;
 
 /**
@@ -8235,7 +8232,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_RemarketingListShare to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param remarketingListId Remarketing list ID.
+ *  @param remarketingListId long long
  *
  *  @return GTLRDfareportingQuery_RemarketingListSharesPatch
  */
@@ -8411,7 +8408,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForRemarketingListsPatchWithObject:profileId:identifier:]
 
 /**
- *  Remarketing list ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -8428,7 +8425,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_RemarketingList to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Remarketing list ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_RemarketingListsPatch
  */
@@ -9092,7 +9089,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForSitesPatchWithObject:profileId:identifier:]
 
 /**
- *  Site ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -9108,7 +9105,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Site to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Site ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_SitesPatch
  */
@@ -9438,7 +9435,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForSubaccountsPatchWithObject:profileId:identifier:]
 
 /**
- *  Subaccount ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -9454,7 +9451,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_Subaccount to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Subaccount ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_SubaccountsPatch
  */
@@ -9793,7 +9790,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForTargetingTemplatesPatchWithObject:profileId:identifier:]
 
 /**
- *  Targeting template ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -9811,7 +9808,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_TargetingTemplate to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Targeting template ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_TargetingTemplatesPatch
  */
@@ -10255,7 +10252,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForUserRolesPatchWithObject:profileId:identifier:]
 
 /**
- *  User role ID.
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -10271,7 +10268,7 @@ GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_UserRole to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier User role ID.
+ *  @param identifier long long
  *
  *  @return GTLRDfareportingQuery_UserRolesPatch
  */

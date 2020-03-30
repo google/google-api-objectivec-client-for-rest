@@ -324,6 +324,295 @@
 
 @end
 
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesCreate
+
+@dynamic parent, studyId;
+
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1Study *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/studies";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1Study class];
+  query.loggingName = @"ml.projects.locations.studies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleProtobufEmpty class];
+  query.loggingName = @"ml.projects.locations.studies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1Study class];
+  query.loggingName = @"ml.projects.locations.studies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/studies";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListStudiesResponse class];
+  query.loggingName = @"ml.projects.locations.studies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsAddMeasurement
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1AddTrialMeasurementRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:addMeasurement";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsAddMeasurement *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial class];
+  query.loggingName = @"ml.projects.locations.studies.trials.addMeasurement";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsCheckEarlyStoppingState
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1CheckTrialEarlyStoppingStateRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:checkEarlyStoppingState";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsCheckEarlyStoppingState *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"ml.projects.locations.studies.trials.checkEarlyStoppingState";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsComplete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1CompleteTrialRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:complete";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsComplete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial class];
+  query.loggingName = @"ml.projects.locations.studies.trials.complete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/trials";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial class];
+  query.loggingName = @"ml.projects.locations.studies.trials.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleProtobufEmpty class];
+  query.loggingName = @"ml.projects.locations.studies.trials.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial class];
+  query.loggingName = @"ml.projects.locations.studies.trials.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/trials";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListTrialsResponse class];
+  query.loggingName = @"ml.projects.locations.studies.trials.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsStop
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1StopTrialRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:stop";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsStop *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial class];
+  query.loggingName = @"ml.projects.locations.studies.trials.stop";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsSuggest
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/trials:suggest";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsSuggest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"ml.projects.locations.studies.trials.suggest";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudMachineLearningEngineQuery_ProjectsModelsCreate
 
 @dynamic parent;

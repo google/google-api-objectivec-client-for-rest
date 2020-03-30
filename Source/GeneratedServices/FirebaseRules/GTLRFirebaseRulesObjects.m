@@ -39,6 +39,7 @@ NSString * const kGTLRFirebaseRules_TestCase_Expectation_ExpectationUnspecified 
 NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_Full = @"FULL";
 NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_LevelUnspecified = @"LEVEL_UNSPECIFIED";
 NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_None = @"NONE";
+NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_Visited = @"VISITED";
 
 // GTLRFirebaseRules_TestCase.pathEncoding
 NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";

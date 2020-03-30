@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Tool Results API (toolresults/v1)
+//   Cloud Tool Results API (toolresults/v1beta3)
 // Description:
-//   API to publish and access results from developer tools.
+//   Reads and publishes results from Firebase Test Lab.
 // Documentation:
 //   https://firebase.google.com/docs/test-lab/
 

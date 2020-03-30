@@ -148,7 +148,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_StateUnspecified
 /**
  *  BASIC instances offer a maximum capacity of 63.9 TB.
  *  BASIC_HDD is an alias for STANDARD Tier, offering economical
- *  performance backed by Persistent Disk HDD.
+ *  performance backed by HDD.
  *
  *  Value: "BASIC_HDD"
  */
@@ -156,14 +156,14 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_BasicHdd;
 /**
  *  BASIC instances offer a maximum capacity of 63.9 TB.
  *  BASIC_SSD is an alias for PREMIUM Tier, and offers improved
- *  performance backed by Persistent Disk SSD.
+ *  performance backed by SSD.
  *
  *  Value: "BASIC_SSD"
  */
 GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_BasicSsd;
 /**
- *  HIGH_SCALE instances offer larger capacity and professional
- *  performance backed by Persistent Disk SSD.
+ *  HIGH_SCALE instances offer expanded capacity and performance scaling
+ *  capabilities.
  *
  *  Value: "HIGH_SCALE_SSD"
  */
@@ -686,14 +686,14 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_BasicHdd BASIC instances offer a
  *        maximum capacity of 63.9 TB.
  *        BASIC_HDD is an alias for STANDARD Tier, offering economical
- *        performance backed by Persistent Disk HDD. (Value: "BASIC_HDD")
+ *        performance backed by HDD. (Value: "BASIC_HDD")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_BasicSsd BASIC instances offer a
  *        maximum capacity of 63.9 TB.
  *        BASIC_SSD is an alias for PREMIUM Tier, and offers improved
- *        performance backed by Persistent Disk SSD. (Value: "BASIC_SSD")
+ *        performance backed by SSD. (Value: "BASIC_SSD")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_HighScaleSsd HIGH_SCALE
- *        instances offer larger capacity and professional
- *        performance backed by Persistent Disk SSD. (Value: "HIGH_SCALE_SSD")
+ *        instances offer expanded capacity and performance scaling
+ *        capabilities. (Value: "HIGH_SCALE_SSD")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_Premium PREMIUM tier. BASIC_SSD
  *        is the preferred term for this tier. (Value: "PREMIUM")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_Standard STANDARD tier.

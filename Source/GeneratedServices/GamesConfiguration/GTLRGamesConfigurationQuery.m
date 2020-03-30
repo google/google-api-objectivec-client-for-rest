@@ -4,9 +4,10 @@
 // API:
 //   Google Play Game Services Publishing API (gamesConfiguration/v1configuration)
 // Description:
-//   The Publishing API for Google Play Game Services.
+//   The Google Play Game Services Publishing API allows developers to configure
+//   their games in Game Services.
 // Documentation:
-//   https://developers.google.com/games/services
+//   https://developers.google.com/games/
 
 #import "GTLRGamesConfigurationQuery.h"
 
@@ -17,6 +18,7 @@
 
 // imageType
 NSString * const kGTLRGamesConfigurationImageTypeAchievementIcon = @"ACHIEVEMENT_ICON";
+NSString * const kGTLRGamesConfigurationImageTypeImageTypeUnspecified = @"IMAGE_TYPE_UNSPECIFIED";
 NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD_ICON";
 
 // ----------------------------------------------------------------------------
@@ -35,7 +37,7 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
 
 + (instancetype)queryWithAchievementId:(NSString *)achievementId {
   NSArray *pathParams = @[ @"achievementId" ];
-  NSString *pathURITemplate = @"achievements/{achievementId}";
+  NSString *pathURITemplate = @"games/v1configuration/achievements/{achievementId}";
   GTLRGamesConfigurationQuery_AchievementConfigurationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -53,7 +55,7 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
 
 + (instancetype)queryWithAchievementId:(NSString *)achievementId {
   NSArray *pathParams = @[ @"achievementId" ];
-  NSString *pathURITemplate = @"achievements/{achievementId}";
+  NSString *pathURITemplate = @"games/v1configuration/achievements/{achievementId}";
   GTLRGamesConfigurationQuery_AchievementConfigurationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -77,7 +79,7 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
     return nil;
   }
   NSArray *pathParams = @[ @"applicationId" ];
-  NSString *pathURITemplate = @"applications/{applicationId}/achievements";
+  NSString *pathURITemplate = @"games/v1configuration/applications/{applicationId}/achievements";
   GTLRGamesConfigurationQuery_AchievementConfigurationsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -97,7 +99,7 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
 
 + (instancetype)queryWithApplicationId:(NSString *)applicationId {
   NSArray *pathParams = @[ @"applicationId" ];
-  NSString *pathURITemplate = @"applications/{applicationId}/achievements";
+  NSString *pathURITemplate = @"games/v1configuration/applications/{applicationId}/achievements";
   GTLRGamesConfigurationQuery_AchievementConfigurationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -105,31 +107,6 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
   query.applicationId = applicationId;
   query.expectedObjectClass = [GTLRGamesConfiguration_AchievementConfigurationListResponse class];
   query.loggingName = @"gamesConfiguration.achievementConfigurations.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesConfigurationQuery_AchievementConfigurationsPatch
-
-@dynamic achievementId;
-
-+ (instancetype)queryWithObject:(GTLRGamesConfiguration_AchievementConfiguration *)object
-                  achievementId:(NSString *)achievementId {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"achievementId" ];
-  NSString *pathURITemplate = @"achievements/{achievementId}";
-  GTLRGamesConfigurationQuery_AchievementConfigurationsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.achievementId = achievementId;
-  query.expectedObjectClass = [GTLRGamesConfiguration_AchievementConfiguration class];
-  query.loggingName = @"gamesConfiguration.achievementConfigurations.patch";
   return query;
 }
 
@@ -146,7 +123,7 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
     return nil;
   }
   NSArray *pathParams = @[ @"achievementId" ];
-  NSString *pathURITemplate = @"achievements/{achievementId}";
+  NSString *pathURITemplate = @"games/v1configuration/achievements/{achievementId}";
   GTLRGamesConfigurationQuery_AchievementConfigurationsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -170,7 +147,7 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
   NSArray *pathParams = @[
     @"imageType", @"resourceId"
   ];
-  NSString *pathURITemplate = @"images/{resourceId}/imageType/{imageType}";
+  NSString *pathURITemplate = @"games/v1configuration/images/{resourceId}/imageType/{imageType}";
   GTLRGamesConfigurationQuery_ImageConfigurationsUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -191,7 +168,7 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
 
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId {
   NSArray *pathParams = @[ @"leaderboardId" ];
-  NSString *pathURITemplate = @"leaderboards/{leaderboardId}";
+  NSString *pathURITemplate = @"games/v1configuration/leaderboards/{leaderboardId}";
   GTLRGamesConfigurationQuery_LeaderboardConfigurationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -209,7 +186,7 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
 
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId {
   NSArray *pathParams = @[ @"leaderboardId" ];
-  NSString *pathURITemplate = @"leaderboards/{leaderboardId}";
+  NSString *pathURITemplate = @"games/v1configuration/leaderboards/{leaderboardId}";
   GTLRGamesConfigurationQuery_LeaderboardConfigurationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -233,7 +210,7 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
     return nil;
   }
   NSArray *pathParams = @[ @"applicationId" ];
-  NSString *pathURITemplate = @"applications/{applicationId}/leaderboards";
+  NSString *pathURITemplate = @"games/v1configuration/applications/{applicationId}/leaderboards";
   GTLRGamesConfigurationQuery_LeaderboardConfigurationsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -253,7 +230,7 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
 
 + (instancetype)queryWithApplicationId:(NSString *)applicationId {
   NSArray *pathParams = @[ @"applicationId" ];
-  NSString *pathURITemplate = @"applications/{applicationId}/leaderboards";
+  NSString *pathURITemplate = @"games/v1configuration/applications/{applicationId}/leaderboards";
   GTLRGamesConfigurationQuery_LeaderboardConfigurationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -261,31 +238,6 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
   query.applicationId = applicationId;
   query.expectedObjectClass = [GTLRGamesConfiguration_LeaderboardConfigurationListResponse class];
   query.loggingName = @"gamesConfiguration.leaderboardConfigurations.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesConfigurationQuery_LeaderboardConfigurationsPatch
-
-@dynamic leaderboardId;
-
-+ (instancetype)queryWithObject:(GTLRGamesConfiguration_LeaderboardConfiguration *)object
-                  leaderboardId:(NSString *)leaderboardId {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"leaderboardId" ];
-  NSString *pathURITemplate = @"leaderboards/{leaderboardId}";
-  GTLRGamesConfigurationQuery_LeaderboardConfigurationsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.leaderboardId = leaderboardId;
-  query.expectedObjectClass = [GTLRGamesConfiguration_LeaderboardConfiguration class];
-  query.loggingName = @"gamesConfiguration.leaderboardConfigurations.patch";
   return query;
 }
 
@@ -302,7 +254,7 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
     return nil;
   }
   NSArray *pathParams = @[ @"leaderboardId" ];
-  NSString *pathURITemplate = @"leaderboards/{leaderboardId}";
+  NSString *pathURITemplate = @"games/v1configuration/leaderboards/{leaderboardId}";
   GTLRGamesConfigurationQuery_LeaderboardConfigurationsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"

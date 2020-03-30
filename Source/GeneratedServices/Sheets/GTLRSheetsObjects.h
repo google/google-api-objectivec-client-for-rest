@@ -3965,7 +3965,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /**
  *  True if grid data should be returned. Meaningful only if
- *  if include_spreadsheet_in_response is 'true'.
+ *  include_spreadsheet_in_response is 'true'.
  *  This parameter is ignored if a field mask was set in the request.
  *
  *  Uses NSNumber of boolValue.
@@ -3974,7 +3974,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 
 /**
  *  Limits the ranges included in the response spreadsheet.
- *  Meaningful only if include_spreadsheet_response is 'true'.
+ *  Meaningful only if include_spreadsheet_in_response is 'true'.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *responseRanges;
 

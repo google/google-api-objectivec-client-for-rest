@@ -60,6 +60,8 @@
 
 @implementation GTLRDoubleClickBidManagerQuery_QueriesCreatequery
 
+@dynamic asynchronous;
+
 + (instancetype)queryWithObject:(GTLRDoubleClickBidManager_Query *)object {
   if (object == nil) {
     GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
@@ -134,7 +136,7 @@
 
 @implementation GTLRDoubleClickBidManagerQuery_QueriesRunquery
 
-@dynamic queryId;
+@dynamic asynchronous, queryId;
 
 + (instancetype)queryWithObject:(GTLRDoubleClickBidManager_RunQueryRequest *)object
                         queryId:(long long)queryId {

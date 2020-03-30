@@ -81,6 +81,7 @@
 @class GTLRDataflow_LeaseWorkItemRequest_UnifiedWorkerRequest;
 @class GTLRDataflow_LeaseWorkItemResponse_UnifiedWorkerResponse;
 @class GTLRDataflow_MapTask;
+@class GTLRDataflow_MemInfo;
 @class GTLRDataflow_MetricShortId;
 @class GTLRDataflow_MetricStructuredName;
 @class GTLRDataflow_MetricStructuredName_Context;
@@ -101,11 +102,13 @@
 @class GTLRDataflow_Position;
 @class GTLRDataflow_PubSubIODetails;
 @class GTLRDataflow_PubsubLocation;
+@class GTLRDataflow_PubsubSnapshotMetadata;
 @class GTLRDataflow_ReadInstruction;
 @class GTLRDataflow_ReportedParallelism;
 @class GTLRDataflow_ReportWorkItemStatusRequest_UnifiedWorkerRequest;
 @class GTLRDataflow_ReportWorkItemStatusResponse_UnifiedWorkerResponse;
 @class GTLRDataflow_ResourceUtilizationReport;
+@class GTLRDataflow_ResourceUtilizationReport_Containers;
 @class GTLRDataflow_ResourceUtilizationReportResponse;
 @class GTLRDataflow_RuntimeEnvironment;
 @class GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels;
@@ -122,6 +125,7 @@
 @class GTLRDataflow_Sink;
 @class GTLRDataflow_Sink_Codec;
 @class GTLRDataflow_Sink_Spec;
+@class GTLRDataflow_Snapshot;
 @class GTLRDataflow_Source;
 @class GTLRDataflow_Source_BaseSpecs_Item;
 @class GTLRDataflow_Source_Codec;
@@ -1149,6 +1153,47 @@ GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unknown;
 GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unsupported;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_Snapshot.state
+
+/**
+ *  Snapshot has been deleted.
+ *
+ *  Value: "DELETED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Deleted;
+/**
+ *  Snapshot failed to be created.
+ *
+ *  Value: "FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Failed;
+/**
+ *  Snapshot intent to create has been persisted, snapshotting of state has not
+ *  yet started.
+ *
+ *  Value: "PENDING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Pending;
+/**
+ *  Snapshot has been created and is ready to be used.
+ *
+ *  Value: "READY"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Ready;
+/**
+ *  Snapshotting is being performed.
+ *
+ *  Value: "RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Running;
+/**
+ *  Unknown state.
+ *
+ *  Value: "UNKNOWN_SNAPSHOT_STATE"
+ */
+GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_UnknownSnapshotState;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_SourceSplitResponse.outcome
 
 /**
@@ -2129,6 +2174,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 /** ProjectId accessed in the connection. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
+@end
+
+
+/**
+ *  Response from deleting a snapshot.
+ */
+@interface GTLRDataflow_DeleteSnapshotResponse : GTLRObject
 @end
 
 
@@ -3810,6 +3862,17 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  List of snapshots.
+ */
+@interface GTLRDataflow_ListSnapshotsResponse : GTLRObject
+
+/** Returned snapshots. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Snapshot *> *snapshots;
+
+@end
+
+
+/**
  *  MapTask consists of an ordered set of instructions, each of which
  *  describes one particular low-level operation for the worker to
  *  perform in order to accomplish the MapTask's WorkItem.
@@ -3838,6 +3901,39 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *  Unique across the workflow.
  */
 @property(nonatomic, copy, nullable) NSString *systemName;
+
+@end
+
+
+/**
+ *  Information about the memory usage of a worker or a container within a
+ *  worker.
+ */
+@interface GTLRDataflow_MemInfo : GTLRObject
+
+/**
+ *  Instantenous memory limit in bytes.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentLimitBytes;
+
+/**
+ *  Instantenous memory (RSS) size in bytes.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentRssBytes;
+
+/** Timestamp of the measurement. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+/**
+ *  Total memory (RSS) usage since start up in GB * ms.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalGbMs;
 
 @end
 
@@ -4452,6 +4548,23 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
 
 
 /**
+ *  Represents a Pubsub snapshot.
+ */
+@interface GTLRDataflow_PubsubSnapshotMetadata : GTLRObject
+
+/** The expire time of the Pubsub snapshot. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/** The name of the Pubsub snapshot. */
+@property(nonatomic, copy, nullable) NSString *snapshotName;
+
+/** The name of the Pubsub topic. */
+@property(nonatomic, copy, nullable) NSString *topicName;
+
+@end
+
+
+/**
  *  An instruction that reads records.
  *  Takes no inputs, produces one output.
  */
@@ -4577,9 +4690,31 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  */
 @interface GTLRDataflow_ResourceUtilizationReport : GTLRObject
 
+/**
+ *  Per container information.
+ *  Key: container name.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_ResourceUtilizationReport_Containers *containers;
+
 /** CPU utilization samples. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_CPUTime *> *cpuTime;
 
+/** Memory utilization samples. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_MemInfo *> *memoryInfo;
+
+@end
+
+
+/**
+ *  Per container information.
+ *  Key: container name.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataflow_ResourceUtilizationReport. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataflow_ResourceUtilizationReport_Containers : GTLRObject
 @end
 
 
@@ -5024,6 +5159,99 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPol
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDataflow_Sink_Spec : GTLRObject
+@end
+
+
+/**
+ *  Represents a snapshot of a job.
+ */
+@interface GTLRDataflow_Snapshot : GTLRObject
+
+/** The time this snapshot was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
+
+/**
+ *  User specified description of the snapshot. Maybe empty.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The disk byte size of the snapshot. Only available for snapshots in READY
+ *  state.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeBytes;
+
+/**
+ *  The unique ID of this snapshot.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The project this snapshot belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** PubSub snapshot metadata. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_PubsubSnapshotMetadata *> *pubsubMetadata;
+
+/** The job this snapshot was created from. */
+@property(nonatomic, copy, nullable) NSString *sourceJobId;
+
+/**
+ *  State of the snapshot.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_Snapshot_State_Deleted Snapshot has been deleted.
+ *        (Value: "DELETED")
+ *    @arg @c kGTLRDataflow_Snapshot_State_Failed Snapshot failed to be created.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRDataflow_Snapshot_State_Pending Snapshot intent to create has
+ *        been persisted, snapshotting of state has not
+ *        yet started. (Value: "PENDING")
+ *    @arg @c kGTLRDataflow_Snapshot_State_Ready Snapshot has been created and
+ *        is ready to be used. (Value: "READY")
+ *    @arg @c kGTLRDataflow_Snapshot_State_Running Snapshotting is being
+ *        performed. (Value: "RUNNING")
+ *    @arg @c kGTLRDataflow_Snapshot_State_UnknownSnapshotState Unknown state.
+ *        (Value: "UNKNOWN_SNAPSHOT_STATE")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The time after which this snapshot will be automatically deleted. */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+@end
+
+
+/**
+ *  Request to create a snapshot of a job.
+ */
+@interface GTLRDataflow_SnapshotJobRequest : GTLRObject
+
+/**
+ *  User specified description of the snapshot. Maybe empty.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The location that contains this job. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  If true, perform snapshots for sources which support this.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *snapshotSources;
+
+/** TTL for the snapshot. */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
 @end
 
 

@@ -116,7 +116,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry
  */
 GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_DataStream;
 /**
- *  Default unknown type
+ *  Default unknown type.
  *
  *  Value: "ENTRY_TYPE_UNSPECIFIED"
  */
@@ -583,7 +583,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
  *        Example:
  *        Cloud Pub/Sub topic. (Value: "DATA_STREAM")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_EntryTypeUnspecified
- *        Default unknown type (Value: "ENTRY_TYPE_UNSPECIFIED")
+ *        Default unknown type. (Value: "ENTRY_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Fileset
  *        An entry type which is a set of files or objects. Example:
  *        Cloud Storage fileset. (Value: "FILESET")

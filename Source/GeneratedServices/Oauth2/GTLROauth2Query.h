@@ -48,8 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy, nullable) NSString *idToken;
 
-@property(nonatomic, copy, nullable) NSString *tokenHandle;
-
 /**
  *  Fetches a @c GTLROauth2_Tokeninfo.
  *
@@ -65,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: oauth2.userinfo.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeOauth2PlusMe
+ *    @c kGTLRAuthScopeOauth2Openid
  *    @c kGTLRAuthScopeOauth2UserinfoEmail
  *    @c kGTLRAuthScopeOauth2UserinfoProfile
  */
@@ -74,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryOauth2 queryForUserinfoGet]
 
 /**
- *  Fetches a @c GTLROauth2_Userinfoplus.
+ *  Fetches a @c GTLROauth2_Userinfo.
  *
  *  @return GTLROauth2Query_UserinfoGet
  */
@@ -88,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: oauth2.userinfo.v2.me.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeOauth2PlusMe
+ *    @c kGTLRAuthScopeOauth2Openid
  *    @c kGTLRAuthScopeOauth2UserinfoEmail
  *    @c kGTLRAuthScopeOauth2UserinfoProfile
  */
@@ -97,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryOauth2 queryForUserinfoV2MeGet]
 
 /**
- *  Fetches a @c GTLROauth2_Userinfoplus.
+ *  Fetches a @c GTLROauth2_Userinfo.
  *
  *  @return GTLROauth2Query_UserinfoV2MeGet
  */

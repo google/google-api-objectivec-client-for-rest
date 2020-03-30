@@ -1028,6 +1028,7 @@ NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_CustomDates 
 NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last14Days = @"LAST_14_DAYS";
 NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last30Days = @"LAST_30_DAYS";
 NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last365Days = @"LAST_365_DAYS";
+NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last60Days = @"LAST_60_DAYS";
 NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last7Days = @"LAST_7_DAYS";
 NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_Last90Days = @"LAST_90_DAYS";
 NSString * const kGTLRDoubleClickBidManager_QueryMetadata_DataRange_MonthToDate = @"MONTH_TO_DATE";
@@ -1092,6 +1093,7 @@ NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_CustomDate
 NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last14Days = @"LAST_14_DAYS";
 NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last30Days = @"LAST_30_DAYS";
 NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last365Days = @"LAST_365_DAYS";
+NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last60Days = @"LAST_60_DAYS";
 NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last7Days = @"LAST_7_DAYS";
 NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_Last90Days = @"LAST_90_DAYS";
 NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_MonthToDate = @"MONTH_TO_DATE";

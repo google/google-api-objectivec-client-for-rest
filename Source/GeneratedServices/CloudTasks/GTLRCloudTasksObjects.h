@@ -36,6 +36,7 @@
 @class GTLRCloudTasks_Queue;
 @class GTLRCloudTasks_RateLimits;
 @class GTLRCloudTasks_RetryConfig;
+@class GTLRCloudTasks_StackdriverLoggingConfig;
 @class GTLRCloudTasks_Status;
 @class GTLRCloudTasks_Status_Details_Item;
 @class GTLRCloudTasks_Task;
@@ -1411,6 +1412,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRCloudTasks_RetryConfig *retryConfig;
 
 /**
+ *  Configuration options for writing logs to
+ *  [Stackdriver Logging](https://cloud.google.com/logging/docs/). If this
+ *  field is unset, then no logs are written.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTasks_StackdriverLoggingConfig *stackdriverLoggingConfig;
+
+/**
  *  Output only. The state of the queue.
  *  `state` can only be changed by called
  *  PauseQueue,
@@ -1686,6 +1694,25 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_Policy *policy;
+
+@end
+
+
+/**
+ *  Configuration options for writing logs to
+ *  [Stackdriver Logging](https://cloud.google.com/logging/docs/).
+ */
+@interface GTLRCloudTasks_StackdriverLoggingConfig : GTLRObject
+
+/**
+ *  Specifies the fraction of operations to write to
+ *  [Stackdriver Logging](https://cloud.google.com/logging/docs/).
+ *  This field may contain any value between 0.0 and 1.0, inclusive.
+ *  0.0 is the default and means that no operations are logged.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplingRatio;
 
 @end
 

@@ -62,6 +62,14 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationT
  */
 GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationTypeUnspecified;
 /**
+ *  Use First Party OAuth based on Loas Owned Clients. First Party OAuth
+ *  doesn't require a refresh token to get an offline access token. Instead,
+ *  it uses a client-signed JWT assertion to retrieve an access token.
+ *
+ *  Value: "FIRST_PARTY_OAUTH"
+ */
+GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_FirstPartyOauth;
+/**
  *  Return an authorization code for a given Google+ page that can then be
  *  exchanged for a refresh token on the backend.
  *
@@ -317,6 +325,12 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Transfe
  *        for a refresh token on the backend. (Value: "AUTHORIZATION_CODE")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationTypeUnspecified
  *        Type unspecified. (Value: "AUTHORIZATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_FirstPartyOauth
+ *        Use First Party OAuth based on Loas Owned Clients. First Party OAuth
+ *        doesn't require a refresh token to get an offline access token.
+ *        Instead,
+ *        it uses a client-signed JWT assertion to retrieve an access token.
+ *        (Value: "FIRST_PARTY_OAUTH")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_GooglePlusAuthorizationCode
  *        Return an authorization code for a given Google+ page that can then be
  *        exchanged for a refresh token on the backend. (Value:

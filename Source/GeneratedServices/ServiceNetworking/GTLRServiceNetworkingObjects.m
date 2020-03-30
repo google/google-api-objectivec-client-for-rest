@@ -70,6 +70,8 @@ NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Deprecated 
 NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRServiceNetworking_MetricDescriptor.metricKind
 NSString * const kGTLRServiceNetworking_MetricDescriptor_MetricKind_Cumulative = @"CUMULATIVE";
@@ -93,6 +95,8 @@ NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Dep
 NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRServiceNetworking_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
@@ -101,6 +105,8 @@ NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRServiceNetworking_Type.syntax
 NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
@@ -120,6 +126,42 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled = @"SERVICE_NETWORKING_NOT_ENABLED";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationErrorUnspecified = @"VALIDATION_ERROR_UNSPECIFIED";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationNotRequested = @"VALIDATION_NOT_REQUESTED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_AddRolesRequest
+//
+
+@implementation GTLRServiceNetworking_AddRolesRequest
+@dynamic consumerNetwork, policyBinding;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyBinding" : [GTLRServiceNetworking_PolicyBinding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_AddRolesResponse
+//
+
+@implementation GTLRServiceNetworking_AddRolesResponse
+@dynamic policyBinding;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyBinding" : [GTLRServiceNetworking_PolicyBinding class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -259,7 +301,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 @implementation GTLRServiceNetworking_BackendRule
 @dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, selector;
+         operationDeadline, pathTranslation, protocol, renameTo, selector;
 @end
 
 
@@ -989,6 +1031,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_PolicyBinding
+//
+
+@implementation GTLRServiceNetworking_PolicyBinding
+@dynamic member, role;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Quota
 //
 
@@ -1061,6 +1113,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_Route
+//
+
+@implementation GTLRServiceNetworking_Route
+@dynamic destRange, name, network, nextHopGateway;
 @end
 
 

@@ -2,13 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Stackdriver Monitoring API (monitoring/v3)
+//   Cloud Monitoring API (monitoring/v3)
 // Description:
-//   Manages your Stackdriver Monitoring data and configurations. Most projects
-//   must be associated with a Stackdriver account, with a few exceptions as
-//   noted on the individual method pages. The table entries below are presented
-//   in alphabetical order, not in order of common use. For explanations of the
-//   concepts found in the table entries, read the Stackdriver Monitoring
+//   Manages your Cloud Monitoring data and configurations. Most projects must
+//   be associated with a Workspace, with a few exceptions as noted on the
+//   individual method pages. The table entries below are presented in
+//   alphabetical order, not in order of common use. For explanations of the
+//   concepts found in the table entries, read the Cloud Monitoring
 //   documentation.
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
@@ -58,6 +58,7 @@
 @class GTLRMonitoring_HttpCheck_Headers;
 @class GTLRMonitoring_InternalChecker;
 @class GTLRMonitoring_LabelDescriptor;
+@class GTLRMonitoring_LabelValue;
 @class GTLRMonitoring_LatencyCriteria;
 @class GTLRMonitoring_Linear;
 @class GTLRMonitoring_MeshIstio;
@@ -83,6 +84,7 @@
 @class GTLRMonitoring_Option_Value;
 @class GTLRMonitoring_PerformanceThreshold;
 @class GTLRMonitoring_Point;
+@class GTLRMonitoring_PointData;
 @class GTLRMonitoring_Range;
 @class GTLRMonitoring_RequestBasedSli;
 @class GTLRMonitoring_ResourceGroup;
@@ -96,11 +98,15 @@
 @class GTLRMonitoring_Telemetry;
 @class GTLRMonitoring_TimeInterval;
 @class GTLRMonitoring_TimeSeries;
+@class GTLRMonitoring_TimeSeriesData;
+@class GTLRMonitoring_TimeSeriesDescriptor;
+@class GTLRMonitoring_TimeSeriesQueryLanguageCondition;
 @class GTLRMonitoring_TimeSeriesRatio;
 @class GTLRMonitoring_Trigger;
 @class GTLRMonitoring_TypedValue;
 @class GTLRMonitoring_UptimeCheckConfig;
 @class GTLRMonitoring_UptimeCheckIp;
+@class GTLRMonitoring_ValueDescriptor;
 @class GTLRMonitoring_WindowsBasedSli;
 
 // Generated comments include content from the discovery document; avoid them
@@ -1351,6 +1357,85 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_SouthAmerica;
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_ValueDescriptor.metricKind
+
+/**
+ *  A value accumulated over a time interval. Cumulative measurements in a time
+ *  series should have the same start time and increasing end times, until an
+ *  event resets the cumulative value to zero and sets a new start time for the
+ *  following points.
+ *
+ *  Value: "CUMULATIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Cumulative;
+/**
+ *  The change in a value during a time interval.
+ *
+ *  Value: "DELTA"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Delta;
+/**
+ *  An instantaneous measurement of a value.
+ *
+ *  Value: "GAUGE"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Gauge;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "METRIC_KIND_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_MetricKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_ValueDescriptor.valueType
+
+/**
+ *  The value is a boolean. This value type can be used only if the metric kind
+ *  is GAUGE.
+ *
+ *  Value: "BOOL"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Bool;
+/**
+ *  The value is a Distribution.
+ *
+ *  Value: "DISTRIBUTION"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Distribution;
+/**
+ *  The value is a double precision floating point number.
+ *
+ *  Value: "DOUBLE"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Double;
+/**
+ *  The value is a signed 64-bit integer.
+ *
+ *  Value: "INT64"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Int64;
+/**
+ *  The value is money.
+ *
+ *  Value: "MONEY"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Money;
+/**
+ *  The value is a text string. This value type can be used only if the metric
+ *  kind is GAUGE.
+ *
+ *  Value: "STRING"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_String;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "VALUE_TYPE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified;
+
 /**
  *  Describes how to combine multiple time series to provide a different view of
  *  the data. Aggregation of time series is done in two steps. First, each time
@@ -1371,7 +1456,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  collection of data, for example "the 95% latency across the average of all
  *  tasks in a cluster". This representative data can be more easily graphed and
  *  comprehended, and the individual time series data is still available for
- *  later drilldown. For more details, see Aggregating Time Series.
+ *  later drilldown. For more details, see Aggregating Time Series
+ *  (https://cloud.google.com/monitoring/api/v3/metrics#aggregating_time_series).
  */
 @interface GTLRMonitoring_Aggregation : GTLRObject
 
@@ -1637,7 +1723,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  A description of the conditions under which some aspect of your system is
  *  considered to be "unhealthy" and the ways to notify people or services about
- *  this state. For an overview of alert policies, see Introduction to Alerting.
+ *  this state. For an overview of alert policies, see Introduction to Alerting
+ *  (https://cloud.google.com/monitoring/alerts/).
  */
 @interface GTLRMonitoring_AlertPolicy : GTLRObject
 
@@ -2087,6 +2174,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) GTLRMonitoring_MetricThreshold *conditionThreshold;
 
 /**
+ *  A condition that uses the time series query language format to define
+ *  alerts. If set, no other conditions can be present.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_TimeSeriesQueryLanguageCondition *conditionTimeSeriesQueryLanguage;
+
+/**
  *  A short name or phrase used to identify the condition in dashboards,
  *  notifications, and incidents. To avoid confusion, don't use the same display
  *  name for multiple conditions in the same policy.
@@ -2278,7 +2371,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @interface GTLRMonitoring_Distribution : GTLRObject
 
 /**
- *  Required in the Stackdriver Monitoring API v3. The values for each bucket
+ *  Required in the Cloud Monitoring API v3. The values for each bucket
  *  specified in bucket_options. The sum of the values in bucketCounts must
  *  equal the value in the count field of the Distribution object. The order of
  *  the bucket counts follows the numbering schemes described for the three
@@ -2292,7 +2385,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *bucketCounts;
 
 /**
- *  Required in the Stackdriver Monitoring API v3. Defines the histogram bucket
+ *  Required in the Cloud Monitoring API v3. Defines the histogram bucket
  *  boundaries.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_BucketOptions *bucketOptions;
@@ -2320,7 +2413,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  If specified, contains the range of the population values. The field must
  *  not be present if the count is zero. This field is presently ignored by the
- *  Stackdriver Monitoring API v3.
+ *  Cloud Monitoring API v3.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_Range *range;
 
@@ -2982,6 +3075,31 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  A label value.
+ */
+@interface GTLRMonitoring_LabelValue : GTLRObject
+
+/**
+ *  A bool label value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  An int64 label value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *int64Value;
+
+/** A string label value. */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+@end
+
+
+/**
  *  Parameters for a latency threshold SLI.
  */
 @interface GTLRMonitoring_LatencyCriteria : GTLRObject
@@ -3459,8 +3577,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  multiple streams on each resource to a single stream for each resource or
  *  when aggregating streams across all members of a group of resrouces).
  *  Multiple aggregations are applied in the order specified.This field is
- *  similar to the one in the ListTimeSeries request. It is advisable to use the
- *  ListTimeSeries method when debugging this field.
+ *  similar to the one in the ListTimeSeries request
+ *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+ *  It is advisable to use the ListTimeSeries method when debugging this field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Aggregation *> *aggregations;
 
@@ -3476,6 +3595,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  A filter (https://cloud.google.com/monitoring/api/v3/filters) that
  *  identifies which time series should be compared with the threshold.The
  *  filter is similar to the one that is specified in the ListTimeSeries request
+ *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list)
  *  (that call is useful to verify the time series that will be retrieved /
  *  processed) and must specify the metric type and optionally may contain
  *  restrictions on resource type, resource labels, and metric labels. This
@@ -3813,8 +3933,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  multiple streams on each resource to a single stream for each resource or
  *  when aggregating streams across all members of a group of resrouces).
  *  Multiple aggregations are applied in the order specified.This field is
- *  similar to the one in the ListTimeSeries request. It is advisable to use the
- *  ListTimeSeries method when debugging this field.
+ *  similar to the one in the ListTimeSeries request
+ *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
+ *  It is advisable to use the ListTimeSeries method when debugging this field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Aggregation *> *aggregations;
 
@@ -3889,6 +4010,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *  A filter (https://cloud.google.com/monitoring/api/v3/filters) that
  *  identifies which time series should be compared with the threshold.The
  *  filter is similar to the one that is specified in the ListTimeSeries request
+ *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list)
  *  (that call is useful to verify the time series that will be retrieved /
  *  processed) and must specify the metric type and optionally may contain
  *  restrictions on resource type, resource labels, and metric labels. This
@@ -4438,6 +4560,77 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  A point's value columns and time interval. Each point has one or more point
+ *  values corresponding to the entries in point_descriptors field in the
+ *  TimeSeriesDescriptor associated with this object.
+ */
+@interface GTLRMonitoring_PointData : GTLRObject
+
+/** The time interval associated with the point. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_TimeInterval *timeInterval;
+
+/** The values that make up the point. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_TypedValue *> *values;
+
+@end
+
+
+/**
+ *  The QueryTimeSeries request.
+ */
+@interface GTLRMonitoring_QueryTimeSeriesRequest : GTLRObject
+
+/**
+ *  A positive number that is the maximum number of time_series_data to return.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  If this field is not empty then it must contain the nextPageToken value
+ *  returned by a previous call to this method. Using this field causes the
+ *  method to return additional results from the previous method call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The query in the time series query language format. The default
+ *  time zone is in UTC.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+@end
+
+
+/**
+ *  The QueryTimeSeries response.
+ */
+@interface GTLRMonitoring_QueryTimeSeriesResponse : GTLRObject
+
+/**
+ *  If there are more results than have been returned, then this field is set to
+ *  a non-empty value. To see the additional results, use that value as
+ *  page_token in the next call to this method.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Query execution errors that may have caused the time series data returned to
+ *  be incomplete. The available data will be available in the response.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Status *> *partialErrors;
+
+/** The time series data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_TimeSeriesData *> *timeSeriesData;
+
+/** The descriptor for the time series data. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_TimeSeriesDescriptor *timeSeriesDescriptor;
+
+@end
+
+
+/**
  *  The range of the population values.
  */
 @interface GTLRMonitoring_Range : GTLRObject
@@ -4520,9 +4713,9 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 /**
  *  A Service is a discrete, autonomous, and network-accessible unit, designed
  *  to solve an individual concern (Wikipedia
- *  (https://en.wikipedia.org/wiki/Service-orientation)). In Stackdriver
- *  Monitoring, a Service acts as the root resource under which operational
- *  aspects of the service are accessible.
+ *  (https://en.wikipedia.org/wiki/Service-orientation)). In Cloud Monitoring, a
+ *  Service acts as the root resource under which operational aspects of the
+ *  service are accessible.
  */
 @interface GTLRMonitoring_Service : GTLRObject
 
@@ -4546,7 +4739,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 /**
  *  Resource name for this Service. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID}
+ *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4895,6 +5088,61 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 
 /**
+ *  Represents the values of a time series associated with a
+ *  TimeSeriesDescriptor.
+ */
+@interface GTLRMonitoring_TimeSeriesData : GTLRObject
+
+/**
+ *  The values of the labels in the time series identifier, given in the same
+ *  order as the label_descriptors field of the TimeSeriesDescriptor associated
+ *  with this object. Each value must have a value of the type given in the
+ *  corresponding entry of label_descriptors.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_LabelValue *> *labelValues;
+
+/** The points in the time series. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_PointData *> *pointData;
+
+@end
+
+
+/**
+ *  A descriptor for the labels and points in a timeseries.
+ */
+@interface GTLRMonitoring_TimeSeriesDescriptor : GTLRObject
+
+/** Descriptors for the labels. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_LabelDescriptor *> *labelDescriptors;
+
+/** Descriptors for the point data value columns. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_ValueDescriptor *> *pointDescriptors;
+
+@end
+
+
+/**
+ *  A condition type that allows alert policies to be defined using the time
+ *  series query language.
+ */
+@interface GTLRMonitoring_TimeSeriesQueryLanguageCondition : GTLRObject
+
+/**
+ *  A query in the time series query language format that generates time series
+ *  indicating points in time that the condition should be considered active.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  A short explanation of what the query represents. For example:"Error ratio
+ *  exceeds 15% for >5% of servers in >2 regions"
+ */
+@property(nonatomic, copy, nullable) NSString *summary;
+
+@end
+
+
+/**
  *  A TimeSeriesRatio specifies two TimeSeries to use for computing the
  *  good_service / total_service ratio. The specified TimeSeries must have
  *  ValueType = DOUBLE or ValueType = INT64 and must have MetricKind =
@@ -5160,6 +5408,58 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *        locations within the United States of America. (Value: "USA")
  */
 @property(nonatomic, copy, nullable) NSString *region;
+
+@end
+
+
+/**
+ *  A descriptor for the value columns in a data point.
+ */
+@interface GTLRMonitoring_ValueDescriptor : GTLRObject
+
+/** The value key. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  The value stream kind.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_ValueDescriptor_MetricKind_Cumulative A value
+ *        accumulated over a time interval. Cumulative measurements in a time
+ *        series should have the same start time and increasing end times, until
+ *        an event resets the cumulative value to zero and sets a new start time
+ *        for the following points. (Value: "CUMULATIVE")
+ *    @arg @c kGTLRMonitoring_ValueDescriptor_MetricKind_Delta The change in a
+ *        value during a time interval. (Value: "DELTA")
+ *    @arg @c kGTLRMonitoring_ValueDescriptor_MetricKind_Gauge An instantaneous
+ *        measurement of a value. (Value: "GAUGE")
+ *    @arg @c kGTLRMonitoring_ValueDescriptor_MetricKind_MetricKindUnspecified
+ *        Do not use this default value. (Value: "METRIC_KIND_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *metricKind;
+
+/**
+ *  The value type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_ValueDescriptor_ValueType_Bool The value is a
+ *        boolean. This value type can be used only if the metric kind is GAUGE.
+ *        (Value: "BOOL")
+ *    @arg @c kGTLRMonitoring_ValueDescriptor_ValueType_Distribution The value
+ *        is a Distribution. (Value: "DISTRIBUTION")
+ *    @arg @c kGTLRMonitoring_ValueDescriptor_ValueType_Double The value is a
+ *        double precision floating point number. (Value: "DOUBLE")
+ *    @arg @c kGTLRMonitoring_ValueDescriptor_ValueType_Int64 The value is a
+ *        signed 64-bit integer. (Value: "INT64")
+ *    @arg @c kGTLRMonitoring_ValueDescriptor_ValueType_Money The value is
+ *        money. (Value: "MONEY")
+ *    @arg @c kGTLRMonitoring_ValueDescriptor_ValueType_String The value is a
+ *        text string. This value type can be used only if the metric kind is
+ *        GAUGE. (Value: "STRING")
+ *    @arg @c kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified Do
+ *        not use this default value. (Value: "VALUE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *valueType;
 
 @end
 

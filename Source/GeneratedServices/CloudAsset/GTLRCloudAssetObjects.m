@@ -337,7 +337,12 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessPolicy
-@dynamic createTime, name, parent, title, updateTime;
+@dynamic createTime, ETag, name, parent, title, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 

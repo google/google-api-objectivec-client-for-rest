@@ -815,9 +815,19 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 @interface GTLRPeopleService_Gender : GTLRObject
 
 /**
+ *  The type of pronouns that should be used to address the person. The value
+ *  can be custom or one of these predefined values:
+ *  * `male`
+ *  * `female`
+ *  * `other`
+ */
+@property(nonatomic, copy, nullable) NSString *addressMeAs;
+
+/**
  *  Output only. The value of the gender translated and formatted in the
- *  viewer's
- *  account locale or the `Accept-Language` HTTP header locale.
+ *  viewer's account
+ *  locale or the `Accept-Language` HTTP header locale. Unspecified or custom
+ *  value are not localized.
  */
 @property(nonatomic, copy, nullable) NSString *formattedValue;
 
@@ -829,8 +839,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  *  predefined values:
  *  * `male`
  *  * `female`
- *  * `other`
- *  * `unknown`
+ *  * `unspecified`
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -930,10 +939,17 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Person *> *connections;
 
-/** The token that can be used to retrieve the next page of results. */
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page.
+ *  If this field is omitted, there are no subsequent pages.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** The token that can be used to retrieve changes since the last request. */
+/**
+ *  A token, which can be sent as `sync_token` to retrieve changes since the
+ *  last request. Request must set `request_sync_token` to return the sync
+ *  token.
+ */
 @property(nonatomic, copy, nullable) NSString *nextSyncToken;
 
 /**

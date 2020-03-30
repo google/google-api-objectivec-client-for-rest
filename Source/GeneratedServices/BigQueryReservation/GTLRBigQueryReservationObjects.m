@@ -11,11 +11,127 @@
 #import "GTLRBigQueryReservationObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRBigQueryReservation_Assignment.jobType
+NSString * const kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified = @"JOB_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigQueryReservation_Assignment_JobType_Pipeline = @"PIPELINE";
+NSString * const kGTLRBigQueryReservation_Assignment_JobType_Query = @"QUERY";
+
+// GTLRBigQueryReservation_Assignment.state
+NSString * const kGTLRBigQueryReservation_Assignment_State_Active = @"ACTIVE";
+NSString * const kGTLRBigQueryReservation_Assignment_State_Pending = @"PENDING";
+NSString * const kGTLRBigQueryReservation_Assignment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRBigQueryReservation_CapacityCommitment.plan
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Annual = @"ANNUAL";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_CommitmentPlanUnspecified = @"COMMITMENT_PLAN_UNSPECIFIED";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex = @"FLEX";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly = @"MONTHLY";
+
+// GTLRBigQueryReservation_CapacityCommitment.renewalPlan
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Annual = @"ANNUAL";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_CommitmentPlanUnspecified = @"COMMITMENT_PLAN_UNSPECIFIED";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex = @"FLEX";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly = @"MONTHLY";
+
+// GTLRBigQueryReservation_CapacityCommitment.state
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Active = @"ACTIVE";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Failed = @"FAILED";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Pending = @"PENDING";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_Assignment
+//
+
+@implementation GTLRBigQueryReservation_Assignment
+@dynamic assignee, jobType, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_BiReservation
+//
+
+@implementation GTLRBigQueryReservation_BiReservation
+@dynamic name, size, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_CapacityCommitment
+//
+
+@implementation GTLRBigQueryReservation_CapacityCommitment
+@dynamic commitmentEndTime, failureStatus, name, plan, renewalPlan, slotCount,
+         state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_CreateSlotPoolMetadata
+//
+
+@implementation GTLRBigQueryReservation_CreateSlotPoolMetadata
+@dynamic slotPool;
+@end
+
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRBigQueryReservation_Empty
 //
 
 @implementation GTLRBigQueryReservation_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_ListAssignmentsResponse
+//
+
+@implementation GTLRBigQueryReservation_ListAssignmentsResponse
+@dynamic assignments, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignments" : [GTLRBigQueryReservation_Assignment class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assignments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_ListCapacityCommitmentsResponse
+//
+
+@implementation GTLRBigQueryReservation_ListCapacityCommitmentsResponse
+@dynamic capacityCommitments, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"capacityCommitments" : [GTLRBigQueryReservation_CapacityCommitment class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"capacityCommitments";
+}
+
 @end
 
 
@@ -38,6 +154,56 @@
   return @"operations";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_ListReservationsResponse
+//
+
+@implementation GTLRBigQueryReservation_ListReservationsResponse
+@dynamic nextPageToken, reservations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reservations" : [GTLRBigQueryReservation_Reservation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"reservations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_MergeCapacityCommitmentsRequest
+//
+
+@implementation GTLRBigQueryReservation_MergeCapacityCommitmentsRequest
+@dynamic capacityCommitmentIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"capacityCommitmentIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_MoveAssignmentRequest
+//
+
+@implementation GTLRBigQueryReservation_MoveAssignmentRequest
+@dynamic destinationId;
 @end
 
 
@@ -76,6 +242,58 @@
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_Reservation
+//
+
+@implementation GTLRBigQueryReservation_Reservation
+@dynamic ignoreIdleSlots, name, slotCapacity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_SearchAssignmentsResponse
+//
+
+@implementation GTLRBigQueryReservation_SearchAssignmentsResponse
+@dynamic assignments, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignments" : [GTLRBigQueryReservation_Assignment class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assignments";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_SplitCapacityCommitmentRequest
+//
+
+@implementation GTLRBigQueryReservation_SplitCapacityCommitmentRequest
+@dynamic slotCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_SplitCapacityCommitmentResponse
+//
+
+@implementation GTLRBigQueryReservation_SplitCapacityCommitmentResponse
+@dynamic first, second;
 @end
 
 

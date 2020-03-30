@@ -30,6 +30,8 @@
 @class GTLRShoppingContent_DatafeedstatusesCustomBatchRequest;
 @class GTLRShoppingContent_LiaSettings;
 @class GTLRShoppingContent_LiasettingsCustomBatchRequest;
+@class GTLRShoppingContent_LocalInventory;
+@class GTLRShoppingContent_LocalinventoryCustomBatchRequest;
 @class GTLRShoppingContent_OrderinvoicesCreateChargeInvoiceRequest;
 @class GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceRequest;
 @class GTLRShoppingContent_OrdersAcknowledgeRequest;
@@ -1608,6 +1610,73 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 + (instancetype)queryWithObject:(GTLRShoppingContent_LiaSettings *)object
                      merchantId:(unsigned long long)merchantId
                       accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Updates local inventory for multiple products or stores in a single request.
+ *
+ *  Method: content.localinventory.custombatch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_LocalinventoryCustombatch : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForLocalinventoryCustombatchWithObject:]
+
+/**
+ *  Fetches a @c GTLRShoppingContent_LocalinventoryCustomBatchResponse.
+ *
+ *  Updates local inventory for multiple products or stores in a single request.
+ *
+ *  @param object The @c GTLRShoppingContent_LocalinventoryCustomBatchRequest to
+ *    include in the query.
+ *
+ *  @return GTLRShoppingContentQuery_LocalinventoryCustombatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_LocalinventoryCustomBatchRequest *)object;
+
+@end
+
+/**
+ *  Update the local inventory of a product in your Merchant Center account.
+ *
+ *  Method: content.localinventory.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_LocalinventoryInsert : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForLocalinventoryInsertWithObject:merchantId:productId:]
+
+/**
+ *  The ID of the account that contains the product. This account cannot be a
+ *  multi-client account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The REST ID of the product for which to update local inventory. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_LocalInventory.
+ *
+ *  Update the local inventory of a product in your Merchant Center account.
+ *
+ *  @param object The @c GTLRShoppingContent_LocalInventory to include in the
+ *    query.
+ *  @param merchantId The ID of the account that contains the product. This
+ *    account cannot be a multi-client account.
+ *  @param productId The REST ID of the product for which to update local
+ *    inventory.
+ *
+ *  @return GTLRShoppingContentQuery_LocalinventoryInsert
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_LocalInventory *)object
+                     merchantId:(unsigned long long)merchantId
+                      productId:(NSString *)productId;
 
 @end
 

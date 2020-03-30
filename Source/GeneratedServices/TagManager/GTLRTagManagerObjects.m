@@ -4,9 +4,10 @@
 // API:
 //   Tag Manager API (tagmanager/v2)
 // Description:
-//   Accesses Tag Manager accounts and containers.
+//   This API allows clients to access and modify container and tag
+//   configuration.
 // Documentation:
-//   https://developers.google.com/tag-manager/api/v2/
+//   https://developers.google.com/tag-manager
 
 #import "GTLRTagManagerObjects.h"
 
@@ -53,6 +54,7 @@ NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickId  = @"clickId";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickTarget = @"clickTarget";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickText = @"clickText";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_ClickUrl = @"clickUrl";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ClientName = @"clientName";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_ContainerId = @"containerId";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_ContainerVersion = @"containerVersion";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_DebugMode = @"debugMode";
@@ -90,6 +92,7 @@ NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterPric
 NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterProductId = @"firebaseEventParameterProductId";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterQuantity = @"firebaseEventParameterQuantity";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_FirebaseEventParameterValue = @"firebaseEventParameterValue";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_FirstPartyServingUrl = @"firstPartyServingUrl";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_FormClasses = @"formClasses";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_FormElement = @"formElement";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_FormId   = @"formId";
@@ -110,8 +113,11 @@ NSString * const kGTLRTagManager_BuiltInVariable_Type_PageHostname = @"pageHostn
 NSString * const kGTLRTagManager_BuiltInVariable_Type_PagePath = @"pagePath";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_PageUrl  = @"pageUrl";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_Platform = @"platform";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_QueryString = @"queryString";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_RandomNumber = @"randomNumber";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_Referrer = @"referrer";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_RequestMethod = @"requestMethod";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_RequestPath = @"requestPath";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_Resolution = @"resolution";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_ScrollDepthDirection = @"scrollDepthDirection";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_ScrollDepthThreshold = @"scrollDepthThreshold";
@@ -175,6 +181,7 @@ NSString * const kGTLRTagManager_Parameter_Type_Boolean        = @"boolean";
 NSString * const kGTLRTagManager_Parameter_Type_Integer        = @"integer";
 NSString * const kGTLRTagManager_Parameter_Type_List           = @"list";
 NSString * const kGTLRTagManager_Parameter_Type_Map            = @"map";
+NSString * const kGTLRTagManager_Parameter_Type_TagReference   = @"tagReference";
 NSString * const kGTLRTagManager_Parameter_Type_Template       = @"template";
 NSString * const kGTLRTagManager_Parameter_Type_TriggerReference = @"triggerReference";
 NSString * const kGTLRTagManager_Parameter_Type_TypeUnspecified = @"typeUnspecified";
@@ -256,6 +263,25 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTagManager_Client
+//
+
+@implementation GTLRTagManager_Client
+@dynamic accountId, clientId, containerId, fingerprint, name, parameter, path,
+         priority, tagManagerUrl, type, workspaceId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameter" : [GTLRTagManager_Parameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTagManager_Condition
 //
 
@@ -308,9 +334,10 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_ContainerVersion
-@dynamic accountId, builtInVariable, container, containerId, containerVersionId,
-         customTemplate, deleted, descriptionProperty, fingerprint, folder,
-         name, path, tag, tagManagerUrl, trigger, variable, zoneProperty;
+@dynamic accountId, builtInVariable, client, container, containerId,
+         containerVersionId, customTemplate, deleted, descriptionProperty,
+         fingerprint, folder, name, path, tag, tagManagerUrl, trigger, variable,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -323,6 +350,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"builtInVariable" : [GTLRTagManager_BuiltInVariable class],
+    @"client" : [GTLRTagManager_Client class],
     @"customTemplate" : [GTLRTagManager_CustomTemplate class],
     @"folder" : [GTLRTagManager_Folder class],
     @"tag" : [GTLRTagManager_Tag class],
@@ -392,8 +420,8 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_CustomTemplate
-@dynamic accountId, containerId, fingerprint, name, path, tagManagerUrl,
-         templateData, templateId, workspaceId;
+@dynamic accountId, containerId, fingerprint, galleryReference, name, path,
+         tagManagerUrl, templateData, templateId, workspaceId;
 @end
 
 
@@ -452,6 +480,16 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_GalleryReference
+//
+
+@implementation GTLRTagManager_GalleryReference
+@dynamic host, isModified, owner, repository, signature, version;
 @end
 
 
@@ -942,10 +980,10 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 @implementation GTLRTagManager_Tag
 @dynamic accountId, blockingRuleId, blockingTriggerId, containerId, fingerprint,
-         firingRuleId, firingTriggerId, liveOnly, name, notes, parameter,
-         parentFolderId, path, paused, priority, scheduleEndMs, scheduleStartMs,
-         setupTag, tagFiringOption, tagId, tagManagerUrl, teardownTag, type,
-         workspaceId;
+         firingRuleId, firingTriggerId, liveOnly, monitoringMetadata,
+         monitoringMetadataTagNameKey, name, notes, parameter, parentFolderId,
+         path, paused, priority, scheduleEndMs, scheduleStartMs, setupTag,
+         tagFiringOption, tagId, tagManagerUrl, teardownTag, type, workspaceId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -970,16 +1008,6 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 @implementation GTLRTagManager_TeardownTag
 @dynamic stopTeardownOnFailure, tagName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTagManager_Timestamp
-//
-
-@implementation GTLRTagManager_Timestamp
-@dynamic nanos, seconds;
 @end
 
 

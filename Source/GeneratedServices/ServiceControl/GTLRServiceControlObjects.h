@@ -1423,9 +1423,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnsp
 /** The actual config id used to process the request. */
 @property(nonatomic, copy, nullable) NSString *serviceConfigId;
 
-/**
- *  Unimplemented. The current service rollout id used to process the request.
- */
+/** The current service rollout id used to process the request. */
 @property(nonatomic, copy, nullable) NSString *serviceRolloutId;
 
 @end
@@ -2771,9 +2769,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnsp
 /** The actual config id used to process the request. */
 @property(nonatomic, copy, nullable) NSString *serviceConfigId;
 
-/**
- *  Unimplemented. The current service rollout id used to process the request.
- */
+/** The current service rollout id used to process the request. */
 @property(nonatomic, copy, nullable) NSString *serviceRolloutId;
 
 @end

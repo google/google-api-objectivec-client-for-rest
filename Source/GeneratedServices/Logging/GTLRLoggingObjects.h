@@ -7,8 +7,7 @@
 //   Writes log entries and manages your Cloud Logging configuration. The table
 //   entries below are presented in alphabetical order, not in order of common
 //   use. For explanations of the concepts found in the table entries, read the
-//   <a href=https://cloud.google.com/logging/docs>Cloud Logging
-//   documentation</a>.
+//   documentation at https://cloud.google.com/logging/docs.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
@@ -1327,11 +1326,10 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *  period. If this field is omitted in a new log entry, then Logging assigns it
  *  the current time. Timestamps have nanosecond accuracy, but trailing zeros in
  *  the fractional seconds might be omitted when the timestamp is
- *  displayed.Incoming log entries should have timestamps that are no more than
- *  the logs retention period in the past, and no more than 24 hours in the
- *  future. Log entries outside those time boundaries will not be available when
- *  calling entries.list, but those log entries can still be exported with
- *  LogSinks.
+ *  displayed.Incoming log entries must have timestamps that don't exceed the
+ *  logs retention period in the past, and that don't exceed 24 hours in the
+ *  future. Log entries outside those time boundaries aren't ingested by
+ *  Logging.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 

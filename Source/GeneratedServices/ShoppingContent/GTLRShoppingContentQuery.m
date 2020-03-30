@@ -904,6 +904,55 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 @end
 
+@implementation GTLRShoppingContentQuery_LocalinventoryCustombatch
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_LocalinventoryCustomBatchRequest *)object {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSString *pathURITemplate = @"localinventory/batch";
+  GTLRShoppingContentQuery_LocalinventoryCustombatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRShoppingContent_LocalinventoryCustomBatchResponse class];
+  query.loggingName = @"content.localinventory.custombatch";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_LocalinventoryInsert
+
+@dynamic merchantId, productId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_LocalInventory *)object
+                     merchantId:(unsigned long long)merchantId
+                      productId:(NSString *)productId {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"productId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/products/{productId}/localinventory";
+  GTLRShoppingContentQuery_LocalinventoryInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.productId = productId;
+  query.expectedObjectClass = [GTLRShoppingContent_LocalInventory class];
+  query.loggingName = @"content.localinventory.insert";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_OrderinvoicesCreatechargeinvoice
 
 @dynamic merchantId, orderId;

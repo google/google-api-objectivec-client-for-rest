@@ -51,13 +51,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRGamesCollectionAll;
 /**
- *  Retrieve a list of players that are also playing this game in reverse
- *  chronological order.
+ *  (DEPRECATED) Retrieve a list of players that are also playing this game in
+ *  reverse chronological order.
  *
  *  Value: "connected"
  */
 GTLR_EXTERN NSString * const kGTLRGamesCollectionConnected;
-/** Value: "played_with" */
+/**
+ *  Retrieve a list of players who are friends of the user in alphabetical
+ *  order.
+ *
+ *  Value: "friends_all"
+ */
+GTLR_EXTERN NSString * const kGTLRGamesCollectionFriendsAll;
+/**
+ *  (DEPRECATED) Retrieve a list of players you have played a multiplayer game
+ *  (realtime or turn-based) with recently.
+ *
+ *  Value: "playedWith"
+ */
 GTLR_EXTERN NSString * const kGTLRGamesCollectionPlayedWith;
 /**
  *  List all scores in the public leaderboard.
@@ -72,14 +84,8 @@ GTLR_EXTERN NSString * const kGTLRGamesCollectionPublic;
  */
 GTLR_EXTERN NSString * const kGTLRGamesCollectionSocial;
 /**
- *  List only social scores, not respecting the fACL.
- *
- *  Value: "SOCIAL_1P"
- */
-GTLR_EXTERN NSString * const kGTLRGamesCollectionSocial1p;
-/**
- *  Retrieve a list of players in the user's social graph that are visible to
- *  this game.
+ *  (DEPRECATED: please use FRIENDS_ALL) Retrieve a list of players in the
+ *  user's social graph that are visible to this game.
  *
  *  Value: "visible"
  */
@@ -922,17 +928,20 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Collection of players being retrieved
  *
  *  Likely values:
- *    @arg @c kGTLRGamesCollectionConnected Retrieve a list of players that are
- *        also playing this game in reverse chronological order. (Value:
- *        "connected")
- *    @arg @c kGTLRGamesCollectionPlayedWith (DEPRECATED: please use
- *        played_with!) Retrieve a list of players you have played a multiplayer
- *        game (realtime or turn-based) with recently. (Value: "playedWith")
- *    @arg @c kGTLRGamesCollectionPlayedWith Retrieve a list of players you have
- *        played a multiplayer game (realtime or turn-based) with recently.
- *        (Value: "played_with")
- *    @arg @c kGTLRGamesCollectionVisible Retrieve a list of players in the
- *        user's social graph that are visible to this game. (Value: "visible")
+ *    @arg @c kGTLRGamesCollectionConnected (DEPRECATED) Retrieve a list of
+ *        players that are also playing this game in reverse chronological
+ *        order. (Value: "connected")
+ *    @arg @c kGTLRGamesCollectionFriendsAll Retrieve a list of players who are
+ *        friends of the user in alphabetical order. (Value: "friends_all")
+ *    @arg @c kGTLRGamesCollectionPlayedWith (DEPRECATED) Retrieve a list of
+ *        players you have played a multiplayer game (realtime or turn-based)
+ *        with recently. (Value: "playedWith")
+ *    @arg @c kGTLRGamesCollectionPlayedWith (DEPRECATED) Retrieve a list of
+ *        players you have played a multiplayer game (realtime or turn-based)
+ *        with recently. (Value: "played_with")
+ *    @arg @c kGTLRGamesCollectionVisible (DEPRECATED: please use FRIENDS_ALL)
+ *        Retrieve a list of players in the user's social graph that are visible
+ *        to this game. (Value: "visible")
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -959,17 +968,20 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  @param collection Collection of players being retrieved
  *
  *  Likely values for @c collection:
- *    @arg @c kGTLRGamesCollectionConnected Retrieve a list of players that are
- *        also playing this game in reverse chronological order. (Value:
- *        "connected")
- *    @arg @c kGTLRGamesCollectionPlayedWith (DEPRECATED: please use
- *        played_with!) Retrieve a list of players you have played a multiplayer
- *        game (realtime or turn-based) with recently. (Value: "playedWith")
- *    @arg @c kGTLRGamesCollectionPlayedWith Retrieve a list of players you have
- *        played a multiplayer game (realtime or turn-based) with recently.
- *        (Value: "played_with")
- *    @arg @c kGTLRGamesCollectionVisible Retrieve a list of players in the
- *        user's social graph that are visible to this game. (Value: "visible")
+ *    @arg @c kGTLRGamesCollectionConnected (DEPRECATED) Retrieve a list of
+ *        players that are also playing this game in reverse chronological
+ *        order. (Value: "connected")
+ *    @arg @c kGTLRGamesCollectionFriendsAll Retrieve a list of players who are
+ *        friends of the user in alphabetical order. (Value: "friends_all")
+ *    @arg @c kGTLRGamesCollectionPlayedWith (DEPRECATED) Retrieve a list of
+ *        players you have played a multiplayer game (realtime or turn-based)
+ *        with recently. (Value: "playedWith")
+ *    @arg @c kGTLRGamesCollectionPlayedWith (DEPRECATED) Retrieve a list of
+ *        players you have played a multiplayer game (realtime or turn-based)
+ *        with recently. (Value: "played_with")
+ *    @arg @c kGTLRGamesCollectionVisible (DEPRECATED: please use FRIENDS_ALL)
+ *        Retrieve a list of players in the user's social graph that are visible
+ *        to this game. (Value: "visible")
  *
  *  @return GTLRGamesQuery_PlayersList
  *
@@ -1477,8 +1489,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *        leaderboard. (Value: "PUBLIC")
  *    @arg @c kGTLRGamesCollectionSocial List only social scores. (Value:
  *        "SOCIAL")
- *    @arg @c kGTLRGamesCollectionSocial1p List only social scores, not
- *        respecting the fACL. (Value: "SOCIAL_1P")
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -1527,8 +1537,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *        leaderboard. (Value: "PUBLIC")
  *    @arg @c kGTLRGamesCollectionSocial List only social scores. (Value:
  *        "SOCIAL")
- *    @arg @c kGTLRGamesCollectionSocial1p List only social scores, not
- *        respecting the fACL. (Value: "SOCIAL_1P")
  *
  *  Likely values for @c timeSpan:
  *    @arg @c kGTLRGamesTimeSpanAllTime List the all-time top scores. (Value:
@@ -1570,8 +1578,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *        leaderboard. (Value: "PUBLIC")
  *    @arg @c kGTLRGamesCollectionSocial List only social scores. (Value:
  *        "SOCIAL")
- *    @arg @c kGTLRGamesCollectionSocial1p List only social scores, not
- *        respecting the fACL. (Value: "SOCIAL_1P")
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -1634,8 +1640,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *        leaderboard. (Value: "PUBLIC")
  *    @arg @c kGTLRGamesCollectionSocial List only social scores. (Value:
  *        "SOCIAL")
- *    @arg @c kGTLRGamesCollectionSocial1p List only social scores, not
- *        respecting the fACL. (Value: "SOCIAL_1P")
  *
  *  Likely values for @c timeSpan:
  *    @arg @c kGTLRGamesTimeSpanAllTime List the all-time top scores. (Value:

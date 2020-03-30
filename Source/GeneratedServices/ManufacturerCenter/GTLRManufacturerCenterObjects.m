@@ -61,8 +61,8 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
          featureDescription, flavor, format, gender, gtin, imageLink,
          includedDestination, itemGroupId, material, mpn, pattern,
          productDetail, productLine, productName, productPageUrl, productType,
-         releaseDate, scent, size, sizeSystem, sizeType, suggestedRetailPrice,
-         targetClientId, theme, title, videoLink;
+         releaseDate, richProductContent, scent, size, sizeSystem, sizeType,
+         suggestedRetailPrice, targetClientId, theme, title, videoLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -77,6 +77,7 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
     @"includedDestination" : [NSString class],
     @"productDetail" : [GTLRManufacturerCenter_ProductDetail class],
     @"productType" : [NSString class],
+    @"richProductContent" : [NSString class],
     @"videoLink" : [NSString class]
   };
   return map;

@@ -261,6 +261,57 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns the service configurations and enabled states for a given list of
+ *  services.
+ *
+ *  Method: serviceusage.services.batchGet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceUsageCloudPlatform
+ *    @c kGTLRAuthScopeServiceUsageCloudPlatformReadOnly
+ */
+@interface GTLRServiceUsageQuery_ServicesBatchGet : GTLRServiceUsageQuery
+// Previous library name was
+//   +[GTLQueryServiceUsage queryForServicesBatchGetWithparent:]
+
+/**
+ *  Names of the services to retrieve.
+ *  An example name would be:
+ *  `projects/123/services/serviceusage.googleapis.com` where `123` is the
+ *  project number.
+ *  A single request can get a maximum of 20 services at a time.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+/**
+ *  Parent to retrieve services from.
+ *  If this is set, the parent of all of the services specified in `names` must
+ *  match this field. An example name would be: `projects/123` where `123` is
+ *  the project number. The `BatchGetServices` method currently only supports
+ *  projects.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRServiceUsage_BatchGetServicesResponse.
+ *
+ *  Returns the service configurations and enabled states for a given list of
+ *  services.
+ *
+ *  @param parent Parent to retrieve services from.
+ *    If this is set, the parent of all of the services specified in `names`
+ *    must
+ *    match this field. An example name would be: `projects/123` where `123` is
+ *    the project number. The `BatchGetServices` method currently only supports
+ *    projects.
+ *
+ *  @return GTLRServiceUsageQuery_ServicesBatchGet
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Disable a service so that it can no longer be used with a project.
  *  This prevents unintended usage that may cause unexpected billing
  *  charges or security leaks.

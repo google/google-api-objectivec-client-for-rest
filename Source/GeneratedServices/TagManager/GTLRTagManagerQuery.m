@@ -4,9 +4,10 @@
 // API:
 //   Tag Manager API (tagmanager/v2)
 // Description:
-//   Accesses Tag Manager accounts and containers.
+//   This API allows clients to access and modify container and tag
+//   configuration.
 // Documentation:
-//   https://developers.google.com/tag-manager/api/v2/
+//   https://developers.google.com/tag-manager
 
 #import "GTLRTagManagerQuery.h"
 
@@ -49,6 +50,7 @@ NSString * const kGTLRTagManagerTypeClickId                    = @"clickId";
 NSString * const kGTLRTagManagerTypeClickTarget                = @"clickTarget";
 NSString * const kGTLRTagManagerTypeClickText                  = @"clickText";
 NSString * const kGTLRTagManagerTypeClickUrl                   = @"clickUrl";
+NSString * const kGTLRTagManagerTypeClientName                 = @"clientName";
 NSString * const kGTLRTagManagerTypeContainerId                = @"containerId";
 NSString * const kGTLRTagManagerTypeContainerVersion           = @"containerVersion";
 NSString * const kGTLRTagManagerTypeDebugMode                  = @"debugMode";
@@ -86,6 +88,7 @@ NSString * const kGTLRTagManagerTypeFirebaseEventParameterPrice = @"firebaseEven
 NSString * const kGTLRTagManagerTypeFirebaseEventParameterProductId = @"firebaseEventParameterProductId";
 NSString * const kGTLRTagManagerTypeFirebaseEventParameterQuantity = @"firebaseEventParameterQuantity";
 NSString * const kGTLRTagManagerTypeFirebaseEventParameterValue = @"firebaseEventParameterValue";
+NSString * const kGTLRTagManagerTypeFirstPartyServingUrl       = @"firstPartyServingUrl";
 NSString * const kGTLRTagManagerTypeFormClasses                = @"formClasses";
 NSString * const kGTLRTagManagerTypeFormElement                = @"formElement";
 NSString * const kGTLRTagManagerTypeFormId                     = @"formId";
@@ -106,8 +109,11 @@ NSString * const kGTLRTagManagerTypePageHostname               = @"pageHostname"
 NSString * const kGTLRTagManagerTypePagePath                   = @"pagePath";
 NSString * const kGTLRTagManagerTypePageUrl                    = @"pageUrl";
 NSString * const kGTLRTagManagerTypePlatform                   = @"platform";
+NSString * const kGTLRTagManagerTypeQueryString                = @"queryString";
 NSString * const kGTLRTagManagerTypeRandomNumber               = @"randomNumber";
 NSString * const kGTLRTagManagerTypeReferrer                   = @"referrer";
+NSString * const kGTLRTagManagerTypeRequestMethod              = @"requestMethod";
+NSString * const kGTLRTagManagerTypeRequestPath                = @"requestPath";
 NSString * const kGTLRTagManagerTypeResolution                 = @"resolution";
 NSString * const kGTLRTagManagerTypeScrollDepthDirection       = @"scrollDepthDirection";
 NSString * const kGTLRTagManagerTypeScrollDepthThreshold       = @"scrollDepthThreshold";
@@ -143,7 +149,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/containers";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/containers";
   GTLRTagManagerQuery_AccountsContainersCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -163,7 +169,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -186,7 +192,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/environments";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/environments";
   GTLRTagManagerQuery_AccountsContainersEnvironmentsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -206,7 +212,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersEnvironmentsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -224,7 +230,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersEnvironmentsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -243,7 +249,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/environments";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/environments";
   GTLRTagManagerQuery_AccountsContainersEnvironmentsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -267,7 +273,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:reauthorize";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:reauthorize";
   GTLRTagManagerQuery_AccountsContainersEnvironmentsReauthorize *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -292,7 +298,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersEnvironmentsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -312,7 +318,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -331,7 +337,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/containers";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/containers";
   GTLRTagManagerQuery_AccountsContainersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -355,7 +361,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -375,7 +381,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/version_headers:latest";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/version_headers:latest";
   GTLRTagManagerQuery_AccountsContainersVersionHeadersLatest *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -394,7 +400,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/version_headers";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/version_headers";
   GTLRTagManagerQuery_AccountsContainersVersionHeadersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -413,7 +419,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersVersionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -431,7 +437,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersVersionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -450,7 +456,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/versions:live";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/versions:live";
   GTLRTagManagerQuery_AccountsContainersVersionsLive *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -469,7 +475,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:publish";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:publish";
   GTLRTagManagerQuery_AccountsContainersVersionsPublish *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -488,7 +494,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:set_latest";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:set_latest";
   GTLRTagManagerQuery_AccountsContainersVersionsSetLatest *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -507,7 +513,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:undelete";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:undelete";
   GTLRTagManagerQuery_AccountsContainersVersionsUndelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -531,7 +537,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersVersionsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -558,7 +564,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/built_in_variables";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/built_in_variables";
   GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -584,7 +590,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -602,7 +608,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/built_in_variables";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/built_in_variables";
   GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -621,7 +627,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}/built_in_variables:revert";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}/built_in_variables:revert";
   GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesRevert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -645,7 +651,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/workspaces";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/workspaces";
   GTLRTagManagerQuery_AccountsContainersWorkspacesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -670,7 +676,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:create_version";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:create_version";
   GTLRTagManagerQuery_AccountsContainersWorkspacesCreateVersion *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -690,7 +696,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -713,7 +719,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/folders";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/folders";
   GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -733,7 +739,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -751,7 +757,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:entities";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:entities";
   GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersEntities *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -770,7 +776,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -789,7 +795,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/folders";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/folders";
   GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -822,7 +828,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:move_entities_to_folder";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:move_entities_to_folder";
   GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersMoveEntitiesToFolder *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -841,7 +847,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:revert";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:revert";
   GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersRevert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -865,7 +871,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -885,7 +891,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -904,7 +910,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}/status";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}/status";
   GTLRTagManagerQuery_AccountsContainersWorkspacesGetStatus *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -923,7 +929,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/workspaces";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/workspaces";
   GTLRTagManagerQuery_AccountsContainersWorkspacesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -942,7 +948,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:quick_preview";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:quick_preview";
   GTLRTagManagerQuery_AccountsContainersWorkspacesQuickPreview *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -966,7 +972,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:resolve_conflict";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:resolve_conflict";
   GTLRTagManagerQuery_AccountsContainersWorkspacesResolveConflict *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -985,7 +991,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:sync";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:sync";
   GTLRTagManagerQuery_AccountsContainersWorkspacesSync *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1009,7 +1015,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/tags";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/tags";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTagsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1029,7 +1035,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTagsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1047,7 +1053,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTagsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1066,7 +1072,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/tags";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/tags";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTagsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1085,7 +1091,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:revert";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:revert";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTagsRevert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1109,7 +1115,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTagsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1134,7 +1140,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/templates";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/templates";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1154,7 +1160,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1172,7 +1178,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1191,7 +1197,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/templates";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/templates";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1210,7 +1216,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:revert";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:revert";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesRevert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1234,7 +1240,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1259,7 +1265,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/triggers";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/triggers";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1279,7 +1285,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1297,7 +1303,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1316,7 +1322,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/triggers";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/triggers";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1335,7 +1341,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:revert";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:revert";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersRevert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1359,7 +1365,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1384,7 +1390,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1409,7 +1415,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/variables";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/variables";
   GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1429,7 +1435,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1447,7 +1453,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1466,7 +1472,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/variables";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/variables";
   GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1485,7 +1491,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:revert";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:revert";
   GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesRevert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1509,7 +1515,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1534,7 +1540,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/zones";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/zones";
   GTLRTagManagerQuery_AccountsContainersWorkspacesZonesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1554,7 +1560,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesZonesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1572,7 +1578,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesZonesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1591,7 +1597,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/zones";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/zones";
   GTLRTagManagerQuery_AccountsContainersWorkspacesZonesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1610,7 +1616,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}:revert";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:revert";
   GTLRTagManagerQuery_AccountsContainersWorkspacesZonesRevert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1634,7 +1640,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsContainersWorkspacesZonesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1654,7 +1660,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1672,7 +1678,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 @dynamic pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"accounts";
+  NSString *pathURITemplate = @"tagmanager/v2/accounts";
   GTLRTagManagerQuery_AccountsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1695,7 +1701,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1720,7 +1726,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/user_permissions";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/user_permissions";
   GTLRTagManagerQuery_AccountsUserPermissionsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1740,7 +1746,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsUserPermissionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1758,7 +1764,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithPath:(NSString *)path {
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsUserPermissionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1777,7 +1783,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"{+parent}/user_permissions";
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/user_permissions";
   GTLRTagManagerQuery_AccountsUserPermissionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1801,7 +1807,7 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
-  NSString *pathURITemplate = @"{+path}";
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
   GTLRTagManagerQuery_AccountsUserPermissionsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
