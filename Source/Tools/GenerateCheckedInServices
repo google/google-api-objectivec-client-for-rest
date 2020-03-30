@@ -55,6 +55,8 @@ SERVICE_GENERATOR_COMMAND=(
     ${EXTRA_OPTS}
     # Generate everything flagged as preferred.
     --generatePreferred
+    # At least one server from preferred is returning content-type: text/html.
+    --parseTextHTMLReplies
 )
 
 SERVICE_GENERATOR_COMMAND+=(
