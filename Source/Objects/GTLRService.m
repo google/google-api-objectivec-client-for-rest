@@ -1277,7 +1277,49 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                                                       objectClassResolver:objectClassResolver];
         parsedObject = batchResult;
       } else {
-        GTLR_DEBUG_ASSERT(0, @"Got unexpected content type '%@'", contentType);
+#if DEBUG
+        NSMutableString *assertMessage =
+            [NSMutableString stringWithFormat:@"Got unexpected content type '%@'", contentType];
+        // Do a reasonable attempt at dumping up to 1K of text if possible.
+        // Canonicalize contentType by removing spaces and converting to lowercase.
+        NSCharacterSet *whitespaceSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+        NSArray *canonicalizedContentTypeWords =
+            [[contentType lowercaseString] componentsSeparatedByCharactersInSet:whitespaceSet];
+        NSString *canonicalizedContentType =
+            [canonicalizedContentTypeWords componentsJoinedByString:@""];
+        if ([canonicalizedContentType hasPrefix:@"text/"]) {
+          NSStringEncoding nsEncoding;
+          NSString *charSet;
+          NSRange charsetRange =
+              [canonicalizedContentType rangeOfString:@"charset="
+                                              options:NSCaseInsensitiveSearch | NSBackwardsSearch];
+          if (charsetRange.location != NSNotFound) {
+            charSet = [canonicalizedContentType substringFromIndex:NSMaxRange(charsetRange)];
+            CFStringEncoding cfEncoding =
+                CFStringConvertIANACharSetNameToEncoding((__bridge CFStringRef)charSet);
+            nsEncoding = CFStringConvertEncodingToNSStringEncoding(cfEncoding);
+          } else {
+            nsEncoding = NSASCIIStringEncoding;
+            charSet = @"Unassigned, assuming 7 bit ASCII";
+          }
+          if (nsEncoding != kCFStringEncodingInvalidId) {
+            NSString *dataString = [[NSString alloc] initWithData:data encoding:nsEncoding];
+            if (dataString) {
+              NSRange stringRange = NSMakeRange(0, MIN(1024, [dataString length]));
+              stringRange = [dataString rangeOfComposedCharacterSequencesForRange:stringRange];
+              dataString = [dataString substringWithRange:stringRange];
+              [assertMessage appendFormat:@"\nData (truncated at 1K): '%@'", dataString];
+            } else {
+              [assertMessage appendFormat:@"\nUnable to decode data using '%@'", charSet];
+            }
+          } else {
+            [assertMessage appendFormat:@"\nUnable to convert '%@' into an encoding", charSet];
+          }
+        } else {
+          // Not text. Potentially could add handlers for other types.
+        }
+        GTLR_DEBUG_ASSERT(0, @"%@", assertMessage);
+#endif  // DEBUG
       }
     }  // isJSON
 
