@@ -675,7 +675,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     if (mediaUpload && !supportsMediaUpload) {
       NSString *str =
         [NSString stringWithFormat:
-         @"method '%@' has mediaUpload info, but supportsMediaUpload is false.",
+         @"Method '%@' has mediaUpload info, but supportsMediaUpload is false.",
          method.identifier];
       messageHandler(kSGGeneratorHandlerMessageError, str);
       allGood = NO;
@@ -683,7 +683,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     if (!mediaUpload && supportsMediaUpload) {
       NSString *str =
         [NSString stringWithFormat:
-         @"method '%@' has supportsMediaUpload as true, but no mediaUpload info.",
+         @"Method '%@' has supportsMediaUpload as true, but no mediaUpload info.",
          method.identifier];
       messageHandler(kSGGeneratorHandlerMessageError, str);
       allGood = NO;
@@ -692,7 +692,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
         (mediaUpload.protocols.resumable.path.length == 0)) {
       NSString *str =
         [NSString stringWithFormat:
-         @"method '%@' supports media upload, but doesn't seem to support resumable."
+         @"Method '%@' supports media upload, but doesn't seem to support resumable."
          @" It will be up to the developer to use the right upload method.",
          method.identifier];
       messageHandler(kSGGeneratorHandlerMessageWarning, str);
@@ -703,7 +703,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
         (mediaProtocolSimple.path.length == 0)) {
       NSString *str =
         [NSString stringWithFormat:
-         @"method '%@' supports media upload, but doesn't seem to support simple."
+         @"Method '%@' supports media upload, but doesn't seem to support simple."
          @" It will be up to the developer to use the right upload method.",
          method.identifier];
       messageHandler(kSGGeneratorHandlerMessageWarning, str);
@@ -711,7 +711,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
     if (!supportsMediaDownload && useMediaDownloadService) {
       NSString *str =
         [NSString stringWithFormat:
-         @"method '%@' has supportsMediaDownload as false, but"
+         @"Method '%@' has supportsMediaDownload as false, but"
          @" useMediaDownloadService as true; what does that mean?",
          method.identifier];
       messageHandler(kSGGeneratorHandlerMessageError, str);
