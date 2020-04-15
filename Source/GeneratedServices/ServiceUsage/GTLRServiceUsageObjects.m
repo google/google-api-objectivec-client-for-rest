@@ -1289,7 +1289,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_QuotaOverride
-@dynamic dimensions, name, overrideValue;
+@dynamic dimensions, metric, name, overrideValue, unit;
 @end
 
 

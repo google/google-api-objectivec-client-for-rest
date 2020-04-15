@@ -189,11 +189,13 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_DeviceGrant
-@dynamic channelType, expireTime, frequencyRange, maxEirp, moveList, state;
+@dynamic channelType, expireTime, frequencyRange, maxEirp, moveList, state,
+         suspensionReason;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"moveList" : [GTLRSASPortal_DpaMoveList class]
+    @"moveList" : [GTLRSASPortal_DpaMoveList class],
+    @"suspensionReason" : [NSString class]
   };
   return map;
 }
@@ -276,8 +278,9 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 
 @implementation GTLRSASPortal_InstallationParams
 @dynamic antennaAzimuth, antennaBeamwidth, antennaDowntilt, antennaGain,
-         antennaModel, eirpCapability, height, heightType, horizontalAccuracy,
-         indoorDeployment, latitude, longitude, verticalAccuracy;
+         antennaModel, cpeCbsdIndication, eirpCapability, height, heightType,
+         horizontalAccuracy, indoorDeployment, latitude, longitude,
+         verticalAccuracy;
 @end
 
 

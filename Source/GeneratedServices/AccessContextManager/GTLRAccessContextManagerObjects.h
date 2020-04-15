@@ -158,9 +158,6 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 /** A `BasicLevel` composed of `Conditions`. */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_BasicLevel *basic;
 
-/** Output only. Time the `AccessLevel` was created in UTC. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
 /** A `CustomLevel` written in the Common Expression Language. */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_CustomLevel *custom;
 
@@ -182,9 +179,6 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 /** Human readable title. Must be unique within the Policy. */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** Output only. Time the `AccessLevel` was updated in UTC. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
 @end
 
 
@@ -196,9 +190,6 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  *  restrictions it specifies apply to all projects within an organization.
  */
 @interface GTLRAccessContextManager_AccessPolicy : GTLRObject
-
-/** Output only. Time the `AccessPolicy` was created in UTC. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
  *  Output only. An opaque identifier for the current version of the
@@ -223,9 +214,6 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 
 /** Required. Human readable title. Does not affect behavior. */
 @property(nonatomic, copy, nullable) NSString *title;
-
-/** Output only. Time the `AccessPolicy` was updated in UTC. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -825,9 +813,6 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
  */
 @interface GTLRAccessContextManager_ServicePerimeter : GTLRObject
 
-/** Output only. Time the `ServicePerimeter` was created in UTC. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
 /**
  *  Description of the `ServicePerimeter` and its use. Does not affect
  *  behavior.
@@ -876,9 +861,6 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Perimete
 
 /** Human readable title. Must be unique within the Policy. */
 @property(nonatomic, copy, nullable) NSString *title;
-
-/** Output only. Time the `ServicePerimeter` was updated in UTC. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
  *  Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly

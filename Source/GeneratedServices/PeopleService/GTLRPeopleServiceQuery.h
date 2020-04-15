@@ -360,7 +360,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * ageRanges
  *  * biographies
  *  * birthdays
- *  * braggingRights
  *  * coverPhotos
  *  * emailAddresses
  *  * events
@@ -377,12 +376,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * phoneNumbers
  *  * photos
  *  * relations
- *  * relationshipInterests
- *  * relationshipStatuses
  *  * residences
  *  * sipAddresses
  *  * skills
- *  * taglines
  *  * urls
  *  * userDefined
  *
@@ -534,7 +530,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * ageRanges
  *  * biographies
  *  * birthdays
- *  * braggingRights
  *  * coverPhotos
  *  * emailAddresses
  *  * events
@@ -551,12 +546,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * phoneNumbers
  *  * photos
  *  * relations
- *  * relationshipInterests
- *  * relationshipStatuses
  *  * residences
  *  * sipAddresses
  *  * skills
- *  * taglines
  *  * urls
  *  * userDefined
  *
@@ -611,7 +603,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * ageRanges
  *  * biographies
  *  * birthdays
- *  * braggingRights
  *  * coverPhotos
  *  * emailAddresses
  *  * events
@@ -628,12 +619,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * phoneNumbers
  *  * photos
  *  * relations
- *  * relationshipInterests
- *  * relationshipStatuses
  *  * residences
  *  * sipAddresses
  *  * skills
- *  * taglines
  *  * urls
  *  * userDefined
  *
@@ -715,7 +703,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * ageRanges
  *  * biographies
  *  * birthdays
- *  * braggingRights
  *  * coverPhotos
  *  * emailAddresses
  *  * events
@@ -732,12 +719,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  * phoneNumbers
  *  * photos
  *  * relations
- *  * relationshipInterests
- *  * relationshipStatuses
  *  * residences
  *  * sipAddresses
  *  * skills
- *  * taglines
  *  * urls
  *  * userDefined
  *

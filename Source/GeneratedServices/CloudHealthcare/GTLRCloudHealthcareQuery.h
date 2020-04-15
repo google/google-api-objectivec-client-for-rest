@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Healthcare API (healthcare/v1beta1)
+//   Cloud Healthcare API (healthcare/v1)
 // Description:
 //   Manage, store, and access healthcare data in Google Cloud Platform.
 // Documentation:
@@ -77,139 +77,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
- *
- *  Method: healthcare.projects.locations.datasets.annotationStores.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresGetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsAnnotationStoresGetIamPolicyWithresource:]
-
-/**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_Policy.
- *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
- *
- *  Method: healthcare.projects.locations.datasets.annotationStores.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresSetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsAnnotationStoresSetIamPolicyWithObject:resource:]
-
-/**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
- *
- *  @param object The @c GTLRCloudHealthcare_SetIamPolicyRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a NOT_FOUND error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
- *
- *  Method: healthcare.projects.locations.datasets.annotationStores.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresTestIamPermissions : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsAnnotationStoresTestIamPermissionsWithObject:resource:]
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a NOT_FOUND error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
- *
- *  @param object The @c GTLRCloudHealthcare_TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
  *  Creates a new health dataset. Results are returned through the
  *  Operation interface which returns either an
  *  `Operation.response` which contains a Dataset or
@@ -269,14 +136,11 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  If the request is successful, the
  *  response field type is
  *  DeidentifySummary.
- *  If errors occur,
- *  error
- *  details field type is
- *  DeidentifyErrorDetails.
+ *  If errors occur, error is set.
  *  The LRO result may still be successful if de-identification fails for some
  *  DICOM instances. The new de-identified dataset will not contain these
  *  failed resources. Failed resource totals are tracked in
- *  DeidentifySummary.failure_resource_count.
+ *  Operation.metadata.
  *  Error details are also logged to Stackdriver Logging. For more information,
  *  see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging).
  *
@@ -304,14 +168,11 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  If the request is successful, the
  *  response field type is
  *  DeidentifySummary.
- *  If errors occur,
- *  error
- *  details field type is
- *  DeidentifyErrorDetails.
+ *  If errors occur, error is set.
  *  The LRO result may still be successful if de-identification fails for some
  *  DICOM instances. The new de-identified dataset will not contain these
  *  failed resources. Failed resource totals are tracked in
- *  DeidentifySummary.failure_resource_count.
+ *  Operation.metadata.
  *  Error details are also logged to Stackdriver Logging. For more information,
  *  see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging).
  *
@@ -406,13 +267,11 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  If the request is successful, the
  *  response field type is
  *  DeidentifyDicomStoreSummary. If errors occur,
- *  error
- *  details field type is
- *  DeidentifyErrorDetails.
+ *  error is set.
  *  The LRO result may still be successful if de-identification fails for some
  *  DICOM instances. The output DICOM store will not contain
  *  these failed resources. Failed resource totals are tracked in
- *  DeidentifySummary.failure_resource_count.
+ *  Operation.metadata.
  *  Error details are also logged to Stackdriver
  *  (see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging)).
  *
@@ -440,13 +299,11 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  If the request is successful, the
  *  response field type is
  *  DeidentifyDicomStoreSummary. If errors occur,
- *  error
- *  details field type is
- *  DeidentifyErrorDetails.
+ *  error is set.
  *  The LRO result may still be successful if de-identification fails for some
  *  DICOM instances. The output DICOM store will not contain
  *  these failed resources. Failed resource totals are tracked in
- *  DeidentifySummary.failure_resource_count.
+ *  Operation.metadata.
  *  Error details are also logged to Stackdriver
  *  (see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging)).
  *
@@ -616,12 +473,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Imports data into the DICOM store by copying it from the specified source.
- *  For errors, the Operation is populated with error details (in the form
- *  of ImportDicomDataErrorDetails in error.details), which hold
- *  finer-grained error information. Errors are also logged to Stackdriver
- *  Logging. For more information,
- *  see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging).
- *  The metadata field type is
+ *  Errors are logged to Stackdriver Logging. For more information, see
+ *  [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging). The
+ *  metadata field type is
  *  OperationMetadata.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.import
@@ -644,12 +498,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_Operation.
  *
  *  Imports data into the DICOM store by copying it from the specified source.
- *  For errors, the Operation is populated with error details (in the form
- *  of ImportDicomDataErrorDetails in error.details), which hold
- *  finer-grained error information. Errors are also logged to Stackdriver
- *  Logging. For more information,
- *  see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging).
- *  The metadata field type is
+ *  Errors are logged to Stackdriver Logging. For more information, see
+ *  [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging). The
+ *  metadata field type is
  *  OperationMetadata.
  *
  *  @param object The @c GTLRCloudHealthcare_ImportDicomDataRequest to include
@@ -986,6 +837,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  DeleteStudy deletes all instances within the given study. Delete requests
  *  are equivalent to the GET requests specified in the Retrieve transaction.
+ *  The method returns an Operation which
+ *  will be marked successful when the deletion is complete.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.delete
  *
@@ -1004,10 +857,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRCloudHealthcare_Empty.
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
  *
  *  DeleteStudy deletes all instances within the given study. Delete requests
  *  are equivalent to the GET requests specified in the Retrieve transaction.
+ *  The method returns an Operation which
+ *  will be marked successful when the deletion is complete.
  *
  *  @param parent NSString
  *  @param dicomWebPath The path of the DeleteStudy request. For example,
@@ -1208,6 +1063,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  DeleteSeries deletes all instances within the given study and series.
  *  Delete requests are equivalent to the GET requests specified in the
  *  Retrieve transaction.
+ *  The method returns an Operation which
+ *  will be marked successful when the deletion is complete.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.delete
  *
@@ -1231,11 +1088,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRCloudHealthcare_Empty.
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
  *
  *  DeleteSeries deletes all instances within the given study and series.
  *  Delete requests are equivalent to the GET requests specified in the
  *  Retrieve transaction.
+ *  The method returns an Operation which
+ *  will be marked successful when the deletion is complete.
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -1812,10 +1671,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  If the request is successful, the
  *  response field type is
  *  DeidentifyFhirStoreSummary. If errors occur,
- *  error
- *  details field type is
- *  DeidentifyErrorDetails.
- *  Errors are also logged to Stackdriver
+ *  error is set.
+ *  Error details are also logged to Stackdriver
  *  (see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging)).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.deidentify
@@ -1842,10 +1699,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  If the request is successful, the
  *  response field type is
  *  DeidentifyFhirStoreSummary. If errors occur,
- *  error
- *  details field type is
- *  DeidentifyErrorDetails.
- *  Errors are also logged to Stackdriver
+ *  error is set.
+ *  Error details are also logged to Stackdriver
  *  (see [Viewing logs](/healthcare/docs/how-tos/stackdriver-logging)).
  *
  *  @param object The @c GTLRCloudHealthcare_DeidentifyFhirStoreRequest to
@@ -2003,256 +1858,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCapabilities
  */
 + (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Deletes FHIR resources that match a search query.
- *  Implements the FHIR standard conditional delete interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.12.1),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.13.1),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#3.1.0.7.1)).
- *  If multiple resources match, all of them will be deleted.
- *  Search terms are provided as query parameters following the same pattern as
- *  the search method.
- *  Note: Unless resource versioning is disabled by setting the
- *  disable_resource_versioning flag
- *  on the FHIR store, the deleted resources will be moved to a history
- *  repository that can still be retrieved through vread
- *  and related methods, unless they are removed by the
- *  purge method.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalDelete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirConditionalDeleteWithparent:type:]
-
-/** The name of the FHIR store this resource belongs to. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  The FHIR resource type to delete, such as Patient or Observation. For a
- *  complete list, see the FHIR Resource Index
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_Empty.
- *
- *  Deletes FHIR resources that match a search query.
- *  Implements the FHIR standard conditional delete interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.12.1),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.13.1),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#3.1.0.7.1)).
- *  If multiple resources match, all of them will be deleted.
- *  Search terms are provided as query parameters following the same pattern as
- *  the search method.
- *  Note: Unless resource versioning is disabled by setting the
- *  disable_resource_versioning flag
- *  on the FHIR store, the deleted resources will be moved to a history
- *  repository that can still be retrieved through vread
- *  and related methods, unless they are removed by the
- *  purge method.
- *
- *  @param parent The name of the FHIR store this resource belongs to.
- *  @param type The FHIR resource type to delete, such as Patient or
- *    Observation. For a
- *    complete list, see the FHIR Resource Index
- *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *    [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete
- */
-+ (instancetype)queryWithParent:(NSString *)parent
-                           type:(NSString *)type;
-
-@end
-
-/**
- *  If a resource is found based on the search criteria specified in the query
- *  parameters, updates part of that resource by applying the operations
- *  specified in a [JSON Patch](http://jsonpatch.com/) document.
- *  Implements the FHIR standard conditional patch interaction
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#patch)).
- *  DSTU2 doesn't define a conditional patch method, but the server supports it
- *  in the same way it supports STU3.
- *  Search terms are provided as query parameters following the same pattern as
- *  the search method.
- *  If the search criteria identify more than one match, the request will
- *  return a `412 Precondition Failed` error.
- *  The request body must contain a JSON Patch document, and the request
- *  headers must contain `Content-Type: application/json-patch+json`.
- *  On success, the response body will contain a JSON-encoded representation
- *  of the updated resource, including the server-assigned version ID.
- *  Errors generated by the FHIR store will contain a JSON-encoded
- *  `OperationOutcome` resource describing the reason for the error. If the
- *  request cannot be mapped to a valid API method on a FHIR store, a generic
- *  GCP error might be returned instead.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalPatch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirConditionalPatchWithObject:parent:type:]
-
-/** The name of the FHIR store this resource belongs to. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  The FHIR resource type to update, such as Patient or Observation. For a
- *  complete list, see the FHIR Resource Index
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  If a resource is found based on the search criteria specified in the query
- *  parameters, updates part of that resource by applying the operations
- *  specified in a [JSON Patch](http://jsonpatch.com/) document.
- *  Implements the FHIR standard conditional patch interaction
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#patch)).
- *  DSTU2 doesn't define a conditional patch method, but the server supports it
- *  in the same way it supports STU3.
- *  Search terms are provided as query parameters following the same pattern as
- *  the search method.
- *  If the search criteria identify more than one match, the request will
- *  return a `412 Precondition Failed` error.
- *  The request body must contain a JSON Patch document, and the request
- *  headers must contain `Content-Type: application/json-patch+json`.
- *  On success, the response body will contain a JSON-encoded representation
- *  of the updated resource, including the server-assigned version ID.
- *  Errors generated by the FHIR store will contain a JSON-encoded
- *  `OperationOutcome` resource describing the reason for the error. If the
- *  request cannot be mapped to a valid API method on a FHIR store, a generic
- *  GCP error might be returned instead.
- *
- *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param parent The name of the FHIR store this resource belongs to.
- *  @param type The FHIR resource type to update, such as Patient or
- *    Observation. For a
- *    complete list, see the FHIR Resource Index
- *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *    [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch
- */
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
-                         parent:(NSString *)parent
-                           type:(NSString *)type;
-
-@end
-
-/**
- *  If a resource is found based on the search criteria specified in the query
- *  parameters, updates the entire contents of that resource.
- *  Implements the FHIR standard conditional update interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.10.2),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#cond-update),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#cond-update)).
- *  Search terms are provided as query parameters following the same pattern as
- *  the search method.
- *  If the search criteria identify more than one match, the request will
- *  return a `412 Precondition Failed` error.
- *  If the search criteria identify zero matches, and the supplied resource
- *  body contains an `id`, and the FHIR store has
- *  enable_update_create set, creates the
- *  resource with the client-specified ID. If the search criteria identify zero
- *  matches, and the supplied resource body does not contain an `id`, the
- *  resource will be created with a server-assigned ID as per the
- *  create method.
- *  The request body must contain a JSON-encoded FHIR resource, and the request
- *  headers must contain `Content-Type: application/fhir+json`.
- *  On success, the response body will contain a JSON-encoded representation
- *  of the updated resource, including the server-assigned version ID.
- *  Errors generated by the FHIR store will contain a JSON-encoded
- *  `OperationOutcome` resource describing the reason for the error. If the
- *  request cannot be mapped to a valid API method on a FHIR store, a generic
- *  GCP error might be returned instead.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalUpdate
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirConditionalUpdateWithObject:parent:type:]
-
-/** The name of the FHIR store this resource belongs to. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  The FHIR resource type to update, such as Patient or Observation. For a
- *  complete list, see the FHIR Resource Index
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
- *  Must match the resource type in the provided content.
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  If a resource is found based on the search criteria specified in the query
- *  parameters, updates the entire contents of that resource.
- *  Implements the FHIR standard conditional update interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.10.2),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#cond-update),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#cond-update)).
- *  Search terms are provided as query parameters following the same pattern as
- *  the search method.
- *  If the search criteria identify more than one match, the request will
- *  return a `412 Precondition Failed` error.
- *  If the search criteria identify zero matches, and the supplied resource
- *  body contains an `id`, and the FHIR store has
- *  enable_update_create set, creates the
- *  resource with the client-specified ID. If the search criteria identify zero
- *  matches, and the supplied resource body does not contain an `id`, the
- *  resource will be created with a server-assigned ID as per the
- *  create method.
- *  The request body must contain a JSON-encoded FHIR resource, and the request
- *  headers must contain `Content-Type: application/fhir+json`.
- *  On success, the response body will contain a JSON-encoded representation
- *  of the updated resource, including the server-assigned version ID.
- *  Errors generated by the FHIR store will contain a JSON-encoded
- *  `OperationOutcome` resource describing the reason for the error. If the
- *  request cannot be mapped to a valid API method on a FHIR store, a generic
- *  GCP error might be returned instead.
- *
- *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
- *  @param parent The name of the FHIR store this resource belongs to.
- *  @param type The FHIR resource type to update, such as Patient or
- *    Observation. For a
- *    complete list, see the FHIR Resource Index
- *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *    [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
- *    Must match the resource type in the provided content.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate
- */
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
-                         parent:(NSString *)parent
-                           type:(NSString *)type;
 
 @end
 
@@ -2555,90 +2160,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirHistory
  */
 + (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Retrieves the N most recent `Observation` resources for a subject matching
- *  search criteria specified as query parameters, grouped by
- *  `Observation.code`, sorted from most recent to oldest.
- *  Implements the FHIR extended operation Observation-lastn
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/observation-operations.html#lastn),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/observation-operations.html#lastn)).
- *  DSTU2 doesn't define the Observation-lastn method, but the server supports
- *  it the same way it supports STU3.
- *  Search terms are provided as query parameters following the same pattern as
- *  the search method. The following search parameters must
- *  be provided:
- *  - `subject` or `patient` to specify a subject for the Observation.
- *  - `code`, `category` or any of the composite parameters that include
- *  `code`.
- *  Any other valid Observation search parameters can also be provided. This
- *  operation accepts an additional query parameter `max`, which specifies N,
- *  the maximum number of Observations to return from each group, with a
- *  default of 1.
- *  Searches with over 1000 results are rejected. Results are counted before
- *  grouping and limiting the results with `max`. To stay within the limit,
- *  constrain these searches using Observation search parameters such as
- *  `_lastUpdated` or `date`.
- *  On success, the response body will contain a JSON-encoded representation
- *  of a `Bundle` resource of type `searchset`, containing the results of the
- *  operation.
- *  Errors generated by the FHIR store will contain a JSON-encoded
- *  `OperationOutcome` resource describing the reason for the error. If the
- *  request cannot be mapped to a valid API method on a FHIR store, a generic
- *  GCP error might be returned instead.
- *
- *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Observation-lastn
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirObservationLastn : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirObservationLastnWithparent:]
-
-/** Name of the FHIR store to retrieve resources from. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_HttpBody.
- *
- *  Retrieves the N most recent `Observation` resources for a subject matching
- *  search criteria specified as query parameters, grouped by
- *  `Observation.code`, sorted from most recent to oldest.
- *  Implements the FHIR extended operation Observation-lastn
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/observation-operations.html#lastn),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/observation-operations.html#lastn)).
- *  DSTU2 doesn't define the Observation-lastn method, but the server supports
- *  it the same way it supports STU3.
- *  Search terms are provided as query parameters following the same pattern as
- *  the search method. The following search parameters must
- *  be provided:
- *  - `subject` or `patient` to specify a subject for the Observation.
- *  - `code`, `category` or any of the composite parameters that include
- *  `code`.
- *  Any other valid Observation search parameters can also be provided. This
- *  operation accepts an additional query parameter `max`, which specifies N,
- *  the maximum number of Observations to return from each group, with a
- *  default of 1.
- *  Searches with over 1000 results are rejected. Results are counted before
- *  grouping and limiting the results with `max`. To stay within the limit,
- *  constrain these searches using Observation search parameters such as
- *  `_lastUpdated` or `date`.
- *  On success, the response body will contain a JSON-encoded representation
- *  of a `Bundle` resource of type `searchset`, containing the results of the
- *  operation.
- *  Errors generated by the FHIR store will contain a JSON-encoded
- *  `OperationOutcome` resource describing the reason for the error. If the
- *  request cannot be mapped to a valid API method on a FHIR store, a generic
- *  GCP error might be returned instead.
- *
- *  @param parent Name of the FHIR store to retrieve resources from.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirObservationLastn
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -4129,7 +3650,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Specifies the parts of the Message to return in the response.
- *  When unspecified, equivalent to BASIC.
+ *  When unspecified, equivalent to BASIC. Setting this to anything other than
+ *  BASIC with a `page_size` larger than the default can generate a large
+ *  response, which impacts the performance of this method.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcareViewMessageViewUnspecified Value
@@ -4656,75 +4179,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
-
-@end
-
-/**
- *  Gets information about a location.
- *
- *  Method: healthcare.projects.locations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsGetWithname:]
-
-/** Resource name for the location. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_Location.
- *
- *  Gets information about a location.
- *
- *  @param name Resource name for the location.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists information about the supported locations for this service.
- *
- *  Method: healthcare.projects.locations.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
- */
-@interface GTLRCloudHealthcareQuery_ProjectsLocationsList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsListWithname:]
-
-/** The standard list filter. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The resource that owns the locations collection, if applicable. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The standard list page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** The standard list page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRCloudHealthcare_ListLocationsResponse.
- *
- *  Lists information about the supported locations for this service.
- *
- *  @param name The resource that owns the locations collection, if applicable.
- *
- *  @return GTLRCloudHealthcareQuery_ProjectsLocationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

@@ -2207,6 +2207,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRGames_ProfileSettings : GTLRObject
 
+/** Whether the player's friends list is visible to the game. */
+@property(nonatomic, copy, nullable) NSString *friendsListVisibility;
+
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string games#profileSettings.

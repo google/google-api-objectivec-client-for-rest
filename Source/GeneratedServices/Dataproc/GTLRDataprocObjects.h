@@ -225,7 +225,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_No
 GTLR_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_PreemptibilityUnspecified;
 /**
  *  Instances are preemptible.This option is allowed only for secondary worker
- *  group.
+ *  groups.
  *
  *  Value: "PREEMPTIBLE"
  */
@@ -782,9 +782,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, strong, nullable) GTLRDataproc_Cluster_Labels *labels;
 
 /**
- *  Contains cluster daemon metrics such as HDFS and YARN stats.Beta Feature:
- *  This report is available for testing purposes only. It may be changed before
- *  final release.
+ *  Output only. Contains cluster daemon metrics such as HDFS and YARN
+ *  stats.Beta Feature: This report is available for testing purposes only. It
+ *  may be changed before final release.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_ClusterMetrics *metrics;
 
@@ -1611,8 +1611,16 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, strong, nullable) GTLRDataproc_DiskConfig *diskConfig;
 
 /**
- *  Optional. The Compute Engine image resource used for cluster instances. It
- *  can be specified or may be inferred from SoftwareConfig.image_version.
+ *  Optional. The Compute Engine image resource used for cluster instances.The
+ *  URI can represent an image or image family.Image examples:
+ *  https://www.googleapis.com/compute/beta/projects/[project_id]/global/images/[image-id]
+ *  projects/[project_id]/global/images/[image-id]
+ *  image-idImage family examples. Dataproc will use the most recent image from
+ *  the family:
+ *  https://www.googleapis.com/compute/beta/projects/[project_id]/global/images/family/[custom-image-family-name]
+ *  projects/[project_id]/global/images/family/[custom-image-family-name]If the
+ *  URI is unspecified, it will be inferred from SoftwareConfig.image_version or
+ *  the system default.
  */
 @property(nonatomic, copy, nullable) NSString *imageUri;
 
@@ -1623,7 +1631,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceNames;
 
 /**
- *  Optional. Specifies that this instance group contains preemptible instances.
+ *  Output only. Specifies that this instance group contains preemptible
+ *  instances.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1661,7 +1670,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, strong, nullable) NSNumber *numInstances;
 
 /**
- *  Optional. Specifies the preemptibility of the instance group.
+ *  Optional. Specifies the preemptibility of the instance group.The default
+ *  value for master and worker groups is NON_PREEMPTIBLE. This default cannot
+ *  be changed.The default value for secondary instances is PREEMPTIBLE.
  *
  *  Likely values:
  *    @arg @c kGTLRDataproc_InstanceGroupConfig_Preemptibility_NonPreemptible
@@ -1673,7 +1684,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *        setting for each instance group. (Value: "PREEMPTIBILITY_UNSPECIFIED")
  *    @arg @c kGTLRDataproc_InstanceGroupConfig_Preemptibility_Preemptible
  *        Instances are preemptible.This option is allowed only for secondary
- *        worker group. (Value: "PREEMPTIBLE")
+ *        worker groups. (Value: "PREEMPTIBLE")
  */
 @property(nonatomic, copy, nullable) NSString *preemptibility;
 
@@ -2023,7 +2034,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, copy, nullable) NSString *crossRealmTrustSharedPasswordUri;
 
 /**
- *  Optional. Flag to indicate whether to Kerberize the cluster.
+ *  Optional. Flag to indicate whether to Kerberize the cluster (default:
+ *  false). Set this field to true to enable Kerberos on a cluster.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2492,12 +2504,19 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *prerequisiteStepIds;
 
+/** Presto job */
+@property(nonatomic, strong, nullable) GTLRDataproc_PrestoJob *prestoJob;
+
 @property(nonatomic, strong, nullable) GTLRDataproc_PySparkJob *pysparkJob;
 
 /** Optional. Job scheduling configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobScheduling *scheduling;
 
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkJob *sparkJob;
+
+/** Spark R job */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkRJob *sparkRJob;
+
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkSqlJob *sparkSqlJob;
 
 /**
@@ -2724,7 +2743,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 
 /**
- *  A Dataproc job for running Presto (https://prestosql.io/) queries
+ *  A Dataproc job for running Presto (https://prestosql.io/) queries.
+ *  IMPORTANT: The Dataproc Presto Optional Component must be enabled when the
+ *  cluster is created to submit a Presto job to the cluster.
  */
 @interface GTLRDataproc_PrestoJob : GTLRObject
 

@@ -322,9 +322,9 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedPerm
 GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaChecking;
 /**
  *  Most recent renewal failed due to an explicit CAA record that does not
- *  include the in-use CA, Let's Encrypt. Renewals will continue to fail until
- *  the CAA is reconfigured. The last successfully provisioned certificate may
- *  still be serving.
+ *  include one of the in-use CAs (Google CA and Let's Encrypt). Renewals will
+ *  continue to fail until the CAA is reconfigured. The last successfully
+ *  provisioned certificate may still be serving.
  *
  *  Value: "FAILED_RETRYING_CAA_FORBIDDEN"
  */
@@ -2102,9 +2102,9 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *        "FAILED_RETRYING_CAA_CHECKING")
  *    @arg @c kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaForbidden
  *        Most recent renewal failed due to an explicit CAA record that does not
- *        include the in-use CA, Let's Encrypt. Renewals will continue to fail
- *        until the CAA is reconfigured. The last successfully provisioned
- *        certificate may still be serving. (Value:
+ *        include one of the in-use CAs (Google CA and Let's Encrypt). Renewals
+ *        will continue to fail until the CAA is reconfigured. The last
+ *        successfully provisioned certificate may still be serving. (Value:
  *        "FAILED_RETRYING_CAA_FORBIDDEN")
  *    @arg @c kGTLRAppengine_ManagedCertificate_Status_FailedRetryingNotVisible
  *        Most recent renewal failed due to an invalid DNS setup and will be

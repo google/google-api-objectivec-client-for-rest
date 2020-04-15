@@ -852,7 +852,7 @@
 //
 
 @implementation GTLRGames_ProfileSettings
-@dynamic kind, profileVisible;
+@dynamic friendsListVisibility, kind, profileVisible;
 @end
 
 

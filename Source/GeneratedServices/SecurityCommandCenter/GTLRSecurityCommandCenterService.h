@@ -2,10 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Security Command Center API (securitycenter/v1)
+//   Security Command Center API (securitycenter/v1)
 // Description:
-//   Cloud Security Command Center API provides access to temporal views of
-//   assets and findings within an organization.
+//   Security Command Center API provides access to temporal views of assets and
+//   findings within an organization.
 // Documentation:
 //   https://console.cloud.google.com/apis/api/securitycenter.googleapis.com/overview
 
@@ -42,10 +42,10 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeSecurityCommandCenterCloudPlatform;
 //
 
 /**
- *  Service for executing Cloud Security Command Center API queries.
+ *  Service for executing Security Command Center API queries.
  *
- *  Cloud Security Command Center API provides access to temporal views of
- *  assets and findings within an organization.
+ *  Security Command Center API provides access to temporal views of assets and
+ *  findings within an organization.
  */
 @interface GTLRSecurityCommandCenterService : GTLRService
 

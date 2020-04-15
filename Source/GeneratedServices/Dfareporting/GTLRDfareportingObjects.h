@@ -1583,26 +1583,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ImpressionImageEven
 GTLR_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ImpressionJavascriptEventTag;
 
 // ----------------------------------------------------------------------------
-// GTLRDfareporting_File.format
-
-/** Value: "CSV" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_File_Format_Csv;
-/** Value: "EXCEL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_File_Format_Excel;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_File.status
-
-/** Value: "CANCELLED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_File_Status_Cancelled;
-/** Value: "FAILED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_File_Status_Failed;
-/** Value: "PROCESSING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_File_Status_Processing;
-/** Value: "REPORT_AVAILABLE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_File_Status_ReportAvailable;
-
-// ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.cacheBustingType
 
 /** Value: "ACTIVE_SERVER_PAGE" */
@@ -8694,13 +8674,9 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @interface GTLRDfareporting_File : GTLRObject
 
-/**
- *  The date range for which the file has report data. The date range will
- *  always be the absolute date range for which the report is run.
- */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
 
-/** The eTag of this response for caching purposes. */
+/** Etag of this resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** The filename of the file. */
@@ -8708,10 +8684,6 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 /**
  *  The output format of the report. Only available once the file is available.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_File_Format_Csv Value "CSV"
- *    @arg @c kGTLRDfareporting_File_Format_Excel Value "EXCEL"
  */
 @property(nonatomic, copy, nullable) NSString *format;
 
@@ -8724,7 +8696,10 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
-/** The kind of resource this is, in this case dfareporting#file. */
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#file".
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -8741,16 +8716,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @property(nonatomic, strong, nullable) NSNumber *reportId;
 
-/**
- *  The status of the report file.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_File_Status_Cancelled Value "CANCELLED"
- *    @arg @c kGTLRDfareporting_File_Status_Failed Value "FAILED"
- *    @arg @c kGTLRDfareporting_File_Status_Processing Value "PROCESSING"
- *    @arg @c kGTLRDfareporting_File_Status_ReportAvailable Value
- *        "REPORT_AVAILABLE"
- */
+/** The status of the report file. */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /** The URLs where the completed report file can be downloaded. */
@@ -8774,7 +8740,7 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 
 
 /**
- *  Represents the list of File resources.
+ *  GTLRDfareporting_FileList
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -8783,18 +8749,21 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
  */
 @interface GTLRDfareporting_FileList : GTLRCollectionObject
 
-/** The eTag of this response for caching purposes. */
+/** Etag of this resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The files returned in this response.
+ *  items
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_File *> *items;
 
-/** The kind of list this is, in this case dfareporting#fileList. */
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#fileList".
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -10357,6 +10326,12 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 /** URL to redirect to when an OBA icon is clicked. */
 @property(nonatomic, copy, nullable) NSString *iconClickThroughUrl;
 
+/** URL to track click when an OBA icon is clicked. */
+@property(nonatomic, copy, nullable) NSString *iconClickTrackingUrl;
+
+/** URL to track view when an OBA icon is clicked. */
+@property(nonatomic, copy, nullable) NSString *iconViewTrackingUrl;
+
 /**
  *  Identifies the industry initiative that the icon supports. For example,
  *  AdChoices.
@@ -10364,18 +10339,18 @@ GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrai
 @property(nonatomic, copy, nullable) NSString *program;
 
 /**
- *  OBA icon resource script URL. Campaign Manager only supports image,
- *  JavaScript, and Flash icons. Learn more
+ *  OBA icon resource URL. Campaign Manager only supports image and JavaScript
+ *  icons. Learn more
  */
 @property(nonatomic, copy, nullable) NSString *resourceUrl;
 
 /** OBA icon size. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_Size *size;
 
-/** OBA icon x coordinate position. */
+/** OBA icon x coordinate position. Accepted values are left or right. */
 @property(nonatomic, copy, nullable) NSString *xPosition;
 
-/** OBA icon y coordinate position. */
+/** OBA icon y coordinate position. Accepted values are top or bottom. */
 @property(nonatomic, copy, nullable) NSString *yPosition;
 
 @end

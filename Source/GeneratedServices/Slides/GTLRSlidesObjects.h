@@ -6754,7 +6754,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  properties of all placeholder shapes on pages that use that master.
  *  - The master page properties define the common page properties inherited by
  *  its layouts.
- *  - Any other shapes on the master slide will appear on all slides using that
+ *  - Any other shapes on the master slide appear on all slides using that
  *  master, regardless of their layout.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_Page *> *masters;
@@ -6767,7 +6767,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  `BODY` placeholder shape contains the speaker notes.
  *  - The notes master page properties define the common page properties
  *  inherited by all notes pages.
- *  - Any other shapes on the notes master will appear on all notes pages.
+ *  - Any other shapes on the notes master appears on all notes pages.
  *  The notes master is read-only.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Page *notesMaster;

@@ -964,8 +964,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_OrderedJob
-@dynamic hadoopJob, hiveJob, labels, pigJob, prerequisiteStepIds, pysparkJob,
-         scheduling, sparkJob, sparkSqlJob, stepId;
+@dynamic hadoopJob, hiveJob, labels, pigJob, prerequisiteStepIds, prestoJob,
+         pysparkJob, scheduling, sparkJob, sparkRJob, sparkSqlJob, stepId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

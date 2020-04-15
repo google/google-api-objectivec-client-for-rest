@@ -6049,6 +6049,13 @@ GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_Un
 @property(nonatomic, strong, nullable) NSNumber *enableAutoStart;
 
 /**
+ *  enableAutoStop
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAutoStop;
+
+/**
  *  This setting indicates whether HTTP POST closed captioning is enabled for
  *  this broadcast. The ingestion URL of the closed captions is returned through
  *  the liveStreams API. This is mutually exclusive with using the

@@ -82,14 +82,15 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtect
  */
 GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_ConnectModeUnspecified;
 /**
- *  Connect via directly peering with memorystore redis hosted service.
+ *  Connect via direct peering to the Memorystore for Redis hosted service.
  *
  *  Value: "DIRECT_PEERING"
  */
 GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_DirectPeering;
 /**
- *  Connect with google via private service access and share connection
- *  across google managed services.
+ *  Connect your Memorystore for Redis instance using Private Service
+ *  Access. Private services access provides an IP address range for multiple
+ *  Google Cloud services, including Memorystore.
  *
  *  Value: "PRIVATE_SERVICE_ACCESS"
  */
@@ -372,19 +373,21 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
 
 /**
- *  Optional. The connect mode of Redis instance.
- *  If not provided, default one will be used.
- *  Current default: DIRECT_PEERING.
+ *  Optional. The network connect mode of the Redis instance.
+ *  If not provided, the connect mode defaults to DIRECT_PEERING.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRedis_Instance_ConnectMode_ConnectModeUnspecified Not
  *        set. (Value: "CONNECT_MODE_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_Instance_ConnectMode_DirectPeering Connect via
- *        directly peering with memorystore redis hosted service. (Value:
+ *        direct peering to the Memorystore for Redis hosted service. (Value:
  *        "DIRECT_PEERING")
  *    @arg @c kGTLRCloudRedis_Instance_ConnectMode_PrivateServiceAccess Connect
- *        with google via private service access and share connection
- *        across google managed services. (Value: "PRIVATE_SERVICE_ACCESS")
+ *        your Memorystore for Redis instance using Private Service
+ *        Access. Private services access provides an IP address range for
+ *        multiple
+ *        Google Cloud services, including Memorystore. (Value:
+ *        "PRIVATE_SERVICE_ACCESS")
  */
 @property(nonatomic, copy, nullable) NSString *connectMode;
 
@@ -880,6 +883,17 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudRedis_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Request for UpgradeInstance.
+ */
+@interface GTLRCloudRedis_UpgradeInstanceRequest : GTLRObject
+
+/** Required. Specifies the target version of Redis software to upgrade to. */
+@property(nonatomic, copy, nullable) NSString *redisVersion;
+
 @end
 
 NS_ASSUME_NONNULL_END

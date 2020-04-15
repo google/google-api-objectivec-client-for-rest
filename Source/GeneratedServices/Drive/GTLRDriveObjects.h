@@ -1648,7 +1648,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *meteringMode;
 
 /**
- *  The rotation in clockwise degrees from the image's original orientation.
+ *  The number of clockwise 90 degree rotations applied from the image's
+ *  original orientation.
  *
  *  Uses NSNumber of intValue.
  */

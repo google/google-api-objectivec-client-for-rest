@@ -161,6 +161,16 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudManagedidentitiesV1alpha1OpMetadata
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudManagedidentitiesV1alpha1OpMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudManagedidentitiesV1beta1OpMetadata
 //
 
@@ -187,8 +197,8 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance
 @dynamic consumerDefinedName, createTime, labels, maintenancePolicyNames,
          maintenanceSchedules, name, producerMetadata, provisionedResources,
-         rolloutMetadata, slmInstanceTemplate, sloMetadata, softwareVersions,
-         state, tenantProjectId, updateTime;
+         slmInstanceTemplate, sloMetadata, softwareVersions, state,
+         tenantProjectId, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -258,20 +268,6 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata
-//
-
-@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions
 //
 
@@ -314,31 +310,11 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata
-//
-
-@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata
-@dynamic rescheduled, scheduledEndTime, scheduledStartTime, targetRelease;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource
 @dynamic resourceType, resourceUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata
-//
-
-@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata
-@dynamic notification, releaseName, rolloutName;
 @end
 
 

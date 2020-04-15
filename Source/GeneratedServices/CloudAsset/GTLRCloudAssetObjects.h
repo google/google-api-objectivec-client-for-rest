@@ -1113,9 +1113,6 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 /** A `BasicLevel` composed of `Conditions`. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel *basic;
 
-/** Output only. Time the `AccessLevel` was created in UTC. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
 /** A `CustomLevel` written in the Common Expression Language. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1CustomLevel *custom;
 
@@ -1137,9 +1134,6 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 /** Human readable title. Must be unique within the Policy. */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** Output only. Time the `AccessLevel` was updated in UTC. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
 @end
 
 
@@ -1151,9 +1145,6 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *  restrictions it specifies apply to all projects within an organization.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessPolicy : GTLRObject
-
-/** Output only. Time the `AccessPolicy` was created in UTC. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
  *  Output only. An opaque identifier for the current version of the
@@ -1178,9 +1169,6 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 
 /** Required. Human readable title. Does not affect behavior. */
 @property(nonatomic, copy, nullable) NSString *title;
-
-/** Output only. Time the `AccessPolicy` was updated in UTC. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -1406,9 +1394,6 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter : GTLRObject
 
-/** Output only. Time the `ServicePerimeter` was created in UTC. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
 /**
  *  Description of the `ServicePerimeter` and its use. Does not affect
  *  behavior.
@@ -1457,9 +1442,6 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
 
 /** Human readable title. Must be unique within the Policy. */
 @property(nonatomic, copy, nullable) NSString *title;
-
-/** Output only. Time the `ServicePerimeter` was updated in UTC. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
  *  Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly

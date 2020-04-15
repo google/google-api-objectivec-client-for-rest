@@ -424,6 +424,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Fitness/*.{h,m}'
   end
+  s.subspec 'GameServices' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/GameServices/*.{h,m}'
+  end
   s.subspec 'Games' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Games/*.{h,m}'

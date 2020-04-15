@@ -2,10 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Security Command Center API (securitycenter/v1)
+//   Security Command Center API (securitycenter/v1)
 // Description:
-//   Cloud Security Command Center API provides access to temporal views of
-//   assets and findings within an organization.
+//   Security Command Center API provides access to temporal views of assets and
+//   findings within an organization.
 // Documentation:
 //   https://console.cloud.google.com/apis/api/securitycenter.googleapis.com/overview
 
@@ -370,21 +370,24 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUnspecified;
 
 /**
- *  Cloud Security Command Center's (Cloud SCC) representation of a Google Cloud
- *  Platform (GCP) resource.
- *  The Asset is a Cloud SCC resource that captures information about a single
- *  GCP resource. All modifications to an Asset are only within the context of
- *  Cloud SCC and don't affect the referenced GCP resource.
+ *  Security Command Center representation of a Google Cloud
+ *  resource.
+ *  The Asset is a Security Command Center resource that captures information
+ *  about a single Google Cloud resource. All modifications to an Asset are only
+ *  within the context of Security Command Center and don't affect the
+ *  referenced
+ *  Google Cloud resource.
  */
 @interface GTLRSecurityCommandCenter_Asset : GTLRObject
 
-/** The time at which the asset was created in Cloud SCC. */
+/** The time at which the asset was created in Security Command Center. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  IAM Policy information associated with the GCP resource described by the
- *  Cloud SCC asset. This information is managed and defined by the GCP
- *  resource and cannot be modified by the user.
+ *  Cloud IAM Policy information associated with the Google Cloud resource
+ *  described by the Security Command Center asset. This information is managed
+ *  and defined by the Google Cloud resource and cannot be modified by the
+ *  user.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_IamPolicy *iamPolicy;
 
@@ -398,13 +401,13 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 /**
  *  Resource managed properties. These properties are managed and defined by
- *  the GCP resource and cannot be modified by the user.
+ *  the Google Cloud resource and cannot be modified by the user.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Asset_ResourceProperties *resourceProperties;
 
 /**
- *  Cloud SCC managed properties. These properties are managed by
- *  Cloud SCC and cannot be modified by the user.
+ *  Security Command Center managed properties. These properties are managed by
+ *  Security Command Center and cannot be modified by the user.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecurityCenterProperties *securityCenterProperties;
 
@@ -415,8 +418,8 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecurityMarks *securityMarks;
 
 /**
- *  The time at which the asset was last updated, added, or deleted in Cloud
- *  SCC.
+ *  The time at which the asset was last updated, added, or deleted in Security
+ *  Command Center.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -425,7 +428,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 /**
  *  Resource managed properties. These properties are managed and defined by
- *  the GCP resource and cannot be modified by the user.
+ *  the Google Cloud resource and cannot be modified by the user.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -704,12 +707,15 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  Cloud Security Command Center (Cloud SCC) finding.
+ *  Security Command Center finding.
  *  A finding is a record of assessment data like security, risk, health, or
- *  privacy, that is ingested into Cloud SCC for presentation, notification,
- *  analysis, policy testing, and enforcement. For example, a
+ *  privacy, that is ingested into Security Command Center for presentation,
+ *  notification, analysis, policy testing, and enforcement. For example, a
  *  cross-site scripting (XSS) vulnerability in an App Engine application is a
  *  finding.
+ *  When adding a new field hidden behind a visibility label, ensure it is also
+ *  hidden from Notifications:
+ *  http://google3/java/com/google/cloud/security/riskdashboard/notification/actions/streaming/FindingTranslator.java?l=26
  */
 @interface GTLRSecurityCommandCenter_Finding : GTLRObject
 
@@ -720,7 +726,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
-/** The time at which the finding was created in Cloud SCC. */
+/** The time at which the finding was created in Security Command Center. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -731,9 +737,9 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
 /**
- *  The URI that, if available, points to a web page outside of Cloud SCC
- *  where additional information about the finding can be found. This field is
- *  guaranteed to be either empty or a well formed URL.
+ *  The URI that, if available, points to a web page outside of Security
+ *  Command Center where additional information about the finding can be found.
+ *  This field is guaranteed to be either empty or a well formed URL.
  */
 @property(nonatomic, copy, nullable) NSString *externalUri;
 
@@ -755,12 +761,12 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  For findings on Google Cloud Platform (GCP) resources, the full resource
- *  name of the GCP resource this finding is for. See:
+ *  For findings on Google Cloud resources, the full resource
+ *  name of the Google Cloud resource this finding is for. See:
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
- *  When the finding is for a non-GCP resource, the resourceName can be a
- *  customer or partner defined string.
- *  This field is immutable after creation time.
+ *  When the finding is for a non-Google Cloud resource, the resourceName can
+ *  be a customer or partner defined string. This field is immutable after
+ *  creation time.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -892,21 +898,24 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  Cloud Security Command Center's (Cloud SCC) representation of a Google Cloud
- *  Platform (GCP) resource.
- *  The Asset is a Cloud SCC resource that captures information about a single
- *  GCP resource. All modifications to an Asset are only within the context of
- *  Cloud SCC and don't affect the referenced GCP resource.
+ *  Security Command Center representation of a Google Cloud
+ *  resource.
+ *  The Asset is a Security Command Center resource that captures information
+ *  about a single Google Cloud resource. All modifications to an Asset are only
+ *  within the context of Security Command Center and don't affect the
+ *  referenced
+ *  Google Cloud resource.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset : GTLRObject
 
-/** The time at which the asset was created in Cloud SCC. */
+/** The time at which the asset was created in Security Command Center. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  IAM Policy information associated with the GCP resource described by the
- *  Cloud SCC asset. This information is managed and defined by the GCP
- *  resource and cannot be modified by the user.
+ *  Cloud IAM Policy information associated with the Google Cloud resource
+ *  described by the Security Command Center asset. This information is managed
+ *  and defined by the Google Cloud resource and cannot be modified by the
+ *  user.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1IamPolicy *iamPolicy;
 
@@ -920,13 +929,13 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 /**
  *  Resource managed properties. These properties are managed and defined by
- *  the GCP resource and cannot be modified by the user.
+ *  the Google Cloud resource and cannot be modified by the user.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset_ResourceProperties *resourceProperties;
 
 /**
- *  Cloud SCC managed properties. These properties are managed by
- *  Cloud SCC and cannot be modified by the user.
+ *  Security Command Center managed properties. These properties are managed by
+ *  Security Command Center and cannot be modified by the user.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties *securityCenterProperties;
 
@@ -947,7 +956,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 /**
  *  Resource managed properties. These properties are managed and defined by
- *  the GCP resource and cannot be modified by the user.
+ *  the Google Cloud resource and cannot be modified by the user.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -959,11 +968,11 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  Cloud Security Command Center (Cloud SCC) finding.
+ *  Security Command Center finding.
  *  A finding is a record of assessment data (security, risk, health or privacy)
- *  ingested into Cloud SCC for presentation, notification, analysis,
- *  policy testing, and enforcement. For example, an XSS vulnerability in an
- *  App Engine application is a finding.
+ *  ingested into Security Command Center for presentation, notification,
+ *  analysis, policy testing, and enforcement. For example, an XSS vulnerability
+ *  in an App Engine application is a finding.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding : GTLRObject
 
@@ -974,7 +983,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
-/** The time at which the finding was created in Cloud SCC. */
+/** The time at which the finding was created in Security Command Center. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -985,9 +994,9 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
 /**
- *  The URI that, if available, points to a web page outside of Cloud SCC
- *  where additional information about the finding can be found. This field is
- *  guaranteed to be either empty or a well formed URL.
+ *  The URI that, if available, points to a web page outside of Security
+ *  Command Center where additional information about the finding can be found.
+ *  This field is guaranteed to be either empty or a well formed URL.
  */
 @property(nonatomic, copy, nullable) NSString *externalUri;
 
@@ -1009,12 +1018,12 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  For findings on Google Cloud Platform (GCP) resources, the full resource
- *  name of the GCP resource this finding is for. See:
+ *  For findings on Google Cloud resources, the full resource
+ *  name of the Google Cloud resource this finding is for. See:
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
- *  When the finding is for a non-GCP resource, the resourceName can be a
- *  customer or partner defined string.
- *  This field is immutable after creation time.
+ *  When the finding is for a non-Google Cloud resource, the resourceName can
+ *  be a customer or partner defined string. This field is immutable after
+ *  creation time.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -1068,15 +1077,16 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  IAM Policy information associated with the GCP resource described by the
- *  Cloud SCC asset. This information is managed and defined by the GCP
- *  resource and cannot be modified by the user.
+ *  Cloud IAM Policy information associated with the Google Cloud resource
+ *  described by the Security Command Center asset. This information is managed
+ *  and defined by the Google Cloud resource and cannot be modified by the
+ *  user.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1IamPolicy : GTLRObject
 
 /**
  *  The JSON representation of the Policy associated with the asset.
- *  See https://cloud.google.com/iam/reference/rest/v1p1beta1/Policy for
+ *  See https://cloud.google.com/iam/docs/reference/rest/v1/Policy for
  *  format details.
  */
 @property(nonatomic, copy, nullable) NSString *policyBlob;
@@ -1085,7 +1095,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  Cloud SCC's Notification
+ *  Security Command Center's Notification
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1NotificationMessage : GTLRObject
 
@@ -1137,8 +1147,8 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  Cloud SCC managed properties. These properties are managed by Cloud SCC and
- *  cannot be modified by the user.
+ *  Security Command Center managed properties. These properties are managed by
+ *  Security Command Center and cannot be modified by the user.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties : GTLRObject
 
@@ -1146,7 +1156,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 @property(nonatomic, copy, nullable) NSString *resourceDisplayName;
 
 /**
- *  The full resource name of the GCP resource this asset
+ *  The full resource name of the Google Cloud resource this asset
  *  represents. This field is immutable after create time. See:
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
  */
@@ -1174,10 +1184,10 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 @property(nonatomic, copy, nullable) NSString *resourceProjectDisplayName;
 
 /**
- *  The type of the GCP resource. Examples include: APPLICATION,
+ *  The type of the Google Cloud resource. Examples include: APPLICATION,
  *  PROJECT, and ORGANIZATION. This is a case insensitive field defined by
- *  Cloud SCC and/or the producer of the resource and is immutable
- *  after create time.
+ *  Security Command Center and/or the producer of the resource and is
+ *  immutable after create time.
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -1185,10 +1195,9 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  User specified security marks that are attached to the parent Cloud Security
- *  Command Center (Cloud SCC) resource. Security marks are scoped within a
- *  Cloud
- *  SCC organization -- they can be modified and viewed by all users who have
+ *  User specified security marks that are attached to the parent Security
+ *  Command Center resource. Security marks are scoped within a Security Command
+ *  Center organization -- they can be modified and viewed by all users who have
  *  proper permissions on the organization.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks : GTLRObject
@@ -1645,9 +1654,10 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  IAM Policy information associated with the GCP resource described by the
- *  Cloud SCC asset. This information is managed and defined by the GCP
- *  resource and cannot be modified by the user.
+ *  Cloud IAM Policy information associated with the Google Cloud resource
+ *  described by the Security Command Center asset. This information is managed
+ *  and defined by the Google Cloud resource and cannot be modified by the
+ *  user.
  */
 @interface GTLRSecurityCommandCenter_IamPolicy : GTLRObject
 
@@ -1999,8 +2009,8 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  User specified settings that are attached to the Cloud Security Command
- *  Center (Cloud SCC) organization.
+ *  User specified settings that are attached to the Security Command
+ *  Center organization.
  */
 @interface GTLRSecurityCommandCenter_OrganizationSettings : GTLRObject
 
@@ -2142,7 +2152,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  Information related to the Google Cloud Platform (GCP) resource that is
+ *  Information related to the Google Cloud resource that is
  *  associated with this finding.
  */
 @interface GTLRSecurityCommandCenter_Resource : GTLRObject
@@ -2176,8 +2186,8 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  Cloud SCC managed properties. These properties are managed by Cloud SCC and
- *  cannot be modified by the user.
+ *  Security Command Center managed properties. These properties are managed by
+ *  Security Command Center and cannot be modified by the user.
  */
 @interface GTLRSecurityCommandCenter_SecurityCenterProperties : GTLRObject
 
@@ -2185,7 +2195,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 @property(nonatomic, copy, nullable) NSString *resourceDisplayName;
 
 /**
- *  The full resource name of the GCP resource this asset
+ *  The full resource name of the Google Cloud resource this asset
  *  represents. This field is immutable after create time. See:
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
  */
@@ -2213,10 +2223,10 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 @property(nonatomic, copy, nullable) NSString *resourceProjectDisplayName;
 
 /**
- *  The type of the GCP resource. Examples include: APPLICATION,
+ *  The type of the Google Cloud resource. Examples include: APPLICATION,
  *  PROJECT, and ORGANIZATION. This is a case insensitive field defined by
- *  Cloud SCC and/or the producer of the resource and is immutable
- *  after create time.
+ *  Security Command Center and/or the producer of the resource and is
+ *  immutable after create time.
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -2224,10 +2234,9 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  User specified security marks that are attached to the parent Cloud Security
- *  Command Center (Cloud SCC) resource. Security marks are scoped within a
- *  Cloud
- *  SCC organization -- they can be modified and viewed by all users who have
+ *  User specified security marks that are attached to the parent Security
+ *  Command Center resource. Security marks are scoped within a Security Command
+ *  Center organization -- they can be modified and viewed by all users who have
  *  proper permissions on the organization.
  */
 @interface GTLRSecurityCommandCenter_SecurityMarks : GTLRObject
@@ -2328,7 +2337,7 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_S
 
 
 /**
- *  Cloud Security Command Center's (Cloud SCC) finding source. A finding source
+ *  Security Command Center finding source. A finding source
  *  is an entity or a mechanism that can produce a finding. A source is like a
  *  container of findings that come from the same scanner, logger, monitor, and
  *  other tools.

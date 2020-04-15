@@ -2188,10 +2188,10 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LiveBroadcastContentDetails
 @dynamic boundStreamId, boundStreamLastUpdateTimeMs, closedCaptionsType,
-         enableAutoStart, enableClosedCaptions, enableContentEncryption,
-         enableDvr, enableEmbed, enableLowLatency, latencyPreference, mesh,
-         monitorStream, projection, recordFromStart, startWithSlate,
-         stereoLayout;
+         enableAutoStart, enableAutoStop, enableClosedCaptions,
+         enableContentEncryption, enableDvr, enableEmbed, enableLowLatency,
+         latencyPreference, mesh, monitorStream, projection, recordFromStart,
+         startWithSlate, stereoLayout;
 @end
 
 

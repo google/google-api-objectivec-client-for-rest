@@ -670,7 +670,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  *  Identifiers of students with access to the announcement.
  *  This field is set only if `assigneeMode` is `INDIVIDUAL_STUDENTS`.
  *  If the `assigneeMode` is `INDIVIDUAL_STUDENTS`, then only students
- *  specified in this field will be able to see the announcement.
+ *  specified in this field can see the announcement.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_IndividualStudentsOptions *individualStudentsOptions;
 
@@ -751,7 +751,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  *  assignment in Classroom.
  *  Some attachment metadata is only populated if the requesting user has
  *  permission to access it. Identifier and alternate_link fields are always
- *  available, but others (e.g. title) may not be.
+ *  available, but others (for example, title) may not be.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Attachment *> *attachments;
 
@@ -1100,7 +1100,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 /**
  *  Whether this course work item is associated with the Developer Console
  *  project making the request.
- *  See google.classroom.Work.CreateCourseWork for more
+ *  See CreateCourseWork for more
  *  details.
  *  Read-only.
  *
@@ -1160,7 +1160,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  *  Identifiers of students with access to the coursework.
  *  This field is set only if `assigneeMode` is `INDIVIDUAL_STUDENTS`.
  *  If the `assigneeMode` is `INDIVIDUAL_STUDENTS`, then only students
- *  specified in this field will be assigned the coursework.
+ *  specified in this field are assigned the coursework.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_IndividualStudentsOptions *individualStudentsOptions;
 
@@ -2019,8 +2019,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @property(nonatomic, strong, nullable) GTLRClassroom_Form *form;
 
 /**
- *  Link material. On creation, will be upgraded to a more appropriate type
- *  if possible, and this will be reflected in the response.
+ *  Link material. On creation, this is upgraded to a more appropriate type
+ *  if possible, and this is reflected in the response.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_Link *link;
 
@@ -2036,7 +2036,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @interface GTLRClassroom_ModifyAnnouncementAssigneesRequest : GTLRObject
 
 /**
- *  Mode of the announcement describing whether it will be accessible by all
+ *  Mode of the announcement describing whether it is accessible by all
  *  students or specified individual students.
  *
  *  Likely values:
@@ -2114,13 +2114,13 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 @interface GTLRClassroom_ModifyIndividualStudentsOptions : GTLRObject
 
 /**
- *  Ids of students to be added as having access to this
+ *  IDs of students to be added as having access to this
  *  coursework/announcement.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *addStudentIds;
 
 /**
- *  Ids of students to be removed from having access to this
+ *  IDs of students to be removed from having access to this
  *  coursework/announcement.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *removeStudentIds;
@@ -2264,7 +2264,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
  */
 @interface GTLRClassroom_StateHistory : GTLRObject
 
-/** The teacher or student who made the change */
+/** The teacher or student who made the change. */
 @property(nonatomic, copy, nullable) NSString *actorUserId;
 
 /**
@@ -2350,8 +2350,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Optional grade. If unset, no grade was set.
- *  This value must be non-negative. Decimal (i.e. non-integer) values are
- *  allowed, but will be rounded to two decimal places.
+ *  This value must be non-negative. Decimal (that is, non-integer) values are
+ *  allowed, but are rounded to two decimal places.
  *  This may be modified only by course teachers.
  *
  *  Uses NSNumber of doubleValue.
@@ -2361,14 +2361,14 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 /**
  *  Submission content when course_work_type is ASSIGNMENT.
  *  Students can modify this content using
- *  google.classroom.Work.ModifyAttachments.
+ *  ModifyAttachments.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_AssignmentSubmission *assignmentSubmission;
 
 /**
  *  Whether this student submission is associated with the Developer Console
  *  project making the request.
- *  See google.classroom.Work.CreateCourseWork for more
+ *  See CreateCourseWork for more
  *  details.
  *  Read-only.
  *
@@ -2414,8 +2414,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Optional pending grade. If unset, no grade was set.
- *  This value must be non-negative. Decimal (i.e. non-integer) values are
- *  allowed, but will be rounded to two decimal places.
+ *  This value must be non-negative. Decimal (that is, non-integer) values are
+ *  allowed, but are rounded to two decimal places.
  *  This is only visible to and modifiable by course teachers.
  *
  *  Uses NSNumber of doubleValue.
@@ -2587,8 +2587,8 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  The name of the topic, generated by the user.
- *  Leading and trailing whitespaces, if any, will be trimmed. Also, multiple
- *  consecutive whitespaces will be collapsed into one inside the name. The
+ *  Leading and trailing whitespaces, if any, are trimmed. Also, multiple
+ *  consecutive whitespaces are collapsed into one inside the name. The
  *  result must be a non-empty string. Topic names are case sensitive, and must
  *  be no longer than 100 characters.
  */
@@ -2656,7 +2656,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 /**
  *  Represents whether a G Suite for Education user's domain administrator has
  *  explicitly verified them as being a teacher. If the user is not a member of
- *  a G Suite for Education domain, than this field will always be false.
+ *  a G Suite for Education domain, than this field is always false.
  *  Read-only
  *
  *  Uses NSNumber of boolValue.

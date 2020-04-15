@@ -799,6 +799,18 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Ga;
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_MetricDescriptor.metricKind
@@ -938,6 +950,18 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStag
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_MetricThreshold.comparison
@@ -1044,6 +1068,18 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchS
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_NotificationChannel.verificationStatus
@@ -1133,6 +1169,18 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_Launc
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_ResourceGroup.resourceType
@@ -1456,8 +1504,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueType
  *  collection of data, for example "the 95% latency across the average of all
  *  tasks in a cluster". This representative data can be more easily graphed and
  *  comprehended, and the individual time series data is still available for
- *  later drilldown. For more details, see Aggregating Time Series
- *  (https://cloud.google.com/monitoring/api/v3/metrics#aggregating_time_series).
+ *  later drilldown. For more details, see Filtering and aggregation
+ *  (https://cloud.google.com/monitoring/api/v3/aggregation).
  */
 @interface GTLRMonitoring_Aggregation : GTLRObject
 
@@ -2174,8 +2222,8 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueType
 @property(nonatomic, strong, nullable) GTLRMonitoring_MetricThreshold *conditionThreshold;
 
 /**
- *  A condition that uses the time series query language format to define
- *  alerts. If set, no other conditions can be present.
+ *  A condition that uses the Monitoring Query Language to define alerts. If
+ *  set, no other conditions can be present.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_TimeSeriesQueryLanguageCondition *conditionTimeSeriesQueryLanguage;
 
@@ -3683,6 +3731,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueType
  *        for production use. (Value: "GA")
  *    @arg @c kGTLRMonitoring_MetricDescriptor_LaunchStage_LaunchStageUnspecified
  *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_MetricDescriptor_LaunchStage_Prelaunch Prelaunch
+ *        features are hidden from users and are only visible internally.
+ *        (Value: "PRELAUNCH")
+ *    @arg @c kGTLRMonitoring_MetricDescriptor_LaunchStage_Unimplemented The
+ *        feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
  */
 @property(nonatomic, copy, nullable) NSString *launchStage;
 
@@ -3885,6 +3939,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueType
  *        fully qualified for production use. (Value: "GA")
  *    @arg @c kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified
  *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
  */
 @property(nonatomic, copy, nullable) NSString *launchStage;
 
@@ -4157,6 +4217,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueType
  *        fully qualified for production use. (Value: "GA")
  *    @arg @c kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified
  *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
  */
 @property(nonatomic, copy, nullable) NSString *launchStage;
 
@@ -4455,6 +4521,12 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueType
  *        fully qualified for production use. (Value: "GA")
  *    @arg @c kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_LaunchStageUnspecified
  *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
  */
 @property(nonatomic, copy, nullable) NSString *launchStage;
 
@@ -4595,7 +4667,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueType
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The query in the time series query language format. The default
+ *  Required. The query in the monitoring query language format. The default
  *  time zone is in UTC.
  */
 @property(nonatomic, copy, nullable) NSString *query;
@@ -5122,14 +5194,14 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueType
 
 
 /**
- *  A condition type that allows alert policies to be defined using the time
- *  series query language.
+ *  A condition type that allows alert policies to be defined using Monitoring
+ *  Query Language.
  */
 @interface GTLRMonitoring_TimeSeriesQueryLanguageCondition : GTLRObject
 
 /**
- *  A query in the time series query language format that generates time series
- *  indicating points in time that the condition should be considered active.
+ *  Monitoring Query Language query that generates time series data and
+ *  describes a condition for alerting on that data.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 

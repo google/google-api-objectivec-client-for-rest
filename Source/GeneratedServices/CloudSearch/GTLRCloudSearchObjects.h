@@ -2521,6 +2521,8 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusC
 /**
  *  Link to the source repository serving the data. &#83;earch results apply
  *  this link to the title.
+ *  Whitespace or special characters may cause Cloud &#83;earch result links to
+ *  trigger a redirect notice; to avoid this, encode the URL.
  *  The maximum length is 2048 characters.
  */
 @property(nonatomic, copy, nullable) NSString *sourceRepositoryUrl;

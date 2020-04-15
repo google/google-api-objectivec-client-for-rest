@@ -262,7 +262,7 @@ GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnai
 
 /**
  *  The optional mime type of the thumbnail image.
- *  If you don't specify the mime type, the default mime type will be PNG.
+ *  If you don't specify the mime type, the mime type defaults to PNG.
  *
  *  Likely values:
  *    @arg @c kGTLRSlidesThumbnailPropertiesMimeTypePng Value "PNG"

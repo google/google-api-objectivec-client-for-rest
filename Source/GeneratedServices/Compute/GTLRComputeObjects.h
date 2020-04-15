@@ -387,6 +387,7 @@
 @class GTLRCompute_PathRule;
 @class GTLRCompute_PerInstanceConfig;
 @class GTLRCompute_Policy;
+@class GTLRCompute_PreconfiguredWafSet;
 @class GTLRCompute_Project;
 @class GTLRCompute_Quota;
 @class GTLRCompute_Reference;
@@ -462,6 +463,7 @@
 @class GTLRCompute_Rule;
 @class GTLRCompute_Scheduling;
 @class GTLRCompute_SchedulingNodeAffinity;
+@class GTLRCompute_SecurityPoliciesWafConfig;
 @class GTLRCompute_SecurityPolicy;
 @class GTLRCompute_SecurityPolicyList_Warning;
 @class GTLRCompute_SecurityPolicyList_Warning_Data_Item;
@@ -601,6 +603,8 @@
 @class GTLRCompute_VpnTunnelsScopedList;
 @class GTLRCompute_VpnTunnelsScopedList_Warning;
 @class GTLRCompute_VpnTunnelsScopedList_Warning_Data_Item;
+@class GTLRCompute_WafExpressionSet;
+@class GTLRCompute_WafExpressionSetExpression;
 @class GTLRCompute_WeightedBackendService;
 @class GTLRCompute_XpnHostList_Warning;
 @class GTLRCompute_XpnHostList_Warning_Data_Item;
@@ -5735,6 +5739,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_GpusAllRegions;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_HealthChecks;
 /** Value: "IMAGES" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Images;
+/** Value: "IN_PLACE_SNAPSHOTS" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InPlaceSnapshots;
 /** Value: "INSTANCE_GROUP_MANAGERS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InstanceGroupManagers;
 /** Value: "INSTANCE_GROUPS" */
@@ -5813,6 +5819,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4Gpus;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4VwsGpus;
 /** Value: "PREEMPTIBLE_NVIDIA_V100_GPUS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus;
+/** Value: "PUBLIC_ADVERTISED_PREFIXES" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PublicAdvertisedPrefixes;
+/** Value: "PUBLIC_DELEGATED_PREFIXES" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PublicDelegatedPrefixes;
 /** Value: "REGIONAL_AUTOSCALERS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers;
 /** Value: "REGIONAL_INSTANCE_GROUP_MANAGERS" */
@@ -5839,6 +5849,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_SsdTotalGb;
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_SslCertificates;
 /** Value: "STATIC_ADDRESSES" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_StaticAddresses;
+/** Value: "STATIC_BYOIP_ADDRESSES" */
+GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_StaticByoipAddresses;
 /** Value: "SUBNETWORKS" */
 GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Subnetworks;
 /** Value: "TARGET_HTTP_PROXIES" */
@@ -10525,7 +10537,6 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  the request will fail if you attempt to attach a persistent disk in any
  *  other format than SCSI. Local SSDs can use either NVME or SCSI. For
  *  performance characteristics of SCSI over NVMe, see Local SSD performance.
- *  TODO(b/131765817): Update documentation when NVME is supported.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_AttachedDisk_Interface_Nvme Value "NVME"
@@ -10598,8 +10609,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  Specifies the disk name. If not specified, the default is to use the name of
- *  the instance. If the disk with the instance name exists already in the given
- *  zone/region, a new name will be automatically generated.
+ *  the instance. If a disk with the same name already exists in the given
+ *  region, the existing disk is attached to the new instance and the new disk
+ *  is not created.
  */
 @property(nonatomic, copy, nullable) NSString *diskName;
 
@@ -13813,7 +13825,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /**
  *  Represents a Persistent Disk resource.
  *  Google Compute Engine has two Disk resources:
- *  * [Global](/compute/docs/reference/rest/{$api_version}/disks) *
+ *  * [Zonal](/compute/docs/reference/rest/{$api_version}/disks) *
  *  [Regional](/compute/docs/reference/rest/{$api_version}/regionDisks)
  *  Persistent disks are required for running your VM instances. Create both
  *  boot and non-boot (data) persistent disks. For more information, read
@@ -19580,6 +19592,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /** Specifies the reservations that this instance can consume from. */
 @property(nonatomic, strong, nullable) GTLRCompute_ReservationAffinity *reservationAffinity;
 
+/** Resource policies applied to this instance. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourcePolicies;
+
 /** Sets the scheduling options for this instance. */
 @property(nonatomic, strong, nullable) GTLRCompute_Scheduling *scheduling;
 
@@ -20895,11 +20910,30 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  GTLRCompute_InstanceGroupManagersListManagedInstancesResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "managedInstances" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
  */
-@interface GTLRCompute_InstanceGroupManagersListManagedInstancesResponse : GTLRObject
+@interface GTLRCompute_InstanceGroupManagersListManagedInstancesResponse : GTLRCollectionObject
 
-/** [Output Only] The list of instances in the managed instance group. */
+/**
+ *  [Output Only] The list of instances in the managed instance group.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_ManagedInstance *> *managedInstances;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -28562,9 +28596,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  You can use an operation resource to manage asynchronous API requests. For
  *  more information, read Handling API responses.
  *  Operations can be global, regional or zonal.
- *  - For global operations, use the globalOperations resource.
- *  - For regional operations, use the regionOperations resource.
- *  - For zonal operations, use the zoneOperations resource.
+ *  - For global operations, use the `globalOperations` resource.
+ *  - For regional operations, use the `regionOperations` resource.
+ *  - For zonal operations, use the `zonalOperations` resource.
  *  For more information, read Global, Regional, and Zonal Resources. (==
  *  resource_for {$api_version}.globalOperations ==) (== resource_for
  *  {$api_version}.regionOperations ==) (== resource_for
@@ -28603,14 +28637,14 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  [Output Only] If the operation fails, this field contains the HTTP error
- *  message that was returned, such as NOT FOUND.
+ *  message that was returned, such as `NOT FOUND`.
  */
 @property(nonatomic, copy, nullable) NSString *httpErrorMessage;
 
 /**
  *  [Output Only] If the operation fails, this field contains the HTTP error
- *  status code that was returned. For example, a 404 means the resource was not
- *  found.
+ *  status code that was returned. For example, a `404` means the resource was
+ *  not found.
  *
  *  Uses NSNumber of intValue.
  */
@@ -28633,7 +28667,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *insertTime;
 
 /**
- *  [Output Only] Type of the resource. Always compute#operation for Operation
+ *  [Output Only] Type of the resource. Always `compute#operation` for Operation
  *  resources.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -28642,8 +28676,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  [Output Only] The type of operation, such as insert, update, or delete, and
- *  so on.
+ *  [Output Only] The type of operation, such as `insert`, `update`, or
+ *  `delete`, and so on.
  */
 @property(nonatomic, copy, nullable) NSString *operationType;
 
@@ -28675,7 +28709,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  [Output Only] The status of the operation, which can be one of the
- *  following: PENDING, RUNNING, or DONE.
+ *  following: `PENDING`, `RUNNING`, or `DONE`.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Operation_Status_Done Value "DONE"
@@ -28707,7 +28741,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  [Output Only] User who requested the operation, for example:
- *  user\@example.com.
+ *  `user\@example.com`.
  */
 @property(nonatomic, copy, nullable) NSString *user;
 
@@ -28873,17 +28907,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) GTLRCompute_OperationAggregatedList_Items *items;
 
 /**
- *  [Output Only] Type of resource. Always compute#operationAggregatedList for
+ *  [Output Only] Type of resource. Always `compute#operationAggregatedList` for
  *  aggregated lists of operations.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  [Output Only] This token allows you to get the next page of results for list
- *  requests. If the number of results is larger than maxResults, use the
- *  nextPageToken as a value for the query parameter pageToken in the next list
- *  request. Subsequent list requests will have their own nextPageToken to
- *  continue paging through the results.
+ *  requests. If the number of results is larger than `maxResults`, use the
+ *  `nextPageToken` as a value for the query parameter `pageToken` in the next
+ *  list request. Subsequent list requests will have their own `nextPageToken`
+ *  to continue paging through the results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -29028,17 +29062,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_Operation *> *items;
 
 /**
- *  [Output Only] Type of resource. Always compute#operations for Operations
+ *  [Output Only] Type of resource. Always `compute#operations` for Operations
  *  resource.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  [Output Only] This token allows you to get the next page of results for list
- *  requests. If the number of results is larger than maxResults, use the
- *  nextPageToken as a value for the query parameter pageToken in the next list
- *  request. Subsequent list requests will have their own nextPageToken to
- *  continue paging through the results.
+ *  requests. If the number of results is larger than `maxResults`, use the
+ *  `nextPageToken` as a value for the query parameter `pageToken` in the next
+ *  list request. Subsequent list requests will have their own `nextPageToken`
+ *  to continue paging through the results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -30250,6 +30284,17 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
+ *  GTLRCompute_PreconfiguredWafSet
+ */
+@interface GTLRCompute_PreconfiguredWafSet : GTLRObject
+
+/** List of entities that are currently supported for WAF rules. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_WafExpressionSet *> *expressionSets;
+
+@end
+
+
+/**
  *  Represents a Project resource.
  *  A project is used to organize resources in a Google Cloud Platform
  *  environment. For more information, read about the Resource Hierarchy. (==
@@ -30488,6 +30533,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_GpusAllRegions Value "GPUS_ALL_REGIONS"
  *    @arg @c kGTLRCompute_Quota_Metric_HealthChecks Value "HEALTH_CHECKS"
  *    @arg @c kGTLRCompute_Quota_Metric_Images Value "IMAGES"
+ *    @arg @c kGTLRCompute_Quota_Metric_InPlaceSnapshots Value
+ *        "IN_PLACE_SNAPSHOTS"
  *    @arg @c kGTLRCompute_Quota_Metric_InstanceGroupManagers Value
  *        "INSTANCE_GROUP_MANAGERS"
  *    @arg @c kGTLRCompute_Quota_Metric_InstanceGroups Value "INSTANCE_GROUPS"
@@ -30550,6 +30597,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *        "PREEMPTIBLE_NVIDIA_T4_VWS_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus Value
  *        "PREEMPTIBLE_NVIDIA_V100_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_PublicAdvertisedPrefixes Value
+ *        "PUBLIC_ADVERTISED_PREFIXES"
+ *    @arg @c kGTLRCompute_Quota_Metric_PublicDelegatedPrefixes Value
+ *        "PUBLIC_DELEGATED_PREFIXES"
  *    @arg @c kGTLRCompute_Quota_Metric_RegionalAutoscalers Value
  *        "REGIONAL_AUTOSCALERS"
  *    @arg @c kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers Value
@@ -30569,6 +30620,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *    @arg @c kGTLRCompute_Quota_Metric_SsdTotalGb Value "SSD_TOTAL_GB"
  *    @arg @c kGTLRCompute_Quota_Metric_SslCertificates Value "SSL_CERTIFICATES"
  *    @arg @c kGTLRCompute_Quota_Metric_StaticAddresses Value "STATIC_ADDRESSES"
+ *    @arg @c kGTLRCompute_Quota_Metric_StaticByoipAddresses Value
+ *        "STATIC_BYOIP_ADDRESSES"
  *    @arg @c kGTLRCompute_Quota_Metric_Subnetworks Value "SUBNETWORKS"
  *    @arg @c kGTLRCompute_Quota_Metric_TargetHttpProxies Value
  *        "TARGET_HTTP_PROXIES"
@@ -31421,11 +31474,30 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  GTLRCompute_RegionInstanceGroupManagersListInstancesResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "managedInstances" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
  */
-@interface GTLRCompute_RegionInstanceGroupManagersListInstancesResponse : GTLRObject
+@interface GTLRCompute_RegionInstanceGroupManagersListInstancesResponse : GTLRCollectionObject
 
-/** A list of managed instances. */
+/**
+ *  A list of managed instances.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_ManagedInstance *> *managedInstances;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -33986,15 +34058,15 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  URI of the linked Interconnect attachment. It must be in the same region as
- *  the router. Each interface can have one linked resource, which can be either
- *  be a VPN tunnel or an Interconnect attachment.
+ *  the router. Each interface can have one linked resource, which can be a VPN
+ *  tunnel, an Interconnect attachment, or a virtual machine instance.
  */
 @property(nonatomic, copy, nullable) NSString *linkedInterconnectAttachment;
 
 /**
  *  URI of the linked VPN tunnel, which must be in the same region as the
- *  router. Each interface can have one linked resource, which can be either a
- *  VPN tunnel or an Interconnect attachment.
+ *  router. Each interface can have one linked resource, which can be a VPN
+ *  tunnel, an Interconnect attachment, or a virtual machine instance.
  */
 @property(nonatomic, copy, nullable) NSString *linkedVpnTunnel;
 
@@ -34740,6 +34812,26 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** Corresponds to the label values of Node resource. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  GTLRCompute_SecurityPoliciesListPreconfiguredExpressionSetsResponse
+ */
+@interface GTLRCompute_SecurityPoliciesListPreconfiguredExpressionSetsResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCompute_SecurityPoliciesWafConfig *preconfiguredExpressionSets;
+
+@end
+
+
+/**
+ *  GTLRCompute_SecurityPoliciesWafConfig
+ */
+@interface GTLRCompute_SecurityPoliciesWafConfig : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCompute_PreconfiguredWafSet *wafRules;
 
 @end
 
@@ -39530,7 +39622,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  A target TCP proxy is a component of a TCP Proxy load balancer. Global
  *  forwarding rules reference target TCP proxy, and the target proxy then
  *  references an external backend service. For more information, read TCP Proxy
- *  Load Balancing Concepts. (== resource_for {$api_version}.targetTcpProxies
+ *  Load Balancing overview. (== resource_for {$api_version}.targetTcpProxies
  *  ==)
  */
 @interface GTLRCompute_TargetTcpProxy : GTLRObject
@@ -42577,6 +42669,52 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_WafExpressionSet
+ */
+@interface GTLRCompute_WafExpressionSet : GTLRObject
+
+/**
+ *  A list of alternate IDs. The format should be: - E.g. XSS-stable Generic
+ *  suffix like "stable" is particularly useful if a policy likes to avail newer
+ *  set of expressions without having to change the policy. A given alias name
+ *  can't be used for more than one entity set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
+
+/** List of available expressions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_WafExpressionSetExpression *> *expressions;
+
+/**
+ *  Google specified expression set ID. The format should be: - E.g.
+ *  XSS-20170329
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  GTLRCompute_WafExpressionSetExpression
+ */
+@interface GTLRCompute_WafExpressionSetExpression : GTLRObject
+
+/**
+ *  Expression ID should uniquely identify the origin of the expression. E.g.
+ *  owasp-crs-v020901-id973337 identifies Owasp core rule set version 2.9.1 rule
+ *  id 973337. The ID could be used to determine the individual attack
+ *  definition that has been detected. It could also be used to exclude it from
+ *  the policy in case of false positive.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 

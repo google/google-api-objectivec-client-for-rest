@@ -49,8 +49,7 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_AccessLevel
-@dynamic basic, createTime, custom, descriptionProperty, name, title,
-         updateTime;
+@dynamic basic, custom, descriptionProperty, name, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -65,7 +64,7 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_AccessPolicy
-@dynamic createTime, ETag, name, parent, title, updateTime;
+@dynamic ETag, name, parent, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -434,8 +433,8 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_ServicePerimeter
-@dynamic createTime, descriptionProperty, name, perimeterType, spec, status,
-         title, updateTime, useExplicitDryRunSpec;
+@dynamic descriptionProperty, name, perimeterType, spec, status, title,
+         useExplicitDryRunSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

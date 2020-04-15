@@ -73,43 +73,6 @@
 
 @end
 
-@implementation GTLRDoubleClickSearchQuery_ConversionPatch
-
-@dynamic advertiserId, agencyId, endDate, engineAccountId, rowCount, startDate,
-         startRow;
-
-+ (instancetype)queryWithObject:(GTLRDoubleClickSearch_ConversionList *)object
-                   advertiserId:(long long)advertiserId
-                       agencyId:(long long)agencyId
-                        endDate:(NSInteger)endDate
-                engineAccountId:(long long)engineAccountId
-                       rowCount:(NSInteger)rowCount
-                      startDate:(NSInteger)startDate
-                       startRow:(NSUInteger)startRow {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSString *pathURITemplate = @"conversion";
-  GTLRDoubleClickSearchQuery_ConversionPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.advertiserId = advertiserId;
-  query.agencyId = agencyId;
-  query.endDate = endDate;
-  query.engineAccountId = engineAccountId;
-  query.rowCount = rowCount;
-  query.startDate = startDate;
-  query.startRow = startRow;
-  query.expectedObjectClass = [GTLRDoubleClickSearch_ConversionList class];
-  query.loggingName = @"doubleclicksearch.conversion.patch";
-  return query;
-}
-
-@end
-
 @implementation GTLRDoubleClickSearchQuery_ConversionUpdate
 
 + (instancetype)queryWithObject:(GTLRDoubleClickSearch_ConversionList *)object {

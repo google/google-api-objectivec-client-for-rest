@@ -34,6 +34,7 @@ NSString * const kGTLRCloudShell_PublicKey_Format_SshDss       = @"SSH_DSS";
 NSString * const kGTLRCloudShell_PublicKey_Format_SshRsa       = @"SSH_RSA";
 
 // GTLRCloudShell_StartEnvironmentMetadata.state
+NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_AwaitingComputeResources = @"AWAITING_COMPUTE_RESOURCES";
 NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_AwaitingVm = @"AWAITING_VM";
 NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Finished = @"FINISHED";
 NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Starting = @"STARTING";

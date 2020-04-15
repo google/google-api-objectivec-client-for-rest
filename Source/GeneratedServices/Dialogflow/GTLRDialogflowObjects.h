@@ -371,67 +371,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage.platform
 
 /**
- *  Actions on Google.
- *  When using Actions on Google, you can choose one of the specific
- *  Intent.Message types that mention support for Actions on Google,
- *  or you can use the advanced Intent.Message.payload field.
- *  The payload field provides access to AoG features not available in the
- *  specific message types.
- *  If using the Intent.Message.payload field, it should have a structure
- *  similar to the JSON message shown here. For more information, see
- *  [Actions on Google Webhook
- *  Format](https://developers.google.com/actions/dialogflow/webhook)
- *  <pre>{
- *  "expectUserResponse": true,
- *  "isSsml": false,
- *  "noInputPrompts": [],
- *  "richResponse": {
- *  "items": [
- *  {
- *  "simpleResponse": {
- *  "displayText": "hi",
- *  "textToSpeech": "hello"
- *  }
- *  }
- *  ],
- *  "suggestions": [
- *  {
- *  "title": "Say this"
- *  },
- *  {
- *  "title": "or this"
- *  }
- *  ]
- *  },
- *  "systemIntent": {
- *  "data": {
- *  "\@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
- *  "listSelect": {
- *  "items": [
- *  {
- *  "optionInfo": {
- *  "key": "key1",
- *  "synonyms": [
- *  "key one"
- *  ]
- *  },
- *  "title": "must not be empty, but unique"
- *  },
- *  {
- *  "optionInfo": {
- *  "key": "key2",
- *  "synonyms": [
- *  "key two"
- *  ]
- *  },
- *  "title": "must not be empty, but unique"
- *  }
- *  ]
- *  }
- *  },
- *  "intent": "actions.intent.OPTION"
- *  }
- *  }</pre>
+ *  Google Assistant
+ *  See [Dialogflow webhook
+ *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  *
  *  Value: "ACTIONS_ON_GOOGLE"
  */
@@ -1099,67 +1041,9 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_Webho
 // GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage.platform
 
 /**
- *  Actions on Google.
- *  When using Actions on Google, you can choose one of the specific
- *  Intent.Message types that mention support for Actions on Google,
- *  or you can use the advanced Intent.Message.payload field.
- *  The payload field provides access to AoG features not available in the
- *  specific message types.
- *  If using the Intent.Message.payload field, it should have a structure
- *  similar to the JSON message shown here. For more information, see
- *  [Actions on Google Webhook
- *  Format](https://developers.google.com/actions/dialogflow/webhook)
- *  <pre>{
- *  "expectUserResponse": true,
- *  "isSsml": false,
- *  "noInputPrompts": [],
- *  "richResponse": {
- *  "items": [
- *  {
- *  "simpleResponse": {
- *  "displayText": "hi",
- *  "textToSpeech": "hello"
- *  }
- *  }
- *  ],
- *  "suggestions": [
- *  {
- *  "title": "Say this"
- *  },
- *  {
- *  "title": "or this"
- *  }
- *  ]
- *  },
- *  "systemIntent": {
- *  "data": {
- *  "\@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
- *  "listSelect": {
- *  "items": [
- *  {
- *  "optionInfo": {
- *  "key": "key1",
- *  "synonyms": [
- *  "key one"
- *  ]
- *  },
- *  "title": "must not be empty, but unique"
- *  },
- *  {
- *  "optionInfo": {
- *  "key": "key2",
- *  "synonyms": [
- *  "key two"
- *  ]
- *  },
- *  "title": "must not be empty, but unique"
- *  }
- *  ]
- *  }
- *  },
- *  "intent": "actions.intent.OPTION"
- *  }
- *  }</pre>
+ *  Google Assistant
+ *  See [Dialogflow webhook
+ *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  *
  *  Value: "ACTIONS_ON_GOOGLE"
  */
@@ -1189,7 +1073,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessag
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Line;
 /**
- *  Not specified.
+ *  Default platform.
  *
  *  Value: "PLATFORM_UNSPECIFIED"
  */
@@ -1684,12 +1568,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity *> *entities;
 
 /**
- *  Optional. The language of entity synonyms defined in `entities`. If not
- *  specified, the agent's default language is used.
- *  [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1709,12 +1592,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entityValues;
 
 /**
- *  Optional. The language of entity synonyms defined in `entities`. If not
- *  specified, the agent's default language is used.
- *  [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1758,12 +1640,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity *> *entities;
 
 /**
- *  Optional. The language of entity synonyms defined in `entities`. If not
- *  specified, the agent's default language is used.
- *  [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1794,12 +1675,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, copy, nullable) NSString *entityTypeBatchUri;
 
 /**
- *  Optional. The language of entity synonyms defined in `entity_types`. If not
- *  specified, the agent's default language is used.
- *  [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1825,7 +1705,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  The request message for Intents.BatchUpdateIntents.
+ *  GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest : GTLRObject
 
@@ -1852,12 +1732,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, copy, nullable) NSString *intentView;
 
 /**
- *  Optional. The language of training phrases, parameters and rich messages
- *  defined in `intents`. If not specified, the agent's default language is
- *  used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1970,7 +1849,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Optional. The number of conversational query requests after which the
- *  context expires. If set to `0` (the default) the context expires
+ *  context expires. The default is `0`. If set to `0`, the context expires
  *  immediately. Contexts expire automatically after 20 minutes if there
  *  are no matching queries.
  *
@@ -1998,9 +1877,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Optional. The collection of parameters associated with this context.
- *  Refer to [this
- *  doc](https://cloud.google.com/dialogflow/docs/intents-actions-parameters)
- *  for syntax.
+ *  Depending on your protocol or client library language, this is a
+ *  map, associative array, symbol table, dictionary, or JSON object
+ *  composed of a collection of (MapKey, MapValue) pairs:
+ *  - MapKey type: string
+ *  - MapKey value: parameter name
+ *  - MapValue type:
+ *  - If parameter's entity type is a composite entity: map
+ *  - Else: string or number, depending on parameter value type
+ *  - MapValue value:
+ *  - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values
+ *  - Else: parameter value
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters *parameters;
 
@@ -2009,9 +1897,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Optional. The collection of parameters associated with this context.
- *  Refer to [this
- *  doc](https://cloud.google.com/dialogflow/docs/intents-actions-parameters)
- *  for syntax.
+ *  Depending on your protocol or client library language, this is a
+ *  map, associative array, symbol table, dictionary, or JSON object
+ *  composed of a collection of (MapKey, MapValue) pairs:
+ *  - MapKey type: string
+ *  - MapKey value: parameter name
+ *  - MapValue type:
+ *  - If parameter's entity type is a composite entity: map
+ *  - Else: string or number, depending on parameter value type
+ *  - MapValue value:
+ *  - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values
+ *  - Else: parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2142,7 +2039,21 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /** Required. The unique identifier of the event. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The collection of parameters associated with the event. */
+/**
+ *  The collection of parameters associated with the event.
+ *  Depending on your protocol or client library language, this is a
+ *  map, associative array, symbol table, dictionary, or JSON object
+ *  composed of a collection of (MapKey, MapValue) pairs:
+ *  - MapKey type: string
+ *  - MapKey value: parameter name
+ *  - MapValue type:
+ *  - If parameter's entity type is a composite entity: map
+ *  - Else: string or number, depending on parameter value type
+ *  - MapValue value:
+ *  - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values
+ *  - Else: parameter value
+ */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput_Parameters *parameters;
 
 @end
@@ -2150,6 +2061,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  The collection of parameters associated with the event.
+ *  Depending on your protocol or client library language, this is a
+ *  map, associative array, symbol table, dictionary, or JSON object
+ *  composed of a collection of (MapKey, MapValue) pairs:
+ *  - MapKey type: string
+ *  - MapKey value: parameter name
+ *  - MapValue type:
+ *  - If parameter's entity type is a composite entity: map
+ *  - Else: string or number, depending on parameter value type
+ *  - MapValue value:
+ *  - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values
+ *  - Else: parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2409,11 +2332,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /** The media content card for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent *mediaContent;
 
-/**
- *  Returns a response containing a custom, platform-specific payload.
- *  See the Intent.Message.Platform type for a description of the
- *  structure that may be required for your platform.
- */
+/** A custom platform-specific response. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Payload *payload;
 
 /**
@@ -2421,67 +2340,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_ActionsOnGoogle
- *        Actions on Google.
- *        When using Actions on Google, you can choose one of the specific
- *        Intent.Message types that mention support for Actions on Google,
- *        or you can use the advanced Intent.Message.payload field.
- *        The payload field provides access to AoG features not available in the
- *        specific message types.
- *        If using the Intent.Message.payload field, it should have a structure
- *        similar to the JSON message shown here. For more information, see
- *        [Actions on Google Webhook
- *        Format](https://developers.google.com/actions/dialogflow/webhook)
- *        <pre>{
- *        "expectUserResponse": true,
- *        "isSsml": false,
- *        "noInputPrompts": [],
- *        "richResponse": {
- *        "items": [
- *        {
- *        "simpleResponse": {
- *        "displayText": "hi",
- *        "textToSpeech": "hello"
- *        }
- *        }
- *        ],
- *        "suggestions": [
- *        {
- *        "title": "Say this"
- *        },
- *        {
- *        "title": "or this"
- *        }
- *        ]
- *        },
- *        "systemIntent": {
- *        "data": {
- *        "\@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
- *        "listSelect": {
- *        "items": [
- *        {
- *        "optionInfo": {
- *        "key": "key1",
- *        "synonyms": [
- *        "key one"
- *        ]
- *        },
- *        "title": "must not be empty, but unique"
- *        },
- *        {
- *        "optionInfo": {
- *        "key": "key2",
- *        "synonyms": [
- *        "key two"
- *        ]
- *        },
- *        "title": "must not be empty, but unique"
- *        }
- *        ]
- *        }
- *        },
- *        "intent": "actions.intent.OPTION"
- *        }
- *        }</pre> (Value: "ACTIONS_ON_GOOGLE")
+ *        Google Assistant
+ *        See [Dialogflow webhook
+ *        format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
+ *        (Value: "ACTIONS_ON_GOOGLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Facebook
  *        Facebook. (Value: "FACEBOOK")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_GoogleHangouts
@@ -2546,9 +2408,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Returns a response containing a custom, platform-specific payload.
- *  See the Intent.Message.Platform type for a description of the
- *  structure that may be required for your platform.
+ *  A custom platform-specific response.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3002,18 +2862,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /**
  *  Rich Business Messaging (RBM) Media displayed in Cards
  *  The following media-types are currently supported:
- *  ## Image Types
- *  image/jpeg
- *  image/jpg'
- *  image/gif
- *  image/png
- *  ## Video Types
- *  video/h263
- *  video/m4v
- *  video/mp4
- *  video/mpeg
- *  video/mpeg4
- *  video/webm
+ *  Image Types
+ *  * image/jpeg
+ *  * image/jpg'
+ *  * image/gif
+ *  * image/png
+ *  Video Types
+ *  * video/h263
+ *  * video/m4v
+ *  * video/mp4
+ *  * video/mpeg
+ *  * video/mpeg4
+ *  * video/webm
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia : GTLRObject
 
@@ -3729,7 +3589,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Optional. This field is set to the value of the `QueryParameters.payload`
  *  field passed in the request. Some integrations that query a Dialogflow
  *  agent may provide additional information in the payload.
- *  In particular for the Telephony Gateway this field has the form:
+ *  In particular, for the Dialogflow Phone Gateway integration, this field has
+ *  the form:
  *  <pre>{
  *  "telephony": {
  *  "caller_id": "+18558363987"
@@ -3760,7 +3621,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Optional. This field is set to the value of the `QueryParameters.payload`
  *  field passed in the request. Some integrations that query a Dialogflow
  *  agent may provide additional information in the payload.
- *  In particular for the Telephony Gateway this field has the form:
+ *  In particular, for the Dialogflow Phone Gateway integration, this field has
+ *  the form:
  *  <pre>{
  *  "telephony": {
  *  "caller_id": "+18558363987"
@@ -3860,7 +3722,21 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1Context *> *outputContexts;
 
-/** The collection of extracted parameters. */
+/**
+ *  The collection of extracted parameters.
+ *  Depending on your protocol or client library language, this is a
+ *  map, associative array, symbol table, dictionary, or JSON object
+ *  composed of a collection of (MapKey, MapValue) pairs:
+ *  - MapKey type: string
+ *  - MapKey value: parameter name
+ *  - MapValue type:
+ *  - If parameter's entity type is a composite entity: map
+ *  - Else: string or number, depending on parameter value type
+ *  - MapValue value:
+ *  - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values
+ *  - Else: parameter value
+ */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_Parameters *parameters;
 
 /**
@@ -3929,6 +3805,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  The collection of extracted parameters.
+ *  Depending on your protocol or client library language, this is a
+ *  map, associative array, symbol table, dictionary, or JSON object
+ *  composed of a collection of (MapKey, MapValue) pairs:
+ *  - MapKey type: string
+ *  - MapKey value: parameter name
+ *  - MapValue type:
+ *  - If parameter's entity type is a composite entity: map
+ *  - Else: string or number, depending on parameter value type
+ *  - MapValue value:
+ *  - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values
+ *  - Else: parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4139,28 +4027,17 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1Context *> *outputContexts;
 
 /**
- *  Optional. This value is passed directly to `QueryResult.webhook_payload`.
- *  See the related `fulfillment_messages[i].payload field`, which may be used
- *  as an alternative to this field.
- *  This field can be used for Actions on Google responses.
- *  It should have a structure similar to the JSON message shown here. For more
- *  information, see
- *  [Actions on Google Webhook
- *  Format](https://developers.google.com/actions/dialogflow/webhook)
- *  <pre>{
- *  "google": {
- *  "expectUserResponse": true,
- *  "richResponse": {
- *  "items": [
- *  {
- *  "simpleResponse": {
- *  "textToSpeech": "this is a simple response"
- *  }
- *  }
- *  ]
- *  }
- *  }
- *  }</pre>
+ *  Optional. This field can be used to pass custom data from your webhook to
+ *  the API
+ *  caller. Arbitrary JSON objects are supported.
+ *  When provided, Dialogflow uses this field to populate
+ *  `QueryResult.webhook_payload` sent to the API caller.
+ *  This field is also used by the
+ *  [Google Assistant
+ *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog)
+ *  for rich response messages.
+ *  See the format definition at [Google Assistant Dialogflow webhook
+ *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload *payload;
 
@@ -4182,28 +4059,17 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Optional. This value is passed directly to `QueryResult.webhook_payload`.
- *  See the related `fulfillment_messages[i].payload field`, which may be used
- *  as an alternative to this field.
- *  This field can be used for Actions on Google responses.
- *  It should have a structure similar to the JSON message shown here. For more
- *  information, see
- *  [Actions on Google Webhook
- *  Format](https://developers.google.com/actions/dialogflow/webhook)
- *  <pre>{
- *  "google": {
- *  "expectUserResponse": true,
- *  "richResponse": {
- *  "items": [
- *  {
- *  "simpleResponse": {
- *  "textToSpeech": "this is a simple response"
- *  }
- *  }
- *  ]
- *  }
- *  }
- *  }</pre>
+ *  Optional. This field can be used to pass custom data from your webhook to
+ *  the API
+ *  caller. Arbitrary JSON objects are supported.
+ *  When provided, Dialogflow uses this field to populate
+ *  `QueryResult.webhook_payload` sent to the API caller.
+ *  This field is also used by the
+ *  [Google Assistant
+ *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog)
+ *  for rich response messages.
+ *  See the format definition at [Google Assistant Dialogflow webhook
+ *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4221,7 +4087,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Optional. The number of conversational query requests after which the
- *  context expires. If set to `0` (the default) the context expires
+ *  context expires. The default is `0`. If set to `0`, the context expires
  *  immediately. Contexts expire automatically after 20 minutes if there
  *  are no matching queries.
  *
@@ -4249,9 +4115,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Optional. The collection of parameters associated with this context.
- *  Refer to [this
- *  doc](https://cloud.google.com/dialogflow/docs/intents-actions-parameters)
- *  for syntax.
+ *  Depending on your protocol or client library language, this is a
+ *  map, associative array, symbol table, dictionary, or JSON object
+ *  composed of a collection of (MapKey, MapValue) pairs:
+ *  - MapKey type: string
+ *  - MapKey value: parameter name
+ *  - MapValue type:
+ *  - If parameter's entity type is a composite entity: map
+ *  - Else: string or number, depending on parameter value type
+ *  - MapValue value:
+ *  - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values
+ *  - Else: parameter value
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters *parameters;
 
@@ -4260,9 +4135,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  Optional. The collection of parameters associated with this context.
- *  Refer to [this
- *  doc](https://cloud.google.com/dialogflow/docs/intents-actions-parameters)
- *  for syntax.
+ *  Depending on your protocol or client library language, this is a
+ *  map, associative array, symbol table, dictionary, or JSON object
+ *  composed of a collection of (MapKey, MapValue) pairs:
+ *  - MapKey type: string
+ *  - MapKey value: parameter name
+ *  - MapValue type:
+ *  - If parameter's entity type is a composite entity: map
+ *  - Else: string or number, depending on parameter value type
+ *  - MapValue value:
+ *  - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values
+ *  - Else: parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4337,8 +4221,6 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  ============================================================================
- *  Requests and responses for custom methods.
  *  The request to detect user's intent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest : GTLRObject
@@ -4556,7 +4438,21 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /** Required. The unique identifier of the event. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The collection of parameters associated with the event. */
+/**
+ *  The collection of parameters associated with the event.
+ *  Depending on your protocol or client library language, this is a
+ *  map, associative array, symbol table, dictionary, or JSON object
+ *  composed of a collection of (MapKey, MapValue) pairs:
+ *  - MapKey type: string
+ *  - MapKey value: parameter name
+ *  - MapValue type:
+ *  - If parameter's entity type is a composite entity: map
+ *  - Else: string or number, depending on parameter value type
+ *  - MapValue value:
+ *  - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values
+ *  - Else: parameter value
+ */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2EventInput_Parameters *parameters;
 
 @end
@@ -4564,6 +4460,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  The collection of parameters associated with the event.
+ *  Depending on your protocol or client library language, this is a
+ *  map, associative array, symbol table, dictionary, or JSON object
+ *  composed of a collection of (MapKey, MapValue) pairs:
+ *  - MapKey type: string
+ *  - MapKey value: parameter name
+ *  - MapValue type:
+ *  - If parameter's entity type is a composite entity: map
+ *  - Else: string or number, depending on parameter value type
+ *  - MapValue value:
+ *  - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values
+ *  - Else: parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4982,7 +4890,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, strong, nullable) NSNumber *mlDisabled;
 
 /**
- *  The unique identifier of this intent.
+ *  Optional. The unique identifier of this intent.
  *  Required for Intents.UpdateIntent and Intents.BatchUpdateIntents
  *  methods.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
@@ -5099,7 +5007,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Corresponds to the `Response` field in the Dialogflow console.
+ *  A rich response message.
+ *  Corresponds to the intent `Response` field in the Dialogflow console.
+ *  For more information, see
+ *  [Rich response
+ *  messages](https://cloud.google.com/dialogflow/docs/intents-rich-messages).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage : GTLRObject
 
@@ -5127,11 +5039,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 /** The media content card for Actions on Google. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent *mediaContent;
 
-/**
- *  Returns a response containing a custom, platform-specific payload.
- *  See the Intent.Message.Platform type for a description of the
- *  structure that may be required for your platform.
- */
+/** A custom platform-specific response. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Payload *payload;
 
 /**
@@ -5139,67 +5047,10 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_ActionsOnGoogle
- *        Actions on Google.
- *        When using Actions on Google, you can choose one of the specific
- *        Intent.Message types that mention support for Actions on Google,
- *        or you can use the advanced Intent.Message.payload field.
- *        The payload field provides access to AoG features not available in the
- *        specific message types.
- *        If using the Intent.Message.payload field, it should have a structure
- *        similar to the JSON message shown here. For more information, see
- *        [Actions on Google Webhook
- *        Format](https://developers.google.com/actions/dialogflow/webhook)
- *        <pre>{
- *        "expectUserResponse": true,
- *        "isSsml": false,
- *        "noInputPrompts": [],
- *        "richResponse": {
- *        "items": [
- *        {
- *        "simpleResponse": {
- *        "displayText": "hi",
- *        "textToSpeech": "hello"
- *        }
- *        }
- *        ],
- *        "suggestions": [
- *        {
- *        "title": "Say this"
- *        },
- *        {
- *        "title": "or this"
- *        }
- *        ]
- *        },
- *        "systemIntent": {
- *        "data": {
- *        "\@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
- *        "listSelect": {
- *        "items": [
- *        {
- *        "optionInfo": {
- *        "key": "key1",
- *        "synonyms": [
- *        "key one"
- *        ]
- *        },
- *        "title": "must not be empty, but unique"
- *        },
- *        {
- *        "optionInfo": {
- *        "key": "key2",
- *        "synonyms": [
- *        "key two"
- *        ]
- *        },
- *        "title": "must not be empty, but unique"
- *        }
- *        ]
- *        }
- *        },
- *        "intent": "actions.intent.OPTION"
- *        }
- *        }</pre> (Value: "ACTIONS_ON_GOOGLE")
+ *        Google Assistant
+ *        See [Dialogflow webhook
+ *        format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
+ *        (Value: "ACTIONS_ON_GOOGLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Facebook
  *        Facebook. (Value: "FACEBOOK")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_GoogleHangouts
@@ -5209,7 +5060,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Line
  *        Line. (Value: "LINE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_PlatformUnspecified
- *        Not specified. (Value: "PLATFORM_UNSPECIFIED")
+ *        Default platform. (Value: "PLATFORM_UNSPECIFIED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Skype
  *        Skype. (Value: "SKYPE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Slack
@@ -5240,9 +5091,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Returns a response containing a custom, platform-specific payload.
- *  See the Intent.Message.Platform type for a description of the
- *  structure that may be required for your platform.
+ *  A custom platform-specific response.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -6159,7 +6008,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Optional. This field is set to the value of the `QueryParameters.payload`
  *  field passed in the request. Some integrations that query a Dialogflow
  *  agent may provide additional information in the payload.
- *  In particular for the Telephony Gateway this field has the form:
+ *  In particular, for the Dialogflow Phone Gateway integration, this field has
+ *  the form:
  *  <pre>{
  *  "telephony": {
  *  "caller_id": "+18558363987"
@@ -6190,7 +6040,8 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *  Optional. This field is set to the value of the `QueryParameters.payload`
  *  field passed in the request. Some integrations that query a Dialogflow
  *  agent may provide additional information in the payload.
- *  In particular for the Telephony Gateway this field has the form:
+ *  In particular, for the Dialogflow Phone Gateway integration, this field has
+ *  the form:
  *  <pre>{
  *  "telephony": {
  *  "caller_id": "+18558363987"
@@ -6293,8 +6144,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleTypeLatLng *geoLocation;
 
 /**
- *  This field can be used to pass custom data into the webhook
- *  associated with the agent. Arbitrary JSON objects are supported.
+ *  This field can be used to pass custom data to your webhook.
+ *  Arbitrary JSON objects are supported.
+ *  If supplied, the value is used to populate the
+ *  `WebhookRequest.original_detect_intent_request.payload`
+ *  field sent to your webhook.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters_Payload *payload;
 
@@ -6331,8 +6185,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  This field can be used to pass custom data into the webhook
- *  associated with the agent. Arbitrary JSON objects are supported.
+ *  This field can be used to pass custom data to your webhook.
+ *  Arbitrary JSON objects are supported.
+ *  If supplied, the value is used to populate the
+ *  `WebhookRequest.original_detect_intent_request.payload`
+ *  field sent to your webhook.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -6418,7 +6275,21 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Context *> *outputContexts;
 
-/** The collection of extracted parameters. */
+/**
+ *  The collection of extracted parameters.
+ *  Depending on your protocol or client library language, this is a
+ *  map, associative array, symbol table, dictionary, or JSON object
+ *  composed of a collection of (MapKey, MapValue) pairs:
+ *  - MapKey type: string
+ *  - MapKey value: parameter name
+ *  - MapValue type:
+ *  - If parameter's entity type is a composite entity: map
+ *  - Else: string or number, depending on parameter value type
+ *  - MapValue value:
+ *  - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values
+ *  - Else: parameter value
+ */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_Parameters *parameters;
 
 /**
@@ -6487,6 +6358,18 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 /**
  *  The collection of extracted parameters.
+ *  Depending on your protocol or client library language, this is a
+ *  map, associative array, symbol table, dictionary, or JSON object
+ *  composed of a collection of (MapKey, MapValue) pairs:
+ *  - MapKey type: string
+ *  - MapKey value: parameter name
+ *  - MapValue type:
+ *  - If parameter's entity type is a composite entity: map
+ *  - Else: string or number, depending on parameter value type
+ *  - MapValue value:
+ *  - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values
+ *  - Else: parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -6964,28 +6847,17 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Context *> *outputContexts;
 
 /**
- *  Optional. This value is passed directly to `QueryResult.webhook_payload`.
- *  See the related `fulfillment_messages[i].payload field`, which may be used
- *  as an alternative to this field.
- *  This field can be used for Actions on Google responses.
- *  It should have a structure similar to the JSON message shown here. For more
- *  information, see
- *  [Actions on Google Webhook
- *  Format](https://developers.google.com/actions/dialogflow/webhook)
- *  <pre>{
- *  "google": {
- *  "expectUserResponse": true,
- *  "richResponse": {
- *  "items": [
- *  {
- *  "simpleResponse": {
- *  "textToSpeech": "this is a simple response"
- *  }
- *  }
- *  ]
- *  }
- *  }
- *  }</pre>
+ *  Optional. This field can be used to pass custom data from your webhook to
+ *  the API
+ *  caller. Arbitrary JSON objects are supported.
+ *  When provided, Dialogflow uses this field to populate
+ *  `QueryResult.webhook_payload` sent to the API caller.
+ *  This field is also used by the
+ *  [Google Assistant
+ *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog)
+ *  for rich response messages.
+ *  See the format definition at [Google Assistant Dialogflow webhook
+ *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload *payload;
 
@@ -7007,28 +6879,17 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
- *  Optional. This value is passed directly to `QueryResult.webhook_payload`.
- *  See the related `fulfillment_messages[i].payload field`, which may be used
- *  as an alternative to this field.
- *  This field can be used for Actions on Google responses.
- *  It should have a structure similar to the JSON message shown here. For more
- *  information, see
- *  [Actions on Google Webhook
- *  Format](https://developers.google.com/actions/dialogflow/webhook)
- *  <pre>{
- *  "google": {
- *  "expectUserResponse": true,
- *  "richResponse": {
- *  "items": [
- *  {
- *  "simpleResponse": {
- *  "textToSpeech": "this is a simple response"
- *  }
- *  }
- *  ]
- *  }
- *  }
- *  }</pre>
+ *  Optional. This field can be used to pass custom data from your webhook to
+ *  the API
+ *  caller. Arbitrary JSON objects are supported.
+ *  When provided, Dialogflow uses this field to populate
+ *  `QueryResult.webhook_payload` sent to the API caller.
+ *  This field is also used by the
+ *  [Google Assistant
+ *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog)
+ *  for rich response messages.
+ *  See the format definition at [Google Assistant Dialogflow webhook
+ *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

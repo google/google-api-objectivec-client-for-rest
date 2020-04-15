@@ -41,7 +41,6 @@
 @class GTLRCloudRun_ExecAction;
 @class GTLRCloudRun_Expr;
 @class GTLRCloudRun_GoogleCloudRunV1Condition;
-@class GTLRCloudRun_Handler;
 @class GTLRCloudRun_HTTPGetAction;
 @class GTLRCloudRun_HTTPHeader;
 @class GTLRCloudRun_IntOrString;
@@ -698,14 +697,11 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
 
 /**
  *  (Optional)
- *  Cloud Run fully managed: not supported
- *  Cloud Run for Anthos: supported
- *  List of ports to expose from the container. Exposing a port here gives
- *  the system additional information about the network connections a
- *  container uses, but is primarily informational. Not specifying a port here
- *  DOES NOT prevent that port from being exposed. Any port which is
- *  listening on the default "0.0.0.0" address inside a container will be
- *  accessible from the network.
+ *  List of ports to expose from the container. Only a single port can be
+ *  specified. The specified ports must be listening on all interfaces
+ *  (0.0.0.0) within the container to be accessible.
+ *  If omitted, a port number will be chosen and passed to the container
+ *  through the PORT environment variable for the container to listen on.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_ContainerPort *> *ports;
 
@@ -789,16 +785,12 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
 
 
 /**
- *  Cloud Run fully managed: not supported
- *  Cloud Run for Anthos: supported
  *  ContainerPort represents a network port in a single container.
  */
 @interface GTLRCloudRun_ContainerPort : GTLRObject
 
 /**
  *  (Optional)
- *  Cloud Run fully managed: supported
- *  Cloud Run for Anthos: supported
  *  Port number the container listens on.
  *  This must be a valid port number, 0 < x < 65536.
  *
@@ -819,7 +811,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  (Optional)
  *  Cloud Run fully managed: not supported
  *  Cloud Run for Anthos: supported
- *  Protocol for port. Must be TCP.
+ *  Protocol for port. Must be "TCP".
  *  Defaults to "TCP".
  */
 @property(nonatomic, copy, nullable) NSString *protocol;
@@ -1135,42 +1127,6 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  * "Ready": True when the Resource is ready.
  */
 @property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Cloud Run fully managed: not supported
- *  Cloud Run for Anthos: supported
- *  Handler defines a specific action that should be taken
- */
-@interface GTLRCloudRun_Handler : GTLRObject
-
-/**
- *  (Optional)
- *  Cloud Run fully managed: not supported
- *  Cloud Run for Anthos: supported
- *  One and only one of the following should be specified.
- *  Exec specifies the action to take.
- */
-@property(nonatomic, strong, nullable) GTLRCloudRun_ExecAction *exec;
-
-/**
- *  (Optional)
- *  Cloud Run fully managed: not supported
- *  Cloud Run for Anthos: supported
- *  HTTPGet specifies the http request to perform.
- */
-@property(nonatomic, strong, nullable) GTLRCloudRun_HTTPGetAction *httpGet;
-
-/**
- *  (Optional)
- *  Cloud Run fully managed: not supported
- *  Cloud Run for Anthos: supported
- *  TCPSocket specifies an action involving a TCP port.
- *  TCP hooks not yet supported
- */
-@property(nonatomic, strong, nullable) GTLRCloudRun_TCPSocketAction *tcpSocket;
 
 @end
 
@@ -2116,6 +2072,16 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  (Optional)
  *  Cloud Run fully managed: not supported
  *  Cloud Run for Anthos: supported
+ *  One and only one of the following should be specified.
+ *  Exec specifies the action to take.
+ *  A field inlined from the Handler message.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_ExecAction *exec;
+
+/**
+ *  (Optional)
+ *  Cloud Run fully managed: not supported
+ *  Cloud Run for Anthos: supported
  *  Minimum consecutive failures for the probe to be considered failed after
  *  having succeeded. Defaults to 3. Minimum value is 1.
  *
@@ -2124,11 +2090,13 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
 @property(nonatomic, strong, nullable) NSNumber *failureThreshold;
 
 /**
+ *  (Optional)
  *  Cloud Run fully managed: not supported
  *  Cloud Run for Anthos: supported
- *  The action taken to determine the health of a container
+ *  HTTPGet specifies the http request to perform.
+ *  A field inlined from the Handler message.
  */
-@property(nonatomic, strong, nullable) GTLRCloudRun_Handler *handler;
+@property(nonatomic, strong, nullable) GTLRCloudRun_HTTPGetAction *httpGet;
 
 /**
  *  (Optional)
@@ -2164,6 +2132,16 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspeci
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *successThreshold;
+
+/**
+ *  (Optional)
+ *  Cloud Run fully managed: not supported
+ *  Cloud Run for Anthos: supported
+ *  TCPSocket specifies an action involving a TCP port.
+ *  TCP hooks not yet supported
+ *  A field inlined from the Handler message.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_TCPSocketAction *tcpSocket;
 
 /**
  *  (Optional)

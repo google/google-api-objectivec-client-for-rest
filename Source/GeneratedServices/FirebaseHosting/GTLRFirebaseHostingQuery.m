@@ -95,6 +95,132 @@ NSString * const kGTLRFirebaseHostingStatusStatusUnspecified = @"STATUS_UNSPECIF
 
 @end
 
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesDomainsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Domain *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/domains";
+  GTLRFirebaseHostingQuery_ProjectsSitesDomainsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Domain class];
+  query.loggingName = @"firebasehosting.projects.sites.domains.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesDomainsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRFirebaseHostingQuery_ProjectsSitesDomainsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Empty class];
+  query.loggingName = @"firebasehosting.projects.sites.domains.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesDomainsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRFirebaseHostingQuery_ProjectsSitesDomainsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Domain class];
+  query.loggingName = @"firebasehosting.projects.sites.domains.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesDomainsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/domains";
+  GTLRFirebaseHostingQuery_ProjectsSitesDomainsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_ListDomainsResponse class];
+  query.loggingName = @"firebasehosting.projects.sites.domains.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesDomainsUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Domain *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRFirebaseHostingQuery_ProjectsSitesDomainsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Domain class];
+  query.loggingName = @"firebasehosting.projects.sites.domains.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesGetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRFirebaseHostingQuery_ProjectsSitesGetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseHosting_SiteConfig class];
+  query.loggingName = @"firebasehosting.projects.sites.getConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseHostingQuery_ProjectsSitesReleasesCreate
 
 @dynamic parent, versionName;
@@ -134,6 +260,188 @@ NSString * const kGTLRFirebaseHostingStatusStatusUnspecified = @"STATUS_UNSPECIF
   query.parent = parent;
   query.expectedObjectClass = [GTLRFirebaseHosting_ListReleasesResponse class];
   query.loggingName = @"firebasehosting.projects.sites.releases.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesUpdateConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_SiteConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRFirebaseHostingQuery_ProjectsSitesUpdateConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseHosting_SiteConfig class];
+  query.loggingName = @"firebasehosting.projects.sites.updateConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesVersionsClone
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_CloneVersionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/versions:clone";
+  GTLRFirebaseHostingQuery_ProjectsSitesVersionsClone *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Operation class];
+  query.loggingName = @"firebasehosting.projects.sites.versions.clone";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesVersionsCreate
+
+@dynamic parent, sizeBytes, versionId;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Version *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/versions";
+  GTLRFirebaseHostingQuery_ProjectsSitesVersionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Version class];
+  query.loggingName = @"firebasehosting.projects.sites.versions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesVersionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRFirebaseHostingQuery_ProjectsSitesVersionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Empty class];
+  query.loggingName = @"firebasehosting.projects.sites.versions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesVersionsFilesList
+
+@dynamic pageSize, pageToken, parent, status;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/files";
+  GTLRFirebaseHostingQuery_ProjectsSitesVersionsFilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_ListVersionFilesResponse class];
+  query.loggingName = @"firebasehosting.projects.sites.versions.files.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesVersionsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/versions";
+  GTLRFirebaseHostingQuery_ProjectsSitesVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_ListVersionsResponse class];
+  query.loggingName = @"firebasehosting.projects.sites.versions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesVersionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Version *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRFirebaseHostingQuery_ProjectsSitesVersionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseHosting_Version class];
+  query.loggingName = @"firebasehosting.projects.sites.versions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseHostingQuery_ProjectsSitesVersionsPopulateFiles
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_PopulateVersionFilesRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}:populateFiles";
+  GTLRFirebaseHostingQuery_ProjectsSitesVersionsPopulateFiles *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseHosting_PopulateVersionFilesResponse class];
+  query.loggingName = @"firebasehosting.projects.sites.versions.populateFiles";
   return query;
 }
 

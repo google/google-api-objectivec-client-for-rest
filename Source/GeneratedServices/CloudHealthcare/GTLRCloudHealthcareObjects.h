@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Healthcare API (healthcare/v1beta1)
+//   Cloud Healthcare API (healthcare/v1)
 // Description:
 //   Manage, store, and access healthcare data in Google Cloud Platform.
 // Documentation:
@@ -30,28 +30,24 @@
 @class GTLRCloudHealthcare_DicomFilterConfig;
 @class GTLRCloudHealthcare_DicomStore;
 @class GTLRCloudHealthcare_DicomStore_Labels;
-@class GTLRCloudHealthcare_ErrorDetail;
 @class GTLRCloudHealthcare_Expr;
 @class GTLRCloudHealthcare_FhirConfig;
 @class GTLRCloudHealthcare_FhirFilter;
 @class GTLRCloudHealthcare_FhirStore;
 @class GTLRCloudHealthcare_FhirStore_Labels;
 @class GTLRCloudHealthcare_FieldMetadata;
-@class GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DicomBigQueryDestination;
-@class GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DicomGcsDestination;
-@class GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DicomGcsSource;
-@class GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirBigQueryDestination;
-@class GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestGcsDestination;
-@class GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestGcsSource;
+@class GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination;
+@class GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsDestination;
+@class GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsSource;
+@class GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination;
+@class GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsDestination;
+@class GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsSource;
 @class GTLRCloudHealthcare_Hl7V2NotificationConfig;
 @class GTLRCloudHealthcare_Hl7V2Store;
 @class GTLRCloudHealthcare_Hl7V2Store_Labels;
 @class GTLRCloudHealthcare_HttpBody_Extensions_Item;
 @class GTLRCloudHealthcare_ImageConfig;
 @class GTLRCloudHealthcare_InfoTypeTransformation;
-@class GTLRCloudHealthcare_Location;
-@class GTLRCloudHealthcare_Location_Labels;
-@class GTLRCloudHealthcare_Location_Metadata;
 @class GTLRCloudHealthcare_Message;
 @class GTLRCloudHealthcare_Message_Labels;
 @class GTLRCloudHealthcare_NotificationConfig;
@@ -174,8 +170,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_R4;
  */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_Stu3;
 /**
- *  VERSION_UNSPECIFIED is treated as STU3 to accommodate the existing FHIR
- *  stores.
+ *  Users must specify a version on store creation or an error will be
+ *  returned.
  *
  *  Value: "VERSION_UNSPECIFIED"
  */
@@ -203,10 +199,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTran
  */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform;
 /**
- *  Transform the entire field based on transformations specified in
- *  TextConfig. When the specified transformation cannot be applied to a
- *  field (for example, a Crypto Hash transformation cannot be applied
- *  to a FHIR Date field), RedactConfig is used.
+ *  Transform the entire field.
  *
  *  Value: "TRANSFORM"
  */
@@ -289,14 +282,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_Content
  */
 GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics;
 /**
- *  A data-driven schema generated from the fields present in the FHIR data
- *  being exported, with no additional simplification.
- *
- *  Value: "LOSSLESS"
- */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Lossless;
-/**
- *  No schema type specified. Same as `LOSSLESS`.
+ *  No schema type specified.
  *
  *  Value: "SCHEMA_TYPE_UNSPECIFIED"
  */
@@ -643,42 +629,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
- *  Contains the status of the Deidentify operation.
- */
-@interface GTLRCloudHealthcare_DeidentifyErrorDetails : GTLRObject
-
-/**
- *  Number of resources that failed to process.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *failureResourceCount;
-
-/**
- *  Number of stores that failed to process.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *failureStoreCount;
-
-/**
- *  Number of resources successfully processed.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *successResourceCount;
-
-/**
- *  Number of stores successfully processed.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *successStoreCount;
-
-@end
-
-
-/**
  *  Creates a new FHIR store with sensitive information de-identified.
  */
 @interface GTLRCloudHealthcare_DeidentifyFhirStoreRequest : GTLRObject
@@ -709,34 +659,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
- *  Contains a detailed summary of the Deidentify operation.
+ *  Contains a summary of the Deidentify operation.
  */
 @interface GTLRCloudHealthcare_DeidentifySummary : GTLRObject
-
-/**
- *  Number of resources that failed to process.
- *  The failures might be caused by:
- *  * Invalid user input data
- *  * Transient errors that could be skipped
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *failureResourceCount;
-
-/**
- *  Number of resources successfully processed.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *successResourceCount;
-
-/**
- *  Number of stores successfully processed.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *successStoreCount;
-
 @end
 
 
@@ -882,22 +807,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
- *  Structure to describe the error encountered during batch operation on one
- *  resource. This is used both for sample errors in operation response, and
- *  for format of errors in error reports.
- */
-@interface GTLRCloudHealthcare_ErrorDetail : GTLRObject
-
-/** The status of the error. */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_Status *error;
-
-/** The identifier of the resource. */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-@end
-
-
-/**
  *  Exports data from the specified DICOM store.
  *  If a given resource, such as a DICOM object with the same SOPInstance UID,
  *  already exists in the output, it is overwritten with the version
@@ -914,14 +823,14 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  The BigQuery location requires two IAM roles:
  *  `roles/bigquery.dataEditor` and `roles/bigquery.jobUser`.
  */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DicomBigQueryDestination *bigqueryDestination;
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination *bigqueryDestination;
 
 /**
  *  The Cloud Storage output destination.
  *  The Cloud Storage location requires the `roles/storage.objectAdmin` Cloud
  *  IAM role.
  */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DicomGcsDestination *gcsDestination;
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsDestination *gcsDestination;
 
 @end
 
@@ -944,7 +853,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  `roles/bigquery.dataEditor` and `roles/bigquery.jobUser`.
  *  The output will be one BigQuery table per resource type.
  */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirBigQueryDestination *bigqueryDestination;
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination *bigqueryDestination;
 
 /**
  *  The Cloud Storage output destination.
@@ -955,8 +864,18 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  resource type. Each object contains newline delimited JSON, and each line
  *  is a FHIR resource.
  */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestGcsDestination *gcsDestination;
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsDestination *gcsDestination;
 
+@end
+
+
+/**
+ *  Response when all resources export successfully.
+ *  This structure will be included in the
+ *  response to describe the detailed
+ *  outcome. It will only be included when the operation finishes successfully.
+ */
+@interface GTLRCloudHealthcare_ExportResourcesResponse : GTLRObject
 @end
 
 
@@ -1026,8 +945,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Specifies FHIR paths to match and how to transform them. Any field that
  *  is not matched by a FieldMetadata is passed through to the output
  *  dataset unmodified. All extensions are removed in the output.
- *  If a field can be matched by more than one FieldMetadata, the first
- *  FieldMetadata.Action is applied.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_FieldMetadata *> *fieldMetadataList;
 
@@ -1154,10 +1071,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *        4](https://www.hl7.org/fhir/R4) (Value: "R4")
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_Stu3 Standard for Trial
  *        Use, [Release 3](https://www.hl7.org/fhir/STU3) (Value: "STU3")
- *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_VersionUnspecified
- *        VERSION_UNSPECIFIED is treated as STU3 to accommodate the existing
- *        FHIR
- *        stores. (Value: "VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_VersionUnspecified Users
+ *        must specify a version on store creation or an error will be
+ *        returned. (Value: "VERSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -1201,29 +1117,20 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform
  *        Inspect and transform any found PHI. (Value: "INSPECT_AND_TRANSFORM")
  *    @arg @c kGTLRCloudHealthcare_FieldMetadata_Action_Transform Transform the
- *        entire field based on transformations specified in
- *        TextConfig. When the specified transformation cannot be applied to a
- *        field (for example, a Crypto Hash transformation cannot be applied
- *        to a FHIR Date field), RedactConfig is used. (Value: "TRANSFORM")
+ *        entire field. (Value: "TRANSFORM")
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  List of paths to FHIR fields to redact. Each path is a
+ *  List of paths to FHIR fields to be redacted. Each path is a
  *  period-separated list where each component is either a field name or
- *  FHIR type name. All types begin with an upper case letter. For example,
- *  the resource field "Patient.Address.city", which uses a string type,
- *  can be matched by "Patient.Address.String". Path also supports partial
- *  matching. For example, "Patient.Address.city" can be matched by
- *  "Address.city" (Patient omitted). Partial matching and type matching
- *  can be combined, for example "Patient.Address.city" can be matched by
- *  "Address.String". For "choice" types (those defined in the FHIR spec
- *  with the form: field[x]), use two separate components. For example,
- *  "deceasedAge.unit" is matched by "Deceased.Age.unit". Supported types
- *  are: AdministrativeGenderCode, Code, Date, DateTime, Decimal,
- *  HumanName, Id, LanguageCode, Markdown, Oid, String, Uri, Uuid, Xhtml.
- *  The sub-type for HumanName(for example HumanName.given,
- *  HumanName.family) can be omitted.
+ *  FHIR type name, for example: Patient, HumanName.
+ *  For "choice" types (those defined in the FHIR spec with the form:
+ *  field[x]) we use two separate components. For example,
+ *  "deceasedAge.unit" is matched by "Deceased.Age.unit".
+ *  Supported types are: AdministrativeGenderCode, Code, Date, DateTime,
+ *  Decimal, HumanName, Id, LanguageCode, Markdown, Oid, String, Uri, Uuid,
+ *  Xhtml.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
@@ -1233,44 +1140,21 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /**
  *  Contains a summary of the DeidentifyDicomStore operation.
  */
-@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DeidentifyDeidentifyDicomStoreSummary : GTLRObject
-
-/**
- *  Number of objects that processing failed for.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *failureResourceCount;
-
-/**
- *  Number of objects successfully processed.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *successResourceCount;
-
+@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1DeidentifyDeidentifyDicomStoreSummary : GTLRObject
 @end
 
 
 /**
  *  Contains a summary of the DeidentifyFhirStore operation.
  */
-@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DeidentifyDeidentifyFhirStoreSummary : GTLRObject
-
-/**
- *  Number of resources successfully processed.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *successResourceCount;
-
+@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1DeidentifyDeidentifyFhirStoreSummary : GTLRObject
 @end
 
 
 /**
  *  The BigQuery table where the server writes the output.
  */
-@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DicomBigQueryDestination : GTLRObject
+@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination : GTLRObject
 
 /**
  *  If the destination table already exists and this flag is `TRUE`, the table
@@ -1295,21 +1179,40 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  The Cloud Storage location where the server writes the output and the export
  *  configuration.
  */
-@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DicomGcsDestination : GTLRObject
+@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsDestination : GTLRObject
 
 /**
  *  MIME types supported by DICOM spec.
  *  Each file is written in the following format:
  *  `.../{study_id}/{series_id}/{instance_id}[/{frame_number}].{extension}`
  *  The frame_number component exists only for multi-frame instances.
- *  Refer to the DICOM conformance statement for permissible MIME types:
- *  https://cloud.google.com/healthcare/docs/dicom#retrieve_transaction
+ *  Supported MIME types are consistent with supported formats in DICOMweb:
+ *  https://cloud.google.com/healthcare/docs/dicom#retrieve_transaction.
+ *  Specifically, the following are supported:
+ *  - application/dicom; transfer-syntax=1.2.840.10008.1.2.1
+ *  (uncompressed DICOM)
+ *  - application/dicom; transfer-syntax=1.2.840.10008.1.2.4.50
+ *  (DICOM with embedded JPEG Baseline)
+ *  - application/dicom; transfer-syntax=1.2.840.10008.1.2.4.90
+ *  (DICOM with embedded JPEG 2000 Lossless Only)
+ *  - application/dicom; transfer-syntax=1.2.840.10008.1.2.4.91
+ *  (DICOM with embedded JPEG 2000)
+ *  - application/dicom; transfer-syntax=*
+ *  (DICOM with no transcoding)
+ *  - application/octet-stream; transfer-syntax=1.2.840.10008.1.2.1
+ *  (raw uncompressed PixelData)
+ *  - application/octet-stream; transfer-syntax=*
+ *  (raw PixelData in whatever format it was uploaded in)
+ *  - image/jpeg; transfer-syntax=1.2.840.10008.1.2.4.50
+ *  (Consumer JPEG)
+ *  - image/png
  *  The following extensions are used for output files:
- *  application/dicom -> .dcm
- *  image/jpeg -> .jpg
- *  image/png -> .png
- *  If unspecified, the instances are exported in their original
- *  DICOM format.
+ *  - application/dicom -> .dcm
+ *  - image/jpeg -> .jpg
+ *  - image/png -> .png
+ *  - application/octet-stream -> no extension
+ *  If unspecified, the instances are exported in the original
+ *  DICOM format they were uploaded in.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
@@ -1329,7 +1232,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /**
  *  Specifies the configuration for importing data from Cloud Storage.
  */
-@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DicomGcsSource : GTLRObject
+@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsSource : GTLRObject
 
 /**
  *  Points to a Cloud Storage URI containing file(s) with
@@ -1357,7 +1260,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /**
  *  The configuration for exporting to BigQuery.
  */
-@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirBigQueryDestination : GTLRObject
+@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination : GTLRObject
 
 /**
  *  BigQuery URI to a dataset, up to 2000 characters long, in the format
@@ -1381,75 +1284,9 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
- *  Response when errors occur while exporting resources.
- *  This structure is included in the
- *  error
- *  details to describe the detailed outcome. It is
- *  only included when the operation finishes with errors.
- */
-@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestExportResourcesErrorDetails : GTLRObject
-
-/**
- *  The number of resources that had errors.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *errorCount;
-
-/**
- *  The name of the FHIR store where resources have been exported, in the
- *  format
- *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
- */
-@property(nonatomic, copy, nullable) NSString *fhirStore;
-
-/**
- *  The total number of resources included in the export operation. This is
- *  the sum of the success and error counts.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *resourceCount;
-
-/**
- *  The number of resources that were exported.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *successCount;
-
-@end
-
-
-/**
- *  Response when all resources export successfully.
- *  This structure will be included in the
- *  response to describe the detailed
- *  outcome. It will only be included when the operation finishes successfully.
- */
-@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestExportResourcesResponse : GTLRObject
-
-/**
- *  The name of the FHIR store where resources have been exported, in the
- *  format
- *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
- */
-@property(nonatomic, copy, nullable) NSString *fhirStore;
-
-/**
- *  The total number of resources exported from the requested FHIR store.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *resourceCount;
-
-@end
-
-
-/**
  *  The configuration for exporting to Cloud Storage.
  */
-@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestGcsDestination : GTLRObject
+@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsDestination : GTLRObject
 
 /**
  *  URI for a Cloud Storage directory where result files should be written (in
@@ -1466,7 +1303,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 /**
  *  Specifies the configuration for importing data from Cloud Storage.
  */
-@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestGcsSource : GTLRObject
+@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsSource : GTLRObject
 
 /**
  *  Points to a Cloud Storage URI containing file(s) to import.
@@ -1486,72 +1323,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  metadata.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  Error response of importing resources.
- *  This structure will be included in the
- *  error
- *  details to describe the detailed error. It will
- *  only be included when the operation finishes with some failure.
- */
-@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestImportResourcesErrorDetails : GTLRObject
-
-/**
- *  The number of resources that had errors.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *errorCount;
-
-/**
- *  The name of the FHIR store where resources have been imported, in the
- *  format
- *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
- */
-@property(nonatomic, copy, nullable) NSString *fhirStore;
-
-/**
- *  The total number of resources included in the source data. This is the sum
- *  of the success and error counts.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *inputSize;
-
-/**
- *  The number of resources that have been imported.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *successCount;
-
-@end
-
-
-/**
- *  Final response of importing resources.
- *  This structure will be included in the
- *  response to describe the detailed
- *  outcome. It will only be included when the operation finishes successfully.
- */
-@interface GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestImportResourcesResponse : GTLRObject
-
-/**
- *  The name of the FHIR store where the resources have been imported, in the
- *  format
- *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
- */
-@property(nonatomic, copy, nullable) NSString *fhirStore;
-
-/**
- *  The total number of resources included in the source data.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *inputSize;
 
 @end
 
@@ -1634,13 +1405,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  `projects/{project_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The notification destination all messages (both Ingest & Create) are
- *  published on. Only the message name is sent as part of the notification. If
- *  this is unset, no notifications are sent. Supplied by the client.
- */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig;
 
 /**
  *  A list of notification configs. Each configuration uses a filter to
@@ -1788,21 +1552,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
- *  Returns the errors encountered during DICOM store import.
- */
-@interface GTLRCloudHealthcare_ImportDicomDataErrorDetails : GTLRObject
-
-/**
- *  Deprecated. Use only for debugging purposes.
- *  Contains sample errors encountered in imports of individual resources.
- *  For example, a Cloud Storage object.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_ErrorDetail *> *sampleErrors;
-
-@end
-
-
-/**
  *  Imports data into the specified DICOM store.
  *  Returns an error if any of the files to import are not DICOM files. This
  *  API accepts duplicate DICOM instances by ignoring the newly-pushed instance.
@@ -1815,7 +1564,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  The Cloud Storage location requires the `roles/storage.objectViewer`
  *  Cloud IAM role.
  */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1DicomGcsSource *gcsSource;
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsSource *gcsSource;
 
 @end
 
@@ -1864,8 +1613,18 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  Each Cloud Storage object should be a text file that contains the format
  *  specified in ContentStructure.
  */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirRestGcsSource *gcsSource;
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsSource *gcsSource;
 
+@end
+
+
+/**
+ *  Final response of importing resources.
+ *  This structure will be included in the
+ *  response to describe the detailed
+ *  outcome. It will only be included when the operation finishes successfully.
+ */
+@interface GTLRCloudHealthcare_ImportResourcesResponse : GTLRObject
 @end
 
 
@@ -1885,9 +1644,8 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DateShiftConfig *dateShiftConfig;
 
 /**
- *  InfoTypes to apply this transformation to. If this is not specified, this
- *  transformation becomes the default transformation, and is used for any
- *  info_type that is not specified in another transformation.
+ *  InfoTypes to apply this transformation to. If this is not specified, the
+ *  transformation applies to any info_type.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *infoTypes;
 
@@ -2043,30 +1801,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
- *  The response message for Locations.ListLocations.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "locations" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRCloudHealthcare_ListLocationsResponse : GTLRCollectionObject
-
-/**
- *  A list of locations that matches the specified filter in the request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Location *> *locations;
-
-/** The standard List next-page token. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  Lists the messages in the specified HL7v2 store.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2117,67 +1851,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Operation *> *operations;
 
-@end
-
-
-/**
- *  A resource that represents Google Cloud Platform location.
- */
-@interface GTLRCloudHealthcare_Location : GTLRObject
-
-/**
- *  The friendly name for this location, typically a nearby city name.
- *  For example, "Tokyo".
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Cross-service attributes for the location. For example
- *  {"cloud.googleapis.com/region": "us-east1"}
- */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_Location_Labels *labels;
-
-/** The canonical id for this location. For example: `"us-east1"`. */
-@property(nonatomic, copy, nullable) NSString *locationId;
-
-/**
- *  Service-specific metadata. For example the available capacity at the given
- *  location.
- */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_Location_Metadata *metadata;
-
-/**
- *  Resource name for the location, which may vary between implementations.
- *  For example: `"projects/example-project/locations/us-east1"`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  Cross-service attributes for the location. For example
- *  {"cloud.googleapis.com/region": "us-east1"}
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudHealthcare_Location_Labels : GTLRObject
-@end
-
-
-/**
- *  Service-specific metadata. For example the available capacity at the given
- *  location.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudHealthcare_Location_Metadata : GTLRObject
 @end
 
 
@@ -2407,7 +2080,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 
 /**
- *  The content of an HL7v2 message in a structured format.
+ *  The content of a HL7v2 message in a structured format.
  */
 @interface GTLRCloudHealthcare_ParsedData : GTLRObject
 
@@ -2431,8 +2104,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 
 /**
  *  Byte(s) to use as the segment terminator. If this is unset, '\\r' is
- *  used as segment terminator, matching the HL7 version 2
- *  specification.
+ *  used as segment terminator.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2648,20 +2320,15 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
 @property(nonatomic, strong, nullable) NSNumber *recursiveStructureDepth;
 
 /**
- *  Specifies the output schema type. If unspecified, the default is
- *  `LOSSLESS`.
+ *  Specifies the output schema type.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics Analytics
  *        schema defined by the FHIR community.
  *        See https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md.
  *        (Value: "ANALYTICS")
- *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_Lossless A
- *        data-driven schema generated from the fields present in the FHIR data
- *        being exported, with no additional simplification. (Value: "LOSSLESS")
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified
- *        No schema type specified. Same as `LOSSLESS`. (Value:
- *        "SCHEMA_TYPE_UNSPECIFIED")
+ *        No schema type specified. (Value: "SCHEMA_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *schemaType;
 
@@ -2828,12 +2495,12 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  When a table schema doesn't align with the schema config, either
  *  because of existing incompatible schema or out of band incompatible
  *  modification, the server does not stream in new data.
- *  One resolution in this case is to delete the incompatible
- *  table and let the server recreate one, though the newly created table
- *  only contains data after the table recreation.
  *  BigQuery imposes a 1 MB limit on streaming insert row size, therefore
  *  any resource mutation that generates more than 1 MB of BigQuery data
  *  will not be streamed.
+ *  One resolution in this case is to delete the incompatible
+ *  table and let the server recreate one, though the newly created table
+ *  only contains data after the table recreation.
  *  Results are appended to the corresponding BigQuery tables. Different
  *  versions of the same resource are distinguishable by the meta.versionId
  *  and meta.lastUpdated columns. The operation (CREATE/UPDATE/DELETE) that
@@ -2845,7 +2512,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  logged to Stackdriver (see [Viewing logs](/healthcare/docs/how-
  *  tos/stackdriver-logging)).
  */
-@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1beta1FhirBigQueryDestination *bigqueryDestination;
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination *bigqueryDestination;
 
 /**
  *  Supply a FHIR resource type (such as "Patient" or "Observation").

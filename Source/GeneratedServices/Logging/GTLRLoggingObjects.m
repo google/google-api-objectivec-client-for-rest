@@ -64,6 +64,8 @@ NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Deprecated = @"DEPREC
 NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Ga  = @"GA";
 NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRLogging_MetricDescriptor.metricKind
 NSString * const kGTLRLogging_MetricDescriptor_MetricKind_Cumulative = @"CUMULATIVE";
@@ -87,6 +89,8 @@ NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Deprecated = 
 NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
 NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRLogging_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
@@ -95,6 +99,8 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Deprecated
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Ga = @"GA";
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // ----------------------------------------------------------------------------
 //

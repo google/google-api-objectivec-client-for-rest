@@ -2,12 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sqladmin/v1beta4)
+//   Cloud SQL Admin API (sql/v1beta4)
 // Description:
-//   Creates and manages Cloud SQL instances, which provide fully managed MySQL
-//   or PostgreSQL databases.
+//   API for Cloud SQL database instance management
 // Documentation:
-//   https://cloud.google.com/sql/docs/reference/latest
+//   https://developers.google.com/cloud-sql/
 
 #import "GTLRSQLAdminObjects.h"
 #import "GTLRSQLAdminQuery.h"

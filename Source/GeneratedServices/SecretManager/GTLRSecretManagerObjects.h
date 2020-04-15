@@ -4,7 +4,7 @@
 // API:
 //   Secret Manager API (secretmanager/v1)
 // Description:
-//   Stores API keys, passwords, certificates, and other sensitive data.
+//   Stores sensitive data such as API keys, passwords, and certificates.
 //   Provides convenience while improving security.
 // Documentation:
 //   https://cloud.google.com/secret-manager/
@@ -833,8 +833,7 @@ GTLR_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspeci
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
  *  the fields in the mask will be modified. If no mask is provided, the
  *  following default mask is used:
- *  paths: "bindings, etag"
- *  This field is only used by Cloud IAM.
+ *  `paths: "bindings, etag"`
  *
  *  String format is a comma-separated list of fields.
  */

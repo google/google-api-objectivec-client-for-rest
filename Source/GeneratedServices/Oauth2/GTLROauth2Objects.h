@@ -6,7 +6,7 @@
 // Description:
 //   Obtains end-user authorization grants for use with other Google APIs.
 // Documentation:
-//   https://developers.google.com/accounts/docs/OAuth2
+//   https://developers.google.com/identity/protocols/oauth2/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"

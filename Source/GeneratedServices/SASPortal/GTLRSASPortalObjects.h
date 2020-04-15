@@ -257,7 +257,7 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_Height
 
 /**
  *  Required. JSON Web Token signed using a CPI private key. Payload
- *  must be the JSON encoding of the [Device].
+ *  must be the JSON encoding of the [Device]. The user_id field must be set.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -434,7 +434,7 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_Height
 /** Output-only. The last time the device configuration was edited. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** Output only. The identifier of a device user. */
+/** The identifier of a device user. */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 @end
@@ -498,6 +498,9 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_Height
  *        "GRANT_STATE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/** If the grant is suspended, the reason(s) for suspension. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReason;
 
 @end
 
@@ -658,6 +661,13 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_Height
  *  octets.
  */
 @property(nonatomic, copy, nullable) NSString *antennaModel;
+
+/**
+ *  If present, this parameter specifies whether the CBSD is a CPE-CBSD or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpeCbsdIndication;
 
 /**
  *  This parameter is the maximum device EIRP in units of dBm/10MHz
@@ -1012,6 +1022,7 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_Height
 /**
  *  Required. The device to sign.
  *  The device fields name, fcc_id and serial_number must be set.
+ *  The user_id field must be set.
  */
 @property(nonatomic, strong, nullable) GTLRSASPortal_Device *device;
 
@@ -1096,7 +1107,7 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_Height
 /**
  *  Required. The JSON Web Token signed using a CPI private key. Payload
  *  must be the JSON encoding
- *  of the device.
+ *  of the device. The user_id field must be set.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

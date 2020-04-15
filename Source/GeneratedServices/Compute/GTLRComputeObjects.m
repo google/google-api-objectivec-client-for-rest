@@ -2570,6 +2570,7 @@ NSString * const kGTLRCompute_Quota_Metric_GlobalInternalAddresses = @"GLOBAL_IN
 NSString * const kGTLRCompute_Quota_Metric_GpusAllRegions      = @"GPUS_ALL_REGIONS";
 NSString * const kGTLRCompute_Quota_Metric_HealthChecks        = @"HEALTH_CHECKS";
 NSString * const kGTLRCompute_Quota_Metric_Images              = @"IMAGES";
+NSString * const kGTLRCompute_Quota_Metric_InPlaceSnapshots    = @"IN_PLACE_SNAPSHOTS";
 NSString * const kGTLRCompute_Quota_Metric_InstanceGroupManagers = @"INSTANCE_GROUP_MANAGERS";
 NSString * const kGTLRCompute_Quota_Metric_InstanceGroups      = @"INSTANCE_GROUPS";
 NSString * const kGTLRCompute_Quota_Metric_Instances           = @"INSTANCES";
@@ -2609,6 +2610,8 @@ NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP4VwsGpus = @"PREEMP
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4Gpus = @"PREEMPTIBLE_NVIDIA_T4_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4VwsGpus = @"PREEMPTIBLE_NVIDIA_T4_VWS_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus = @"PREEMPTIBLE_NVIDIA_V100_GPUS";
+NSString * const kGTLRCompute_Quota_Metric_PublicAdvertisedPrefixes = @"PUBLIC_ADVERTISED_PREFIXES";
+NSString * const kGTLRCompute_Quota_Metric_PublicDelegatedPrefixes = @"PUBLIC_DELEGATED_PREFIXES";
 NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers = @"REGIONAL_AUTOSCALERS";
 NSString * const kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers = @"REGIONAL_INSTANCE_GROUP_MANAGERS";
 NSString * const kGTLRCompute_Quota_Metric_Reservations        = @"RESERVATIONS";
@@ -2622,6 +2625,7 @@ NSString * const kGTLRCompute_Quota_Metric_Snapshots           = @"SNAPSHOTS";
 NSString * const kGTLRCompute_Quota_Metric_SsdTotalGb          = @"SSD_TOTAL_GB";
 NSString * const kGTLRCompute_Quota_Metric_SslCertificates     = @"SSL_CERTIFICATES";
 NSString * const kGTLRCompute_Quota_Metric_StaticAddresses     = @"STATIC_ADDRESSES";
+NSString * const kGTLRCompute_Quota_Metric_StaticByoipAddresses = @"STATIC_BYOIP_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_Subnetworks         = @"SUBNETWORKS";
 NSString * const kGTLRCompute_Quota_Metric_TargetHttpProxies   = @"TARGET_HTTP_PROXIES";
 NSString * const kGTLRCompute_Quota_Metric_TargetHttpsProxies  = @"TARGET_HTTPS_PROXIES";
@@ -7675,9 +7679,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          descriptionProperty, disks, displayDevice, fingerprint,
          guestAccelerators, hostname, identifier, kind, labelFingerprint,
          labels, machineType, metadata, minCpuPlatform, name, networkInterfaces,
-         reservationAffinity, scheduling, selfLink, serviceAccounts,
-         shieldedInstanceConfig, shieldedInstanceIntegrityPolicy,
-         startRestricted, status, statusMessage, tags, zoneProperty;
+         reservationAffinity, resourcePolicies, scheduling, selfLink,
+         serviceAccounts, shieldedInstanceConfig,
+         shieldedInstanceIntegrityPolicy, startRestricted, status,
+         statusMessage, tags, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -7693,6 +7698,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
     @"disks" : [GTLRCompute_AttachedDisk class],
     @"guestAccelerators" : [GTLRCompute_AcceleratorConfig class],
     @"networkInterfaces" : [GTLRCompute_NetworkInterface class],
+    @"resourcePolicies" : [NSString class],
     @"serviceAccounts" : [GTLRCompute_ServiceAccount class]
   };
   return map;
@@ -8166,13 +8172,17 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_InstanceGroupManagersListManagedInstancesResponse
-@dynamic managedInstances;
+@dynamic managedInstances, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"managedInstances" : [GTLRCompute_ManagedInstance class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"managedInstances";
 }
 
 @end
@@ -11647,6 +11657,24 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_PreconfiguredWafSet
+//
+
+@implementation GTLRCompute_PreconfiguredWafSet
+@dynamic expressionSets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"expressionSets" : [GTLRCompute_WafExpressionSet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_Project
 //
 
@@ -12127,13 +12155,17 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_RegionInstanceGroupManagersListInstancesResponse
-@dynamic managedInstances;
+@dynamic managedInstances, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"managedInstances" : [GTLRCompute_ManagedInstance class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"managedInstances";
 }
 
 @end
@@ -13479,6 +13511,26 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SecurityPoliciesListPreconfiguredExpressionSetsResponse
+//
+
+@implementation GTLRCompute_SecurityPoliciesListPreconfiguredExpressionSetsResponse
+@dynamic preconfiguredExpressionSets;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SecurityPoliciesWafConfig
+//
+
+@implementation GTLRCompute_SecurityPoliciesWafConfig
+@dynamic wafRules;
 @end
 
 
@@ -16529,6 +16581,44 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_VpnTunnelsScopedList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_WafExpressionSet
+//
+
+@implementation GTLRCompute_WafExpressionSet
+@dynamic aliases, expressions, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aliases" : [NSString class],
+    @"expressions" : [GTLRCompute_WafExpressionSetExpression class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_WafExpressionSetExpression
+//
+
+@implementation GTLRCompute_WafExpressionSetExpression
+@dynamic identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 

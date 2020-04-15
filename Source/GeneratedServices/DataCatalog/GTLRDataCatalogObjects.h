@@ -110,7 +110,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry
 
 /**
  *  Output only. An entry type which is used for streaming entries. Example:
- *  Cloud Pub/Sub topic.
+ *  Pub/Sub topic.
  *
  *  Value: "DATA_STREAM"
  */
@@ -477,7 +477,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 /**
  *  Entry Metadata.
  *  A Data Catalog Entry resource represents another resource in Google
- *  Cloud Platform (such as a BigQuery dataset or a Cloud Pub/Sub topic), or
+ *  Cloud Platform (such as a BigQuery dataset or a Pub/Sub topic), or
  *  outside of Google Cloud Platform. Clients can use the `linked_resource`
  *  field
  *  in the Entry resource to refer to the original resource ID of the source
@@ -526,7 +526,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 /**
  *  Output only. This field indicates the entry's source system that Data
  *  Catalog
- *  integrates with, such as BigQuery or Cloud Pub/Sub.
+ *  integrates with, such as BigQuery or Pub/Sub.
  *
  *  Likely values:
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Bigquery
@@ -581,7 +581,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_DataStream
  *        Output only. An entry type which is used for streaming entries.
  *        Example:
- *        Cloud Pub/Sub topic. (Value: "DATA_STREAM")
+ *        Pub/Sub topic. (Value: "DATA_STREAM")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_EntryTypeUnspecified
  *        Default unknown type. (Value: "ENTRY_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Fileset

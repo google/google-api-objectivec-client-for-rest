@@ -28,13 +28,10 @@
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata;
-@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata;
-@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
-@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
@@ -517,6 +514,41 @@ GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsu
 /**
  *  Represents the metadata of the long-running operation.
  */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudManagedidentitiesV1alpha1OpMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation
+ *  of the operation. Operations that have successfully been cancelled
+ *  have Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Represents the metadata of the long-running operation.
+ */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudManagedidentitiesV1beta1OpMetadata : GTLRObject
 
 /** Output only. API version used to start the operation. */
@@ -585,64 +617,7 @@ GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsu
 
 
 /**
- *  Instance represents the interface for SLM services to actuate the state
- *  of control plane resources.
- *  Example Instance in JSON, where
- *  consumer-project=snapchat,
- *  producer-project=cloud-sql:
- *  ```json
- *  Instance:
- *  {
- *  "name":
- *  "projects/snapchat/locations/us-east1/instances/prod-instance",
- *  "create_time": {
- *  "seconds": 1526406431,
- *  },
- *  "labels": {
- *  "env": "prod",
- *  "foo": "bar"
- *  },
- *  "state": READY,
- *  "software_versions": {
- *  "software_update": "cloud-sql-09-28-2018",
- *  },
- *  "maintenance_policy_names": {
- *  "UpdatePolicy":
- *  "projects/snapchat/locations/us-east1/maintenancePolicies/prod-update-policy",
- *  }
- *  "tenant_project_id": "cloud-sql-test-tenant",
- *  "producer_metadata": {
- *  "cloud-sql-tier": "basic",
- *  "cloud-sql-instance-size": "1G",
- *  },
- *  "provisioned_resources": [
- *  {
- *  "resource-type": "compute-instance",
- *  "resource-url":
- *  "https://www.googleapis.com/compute/v1/projects/cloud-sql/zones/us-east1-b/instances/vm-1",
- *  }
- *  ],
- *  "maintenance_schedules": {
- *  "csa_rollout": {
- *  "start_time": {
- *  "seconds": 1526406431,
- *  },
- *  "end_time": {
- *  "seconds": 1535406431,
- *  },
- *  },
- *  "ncsa_rollout": {
- *  "start_time": {
- *  "seconds": 1526406431,
- *  },
- *  "end_time": {
- *  "seconds": 1535406431,
- *  },
- *  }
- *  },
- *  "consumer_defined_name": "my-sql-instance1",
- *  }
- *  ```
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance : GTLRObject
 
@@ -698,16 +673,6 @@ GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsu
  *  instance, e.g. compute VMs. See go/get-instance-metadata.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource *> *provisionedResources;
-
-/**
- *  The map between RolloutType and the corresponding RolloutMetadata.
- *  This is only mutated by rollout service. For actuation implementation,
- *  this information is pass-through for Rollout management. Producer shall
- *  not modify by itself.
- *  For update of a single entry in this map, the update field mask shall
- *  follow this sementics: go/advanced-field-masks
- */
-@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata *rolloutMetadata;
 
 /**
  *  Link to the SLM instance template. Only populated when updating SLM
@@ -824,24 +789,6 @@ GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsu
 
 
 /**
- *  The map between RolloutType and the corresponding RolloutMetadata.
- *  This is only mutated by rollout service. For actuation implementation,
- *  this information is pass-through for Rollout management. Producer shall
- *  not modify by itself.
- *  For update of a single entry in this map, the update field mask shall
- *  follow this sementics: go/advanced-field-masks
- *
- *  @note This class is documented as having more properties of
- *        GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata.
- *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
- *        the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_RolloutMetadata : GTLRObject
-@end
-
-
-/**
  *  Software versions that are used to deploy this instance. This can be
  *  mutated by rollout services.
  *
@@ -916,37 +863,6 @@ GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsu
 
 
 /**
- *  This message has been deprecated.
- *  NotificationMetadata is the notification state for an instance.
- */
-@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata : GTLRObject
-
-/**
- *  Whether the instance update has been rescheduled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *rescheduled;
-
-/**
- *  The scheduled end time for the maintenance window during which update
- *  can be performed on the instance.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
-
-/**
- *  The scheduled start time for the maintenance window during which
- *  update can be performed on the instance.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *scheduledStartTime;
-
-/** The target release to be applied to the instance. */
-@property(nonatomic, copy, nullable) NSString *targetRelease;
-
-@end
-
-
-/**
  *  Describes provisioned dataplane resources.
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource : GTLRObject
@@ -966,24 +882,6 @@ GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsu
  *  "https://www.googleapis.com/compute/v1/projects/...)".
  */
 @property(nonatomic, copy, nullable) NSString *resourceUrl;
-
-@end
-
-
-/**
- *  This message has been deprecated.
- *  RolloutMetadata for an actuation instance. It maps to a single RolloutType.
- */
-@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata : GTLRObject
-
-/** Instance level notification metadata. */
-@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NotificationMetadata *notification;
-
-/** The last Release that has been applied to the instance. */
-@property(nonatomic, copy, nullable) NSString *releaseName;
-
-/** The last rollout that has been applied to the instance. */
-@property(nonatomic, copy, nullable) NSString *rolloutName;
 
 @end
 
