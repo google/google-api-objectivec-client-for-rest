@@ -619,7 +619,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. The description of the instance (2048 characters or less).
+ *  The description of the instance (2048 characters or less).
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */

@@ -36,6 +36,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopeYouTube;
 /**
+ *  Authorization scope: See a list of your current active channel members,
+ *  their current level, and when they became a member
+ *
+ *  Value "https://www.googleapis.com/auth/youtube.channel-memberships.creator"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeChannelMembershipsCreator;
+/**
  *  Authorization scope: See, edit, and permanently delete your YouTube videos,
  *  ratings, comments and captions
  *

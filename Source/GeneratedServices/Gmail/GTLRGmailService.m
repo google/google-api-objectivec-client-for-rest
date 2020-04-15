@@ -4,7 +4,8 @@
 // API:
 //   Gmail API (gmail/v1)
 // Description:
-//   Access Gmail mailboxes including sending user email.
+//   The Gmail API lets you view and manage Gmail mailbox data like
+//   threads, messages, and labels.
 // Documentation:
 //   https://developers.google.com/gmail/api/
 
@@ -39,10 +40,8 @@ NSString * const kGTLRAuthScopeGmailSettingsSharing            = @"https://www.g
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"gmail/v1/users/";
-    self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch/gmail/v1";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

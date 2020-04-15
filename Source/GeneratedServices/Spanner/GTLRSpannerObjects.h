@@ -401,7 +401,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
- *  Output only for the CreateBackup][DatabaseAdmin.CreateBackup] operation.
+ *  Output only for the CreateBackup operation.
  *  Required for the UpdateBackup operation.
  *  A globally unique identifier for the backup which cannot be
  *  changed. Values are of the form
@@ -2717,8 +2717,8 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation,
  *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  an Operation.error value with a
+ *  google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *cancelTime;
 
@@ -2730,7 +2730,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  track the post-restore optimization process to optimize the performance of
  *  the restored database, and remove the dependency on the restore source.
  *  The name is of the form
- *  `projects/<project>/instances/<instance>/databases/<database>/operations/<operation>
+ *  `projects/<project>/instances/<instance>/databases/<database>/operations/<operation>`
  *  where the <database> is the name of database being created and restored to.
  *  The metadata type of the long-running operation is
  *  OptimizeRestoredDatabaseMetadata. This long-running operation will be

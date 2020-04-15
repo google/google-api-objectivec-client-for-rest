@@ -111,7 +111,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
 //   +[GTLQueryFirebaseHosting queryForProjectsSitesChannelsReleasesCreateWithObject:parent:]
 
 /**
- *  The site that the release belongs to, in the format:
+ *  Required. The site that the release belongs to, in the format:
  *  <code>sites/<var>site-name</var></code>
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -134,7 +134,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
  *  actively display on the appropriate URL(s).
  *
  *  @param object The @c GTLRFirebaseHosting_Release to include in the query.
- *  @param parent The site that the release belongs to, in the format:
+ *  @param parent Required. The site that the release belongs to, in the format:
  *    <code>sites/<var>site-name</var></code>
  *
  *  @return GTLRFirebaseHostingQuery_ProjectsSitesChannelsReleasesCreate
@@ -190,6 +190,221 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
 @end
 
 /**
+ *  Creates a domain mapping on the specified site.
+ *
+ *  Method: firebasehosting.projects.sites.domains.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesDomainsCreate : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesDomainsCreateWithObject:parent:]
+
+/**
+ *  Required. The parent to create the domain association for, in the format:
+ *  <code>sites/<var>site-name</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Domain.
+ *
+ *  Creates a domain mapping on the specified site.
+ *
+ *  @param object The @c GTLRFirebaseHosting_Domain to include in the query.
+ *  @param parent Required. The parent to create the domain association for, in
+ *    the format:
+ *    <code>sites/<var>site-name</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesDomainsCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Domain *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the existing domain mapping on the specified site.
+ *
+ *  Method: firebasehosting.projects.sites.domains.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesDomainsDelete : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesDomainsDeleteWithname:]
+
+/** Required. The name of the domain association to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Empty.
+ *
+ *  Deletes the existing domain mapping on the specified site.
+ *
+ *  @param name Required. The name of the domain association to delete.
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesDomainsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a domain mapping on the specified site.
+ *
+ *  Method: firebasehosting.projects.sites.domains.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ *    @c kGTLRAuthScopeFirebaseHostingFirebaseReadonly
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesDomainsGet : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesDomainsGetWithname:]
+
+/** Required. The name of the domain configuration to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Domain.
+ *
+ *  Gets a domain mapping on the specified site.
+ *
+ *  @param name Required. The name of the domain configuration to get.
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesDomainsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the domains for the specified site.
+ *
+ *  Method: firebasehosting.projects.sites.domains.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ *    @c kGTLRAuthScopeFirebaseHostingFirebaseReadonly
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesDomainsList : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesDomainsListWithparent:]
+
+/** The page size to return. Defaults to 50. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token from a previous request, if provided. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent for which to list domains, in the format:
+ *  <code>sites/<var>site-name</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_ListDomainsResponse.
+ *
+ *  Lists the domains for the specified site.
+ *
+ *  @param parent Required. The parent for which to list domains, in the format:
+ *    <code>sites/<var>site-name</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesDomainsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the specified domain mapping, creating the mapping as if it does
+ *  not exist.
+ *
+ *  Method: firebasehosting.projects.sites.domains.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesDomainsUpdate : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesDomainsUpdateWithObject:name:]
+
+/**
+ *  Required. The name of the domain association to update or create, if an
+ *  association doesn't already exist.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Domain.
+ *
+ *  Updates the specified domain mapping, creating the mapping as if it does
+ *  not exist.
+ *
+ *  @param object The @c GTLRFirebaseHosting_Domain to include in the query.
+ *  @param name Required. The name of the domain association to update or
+ *    create, if an
+ *    association doesn't already exist.
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesDomainsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Domain *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the Hosting metadata for a specific site.
+ *
+ *  Method: firebasehosting.projects.sites.getConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ *    @c kGTLRAuthScopeFirebaseHostingFirebaseReadonly
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesGetConfig : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesGetConfigWithname:]
+
+/**
+ *  Required. The site for which to get the SiteConfig, in the format:
+ *  <code>sites/<var>site-name</var>/config</code>
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_SiteConfig.
+ *
+ *  Gets the Hosting metadata for a specific site.
+ *
+ *  @param name Required. The site for which to get the SiteConfig, in the
+ *    format:
+ *    <code>sites/<var>site-name</var>/config</code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesGetConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new release which makes the content of the specified version
  *  actively display on the appropriate URL(s).
  *
@@ -204,7 +419,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
 //   +[GTLQueryFirebaseHosting queryForProjectsSitesReleasesCreateWithObject:parent:]
 
 /**
- *  The site that the release belongs to, in the format:
+ *  Required. The site that the release belongs to, in the format:
  *  <code>sites/<var>site-name</var></code>
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -227,7 +442,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
  *  actively display on the appropriate URL(s).
  *
  *  @param object The @c GTLRFirebaseHosting_Release to include in the query.
- *  @param parent The site that the release belongs to, in the format:
+ *  @param parent Required. The site that the release belongs to, in the format:
  *    <code>sites/<var>site-name</var></code>
  *
  *  @return GTLRFirebaseHostingQuery_ProjectsSitesReleasesCreate
@@ -283,6 +498,377 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
 @end
 
 /**
+ *  Sets the Hosting metadata for a specific site.
+ *
+ *  Method: firebasehosting.projects.sites.updateConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesUpdateConfig : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesUpdateConfigWithObject:name:]
+
+/**
+ *  Required. The site for which to update the SiteConfig, in the format:
+ *  <code>sites/<var>site-name</var>/config</code>
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A set of field names from your [site configuration](../sites.SiteConfig)
+ *  that you want to update.
+ *  <br>A field will be overwritten if, and only if, it's in the mask.
+ *  <br>If a mask is not provided then a default mask of only
+ *  [`max_versions`](../sites.SiteConfig.max_versions) will be used.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_SiteConfig.
+ *
+ *  Sets the Hosting metadata for a specific site.
+ *
+ *  @param object The @c GTLRFirebaseHosting_SiteConfig to include in the query.
+ *  @param name Required. The site for which to update the SiteConfig, in the
+ *    format:
+ *    <code>sites/<var>site-name</var>/config</code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesUpdateConfig
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_SiteConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new version on the target site using the content
+ *  of the specified version.
+ *
+ *  Method: firebasehosting.projects.sites.versions.clone
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesVersionsClone : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesVersionsCloneWithObject:parent:]
+
+/**
+ *  Required. The target site where the cloned version will reside,
+ *  in the format: `sites/{site}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Operation.
+ *
+ *  Creates a new version on the target site using the content
+ *  of the specified version.
+ *
+ *  @param object The @c GTLRFirebaseHosting_CloneVersionRequest to include in
+ *    the query.
+ *  @param parent Required. The target site where the cloned version will
+ *    reside,
+ *    in the format: `sites/{site}`
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesVersionsClone
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_CloneVersionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new version for a site.
+ *
+ *  Method: firebasehosting.projects.sites.versions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesVersionsCreate : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesVersionsCreateWithObject:parent:]
+
+/**
+ *  Required. The parent to create the version for, in the format:
+ *  <code>sites/<var>site-name</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The self-reported size of the version. This value is used for a pre-emptive
+ *  quota check for legacy version uploads.
+ */
+@property(nonatomic, assign) long long sizeBytes;
+
+/**
+ *  A unique id for the new version. This is only specified for legacy version
+ *  creations.
+ */
+@property(nonatomic, copy, nullable) NSString *versionId;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Version.
+ *
+ *  Creates a new version for a site.
+ *
+ *  @param object The @c GTLRFirebaseHosting_Version to include in the query.
+ *  @param parent Required. The parent to create the version for, in the format:
+ *    <code>sites/<var>site-name</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesVersionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Version *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified version.
+ *
+ *  Method: firebasehosting.projects.sites.versions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesVersionsDelete : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesVersionsDeleteWithname:]
+
+/**
+ *  Required. The name of the version to be deleted, in the format:
+ *  <code>sites/<var>site-name</var>/versions/<var>versionID</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Empty.
+ *
+ *  Deletes the specified version.
+ *
+ *  @param name Required. The name of the version to be deleted, in the format:
+ *    <code>sites/<var>site-name</var>/versions/<var>versionID</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the remaining files to be uploaded for the specified version.
+ *
+ *  Method: firebasehosting.projects.sites.versions.files.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ *    @c kGTLRAuthScopeFirebaseHostingFirebaseReadonly
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesVersionsFilesList : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesVersionsFilesListWithparent:]
+
+/** The page size to return. Defaults to 1000. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token from a previous request, if provided. This will be the
+ *  encoded version of a firebase.hosting.proto.metadata.ListFilesPageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent to list files for, in the format:
+ *  <code>sites/<var>site-name</var>/versions/<var>versionID</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The type of files in the version that should be listed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseHostingStatusStatusUnspecified Value
+ *        "STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRFirebaseHostingStatusExpected Value "EXPECTED"
+ *    @arg @c kGTLRFirebaseHostingStatusActive Value "ACTIVE"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_ListVersionFilesResponse.
+ *
+ *  Lists the remaining files to be uploaded for the specified version.
+ *
+ *  @param parent Required. The parent to list files for, in the format:
+ *    <code>sites/<var>site-name</var>/versions/<var>versionID</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesVersionsFilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the versions that have been created on the specified site.
+ *  Will include filtering in the future.
+ *
+ *  Method: firebasehosting.projects.sites.versions.list
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesVersionsList : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesVersionsListWithparent:]
+
+/**
+ *  The filter string used to return a subset of versions in the response.
+ *  Currently supported fields for filtering are: name, status,
+ *  and create_time. Filter processing will be implemented in accordance
+ *  with go/filtering.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of versions to return. The service may return fewer than
+ *  this value.
+ *  If unspecified, at most 25 versions will be returned.
+ *  The maximum value is 100; values above 100 will be coerced to 100
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token from a previous request, if provided. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent for which to list files, in the format:
+ *  <code>sites/<var>site-name</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_ListVersionsResponse.
+ *
+ *  Lists the versions that have been created on the specified site.
+ *  Will include filtering in the future.
+ *
+ *  @param parent Required. The parent for which to list files, in the format:
+ *    <code>sites/<var>site-name</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the specified metadata for a version. Note that this method will
+ *  fail with `FAILED_PRECONDITION` in the event of an invalid state
+ *  transition. The only valid transition for a version is currently from a
+ *  `CREATED` status to a `FINALIZED` status.
+ *  Use [`DeleteVersion`](../sites.versions/delete) to set the status of a
+ *  version to `DELETED`.
+ *
+ *  Method: firebasehosting.projects.sites.versions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesVersionsPatch : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesVersionsPatchWithObject:name:]
+
+/**
+ *  The unique identifier for a version, in the format:
+ *  <code>sites/<var>site-name</var>/versions/<var>versionID</var></code>
+ *  This name is provided in the response body when you call the
+ *  [`CreateVersion`](../sites.versions/create) endpoint.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A set of field names from your [version](../sites.versions) that you want
+ *  to update.
+ *  <br>A field will be overwritten if, and only if, it's in the mask.
+ *  <br>If a mask is not provided then a default mask of only
+ *  [`status`](../sites.versions#Version.FIELDS.status) will be used.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_Version.
+ *
+ *  Updates the specified metadata for a version. Note that this method will
+ *  fail with `FAILED_PRECONDITION` in the event of an invalid state
+ *  transition. The only valid transition for a version is currently from a
+ *  `CREATED` status to a `FINALIZED` status.
+ *  Use [`DeleteVersion`](../sites.versions/delete) to set the status of a
+ *  version to `DELETED`.
+ *
+ *  @param object The @c GTLRFirebaseHosting_Version to include in the query.
+ *  @param name The unique identifier for a version, in the format:
+ *    <code>sites/<var>site-name</var>/versions/<var>versionID</var></code>
+ *    This name is provided in the response body when you call the
+ *    [`CreateVersion`](../sites.versions/create) endpoint.
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesVersionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_Version *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Adds content files to a version.
+ *
+ *  Method: firebasehosting.projects.sites.versions.populateFiles
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseHostingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseHostingFirebase
+ */
+@interface GTLRFirebaseHostingQuery_ProjectsSitesVersionsPopulateFiles : GTLRFirebaseHostingQuery
+// Previous library name was
+//   +[GTLQueryFirebaseHosting queryForProjectsSitesVersionsPopulateFilesWithObject:parent:]
+
+/**
+ *  Required. The version to add files to, in the format:
+ *  <code>sites/<var>site-name</var>/versions/<var>versionID</var></code>
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseHosting_PopulateVersionFilesResponse.
+ *
+ *  Adds content files to a version.
+ *
+ *  @param object The @c GTLRFirebaseHosting_PopulateVersionFilesRequest to
+ *    include in the query.
+ *  @param parent Required. The version to add files to, in the format:
+ *    <code>sites/<var>site-name</var>/versions/<var>versionID</var></code>
+ *
+ *  @return GTLRFirebaseHostingQuery_ProjectsSitesVersionsPopulateFiles
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseHosting_PopulateVersionFilesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a new release which makes the content of the specified version
  *  actively display on the appropriate URL(s).
  *
@@ -297,7 +883,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
 //   +[GTLQueryFirebaseHosting queryForSitesChannelsReleasesCreateWithObject:parent:]
 
 /**
- *  The site that the release belongs to, in the format:
+ *  Required. The site that the release belongs to, in the format:
  *  <code>sites/<var>site-name</var></code>
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -320,7 +906,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
  *  actively display on the appropriate URL(s).
  *
  *  @param object The @c GTLRFirebaseHosting_Release to include in the query.
- *  @param parent The site that the release belongs to, in the format:
+ *  @param parent Required. The site that the release belongs to, in the format:
  *    <code>sites/<var>site-name</var></code>
  *
  *  @return GTLRFirebaseHostingQuery_SitesChannelsReleasesCreate
@@ -605,7 +1191,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
 //   +[GTLQueryFirebaseHosting queryForSitesReleasesCreateWithObject:parent:]
 
 /**
- *  The site that the release belongs to, in the format:
+ *  Required. The site that the release belongs to, in the format:
  *  <code>sites/<var>site-name</var></code>
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -628,7 +1214,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
  *  actively display on the appropriate URL(s).
  *
  *  @param object The @c GTLRFirebaseHosting_Release to include in the query.
- *  @param parent The site that the release belongs to, in the format:
+ *  @param parent Required. The site that the release belongs to, in the format:
  *    <code>sites/<var>site-name</var></code>
  *
  *  @return GTLRFirebaseHostingQuery_SitesReleasesCreate

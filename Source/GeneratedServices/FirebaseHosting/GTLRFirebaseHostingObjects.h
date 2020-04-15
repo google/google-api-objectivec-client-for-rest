@@ -674,7 +674,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 
 
 /**
- *  GTLRFirebaseHosting_ListDomainsResponse
+ *  The response to listing Domains.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "domains" property. If returned as the result of a query, it
@@ -698,7 +698,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 
 
 /**
- *  GTLRFirebaseHosting_ListReleasesResponse
+ *  The response when listing Releases.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "releases" property. If returned as the result of a query, it
@@ -727,7 +727,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 
 
 /**
- *  GTLRFirebaseHosting_ListVersionFilesResponse
+ *  The response when listing a Version's Files..
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "files" property. If returned as the result of a query, it should
@@ -751,7 +751,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 
 
 /**
- *  GTLRFirebaseHosting_ListVersionsResponse
+ *  The response when listing Versions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "versions" property. If returned as the result of a query, it
@@ -868,7 +868,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 
 
 /**
- *  GTLRFirebaseHosting_PopulateVersionFilesRequest
+ *  The request to populate a Version's Files.
  */
 @interface GTLRFirebaseHosting_PopulateVersionFilesRequest : GTLRObject
 
@@ -899,7 +899,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspe
 
 
 /**
- *  GTLRFirebaseHosting_PopulateVersionFilesResponse
+ *  The response to a PopulateVersionFilesRequest.
  */
 @interface GTLRFirebaseHosting_PopulateVersionFilesResponse : GTLRObject
 

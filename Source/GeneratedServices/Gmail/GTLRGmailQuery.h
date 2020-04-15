@@ -4,7 +4,8 @@
 // API:
 //   Gmail API (gmail/v1)
 // Description:
-//   Access Gmail mailboxes including sending user email.
+//   The Gmail API lets you view and manage Gmail mailbox data like
+//   threads, messages, and labels.
 // Documentation:
 //   https://developers.google.com/gmail/api/
 
@@ -94,7 +95,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Creates a new draft with the DRAFT label.
+ *  Creates a new draft with the <code>DRAFT</code> label.
  *
  *  Method: gmail.users.drafts.create
  *
@@ -109,8 +110,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersDraftsCreateWithObject:userId:]
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -119,13 +120,13 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Draft.
  *
- *  Creates a new draft with the DRAFT label.
+ *  Creates a new draft with the <code>DRAFT</code> label.
  *
  *  @param object The @c GTLRGmail_Draft to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param uploadParameters The media to include in this query. Maximum size
- *    35MB. Accepted MIME type: message/rfc822
+ *    36700160. Accepted MIME type: message/ *
  *
  *  @return GTLRGmailQuery_UsersDraftsCreate
  */
@@ -136,12 +137,13 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Immediately and permanently deletes the specified draft. Does not simply
- *  trash it.
+ *  Immediately and permanently deletes the specified draft.
+ *  Does not simply trash it.
  *
  *  Method: gmail.users.drafts.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailAddonsCurrentActionCompose
  *    @c kGTLRAuthScopeGmailCompose
  *    @c kGTLRAuthScopeGmailMailGoogleCom
  *    @c kGTLRAuthScopeGmailModify
@@ -158,8 +160,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -169,11 +171,11 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Immediately and permanently deletes the specified draft. Does not simply
- *  trash it.
+ *  Immediately and permanently deletes the specified draft.
+ *  Does not simply trash it.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the draft to delete.
  *
  *  @return GTLRGmailQuery_UsersDraftsDelete
@@ -202,10 +204,10 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  The format to return the draft in.
  *
  *  Likely values:
- *    @arg @c kGTLRGmailFormatFull Value "full"
- *    @arg @c kGTLRGmailFormatMetadata Value "metadata"
  *    @arg @c kGTLRGmailFormatMinimal Value "minimal"
+ *    @arg @c kGTLRGmailFormatFull Value "full"
  *    @arg @c kGTLRGmailFormatRaw Value "raw"
+ *    @arg @c kGTLRGmailFormatMetadata Value "metadata"
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRGmailFormatFull.
@@ -220,8 +222,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -232,8 +234,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets the specified draft.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the draft to retrieve.
  *
  *  @return GTLRGmailQuery_UsersDraftsGet
@@ -259,7 +261,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersDraftsListWithuserId:]
 
 /**
- *  Include drafts from SPAM and TRASH in the results.
+ *  Include drafts from <code>SPAM</code> and <code>TRASH</code>
+ *  in the results.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -278,13 +281,14 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Only return draft messages matching the specified query. Supports the same
  *  query format as the Gmail search box. For example,
- *  "from:someuser\@example.com rfc822msgid: is:unread".
+ *  <code>"from:someuser\@example.com rfc822msgid:<somemsgid\@example.com>
+ *  is:unread"</code>.
  */
 @property(nonatomic, copy, nullable) NSString *q;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -295,8 +299,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Lists the drafts in the user's mailbox.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersDraftsList
  *
@@ -309,12 +313,13 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Sends the specified, existing draft to the recipients in the To, Cc, and Bcc
- *  headers.
+ *  Sends the specified, existing draft to the recipients in the
+ *  <code>To</code>, <code>Cc</code>, and <code>Bcc</code> headers.
  *
  *  Method: gmail.users.drafts.send
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailAddonsCurrentActionCompose
  *    @c kGTLRAuthScopeGmailCompose
  *    @c kGTLRAuthScopeGmailMailGoogleCom
  *    @c kGTLRAuthScopeGmailModify
@@ -324,8 +329,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersDraftsSendWithObject:userId:]
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -334,14 +339,14 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Message.
  *
- *  Sends the specified, existing draft to the recipients in the To, Cc, and Bcc
- *  headers.
+ *  Sends the specified, existing draft to the recipients in the
+ *  <code>To</code>, <code>Cc</code>, and <code>Bcc</code> headers.
  *
  *  @param object The @c GTLRGmail_Draft to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param uploadParameters The media to include in this query. Maximum size
- *    35MB. Accepted MIME type: message/rfc822
+ *    36700160. Accepted MIME type: message/ *
  *
  *  @return GTLRGmailQuery_UsersDraftsSend
  */
@@ -357,6 +362,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Method: gmail.users.drafts.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGmailAddonsCurrentActionCompose
  *    @c kGTLRAuthScopeGmailCompose
  *    @c kGTLRAuthScopeGmailMailGoogleCom
  *    @c kGTLRAuthScopeGmailModify
@@ -373,8 +379,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -386,11 +392,11 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Replaces a draft's content.
  *
  *  @param object The @c GTLRGmail_Draft to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the draft to update.
  *  @param uploadParameters The media to include in this query. Maximum size
- *    35MB. Accepted MIME type: message/rfc822
+ *    36700160. Accepted MIME type: message/ *
  *
  *  @return GTLRGmailQuery_UsersDraftsUpdate
  */
@@ -418,8 +424,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersGetProfileWithuserId:]
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -430,8 +436,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets the current user's Gmail profile.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersGetProfile
  */
@@ -441,7 +447,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Lists the history of all changes to the given mailbox. History results are
- *  returned in chronological order (increasing historyId).
+ *  returned in chronological order (increasing <code>historyId</code>).
  *
  *  Method: gmail.users.history.list
  *
@@ -459,10 +465,10 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  History types to be returned by the function
  *
  *  Likely values:
- *    @arg @c kGTLRGmailHistoryTypesLabelAdded Value "labelAdded"
- *    @arg @c kGTLRGmailHistoryTypesLabelRemoved Value "labelRemoved"
  *    @arg @c kGTLRGmailHistoryTypesMessageAdded Value "messageAdded"
  *    @arg @c kGTLRGmailHistoryTypesMessageDeleted Value "messageDeleted"
+ *    @arg @c kGTLRGmailHistoryTypesLabelAdded Value "labelAdded"
+ *    @arg @c kGTLRGmailHistoryTypesLabelRemoved Value "labelRemoved"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *historyTypes;
 
@@ -480,22 +486,25 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Returns history records after the specified startHistoryId. The
- *  supplied startHistoryId should be obtained from the historyId of a message,
- *  thread, or previous list response. History IDs increase chronologically but
- *  are not contiguous with random gaps in between valid IDs. Supplying an
- *  invalid or out of date startHistoryId typically returns an HTTP 404 error
- *  code. A historyId is typically valid for at least a week, but in some rare
- *  circumstances may be valid for only a few hours. If you receive an HTTP 404
- *  error response, your application should perform a full sync. If you receive
- *  no nextPageToken in the response, there are no updates to retrieve and you
- *  can store the returned historyId for a future request.
+ *  Required. Returns history records after the specified
+ *  <code>startHistoryId</code>. The supplied <code>startHistoryId</code>
+ *  should be obtained from the <code>historyId</code> of a message, thread, or
+ *  previous <code>list</code> response. History IDs increase
+ *  chronologically but are not contiguous with random gaps in between valid
+ *  IDs. Supplying an invalid or out of date <code>startHistoryId</code>
+ *  typically returns an <code>HTTP 404</code> error code. A
+ *  <code>historyId</code> is typically valid for at least a week, but in some
+ *  rare circumstances may be valid for only a few hours. If you receive an
+ *  <code>HTTP 404</code> error response, your application should perform a
+ *  full sync. If you receive no <code>nextPageToken</code> in the response,
+ *  there are no updates to retrieve and you can store the returned
+ *  <code>historyId</code> for a future request.
  */
 @property(nonatomic, assign) unsigned long long startHistoryId;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -505,10 +514,10 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_ListHistoryResponse.
  *
  *  Lists the history of all changes to the given mailbox. History results are
- *  returned in chronological order (increasing historyId).
+ *  returned in chronological order (increasing <code>historyId</code>).
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersHistoryList
  *
@@ -535,8 +544,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersLabelsCreateWithObject:userId:]
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -548,8 +557,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Creates a new label.
  *
  *  @param object The @c GTLRGmail_Label to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersLabelsCreate
  */
@@ -581,8 +590,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -595,8 +604,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Immediately and permanently deletes the specified label and removes it from
  *  any messages and threads that it is applied to.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the label to delete.
  *
  *  @return GTLRGmailQuery_UsersLabelsDelete
@@ -630,8 +639,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -642,8 +651,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets the specified label.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the label to retrieve.
  *
  *  @return GTLRGmailQuery_UsersLabelsGet
@@ -670,8 +679,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersLabelsListWithuserId:]
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -682,8 +691,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Lists all labels in the user's mailbox.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersLabelsList
  */
@@ -692,7 +701,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Updates the specified label. This method supports patch semantics.
+ *  Patch the specified label.
  *
  *  Method: gmail.users.labels.patch
  *
@@ -713,8 +722,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -723,11 +732,11 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Label.
  *
- *  Updates the specified label. This method supports patch semantics.
+ *  Patch the specified label.
  *
  *  @param object The @c GTLRGmail_Label to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the label to update.
  *
  *  @return GTLRGmailQuery_UsersLabelsPatch
@@ -760,8 +769,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -773,8 +782,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Updates the specified label.
  *
  *  @param object The @c GTLRGmail_Label to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the label to update.
  *
  *  @return GTLRGmailQuery_UsersLabelsUpdate
@@ -812,8 +821,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *messageId;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -824,8 +833,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets the specified message attachment.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param messageId The ID of the message containing the attachment.
  *  @param identifier The ID of the attachment.
  *
@@ -851,8 +860,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersMessagesBatchDeleteWithObject:userId:]
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -867,8 +876,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @param object The @c GTLRGmail_BatchDeleteMessagesRequest to include in the
  *    query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersMessagesBatchDelete
  */
@@ -891,8 +900,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersMessagesBatchModifyWithObject:userId:]
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -906,8 +915,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @param object The @c GTLRGmail_BatchModifyMessagesRequest to include in the
  *    query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersMessagesBatchModify
  */
@@ -918,7 +927,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Immediately and permanently deletes the specified message. This operation
- *  cannot be undone. Prefer messages.trash instead.
+ *  cannot be undone. Prefer <code>messages.trash</code> instead.
  *
  *  Method: gmail.users.messages.delete
  *
@@ -937,8 +946,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -949,10 +958,10 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  be nil. This query does not fetch an object.
  *
  *  Immediately and permanently deletes the specified message. This operation
- *  cannot be undone. Prefer messages.trash instead.
+ *  cannot be undone. Prefer <code>messages.trash</code> instead.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the message to delete.
  *
  *  @return GTLRGmailQuery_UsersMessagesDelete
@@ -984,10 +993,10 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  The format to return the message in.
  *
  *  Likely values:
- *    @arg @c kGTLRGmailFormatFull Value "full"
- *    @arg @c kGTLRGmailFormatMetadata Value "metadata"
  *    @arg @c kGTLRGmailFormatMinimal Value "minimal"
+ *    @arg @c kGTLRGmailFormatFull Value "full"
  *    @arg @c kGTLRGmailFormatRaw Value "raw"
+ *    @arg @c kGTLRGmailFormatMetadata Value "metadata"
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRGmailFormatFull.
@@ -1005,8 +1014,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metadataHeaders;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1017,8 +1026,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets the specified message.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the message to retrieve.
  *
  *  @return GTLRGmailQuery_UsersMessagesGet
@@ -1029,9 +1038,9 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Imports a message into only this user's mailbox, with standard email
- *  delivery scanning and classification similar to receiving via SMTP. Does not
- *  send a message.
+ *  Imports a message into only this user's mailbox, with standard
+ *  email delivery scanning and classification similar to receiving via SMTP.
+ *  Does not send a message.
  *
  *  Method: gmail.users.messages.import
  *
@@ -1045,8 +1054,10 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersMessagesImportWithObject:userId:]
 
 /**
- *  Mark the email as permanently deleted (not TRASH) and only visible in Google
- *  Vault to a Vault administrator. Only used for G Suite accounts.
+ *  Mark the email as permanently deleted (not TRASH) and
+ *  only visible in
+ *  <a href="http://support.google.com/vault/">Google Vault</a> to
+ *  a Vault administrator. Only used for G Suite accounts.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1056,8 +1067,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Source for Gmail's internal date of the message.
  *
  *  Likely values:
- *    @arg @c kGTLRGmailInternalDateSourceDateHeader Value "dateHeader"
  *    @arg @c kGTLRGmailInternalDateSourceReceivedTime Value "receivedTime"
+ *    @arg @c kGTLRGmailInternalDateSourceDateHeader Value "dateHeader"
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRGmailInternalDateSourceDateHeader.
@@ -1065,24 +1076,24 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *internalDateSource;
 
 /**
- *  Ignore the Gmail spam classifier decision and never mark this email as SPAM
- *  in the mailbox.
+ *  Ignore the Gmail spam classifier decision and never mark
+ *  this email as SPAM in the mailbox.
  *
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL neverMarkSpam;
 
 /**
- *  Process calendar invites in the email and add any extracted meetings to the
- *  Google Calendar for this user.
+ *  Process calendar invites in the email and add any extracted
+ *  meetings to the Google Calendar for this user.
  *
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL processForCalendar;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1091,15 +1102,15 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Message.
  *
- *  Imports a message into only this user's mailbox, with standard email
- *  delivery scanning and classification similar to receiving via SMTP. Does not
- *  send a message.
+ *  Imports a message into only this user's mailbox, with standard
+ *  email delivery scanning and classification similar to receiving via SMTP.
+ *  Does not send a message.
  *
  *  @param object The @c GTLRGmail_Message to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param uploadParameters The media to include in this query. Maximum size
- *    50MB. Accepted MIME type: message/rfc822
+ *    52428800. Accepted MIME type: message/ *
  *
  *  @return GTLRGmailQuery_UsersMessagesImport
  */
@@ -1110,8 +1121,9 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Directly inserts a message into only this user's mailbox similar to IMAP
- *  APPEND, bypassing most scanning and classification. Does not send a message.
+ *  Directly inserts a message into only this user's mailbox similar to
+ *  <code>IMAP APPEND</code>, bypassing most scanning and classification.
+ *  Does not send a message.
  *
  *  Method: gmail.users.messages.insert
  *
@@ -1125,8 +1137,10 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersMessagesInsertWithObject:userId:]
 
 /**
- *  Mark the email as permanently deleted (not TRASH) and only visible in Google
- *  Vault to a Vault administrator. Only used for G Suite accounts.
+ *  Mark the email as permanently deleted (not TRASH) and
+ *  only visible in
+ *  <a href="http://support.google.com/vault/">Google Vault</a> to
+ *  a Vault administrator. Only used for G Suite accounts.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1136,8 +1150,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Source for Gmail's internal date of the message.
  *
  *  Likely values:
- *    @arg @c kGTLRGmailInternalDateSourceDateHeader Value "dateHeader"
  *    @arg @c kGTLRGmailInternalDateSourceReceivedTime Value "receivedTime"
+ *    @arg @c kGTLRGmailInternalDateSourceDateHeader Value "dateHeader"
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRGmailInternalDateSourceReceivedTime.
@@ -1145,8 +1159,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *internalDateSource;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1155,14 +1169,15 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Message.
  *
- *  Directly inserts a message into only this user's mailbox similar to IMAP
- *  APPEND, bypassing most scanning and classification. Does not send a message.
+ *  Directly inserts a message into only this user's mailbox similar to
+ *  <code>IMAP APPEND</code>, bypassing most scanning and classification.
+ *  Does not send a message.
  *
  *  @param object The @c GTLRGmail_Message to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param uploadParameters The media to include in this query. Maximum size
- *    50MB. Accepted MIME type: message/rfc822
+ *    52428800. Accepted MIME type: message/ *
  *
  *  @return GTLRGmailQuery_UsersMessagesInsert
  */
@@ -1188,7 +1203,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersMessagesListWithuserId:]
 
 /**
- *  Include messages from SPAM and TRASH in the results.
+ *  Include messages from <code>SPAM</code> and <code>TRASH</code>
+ *  in the results.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1210,16 +1226,17 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Only return messages matching the specified query. Supports the same query
- *  format as the Gmail search box. For example, "from:someuser\@example.com
- *  rfc822msgid:<somemsgid\@example.com> is:unread". Parameter cannot be used
- *  when accessing the api using the gmail.metadata scope.
+ *  Only return messages matching the specified query. Supports the same
+ *  query format as the Gmail search box. For example,
+ *  <code>"from:someuser\@example.com rfc822msgid:&lt;somemsgid\@example.com&gt;
+ *  is:unread"</code>. Parameter cannot be used when accessing the api
+ *  using the gmail.metadata scope.
  */
 @property(nonatomic, copy, nullable) NSString *q;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1230,8 +1247,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Lists the messages in the user's mailbox.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersMessagesList
  *
@@ -1264,8 +1281,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1277,8 +1294,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Modifies the labels on the specified message.
  *
  *  @param object The @c GTLRGmail_ModifyMessageRequest to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the message to modify.
  *
  *  @return GTLRGmailQuery_UsersMessagesModify
@@ -1290,8 +1307,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Sends the specified message to the recipients in the To, Cc, and Bcc
- *  headers.
+ *  Sends the specified message to the recipients in the
+ *  <code>To</code>, <code>Cc</code>, and <code>Bcc</code> headers.
  *
  *  Method: gmail.users.messages.send
  *
@@ -1307,8 +1324,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersMessagesSendWithObject:userId:]
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1317,14 +1334,14 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Message.
  *
- *  Sends the specified message to the recipients in the To, Cc, and Bcc
- *  headers.
+ *  Sends the specified message to the recipients in the
+ *  <code>To</code>, <code>Cc</code>, and <code>Bcc</code> headers.
  *
  *  @param object The @c GTLRGmail_Message to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param uploadParameters The media to include in this query. Maximum size
- *    35MB. Accepted MIME type: message/rfc822
+ *    36700160. Accepted MIME type: message/ *
  *
  *  @return GTLRGmailQuery_UsersMessagesSend
  */
@@ -1355,8 +1372,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1367,8 +1384,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Moves the specified message to the trash.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the message to Trash.
  *
  *  @return GTLRGmailQuery_UsersMessagesTrash
@@ -1399,8 +1416,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1411,8 +1428,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Removes the specified message from the trash.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the message to remove from Trash.
  *
  *  @return GTLRGmailQuery_UsersMessagesUntrash
@@ -1423,13 +1440,14 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Adds a delegate with its verification status set directly to accepted,
- *  without sending any verification email. The delegate user must be a member
- *  of the same G Suite organization as the delegator user.
+ *  Adds a delegate with its verification status set directly to
+ *  <code>accepted</code>, without sending any verification email. The
+ *  delegate user must be a member of the same G Suite organization as the
+ *  delegator user.
  *  Gmail imposes limitations on the number of delegates and delegators each
  *  user in a G Suite organization can have. These limits depend on your
- *  organization, but in general each user can have up to 25 delegates and up to
- *  10 delegators.
+ *  organization, but in general each user can have up to 25 delegates and
+ *  up to 10 delegators.
  *  Note that a delegate user must be referred to by their primary email
  *  address, and not an email alias.
  *  Also note that when a new delegate is created, there may be up to a one
@@ -1447,8 +1465,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsDelegatesCreateWithObject:userId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1457,13 +1475,14 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Delegate.
  *
- *  Adds a delegate with its verification status set directly to accepted,
- *  without sending any verification email. The delegate user must be a member
- *  of the same G Suite organization as the delegator user.
+ *  Adds a delegate with its verification status set directly to
+ *  <code>accepted</code>, without sending any verification email. The
+ *  delegate user must be a member of the same G Suite organization as the
+ *  delegator user.
  *  Gmail imposes limitations on the number of delegates and delegators each
  *  user in a G Suite organization can have. These limits depend on your
- *  organization, but in general each user can have up to 25 delegates and up to
- *  10 delegators.
+ *  organization, but in general each user can have up to 25 delegates and
+ *  up to 10 delegators.
  *  Note that a delegate user must be referred to by their primary email
  *  address, and not an email alias.
  *  Also note that when a new delegate is created, there may be up to a one
@@ -1472,8 +1491,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_Delegate to include in the query.
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsDelegatesCreate
  */
@@ -1503,8 +1522,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *delegateEmail;
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1521,8 +1540,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  This method is only available to service account clients that have been
  *  delegated domain-wide authority.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param delegateEmail The email address of the user to be removed as a
  *    delegate.
  *
@@ -1559,8 +1578,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *delegateEmail;
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1575,10 +1594,11 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  This method is only available to service account clients that have been
  *  delegated domain-wide authority.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param delegateEmail The email address of the user whose delegate
- *    relationship is to be retrieved.
+ *    relationship is to be
+ *    retrieved.
  *
  *  @return GTLRGmailQuery_UsersSettingsDelegatesGet
  */
@@ -1605,8 +1625,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsDelegatesListWithuserId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1619,8 +1639,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  This method is only available to service account clients that have been
  *  delegated domain-wide authority.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsDelegatesList
  */
@@ -1641,8 +1661,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsFiltersCreateWithObject:userId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1654,8 +1674,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Creates a filter.
  *
  *  @param object The @c GTLRGmail_Filter to include in the query.
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsFiltersCreate
  */
@@ -1684,8 +1704,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1697,8 +1717,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Deletes a filter.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the filter to be deleted.
  *
  *  @return GTLRGmailQuery_UsersSettingsFiltersDelete
@@ -1731,8 +1751,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1743,8 +1763,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets a filter.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the filter to be fetched.
  *
  *  @return GTLRGmailQuery_UsersSettingsFiltersGet
@@ -1770,8 +1790,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsFiltersListWithuserId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1782,8 +1802,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Lists the message filters of a Gmail user.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsFiltersList
  */
@@ -1793,9 +1813,9 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Creates a forwarding address. If ownership verification is required, a
- *  message will be sent to the recipient and the resource's verification status
- *  will be set to pending; otherwise, the resource will be created with
- *  verification status set to accepted.
+ *  message will be sent to the recipient and the resource's verification
+ *  status will be set to <code>pending</code>; otherwise, the resource will be
+ *  created with verification status set to <code>accepted</code>.
  *  This method is only available to service account clients that have been
  *  delegated domain-wide authority.
  *
@@ -1809,8 +1829,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsForwardingAddressesCreateWithObject:userId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1820,15 +1840,15 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_ForwardingAddress.
  *
  *  Creates a forwarding address. If ownership verification is required, a
- *  message will be sent to the recipient and the resource's verification status
- *  will be set to pending; otherwise, the resource will be created with
- *  verification status set to accepted.
+ *  message will be sent to the recipient and the resource's verification
+ *  status will be set to <code>pending</code>; otherwise, the resource will be
+ *  created with verification status set to <code>accepted</code>.
  *  This method is only available to service account clients that have been
  *  delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_ForwardingAddress to include in the query.
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsForwardingAddressesCreate
  */
@@ -1856,8 +1876,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *forwardingEmail;
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1872,8 +1892,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  This method is only available to service account clients that have been
  *  delegated domain-wide authority.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param forwardingEmail The forwarding address to be deleted.
  *
  *  @return GTLRGmailQuery_UsersSettingsForwardingAddressesDelete
@@ -1902,8 +1922,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *forwardingEmail;
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1914,8 +1934,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets the specified forwarding address.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param forwardingEmail The forwarding address to be retrieved.
  *
  *  @return GTLRGmailQuery_UsersSettingsForwardingAddressesGet
@@ -1941,8 +1961,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsForwardingAddressesListWithuserId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1953,8 +1973,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Lists the forwarding addresses for the specified account.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsForwardingAddressesList
  */
@@ -1978,8 +1998,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsGetAutoForwardingWithuserId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -1990,8 +2010,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets the auto-forwarding setting for the specified account.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsGetAutoForwarding
  */
@@ -2015,8 +2035,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsGetImapWithuserId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2027,8 +2047,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets IMAP settings.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsGetImap
  */
@@ -2052,8 +2072,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsGetLanguageWithuserId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2064,8 +2084,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets language settings.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsGetLanguage
  */
@@ -2089,8 +2109,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsGetPopWithuserId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2101,8 +2121,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets POP settings.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsGetPop
  */
@@ -2126,8 +2146,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsGetVacationWithuserId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2138,8 +2158,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets vacation responder settings.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsGetVacation
  */
@@ -2152,9 +2172,10 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  will attempt to connect to the SMTP service to validate the configuration
  *  before creating the alias. If ownership verification is required for the
  *  alias, a message will be sent to the email address and the resource's
- *  verification status will be set to pending; otherwise, the resource will be
- *  created with verification status set to accepted. If a signature is
- *  provided, Gmail will sanitize the HTML before saving it with the alias.
+ *  verification status will be set to <code>pending</code>; otherwise, the
+ *  resource will be created with verification status set to
+ *  <code>accepted</code>. If a signature is provided, Gmail will sanitize the
+ *  HTML before saving it with the alias.
  *  This method is only available to service account clients that have been
  *  delegated domain-wide authority.
  *
@@ -2168,8 +2189,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsSendAsCreateWithObject:userId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2182,15 +2203,16 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  will attempt to connect to the SMTP service to validate the configuration
  *  before creating the alias. If ownership verification is required for the
  *  alias, a message will be sent to the email address and the resource's
- *  verification status will be set to pending; otherwise, the resource will be
- *  created with verification status set to accepted. If a signature is
- *  provided, Gmail will sanitize the HTML before saving it with the alias.
+ *  verification status will be set to <code>pending</code>; otherwise, the
+ *  resource will be created with verification status set to
+ *  <code>accepted</code>. If a signature is provided, Gmail will sanitize the
+ *  HTML before saving it with the alias.
  *  This method is only available to service account clients that have been
  *  delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_SendAs to include in the query.
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsSendAsCreate
  */
@@ -2200,8 +2222,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Deletes the specified send-as alias. Revokes any verification that may have
- *  been required for using it.
+ *  Deletes the specified send-as alias. Revokes any verification that may
+ *  have been required for using it.
  *  This method is only available to service account clients that have been
  *  delegated domain-wide authority.
  *
@@ -2218,8 +2240,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2229,13 +2251,13 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes the specified send-as alias. Revokes any verification that may have
- *  been required for using it.
+ *  Deletes the specified send-as alias. Revokes any verification that may
+ *  have been required for using it.
  *  This method is only available to service account clients that have been
  *  delegated domain-wide authority.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param sendAsEmail The send-as alias to be deleted.
  *
  *  @return GTLRGmailQuery_UsersSettingsSendAsDelete
@@ -2265,8 +2287,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2278,8 +2300,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Gets the specified send-as alias. Fails with an HTTP 404 error if the
  *  specified address is not a member of the collection.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param sendAsEmail The send-as alias to be retrieved.
  *
  *  @return GTLRGmailQuery_UsersSettingsSendAsGet
@@ -2290,9 +2312,9 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Lists the send-as aliases for the specified account. The result includes the
- *  primary send-as address associated with the account as well as any custom
- *  "from" aliases.
+ *  Lists the send-as aliases for the specified account. The result includes
+ *  the primary send-as address associated with the account as well as any
+ *  custom "from" aliases.
  *
  *  Method: gmail.users.settings.sendAs.list
  *
@@ -2307,8 +2329,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsSendAsListWithuserId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2317,12 +2339,12 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_ListSendAsResponse.
  *
- *  Lists the send-as aliases for the specified account. The result includes the
- *  primary send-as address associated with the account as well as any custom
- *  "from" aliases.
+ *  Lists the send-as aliases for the specified account. The result includes
+ *  the primary send-as address associated with the account as well as any
+ *  custom "from" aliases.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsSendAsList
  */
@@ -2331,11 +2353,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Updates a send-as alias. If a signature is provided, Gmail will sanitize the
- *  HTML before saving it with the alias.
- *  Addresses other than the primary address for the account can only be updated
- *  by service account clients that have been delegated domain-wide authority.
- *  This method supports patch semantics.
+ *  Patch the specified send-as alias.
  *
  *  Method: gmail.users.settings.sendAs.patch
  *
@@ -2351,8 +2369,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2361,15 +2379,11 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_SendAs.
  *
- *  Updates a send-as alias. If a signature is provided, Gmail will sanitize the
- *  HTML before saving it with the alias.
- *  Addresses other than the primary address for the account can only be updated
- *  by service account clients that have been delegated domain-wide authority.
- *  This method supports patch semantics.
+ *  Patch the specified send-as alias.
  *
  *  @param object The @c GTLRGmail_SendAs to include in the query.
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param sendAsEmail The send-as alias to be updated.
  *
  *  @return GTLRGmailQuery_UsersSettingsSendAsPatch
@@ -2407,8 +2421,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2420,10 +2434,11 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Deletes the specified S/MIME config for the specified send-as alias.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param sendAsEmail The email address that appears in the "From:" header for
- *    mail sent using this alias.
+ *    mail sent using
+ *    this alias.
  *  @param identifier The immutable ID for the SmimeInfo.
  *
  *  @return GTLRGmailQuery_UsersSettingsSendAsSmimeInfoDelete
@@ -2444,7 +2459,6 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
  *    @c kGTLRAuthScopeGmailSettingsBasic
- *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsSmimeInfoGet : GTLRGmailQuery
 // Previous library name was
@@ -2464,8 +2478,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2476,10 +2490,11 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets the specified S/MIME config for the specified send-as alias.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param sendAsEmail The email address that appears in the "From:" header for
- *    mail sent using this alias.
+ *    mail sent using
+ *    this alias.
  *  @param identifier The immutable ID for the SmimeInfo.
  *
  *  @return GTLRGmailQuery_UsersSettingsSendAsSmimeInfoGet
@@ -2511,8 +2526,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2525,10 +2540,11 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Note that pkcs12 format is required for the key.
  *
  *  @param object The @c GTLRGmail_SmimeInfo to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param sendAsEmail The email address that appears in the "From:" header for
- *    mail sent using this alias.
+ *    mail sent using
+ *    this alias.
  *
  *  @return GTLRGmailQuery_UsersSettingsSendAsSmimeInfoInsert
  */
@@ -2548,7 +2564,6 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  *    @c kGTLRAuthScopeGmailReadonly
  *    @c kGTLRAuthScopeGmailSettingsBasic
- *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsSmimeInfoList : GTLRGmailQuery
 // Previous library name was
@@ -2561,8 +2576,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2573,10 +2588,11 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Lists S/MIME configs for the specified send-as alias.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param sendAsEmail The email address that appears in the "From:" header for
- *    mail sent using this alias.
+ *    mail sent using
+ *    this alias.
  *
  *  @return GTLRGmailQuery_UsersSettingsSendAsSmimeInfoList
  */
@@ -2612,8 +2628,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2625,10 +2641,11 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Sets the default S/MIME config for the specified send-as alias.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param sendAsEmail The email address that appears in the "From:" header for
- *    mail sent using this alias.
+ *    mail sent using
+ *    this alias.
  *  @param identifier The immutable ID for the SmimeInfo.
  *
  *  @return GTLRGmailQuery_UsersSettingsSendAsSmimeInfoSetDefault
@@ -2640,10 +2657,11 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Updates a send-as alias. If a signature is provided, Gmail will sanitize the
- *  HTML before saving it with the alias.
- *  Addresses other than the primary address for the account can only be updated
- *  by service account clients that have been delegated domain-wide authority.
+ *  Updates a send-as alias. If a signature is provided, Gmail will sanitize
+ *  the HTML before saving it with the alias.
+ *  Addresses other than the primary address for the account can only be
+ *  updated by service account clients that have been delegated domain-wide
+ *  authority.
  *
  *  Method: gmail.users.settings.sendAs.update
  *
@@ -2659,8 +2677,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2669,14 +2687,15 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_SendAs.
  *
- *  Updates a send-as alias. If a signature is provided, Gmail will sanitize the
- *  HTML before saving it with the alias.
- *  Addresses other than the primary address for the account can only be updated
- *  by service account clients that have been delegated domain-wide authority.
+ *  Updates a send-as alias. If a signature is provided, Gmail will sanitize
+ *  the HTML before saving it with the alias.
+ *  Addresses other than the primary address for the account can only be
+ *  updated by service account clients that have been delegated domain-wide
+ *  authority.
  *
  *  @param object The @c GTLRGmail_SendAs to include in the query.
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param sendAsEmail The send-as alias to be updated.
  *
  *  @return GTLRGmailQuery_UsersSettingsSendAsUpdate
@@ -2688,8 +2707,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Sends a verification email to the specified send-as alias address. The
- *  verification status must be pending.
+ *  Sends a verification email to the specified send-as alias address.
+ *  The verification status must be <code>pending</code>.
  *  This method is only available to service account clients that have been
  *  delegated domain-wide authority.
  *
@@ -2706,8 +2725,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2717,13 +2736,13 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Sends a verification email to the specified send-as alias address. The
- *  verification status must be pending.
+ *  Sends a verification email to the specified send-as alias address.
+ *  The verification status must be <code>pending</code>.
  *  This method is only available to service account clients that have been
  *  delegated domain-wide authority.
  *
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param sendAsEmail The send-as alias to be verified.
  *
  *  @return GTLRGmailQuery_UsersSettingsSendAsVerify
@@ -2749,8 +2768,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsUpdateAutoForwardingWithObject:userId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2765,8 +2784,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_AutoForwarding to include in the query.
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsUpdateAutoForwarding
  */
@@ -2788,8 +2807,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsUpdateImapWithObject:userId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2801,8 +2820,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Updates IMAP settings.
  *
  *  @param object The @c GTLRGmail_ImapSettings to include in the query.
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsUpdateImap
  */
@@ -2813,11 +2832,11 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Updates language settings.
- *  If successful, the return object contains the displayLanguage that was saved
- *  for the user, which may differ from the value passed into the request. This
- *  is because the requested displayLanguage may not be directly supported by
- *  Gmail but have a close variant that is, and so the variant may be chosen and
- *  saved instead.
+ *  If successful, the return object contains the <code>displayLanguage</code>
+ *  that was saved for the user, which may differ from the value passed into
+ *  the request. This is because the requested <code>displayLanguage</code> may
+ *  not be directly supported by Gmail but have a close variant that is, and so
+ *  the variant may be chosen and saved instead.
  *
  *  Method: gmail.users.settings.updateLanguage
  *
@@ -2829,8 +2848,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsUpdateLanguageWithObject:userId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2840,15 +2859,15 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_LanguageSettings.
  *
  *  Updates language settings.
- *  If successful, the return object contains the displayLanguage that was saved
- *  for the user, which may differ from the value passed into the request. This
- *  is because the requested displayLanguage may not be directly supported by
- *  Gmail but have a close variant that is, and so the variant may be chosen and
- *  saved instead.
+ *  If successful, the return object contains the <code>displayLanguage</code>
+ *  that was saved for the user, which may differ from the value passed into
+ *  the request. This is because the requested <code>displayLanguage</code> may
+ *  not be directly supported by Gmail but have a close variant that is, and so
+ *  the variant may be chosen and saved instead.
  *
  *  @param object The @c GTLRGmail_LanguageSettings to include in the query.
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsUpdateLanguage
  */
@@ -2870,8 +2889,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsUpdatePopWithObject:userId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2883,8 +2902,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Updates POP settings.
  *
  *  @param object The @c GTLRGmail_PopSettings to include in the query.
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsUpdatePop
  */
@@ -2906,8 +2925,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersSettingsUpdateVacationWithObject:userId:]
 
 /**
- *  User's email address. The special value "me" can be used to indicate the
- *  authenticated user.
+ *  User's email address. The special value "me"
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2919,8 +2938,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Updates vacation responder settings.
  *
  *  @param object The @c GTLRGmail_VacationSettings to include in the query.
- *  @param userId User's email address. The special value "me" can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId User's email address. The special value "me"
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersSettingsUpdateVacation
  */
@@ -2945,8 +2964,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersStopWithuserId:]
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -2958,8 +2977,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Stop receiving push notifications for the given user mailbox.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersStop
  */
@@ -2969,7 +2988,7 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Immediately and permanently deletes the specified thread. This operation
- *  cannot be undone. Prefer threads.trash instead.
+ *  cannot be undone. Prefer <code>threads.trash</code> instead.
  *
  *  Method: gmail.users.threads.delete
  *
@@ -2988,8 +3007,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -3000,10 +3019,10 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  be nil. This query does not fetch an object.
  *
  *  Immediately and permanently deletes the specified thread. This operation
- *  cannot be undone. Prefer threads.trash instead.
+ *  cannot be undone. Prefer <code>threads.trash</code> instead.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier ID of the Thread to delete.
  *
  *  @return GTLRGmailQuery_UsersThreadsDelete
@@ -3055,8 +3074,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metadataHeaders;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -3067,8 +3086,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Gets the specified thread.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the thread to retrieve.
  *
  *  @return GTLRGmailQuery_UsersThreadsGet
@@ -3094,7 +3113,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersThreadsListWithuserId:]
 
 /**
- *  Include threads from SPAM and TRASH in the results.
+ *  Include threads from <code>SPAM</code> and <code>TRASH</code>
+ *  in the results.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -3116,16 +3136,17 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Only return threads matching the specified query. Supports the same query
- *  format as the Gmail search box. For example, "from:someuser\@example.com
- *  rfc822msgid: is:unread". Parameter cannot be used when accessing the api
+ *  Only return threads matching the specified query. Supports the same
+ *  query format as the Gmail search box. For example,
+ *  <code>"from:someuser\@example.com rfc822msgid:<somemsgid\@example.com>
+ *  is:unread"</code>. Parameter cannot be used when accessing the api
  *  using the gmail.metadata scope.
  */
 @property(nonatomic, copy, nullable) NSString *q;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -3136,8 +3157,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Lists the threads in the user's mailbox.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersThreadsList
  *
@@ -3150,8 +3171,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Modifies the labels applied to the thread. This applies to all messages in
- *  the thread.
+ *  Modifies the labels applied to the thread. This applies to all messages
+ *  in the thread.
  *
  *  Method: gmail.users.threads.modify
  *
@@ -3171,8 +3192,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -3181,12 +3202,12 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Thread.
  *
- *  Modifies the labels applied to the thread. This applies to all messages in
- *  the thread.
+ *  Modifies the labels applied to the thread. This applies to all messages
+ *  in the thread.
  *
  *  @param object The @c GTLRGmail_ModifyThreadRequest to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the thread to modify.
  *
  *  @return GTLRGmailQuery_UsersThreadsModify
@@ -3218,8 +3239,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -3230,8 +3251,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Moves the specified thread to the trash.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the thread to Trash.
  *
  *  @return GTLRGmailQuery_UsersThreadsTrash
@@ -3262,8 +3283,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -3274,8 +3295,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Removes the specified thread from the trash.
  *
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *  @param identifier The ID of the thread to remove from Trash.
  *
  *  @return GTLRGmailQuery_UsersThreadsUntrash
@@ -3301,8 +3322,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 //   +[GTLQueryGmail queryForUsersWatchWithObject:userId:]
 
 /**
- *  The user's email address. The special value me can be used to indicate the
- *  authenticated user.
+ *  The user's email address. The special value <code>me</code>
+ *  can be used to indicate the authenticated user.
  *
  *  @note If not set, the documented server-side default will be me.
  */
@@ -3314,8 +3335,8 @@ GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Set up or update a push notification watch on the given user mailbox.
  *
  *  @param object The @c GTLRGmail_WatchRequest to include in the query.
- *  @param userId The user's email address. The special value me can be used to
- *    indicate the authenticated user. (Default me)
+ *  @param userId The user's email address. The special value <code>me</code>
+ *    can be used to indicate the authenticated user. (Default me)
  *
  *  @return GTLRGmailQuery_UsersWatch
  */

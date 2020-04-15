@@ -166,43 +166,40 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySpanner queryForProjectsInstancesBackupOperationsListWithparent:]
 
 /**
- *  A filter expression that filters what operations are returned in the
- *  response.
- *  The filter expression must specify the field name of an operation, a
- *  comparison operator, and the value that you want to use for filtering.
+ *  An expression that filters the list of returned backup operations.
+ *  A filter expression consists of a field name, a
+ *  comparison operator, and a value for filtering.
  *  The value must be a string, a number, or a boolean. The comparison operator
- *  must be
- *  <, >, <=, >=, !=, =, or :. Colon ‘:’ represents a HAS operator which is
- *  roughly synonymous with equality. Filter rules are case insensitive.
- *  The long-running operation fields eligible for filtering are:
- *  * `name` --> The name of the long-running operation
- *  * `done` --> False if the operation is in progress, else true.
- *  * `metadata.type_url` (using filter string `metadata.\@type`) and fields
- *  in `metadata.value` (using filter string `metadata.<field_name>`,
- *  where <field_name> is a field in metadata.value) are eligible for
- *  filtering.
- *  * `error` --> Error associated with the long-running operation.
- *  * `response.type_url` (using filter string `response.\@type`) and fields
- *  in `response.value` (using filter string `response.<field_name>`,
- *  where <field_name> is a field in response.value) are eligible for
- *  filtering.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. By default, each expression is an AND expression. However,
- *  you can include AND, OR, and NOT expressions explicitly.
- *  Some examples of using filters are:
- *  * `done:true` --> The operation is complete.
- *  * `metadata.database:prod`
- *  --> The database the backup was taken from has a name containing
- *  the string "prod".
+ *  must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`.
+ *  Colon `:` is the contains operator. Filter rules are not case sensitive.
+ *  The following fields in the operation
+ *  are eligible for filtering:
+ *  * `name` - The name of the long-running operation
+ *  * `done` - False if the operation is in progress, else true.
+ *  * `metadata.\@type` - the type of metadata. For example, the type string
+ *  for CreateBackupMetadata is
+ *  `type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata`.
+ *  * `metadata.<field_name>` - any field in metadata.value.
+ *  * `error` - Error associated with the long-running operation.
+ *  * `response.\@type` - the type of response.
+ *  * `response.<field_name>` - any field in response.value.
+ *  You can combine multiple expressions by enclosing each expression in
+ *  parentheses. By default, expressions are combined with AND logic, but
+ *  you can specify AND, OR, and NOT logic explicitly.
+ *  Here are a few examples:
+ *  * `done:true` - The operation is complete.
+ *  * `metadata.database:prod` - The database the backup was taken from has
+ *  a name containing the string "prod".
  *  *
- *  `(metadata.\@type:type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata)
- *  AND (metadata.name:howl)
- *  AND (metadata.progress.start_time < \\"2018-03-28T14:50:00Z\\")
- *  AND (error:*)`
- *  --> Return CreateBackup operations where the created backup name
- *  contains the string "howl", the progress.start_time of the
- *  backup operation is before 2018-03-28T14:50:00Z, and the
- *  operation returned an error.
+ *  `(metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata)
+ *  AND` <br/>
+ *  `(metadata.name:howl) AND` <br/>
+ *  `(metadata.progress.start_time < \\"2018-03-28T14:50:00Z\\") AND` <br/>
+ *  `(error:*)` - Returns operations where:
+ *  * The operation's metadata type is CreateBackupMetadata.
+ *  * The backup name contains the string "howl".
+ *  * The operation started before 2018-03-28T14:50:00Z.
+ *  * The operation resulted in an error.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -463,34 +460,34 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySpanner queryForProjectsInstancesBackupsListWithparent:]
 
 /**
- *  A filter expression that filters backups listed in the response.
- *  The expression must specify the field name, a comparison operator,
- *  and the value that you want to use for filtering. The value must be a
- *  string, a number, or a boolean. The comparison operator must be
- *  <, >, <=, >=, !=, =, or :. Colon ‘:’ represents a HAS operator which is
- *  roughly synonymous with equality. Filter rules are case insensitive.
- *  The fields eligible for filtering are:
+ *  An expression that filters the list of returned backups.
+ *  A filter expression consists of a field name, a comparison operator, and a
+ *  value for filtering.
+ *  The value must be a string, a number, or a boolean. The comparison operator
+ *  must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`.
+ *  Colon `:` is the contains operator. Filter rules are not case sensitive.
+ *  The following fields in the Backup are eligible for filtering:
  *  * `name`
  *  * `database`
  *  * `state`
  *  * `create_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
  *  * `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
  *  * `size_bytes`
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. By default, each expression is an AND expression. However,
- *  you can include AND, OR, and NOT expressions explicitly.
- *  Some examples of using filters are:
- *  * `name:Howl` --> The backup's name contains the string "howl".
+ *  You can combine multiple expressions by enclosing each expression in
+ *  parentheses. By default, expressions are combined with AND logic, but
+ *  you can specify AND, OR, and NOT logic explicitly.
+ *  Here are a few examples:
+ *  * `name:Howl` - The backup's name contains the string "howl".
  *  * `database:prod`
- *  --> The database's name contains the string "prod".
- *  * `state:CREATING` --> The backup is pending creation.
- *  * `state:READY` --> The backup is fully created and ready for use.
+ *  - The database's name contains the string "prod".
+ *  * `state:CREATING` - The backup is pending creation.
+ *  * `state:READY` - The backup is fully created and ready for use.
  *  * `(name:howl) AND (create_time < \\"2018-03-28T14:50:00Z\\")`
- *  --> The backup name contains the string "howl" and `create_time`
+ *  - The backup name contains the string "howl" and `create_time`
  *  of the backup is before 2018-03-28T14:50:00Z.
  *  * `expire_time < \\"2018-03-28T14:50:00Z\\"`
- *  --> The backup `expire_time` is before 2018-03-28T14:50:00Z.
- *  * `size_bytes > 10000000000` --> The backup's size is greater than 10GB
+ *  - The backup `expire_time` is before 2018-03-28T14:50:00Z.
+ *  * `size_bytes > 10000000000` - The backup's size is greater than 10GB
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -721,7 +718,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySpanner queryForProjectsInstancesBackupsPatchWithObject:name:]
 
 /**
- *  Output only for the CreateBackup][DatabaseAdmin.CreateBackup] operation.
+ *  Output only for the CreateBackup operation.
  *  Required for the UpdateBackup operation.
  *  A globally unique identifier for the backup which cannot be
  *  changed. Values are of the form
@@ -752,8 +749,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a pending or completed Backup.
  *
  *  @param object The @c GTLRSpanner_Backup to include in the query.
- *  @param name Output only for the CreateBackup][DatabaseAdmin.CreateBackup]
- *    operation.
+ *  @param name Output only for the CreateBackup operation.
  *    Required for the UpdateBackup operation.
  *    A globally unique identifier for the backup which cannot be
  *    changed. Values are of the form
@@ -988,42 +984,42 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySpanner queryForProjectsInstancesDatabaseOperationsListWithparent:]
 
 /**
- *  A filter expression that filters what operations are returned in the
- *  response.
- *  The filter expression must specify the field name, a comparison operator,
- *  and the value that you want to use for filtering. The value must be a
- *  string, a number, or a boolean. The comparison operator must be
- *  <, >, <=, >=, !=, =, or :. Colon ‘:’ represents a HAS operator which is
- *  roughly synonymous with equality. Filter rules are case insensitive.
- *  The long-running operation fields eligible for filtering are:
- *  * `name` --> The name of the long-running operation
- *  * `done` --> False if the operation is in progress, else true.
- *  * `metadata.type_url` (using filter string `metadata.\@type`) and fields
- *  in `metadata.value` (using filter string `metadata.<field_name>`,
- *  where <field_name> is a field in metadata.value) are eligible for
- *  filtering.
- *  * `error` --> Error associated with the long-running operation.
- *  * `response.type_url` (using filter string `response.\@type`) and fields
- *  in `response.value` (using filter string `response.<field_name>`,
- *  where <field_name> is a field in response.value) are eligible for
- *  filtering.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. By default, each expression is an AND expression. However,
- *  you can include AND, OR, and NOT expressions explicitly.
- *  Some examples of using filters are:
- *  * `done:true` --> The operation is complete.
+ *  An expression that filters the list of returned operations.
+ *  A filter expression consists of a field name, a
+ *  comparison operator, and a value for filtering.
+ *  The value must be a string, a number, or a boolean. The comparison operator
+ *  must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`.
+ *  Colon `:` is the contains operator. Filter rules are not case sensitive.
+ *  The following fields in the Operation
+ *  are eligible for filtering:
+ *  * `name` - The name of the long-running operation
+ *  * `done` - False if the operation is in progress, else true.
+ *  * `metadata.\@type` - the type of metadata. For example, the type string
+ *  for RestoreDatabaseMetadata is
+ *  `type.googleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata`.
+ *  * `metadata.<field_name>` - any field in metadata.value.
+ *  * `error` - Error associated with the long-running operation.
+ *  * `response.\@type` - the type of response.
+ *  * `response.<field_name>` - any field in response.value.
+ *  You can combine multiple expressions by enclosing each expression in
+ *  parentheses. By default, expressions are combined with AND logic. However,
+ *  you can specify AND, OR, and NOT logic explicitly.
+ *  Here are a few examples:
+ *  * `done:true` - The operation is complete.
  *  *
- *  `(metadata.\@type:type.googleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata)
- *  AND (metadata.source_type:BACKUP)
- *  AND (metadata.backup_info.backup:backup_howl)
- *  AND (metadata.name:restored_howl)
- *  AND (metadata.progress.start_time < \\"2018-03-28T14:50:00Z\\")
- *  AND (error:*)`
- *  --> Return RestoreDatabase operations from backups whose name
- *  contains "backup_howl", where the created database name
- *  contains the string "restored_howl", the start_time of the
- *  restore operation is before 2018-03-28T14:50:00Z,
- *  and the operation returned an error.
+ *  `(metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata)
+ *  AND` <br/>
+ *  `(metadata.source_type:BACKUP) AND` <br/>
+ *  `(metadata.backup_info.backup:backup_howl) AND` <br/>
+ *  `(metadata.name:restored_howl) AND` <br/>
+ *  `(metadata.progress.start_time < \\"2018-03-28T14:50:00Z\\") AND` <br/>
+ *  `(error:*)` - Return operations where:
+ *  * The operation's metadata type is RestoreDatabaseMetadata.
+ *  * The database is restored from a backup.
+ *  * The backup name contains "backup_howl".
+ *  * The restored database's name contains "restored_howl".
+ *  * The operation started before 2018-03-28T14:50:00Z.
+ *  * The operation resulted in an error.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1532,7 +1528,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  restored database. This instance must be in the same project and
  *  have the same instance configuration as the instance containing
  *  the source backup. Values are of the form
- *  `projects/<project>/instances/<instance>.
+ *  `projects/<project>/instances/<instance>`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1563,7 +1559,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    restored database. This instance must be in the same project and
  *    have the same instance configuration as the instance containing
  *    the source backup. Values are of the form
- *    `projects/<project>/instances/<instance>.
+ *    `projects/<project>/instances/<instance>`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesRestore
  */

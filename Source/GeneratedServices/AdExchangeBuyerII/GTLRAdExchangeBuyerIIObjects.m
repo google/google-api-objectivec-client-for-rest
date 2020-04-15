@@ -342,6 +342,13 @@ NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_App = @"APP";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_EnvironmentUnspecified = @"ENVIRONMENT_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_Web = @"WEB";
 
+// GTLRAdExchangeBuyerII_FilterSet.format
+NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
+NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeDisplay = @"NATIVE_DISPLAY";
+NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeVideo = @"NATIVE_VIDEO";
+NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeDisplay = @"NON_NATIVE_DISPLAY";
+NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeVideo = @"NON_NATIVE_VIDEO";
+
 // GTLRAdExchangeBuyerII_FilterSet.formats
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_FormatUnspecified = @"FORMAT_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NativeDisplay = @"NATIVE_DISPLAY";
@@ -984,7 +991,7 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 
 @implementation GTLRAdExchangeBuyerII_FilterSet
 @dynamic absoluteDateRange, breakdownDimensions, creativeId, dealId,
-         environment, formats, name, platforms, publisherIdentifiers,
+         environment, format, formats, name, platforms, publisherIdentifiers,
          realtimeTimeRange, relativeDateRange, sellerNetworkIds,
          timeSeriesGranularity;
 

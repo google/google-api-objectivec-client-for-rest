@@ -4,7 +4,7 @@
 // API:
 //   Secret Manager API (secretmanager/v1)
 // Description:
-//   Stores API keys, passwords, certificates, and other sensitive data.
+//   Stores sensitive data such as API keys, passwords, and certificates.
 //   Provides convenience while improving security.
 // Documentation:
 //   https://cloud.google.com/secret-manager/

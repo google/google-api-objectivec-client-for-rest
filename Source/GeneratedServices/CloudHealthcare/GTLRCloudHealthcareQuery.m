@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Healthcare API (healthcare/v1beta1)
+//   Cloud Healthcare API (healthcare/v1)
 // Description:
 //   Manage, store, and access healthcare data in Google Cloud Platform.
 // Documentation:
@@ -32,79 +32,6 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @end
 
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
-  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCloudHealthcare_Policy class];
-  query.loggingName = @"healthcare.projects.locations.datasets.annotationStores.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
-  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCloudHealthcare_Policy class];
-  query.loggingName = @"healthcare.projects.locations.datasets.annotationStores.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
-  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsAnnotationStoresTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCloudHealthcare_TestIamPermissionsResponse class];
-  query.loggingName = @"healthcare.projects.locations.datasets.annotationStores.testIamPermissions";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsCreate
 
 @dynamic datasetId, parent;
@@ -116,7 +43,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/datasets";
+  NSString *pathURITemplate = @"v1/{+parent}/datasets";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -141,7 +68,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"sourceDataset" ];
-  NSString *pathURITemplate = @"v1beta1/{+sourceDataset}:deidentify";
+  NSString *pathURITemplate = @"v1/{+sourceDataset}:deidentify";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDeidentify *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -161,7 +88,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -185,7 +112,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomStores";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomStores";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -210,7 +137,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"sourceStore" ];
-  NSString *pathURITemplate = @"v1beta1/{+sourceStore}:deidentify";
+  NSString *pathURITemplate = @"v1/{+sourceStore}:deidentify";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDeidentify *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -230,7 +157,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -254,7 +181,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:export";
+  NSString *pathURITemplate = @"v1/{+name}:export";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresExport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -274,7 +201,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -297,7 +224,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -321,7 +248,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:import";
+  NSString *pathURITemplate = @"v1/{+name}:import";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresImport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -341,7 +268,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomStores";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomStores";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -365,7 +292,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -388,7 +315,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -411,7 +338,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForSeries *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -434,7 +361,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForStudies *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -459,7 +386,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -487,7 +414,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStoreInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -511,14 +438,14 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.parent = parent;
   query.dicomWebPath = dicomWebPath;
-  query.expectedObjectClass = [GTLRCloudHealthcare_Empty class];
+  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
   query.loggingName = @"healthcare.projects.locations.datasets.dicomStores.studies.delete";
   return query;
 }
@@ -534,7 +461,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesRetrieveMetadata *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -557,7 +484,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesRetrieveStudy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -580,7 +507,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSearchForInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -603,7 +530,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSearchForSeries *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -626,14 +553,14 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.parent = parent;
   query.dicomWebPath = dicomWebPath;
-  query.expectedObjectClass = [GTLRCloudHealthcare_Empty class];
+  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
   query.loggingName = @"healthcare.projects.locations.datasets.dicomStores.studies.series.delete";
   return query;
 }
@@ -649,7 +576,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -672,7 +599,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveFrames *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -695,7 +622,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveRendered *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -718,7 +645,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveInstance *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -741,7 +668,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveMetadata *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -764,7 +691,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveRendered *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -787,7 +714,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesRetrieveMetadata *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -810,7 +737,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesRetrieveSeries *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -833,7 +760,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesSearchForInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -861,7 +788,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"dicomWebPath", @"parent"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/dicomWeb/{+dicomWebPath}";
+  NSString *pathURITemplate = @"v1/{+parent}/dicomWeb/{+dicomWebPath}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesStoreInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -887,7 +814,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -912,7 +839,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/fhirStores";
+  NSString *pathURITemplate = @"v1/{+parent}/fhirStores";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -937,7 +864,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"sourceStore" ];
-  NSString *pathURITemplate = @"v1beta1/{+sourceStore}:deidentify";
+  NSString *pathURITemplate = @"v1/{+sourceStore}:deidentify";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDeidentify *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -957,7 +884,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -981,7 +908,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:export";
+  NSString *pathURITemplate = @"v1/{+name}:export";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1001,7 +928,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/fhir/metadata";
+  NSString *pathURITemplate = @"v1/{+name}/fhir/metadata";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCapabilities *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1009,87 +936,6 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   query.name = name;
   query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
   query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.capabilities";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete
-
-@dynamic parent, type;
-
-+ (instancetype)queryWithParent:(NSString *)parent
-                           type:(NSString *)type {
-  NSArray *pathParams = @[
-    @"parent", @"type"
-  ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/fhir/{+type}";
-  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.type = type;
-  query.expectedObjectClass = [GTLRCloudHealthcare_Empty class];
-  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.conditionalDelete";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch
-
-@dynamic parent, type;
-
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
-                         parent:(NSString *)parent
-                           type:(NSString *)type {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[
-    @"parent", @"type"
-  ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/fhir/{+type}";
-  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.type = type;
-  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
-  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.conditionalPatch";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate
-
-@dynamic parent, type;
-
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
-                         parent:(NSString *)parent
-                           type:(NSString *)type {
-  if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
-    return nil;
-  }
-  NSArray *pathParams = @[
-    @"parent", @"type"
-  ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/fhir/{+type}";
-  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.type = type;
-  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
-  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.conditionalUpdate";
   return query;
 }
 
@@ -1109,7 +955,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   NSArray *pathParams = @[
     @"parent", @"type"
   ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/fhir/{+type}";
+  NSString *pathURITemplate = @"v1/{+parent}/fhir/{+type}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1130,7 +976,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1154,7 +1000,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/fhir";
+  NSString *pathURITemplate = @"v1/{+parent}/fhir";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirExecuteBundle *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1184,7 +1030,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/_history";
+  NSString *pathURITemplate = @"v1/{+name}/_history";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirHistory *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1192,25 +1038,6 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   query.name = name;
   query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
   query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.history";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirObservationLastn
-
-@dynamic parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/fhir/Observation/$lastn";
-  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirObservationLastn *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
-  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.Observation-lastn";
   return query;
 }
 
@@ -1227,7 +1054,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1255,7 +1082,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/$everything";
+  NSString *pathURITemplate = @"v1/{+name}/$everything";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientEverything *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1274,7 +1101,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirRead *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1293,7 +1120,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/$purge";
+  NSString *pathURITemplate = @"v1/{+name}/$purge";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirResourcePurge *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1317,7 +1144,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/fhir/_search";
+  NSString *pathURITemplate = @"v1/{+parent}/fhir/_search";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1342,7 +1169,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1362,7 +1189,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirVread *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1381,7 +1208,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1404,7 +1231,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1428,7 +1255,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:import";
+  NSString *pathURITemplate = @"v1/{+name}:import";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresImport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1448,7 +1275,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/fhirStores";
+  NSString *pathURITemplate = @"v1/{+parent}/fhirStores";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1472,7 +1299,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1492,7 +1319,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/fhir";
+  NSString *pathURITemplate = @"v1/{+parent}/fhir";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSearch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1516,7 +1343,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1541,7 +1368,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1561,7 +1388,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1584,7 +1411,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1608,7 +1435,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/hl7V2Stores";
+  NSString *pathURITemplate = @"v1/{+parent}/hl7V2Stores";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1628,7 +1455,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1647,7 +1474,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1670,7 +1497,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1689,7 +1516,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/hl7V2Stores";
+  NSString *pathURITemplate = @"v1/{+parent}/hl7V2Stores";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1713,7 +1540,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/messages";
+  NSString *pathURITemplate = @"v1/{+parent}/messages";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1733,7 +1560,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1752,7 +1579,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1776,7 +1603,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/messages:ingest";
+  NSString *pathURITemplate = @"v1/{+parent}/messages:ingest";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesIngest *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1796,7 +1623,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/messages";
+  NSString *pathURITemplate = @"v1/{+parent}/messages";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1820,7 +1647,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1845,7 +1672,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1870,7 +1697,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1895,7 +1722,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1915,7 +1742,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/datasets";
+  NSString *pathURITemplate = @"v1/{+parent}/datasets";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1939,7 +1766,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1959,7 +1786,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1978,7 +1805,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2002,7 +1829,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2027,7 +1854,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2052,7 +1879,7 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2061,44 +1888,6 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudHealthcare_TestIamPermissionsResponse class];
   query.loggingName = @"healthcare.projects.locations.datasets.testIamPermissions";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCloudHealthcareQuery_ProjectsLocationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudHealthcare_Location class];
-  query.loggingName = @"healthcare.projects.locations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/locations";
-  GTLRCloudHealthcareQuery_ProjectsLocationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudHealthcare_ListLocationsResponse class];
-  query.loggingName = @"healthcare.projects.locations.list";
   return query;
 }
 

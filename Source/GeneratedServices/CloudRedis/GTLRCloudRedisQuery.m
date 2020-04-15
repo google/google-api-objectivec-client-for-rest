@@ -219,6 +219,31 @@
 
 @end
 
+@implementation GTLRCloudRedisQuery_ProjectsLocationsInstancesUpgrade
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudRedis_UpgradeInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:upgrade";
+  GTLRCloudRedisQuery_ProjectsLocationsInstancesUpgrade *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.instances.upgrade";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRedisQuery_ProjectsLocationsList
 
 @dynamic filter, name, pageSize, pageToken;

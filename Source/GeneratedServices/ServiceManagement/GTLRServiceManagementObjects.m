@@ -95,6 +95,8 @@ NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_Deprecated 
 NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRServiceManagement_MetricDescriptor.metricKind
 NSString * const kGTLRServiceManagement_MetricDescriptor_MetricKind_Cumulative = @"CUMULATIVE";
@@ -118,6 +120,8 @@ NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Dep
 NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRServiceManagement_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
@@ -126,6 +130,8 @@ NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_
 NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Ga = @"GA";
 NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRServiceManagement_Rollout.status
 NSString * const kGTLRServiceManagement_Rollout_Status_Cancelled = @"CANCELLED";
@@ -313,7 +319,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_BackendRule
 @dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, selector;
+         operationDeadline, pathTranslation, protocol, renameTo, selector;
 @end
 
 

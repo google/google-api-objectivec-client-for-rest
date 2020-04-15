@@ -2212,6 +2212,14 @@ GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *destinationBucket;
 
 /**
+ *  Resource name of the Cloud KMS key, of the form
+ *  projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that
+ *  will be used to encrypt the object. Overrides the object metadata's
+ *  kms_key_name value, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationKmsKeyName;
+
+/**
  *  Name of the new object. Required when the object metadata is not otherwise
  *  provided. Overrides the object metadata's name value, if any.
  */

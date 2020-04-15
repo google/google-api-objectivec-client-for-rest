@@ -4,7 +4,7 @@
 // API:
 //   Secret Manager API (secretmanager/v1)
 // Description:
-//   Stores API keys, passwords, certificates, and other sensitive data.
+//   Stores sensitive data such as API keys, passwords, and certificates.
 //   Provides convenience while improving security.
 // Documentation:
 //   https://cloud.google.com/secret-manager/
@@ -169,7 +169,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Required. This must be unique within the project. */
+/**
+ *  Required. This must be unique within the project.
+ *  A secret ID is a string with a maximum length of 255 characters and can
+ *  contain uppercase and lowercase letters, numerals, and the hyphen (`-`) and
+ *  underscore (`_`) characters.
+ */
 @property(nonatomic, copy, nullable) NSString *secretId;
 
 /**

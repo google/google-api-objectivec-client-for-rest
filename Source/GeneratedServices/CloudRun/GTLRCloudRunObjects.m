@@ -348,16 +348,6 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_Handler
-//
-
-@implementation GTLRCloudRun_Handler
-@dynamic exec, httpGet, tcpSocket;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRun_HTTPGetAction
 //
 
@@ -774,8 +764,8 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 //
 
 @implementation GTLRCloudRun_Probe
-@dynamic failureThreshold, handler, initialDelaySeconds, periodSeconds,
-         successThreshold, timeoutSeconds;
+@dynamic exec, failureThreshold, httpGet, initialDelaySeconds, periodSeconds,
+         successThreshold, tcpSocket, timeoutSeconds;
 @end
 
 

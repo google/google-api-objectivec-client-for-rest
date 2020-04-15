@@ -15,6 +15,7 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopeYouTube                         = @"https://www.googleapis.com/auth/youtube";
+NSString * const kGTLRAuthScopeYouTubeChannelMembershipsCreator = @"https://www.googleapis.com/auth/youtube.channel-memberships.creator";
 NSString * const kGTLRAuthScopeYouTubeForceSsl                 = @"https://www.googleapis.com/auth/youtube.force-ssl";
 NSString * const kGTLRAuthScopeYouTubeReadonly                 = @"https://www.googleapis.com/auth/youtube.readonly";
 NSString * const kGTLRAuthScopeYouTubeUpload                   = @"https://www.googleapis.com/auth/youtube.upload";

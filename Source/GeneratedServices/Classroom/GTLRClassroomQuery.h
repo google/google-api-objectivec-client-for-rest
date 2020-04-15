@@ -667,7 +667,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  fields are specified. If a field supports empty values, it can be cleared
  *  by specifying it in the update mask and not in the Announcement object. If
  *  a field that does not support empty values is included in the update mask
- *  and not set in the Announcement object, an `INVALID_ARGUMENT` error will be
+ *  and not set in the Announcement object, an `INVALID_ARGUMENT` error is
  *  returned.
  *  The following fields may be specified by teachers:
  *  * `text`
@@ -1091,7 +1091,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  fields are specified. If a field supports empty values, it can be cleared
  *  by specifying it in the update mask and not in the CourseWork object. If a
  *  field that does not support empty values is included in the update mask and
- *  not set in the CourseWork object, an `INVALID_ARGUMENT` error will be
+ *  not set in the CourseWork object, an `INVALID_ARGUMENT` error is
  *  returned.
  *  The following fields may be specified by teachers:
  *  * `title`
@@ -2813,7 +2813,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  fields are specified. If a field supports empty values, it can be cleared
  *  by specifying it in the update mask and not in the Topic object. If a
  *  field that does not support empty values is included in the update mask and
- *  not set in the Topic object, an `INVALID_ARGUMENT` error will be
+ *  not set in the Topic object, an `INVALID_ARGUMENT` error is
  *  returned.
  *  The following fields may be specified:
  *  * `name`
@@ -3466,7 +3466,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  If specified, only results with the specified `invited_email_address`
- *  will be returned.
+ *  are returned.
  */
 @property(nonatomic, copy, nullable) NSString *invitedEmailAddress;
 
@@ -3480,16 +3480,16 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 /**
  *  nextPageToken
  *  value returned from a previous
- *  list call,
- *  indicating that the subsequent page of results should be returned.
- *  The list request
- *  must be otherwise identical to the one that resulted in this token.
+ *  list
+ *  call, indicating that the subsequent page of results should be returned.
+ *  The list
+ *  request must be otherwise identical to the one that resulted in this token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  If specified, only results with the specified `state` values will be
- *  returned. Otherwise, results with a `state` of `PENDING` will be returned.
+ *  If specified, only results with the specified `state` values are
+ *  returned. Otherwise, results with a `state` of `PENDING` are returned.
  *
  *  Likely values:
  *    @arg @c kGTLRClassroomStatesGuardianInvitationStateUnspecified Value
@@ -3583,7 +3583,7 @@ GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Mask that identifies which fields on the course to update.
- *  This field is required to do an update. The update will fail if invalid
+ *  This field is required to do an update. The update fails if invalid
  *  fields are specified. The following fields are valid:
  *  * `state`
  *  When set in a query parameter, this field should be specified as

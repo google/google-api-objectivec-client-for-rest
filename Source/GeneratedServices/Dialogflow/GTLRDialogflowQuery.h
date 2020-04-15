@@ -164,12 +164,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 //   +[GTLQueryDialogflow queryForProjectsAgentEntityTypesCreateWithObject:parent:]
 
 /**
- *  Optional. The language of entity synonyms defined in `entity_type`. If not
- *  specified, the agent's default language is used.
- *  [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -367,12 +366,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 //   +[GTLQueryDialogflow queryForProjectsAgentEntityTypesGetWithname:]
 
 /**
- *  Optional. The language to retrieve entity synonyms for. If not specified,
- *  the agent's default language is used.
- *  [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -410,12 +408,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 //   +[GTLQueryDialogflow queryForProjectsAgentEntityTypesListWithparent:]
 
 /**
- *  Optional. The language to list entity synonyms for. If not specified,
- *  the agent's default language is used.
- *  [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -468,12 +465,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 //   +[GTLQueryDialogflow queryForProjectsAgentEntityTypesPatchWithObject:name:]
 
 /**
- *  Optional. The language of entity synonyms defined in `entity_type`. If not
- *  specified, the agent's default language is used.
- *  [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1446,12 +1442,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *intentView;
 
 /**
- *  Optional. The language of training phrases, parameters and rich messages
- *  defined in `intent`. If not specified, the agent's default language is
- *  used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1538,12 +1533,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *intentView;
 
 /**
- *  Optional. The language to retrieve training phrases, parameters and rich
- *  messages for. If not specified, the agent's default language is used.
- *  [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1591,12 +1585,11 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *intentView;
 
 /**
- *  Optional. The language to list training phrases, parameters and rich
- *  messages for. If not specified, the agent's default language is used.
- *  [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1659,17 +1652,16 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *intentView;
 
 /**
- *  Optional. The language of training phrases, parameters and rich messages
- *  defined in `intent`. If not specified, the agent's default language is
- *  used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language)
- *  are supported. Note: languages must be enabled in the agent before they can
- *  be used.
+ *  Optional. The language used to access language-specific data.
+ *  If not specified, the agent's default language is used.
+ *  For more information, see
+ *  [Multilingual intent and entity
+ *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  The unique identifier of this intent.
+ *  Optional. The unique identifier of this intent.
  *  Required for Intents.UpdateIntent and Intents.BatchUpdateIntents
  *  methods.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
@@ -1690,7 +1682,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowV2Intent to include
  *    in the query.
- *  @param name The unique identifier of this intent.
+ *  @param name Optional. The unique identifier of this intent.
  *    Required for Intents.UpdateIntent and Intents.BatchUpdateIntents
  *    methods.
  *    Format: `projects/<Project ID>/agent/intents/<Intent ID>`.

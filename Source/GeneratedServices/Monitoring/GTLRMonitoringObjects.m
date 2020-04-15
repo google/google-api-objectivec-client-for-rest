@@ -119,6 +119,8 @@ NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Deprecated = @"DEP
 NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Ga = @"GA";
 NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRMonitoring_MetricDescriptor.metricKind
 NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_Cumulative = @"CUMULATIVE";
@@ -142,6 +144,8 @@ NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Deprecated
 NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Ga = @"GA";
 NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRMonitoring_MetricThreshold.comparison
 NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonEq = @"COMPARISON_EQ";
@@ -159,6 +163,8 @@ NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Depreca
 NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Ga = @"GA";
 NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRMonitoring_NotificationChannel.verificationStatus
 NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_Unverified = @"UNVERIFIED";
@@ -172,6 +178,8 @@ NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Depre
 NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
 NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Ga = @"GA";
 NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
 // GTLRMonitoring_ResourceGroup.resourceType
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer = @"AWS_ELB_LOAD_BALANCER";

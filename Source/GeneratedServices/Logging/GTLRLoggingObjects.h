@@ -321,6 +321,18 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Ga;
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_MetricDescriptor.metricKind
@@ -460,6 +472,18 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_G
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_MonitoredResourceDescriptor.launchStage
@@ -520,6 +544,18 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
 
 /**
  *  Options that change functionality of a sink exporting data to BigQuery.
@@ -1899,6 +1935,12 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *        production use. (Value: "GA")
  *    @arg @c kGTLRLogging_MetricDescriptor_LaunchStage_LaunchStageUnspecified
  *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRLogging_MetricDescriptor_LaunchStage_Prelaunch Prelaunch
+ *        features are hidden from users and are only visible internally.
+ *        (Value: "PRELAUNCH")
+ *    @arg @c kGTLRLogging_MetricDescriptor_LaunchStage_Unimplemented The
+ *        feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
  */
 @property(nonatomic, copy, nullable) NSString *launchStage;
 
@@ -2101,6 +2143,12 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *        qualified for production use. (Value: "GA")
  *    @arg @c kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified
  *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
  */
 @property(nonatomic, copy, nullable) NSString *launchStage;
 
@@ -2234,6 +2282,12 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *        fully qualified for production use. (Value: "GA")
  *    @arg @c kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified
  *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
  */
 @property(nonatomic, copy, nullable) NSString *launchStage;
 

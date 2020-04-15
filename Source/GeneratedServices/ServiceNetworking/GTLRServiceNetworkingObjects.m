@@ -129,6 +129,15 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_AddRolesMetadata
+//
+
+@implementation GTLRServiceNetworking_AddRolesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_AddRolesRequest
 //
 

@@ -22,6 +22,7 @@
 @class GTLRCloudRedis_FailoverInstanceRequest;
 @class GTLRCloudRedis_ImportInstanceRequest;
 @class GTLRCloudRedis_Instance;
+@class GTLRCloudRedis_UpgradeInstanceRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -459,6 +460,45 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudRedis_Instance *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Upgrades Redis instance to the newer Redis version specified in the
+ *  request.
+ *
+ *  Method: redis.projects.locations.instances.upgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsInstancesUpgrade : GTLRCloudRedisQuery
+// Previous library name was
+//   +[GTLQueryCloudRedis queryForProjectsLocationsInstancesUpgradeWithObject:name:]
+
+/**
+ *  Required. Redis instance resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ *  where `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Upgrades Redis instance to the newer Redis version specified in the
+ *  request.
+ *
+ *  @param object The @c GTLRCloudRedis_UpgradeInstanceRequest to include in the
+ *    query.
+ *  @param name Required. Redis instance resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRCloudRedis_UpgradeInstanceRequest *)object
                            name:(NSString *)name;
 
 @end

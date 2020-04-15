@@ -232,19 +232,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -261,10 +261,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -274,17 +274,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -366,28 +366,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -397,17 +397,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -458,19 +458,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -487,10 +487,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -500,17 +500,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -693,28 +693,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -724,17 +724,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -781,19 +781,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -810,10 +810,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -823,17 +823,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1030,28 +1030,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -1061,17 +1061,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1488,28 +1488,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -1519,17 +1519,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1735,19 +1735,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1764,10 +1764,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -1777,17 +1777,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2062,28 +2062,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -2093,17 +2093,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2377,19 +2377,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2406,10 +2406,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -2419,17 +2419,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2753,28 +2753,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -2784,17 +2784,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -3123,19 +3123,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3152,10 +3152,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -3165,17 +3165,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -3259,28 +3259,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -3290,17 +3290,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -3483,28 +3483,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -3514,17 +3514,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -3773,28 +3773,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -3804,17 +3804,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -3964,19 +3964,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3993,10 +3993,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -4006,17 +4006,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -4200,28 +4200,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -4231,17 +4231,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -4538,28 +4538,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -4569,17 +4569,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -4754,28 +4754,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -4785,17 +4785,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -5198,28 +5198,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -5229,17 +5229,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -5282,28 +5282,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -5319,17 +5319,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -5375,19 +5375,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5404,10 +5404,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -5417,17 +5417,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -5484,7 +5484,7 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  Retrieves the specified Operations resource. Gets a list of operations by
- *  making a list() request.
+ *  making a `list()` request.
  *
  *  Method: compute.globalOperations.get
  *
@@ -5507,7 +5507,7 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Retrieves the specified Operations resource. Gets a list of operations by
- *  making a list() request.
+ *  making a `list()` request.
  *
  *  @param project Project ID for this request.
  *  @param operation Name of the Operations resource to return.
@@ -5538,28 +5538,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -5569,17 +5569,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -5605,17 +5605,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 @end
 
 /**
- *  Waits for the specified Operation resource to return as DONE or for the
+ *  Waits for the specified Operation resource to return as `DONE` or for the
  *  request to approach the 2 minute deadline, and retrieves the specified
- *  Operation resource. This method differs from the GET method in that it waits
- *  for no more than the default deadline (2 minutes) and then returns the
- *  current state of the operation, which might be DONE or still in progress.
+ *  Operation resource. This method differs from the `GET` method in that it
+ *  waits for no more than the default deadline (2 minutes) and then returns the
+ *  current state of the operation, which might be `DONE` or still in progress.
  *  This method is called on a best-effort basis. Specifically:
  *  - In uncommon cases, when the server is overloaded, the request might return
  *  before the default deadline is reached, or might return after zero seconds.
  *  - If the default deadline is reached, there is no guarantee that the
  *  operation is actually done when the method returns. Be prepared to retry if
- *  the operation is not DONE.
+ *  the operation is not `DONE`.
  *
  *  Method: compute.globalOperations.wait
  *
@@ -5637,17 +5637,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Waits for the specified Operation resource to return as DONE or for the
+ *  Waits for the specified Operation resource to return as `DONE` or for the
  *  request to approach the 2 minute deadline, and retrieves the specified
- *  Operation resource. This method differs from the GET method in that it waits
- *  for no more than the default deadline (2 minutes) and then returns the
- *  current state of the operation, which might be DONE or still in progress.
+ *  Operation resource. This method differs from the `GET` method in that it
+ *  waits for no more than the default deadline (2 minutes) and then returns the
+ *  current state of the operation, which might be `DONE` or still in progress.
  *  This method is called on a best-effort basis. Specifically:
  *  - In uncommon cases, when the server is overloaded, the request might return
  *  before the default deadline is reached, or might return after zero seconds.
  *  - If the default deadline is reached, there is no guarantee that the
  *  operation is actually done when the method returns. Be prepared to retry if
- *  the operation is not DONE.
+ *  the operation is not `DONE`.
  *
  *  @param project Project ID for this request.
  *  @param operation Name of the Operations resource to return.
@@ -5678,19 +5678,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5707,10 +5707,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -5720,17 +5720,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -5902,28 +5902,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -5933,17 +5933,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -6225,28 +6225,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -6256,17 +6256,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -6548,28 +6548,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -6579,17 +6579,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -7007,28 +7007,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -7038,17 +7038,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -7295,19 +7295,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7324,10 +7324,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -7337,17 +7337,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -7770,28 +7770,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -7801,17 +7801,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -7865,19 +7865,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7890,10 +7890,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -7903,17 +7903,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -7976,19 +7976,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7997,10 +7997,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -8010,17 +8010,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -8049,6 +8049,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  @param instanceGroupManager The name of the managed instance group.
  *
  *  @return GTLRComputeQuery_InstanceGroupManagersListManagedInstances
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
@@ -8527,19 +8531,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8556,10 +8560,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -8569,17 +8573,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -8784,28 +8788,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -8815,17 +8819,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -8878,19 +8882,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8902,10 +8906,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -8915,17 +8919,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -9248,19 +9252,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9277,10 +9281,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -9290,17 +9294,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -9915,28 +9919,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -9946,17 +9950,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -10008,19 +10012,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10032,10 +10036,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -10045,17 +10049,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -11778,28 +11782,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -11809,17 +11813,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -11939,19 +11943,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11968,10 +11972,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -11981,17 +11985,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -12179,28 +12183,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -12210,17 +12214,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -12366,28 +12370,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -12397,17 +12401,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -12617,28 +12621,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -12648,17 +12652,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -13024,28 +13028,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -13055,17 +13059,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -13196,19 +13200,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13225,10 +13229,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -13238,17 +13242,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -13332,28 +13336,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -13363,17 +13367,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -13424,19 +13428,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13453,10 +13457,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -13466,17 +13470,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -13826,28 +13830,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -13857,17 +13861,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -13921,28 +13925,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -13958,17 +13962,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -14258,28 +14262,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -14289,17 +14293,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -14350,28 +14354,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -14384,17 +14388,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -14717,19 +14721,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14746,10 +14750,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -14759,17 +14763,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -15081,28 +15085,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -15112,17 +15116,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -15174,28 +15178,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -15208,17 +15212,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -15486,19 +15490,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15515,10 +15519,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -15528,17 +15532,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -15765,28 +15769,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -15796,17 +15800,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -15940,19 +15944,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15969,10 +15973,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -15982,17 +15986,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -16076,28 +16080,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -16107,17 +16111,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -16168,19 +16172,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16197,10 +16201,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -16210,17 +16214,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -16404,28 +16408,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -16435,17 +16439,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -16838,28 +16842,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -16869,17 +16873,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -16921,28 +16925,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -16952,17 +16956,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -17395,28 +17399,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -17426,17 +17430,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -17788,28 +17792,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -17819,17 +17823,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -18001,19 +18005,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18030,10 +18034,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -18043,17 +18047,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -18185,28 +18189,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -18216,17 +18220,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -18541,28 +18545,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -18572,17 +18576,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -18883,28 +18887,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -18914,17 +18918,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -19119,28 +19123,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -19150,17 +19154,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -19757,28 +19761,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -19788,17 +19792,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -19847,19 +19851,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -19872,10 +19876,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -19885,17 +19889,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -19953,19 +19957,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -19974,10 +19978,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -19987,17 +19991,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -20019,6 +20023,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  @param instanceGroupManager The name of the managed instance group.
  *
  *  @return GTLRComputeQuery_RegionInstanceGroupManagersListManagedInstances
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -20420,28 +20428,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -20451,17 +20459,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -20511,19 +20519,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -20534,10 +20542,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -20547,17 +20555,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -20752,28 +20760,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -20783,17 +20791,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -20824,17 +20832,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 @end
 
 /**
- *  Waits for the specified Operation resource to return as DONE or for the
+ *  Waits for the specified Operation resource to return as `DONE` or for the
  *  request to approach the 2 minute deadline, and retrieves the specified
- *  Operation resource. This method differs from the GET method in that it waits
- *  for no more than the default deadline (2 minutes) and then returns the
- *  current state of the operation, which might be DONE or still in progress.
+ *  Operation resource. This method differs from the `GET` method in that it
+ *  waits for no more than the default deadline (2 minutes) and then returns the
+ *  current state of the operation, which might be `DONE` or still in progress.
  *  This method is called on a best-effort basis. Specifically:
  *  - In uncommon cases, when the server is overloaded, the request might return
  *  before the default deadline is reached, or might return after zero seconds.
  *  - If the default deadline is reached, there is no guarantee that the
  *  operation is actually done when the method returns. Be prepared to retry if
- *  the operation is not DONE.
+ *  the operation is not `DONE`.
  *
  *  Method: compute.regionOperations.wait
  *
@@ -20859,17 +20867,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Waits for the specified Operation resource to return as DONE or for the
+ *  Waits for the specified Operation resource to return as `DONE` or for the
  *  request to approach the 2 minute deadline, and retrieves the specified
- *  Operation resource. This method differs from the GET method in that it waits
- *  for no more than the default deadline (2 minutes) and then returns the
- *  current state of the operation, which might be DONE or still in progress.
+ *  Operation resource. This method differs from the `GET` method in that it
+ *  waits for no more than the default deadline (2 minutes) and then returns the
+ *  current state of the operation, which might be `DONE` or still in progress.
  *  This method is called on a best-effort basis. Specifically:
  *  - In uncommon cases, when the server is overloaded, the request might return
  *  before the default deadline is reached, or might return after zero seconds.
  *  - If the default deadline is reached, there is no guarantee that the
  *  operation is actually done when the method returns. Be prepared to retry if
- *  the operation is not DONE.
+ *  the operation is not `DONE`.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -20938,28 +20946,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -20969,17 +20977,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -21169,28 +21177,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -21200,17 +21208,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -21406,28 +21414,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -21437,17 +21445,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -21698,28 +21706,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -21729,17 +21737,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -22035,28 +22043,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -22066,17 +22074,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -22266,19 +22274,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -22295,10 +22303,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -22308,17 +22316,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -22560,28 +22568,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -22591,17 +22599,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -22810,19 +22818,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -22839,10 +22847,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -22852,17 +22860,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -23086,28 +23094,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -23117,17 +23125,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -23262,19 +23270,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -23291,10 +23299,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -23304,17 +23312,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -23447,28 +23455,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -23478,17 +23486,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -23636,28 +23644,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -23667,17 +23675,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -24020,28 +24028,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -24051,17 +24059,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -24308,28 +24316,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -24339,17 +24347,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -24368,6 +24376,87 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Gets the current list of preconfigured Web Application Firewall (WAF)
+ *  expressions.
+ *
+ *  Method: compute.securityPolicies.listPreconfiguredExpressionSets
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SecurityPoliciesListPreconfiguredExpressionSets : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForSecurityPoliciesListPreconfiguredExpressionSetsWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c
+ *  GTLRCompute_SecurityPoliciesListPreconfiguredExpressionSetsResponse.
+ *
+ *  Gets the current list of preconfigured Web Application Firewall (WAF)
+ *  expressions.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_SecurityPoliciesListPreconfiguredExpressionSets
  */
 + (instancetype)queryWithProject:(NSString *)project;
 
@@ -24648,28 +24737,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -24679,17 +24768,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -24849,19 +24938,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24878,10 +24967,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -24891,17 +24980,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -25073,28 +25162,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -25104,17 +25193,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -25300,28 +25389,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -25331,17 +25420,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -25385,28 +25474,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -25416,17 +25505,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -25519,19 +25608,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -25548,10 +25637,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -25561,17 +25650,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -25854,28 +25943,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -25885,17 +25974,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -25944,28 +26033,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -25975,17 +26064,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -26014,7 +26103,7 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 /**
  *  Patches the specified subnetwork with the data included in the request. Only
  *  certain fields can up updated with a patch request as indicated in the field
- *  descriptions. You must specify the current fingeprint of the subnetwork
+ *  descriptions. You must specify the current fingerprint of the subnetwork
  *  resource being patched.
  *
  *  Method: compute.subnetworks.patch
@@ -26067,7 +26156,7 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *
  *  Patches the specified subnetwork with the data included in the request. Only
  *  certain fields can up updated with a patch request as indicated in the field
- *  descriptions. You must specify the current fingeprint of the subnetwork
+ *  descriptions. You must specify the current fingerprint of the subnetwork
  *  resource being patched.
  *
  *  @param object The @c GTLRCompute_Subnetwork to include in the query.
@@ -26248,19 +26337,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26277,10 +26366,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -26290,17 +26379,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -26472,28 +26561,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -26503,17 +26592,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -26607,19 +26696,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26636,10 +26725,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -26649,17 +26738,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -26831,28 +26920,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -26862,17 +26951,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -27137,19 +27226,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27166,10 +27255,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -27179,17 +27268,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -27387,28 +27476,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -27418,17 +27507,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -27592,19 +27681,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27621,10 +27710,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -27634,17 +27723,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -27875,28 +27964,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -27906,17 +27995,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -28267,28 +28356,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -28298,17 +28387,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -28707,28 +28796,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -28738,17 +28827,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -28898,19 +28987,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28927,10 +29016,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -28940,17 +29029,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -29136,28 +29225,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -29167,17 +29256,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -29226,19 +29315,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29255,10 +29344,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -29268,17 +29357,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -29502,28 +29591,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -29533,17 +29622,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -29728,19 +29817,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29757,10 +29846,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -29770,17 +29859,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -30006,28 +30095,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -30037,17 +30126,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -30196,19 +30285,19 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30225,10 +30314,10 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -30238,17 +30327,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -30434,28 +30523,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -30465,17 +30554,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -30611,28 +30700,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -30642,17 +30731,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -30686,17 +30775,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 @end
 
 /**
- *  Waits for the specified Operation resource to return as DONE or for the
+ *  Waits for the specified Operation resource to return as `DONE` or for the
  *  request to approach the 2 minute deadline, and retrieves the specified
- *  Operation resource. This method differs from the GET method in that it waits
- *  for no more than the default deadline (2 minutes) and then returns the
- *  current state of the operation, which might be DONE or still in progress.
+ *  Operation resource. This method differs from the `GET` method in that it
+ *  waits for no more than the default deadline (2 minutes) and then returns the
+ *  current state of the operation, which might be `DONE` or still in progress.
  *  This method is called on a best-effort basis. Specifically:
  *  - In uncommon cases, when the server is overloaded, the request might return
  *  before the default deadline is reached, or might return after zero seconds.
  *  - If the default deadline is reached, there is no guarantee that the
  *  operation is actually done when the method returns. Be prepared to retry if
- *  the operation is not DONE.
+ *  the operation is not `DONE`.
  *
  *  Method: compute.zoneOperations.wait
  *
@@ -30725,17 +30814,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Waits for the specified Operation resource to return as DONE or for the
+ *  Waits for the specified Operation resource to return as `DONE` or for the
  *  request to approach the 2 minute deadline, and retrieves the specified
- *  Operation resource. This method differs from the GET method in that it waits
- *  for no more than the default deadline (2 minutes) and then returns the
- *  current state of the operation, which might be DONE or still in progress.
+ *  Operation resource. This method differs from the `GET` method in that it
+ *  waits for no more than the default deadline (2 minutes) and then returns the
+ *  current state of the operation, which might be `DONE` or still in progress.
  *  This method is called on a best-effort basis. Specifically:
  *  - In uncommon cases, when the server is overloaded, the request might return
  *  before the default deadline is reached, or might return after zero seconds.
  *  - If the default deadline is reached, there is no guarantee that the
  *  operation is actually done when the method returns. Be prepared to retry if
- *  the operation is not DONE.
+ *  the operation is not `DONE`.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
@@ -30808,28 +30897,28 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  A filter expression that filters resources listed in the response. The
  *  expression must specify the field name, a comparison operator, and the value
  *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <.
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
- *  instances named example-instance by specifying name != example-instance.
+ *  instances named `example-instance` by specifying `name != example-instance`.
  *  You can also filter nested fields. For example, you could specify
- *  scheduling.automaticRestart = false to include instances only if they are
+ *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
  *  to filter based on resource labels.
  *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform
- *  = "Intel Skylake"). By default, each expression is an AND expression.
- *  However, you can include AND and OR expressions explicitly. For example,
- *  (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true).
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The maximum number of results per page that should be returned. If the
- *  number of available results is larger than maxResults, Compute Engine
- *  returns a nextPageToken that can be used to get the next page of results in
- *  subsequent list requests. Acceptable values are 0 to 500, inclusive.
- *  (Default: 500)
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
  *
  *  @note If not set, the documented server-side default will be 500.
  */
@@ -30839,17 +30928,17 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Sorts list results by a certain order. By default, results are returned in
  *  alphanumerical order based on the resource name.
  *  You can also sort results in descending order based on the creation
- *  timestamp using orderBy="creationTimestamp desc". This sorts results based
- *  on the creationTimestamp field in reverse chronological order (newest result
- *  first). Use this to sort resources like operations so that the newest
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
  *  operation is returned first.
- *  Currently, only sorting by name or creationTimestamp desc is supported.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Specifies a page token to use. Set pageToken to the nextPageToken returned
- *  by a previous list request to get the next page of results.
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

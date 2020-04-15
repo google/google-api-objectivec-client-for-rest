@@ -1078,11 +1078,11 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput
-@dynamic args, encryptionConfig, hyperparameters, jobDir, masterConfig,
-         masterType, packageUris, parameterServerConfig, parameterServerCount,
-         parameterServerType, pythonModule, pythonVersion, region,
-         runtimeVersion, scaleTier, scheduling, useChiefInTfConfig,
-         workerConfig, workerCount, workerType;
+@dynamic args, encryptionConfig, evaluatorConfig, evaluatorCount, evaluatorType,
+         hyperparameters, jobDir, masterConfig, masterType, packageUris,
+         parameterServerConfig, parameterServerCount, parameterServerType,
+         pythonModule, pythonVersion, region, runtimeVersion, scaleTier,
+         scheduling, useChiefInTfConfig, workerConfig, workerCount, workerType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

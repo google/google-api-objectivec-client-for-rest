@@ -376,3 +376,13 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
 }
 
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_UpgradeInstanceRequest
+//
+
+@implementation GTLRCloudRedis_UpgradeInstanceRequest
+@dynamic redisVersion;
+@end

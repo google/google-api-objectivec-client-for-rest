@@ -2,14 +2,216 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sqladmin/v1beta4)
+//   Cloud SQL Admin API (sql/v1beta4)
 // Description:
-//   Creates and manages Cloud SQL instances, which provide fully managed MySQL
-//   or PostgreSQL databases.
+//   API for Cloud SQL database instance management
 // Documentation:
-//   https://cloud.google.com/sql/docs/reference/latest
+//   https://developers.google.com/cloud-sql/
 
 #import "GTLRSQLAdminObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRSQLAdmin_ApiWarning.code
+NSString * const kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachable = @"REGION_UNREACHABLE";
+NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnspecified = @"SQL_API_WARNING_CODE_UNSPECIFIED";
+
+// GTLRSQLAdmin_BackupRun.status
+NSString * const kGTLRSQLAdmin_BackupRun_Status_Deleted        = @"DELETED";
+NSString * const kGTLRSQLAdmin_BackupRun_Status_DeletionFailed = @"DELETION_FAILED";
+NSString * const kGTLRSQLAdmin_BackupRun_Status_DeletionPending = @"DELETION_PENDING";
+NSString * const kGTLRSQLAdmin_BackupRun_Status_Enqueued       = @"ENQUEUED";
+NSString * const kGTLRSQLAdmin_BackupRun_Status_Failed         = @"FAILED";
+NSString * const kGTLRSQLAdmin_BackupRun_Status_Overdue        = @"OVERDUE";
+NSString * const kGTLRSQLAdmin_BackupRun_Status_Running        = @"RUNNING";
+NSString * const kGTLRSQLAdmin_BackupRun_Status_Skipped        = @"SKIPPED";
+NSString * const kGTLRSQLAdmin_BackupRun_Status_SqlBackupRunStatusUnspecified = @"SQL_BACKUP_RUN_STATUS_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_BackupRun_Status_Successful     = @"SUCCESSFUL";
+
+// GTLRSQLAdmin_BackupRun.type
+NSString * const kGTLRSQLAdmin_BackupRun_Type_Automated        = @"AUTOMATED";
+NSString * const kGTLRSQLAdmin_BackupRun_Type_OnDemand         = @"ON_DEMAND";
+NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspecified = @"SQL_BACKUP_RUN_TYPE_UNSPECIFIED";
+
+// GTLRSQLAdmin_DatabaseInstance.backendType
+NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_External = @"EXTERNAL";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_FirstGen = @"FIRST_GEN";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_SecondGen = @"SECOND_GEN";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_SqlBackendTypeUnspecified = @"SQL_BACKEND_TYPE_UNSPECIFIED";
+
+// GTLRSQLAdmin_DatabaseInstance.databaseVersion
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql51 = @"MYSQL_5_1";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql55 = @"MYSQL_5_5";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql57 = @"MYSQL_5_7";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 = @"POSTGRES_12";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Express = @"SQLSERVER_2017_EXPRESS";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Standard = @"SQLSERVER_2017_STANDARD";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Web = @"SQLSERVER_2017_WEB";
+
+// GTLRSQLAdmin_DatabaseInstance.instanceType
+NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance = @"CLOUD_SQL_INSTANCE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_OnPremisesInstance = @"ON_PREMISES_INSTANCE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadReplicaInstance = @"READ_REPLICA_INSTANCE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_SqlInstanceTypeUnspecified = @"SQL_INSTANCE_TYPE_UNSPECIFIED";
+
+// GTLRSQLAdmin_DatabaseInstance.state
+NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Failed   = @"FAILED";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Maintenance = @"MAINTENANCE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingCreate = @"PENDING_CREATE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete = @"PENDING_DELETE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Runnable = @"RUNNABLE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_State_SqlInstanceStateUnspecified = @"SQL_INSTANCE_STATE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Suspended = @"SUSPENDED";
+
+// GTLRSQLAdmin_DatabaseInstance.suspensionReason
+NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_BillingIssue = @"BILLING_ISSUE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_KmsKeyIssue = @"KMS_KEY_ISSUE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_LegalIssue = @"LEGAL_ISSUE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_OperationalIssue = @"OPERATIONAL_ISSUE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_SqlSuspensionReasonUnspecified = @"SQL_SUSPENSION_REASON_UNSPECIFIED";
+
+// GTLRSQLAdmin_ExportContext.fileType
+NSString * const kGTLRSQLAdmin_ExportContext_FileType_Bak      = @"BAK";
+NSString * const kGTLRSQLAdmin_ExportContext_FileType_Csv      = @"CSV";
+NSString * const kGTLRSQLAdmin_ExportContext_FileType_Sql      = @"SQL";
+NSString * const kGTLRSQLAdmin_ExportContext_FileType_SqlFileTypeUnspecified = @"SQL_FILE_TYPE_UNSPECIFIED";
+
+// GTLRSQLAdmin_Flag.appliesTo
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql51          = @"MYSQL_5_1";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql55          = @"MYSQL_5_5";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql56          = @"MYSQL_5_6";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql57          = @"MYSQL_5_7";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12       = @"POSTGRES_12";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres96       = @"POSTGRES_9_6";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Express = @"SQLSERVER_2017_EXPRESS";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Standard = @"SQLSERVER_2017_STANDARD";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Web = @"SQLSERVER_2017_WEB";
+
+// GTLRSQLAdmin_Flag.type
+NSString * const kGTLRSQLAdmin_Flag_Type_Boolean               = @"BOOLEAN";
+NSString * const kGTLRSQLAdmin_Flag_Type_Float                 = @"FLOAT";
+NSString * const kGTLRSQLAdmin_Flag_Type_Integer               = @"INTEGER";
+NSString * const kGTLRSQLAdmin_Flag_Type_MysqlTimezoneOffset   = @"MYSQL_TIMEZONE_OFFSET";
+NSString * const kGTLRSQLAdmin_Flag_Type_None                  = @"NONE";
+NSString * const kGTLRSQLAdmin_Flag_Type_RepeatedString        = @"REPEATED_STRING";
+NSString * const kGTLRSQLAdmin_Flag_Type_SqlFlagTypeUnspecified = @"SQL_FLAG_TYPE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_Flag_Type_String                = @"STRING";
+
+// GTLRSQLAdmin_ImportContext.fileType
+NSString * const kGTLRSQLAdmin_ImportContext_FileType_Bak      = @"BAK";
+NSString * const kGTLRSQLAdmin_ImportContext_FileType_Csv      = @"CSV";
+NSString * const kGTLRSQLAdmin_ImportContext_FileType_Sql      = @"SQL";
+NSString * const kGTLRSQLAdmin_ImportContext_FileType_SqlFileTypeUnspecified = @"SQL_FILE_TYPE_UNSPECIFIED";
+
+// GTLRSQLAdmin_IpMapping.type
+NSString * const kGTLRSQLAdmin_IpMapping_Type_Migrated1stGen   = @"MIGRATED_1ST_GEN";
+NSString * const kGTLRSQLAdmin_IpMapping_Type_Outgoing         = @"OUTGOING";
+NSString * const kGTLRSQLAdmin_IpMapping_Type_Primary          = @"PRIMARY";
+NSString * const kGTLRSQLAdmin_IpMapping_Type_Private          = @"PRIVATE";
+NSString * const kGTLRSQLAdmin_IpMapping_Type_SqlIpAddressTypeUnspecified = @"SQL_IP_ADDRESS_TYPE_UNSPECIFIED";
+
+// GTLRSQLAdmin_MaintenanceWindow.updateTrack
+NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Canary = @"canary";
+NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_SqlUpdateTrackUnspecified = @"SQL_UPDATE_TRACK_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Stable = @"stable";
+
+// GTLRSQLAdmin_Operation.operationType
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Backup  = @"BACKUP";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_BackupVolume = @"BACKUP_VOLUME";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Clone   = @"CLONE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Create  = @"CREATE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateClone = @"CREATE_CLONE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateDatabase = @"CREATE_DATABASE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateReplica = @"CREATE_REPLICA";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateUser = @"CREATE_USER";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_DeferMaintenance = @"DEFER_MAINTENANCE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Delete  = @"DELETE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteBackup = @"DELETE_BACKUP";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteDatabase = @"DELETE_DATABASE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteUser = @"DELETE_USER";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteVolume = @"DELETE_VOLUME";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_DemoteMaster = @"DEMOTE_MASTER";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_EnablePrivateIp = @"ENABLE_PRIVATE_IP";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Export  = @"EXPORT";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Failover = @"FAILOVER";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Import  = @"IMPORT";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_InjectUser = @"INJECT_USER";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Maintenance = @"MAINTENANCE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_PromoteReplica = @"PROMOTE_REPLICA";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_RecreateReplica = @"RECREATE_REPLICA";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_RescheduleMaintenance = @"RESCHEDULE_MAINTENANCE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Restart = @"RESTART";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_RestoreVolume = @"RESTORE_VOLUME";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Snapshot = @"SNAPSHOT";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_SqlOperationTypeUnspecified = @"SQL_OPERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_StartExternalSync = @"START_EXTERNAL_SYNC";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_StartReplica = @"START_REPLICA";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_StopReplica = @"STOP_REPLICA";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_TruncateLog = @"TRUNCATE_LOG";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_Update  = @"UPDATE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_UpdateDatabase = @"UPDATE_DATABASE";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_UpdateUser = @"UPDATE_USER";
+
+// GTLRSQLAdmin_Operation.status
+NSString * const kGTLRSQLAdmin_Operation_Status_Done           = @"DONE";
+NSString * const kGTLRSQLAdmin_Operation_Status_Pending        = @"PENDING";
+NSString * const kGTLRSQLAdmin_Operation_Status_Running        = @"RUNNING";
+NSString * const kGTLRSQLAdmin_Operation_Status_SqlOperationStatusUnspecified = @"SQL_OPERATION_STATUS_UNSPECIFIED";
+
+// GTLRSQLAdmin_Reschedule.rescheduleType
+NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_Immediate = @"IMMEDIATE";
+NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_NextAvailableWindow = @"NEXT_AVAILABLE_WINDOW";
+NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_RescheduleTypeUnspecified = @"RESCHEDULE_TYPE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_SpecificTime = @"SPECIFIC_TIME";
+
+// GTLRSQLAdmin_Settings.activationPolicy
+NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_Always = @"ALWAYS";
+NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_Never = @"NEVER";
+NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_OnDemand = @"ON_DEMAND";
+NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_SqlActivationPolicyUnspecified = @"SQL_ACTIVATION_POLICY_UNSPECIFIED";
+
+// GTLRSQLAdmin_Settings.availabilityType
+NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_Regional = @"REGIONAL";
+NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_SqlAvailabilityTypeUnspecified = @"SQL_AVAILABILITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_Zonal = @"ZONAL";
+
+// GTLRSQLAdmin_Settings.dataDiskType
+NSString * const kGTLRSQLAdmin_Settings_DataDiskType_ObsoleteLocalSsd = @"OBSOLETE_LOCAL_SSD";
+NSString * const kGTLRSQLAdmin_Settings_DataDiskType_PdHdd     = @"PD_HDD";
+NSString * const kGTLRSQLAdmin_Settings_DataDiskType_PdSsd     = @"PD_SSD";
+NSString * const kGTLRSQLAdmin_Settings_DataDiskType_SqlDataDiskTypeUnspecified = @"SQL_DATA_DISK_TYPE_UNSPECIFIED";
+
+// GTLRSQLAdmin_Settings.pricingPlan
+NSString * const kGTLRSQLAdmin_Settings_PricingPlan_Package    = @"PACKAGE";
+NSString * const kGTLRSQLAdmin_Settings_PricingPlan_PerUse     = @"PER_USE";
+NSString * const kGTLRSQLAdmin_Settings_PricingPlan_SqlPricingPlanUnspecified = @"SQL_PRICING_PLAN_UNSPECIFIED";
+
+// GTLRSQLAdmin_Settings.replicationType
+NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Asynchronous = @"ASYNCHRONOUS";
+NSString * const kGTLRSQLAdmin_Settings_ReplicationType_SqlReplicationTypeUnspecified = @"SQL_REPLICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Synchronous = @"SYNCHRONOUS";
+
+// GTLRSQLAdmin_SqlExternalSyncSettingError.type
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogNotEnabled = @"BINLOG_NOT_ENABLED";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailure = @"CONNECTION_FAILURE";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion = @"INCOMPATIBLE_DATABASE_VERSION";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientPrivilege = @"INSUFFICIENT_PRIVILEGE";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled = @"NO_PGLOGICAL_INSTALLED";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists = @"PGLOGICAL_NODE_ALREADY_EXISTS";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup = @"REPLICA_ALREADY_SETUP";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified = @"SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
 
 // ----------------------------------------------------------------------------
 //
@@ -18,6 +220,13 @@
 
 @implementation GTLRSQLAdmin_AclEntry
 @dynamic expirationTime, kind, name, value;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -37,8 +246,15 @@
 //
 
 @implementation GTLRSQLAdmin_BackupConfiguration
-@dynamic binaryLogEnabled, enabled, kind, location,
+@dynamic binaryLogEnabled, enabled, kind, location, pointInTimeRecoveryEnabled,
          replicationLogArchivingEnabled, startTime;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -60,6 +276,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -78,6 +300,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -88,6 +316,13 @@
 
 @implementation GTLRSQLAdmin_BinLogCoordinates
 @dynamic binLogFileName, binLogPosition, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -97,7 +332,15 @@
 //
 
 @implementation GTLRSQLAdmin_CloneContext
-@dynamic binLogCoordinates, destinationInstanceName, kind, pitrTimestampMs;
+@dynamic binLogCoordinates, destinationInstanceName, kind, pitrTimestampMs,
+         pointInTime;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -107,10 +350,17 @@
 //
 
 @implementation GTLRSQLAdmin_Database
-@dynamic charset, collation, ETag, instance, kind, name, project, selfLink;
+@dynamic charset, collation, ETag, instance, kind, name, project, selfLink,
+         sqlserverDatabaseDetails;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -137,8 +387,8 @@
          failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address, kind,
          masterInstanceName, maxDiskSize, name, onPremisesConfiguration,
          project, region, replicaConfiguration, replicaNames, rootPassword,
-         selfLink, serverCaCert, serviceAccountEmailAddress, settings, state,
-         suspensionReason;
+         scheduledMaintenance, selfLink, serverCaCert,
+         serviceAccountEmailAddress, settings, state, suspensionReason;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -151,6 +401,12 @@
     @"suspensionReason" : [NSString class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -181,6 +437,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -191,6 +453,13 @@
 
 @implementation GTLRSQLAdmin_DemoteMasterConfiguration
 @dynamic kind, mysqlReplicaConfiguration;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -201,6 +470,13 @@
 
 @implementation GTLRSQLAdmin_DemoteMasterContext
 @dynamic kind, masterInstanceName, replicaConfiguration, verifyGtidConsistency;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -211,6 +487,13 @@
 
 @implementation GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration
 @dynamic caCertificate, clientCertificate, clientKey, kind, password, username;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -221,6 +504,13 @@
 
 @implementation GTLRSQLAdmin_DiskEncryptionConfiguration
 @dynamic kind, kmsKeyName;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -231,6 +521,13 @@
 
 @implementation GTLRSQLAdmin_DiskEncryptionStatus
 @dynamic kind, kmsKeyVersionName;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -247,6 +544,12 @@
     @"databases" : [NSString class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -297,6 +600,13 @@
 
 @implementation GTLRSQLAdmin_FailoverContext
 @dynamic kind, settingsVersion;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -306,15 +616,22 @@
 //
 
 @implementation GTLRSQLAdmin_Flag
-@dynamic allowedStringValues, appliesTo, inBeta, kind, maxValue, minValue, name,
-         requiresRestart, type;
+@dynamic allowedIntValues, allowedStringValues, appliesTo, inBeta, kind,
+         maxValue, minValue, name, requiresRestart, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"allowedIntValues" : [NSNumber class],
     @"allowedStringValues" : [NSString class],
     @"appliesTo" : [NSString class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -335,6 +652,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -346,6 +669,13 @@
 @implementation GTLRSQLAdmin_ImportContext
 @dynamic bakImportOptions, csvImportOptions, database, fileType, importUser,
          kind, uri;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -453,6 +783,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -469,6 +805,12 @@
     @"certs" : [GTLRSQLAdmin_SslCert class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -544,6 +886,12 @@
   return @{ @"zoneProperty" : @"zone" };
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -554,6 +902,13 @@
 
 @implementation GTLRSQLAdmin_MaintenanceWindow
 @dynamic day, hour, kind, updateTrack;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -566,6 +921,13 @@
 @dynamic caCertificate, clientCertificate, clientKey, connectRetryInterval,
          dumpFilePath, kind, masterHeartbeatPeriod, password, sslCipher,
          username, verifyServerCertificate;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -575,7 +937,15 @@
 //
 
 @implementation GTLRSQLAdmin_OnPremisesConfiguration
-@dynamic hostPort, kind;
+@dynamic caCertificate, clientCertificate, clientKey, dumpFilePath, hostPort,
+         kind, password, username;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -588,6 +958,13 @@
 @dynamic endTime, error, exportContext, importContext, insertTime, kind, name,
          operationType, selfLink, startTime, status, targetId, targetLink,
          targetProject, user;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -598,6 +975,13 @@
 
 @implementation GTLRSQLAdmin_OperationError
 @dynamic code, kind, message;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -614,6 +998,12 @@
     @"errors" : [GTLRSQLAdmin_OperationError class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -634,6 +1024,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -644,6 +1040,23 @@
 
 @implementation GTLRSQLAdmin_ReplicaConfiguration
 @dynamic failoverTarget, kind, mysqlReplicaConfiguration;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_Reschedule
+//
+
+@implementation GTLRSQLAdmin_Reschedule
+@dynamic rescheduleType, scheduleTime;
 @end
 
 
@@ -654,6 +1067,13 @@
 
 @implementation GTLRSQLAdmin_RestoreBackupContext
 @dynamic backupRunId, instanceId, kind, project;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -664,6 +1084,13 @@
 
 @implementation GTLRSQLAdmin_RotateServerCaContext
 @dynamic kind, nextVersion;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -688,6 +1115,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -707,12 +1140,108 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_SqlExternalSyncSettingError
+//
+
+@implementation GTLRSQLAdmin_SqlExternalSyncSettingError
+@dynamic detail, kind, type;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody
+//
+
+@implementation GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody
+@dynamic reschedule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsResponse
+//
+
+@implementation GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsResponse
+@dynamic errors, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRSQLAdmin_SqlExternalSyncSettingError class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlScheduledMaintenance
+//
+
+@implementation GTLRSQLAdmin_SqlScheduledMaintenance
+@dynamic canDefer, canReschedule, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlServerDatabaseDetails
+//
+
+@implementation GTLRSQLAdmin_SqlServerDatabaseDetails
+@dynamic compatibilityLevel, recoveryModel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlServerUserDetails
+//
+
+@implementation GTLRSQLAdmin_SqlServerUserDetails
+@dynamic disabled, serverRoles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serverRoles" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_SslCert
 //
 
 @implementation GTLRSQLAdmin_SslCert
 @dynamic cert, certSerialNumber, commonName, createTime, expirationTime,
          instance, kind, selfLink, sha1Fingerprint;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -758,6 +1287,13 @@
 
 @implementation GTLRSQLAdmin_SslCertsInsertResponse
 @dynamic clientCert, kind, operation, serverCaCert;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -774,6 +1310,12 @@
     @"items" : [GTLRSQLAdmin_SslCert class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -794,6 +1336,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -812,6 +1360,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -822,6 +1376,13 @@
 
 @implementation GTLRSQLAdmin_TruncateLogContext
 @dynamic kind, logType;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -831,10 +1392,17 @@
 //
 
 @implementation GTLRSQLAdmin_User
-@dynamic ETag, host, instance, kind, name, password, project;
+@dynamic ETag, host, instance, kind, name, password, project,
+         sqlserverUserDetails;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -853,6 +1421,12 @@
     @"items" : [GTLRSQLAdmin_User class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end

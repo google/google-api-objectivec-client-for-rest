@@ -80,13 +80,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesCreateWithObject:parent:]
 
 /**
- *  The name of the instance to create.
+ *  Required. The name of the instance to create.
  *  The name must be unique for the specified project and location.
  */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
- *  The instance's project and location, in the format
+ *  Required. The instance's project and location, in the format
  *  projects/{project_id}/locations/{location}. In Cloud Filestore,
  *  locations map to GCP zones, for example **us-west1-b**.
  */
@@ -98,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates an instance.
  *
  *  @param object The @c GTLRCloudFilestore_Instance to include in the query.
- *  @param parent The instance's project and location, in the format
+ *  @param parent Required. The instance's project and location, in the format
  *    projects/{project_id}/locations/{location}. In Cloud Filestore,
  *    locations map to GCP zones, for example **us-west1-b**.
  *
@@ -122,7 +122,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesDeleteWithname:]
 
 /**
- *  The instance resource name, in the format
+ *  Required. The instance resource name, in the format
  *  projects/{project_id}/locations/{location}/instances/{instance_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -132,7 +132,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes an instance.
  *
- *  @param name The instance resource name, in the format
+ *  @param name Required. The instance resource name, in the format
  *    projects/{project_id}/locations/{location}/instances/{instance_id}
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesDelete
@@ -154,7 +154,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesGetWithname:]
 
 /**
- *  The instance resource name, in the format
+ *  Required. The instance resource name, in the format
  *  projects/{project_id}/locations/{location}/instances/{instance_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -164,7 +164,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the details of a specific instance.
  *
- *  @param name The instance resource name, in the format
+ *  @param name Required. The instance resource name, in the format
  *    projects/{project_id}/locations/{location}/instances/{instance_id}.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesGet
@@ -204,7 +204,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The project and location for which to retrieve instance information,
+ *  Required. The project and location for which to retrieve instance
+ *  information,
  *  in the format projects/{project_id}/locations/{location}. In Cloud
  *  Filestore, locations map to GCP zones, for example **us-west1-b**. To
  *  retrieve instance information for all locations, use "-" for the {location}
@@ -218,8 +219,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all instances in a project for either a specified location
  *  or for all locations.
  *
- *  @param parent The project and location for which to retrieve instance
- *    information,
+ *  @param parent Required. The project and location for which to retrieve
+ *    instance information,
  *    in the format projects/{project_id}/locations/{location}. In Cloud
  *    Filestore, locations map to GCP zones, for example **us-west1-b**. To
  *    retrieve instance information for all locations, use "-" for the

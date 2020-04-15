@@ -10873,6 +10873,25 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_SecurityPoliciesListPreconfiguredExpressionSets
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/securityPolicies/listPreconfiguredExpressionSets";
+  GTLRComputeQuery_SecurityPoliciesListPreconfiguredExpressionSets *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_SecurityPoliciesListPreconfiguredExpressionSetsResponse class];
+  query.loggingName = @"compute.securityPolicies.listPreconfiguredExpressionSets";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_SecurityPoliciesPatch
 
 @dynamic project, requestId, securityPolicy;

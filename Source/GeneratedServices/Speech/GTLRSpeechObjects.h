@@ -346,6 +346,12 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 /** Time when the request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
+/**
+ *  The URI of the audio file being transcribed. Empty if the audio was sent
+ *  as byte content.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
 @end
 
 
@@ -569,9 +575,6 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
  *  This feature is only available in select languages. Setting this for
  *  requests in other languages has no effect at all.
  *  The default 'false' value does not add punctuation to result hypotheses.
- *  Note: This is currently offered as an experimental service, complimentary
- *  to all users. In the future this may be exclusively available as a
- *  premium feature.
  *
  *  Uses NSNumber of boolValue.
  */

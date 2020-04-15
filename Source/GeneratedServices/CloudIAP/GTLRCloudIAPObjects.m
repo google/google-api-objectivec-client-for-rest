@@ -12,6 +12,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIAP_AccessDeniedPageSettings
+//
+
+@implementation GTLRCloudIAP_AccessDeniedPageSettings
+@dynamic accessDeniedPageUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIAP_AccessSettings
 //
 
@@ -26,7 +36,7 @@
 //
 
 @implementation GTLRCloudIAP_ApplicationSettings
-@dynamic csmSettings;
+@dynamic accessDeniedPageSettings, csmSettings;
 @end
 
 

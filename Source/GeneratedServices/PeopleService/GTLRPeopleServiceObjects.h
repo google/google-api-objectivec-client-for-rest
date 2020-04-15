@@ -459,6 +459,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
+ *  **DEPRECATED**: No data will be returned
  *  A person's bragging rights.
  */
 @interface GTLRPeopleService_BraggingRights : GTLRObject
@@ -1295,7 +1296,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's birthdays. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Birthday *> *birthdays;
 
-/** The person's bragging rights. */
+/**
+ *  **DEPRECATED**: No data will be returned
+ *  The person's bragging rights.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_BraggingRights *> *braggingRights;
 
 /** Output only. The person's cover photos. */
@@ -1352,10 +1356,16 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's relations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Relation *> *relations;
 
-/** Output only. The person's relationship interests. */
+/**
+ *  Output only. **DEPRECATED**: No data will be returned
+ *  The person's relationship interests.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_RelationshipInterest *> *relationshipInterests;
 
-/** Output only. The person's relationship statuses. */
+/**
+ *  Output only. **DEPRECATED**: No data will be returned
+ *  The person's relationship statuses.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_RelationshipStatus *> *relationshipStatuses;
 
 /** The person's residences. */
@@ -1374,7 +1384,10 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 /** The person's skills. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Skill *> *skills;
 
-/** Output only. The person's taglines. */
+/**
+ *  Output only. **DEPRECATED**: No data will be returned
+ *  The person's taglines.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Tagline *> *taglines;
 
 /** The person's associated URLs. */
@@ -1609,6 +1622,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
+ *  **DEPRECATED**: No data will be returned
  *  A person's relationship interest .
  */
 @interface GTLRPeopleService_RelationshipInterest : GTLRObject
@@ -1637,6 +1651,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
+ *  **DEPRECATED**: No data will be returned
  *  A person's relationship status.
  */
 @interface GTLRPeopleService_RelationshipStatus : GTLRObject
@@ -1845,6 +1860,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
 
 
 /**
+ *  **DEPRECATED**: No data will be returned
  *  A brief one-line description of the person.
  */
 @interface GTLRPeopleService_Tagline : GTLRObject
@@ -1885,7 +1901,6 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  *  * ageRanges
  *  * biographies
  *  * birthdays
- *  * braggingRights
  *  * coverPhotos
  *  * emailAddresses
  *  * events
@@ -1902,12 +1917,9 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecifie
  *  * phoneNumbers
  *  * photos
  *  * relations
- *  * relationshipInterests
- *  * relationshipStatuses
  *  * residences
  *  * sipAddresses
  *  * skills
- *  * taglines
  *  * urls
  *  * userDefined
  *

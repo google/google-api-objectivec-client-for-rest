@@ -556,6 +556,18 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceManagement_MetricDescriptor.metricKind
@@ -697,6 +709,18 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_Lau
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceManagement_MonitoredResourceDescriptor.launchStage
@@ -758,6 +782,18 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceManagement_Rollout.status
@@ -1133,11 +1169,15 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  The list of JWT
  *  [audiences](https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3).
  *  that are allowed to access. A JWT containing any of these audiences will
- *  be accepted. When this setting is absent, only JWTs with audience
- *  "https://Service_name/API_name"
- *  will be accepted. For example, if no audiences are in the setting,
- *  LibraryService API will only accept JWTs with the following audience
- *  "https://library-example.googleapis.com/google.example.library.v1.LibraryService".
+ *  be accepted. When this setting is absent, JWTs with audiences:
+ *  - "https://[service.name]/[google.protobuf.Api.name]"
+ *  - "https://[service.name]/"
+ *  will be accepted.
+ *  For example, if no audiences are in the setting, LibraryService API will
+ *  accept JWTs with the following audiences:
+ *  -
+ *  https://library-example.googleapis.com/google.example.library.v1.LibraryService
+ *  - https://library-example.googleapis.com/
  *  Example:
  *  audiences: bookstore_android.apps.googleusercontent.com,
  *  bookstore_web.apps.googleusercontent.com
@@ -1381,6 +1421,36 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *  for more details on the supported values.
  */
 @property(nonatomic, copy, nullable) NSString *protocol;
+
+/**
+ *  Unimplemented. Do not use.
+ *  The new name the selected proto elements should be renamed to.
+ *  The package, the service and the method can all be renamed.
+ *  The backend server should implement the renamed proto. However, clients
+ *  should call the original method, and ESF routes the traffic to the renamed
+ *  method.
+ *  HTTP clients should call the URL mapped to the original method.
+ *  gRPC and Stubby clients should call the original method with package name.
+ *  For legacy reasons, ESF allows Stubby clients to call with the
+ *  short name (without the package name). However, for API Versioning(or
+ *  multiple methods mapped to the same short name), all Stubby clients must
+ *  call the method's full name with the package name, otherwise the first one
+ *  (selector) wins.
+ *  If this `rename_to` is specified with a trailing `*`, the `selector` must
+ *  be specified with a trailing `*` as well. The all element short names
+ *  matched by the `*` in the selector will be kept in the `rename_to`.
+ *  For example,
+ *  rename_rules:
+ *  - selector: |-
+ *  google.example.library.v1.*
+ *  rename_to: google.example.library.*
+ *  The selector matches `google.example.library.v1.Library.CreateShelf` and
+ *  `google.example.library.v1.Library.CreateBook`, they will be renamed to
+ *  `google.example.library.Library.CreateShelf` and
+ *  `google.example.library.Library.CreateBook`. It essentially renames the
+ *  proto package name section of the matched proto service and methods.
+ */
+@property(nonatomic, copy, nullable) NSString *renameTo;
 
 /**
  *  Selects the methods to which this rule applies.
@@ -3193,6 +3263,12 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *        fully qualified for production use. (Value: "GA")
  *    @arg @c kGTLRServiceManagement_MetricDescriptor_LaunchStage_LaunchStageUnspecified
  *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRServiceManagement_MetricDescriptor_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRServiceManagement_MetricDescriptor_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
  */
 @property(nonatomic, copy, nullable) NSString *launchStage;
 
@@ -3415,6 +3491,12 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *        fully qualified for production use. (Value: "GA")
  *    @arg @c kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified
  *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
  */
 @property(nonatomic, copy, nullable) NSString *launchStage;
 
@@ -3629,6 +3711,12 @@ GTLR_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3;
  *        fully qualified for production use. (Value: "GA")
  *    @arg @c kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified
  *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
  */
 @property(nonatomic, copy, nullable) NSString *launchStage;
 

@@ -100,7 +100,7 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_LongRunningRecognizeMetadata
-@dynamic lastUpdateTime, progressPercent, startTime;
+@dynamic lastUpdateTime, progressPercent, startTime, uri;
 @end
 
 

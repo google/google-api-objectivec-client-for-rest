@@ -888,12 +888,13 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_ObjectsCopy
 
-@dynamic destinationBucket, destinationObject, destinationPredefinedAcl,
-         ifGenerationMatch, ifGenerationNotMatch, ifMetagenerationMatch,
-         ifMetagenerationNotMatch, ifSourceGenerationMatch,
-         ifSourceGenerationNotMatch, ifSourceMetagenerationMatch,
-         ifSourceMetagenerationNotMatch, projection, provisionalUserProject,
-         sourceBucket, sourceGeneration, sourceObject, userProject;
+@dynamic destinationBucket, destinationKmsKeyName, destinationObject,
+         destinationPredefinedAcl, ifGenerationMatch, ifGenerationNotMatch,
+         ifMetagenerationMatch, ifMetagenerationNotMatch,
+         ifSourceGenerationMatch, ifSourceGenerationNotMatch,
+         ifSourceMetagenerationMatch, ifSourceMetagenerationNotMatch,
+         projection, provisionalUserProject, sourceBucket, sourceGeneration,
+         sourceObject, userProject;
 
 + (instancetype)queryWithObject:(GTLRStorage_Object *)object
                    sourceBucket:(NSString *)sourceBucket

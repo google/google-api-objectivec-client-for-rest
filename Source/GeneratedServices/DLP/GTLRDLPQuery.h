@@ -2855,6 +2855,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  The geographic location to process content inspection. Reserved for future
  *  extensions.
+ *  When inspecting images location is restricted to 'global', 'us', 'asia',
+ *  and 'europe'.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
@@ -2878,6 +2880,8 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param locationId The geographic location to process content inspection.
  *    Reserved for future
  *    extensions.
+ *    When inspecting images location is restricted to 'global', 'us', 'asia',
+ *    and 'europe'.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentInspect
  */
@@ -3557,6 +3561,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  The geographic location to process the request. Reserved for future
  *  extensions.
+ *  Location is restricted to 'global', 'us', 'asia', and 'europe'.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
@@ -3580,6 +3585,7 @@ GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param locationId The geographic location to process the request. Reserved
  *    for future
  *    extensions.
+ *    Location is restricted to 'global', 'us', 'asia', and 'europe'.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsImageRedact
  */

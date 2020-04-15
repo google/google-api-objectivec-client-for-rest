@@ -3795,6 +3795,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeChannelMembershipsCreator
  *    @c kGTLRAuthScopeYouTubeForceSsl
  *    @c kGTLRAuthScopeYouTubeReadonly
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
@@ -3830,6 +3831,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeYouTube
+ *    @c kGTLRAuthScopeYouTubeChannelMembershipsCreator
  *    @c kGTLRAuthScopeYouTubeForceSsl
  *    @c kGTLRAuthScopeYouTubeReadonly
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
@@ -4746,6 +4748,9 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        restricted content from the search result set. Based on their content,
  *        search results could be removed from search results or demoted in
  *        search results. (Value: "strict")
+ *
+ *  @note If not set, the documented server-side default will be
+ *        "SAFE_SEARCH_MODERATE_FILTERING".
  */
 @property(nonatomic, copy, nullable) NSString *safeSearch;
 

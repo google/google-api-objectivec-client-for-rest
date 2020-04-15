@@ -723,7 +723,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Sugg
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Basic;
 /**
  *  A single worker instance [with a
- *  GPU](/ml-engine/docs/tensorflow/using-gpus).
+ *  GPU](/ai-platform/training/docs/using-gpus).
  *
  *  Value: "BASIC_GPU"
  */
@@ -1991,7 +1991,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 /**
  *  Optional. The list of regions where the model is going to be deployed.
- *  Currently only one region per model is supported.
+ *  Only one region per model is supported.
  *  Defaults to 'us-central1' if nothing is set.
  *  See the <a href="/ml-engine/docs/tensorflow/regions">available regions</a>
  *  for AI Platform services.
@@ -2381,14 +2381,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Represents the type and number of accelerators used by the replica.
  *  [Learn about restrictions on accelerator configurations for
- *  training.](/ml-engine/docs/tensorflow/using-gpus#compute-engine-machine-types-with-gpu)
+ *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig *acceleratorConfig;
 
 /**
  *  The Docker image to run on the replica. This image must be in Container
  *  Registry. Learn more about [configuring custom
- *  containers](/ml-engine/docs/distributed-training-containers).
+ *  containers](/ai-platform/training/docs/distributed-training-containers).
  */
 @property(nonatomic, copy, nullable) NSString *imageUri;
 
@@ -2915,7 +2915,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput : GTLRObject
 
-/** Optional. Command line arguments to pass to the program. */
+/**
+ *  Optional. Arguments passed to the training.
+ *  - If it is a python package training:
+ *  It will be passed as command line argument to the program.
+ *  - If it is a custom container training,
+ *  It will be passed as an argument to the custom container
+ *  image.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /**
@@ -2924,6 +2931,45 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  provided encryption key.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig *encryptionConfig;
+
+/**
+ *  Optional. The configuration for evaluators.
+ *  You should only set `evaluatorConfig.acceleratorConfig` if
+ *  `evaluatorType` is set to a Compute Engine machine type. [Learn
+ *  about restrictions on accelerator configurations for
+ *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
+ *  Set `evaluatorConfig.imageUri` only if you build a custom image for
+ *  your evaluator. If `evaluatorConfig.imageUri` has not been
+ *  set, AI Platform uses the value of `masterConfig.imageUri` .
+ *  Learn more about [configuring custom
+ *  containers](/ai-platform/training/docs/distributed-training-containers).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *evaluatorConfig;
+
+/**
+ *  Optional. The number of evaluator replicas to use for the training job.
+ *  Each replica in the cluster will be of the type specified in
+ *  `evaluator_type`.
+ *  This value can only be used when `scale_tier` is set to `CUSTOM`. If you
+ *  set this value, you must also set `evaluator_type`.
+ *  The default value is zero.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *evaluatorCount;
+
+/**
+ *  Optional. Specifies the type of virtual machine to use for your training
+ *  job's evaluator nodes.
+ *  The supported values are the same as those described in the entry for
+ *  `masterType`.
+ *  This value must be consistent with the category of machine type that
+ *  `masterType` uses. In other words, both must be Compute Engine machine
+ *  types or both must be legacy machine types.
+ *  This value must be present when `scaleTier` is set to `CUSTOM` and
+ *  `evaluatorCount` is greater than zero.
+ */
+@property(nonatomic, copy, nullable) NSString *evaluatorType;
 
 /** Optional. The set of Hyperparameters to tune. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec *hyperparameters;
@@ -2941,11 +2987,11 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  You should only set `masterConfig.acceleratorConfig` if `masterType` is set
  *  to a Compute Engine machine type. Learn about [restrictions on accelerator
  *  configurations for
- *  training.](/ml-engine/docs/tensorflow/using-gpus#compute-engine-machine-types-with-gpu)
+ *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
  *  Set `masterConfig.imageUri` only if you build a custom image. Only one of
  *  `masterConfig.imageUri` and `runtimeVersion` should be set. Learn more
  *  about [configuring custom
- *  containers](/ml-engine/docs/distributed-training-containers).
+ *  containers](/ai-platform/training/docs/distributed-training-containers).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *masterConfig;
 
@@ -3008,14 +3054,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /**
  *  Optional. The configuration for parameter servers.
  *  You should only set `parameterServerConfig.acceleratorConfig` if
- *  `parameterServerConfigType` is set to a Compute Engine machine type. [Learn
+ *  `parameterServerType` is set to a Compute Engine machine type. [Learn
  *  about restrictions on accelerator configurations for
- *  training.](/ml-engine/docs/tensorflow/using-gpus#compute-engine-machine-types-with-gpu)
+ *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
  *  Set `parameterServerConfig.imageUri` only if you build a custom image for
  *  your parameter server. If `parameterServerConfig.imageUri` has not been
- *  set, AI Platform uses the value of `masterConfig.imageUri`.
+ *  set, AI Platform uses the value of `masterConfig.imageUri` .
  *  Learn more about [configuring custom
- *  containers](/ml-engine/docs/distributed-training-containers).
+ *  containers](/ai-platform/training/docs/distributed-training-containers).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *parameterServerConfig;
 
@@ -3023,7 +3069,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  Optional. The number of parameter server replicas to use for the training
  *  job. Each replica in the cluster will be of the type specified in
  *  `parameter_server_type`.
- *  This value can only be used when `scale_tier` is set to `CUSTOM`.If you
+ *  This value can only be used when `scale_tier` is set to `CUSTOM`. If you
  *  set this value, you must also set `parameter_server_type`.
  *  The default value is zero.
  *
@@ -3089,7 +3135,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *        (Value: "BASIC")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicGpu
  *        A single worker instance [with a
- *        GPU](/ml-engine/docs/tensorflow/using-gpus). (Value: "BASIC_GPU")
+ *        GPU](/ai-platform/training/docs/using-gpus). (Value: "BASIC_GPU")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicTpu
  *        A single worker instance with a
  *        [Cloud TPU](/ml-engine/docs/tensorflow/using-tpus). (Value:
@@ -3128,9 +3174,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Scheduling *scheduling;
 
 /**
- *  Optional. Use 'chief' instead of 'master' in TF_CONFIG when Custom
- *  Container is used and evaluator is not specified.
- *  Defaults to false.
+ *  Optional. Use `chief` instead of `master` in the `TF_CONFIG` environment
+ *  variable when training with a custom container. Defaults to `false`. [Learn
+ *  more about this
+ *  field.](/ai-platform/training/docs/distributed-training-details#chief-versus-master)
+ *  This field has no effect for training jobs that don't use a custom
+ *  container.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3141,12 +3190,12 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  You should only set `workerConfig.acceleratorConfig` if `workerType` is set
  *  to a Compute Engine machine type. [Learn about restrictions on accelerator
  *  configurations for
- *  training.](/ml-engine/docs/tensorflow/using-gpus#compute-engine-machine-types-with-gpu)
+ *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
  *  Set `workerConfig.imageUri` only if you build a custom image for your
  *  worker. If `workerConfig.imageUri` has not been set, AI Platform uses
- *  the value of `masterConfig.imageUri`. Learn more about
- *  [configuring custom
- *  containers](/ml-engine/docs/distributed-training-containers).
+ *  the value of `masterConfig.imageUri` .
+ *  Learn more about [configuring custom
+ *  containers](/ai-platform/training/docs/distributed-training-containers).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *workerConfig;
 

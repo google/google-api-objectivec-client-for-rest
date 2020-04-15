@@ -2,12 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sqladmin/v1beta4)
+//   Cloud SQL Admin API (sql/v1beta4)
 // Description:
-//   Creates and manages Cloud SQL instances, which provide fully managed MySQL
-//   or PostgreSQL databases.
+//   API for Cloud SQL database instance management
 // Documentation:
-//   https://cloud.google.com/sql/docs/reference/latest
+//   https://developers.google.com/cloud-sql/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -50,8 +49,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeSQLAdminSqlserviceAdmin;
 /**
  *  Service for executing Cloud SQL Admin API queries.
  *
- *  Creates and manages Cloud SQL instances, which provide fully managed MySQL
- *  or PostgreSQL databases.
+ *  API for Cloud SQL database instance management
  */
 @interface GTLRSQLAdminService : GTLRService
 

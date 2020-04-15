@@ -314,49 +314,49 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_
 // GTLRSystemsManagement_WeekDayOfMonth.dayOfWeek
 
 /**
- *  The unspecified day-of-week.
+ *  The day of the week is unspecified.
  *
  *  Value: "DAY_OF_WEEK_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_DayOfWeekUnspecified;
 /**
- *  The day-of-week of Friday.
+ *  Friday
  *
  *  Value: "FRIDAY"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Friday;
 /**
- *  The day-of-week of Monday.
+ *  Monday
  *
  *  Value: "MONDAY"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Monday;
 /**
- *  The day-of-week of Saturday.
+ *  Saturday
  *
  *  Value: "SATURDAY"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Saturday;
 /**
- *  The day-of-week of Sunday.
+ *  Sunday
  *
  *  Value: "SUNDAY"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Sunday;
 /**
- *  The day-of-week of Thursday.
+ *  Thursday
  *
  *  Value: "THURSDAY"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Thursday;
 /**
- *  The day-of-week of Tuesday.
+ *  Tuesday
  *
  *  Value: "TUESDAY"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Tuesday;
 /**
- *  The day-of-week of Wednesday.
+ *  Wednesday
  *
  *  Value: "WEDNESDAY"
  */
@@ -366,49 +366,49 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Wed
 // GTLRSystemsManagement_WeeklySchedule.dayOfWeek
 
 /**
- *  The unspecified day-of-week.
+ *  The day of the week is unspecified.
  *
  *  Value: "DAY_OF_WEEK_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_DayOfWeekUnspecified;
 /**
- *  The day-of-week of Friday.
+ *  Friday
  *
  *  Value: "FRIDAY"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Friday;
 /**
- *  The day-of-week of Monday.
+ *  Monday
  *
  *  Value: "MONDAY"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Monday;
 /**
- *  The day-of-week of Saturday.
+ *  Saturday
  *
  *  Value: "SATURDAY"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Saturday;
 /**
- *  The day-of-week of Sunday.
+ *  Sunday
  *
  *  Value: "SUNDAY"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Sunday;
 /**
- *  The day-of-week of Thursday.
+ *  Thursday
  *
  *  Value: "THURSDAY"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Thursday;
 /**
- *  The day-of-week of Tuesday.
+ *  Tuesday
  *
  *  Value: "TUESDAY"
  */
 GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Tuesday;
 /**
- *  The day-of-week of Wednesday.
+ *  Wednesday
  *
  *  Value: "WEDNESDAY"
  */
@@ -1366,21 +1366,21 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classi
  *
  *  Likely values:
  *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_DayOfWeekUnspecified
- *        The unspecified day-of-week. (Value: "DAY_OF_WEEK_UNSPECIFIED")
- *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Friday The
- *        day-of-week of Friday. (Value: "FRIDAY")
- *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Monday The
- *        day-of-week of Monday. (Value: "MONDAY")
- *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Saturday The
- *        day-of-week of Saturday. (Value: "SATURDAY")
- *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Sunday The
- *        day-of-week of Sunday. (Value: "SUNDAY")
- *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Thursday The
- *        day-of-week of Thursday. (Value: "THURSDAY")
- *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Tuesday The
- *        day-of-week of Tuesday. (Value: "TUESDAY")
- *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Wednesday The
- *        day-of-week of Wednesday. (Value: "WEDNESDAY")
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Friday Friday
+ *        (Value: "FRIDAY")
+ *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Monday Monday
+ *        (Value: "MONDAY")
+ *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Saturday Saturday
+ *        (Value: "SATURDAY")
+ *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Sunday Sunday
+ *        (Value: "SUNDAY")
+ *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Thursday Thursday
+ *        (Value: "THURSDAY")
+ *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Tuesday Tuesday
+ *        (Value: "TUESDAY")
+ *    @arg @c kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Wednesday
+ *        Wednesday (Value: "WEDNESDAY")
  */
 @property(nonatomic, copy, nullable) NSString *dayOfWeek;
 
@@ -1406,21 +1406,21 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classi
  *
  *  Likely values:
  *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_DayOfWeekUnspecified
- *        The unspecified day-of-week. (Value: "DAY_OF_WEEK_UNSPECIFIED")
- *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Friday The
- *        day-of-week of Friday. (Value: "FRIDAY")
- *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Monday The
- *        day-of-week of Monday. (Value: "MONDAY")
- *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Saturday The
- *        day-of-week of Saturday. (Value: "SATURDAY")
- *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Sunday The
- *        day-of-week of Sunday. (Value: "SUNDAY")
- *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Thursday The
- *        day-of-week of Thursday. (Value: "THURSDAY")
- *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Tuesday The
- *        day-of-week of Tuesday. (Value: "TUESDAY")
- *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Wednesday The
- *        day-of-week of Wednesday. (Value: "WEDNESDAY")
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Friday Friday
+ *        (Value: "FRIDAY")
+ *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Monday Monday
+ *        (Value: "MONDAY")
+ *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Saturday Saturday
+ *        (Value: "SATURDAY")
+ *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Sunday Sunday
+ *        (Value: "SUNDAY")
+ *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Thursday Thursday
+ *        (Value: "THURSDAY")
+ *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Tuesday Tuesday
+ *        (Value: "TUESDAY")
+ *    @arg @c kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Wednesday
+ *        Wednesday (Value: "WEDNESDAY")
  */
 @property(nonatomic, copy, nullable) NSString *dayOfWeek;
 

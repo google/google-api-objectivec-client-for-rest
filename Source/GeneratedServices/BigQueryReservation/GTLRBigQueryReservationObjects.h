@@ -88,7 +88,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_StateUnsp
 
 /**
  *  Annual commitments have a committed period of 365 days after becoming
- *  ACTIVE.
+ *  ACTIVE. After that they are converted to a new commitment based on the
+ *  renewal_plan.
  *
  *  Value: "ANNUAL"
  */
@@ -110,7 +111,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Co
 GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex;
 /**
  *  Monthly commitments have a committed period of 30 days after becoming
- *  ACTIVE.
+ *  ACTIVE. After that, they are not in a committed period anymore and can be
+ *  removed any time.
  *
  *  Value: "MONTHLY"
  */
@@ -121,7 +123,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Mo
 
 /**
  *  Annual commitments have a committed period of 365 days after becoming
- *  ACTIVE.
+ *  ACTIVE. After that they are converted to a new commitment based on the
+ *  renewal_plan.
  *
  *  Value: "ANNUAL"
  */
@@ -143,7 +146,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Renewal
 GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex;
 /**
  *  Monthly commitments have a committed period of 30 days after becoming
- *  ACTIVE.
+ *  ACTIVE. After that, they are not in a committed period anymore and can be
+ *  removed any time.
  *
  *  Value: "MONTHLY"
  */
@@ -257,12 +261,10 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_S
 
 /**
  *  Capacity commitment is a way to purchase compute capacity for BigQuery jobs
- *  (in the form of slots) with some committed period of usage. Monthly and
- *  annual commitments renew by default. Only flex commitments can be removed.
- *  In
- *  order to remove monthly or annual commitments, their plan needs to be
- *  changed
- *  to flex first.
+ *  (in the form of slots) with some committed period of usage. Annual
+ *  commitments renew by default. Commitments can be removed after their
+ *  commitment end time passes. In order to remove annual commitment, its plan
+ *  needs to be changed to monthly or flex first.
  *  A capacity commitment resource exists as a child resource of the admin
  *  project.
  */
@@ -292,7 +294,8 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_S
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Annual Annual
  *        commitments have a committed period of 365 days after becoming
- *        ACTIVE. (Value: "ANNUAL")
+ *        ACTIVE. After that they are converted to a new commitment based on the
+ *        renewal_plan. (Value: "ANNUAL")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_CommitmentPlanUnspecified
  *        Invalid plan value. Requests with this value will be rejected with
  *        error code `google.rpc.Code.INVALID_ARGUMENT`. (Value:
@@ -304,19 +307,22 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_S
  *        any time. (Value: "FLEX")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly Monthly
  *        commitments have a committed period of 30 days after becoming
- *        ACTIVE. (Value: "MONTHLY")
+ *        ACTIVE. After that, they are not in a committed period anymore and can
+ *        be
+ *        removed any time. (Value: "MONTHLY")
  */
 @property(nonatomic, copy, nullable) NSString *plan;
 
 /**
  *  The plan this capacity commitment is converted to after commitment_end_time
  *  passes. Once the plan is changed, committed period is extended according to
- *  commitment plan. Only applicable for MONTHLY and ANNUAL commitments.
+ *  commitment plan. Only applicable for ANNUAL commitments.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Annual
  *        Annual commitments have a committed period of 365 days after becoming
- *        ACTIVE. (Value: "ANNUAL")
+ *        ACTIVE. After that they are converted to a new commitment based on the
+ *        renewal_plan. (Value: "ANNUAL")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_CommitmentPlanUnspecified
  *        Invalid plan value. Requests with this value will be rejected with
  *        error code `google.rpc.Code.INVALID_ARGUMENT`. (Value:
@@ -328,7 +334,9 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_S
  *        any time. (Value: "FLEX")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly
  *        Monthly commitments have a committed period of 30 days after becoming
- *        ACTIVE. (Value: "MONTHLY")
+ *        ACTIVE. After that, they are not in a committed period anymore and can
+ *        be
+ *        removed any time. (Value: "MONTHLY")
  */
 @property(nonatomic, copy, nullable) NSString *renewalPlan;
 

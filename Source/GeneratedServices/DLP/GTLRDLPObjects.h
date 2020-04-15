@@ -496,49 +496,49 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihoo
 // GTLRDLP_GooglePrivacyDlpV2DateTime.dayOfWeek
 
 /**
- *  The unspecified day-of-week.
+ *  The day of the week is unspecified.
  *
  *  Value: "DAY_OF_WEEK_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_DayOfWeekUnspecified;
 /**
- *  The day-of-week of Friday.
+ *  Friday
  *
  *  Value: "FRIDAY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Friday;
 /**
- *  The day-of-week of Monday.
+ *  Monday
  *
  *  Value: "MONDAY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Monday;
 /**
- *  The day-of-week of Saturday.
+ *  Saturday
  *
  *  Value: "SATURDAY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Saturday;
 /**
- *  The day-of-week of Sunday.
+ *  Sunday
  *
  *  Value: "SUNDAY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Sunday;
 /**
- *  The day-of-week of Thursday.
+ *  Thursday
  *
  *  Value: "THURSDAY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Thursday;
 /**
- *  The day-of-week of Tuesday.
+ *  Tuesday
  *
  *  Value: "TUESDAY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Tuesday;
 /**
- *  The day-of-week of Wednesday.
+ *  Wednesday
  *
  *  Value: "WEDNESDAY"
  */
@@ -979,49 +979,49 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExt
 // GTLRDLP_GooglePrivacyDlpV2Value.dayOfWeekValue
 
 /**
- *  The unspecified day-of-week.
+ *  The day of the week is unspecified.
  *
  *  Value: "DAY_OF_WEEK_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_DayOfWeekUnspecified;
 /**
- *  The day-of-week of Friday.
+ *  Friday
  *
  *  Value: "FRIDAY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Friday;
 /**
- *  The day-of-week of Monday.
+ *  Monday
  *
  *  Value: "MONDAY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Monday;
 /**
- *  The day-of-week of Saturday.
+ *  Saturday
  *
  *  Value: "SATURDAY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Saturday;
 /**
- *  The day-of-week of Sunday.
+ *  Sunday
  *
  *  Value: "SUNDAY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Sunday;
 /**
- *  The day-of-week of Thursday.
+ *  Thursday
  *
  *  Value: "THURSDAY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Thursday;
 /**
- *  The day-of-week of Tuesday.
+ *  Tuesday
  *
  *  Value: "TUESDAY"
  */
 GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Tuesday;
 /**
- *  The day-of-week of Wednesday.
+ *  Wednesday
  *
  *  Value: "WEDNESDAY"
  */
@@ -1583,6 +1583,9 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  If empty, all files are scanned and available data format processors
  *  are applied. In addition, the binary content of the selected files
  *  is always scanned as well.
+ *  Images are scanned only as binary if the specified region
+ *  does not support image inspection and no file_types were specified.
+ *  Image inspection is restricted to 'global', 'us', 'asia', and 'europe'.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypes;
 
@@ -2405,21 +2408,21 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_DayOfWeekUnspecified
- *        The unspecified day-of-week. (Value: "DAY_OF_WEEK_UNSPECIFIED")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Friday The
- *        day-of-week of Friday. (Value: "FRIDAY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Monday The
- *        day-of-week of Monday. (Value: "MONDAY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Saturday The
- *        day-of-week of Saturday. (Value: "SATURDAY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Sunday The
- *        day-of-week of Sunday. (Value: "SUNDAY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Thursday The
- *        day-of-week of Thursday. (Value: "THURSDAY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Tuesday The
- *        day-of-week of Tuesday. (Value: "TUESDAY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Wednesday The
- *        day-of-week of Wednesday. (Value: "WEDNESDAY")
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Friday Friday
+ *        (Value: "FRIDAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Monday Monday
+ *        (Value: "MONDAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Saturday Saturday
+ *        (Value: "SATURDAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Sunday Sunday
+ *        (Value: "SUNDAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Thursday Thursday
+ *        (Value: "THURSDAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Tuesday Tuesday
+ *        (Value: "TUESDAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Wednesday Wednesday
+ *        (Value: "WEDNESDAY")
  */
 @property(nonatomic, copy, nullable) NSString *dayOfWeek;
 
@@ -3037,12 +3040,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  The labels associated with this `Finding`.
  *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
  *  Label values must be between 0 and 63 characters long and must conform
- *  to the regular expression (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?.
+ *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
  *  No more than 10 labels can be associated with a given finding.
- *  Example: <code>"environment" : "production"</code>
- *  Example: <code>"pipeline" : "etl"</code>
+ *  Examples:
+ *  * `"environment" : "production"`
+ *  * `"pipeline" : "etl"`
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Finding_Labels *labels;
 
@@ -3103,12 +3107,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  The labels associated with this `Finding`.
  *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
  *  Label values must be between 0 and 63 characters long and must conform
- *  to the regular expression (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?.
+ *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
  *  No more than 10 labels can be associated with a given finding.
- *  Example: <code>"environment" : "production"</code>
- *  Example: <code>"pipeline" : "etl"</code>
+ *  Examples:
+ *  * `"environment" : "production"`
+ *  * `"pipeline" : "etl"`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3269,12 +3274,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  The labels associated with `Finding`'s produced by hybrid
  *  inspection.
  *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
  *  Label values must be between 0 and 63 characters long and must conform
- *  to the regular expression (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?.
+ *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
  *  No more than 10 labels can be associated with a given finding.
- *  Example: <code>"environment" : "production"</code>
- *  Example: <code>"pipeline" : "etl"</code>
+ *  Examples:
+ *  * `"environment" : "production"`
+ *  * `"pipeline" : "etl"`
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridFindingDetails_Labels *labels;
 
@@ -3305,12 +3311,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  The labels associated with `Finding`'s produced by hybrid
  *  inspection.
  *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
  *  Label values must be between 0 and 63 characters long and must conform
- *  to the regular expression (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?.
+ *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
  *  No more than 10 labels can be associated with a given finding.
- *  Example: <code>"environment" : "production"</code>
- *  Example: <code>"pipeline" : "etl"</code>
+ *  Examples:
+ *  * `"environment" : "production"`
+ *  * `"pipeline" : "etl"`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3401,12 +3408,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  To organize findings, these labels will be added to each finding.
  *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
  *  Label values must be between 0 and 63 characters long and must conform
- *  to the regular expression (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?.
+ *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
  *  No more than 10 labels can be associated with a given finding.
- *  Example: <code>"environment" : "production"</code>
- *  Example: <code>"pipeline" : "etl"</code>
+ *  Examples:
+ *  * `"environment" : "production"`
+ *  * `"pipeline" : "etl"`
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridOptions_Labels *labels;
 
@@ -3415,7 +3423,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  'finding_labels' map. Request may contain others, but any missing one of
  *  these will be rejected.
  *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
  *  No more than 10 keys can be required.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requiredFindingLabelKeys;
@@ -3432,12 +3440,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  To organize findings, these labels will be added to each finding.
  *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?.
+ *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
  *  Label values must be between 0 and 63 characters long and must conform
- *  to the regular expression (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?.
+ *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
  *  No more than 10 labels can be associated with a given finding.
- *  Example: <code>"environment" : "production"</code>
- *  Example: <code>"pipeline" : "etl"</code>
+ *  Examples:
+ *  * `"environment" : "production"`
+ *  * `"pipeline" : "etl"`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3501,7 +3510,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *  creating a CustomInfoType, or one of the names listed
  *  at https://cloud.google.com/dlp/docs/infotypes-reference when specifying
  *  a built-in type. InfoType names should conform to the pattern
- *  [a-zA-Z0-9_]{1,64}.
+ *  `[a-zA-Z0-9_]{1,64}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3719,6 +3728,8 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  The geographic location to process content inspection. Reserved for future
  *  extensions.
+ *  When inspecting images location is restricted to 'global', 'us', 'asia',
+ *  and 'europe'.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
@@ -5160,6 +5171,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
 /**
  *  The geographic location to process the request. Reserved for future
  *  extensions.
+ *  Location is restricted to 'global', 'us', 'asia', and 'europe'.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
@@ -6083,21 +6095,21 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wed
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_DayOfWeekUnspecified
- *        The unspecified day-of-week. (Value: "DAY_OF_WEEK_UNSPECIFIED")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Friday The
- *        day-of-week of Friday. (Value: "FRIDAY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Monday The
- *        day-of-week of Monday. (Value: "MONDAY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Saturday The
- *        day-of-week of Saturday. (Value: "SATURDAY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Sunday The
- *        day-of-week of Sunday. (Value: "SUNDAY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Thursday The
- *        day-of-week of Thursday. (Value: "THURSDAY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Tuesday The
- *        day-of-week of Tuesday. (Value: "TUESDAY")
- *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday The
- *        day-of-week of Wednesday. (Value: "WEDNESDAY")
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Friday Friday
+ *        (Value: "FRIDAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Monday Monday
+ *        (Value: "MONDAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Saturday Saturday
+ *        (Value: "SATURDAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Sunday Sunday
+ *        (Value: "SUNDAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Thursday Thursday
+ *        (Value: "THURSDAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Tuesday Tuesday
+ *        (Value: "TUESDAY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday
+ *        Wednesday (Value: "WEDNESDAY")
  */
 @property(nonatomic, copy, nullable) NSString *dayOfWeekValue;
 

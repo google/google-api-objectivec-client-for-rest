@@ -206,11 +206,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The zone or zones from which the bucket is intended to use zonal quota.
  *  Requests for data from outside the specified affinities are still allowed
- *  but won’t be able to use zonal quota. The zone or zones need to be within
+ *  but won't be able to use zonal quota. The zone or zones need to be within
  *  the bucket location otherwise the requests will fail with a 400 Bad Request
  *  response.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *zoneAffinity;
+
+/**
+ *  If set, objects placed in this bucket are required to be separated by
+ *  disaster domain.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *zoneSeparation;
 
 @end
 

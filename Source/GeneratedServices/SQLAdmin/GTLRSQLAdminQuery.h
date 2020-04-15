@@ -2,12 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sqladmin/v1beta4)
+//   Cloud SQL Admin API (sql/v1beta4)
 // Description:
-//   Creates and manages Cloud SQL instances, which provide fully managed MySQL
-//   or PostgreSQL databases.
+//   API for Cloud SQL database instance management
 // Documentation:
-//   https://cloud.google.com/sql/docs/reference/latest
+//   https://developers.google.com/cloud-sql/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
@@ -30,6 +29,7 @@
 @class GTLRSQLAdmin_InstancesRestoreBackupRequest;
 @class GTLRSQLAdmin_InstancesRotateServerCaRequest;
 @class GTLRSQLAdmin_InstancesTruncateLogRequest;
+@class GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody;
 @class GTLRSQLAdmin_SslCertsCreateEphemeralRequest;
 @class GTLRSQLAdmin_SslCertsInsertRequest;
 @class GTLRSQLAdmin_User;
@@ -40,6 +40,23 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// syncMode
+
+/** Value: "EXTERNAL_SYNC_MODE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRSQLAdminSyncModeExternalSyncModeUnspecified;
+/** Value: "OFFLINE" */
+GTLR_EXTERN NSString * const kGTLRSQLAdminSyncModeOffline;
+/** Value: "ONLINE" */
+GTLR_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
 
 /**
  *  Parent class for other SQL Admin query classes.
@@ -65,7 +82,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySQLAdmin queryForBackupRunsDeleteWithproject:instance:identifier:]
 
 /**
- *  The ID of the Backup Run to delete. To find a Backup Run ID, use the list
+ *  The ID of the Backup Run to delete. To find a Backup Run ID, use the
+ *  <a 
+ href="/sql/docs/db_path/admin-api/rest/v1beta4/backupRuns/list">list</a>
  *  method.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -86,7 +105,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *  @param identifier The ID of the Backup Run to delete. To find a Backup Run
- *    ID, use the list method.
+ *    ID, use the
+ *    <a 
+ href="/sql/docs/db_path/admin-api/rest/v1beta4/backupRuns/list">list</a>
+ *    method.
  *
  *  @return GTLRSQLAdminQuery_BackupRunsDelete
  */
@@ -140,8 +162,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new backup run on demand. This method is applicable only to Second
- *  Generation instances.
+ *  Creates a new backup run on demand. This method is applicable only to
+ *  Second Generation instances.
  *
  *  Method: sql.backupRuns.insert
  *
@@ -162,8 +184,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Creates a new backup run on demand. This method is applicable only to Second
- *  Generation instances.
+ *  Creates a new backup run on demand. This method is applicable only to
+ *  Second Generation instances.
  *
  *  @param object The @c GTLRSQLAdmin_BackupRun to include in the query.
  *  @param project Project ID of the project that contains the instance.
@@ -379,8 +401,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a resource containing information about a database inside a Cloud
- *  SQL instance. This method supports patch semantics.
+ *  Partially updates a resource containing information about a database inside
+ *  a Cloud SQL instance. This method supports patch semantics.
  *
  *  Method: sql.databases.patch
  *
@@ -404,8 +426,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Updates a resource containing information about a database inside a Cloud
- *  SQL instance. This method supports patch semantics.
+ *  Partially updates a resource containing information about a database inside
+ *  a Cloud SQL instance. This method supports patch semantics.
  *
  *  @param object The @c GTLRSQLAdmin_Database to include in the query.
  *  @param project Project ID of the project that contains the instance.
@@ -537,7 +559,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a Cloud SQL instance as a clone of the source instance.
+ *  Creates a Cloud SQL instance as a clone of the source instance. Using this
+ *  operation might cause your instance to restart.
  *
  *  Method: sql.instances.clone
  *
@@ -561,14 +584,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Creates a Cloud SQL instance as a clone of the source instance.
+ *  Creates a Cloud SQL instance as a clone of the source instance. Using this
+ *  operation might cause your instance to restart.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesCloneRequest to include in the
  *    query.
  *  @param project Project ID of the source as well as the clone Cloud SQL
  *    instance.
  *  @param instance The ID of the Cloud SQL instance to be cloned (source). This
- *    does not include the project ID.
+ *    does not
+ *    include the project ID.
  *
  *  @return GTLRSQLAdminQuery_InstancesClone
  */
@@ -692,7 +717,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Failover the instance to its failover replica instance.
+ *  Failover the instance to its failover replica instance. Using this
+ *  operation might cause your instance to restart.
  *
  *  Method: sql.instances.failover
  *
@@ -713,7 +739,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Failover the instance to its failover replica instance.
+ *  Failover the instance to its failover replica instance. Using this
+ *  operation might cause your instance to restart.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesFailoverRequest to include in the
  *    query.
@@ -763,8 +790,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Imports data into a Cloud SQL instance from a SQL dump or CSV file in Cloud
- *  Storage.
+ *  Imports data into a Cloud SQL instance from a SQL dump or CSV file in
+ *  Cloud Storage.
  *
  *  Method: sql.instances.import
  *
@@ -784,8 +811,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Imports data into a Cloud SQL instance from a SQL dump or CSV file in Cloud
- *  Storage.
+ *  Imports data into a Cloud SQL instance from a SQL dump or CSV file in
+ *  Cloud Storage.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesImportRequest to include in the
  *    query.
@@ -826,7 +853,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSQLAdmin_DatabaseInstance to include in the query.
  *  @param project Project ID of the project to which the newly created Cloud
- *    SQL instances should belong.
+ *    SQL instances
+ *    should belong.
  *
  *  @return GTLRSQLAdminQuery_InstancesInsert
  */
@@ -836,8 +864,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists instances under a given project in the alphabetical order of the
- *  instance name.
+ *  Lists instances under a given project.
  *
  *  Method: sql.instances.list
  *
@@ -850,8 +877,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySQLAdmin queryForInstancesListWithproject:]
 
 /**
- *  An expression for filtering the results of the request, such as by name or
- *  label.
+ *  A filter expression that filters resources listed in the response.
+ *  The expression is in the form of field:value. For example,
+ *  'instanceType:CLOUD_SQL_INSTANCE'. Fields can be nested as needed as per
+ *  their JSON representation, such as 'settings.userLabels.auto_start:true'.
+ *  Multiple filter queries are space-separated. For example.
+ *  'state:RUNNABLE instanceType:CLOUD_SQL_INSTANCE'. By default, each
+ *  expression is an AND expression. However, you can include AND and OR
+ *  expressions explicitly.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -870,8 +903,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_InstancesListResponse.
  *
- *  Lists instances under a given project in the alphabetical order of the
- *  instance name.
+ *  Lists instances under a given project.
  *
  *  @param project Project ID of the project for which to list Cloud SQL
  *    instances.
@@ -890,8 +922,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all of the trusted Certificate Authorities (CAs) for the specified
  *  instance. There can be up to three CAs listed: the CA that was used to sign
  *  the certificate that is currently in use, a CA that has been added but not
- *  yet used to sign a certificate, and a CA used to sign a certificate that has
- *  previously rotated out.
+ *  yet used to sign a certificate, and a CA used to sign a certificate that
+ *  has previously rotated out.
  *
  *  Method: sql.instances.listServerCas
  *
@@ -915,8 +947,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all of the trusted Certificate Authorities (CAs) for the specified
  *  instance. There can be up to three CAs listed: the CA that was used to sign
  *  the certificate that is currently in use, a CA that has been added but not
- *  yet used to sign a certificate, and a CA used to sign a certificate that has
- *  previously rotated out.
+ *  yet used to sign a certificate, and a CA used to sign a certificate that
+ *  has previously rotated out.
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
@@ -929,10 +961,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates settings of a Cloud SQL instance. Caution: This is not a partial
- *  update, so you must include values for all the settings that you want to
- *  retain. For partial updates, use patch.. This method supports patch
- *  semantics.
+ *  Updates settings of a Cloud SQL instance.
+ *  This method supports patch semantics.
  *
  *  Method: sql.instances.patch
  *
@@ -953,10 +983,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Updates settings of a Cloud SQL instance. Caution: This is not a partial
- *  update, so you must include values for all the settings that you want to
- *  retain. For partial updates, use patch.. This method supports patch
- *  semantics.
+ *  Updates settings of a Cloud SQL instance.
+ *  This method supports patch semantics.
  *
  *  @param object The @c GTLRSQLAdmin_DatabaseInstance to include in the query.
  *  @param project Project ID of the project that contains the instance.
@@ -972,6 +1000,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Promotes the read replica instance to be a stand-alone Cloud SQL instance.
+ *  Using this operation might cause your instance to restart.
  *
  *  Method: sql.instances.promoteReplica
  *
@@ -993,6 +1022,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
  *  Promotes the read replica instance to be a stand-alone Cloud SQL instance.
+ *  Using this operation might cause your instance to restart.
  *
  *  @param project ID of the project that contains the read replica.
  *  @param instance Cloud SQL read replica instance name.
@@ -1076,7 +1106,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Restores a backup of a Cloud SQL instance.
+ *  Restores a backup of a Cloud SQL instance. Using this operation might cause
+ *  your instance to restart.
  *
  *  Method: sql.instances.restoreBackup
  *
@@ -1097,7 +1128,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Restores a backup of a Cloud SQL instance.
+ *  Restores a backup of a Cloud SQL instance. Using this operation might cause
+ *  your instance to restart.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesRestoreBackupRequest to include
  *    in the query.
@@ -1257,9 +1289,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates settings of a Cloud SQL instance. Caution: This is not a partial
- *  update, so you must include values for all the settings that you want to
- *  retain. For partial updates, use patch.
+ *  Updates settings of a Cloud SQL instance. Using this operation might cause
+ *  your instance to restart.
  *
  *  Method: sql.instances.update
  *
@@ -1280,9 +1311,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Updates settings of a Cloud SQL instance. Caution: This is not a partial
- *  update, so you must include values for all the settings that you want to
- *  retain. For partial updates, use patch.
+ *  Updates settings of a Cloud SQL instance. Using this operation might cause
+ *  your instance to restart.
  *
  *  @param object The @c GTLRSQLAdmin_DatabaseInstance to include in the query.
  *  @param project Project ID of the project that contains the instance.
@@ -1342,7 +1372,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdminQuery_OperationsList : GTLRSQLAdminQuery
 // Previous library name was
-//   +[GTLQuerySQLAdmin queryForOperationsListWithproject:instance:]
+//   +[GTLQuerySQLAdmin queryForOperationsListWithproject:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1366,13 +1396,143 @@ NS_ASSUME_NONNULL_BEGIN
  *  SQL instance in the reverse chronological order of the start time.
  *
  *  @param project Project ID of the project that contains the instance.
- *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *
  *  @return GTLRSQLAdminQuery_OperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Reschedules the maintenance on the given instance.
+ *
+ *  Method: sql.projects.instances.rescheduleMaintenance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_ProjectsInstancesRescheduleMaintenance : GTLRSQLAdminQuery
+// Previous library name was
+//   +[GTLQuerySQLAdmin queryForProjectsInstancesRescheduleMaintenanceWithObject:project:instance:]
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Reschedules the maintenance on the given instance.
+ *
+ *  @param object The @c
+ *    GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody to include in
+ *    the query.
+ *  @param project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_ProjectsInstancesRescheduleMaintenance
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Start External master migration.
+ *
+ *  Method: sql.projects.instances.startExternalSync
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_ProjectsInstancesStartExternalSync : GTLRSQLAdminQuery
+// Previous library name was
+//   +[GTLQuerySQLAdmin queryForProjectsInstancesStartExternalSyncWithproject:instance:]
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** ID of the project that contains the first generation instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  External sync mode
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdminSyncModeExternalSyncModeUnspecified Value
+ *        "EXTERNAL_SYNC_MODE_UNSPECIFIED"
+ *    @arg @c kGTLRSQLAdminSyncModeOnline Value "ONLINE"
+ *    @arg @c kGTLRSQLAdminSyncModeOffline Value "OFFLINE"
+ */
+@property(nonatomic, copy, nullable) NSString *syncMode;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Start External master migration.
+ *
+ *  @param project ID of the project that contains the first generation
+ *    instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_ProjectsInstancesStartExternalSync
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Verify External master external sync settings.
+ *
+ *  Method: sql.projects.instances.verifyExternalSyncSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_ProjectsInstancesVerifyExternalSyncSettings : GTLRSQLAdminQuery
+// Previous library name was
+//   +[GTLQuerySQLAdmin queryForProjectsInstancesVerifyExternalSyncSettingsWithproject:instance:]
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  External sync mode
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdminSyncModeExternalSyncModeUnspecified Value
+ *        "EXTERNAL_SYNC_MODE_UNSPECIFIED"
+ *    @arg @c kGTLRSQLAdminSyncModeOnline Value "ONLINE"
+ *    @arg @c kGTLRSQLAdminSyncModeOffline Value "OFFLINE"
+ */
+@property(nonatomic, copy, nullable) NSString *syncMode;
+
+/** Flag to enable verifying connection only */
+@property(nonatomic, assign) BOOL verifyConnectionOnly;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsResponse.
+ *
+ *  Verify External master external sync settings.
+ *
+ *  @param project Project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_ProjectsInstancesVerifyExternalSyncSettings
  */
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance;
@@ -1423,8 +1583,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the SSL certificate. For First Generation instances, the certificate
- *  remains valid until the instance is restarted.
+ *  Deletes the SSL certificate. For First Generation instances, the
+ *  certificate remains valid until the instance is restarted.
  *
  *  Method: sql.sslCerts.delete
  *
@@ -1448,8 +1608,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Deletes the SSL certificate. For First Generation instances, the certificate
- *  remains valid until the instance is restarted.
+ *  Deletes the SSL certificate. For First Generation instances, the
+ *  certificate remains valid until the instance is restarted.
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
@@ -1583,7 +1743,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists all available machine types (tiers) for Cloud SQL, for example,
- *  db-n1-standard-1. For related information, see Pricing.
+ *  db-n1-standard-1. For related information, see
+ *  <a 
+ href="/sql/pricing">Pricing</a>.
  *
  *  Method: sql.tiers.list
  *
@@ -1602,7 +1764,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSQLAdmin_TiersListResponse.
  *
  *  Lists all available machine types (tiers) for Cloud SQL, for example,
- *  db-n1-standard-1. For related information, see Pricing.
+ *  db-n1-standard-1. For related information, see
+ *  <a 
+ href="/sql/pricing">Pricing</a>.
  *
  *  @param project Project ID of the project for which to list tiers.
  *
@@ -1623,7 +1787,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdminQuery_UsersDelete : GTLRSQLAdminQuery
 // Previous library name was
-//   +[GTLQuerySQLAdmin queryForUsersDeleteWithproject:instance:host:name:]
+//   +[GTLQuerySQLAdmin queryForUsersDeleteWithproject:instance:]
 
 /** Host of the user in the instance. */
 @property(nonatomic, copy, nullable) NSString *host;
@@ -1644,15 +1808,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Database instance ID. This does not include the project ID.
- *  @param host Host of the user in the instance.
- *  @param name Name of the user in the instance.
  *
  *  @return GTLRSQLAdminQuery_UsersDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
-                        instance:(NSString *)instance
-                            host:(NSString *)host
-                            name:(NSString *)name;
+                        instance:(NSString *)instance;
 
 @end
 
@@ -1737,12 +1897,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSQLAdminQuery_UsersUpdate : GTLRSQLAdminQuery
 // Previous library name was
-//   +[GTLQuerySQLAdmin queryForUsersUpdateWithObject:project:instance:name:]
+//   +[GTLQuerySQLAdmin queryForUsersUpdateWithObject:project:instance:]
 
-/**
- *  Host of the user in the instance. For a MySQL instance, it's required; For a
- *  PostgreSQL instance, it's optional.
- */
+/** Optional. Host of the user in the instance. */
 @property(nonatomic, copy, nullable) NSString *host;
 
 /** Database instance ID. This does not include the project ID. */
@@ -1762,14 +1919,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSQLAdmin_User to include in the query.
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Database instance ID. This does not include the project ID.
- *  @param name Name of the user in the instance.
  *
  *  @return GTLRSQLAdminQuery_UsersUpdate
  */
 + (instancetype)queryWithObject:(GTLRSQLAdmin_User *)object
                         project:(NSString *)project
-                       instance:(NSString *)instance
-                           name:(NSString *)name;
+                       instance:(NSString *)instance;
 
 @end
 

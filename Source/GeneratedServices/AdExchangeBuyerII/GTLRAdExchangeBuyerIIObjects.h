@@ -1668,6 +1668,41 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_Enviro
 GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_Web;
 
 // ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_FilterSet.format
+
+/**
+ *  A placeholder for an undefined format; indicates that no format filter
+ *  will be applied.
+ *
+ *  Value: "FORMAT_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_FormatUnspecified;
+/**
+ *  The ad impression is a native ad, and display (i.e., image) format.
+ *
+ *  Value: "NATIVE_DISPLAY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeDisplay;
+/**
+ *  The ad impression is a native ad, and video format.
+ *
+ *  Value: "NATIVE_VIDEO"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeVideo;
+/**
+ *  The ad impression is not a native ad, and display (i.e., image) format.
+ *
+ *  Value: "NON_NATIVE_DISPLAY"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeDisplay;
+/**
+ *  The ad impression is not a native ad, and video format.
+ *
+ *  Value: "NON_NATIVE_VIDEO"
+ */
+GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeVideo;
+
+// ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.formats
 
 /** Value: "FORMAT_UNSPECIFIED" */
@@ -3970,9 +4005,31 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 @property(nonatomic, copy, nullable) NSString *environment;
 
 /**
- *  The list of formats on which to filter; may be empty. The filters
- *  represented by multiple formats are ORed together (i.e., if non-empty,
- *  results must match any one of the formats).
+ *  Creative format bidded on or allowed to bid on, can be empty.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_FormatUnspecified A
+ *        placeholder for an undefined format; indicates that no format filter
+ *        will be applied. (Value: "FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_NativeDisplay The ad
+ *        impression is a native ad, and display (i.e., image) format. (Value:
+ *        "NATIVE_DISPLAY")
+ *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_NativeVideo The ad
+ *        impression is a native ad, and video format. (Value: "NATIVE_VIDEO")
+ *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeDisplay The ad
+ *        impression is not a native ad, and display (i.e., image) format.
+ *        (Value: "NON_NATIVE_DISPLAY")
+ *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeVideo The ad
+ *        impression is not a native ad, and video format. (Value:
+ *        "NON_NATIVE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  Creative formats bidded on or allowed to bid on, can be empty. Although
+ *  this field is a list, it can only be populated with a single item. A
+ *  HTTP 400 bad request error will be returned in the response if you specify
+ *  multiple items.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *formats;
 
