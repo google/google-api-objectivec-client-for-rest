@@ -100,6 +100,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AndroidPublisher/*.{h,m}'
   end
+  s.subspec 'Apigee' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Apigee/*.{h,m}'
+  end
   s.subspec 'Appengine' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Appengine/*.{h,m}'
@@ -219,14 +223,6 @@ Pod::Spec.new do |s|
   s.subspec 'CloudOSLogin' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudOSLogin/*.{h,m}'
-  end
-  s.subspec 'CloudPrivateCatalog' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/CloudPrivateCatalog/*.{h,m}'
-  end
-  s.subspec 'CloudPrivateCatalogProducer' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/CloudPrivateCatalogProducer/*.{h,m}'
   end
   s.subspec 'CloudProfiler' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -408,6 +404,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FirebaseHosting/*.{h,m}'
   end
+  s.subspec 'FirebaseML' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/FirebaseML/*.{h,m}'
+  end
   s.subspec 'FirebaseManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FirebaseManagement/*.{h,m}'
@@ -504,10 +504,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ManufacturerCenter/*.{h,m}'
   end
-  s.subspec 'Mirror' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Mirror/*.{h,m}'
-  end
   s.subspec 'Monitoring' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Monitoring/*.{h,m}'
@@ -523,10 +519,6 @@ Pod::Spec.new do |s|
   s.subspec 'PagespeedInsights' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PagespeedInsights/*.{h,m}'
-  end
-  s.subspec 'Pagespeedonline' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Pagespeedonline/*.{h,m}'
   end
   s.subspec 'PeopleService' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -547,10 +539,6 @@ Pod::Spec.new do |s|
   s.subspec 'PolyService' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PolyService/*.{h,m}'
-  end
-  s.subspec 'ProximityBeacon' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/ProximityBeacon/*.{h,m}'
   end
   s.subspec 'Pubsub' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

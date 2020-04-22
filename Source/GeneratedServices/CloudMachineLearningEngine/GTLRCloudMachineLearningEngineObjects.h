@@ -776,20 +776,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial.state
 
 /**
- *  Indicates that the Trial has been suggested.
+ *  Indicates that the trial has been suggested.
  *
  *  Value: "ACTIVE"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Active;
 /**
- *  Indicates that the Trial is done, and either has a final_measurement
+ *  Indicates that the trial is done, and either has a final_measurement
  *  set, or is marked as trial_infeasible.
  *
  *  Value: "COMPLETED"
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Completed;
 /**
- *  Indicates that a specific Trial has been requested, but it has not yet
+ *  Indicates that a specific trial has been requested, but it has not yet
  *  been suggested by the service.
  *
  *  Value: "REQUESTED"
@@ -802,7 +802,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Tria
  */
 GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_StateUnspecified;
 /**
- *  Indicates that the Trial should stop according to the service.
+ *  Indicates that the trial should stop according to the service.
  *
  *  Value: "STOPPING"
  */
@@ -1047,7 +1047,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfigDecayCurveAutomatedStoppingConfig : GTLRObject
 
 /**
- *  True if measurement.elapsed_time is used as the x-axis of each
+ *  If true, measurement.elapsed_time is used as the x-axis of each
  *  Trials Decay Curve. Otherwise, Measurement.steps will be used as the
  *  x-axis.
  *
@@ -1068,10 +1068,11 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfigMedianAutomatedStoppingConfig : GTLRObject
 
 /**
- *  True if median automated stopping rule applies on
- *  measurement.use_elapsed_time. it means that elapsed_time field of
- *  latest measurement of current trial is used to compute median objective
- *  value for each completed trials.
+ *  If true, the median automated stopping rule applies to
+ *  measurement.use_elapsed_time, which means the elapsed_time field of
+ *  the current trial's
+ *  latest measurement is used to compute the median objective
+ *  value for each completed trial.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1203,13 +1204,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1CheckTrialEarlyStoppingStateMetatdata : GTLRObject
 
-/** The time operation was submitted. */
+/** The time at which the operation was submitted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** The name of the study that the trial belongs to. */
 @property(nonatomic, copy, nullable) NSString *study;
 
-/** The Trial name. */
+/** The trial name. */
 @property(nonatomic, copy, nullable) NSString *trial;
 
 @end
@@ -1229,7 +1230,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1CheckTrialEarlyStoppingStateResponse : GTLRObject
 
-/** The time operation processing completed. */
+/** The time at which operation processing completed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
@@ -1239,7 +1240,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @property(nonatomic, strong, nullable) NSNumber *shouldStop;
 
-/** The time operation was started. */
+/** The time at which the operation was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
@@ -1258,7 +1259,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement *finalMeasurement;
 
 /**
- *  Optional. A human readable reason why the Trial was infeasible. This should
+ *  Optional. A human readable reason why the trial was infeasible. This should
  *  only be provided if `trial_infeasible` is true.
  */
 @property(nonatomic, copy, nullable) NSString *infeasibleReason;
@@ -1292,9 +1293,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig : GTLRObject
 
 /**
- *  The Cloud KMS resource identifier of the customer managed encryption key
- *  used to protect a resource, such as a training job. Has the form:
- *  `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`.
+ *  The Cloud KMS resource identifier of the customer-managed encryption key
+ *  used to protect a resource, such as a training job. It has the following
+ *  format:
+ *  `projects/{PROJECT_ID}/locations/{REGION}/keyRings/{KEY_RING_NAME}/cryptoKeys/{KEY_NAME}`
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
@@ -1792,7 +1794,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListStudiesResponse : GTLRObject
 
-/** The Studies associated with the project. */
+/** The studies associated with the project. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Study *> *studies;
 
 @end
@@ -1868,11 +1870,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  A message representing a Measurement.
+ *  A message representing a measurement.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement : GTLRObject
 
-/** Time that the Trial has been running at the point of this Measurement. */
+/**
+ *  Output only. Time that the trial has been running at the point of
+ *  this measurement.
+ */
 @property(nonatomic, strong, nullable) GTLRDuration *elapsedTime;
 
 /**
@@ -2527,7 +2532,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Study : GTLRObject
 
-/** Output only. Time that the study was created. */
+/** Output only. Time at which the study was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -2588,6 +2593,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /** Configuration for automated stopping of unpromising Trials. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfig *automatedStoppingConfig;
 
+/** Metric specs for the study. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec *> *metrics;
 
 /** Required. The set of parameters to tune. */
@@ -2876,10 +2882,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse : GTLRObject
 
-/** The time operation processing completed. */
+/** The time at which operation processing completed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** The time operation was started. */
+/** The time at which the operation was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
@@ -2898,7 +2904,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @property(nonatomic, copy, nullable) NSString *studyState;
 
-/** A list of Trials. */
+/** A list of trials. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial *> *trials;
 
 @end
@@ -2916,19 +2922,23 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput : GTLRObject
 
 /**
- *  Optional. Arguments passed to the training.
- *  - If it is a python package training:
- *  It will be passed as command line argument to the program.
- *  - If it is a custom container training,
- *  It will be passed as an argument to the custom container
- *  image.
+ *  Optional. Command-line arguments passed to the training application when it
+ *  starts. If your job uses a custom container, then the arguments are passed
+ *  to the container's
+ *  <a class="external" target="_blank" 
+ href="https://docs.docker.com/engine/reference/builder/#entrypoint">
+ *  `ENTRYPOINT`</a> command.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /**
- *  Custom encryption key options for a training job. If this is set,
- *  then all resources created by the training job will be encrypted with the
- *  provided encryption key.
+ *  Optional. Options for using customer-managed encryption keys (CMEK) to
+ *  protect resources created by a training job, instead of using Google's
+ *  default encryption. If this is set, then all resources created by the
+ *  training job will be encrypted with the customer-managed encryption key
+ *  that you specify.
+ *  [Learn how and when to use CMEK with AI Platform
+ *  Training](/ai-platform/training/docs/cmek).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig *encryptionConfig;
 
@@ -2940,8 +2950,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
  *  Set `evaluatorConfig.imageUri` only if you build a custom image for
  *  your evaluator. If `evaluatorConfig.imageUri` has not been
- *  set, AI Platform uses the value of `masterConfig.imageUri` .
- *  Learn more about [configuring custom
+ *  set, AI Platform uses the value of `masterConfig.imageUri`. Learn more about
+ *  [configuring custom
  *  containers](/ai-platform/training/docs/distributed-training-containers).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *evaluatorConfig;
@@ -3059,8 +3069,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
  *  Set `parameterServerConfig.imageUri` only if you build a custom image for
  *  your parameter server. If `parameterServerConfig.imageUri` has not been
- *  set, AI Platform uses the value of `masterConfig.imageUri` .
- *  Learn more about [configuring custom
+ *  set, AI Platform uses the value of `masterConfig.imageUri`. Learn more about
+ *  [configuring custom
  *  containers](/ai-platform/training/docs/distributed-training-containers).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *parameterServerConfig;
@@ -3193,8 +3203,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
  *  Set `workerConfig.imageUri` only if you build a custom image for your
  *  worker. If `workerConfig.imageUri` has not been set, AI Platform uses
- *  the value of `masterConfig.imageUri` .
- *  Learn more about [configuring custom
+ *  the value of `masterConfig.imageUri`. Learn more about [configuring custom
  *  containers](/ai-platform/training/docs/distributed-training-containers).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *workerConfig;
@@ -3287,7 +3296,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  A message representing a Trial.
+ *  A message representing a trial.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial : GTLRObject
 
@@ -3297,14 +3306,14 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  */
 @property(nonatomic, copy, nullable) NSString *clientId;
 
-/** Output only. Time the Trial's status changed to COMPLETED. */
+/** Output only. Time at which the trial's status changed to COMPLETED. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** The final Measurement containing the objective value. */
+/** The final measurement containing the objective value. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement *finalMeasurement;
 
 /**
- *  Output only. A human readable string describing why the Trial is
+ *  Output only. A human readable string describing why the trial is
  *  infeasible. This should only be set if trial_infeasible is true.
  */
 @property(nonatomic, copy, nullable) NSString *infeasibleReason;
@@ -3319,10 +3328,10 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 /** Output only. Name of the trial assigned by the service. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The parameters of the Trial. */
+/** The parameters of the trial. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrialParameter *> *parameters;
 
-/** Output only. Time the Trial was started. */
+/** Output only. Time at which the trial was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
@@ -3330,24 +3339,23 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Active
- *        Indicates that the Trial has been suggested. (Value: "ACTIVE")
+ *        Indicates that the trial has been suggested. (Value: "ACTIVE")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Completed
- *        Indicates that the Trial is done, and either has a final_measurement
+ *        Indicates that the trial is done, and either has a final_measurement
  *        set, or is marked as trial_infeasible. (Value: "COMPLETED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Requested
- *        Indicates that a specific Trial has been requested, but it has not yet
+ *        Indicates that a specific trial has been requested, but it has not yet
  *        been suggested by the service. (Value: "REQUESTED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_StateUnspecified
  *        The trial state is unspecified. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Stopping
- *        Indicates that the Trial should stop according to the service. (Value:
+ *        Indicates that the trial should stop according to the service. (Value:
  *        "STOPPING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Output only. True if the parameters in this trial should not be attempted
- *  again.
+ *  Output only. If true, the parameters in this trial are not attempted again.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3357,7 +3365,8 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLog
 
 
 /**
- *  A message representing a parameter to be tuned.
+ *  A message representing a parameter to be tuned. Contains the name of
+ *  the parameter and the suggested value to use for this trial.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrialParameter : GTLRObject
 

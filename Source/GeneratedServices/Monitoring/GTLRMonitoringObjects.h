@@ -100,7 +100,6 @@
 @class GTLRMonitoring_TimeSeries;
 @class GTLRMonitoring_TimeSeriesData;
 @class GTLRMonitoring_TimeSeriesDescriptor;
-@class GTLRMonitoring_TimeSeriesQueryLanguageCondition;
 @class GTLRMonitoring_TimeSeriesRatio;
 @class GTLRMonitoring_Trigger;
 @class GTLRMonitoring_TypedValue;
@@ -2220,12 +2219,6 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueType
 
 /** A condition that compares a time series against a threshold. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MetricThreshold *conditionThreshold;
-
-/**
- *  A condition that uses the Monitoring Query Language to define alerts. If
- *  set, no other conditions can be present.
- */
-@property(nonatomic, strong, nullable) GTLRMonitoring_TimeSeriesQueryLanguageCondition *conditionTimeSeriesQueryLanguage;
 
 /**
  *  A short name or phrase used to identify the condition in dashboards,
@@ -5189,27 +5182,6 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueType
 
 /** Descriptors for the point data value columns. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_ValueDescriptor *> *pointDescriptors;
-
-@end
-
-
-/**
- *  A condition type that allows alert policies to be defined using Monitoring
- *  Query Language.
- */
-@interface GTLRMonitoring_TimeSeriesQueryLanguageCondition : GTLRObject
-
-/**
- *  Monitoring Query Language query that generates time series data and
- *  describes a condition for alerting on that data.
- */
-@property(nonatomic, copy, nullable) NSString *query;
-
-/**
- *  A short explanation of what the query represents. For example:"Error ratio
- *  exceeds 15% for >5% of servers in >2 regions"
- */
-@property(nonatomic, copy, nullable) NSString *summary;
 
 @end
 

@@ -217,7 +217,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The maximum number of devices to return in the response. */
+/**
+ *  The maximum number of devices to return in the response.
+ *  If empty or zero, all devices will be listed.
+ *  Must be in the range [0, 1000].
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -973,7 +977,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The maximum number of devices to return in the response. */
+/**
+ *  The maximum number of devices to return in the response.
+ *  If empty or zero, all devices will be listed.
+ *  Must be in the range [0, 1000].
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -1304,7 +1312,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The maximum number of devices to return in the response. */
+/**
+ *  The maximum number of devices to return in the response.
+ *  If empty or zero, all devices will be listed.
+ *  Must be in the range [0, 1000].
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**

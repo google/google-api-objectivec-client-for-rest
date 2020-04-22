@@ -532,11 +532,11 @@ GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updati
  */
 @interface GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2OperationMetadata : GTLRObject
 
-/** API version used to start the operation. */
+/** Output only. API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
 /**
- *  Identifies whether the user has requested cancellation
+ *  Output only. Identifies whether the user has requested cancellation
  *  of the operation. Operations that have successfully been cancelled
  *  have Operation.error value with a google.rpc.Status.code of 1,
  *  corresponding to `Code.CANCELLED`.
@@ -545,19 +545,21 @@ GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updati
  */
 @property(nonatomic, strong, nullable) NSNumber *cancelRequested;
 
-/** Time when the operation was created. */
+/** Output only. Time when the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Time when the operation finished running. */
+/** Output only. Time when the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Human-readable status of the operation, if any. */
+/** Output only. Human-readable status of the operation, if any. */
 @property(nonatomic, copy, nullable) NSString *statusDetail;
 
-/** Server-defined resource path for the target of the operation. */
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
 @property(nonatomic, copy, nullable) NSString *target;
 
-/** Name of the verb executed by the operation. */
+/** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
 
 @end

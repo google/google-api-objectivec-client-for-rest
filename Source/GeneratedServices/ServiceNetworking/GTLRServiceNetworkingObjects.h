@@ -674,6 +674,12 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 // GTLRServiceNetworking_ValidateConsumerConfigResponse.validationError
 
 /**
+ *  The consumer project does not have the compute api enabled.
+ *
+ *  Value: "COMPUTE_API_NOT_ENABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ComputeApiNotEnabled;
+/**
  *  The consumer project is not a service project for
  *  the specified host project.
  *
@@ -4319,6 +4325,9 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigRespon
  *  validationError
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ComputeApiNotEnabled
+ *        The consumer project does not have the compute api enabled. (Value:
+ *        "COMPUTE_API_NOT_ENABLED")
  *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ConsumerProjectNotServiceProject
  *        The consumer project is not a service project for
  *        the specified host project. (Value:

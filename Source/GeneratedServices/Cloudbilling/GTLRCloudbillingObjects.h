@@ -891,8 +891,7 @@ GTLR_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUns
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
  *  the fields in the mask will be modified. If no mask is provided, the
  *  following default mask is used:
- *  paths: "bindings, etag"
- *  This field is only used by Cloud IAM.
+ *  `paths: "bindings, etag"`
  *
  *  String format is a comma-separated list of fields.
  */

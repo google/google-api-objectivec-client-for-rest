@@ -130,6 +130,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry
 GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Fileset;
 /**
  *  Output only. The type of models.
+ *  https://cloud.google.com/bigquery-ml/docs/bigqueryml-intro
  *
  *  Value: "MODEL"
  */
@@ -346,7 +347,7 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 
 /**
  *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
- *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ *  `GetIamPolicy`.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GetPolicyOptions *options;
 
@@ -588,7 +589,9 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
  *        An entry type which is a set of files or objects. Example:
  *        Cloud Storage fileset. (Value: "FILESET")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Model
- *        Output only. The type of models. (Value: "MODEL")
+ *        Output only. The type of models.
+ *        https://cloud.google.com/bigquery-ml/docs/bigqueryml-intro (Value:
+ *        "MODEL")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Table
  *        Output only. The type of entry that has a GoogleSQL schema, including
  *        logical views. (Value: "TABLE")
@@ -1091,7 +1094,8 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
  *  * description:y
  *  Note: Query tokens need to have a minimum of 3 characters for substring
  *  matching to work correctly. See [Data Catalog Search
- *  Syntax](/data-catalog/docs/how-to/search-reference) for more information.
+ *  Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference)
+ *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -1307,8 +1311,10 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 /**
  *  Tags are used to attach custom metadata to Data Catalog resources. Tags
  *  conform to the specifications within their tag template.
- *  See [Data Catalog IAM](/data-catalog/docs/concepts/iam) for information on
- *  the permissions needed to create or view tags.
+ *  See [Data Catalog
+ *  IAM](https://cloud.google.com/data-catalog/docs/concepts/iam) for
+ *  information
+ *  on the permissions needed to create or view tags.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag : GTLRObject
 
@@ -1433,10 +1439,12 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxon
 /**
  *  A tag template defines a tag, which can have one or more typed fields.
  *  The template is used to create and attach the tag to GCP resources.
- *  [Tag template roles](/iam/docs/understanding-roles#data-catalog-roles)
- *  provide permissions to create, edit, and use the template (see, for example,
- *  the [TagTemplate User](/data-catalog/docs/how-to/template-user) role, which
- *  includes permission to use the tag template to tag resources.
+ *  [Tag template
+ *  roles](https://cloud.google.com/iam/docs/understanding-roles#data-catalog-roles)
+ *  provide permissions to create, edit, and use the template. See, for example,
+ *  the [TagTemplate
+ *  User](https://cloud.google.com/data-catalog/docs/how-to/template-user) role,
+ *  which includes permission to use the tag template to tag resources.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate : GTLRObject
 

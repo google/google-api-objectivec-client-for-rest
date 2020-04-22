@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Blogger API (blogger/v3)
+//   Blogger API v3 (blogger/v3)
 // Description:
-//   API for access to the data within Blogger.
+//   The Blogger API provides access to posts, comments and pages of a
+//   Blogger blog.
 // Documentation:
 //   https://developers.google.com/blogger/docs/3.0/getting_started
 
@@ -16,8 +17,9 @@
 // Constants
 
 // orderBy
-NSString * const kGTLRBloggerOrderByPublished = @"published";
-NSString * const kGTLRBloggerOrderByUpdated   = @"updated";
+NSString * const kGTLRBloggerOrderByOrderByUnspecified = @"ORDER_BY_UNSPECIFIED";
+NSString * const kGTLRBloggerOrderByPublished          = @"PUBLISHED";
+NSString * const kGTLRBloggerOrderByUpdated            = @"UPDATED";
 
 // range
 NSString * const kGTLRBloggerRangeAll     = @"all";
@@ -25,23 +27,25 @@ NSString * const kGTLRBloggerRangeX30days = @"30DAYS";
 NSString * const kGTLRBloggerRangeX7days  = @"7DAYS";
 
 // role
-NSString * const kGTLRBloggerRoleAdmin  = @"ADMIN";
-NSString * const kGTLRBloggerRoleAuthor = @"AUTHOR";
-NSString * const kGTLRBloggerRoleReader = @"READER";
+NSString * const kGTLRBloggerRoleAdmin               = @"ADMIN";
+NSString * const kGTLRBloggerRoleAuthor              = @"AUTHOR";
+NSString * const kGTLRBloggerRoleReader              = @"READER";
+NSString * const kGTLRBloggerRoleViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
 
 // status
 NSString * const kGTLRBloggerStatusDeleted   = @"DELETED";
-NSString * const kGTLRBloggerStatusDraft     = @"draft";
-NSString * const kGTLRBloggerStatusEmptied   = @"emptied";
-NSString * const kGTLRBloggerStatusLive      = @"live";
-NSString * const kGTLRBloggerStatusPending   = @"pending";
-NSString * const kGTLRBloggerStatusScheduled = @"scheduled";
-NSString * const kGTLRBloggerStatusSpam      = @"spam";
+NSString * const kGTLRBloggerStatusDraft     = @"DRAFT";
+NSString * const kGTLRBloggerStatusEmptied   = @"EMPTIED";
+NSString * const kGTLRBloggerStatusLive      = @"LIVE";
+NSString * const kGTLRBloggerStatusPending   = @"PENDING";
+NSString * const kGTLRBloggerStatusScheduled = @"SCHEDULED";
+NSString * const kGTLRBloggerStatusSpam      = @"SPAM";
 
 // view
-NSString * const kGTLRBloggerViewAdmin  = @"ADMIN";
-NSString * const kGTLRBloggerViewAuthor = @"AUTHOR";
-NSString * const kGTLRBloggerViewReader = @"READER";
+NSString * const kGTLRBloggerViewAdmin               = @"ADMIN";
+NSString * const kGTLRBloggerViewAuthor              = @"AUTHOR";
+NSString * const kGTLRBloggerViewReader              = @"READER";
+NSString * const kGTLRBloggerViewViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -59,7 +63,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
 
 + (instancetype)queryWithBlogId:(NSString *)blogId {
   NSArray *pathParams = @[ @"blogId" ];
-  NSString *pathURITemplate = @"blogs/{blogId}";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}";
   GTLRBloggerQuery_BlogsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -77,7 +81,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
 @dynamic url, view;
 
 + (instancetype)queryWithUrl:(NSString *)url {
-  NSString *pathURITemplate = @"blogs/byurl";
+  NSString *pathURITemplate = @"v3/blogs/byurl";
   GTLRBloggerQuery_BlogsGetByUrl *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -104,7 +108,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"users/{userId}/blogs";
+  NSString *pathURITemplate = @"v3/users/{userId}/blogs";
   GTLRBloggerQuery_BlogsListByUser *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -126,7 +130,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"userId"
   ];
-  NSString *pathURITemplate = @"users/{userId}/blogs/{blogId}";
+  NSString *pathURITemplate = @"v3/users/{userId}/blogs/{blogId}";
   GTLRBloggerQuery_BlogUserInfosGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -150,7 +154,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"commentId", @"postId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/{postId}/comments/{commentId}/approve";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/{postId}/comments/{commentId}/approve";
   GTLRBloggerQuery_CommentsApprove *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -175,7 +179,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"commentId", @"postId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/{postId}/comments/{commentId}";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/{postId}/comments/{commentId}";
   GTLRBloggerQuery_CommentsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -199,7 +203,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"commentId", @"postId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/{postId}/comments/{commentId}";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/{postId}/comments/{commentId}";
   GTLRBloggerQuery_CommentsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -219,19 +223,12 @@ NSString * const kGTLRBloggerViewReader = @"READER";
 @dynamic blogId, endDate, fetchBodies, maxResults, pageToken, postId, startDate,
          status, view;
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"status" : [NSString class]
-  };
-  return map;
-}
-
 + (instancetype)queryWithBlogId:(NSString *)blogId
                          postId:(NSString *)postId {
   NSArray *pathParams = @[
     @"blogId", @"postId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/{postId}/comments";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/{postId}/comments";
   GTLRBloggerQuery_CommentsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -258,7 +255,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
 
 + (instancetype)queryWithBlogId:(NSString *)blogId {
   NSArray *pathParams = @[ @"blogId" ];
-  NSString *pathURITemplate = @"blogs/{blogId}/comments";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/comments";
   GTLRBloggerQuery_CommentsListByBlog *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -281,7 +278,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"commentId", @"postId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/{postId}/comments/{commentId}/spam";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/{postId}/comments/{commentId}/spam";
   GTLRBloggerQuery_CommentsMarkAsSpam *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -306,7 +303,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"commentId", @"postId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/{postId}/comments/{commentId}/removecontent";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/{postId}/comments/{commentId}/removecontent";
   GTLRBloggerQuery_CommentsRemoveContent *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -330,7 +327,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"pageId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/pages/{pageId}";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/pages/{pageId}";
   GTLRBloggerQuery_PagesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -352,7 +349,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"pageId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/pages/{pageId}";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/pages/{pageId}";
   GTLRBloggerQuery_PagesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -377,7 +374,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
     return nil;
   }
   NSArray *pathParams = @[ @"blogId" ];
-  NSString *pathURITemplate = @"blogs/{blogId}/pages";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/pages";
   GTLRBloggerQuery_PagesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -404,7 +401,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
 
 + (instancetype)queryWithBlogId:(NSString *)blogId {
   NSArray *pathParams = @[ @"blogId" ];
-  NSString *pathURITemplate = @"blogs/{blogId}/pages";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/pages";
   GTLRBloggerQuery_PagesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -431,7 +428,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"pageId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/pages/{pageId}";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/pages/{pageId}";
   GTLRBloggerQuery_PagesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -455,7 +452,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"pageId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/pages/{pageId}/publish";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/pages/{pageId}/publish";
   GTLRBloggerQuery_PagesPublish *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -478,7 +475,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"pageId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/pages/{pageId}/revert";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/pages/{pageId}/revert";
   GTLRBloggerQuery_PagesRevert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -506,7 +503,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"pageId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/pages/{pageId}";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/pages/{pageId}";
   GTLRBloggerQuery_PagesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -534,7 +531,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
 
 + (instancetype)queryWithBlogId:(NSString *)blogId {
   NSArray *pathParams = @[ @"blogId" ];
-  NSString *pathURITemplate = @"blogs/{blogId}/pageviews";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/pageviews";
   GTLRBloggerQuery_PageViewsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -556,7 +553,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"postId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/{postId}";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/{postId}";
   GTLRBloggerQuery_PostsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -578,7 +575,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"postId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/{postId}";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/{postId}";
   GTLRBloggerQuery_PostsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -599,7 +596,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
 + (instancetype)queryWithBlogId:(NSString *)blogId
                            path:(NSString *)path {
   NSArray *pathParams = @[ @"blogId" ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/bypath";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/bypath";
   GTLRBloggerQuery_PostsGetByPath *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -624,7 +621,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
     return nil;
   }
   NSArray *pathParams = @[ @"blogId" ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts";
   GTLRBloggerQuery_PostsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -652,7 +649,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
 
 + (instancetype)queryWithBlogId:(NSString *)blogId {
   NSArray *pathParams = @[ @"blogId" ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts";
   GTLRBloggerQuery_PostsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -679,7 +676,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"postId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/{postId}";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/{postId}";
   GTLRBloggerQuery_PostsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -703,7 +700,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"postId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/{postId}/publish";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/{postId}/publish";
   GTLRBloggerQuery_PostsPublish *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -726,7 +723,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"postId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/{postId}/revert";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/{postId}/revert";
   GTLRBloggerQuery_PostsRevert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -747,7 +744,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
 + (instancetype)queryWithBlogId:(NSString *)blogId
                               q:(NSString *)q {
   NSArray *pathParams = @[ @"blogId" ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/search";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/search";
   GTLRBloggerQuery_PostsSearch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -775,7 +772,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"postId"
   ];
-  NSString *pathURITemplate = @"blogs/{blogId}/posts/{postId}";
+  NSString *pathURITemplate = @"v3/blogs/{blogId}/posts/{postId}";
   GTLRBloggerQuery_PostsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -800,7 +797,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"postId", @"userId"
   ];
-  NSString *pathURITemplate = @"users/{userId}/blogs/{blogId}/posts/{postId}";
+  NSString *pathURITemplate = @"v3/users/{userId}/blogs/{blogId}/posts/{postId}";
   GTLRBloggerQuery_PostUserInfosGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -832,7 +829,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
   NSArray *pathParams = @[
     @"blogId", @"userId"
   ];
-  NSString *pathURITemplate = @"users/{userId}/blogs/{blogId}/posts";
+  NSString *pathURITemplate = @"v3/users/{userId}/blogs/{blogId}/posts";
   GTLRBloggerQuery_PostUserInfosList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -852,7 +849,7 @@ NSString * const kGTLRBloggerViewReader = @"READER";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"users/{userId}";
+  NSString *pathURITemplate = @"v3/users/{userId}";
   GTLRBloggerQuery_UsersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

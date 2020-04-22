@@ -113,6 +113,7 @@ NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROT
 NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // GTLRServiceNetworking_ValidateConsumerConfigResponse.validationError
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ComputeApiNotEnabled = @"COMPUTE_API_NOT_ENABLED";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ConsumerProjectNotServiceProject = @"CONSUMER_PROJECT_NOT_SERVICE_PROJECT";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_HostProjectNotFound = @"HOST_PROJECT_NOT_FOUND";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotFound = @"NETWORK_NOT_FOUND";

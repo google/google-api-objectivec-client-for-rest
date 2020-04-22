@@ -103,9 +103,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Indicates whether your smart home Action will report notifications
- *  to Google for this device via ReportStateAndNotification.
+ *  to Google for this device via
+ *  ReportStateAndNotification.
  *  If your smart home Action enables users to control device notifications,
- *  you should update this field and call RequestSyncDevices.
+ *  you should update this field and call
+ *  RequestSyncDevices.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -146,7 +148,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Indicates whether your smart home Action will report state of this device
- *  to Google via ReportStateAndNotification.
+ *  to Google via
+ *  ReportStateAndNotification.
  *
  *  Uses NSNumber of boolValue.
  */

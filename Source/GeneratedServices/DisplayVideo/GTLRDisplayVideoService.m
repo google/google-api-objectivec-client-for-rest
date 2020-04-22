@@ -28,6 +28,7 @@ NSString * const kGTLRAuthScopeDisplayVideoDoubleclickbidmanager = @"https://www
   if (self) {
     // From discovery.
     self.rootURLString = @"https://displayvideo.googleapis.com/";
+    self.simpleUploadPath = @"upload/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

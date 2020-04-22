@@ -29,8 +29,23 @@ NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Error  = @"ERROR";
 NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Info   = @"INFO";
 NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Warning = @"WARNING";
 
+// GTLRCloudDebugger_Breakpoint.state
+NSString * const kGTLRCloudDebugger_Breakpoint_State_StateCanaryActive = @"STATE_CANARY_ACTIVE";
+NSString * const kGTLRCloudDebugger_Breakpoint_State_StateCanaryPendingAgents = @"STATE_CANARY_PENDING_AGENTS";
+NSString * const kGTLRCloudDebugger_Breakpoint_State_StateIsFinal = @"STATE_IS_FINAL";
+NSString * const kGTLRCloudDebugger_Breakpoint_State_StateRollingToAll = @"STATE_ROLLING_TO_ALL";
+NSString * const kGTLRCloudDebugger_Breakpoint_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudDebugger_Debuggee.canaryMode
+NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysDisabled = @"CANARY_MODE_ALWAYS_DISABLED";
+NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysEnabled = @"CANARY_MODE_ALWAYS_ENABLED";
+NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultDisabled = @"CANARY_MODE_DEFAULT_DISABLED";
+NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultEnabled = @"CANARY_MODE_DEFAULT_ENABLED";
+NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeUnspecified = @"CANARY_MODE_UNSPECIFIED";
+
 // GTLRCloudDebugger_StatusMessage.refersTo
 NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointAge = @"BREAKPOINT_AGE";
+NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointCanaryFailed = @"BREAKPOINT_CANARY_FAILED";
 NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointCondition = @"BREAKPOINT_CONDITION";
 NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointExpression = @"BREAKPOINT_EXPRESSION";
 NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointSourceLocation = @"BREAKPOINT_SOURCE_LOCATION";
@@ -61,9 +76,10 @@ NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableValue = @"VAR
 //
 
 @implementation GTLRCloudDebugger_Breakpoint
-@dynamic action, condition, createTime, evaluatedExpressions, expressions,
-         finalTime, identifier, isFinalState, labels, location, logLevel,
-         logMessageFormat, stackFrames, status, userEmail, variableTable;
+@dynamic action, canaryExpireTime, condition, createTime, evaluatedExpressions,
+         expressions, finalTime, identifier, isFinalState, labels, location,
+         logLevel, logMessageFormat, stackFrames, state, status, userEmail,
+         variableTable;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -132,9 +148,9 @@ NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableValue = @"VAR
 //
 
 @implementation GTLRCloudDebugger_Debuggee
-@dynamic agentVersion, descriptionProperty, extSourceContexts, identifier,
-         isDisabled, isInactive, labels, project, sourceContexts, status,
-         uniquifier;
+@dynamic agentVersion, canaryMode, descriptionProperty, extSourceContexts,
+         identifier, isDisabled, isInactive, labels, project, sourceContexts,
+         status, uniquifier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -330,7 +346,7 @@ NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableValue = @"VAR
 //
 
 @implementation GTLRCloudDebugger_RegisterDebuggeeResponse
-@dynamic debuggee;
+@dynamic agentId, debuggee;
 @end
 
 

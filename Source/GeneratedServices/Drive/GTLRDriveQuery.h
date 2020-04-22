@@ -117,7 +117,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  The ID of the shared drive for which the starting pageToken for listing
- *  future changes from that shared drive will be returned.
+ *  future changes from that shared drive is returned.
  */
 @property(nonatomic, copy, nullable) NSString *driveId;
 
@@ -170,9 +170,9 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForChangesListWithpageToken:]
 
 /**
- *  The shared drive from which changes will be returned. If specified the
- *  change IDs will be reflective of the shared drive; use the combined drive ID
- *  and change ID as an identifier.
+ *  The shared drive from which changes are returned. If specified the change
+ *  IDs will be reflective of the shared drive; use the combined drive ID and
+ *  change ID as an identifier.
  */
 @property(nonatomic, copy, nullable) NSString *driveId;
 
@@ -189,7 +189,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Deprecated - Whether both My Drive and shared drive items should be included
  *  in results. This parameter will only be effective until June 1, 2020.
- *  Afterwards shared drive items will be included in the results.
+ *  Afterwards shared drive items are included in the results.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -299,9 +299,9 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForChangesWatchWithObject:pageToken:]
 
 /**
- *  The shared drive from which changes will be returned. If specified the
- *  change IDs will be reflective of the shared drive; use the combined drive ID
- *  and change ID as an identifier.
+ *  The shared drive from which changes are returned. If specified the change
+ *  IDs will be reflective of the shared drive; use the combined drive ID and
+ *  change ID as an identifier.
  */
 @property(nonatomic, copy, nullable) NSString *driveId;
 
@@ -318,7 +318,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Deprecated - Whether both My Drive and shared drive items should be included
  *  in results. This parameter will only be effective until June 1, 2020.
- *  Afterwards shared drive items will be included in the results.
+ *  Afterwards shared drive items are included in the results.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -919,8 +919,8 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Set to true to opt in to API behavior that aims for all items to have
- *  exactly one parent. This parameter will only take effect if the item is not
- *  in a shared drive. Requests that specify more than one parent will fail.
+ *  exactly one parent. This parameter only takes effect if the item is not in a
+ *  shared drive. Requests that specify more than one parent fail.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1002,8 +1002,8 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Set to true to opt in to API behavior that aims for all items to have
- *  exactly one parent. This parameter will only take effect if the item is not
- *  in a shared drive. Requests that specify more than one parent will fail.
+ *  exactly one parent. This parameter only takes effect if the item is not in a
+ *  shared drive. Requests that specify more than one parent fail.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1341,7 +1341,7 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Deprecated - Whether both My Drive and shared drive items should be included
  *  in results. This parameter will only be effective until June 1, 2020.
- *  Afterwards shared drive items will be included in the results.
+ *  Afterwards shared drive items are included in the results.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1450,12 +1450,12 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Set to true to opt in to API behavior that aims for all items to have
- *  exactly one parent. This parameter will only take effect if the item is not
- *  in a shared drive. If the item's owner makes a request to add a single
- *  parent, the item will be removed from all current folders and placed in the
- *  requested folder. Other requests that increase the number of parents will
- *  fail, except when the canAddMyDriveParent file capability is true and a
- *  single parent is being added.
+ *  exactly one parent. This parameter only takes effect if the item is not in a
+ *  shared drive. If the item's owner makes a request to add a single parent,
+ *  the item is removed from all current folders and placed in the requested
+ *  folder. Other requests that increase the number of parents fail, except when
+ *  the canAddMyDriveParent file capability is true and a single parent is being
+ *  added.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1614,8 +1614,8 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Set to true to opt in to API behavior that aims for all items to have
- *  exactly one parent. This parameter will only take effect if the item is not
- *  in a shared drive. See moveToNewOwnersRoot for details.
+ *  exactly one parent. This parameter only takes effect if the item is not in a
+ *  shared drive. See moveToNewOwnersRoot for details.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1625,14 +1625,14 @@ GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
- *  This parameter will only take effect if the item is not in a shared drive
- *  and the request is attempting to transfer the ownership of the item. When
- *  set to true, the item will be moved to the new owner's My Drive root folder
- *  and all prior parents removed. If set to false, when
- *  enforceSingleParent=true, parents are not changed. If set to false, when
- *  enforceSingleParent=false, existing parents are not changed; however, the
- *  file will be added to the new owner's My Drive root folder, unless it is
- *  already in the new owner's My Drive.
+ *  This parameter only takes effect if the item is not in a shared drive and
+ *  the request is attempting to transfer the ownership of the item. When set to
+ *  true, the item is moved to the new owner's My Drive root folder and all
+ *  prior parents removed. If set to false, when enforceSingleParent=true,
+ *  parents are not changed. If set to false, when enforceSingleParent=false,
+ *  existing parents are not changed; however, the file will be added to the new
+ *  owner's My Drive root folder, unless it is already in the new owner's My
+ *  Drive.
  *
  *  @note If not set, the documented server-side default will be false.
  */

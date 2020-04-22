@@ -1501,6 +1501,42 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_MinimumOrderValueTable
+//
+
+@implementation GTLRShoppingContent_MinimumOrderValueTable
+@dynamic storeCodeSetWithMovs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"storeCodeSetWithMovs" : [GTLRShoppingContent_MinimumOrderValueTableStoreCodeSetWithMov class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_MinimumOrderValueTableStoreCodeSetWithMov
+//
+
+@implementation GTLRShoppingContent_MinimumOrderValueTableStoreCodeSetWithMov
+@dynamic storeCodes, value;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"storeCodes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_Order
 //
 
@@ -3357,7 +3393,8 @@
 
 @implementation GTLRShoppingContent_Service
 @dynamic active, currency, deliveryCountry, deliveryTime, eligibility,
-         minimumOrderValue, name, pickupService, rateGroups, shipmentType;
+         minimumOrderValue, minimumOrderValueTable, name, pickupService,
+         rateGroups, shipmentType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3366,6 +3403,133 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_SettlementReport
+//
+
+@implementation GTLRShoppingContent_SettlementReport
+@dynamic endDate, kind, previousBalance, settlementId, startDate,
+         transferAmount, transferDate, transferIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"transferIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_SettlementreportsListResponse
+//
+
+@implementation GTLRShoppingContent_SettlementreportsListResponse
+@dynamic kind, nextPageToken, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRShoppingContent_SettlementReport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_SettlementTransaction
+//
+
+@implementation GTLRShoppingContent_SettlementTransaction
+@dynamic amount, identifiers, kind, transaction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_SettlementTransactionAmount
+//
+
+@implementation GTLRShoppingContent_SettlementTransactionAmount
+@dynamic commission, descriptionProperty, transactionAmount, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_SettlementTransactionAmountCommission
+//
+
+@implementation GTLRShoppingContent_SettlementTransactionAmountCommission
+@dynamic category, rate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_SettlementTransactionIdentifiers
+//
+
+@implementation GTLRShoppingContent_SettlementTransactionIdentifiers
+@dynamic adjustmentId, merchantOrderId, settlementEntryId, shipmentIds,
+         transactionId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"shipmentIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_SettlementtransactionsListResponse
+//
+
+@implementation GTLRShoppingContent_SettlementtransactionsListResponse
+@dynamic kind, nextPageToken, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRShoppingContent_SettlementTransaction class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_SettlementTransactionTransaction
+//
+
+@implementation GTLRShoppingContent_SettlementTransactionTransaction
+@dynamic postDate, type;
 @end
 
 

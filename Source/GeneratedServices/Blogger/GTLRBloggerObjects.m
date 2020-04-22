@@ -2,13 +2,52 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Blogger API (blogger/v3)
+//   Blogger API v3 (blogger/v3)
 // Description:
-//   API for access to the data within Blogger.
+//   The Blogger API provides access to posts, comments and pages of a
+//   Blogger blog.
 // Documentation:
 //   https://developers.google.com/blogger/docs/3.0/getting_started
 
 #import "GTLRBloggerObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRBlogger_Blog.status
+NSString * const kGTLRBlogger_Blog_Status_Deleted = @"DELETED";
+NSString * const kGTLRBlogger_Blog_Status_Live    = @"LIVE";
+
+// GTLRBlogger_BlogPerUserInfo.role
+NSString * const kGTLRBlogger_BlogPerUserInfo_Role_Admin       = @"ADMIN";
+NSString * const kGTLRBlogger_BlogPerUserInfo_Role_Author      = @"AUTHOR";
+NSString * const kGTLRBlogger_BlogPerUserInfo_Role_Reader      = @"READER";
+NSString * const kGTLRBlogger_BlogPerUserInfo_Role_ViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
+
+// GTLRBlogger_Comment.status
+NSString * const kGTLRBlogger_Comment_Status_Emptied = @"EMPTIED";
+NSString * const kGTLRBlogger_Comment_Status_Live    = @"LIVE";
+NSString * const kGTLRBlogger_Comment_Status_Pending = @"PENDING";
+NSString * const kGTLRBlogger_Comment_Status_Spam    = @"SPAM";
+
+// GTLRBlogger_Page.status
+NSString * const kGTLRBlogger_Page_Status_Draft = @"DRAFT";
+NSString * const kGTLRBlogger_Page_Status_Live  = @"LIVE";
+
+// GTLRBlogger_Pageviews_Counts_Item.timeRange
+NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_AllTime = @"ALL_TIME";
+NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_SevenDays = @"SEVEN_DAYS";
+NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_ThirtyDays = @"THIRTY_DAYS";
+
+// GTLRBlogger_Post.readerComments
+NSString * const kGTLRBlogger_Post_ReaderComments_Allow        = @"ALLOW";
+NSString * const kGTLRBlogger_Post_ReaderComments_DontAllowHideExisting = @"DONT_ALLOW_HIDE_EXISTING";
+NSString * const kGTLRBlogger_Post_ReaderComments_DontAllowShowExisting = @"DONT_ALLOW_SHOW_EXISTING";
+
+// GTLRBlogger_Post.status
+NSString * const kGTLRBlogger_Post_Status_Draft     = @"DRAFT";
+NSString * const kGTLRBlogger_Post_Status_Live      = @"LIVE";
+NSString * const kGTLRBlogger_Post_Status_Scheduled = @"SCHEDULED";
 
 // ----------------------------------------------------------------------------
 //
@@ -25,6 +64,12 @@
     @"identifier" : @"id"
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -84,6 +129,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -94,6 +145,13 @@
 
 @implementation GTLRBlogger_BlogPerUserInfo
 @dynamic blogId, hasAdminAccess, kind, photosAlbumKey, role, userId;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -107,6 +165,12 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"blogUserInfo" : @"blog_user_info" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -123,6 +187,12 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -217,6 +287,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -235,6 +311,12 @@
     @"identifier" : @"id"
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -299,6 +381,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -315,6 +403,12 @@
     @"counts" : [GTLRBlogger_Pageviews_Counts_Item class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -354,6 +448,12 @@
     @"labels" : [NSString class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -443,7 +543,7 @@
 //
 
 @implementation GTLRBlogger_PostList
-@dynamic ETag, items, kind, nextPageToken;
+@dynamic ETag, items, kind, nextPageToken, prevPageToken;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -456,6 +556,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -466,6 +572,13 @@
 
 @implementation GTLRBlogger_PostPerUserInfo
 @dynamic blogId, hasEditAccess, kind, postId, userId;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -479,6 +592,12 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"postUserInfo" : @"post_user_info" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -499,6 +618,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -513,6 +638,12 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end

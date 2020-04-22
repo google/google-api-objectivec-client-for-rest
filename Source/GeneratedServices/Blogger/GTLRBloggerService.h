@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Blogger API (blogger/v3)
+//   Blogger API v3 (blogger/v3)
 // Description:
-//   API for access to the data within Blogger.
+//   The Blogger API provides access to posts, comments and pages of a
+//   Blogger blog.
 // Documentation:
 //   https://developers.google.com/blogger/docs/3.0/getting_started
 
@@ -46,9 +47,10 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeBloggerReadonly;
 //
 
 /**
- *  Service for executing Blogger API queries.
+ *  Service for executing Blogger API v3 queries.
  *
- *  API for access to the data within Blogger.
+ *  The Blogger API provides access to posts, comments and pages of a
+ *  Blogger blog.
  */
 @interface GTLRBloggerService : GTLRService
 

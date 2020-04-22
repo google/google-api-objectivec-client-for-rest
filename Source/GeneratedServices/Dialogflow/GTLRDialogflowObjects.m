@@ -159,6 +159,12 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindMap 
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindRegexp = @"KIND_REGEXP";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2Environment.state
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Loading = @"LOADING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Running = @"RUNNING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Stopped = @"STOPPED";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature.type
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature_Type_Smalltalk = @"SMALLTALK";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
@@ -1623,6 +1629,21 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2Environment
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2Environment
+@dynamic agentVersion, descriptionProperty, name, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2EventInput
 //
 
@@ -2312,6 +2333,28 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 + (NSString *)collectionItemsKey {
   return @"entityTypes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ListEnvironmentsResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ListEnvironmentsResponse
+@dynamic environments, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"environments" : [GTLRDialogflow_GoogleCloudDialogflowV2Environment class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"environments";
 }
 
 @end

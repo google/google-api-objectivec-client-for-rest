@@ -62,7 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  result pages. Also note that results returned (and not returned) can vary
  *  across repeated search queries.
  *  See [Data Catalog Search
- *  Syntax](/data-catalog/docs/how-to/search-reference) for more information.
+ *  Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference)
+ *  for more information.
  *
  *  Method: datacatalog.catalog.search
  *
@@ -88,7 +89,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  result pages. Also note that results returned (and not returned) can vary
  *  across repeated search queries.
  *  See [Data Catalog Search
- *  Syntax](/data-catalog/docs/how-to/search-reference) for more information.
+ *  Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference)
+ *  for more information.
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequest to
@@ -129,7 +131,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The SQL name of the entry. SQL names are case-sensitive.
  *  Examples:
- *  * `cloud_pubsub.project_id.topic_id`
+ *  * `pubsub.project_id.topic_id`
  *  * ``pubsub.project_id.`topic.id.with.dots` ``
  *  * `bigquery.table.project_id.dataset_id.table_id`
  *  * `bigquery.dataset.project_id.dataset_id`
@@ -157,7 +159,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  locations.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `parent` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  Method: datacatalog.projects.locations.entryGroups.create
  *
@@ -190,7 +193,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  locations.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `parent` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup
  *    to include in the query.
@@ -211,7 +215,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an EntryGroup. Only entry groups that do not contain entries can be
  *  deleted. Users should enable the Data Catalog API in the project
  *  identified by the `name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  Method: datacatalog.projects.locations.entryGroups.delete
  *
@@ -237,7 +242,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an EntryGroup. Only entry groups that do not contain entries can be
  *  deleted. Users should enable the Data Catalog API in the project
  *  identified by the `name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  @param name Required. The name of the entry group. For example,
  *    `projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}`.
@@ -253,7 +259,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  be created.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `parent` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *  A maximum of 100,000 entries may be created per entry group.
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.create
@@ -283,7 +290,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  be created.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `parent` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *  A maximum of 100,000 entries may be created per entry group.
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry to
@@ -307,7 +315,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  method can be deleted.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.delete
  *
@@ -333,7 +342,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  method can be deleted.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  @param name Required. The name of the entry. Example:
  *    *
@@ -507,7 +517,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates an existing entry.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `entry.name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.patch
  *
@@ -558,7 +569,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates an existing entry.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `entry.name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry to
  *    include in the query.
@@ -579,10 +591,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates a tag on an Entry.
  *  Note: The project identified by the `parent` parameter for the
- *  [tag](/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
+ *  [tag](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
  *  and the
  *  [tag
- *  template](/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
+ *  template](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
  *  used to create the tag must be from the same organization.
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.tags.create
@@ -610,10 +622,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates a tag on an Entry.
  *  Note: The project identified by the `parent` parameter for the
- *  [tag](/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
+ *  [tag](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
  *  and the
  *  [tag
- *  template](/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
+ *  template](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
  *  used to create the tag must be from the same organization.
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag to
@@ -989,8 +1001,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates an EntryGroup. The user should enable the Data Catalog API in the
  *  project identified by the `entry_group.name` parameter (see [Data Catalog
- *  Resource Project] (/data-catalog/docs/concepts/resource-project) for more
- *  information).
+ *  Resource Project]
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  Method: datacatalog.projects.locations.entryGroups.patch
  *
@@ -1022,8 +1035,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates an EntryGroup. The user should enable the Data Catalog API in the
  *  project identified by the `entry_group.name` parameter (see [Data Catalog
- *  Resource Project] (/data-catalog/docs/concepts/resource-project) for more
- *  information).
+ *  Resource Project]
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup
  *    to include in the query.
@@ -1102,10 +1116,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates a tag on an Entry.
  *  Note: The project identified by the `parent` parameter for the
- *  [tag](/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
+ *  [tag](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
  *  and the
  *  [tag
- *  template](/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
+ *  template](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
  *  used to create the tag must be from the same organization.
  *
  *  Method: datacatalog.projects.locations.entryGroups.tags.create
@@ -1133,10 +1147,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates a tag on an Entry.
  *  Note: The project identified by the `parent` parameter for the
- *  [tag](/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
+ *  [tag](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
  *  and the
  *  [tag
- *  template](/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
+ *  template](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
  *  used to create the tag must be from the same organization.
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag to
@@ -1356,8 +1370,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates a tag template. The user should enable the Data Catalog API in
  *  the project identified by the `parent` parameter (see [Data Catalog
- *  Resource Project](/data-catalog/docs/concepts/resource-project) for more
- *  information).
+ *  Resource
+ *  Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project)
+ *  for more information).
  *
  *  Method: datacatalog.projects.locations.tagTemplates.create
  *
@@ -1370,8 +1385,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the project and the template location
- *  [region](/compute/docs/regions-zones/#available).
- *  NOTE: Currently, only the `us-central1 region` is supported.
+ *  [region](https://cloud.google.com/data-catalog/docs/concepts/regions.
  *  Example:
  *  * projects/{project_id}/locations/us-central1
  */
@@ -1385,15 +1399,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates a tag template. The user should enable the Data Catalog API in
  *  the project identified by the `parent` parameter (see [Data Catalog
- *  Resource Project](/data-catalog/docs/concepts/resource-project) for more
- *  information).
+ *  Resource
+ *  Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project)
+ *  for more information).
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate to include in the
  *    query.
  *  @param parent Required. The name of the project and the template location
- *    [region](/compute/docs/regions-zones/#available).
- *    NOTE: Currently, only the `us-central1 region` is supported.
+ *    [region](https://cloud.google.com/data-catalog/docs/concepts/regions.
  *    Example:
  *    * projects/{project_id}/locations/us-central1
  *
@@ -1408,7 +1422,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a tag template and all tags using the template.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  Method: datacatalog.projects.locations.tagTemplates.delete
  *
@@ -1438,7 +1453,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a tag template and all tags using the template.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  @param name Required. The name of the tag template to delete. Example:
  *    *
@@ -1454,8 +1470,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a field in a tag template. The user should enable the Data Catalog
  *  API in the project identified by the `parent` parameter (see
  *  [Data Catalog Resource
- *  Project](/data-catalog/docs/concepts/resource-project) for more
- *  information).
+ *  Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project)
+ *  for more information).
  *
  *  Method: datacatalog.projects.locations.tagTemplates.fields.create
  *
@@ -1468,8 +1484,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the project and the template location
- *  [region](/compute/docs/regions-zones/#available).
- *  NOTE: Currently, only the `us-central1 region` is supported.
+ *  [region](https://cloud.google.com/data-catalog/docs/concepts/regions).
  *  Example:
  *  * projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
  */
@@ -1490,15 +1505,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a field in a tag template. The user should enable the Data Catalog
  *  API in the project identified by the `parent` parameter (see
  *  [Data Catalog Resource
- *  Project](/data-catalog/docs/concepts/resource-project) for more
- *  information).
+ *  Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project)
+ *  for more information).
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField to include
  *    in the query.
  *  @param parent Required. The name of the project and the template location
- *    [region](/compute/docs/regions-zones/#available).
- *    NOTE: Currently, only the `us-central1 region` is supported.
+ *    [region](https://cloud.google.com/data-catalog/docs/concepts/regions).
  *    Example:
  *    *
  *    projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
@@ -1514,7 +1528,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a field in a tag template and all uses of that field.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  Method: datacatalog.projects.locations.tagTemplates.fields.delete
  *
@@ -1545,7 +1560,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a field in a tag template and all uses of that field.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  @param name Required. The name of the tag template field to delete. Example:
  *    *
@@ -1561,7 +1577,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a field in a tag template. This method cannot be used to update the
  *  field type. Users should enable the Data Catalog API in the project
  *  identified by the `name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  Method: datacatalog.projects.locations.tagTemplates.fields.patch
  *
@@ -1602,7 +1619,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a field in a tag template. This method cannot be used to update the
  *  field type. Users should enable the Data Catalog API in the project
  *  identified by the `name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField to include
@@ -1621,8 +1639,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Renames a field in a tag template. The user should enable the Data Catalog
  *  API in the project identified by the `name` parameter (see [Data Catalog
- *  Resource Project](/data-catalog/docs/concepts/resource-project) for more
- *  information).
+ *  Resource
+ *  Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project)
+ *  for more information).
  *
  *  Method: datacatalog.projects.locations.tagTemplates.fields.rename
  *
@@ -1645,8 +1664,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Renames a field in a tag template. The user should enable the Data Catalog
  *  API in the project identified by the `name` parameter (see [Data Catalog
- *  Resource Project](/data-catalog/docs/concepts/resource-project) for more
- *  information).
+ *  Resource
+ *  Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project)
+ *  for more information).
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest
@@ -1763,7 +1783,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  and should be updated using their own create/update/delete methods.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `tag_template.name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  Method: datacatalog.projects.locations.tagTemplates.patch
  *
@@ -1800,7 +1821,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  and should be updated using their own create/update/delete methods.
  *  Users should enable the Data Catalog API in the project identified by
  *  the `tag_template.name` parameter (see [Data Catalog Resource Project]
- *  (/data-catalog/docs/concepts/resource-project) for more information).
+ *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
+ *  more information).
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate to include in the

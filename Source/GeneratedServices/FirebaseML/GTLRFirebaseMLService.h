@@ -2,12 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Private Catalog API (cloudprivatecatalog/v1beta1)
+//   Firebase ML API (firebaseml/v1beta2)
 // Description:
-//   Enable cloud users to discover enterprise catalogs and products in their
-//   organizations.
+//   Access custom machine learning models hosted via Firebase ML.
 // Documentation:
-//   https://cloud.google.com/private-catalog/
+//   https://firebase.google.com
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -35,25 +34,24 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudPrivateCatalogCloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeFirebaseMLCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudPrivateCatalogService
+//   GTLRFirebaseMLService
 //
 
 /**
- *  Service for executing Cloud Private Catalog API queries.
+ *  Service for executing Firebase ML API queries.
  *
- *  Enable cloud users to discover enterprise catalogs and products in their
- *  organizations.
+ *  Access custom machine learning models hosted via Firebase ML.
  */
-@interface GTLRCloudPrivateCatalogService : GTLRService
+@interface GTLRFirebaseMLService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudPrivateCatalogQuery.h. The query can the be sent with GTLRService's
-// execute methods,
+// GTLRFirebaseMLQuery.h. The query can the be sent with GTLRService's execute
+// methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

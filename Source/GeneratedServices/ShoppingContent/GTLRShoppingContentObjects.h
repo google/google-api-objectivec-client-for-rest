@@ -88,6 +88,8 @@
 @class GTLRShoppingContent_LoyaltyPoints;
 @class GTLRShoppingContent_MerchantOrderReturn;
 @class GTLRShoppingContent_MerchantOrderReturnItem;
+@class GTLRShoppingContent_MinimumOrderValueTable;
+@class GTLRShoppingContent_MinimumOrderValueTableStoreCodeSetWithMov;
 @class GTLRShoppingContent_Order;
 @class GTLRShoppingContent_OrderAddress;
 @class GTLRShoppingContent_OrderCancellation;
@@ -162,6 +164,12 @@
 @class GTLRShoppingContent_ReturnShipment;
 @class GTLRShoppingContent_Row;
 @class GTLRShoppingContent_Service;
+@class GTLRShoppingContent_SettlementReport;
+@class GTLRShoppingContent_SettlementTransaction;
+@class GTLRShoppingContent_SettlementTransactionAmount;
+@class GTLRShoppingContent_SettlementTransactionAmountCommission;
+@class GTLRShoppingContent_SettlementTransactionIdentifiers;
+@class GTLRShoppingContent_SettlementTransactionTransaction;
 @class GTLRShoppingContent_ShipmentInvoice;
 @class GTLRShoppingContent_ShipmentInvoiceLineItemInvoice;
 @class GTLRShoppingContent_ShipmentTrackingInfo;
@@ -197,8 +205,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  List of linked Ads accounts that are active or pending approval. To create a
- *  new link request, add a new link with status active to the list. It will
- *  remain in a pending state until approved or rejected either in the Ads
+ *  new link request, add a new link with status `active` to the list. It will
+ *  remain in a `pending` state until approved or rejected either in the Ads
  *  interface or through the AdWords API. To delete an active link, or to cancel
  *  a link request, remove it from the list.
  */
@@ -231,7 +239,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#account".
+ *  "`content#account`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -252,10 +260,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  List of linked YouTube channels that are active or pending approval. To
- *  create a new link request, add a new link with status active to the list. It
- *  will remain in a pending state until approved or rejected in the YT Creator
- *  Studio interface. To delete an active link, or to cancel a link request,
- *  remove it from the list.
+ *  create a new link request, add a new link with status `active` to the list.
+ *  It will remain in a `pending` state until approved or rejected in the YT
+ *  Creator Studio interface. To delete an active link, or to cancel a link
+ *  request, remove it from the list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountYouTubeChannelLink *> *youtubeChannelLinks;
 
@@ -306,16 +314,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Status of the link between this Merchant Center account and the Ads account.
  *  Upon retrieval, it represents the actual status of the link and can be
- *  either active if it was approved in Google Ads or pending if it's pending
- *  approval. Upon insertion, it represents the intended status of the link.
- *  Re-uploading a link with status active when it's still pending or with
- *  status pending when it's already active will have no effect: the status will
- *  remain unchanged. Re-uploading a link with deprecated status inactive is
- *  equivalent to not submitting the link at all and will delete the link if it
- *  was active or cancel the link request if it was pending.
+ *  either `active` if it was approved in Google Ads or `pending` if it's
+ *  pending approval. Upon insertion, it represents the intended status of the
+ *  link. Re-uploading a link with status `active` when it's still pending or
+ *  with status `pending` when it's already active will have no effect: the
+ *  status will remain unchanged. Re-uploading a link with deprecated status
+ *  `inactive` is equivalent to not submitting the link at all and will delete
+ *  the link if it was active or cancel the link request if it was pending.
  *  Acceptable values are:
- *  - "active"
- *  - "pending"
+ *  - "`active`"
+ *  - "`pending`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -371,8 +379,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Status of the link between this Merchant Center account and the GMB account.
  *  Acceptable values are:
- *  - "active"
- *  - "pending"
+ *  - "`active`"
+ *  - "`pending`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -456,13 +464,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_AccountsCustomBatchRequestEntry : GTLRObject
 
 /**
- *  The account to create or update. Only defined if the method is insert or
- *  update.
+ *  The account to create or update. Only defined if the method is `insert` or
+ *  `update`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Account *account;
 
 /**
- *  The ID of the targeted account. Only defined if the method is not insert.
+ *  The ID of the targeted account. Only defined if the method is not `insert`.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -477,13 +485,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Whether the account should be deleted if the account has offers. Only
- *  applicable if the method is delete.
+ *  applicable if the method is `delete`.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *force;
 
-/** Details about the link request. */
+/** Details about the `link` request. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_AccountsCustomBatchRequestEntryLinkRequest *linkRequest;
 
 /**
@@ -496,17 +504,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The method of the batch entry.
  *  Acceptable values are:
- *  - "claimWebsite"
- *  - "delete"
- *  - "get"
- *  - "insert"
- *  - "link"
- *  - "update"
+ *  - "`claimWebsite`"
+ *  - "`delete`"
+ *  - "`get`"
+ *  - "`insert`"
+ *  - "`link`"
+ *  - "`update`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
 /**
- *  Only applicable if the method is claimwebsite. Indicates whether or not to
+ *  Only applicable if the method is `claimwebsite`. Indicates whether or not to
  *  take the claim from another account in case there is a conflict.
  *
  *  Uses NSNumber of boolValue.
@@ -522,12 +530,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_AccountsCustomBatchRequestEntryLinkRequest : GTLRObject
 
 /**
- *  Action to perform for this link. The "request" action is only available to
+ *  Action to perform for this link. The `"request"` action is only available to
  *  select merchants.
  *  Acceptable values are:
- *  - "approve"
- *  - "remove"
- *  - "request"
+ *  - "`approve`"
+ *  - "`remove`"
+ *  - "`request`"
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
@@ -537,8 +545,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Type of the link between the two accounts.
  *  Acceptable values are:
- *  - "channelPartner"
- *  - "eCommercePlatform"
+ *  - "`channelPartner`"
+ *  - "`eCommercePlatform`"
  */
 @property(nonatomic, copy, nullable) NSString *linkType;
 
@@ -572,7 +580,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The retrieved, created, or updated account. Not defined if the method was
- *  delete, claimwebsite or link.
+ *  `delete`, `claimwebsite` or `link`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Account *account;
 
@@ -588,7 +596,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accountsCustomBatchResponseEntry".
+ *  "`content#accountsCustomBatchResponseEntry`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -601,12 +609,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_AccountsLinkRequest : GTLRObject
 
 /**
- *  Action to perform for this link. The "request" action is only available to
+ *  Action to perform for this link. The `"request"` action is only available to
  *  select merchants.
  *  Acceptable values are:
- *  - "approve"
- *  - "remove"
- *  - "request"
+ *  - "`approve`"
+ *  - "`remove`"
+ *  - "`request`"
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
@@ -616,8 +624,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Type of the link between the two accounts.
  *  Acceptable values are:
- *  - "channelPartner"
- *  - "eCommercePlatform"
+ *  - "`channelPartner`"
+ *  - "`eCommercePlatform`"
  */
 @property(nonatomic, copy, nullable) NSString *linkType;
 
@@ -715,7 +723,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accountStatus".
+ *  "`content#accountStatus`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -762,9 +770,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Severity of the issue.
  *  Acceptable values are:
- *  - "critical"
- *  - "error"
- *  - "suggestion"
+ *  - "`critical`"
+ *  - "`error`"
+ *  - "`suggestion`"
  */
 @property(nonatomic, copy, nullable) NSString *severity;
 
@@ -820,7 +828,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The method of the batch entry.
  *  Acceptable values are:
- *  - "get"
+ *  - "`get`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -946,8 +954,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The channel the data applies to.
  *  Acceptable values are:
- *  - "local"
- *  - "online"
+ *  - "`local`"
+ *  - "`online`"
  */
 @property(nonatomic, copy, nullable) NSString *channel;
 
@@ -1053,7 +1061,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *accountId;
 
 /**
- *  The account tax settings to update. Only defined if the method is update.
+ *  The account tax settings to update. Only defined if the method is `update`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_AccountTax *accountTax;
 
@@ -1074,8 +1082,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The method of the batch entry.
  *  Acceptable values are:
- *  - "get"
- *  - "update"
+ *  - "`get`"
+ *  - "`update`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -1119,7 +1127,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accounttaxCustomBatchResponseEntry".
+ *  "`content#accounttaxCustomBatchResponseEntry`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1246,13 +1254,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Status of the link between this Merchant Center account and the YouTube
  *  channel. Upon retrieval, it represents the actual status of the link and can
- *  be either active if it was approved in YT Creator Studio or pending if it's
- *  pending approval. Upon insertion, it represents the intended status of the
- *  link. Re-uploading a link with status active when it's still pending or with
- *  status pending when it's already active will have no effect: the status will
- *  remain unchanged. Re-uploading a link with deprecated status inactive is
- *  equivalent to not submitting the link at all and will delete the link if it
- *  was active or cancel the link request if it was pending.
+ *  be either `active` if it was approved in YT Creator Studio or `pending` if
+ *  it's pending approval. Upon insertion, it represents the intended status of
+ *  the link. Re-uploading a link with status `active` when it's still pending
+ *  or with status `pending` when it's already active will have no effect: the
+ *  status will remain unchanged. Re-uploading a link with deprecated status
+ *  `inactive` is equivalent to not submitting the link at all and will delete
+ *  the link if it was active or cancel the link request if it was pending.
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -1293,22 +1301,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_CarrierRate : GTLRObject
 
 /**
- *  Carrier service, such as "UPS" or "Fedex". The list of supported carriers
- *  can be retrieved via the getSupportedCarriers method. Required.
+ *  Carrier service, such as `"UPS"` or `"Fedex"`. The list of supported
+ *  carriers can be retrieved via the `getSupportedCarriers` method. Required.
  */
 @property(nonatomic, copy, nullable) NSString *carrierName;
 
 /**
- *  Carrier service, such as "ground" or "2 days". The list of supported
- *  services for a carrier can be retrieved via the getSupportedCarriers method.
- *  Required.
+ *  Carrier service, such as `"ground"` or `"2 days"`. The list of supported
+ *  services for a carrier can be retrieved via the `getSupportedCarriers`
+ *  method. Required.
  */
 @property(nonatomic, copy, nullable) NSString *carrierService;
 
 /**
- *  Additive shipping rate modifier. Can be negative. For example { "value":
- *  "1", "currency" : "USD" } adds $1 to the rate, { "value": "-3", "currency" :
- *  "USD" } removes $3 from the rate. Optional.
+ *  Additive shipping rate modifier. Can be negative. For example `{ "value":
+ *  "1", "currency" : "USD" }` adds $1 to the rate, `{ "value": "-3", "currency"
+ *  : "USD" }` removes $3 from the rate. Optional.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *flatAdjustment;
 
@@ -1320,8 +1328,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Multiplicative shipping rate modifier as a number in decimal notation. Can
- *  be negative. For example "5.4" increases the rate by 5.4%, "-3" decreases
- *  the rate by 3%. Optional.
+ *  be negative. For example `"5.4"` increases the rate by 5.4%, `"-3"`
+ *  decreases the rate by 3%. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *percentageAdjustment;
 
@@ -1336,12 +1344,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** The CLDR country code of the carrier (e.g., "US"). Always present. */
 @property(nonatomic, copy, nullable) NSString *country;
 
-/** The name of the carrier (e.g., "UPS"). Always present. */
+/** The name of the carrier (e.g., `"UPS"`). Always present. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A list of supported services (e.g., "ground") for that carrier. Contains at
- *  least one service.
+ *  A list of supported services (e.g., `"ground"`) for that carrier. Contains
+ *  at least one service.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
@@ -1386,20 +1394,20 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Code of the return reason.
  *  Acceptable values are:
- *  - "betterPriceFound"
- *  - "changedMind"
- *  - "damagedOrDefectiveItem"
- *  - "didNotMatchDescription"
- *  - "doesNotFit"
- *  - "expiredItem"
- *  - "incorrectItemReceived"
- *  - "noLongerNeeded"
- *  - "notSpecified"
- *  - "orderedWrongItem"
- *  - "other"
- *  - "qualityNotExpected"
- *  - "receivedTooLate"
- *  - "undeliverable"
+ *  - "`betterPriceFound`"
+ *  - "`changedMind`"
+ *  - "`damagedOrDefectiveItem`"
+ *  - "`didNotMatchDescription`"
+ *  - "`doesNotFit`"
+ *  - "`expiredItem`"
+ *  - "`incorrectItemReceived`"
+ *  - "`noLongerNeeded`"
+ *  - "`notSpecified`"
+ *  - "`orderedWrongItem`"
+ *  - "`other`"
+ *  - "`qualityNotExpected`"
+ *  - "`receivedTooLate`"
+ *  - "`undeliverable`"
  */
 @property(nonatomic, copy, nullable) NSString *reasonCode;
 
@@ -1451,9 +1459,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The type of data feed. For product inventory feeds, only feeds for
  *  local stores, not online stores, are supported.
  *  Acceptable values are:
- *  - "local products"
- *  - "product inventory"
- *  - "products"
+ *  - "`local products`"
+ *  - "`product inventory`"
+ *  - "`products`"
  */
 @property(nonatomic, copy, nullable) NSString *contentType;
 
@@ -1479,7 +1487,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#datafeed".
+ *  "`content#datafeed`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1552,13 +1560,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The day of the week the feed file should be fetched.
  *  Acceptable values are:
- *  - "monday"
- *  - "tuesday"
- *  - "wednesday"
- *  - "thursday"
- *  - "friday"
- *  - "saturday"
- *  - "sunday"
+ *  - "`monday`"
+ *  - "`tuesday`"
+ *  - "`wednesday`"
+ *  - "`thursday`"
+ *  - "`friday`"
+ *  - "`saturday`"
+ *  - "`sunday`"
  */
 @property(nonatomic, copy, nullable) NSString *weekday;
 
@@ -1575,9 +1583,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  If not specified, the delimiter will be auto-detected. Ignored for non-DSV
  *  data feeds.
  *  Acceptable values are:
- *  - "pipe"
- *  - "tab"
- *  - "tilde"
+ *  - "`pipe`"
+ *  - "`tab`"
+ *  - "`tilde`"
  */
 @property(nonatomic, copy, nullable) NSString *columnDelimiter;
 
@@ -1585,11 +1593,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Character encoding scheme of the data feed. If not specified, the encoding
  *  will be auto-detected.
  *  Acceptable values are:
- *  - "latin-1"
- *  - "utf-16be"
- *  - "utf-16le"
- *  - "utf-8"
- *  - "windows-1252"
+ *  - "`latin-1`"
+ *  - "`utf-16be`"
+ *  - "`utf-16le`"
+ *  - "`utf-8`"
+ *  - "`windows-1252`"
  */
 @property(nonatomic, copy, nullable) NSString *fileEncoding;
 
@@ -1597,8 +1605,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Specifies how double quotes are interpreted. If not specified, the mode will
  *  be auto-detected. Ignored for non-DSV data feeds.
  *  Acceptable values are:
- *  - "normal character"
- *  - "value quoting"
+ *  - "`normal character`"
+ *  - "`value quoting`"
  */
 @property(nonatomic, copy, nullable) NSString *quotingMode;
 
@@ -1648,11 +1656,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The method of the batch entry.
  *  Acceptable values are:
- *  - "delete"
- *  - "fetchNow"
- *  - "get"
- *  - "insert"
- *  - "update"
+ *  - "`delete`"
+ *  - "`fetchNow`"
+ *  - "`get`"
+ *  - "`insert`"
+ *  - "`update`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -1781,7 +1789,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#datafeedStatus".
+ *  "`content#datafeedStatus`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1794,11 +1802,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The processing status of the feed.
  *  Acceptable values are:
- *  - ""failure": The feed could not be processed or all items had errors."
- *  - "in progress": The feed is being processed.
- *  - "none": The feed has not yet been processed. For example, a feed that has
- *  never been uploaded will have this processing status.
- *  - "success": The feed was processed successfully, though some items might
+ *  - "`"`failure`": The feed could not be processed or all items had errors.`"
+ *  - "`in progress`": The feed is being processed.
+ *  - "`none`": The feed has not yet been processed. For example, a feed that
+ *  has never been uploaded will have this processing status.
+ *  - "`success`": The feed was processed successfully, though some items might
  *  have had errors.
  */
 @property(nonatomic, copy, nullable) NSString *processingStatus;
@@ -1887,7 +1895,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The method of the batch entry.
  *  Acceptable values are:
- *  - "get"
+ *  - "`get`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -2006,7 +2014,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of destinations to include for this target (corresponds to checked
  *  check boxes in Merchant Center). Default destinations are always included
- *  unless provided in excludedDestinations.
+ *  unless provided in `excludedDestinations`.
  *  List of supported destinations (if available to the account):
  *  - DisplayAds
  *  - Shopping
@@ -2017,7 +2025,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The two-letter ISO 639-1 language of the items in the feed. Must be a valid
- *  language for targets[].country.
+ *  language for `targets[].country`.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -2050,7 +2058,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Maximum number of business days spent before an order is shipped. 0 means
  *  same day shipped, 1 means next day shipped. Must be greater than or equal to
- *  minHandlingTimeInDays.
+ *  `minHandlingTimeInDays`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -2059,7 +2067,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Maximum number of business days that is spent in transit. 0 means same day
  *  delivery, 1 means next day delivery. Must be greater than or equal to
- *  minTransitTimeInDays.
+ *  `minTransitTimeInDays`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -2075,8 +2083,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Minimum number of business days that is spent in transit. 0 means same day
- *  delivery, 1 means next day delivery. Either {min,max}TransitTimeInDays or
- *  transitTimeTable must be set, but not both.
+ *  delivery, 1 means next day delivery. Either `{min,max}TransitTimeInDays` or
+ *  `transitTimeTable` must be set, but not both.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -2090,8 +2098,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Transit time table, number of business days spent in transit based on row
- *  and column dimensions. Either {min,max}TransitTimeInDays or transitTimeTable
- *  can be set, but not both.
+ *  and column dimensions. Either `{min,max}TransitTimeInDays` or
+ *  `transitTimeTable` can be set, but not both.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_TransitTable *transitTimeTable;
 
@@ -2121,7 +2129,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_Errors : GTLRObject
 
 /**
- *  The HTTP status of the first error in errors.
+ *  The HTTP status of the first error in `errors`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -2130,7 +2138,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** A list of errors. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Error *> *errors;
 
-/** The message of the first error in errors. */
+/** The message of the first error in `errors`. */
 @property(nonatomic, copy, nullable) NSString *message;
 
 @end
@@ -2180,7 +2188,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A non-empty list of row or column headers for a table. Exactly one of
- *  prices, weights, numItems, postalCodeGroupNames, or location must be set.
+ *  `prices`, `weights`, `numItems`, `postalCodeGroupNames`, or `location` must
+ *  be set.
  */
 @interface GTLRShoppingContent_Headers : GTLRObject
 
@@ -2192,15 +2201,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A list of inclusive number of items upper bounds. The last value can be
- *  "infinity". For example ["10", "50", "infinity"] represents the headers "<=
- *  10 items", " 50 items". Must be non-empty. Can only be set if all other
+ *  `"infinity"`. For example `["10", "50", "infinity"]` represents the headers
+ *  "<= 10 items", " 50 items". Must be non-empty. Can only be set if all other
  *  fields are not set.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *numberOfItems;
 
 /**
- *  A list of postal group names. The last value can be "all other locations".
- *  Example: ["zone 1", "zone 2", "all other locations"]. The referred postal
+ *  A list of postal group names. The last value can be `"all other locations"`.
+ *  Example: `["zone 1", "zone 2", "all other locations"]`. The referred postal
  *  code groups must match the delivery country of the service. Must be
  *  non-empty. Can only be set if all other fields are not set.
  */
@@ -2208,8 +2217,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A list of inclusive order price upper bounds. The last price's value can be
- *  "infinity". For example [{"value": "10", "currency": "USD"}, {"value":
- *  "500", "currency": "USD"}, {"value": "infinity", "currency": "USD"}]
+ *  `"infinity"`. For example `[{"value": "10", "currency": "USD"}, {"value":
+ *  "500", "currency": "USD"}, {"value": "infinity", "currency": "USD"}]`
  *  represents the headers "<= $10", " $500". All prices within a service must
  *  have the same currency. Must be non-empty. Can only be set if all other
  *  fields are not set.
@@ -2218,10 +2227,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A list of inclusive order weight upper bounds. The last weight's value can
- *  be "infinity". For example [{"value": "10", "unit": "kg"}, {"value": "50",
- *  "unit": "kg"}, {"value": "infinity", "unit": "kg"}] represents the headers
- *  "<= 10kg", " 50kg". All weights within a service must have the same unit.
- *  Must be non-empty. Can only be set if all other fields are not set.
+ *  be `"infinity"`. For example `[{"value": "10", "unit": "kg"}, {"value":
+ *  "50", "unit": "kg"}, {"value": "infinity", "unit": "kg"}]` represents the
+ *  headers "<= 10kg", " 50kg". All weights within a service must have the same
+ *  unit. Must be non-empty. Can only be set if all other fields are not set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Weight *> *weights;
 
@@ -2310,14 +2319,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The holiday type. Always present.
  *  Acceptable values are:
- *  - "Christmas"
- *  - "Easter"
- *  - "Father's Day"
- *  - "Halloween"
- *  - "Independence Day (USA)"
- *  - "Mother's Day"
- *  - "Thanksgiving"
- *  - "Valentine's Day"
+ *  - "`Christmas`"
+ *  - "`Easter`"
+ *  - "`Father's Day`"
+ *  - "`Halloween`"
+ *  - "`Independence Day (USA)`"
+ *  - "`Mother's Day`"
+ *  - "`Thanksgiving`"
+ *  - "`Valentine's Day`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2367,7 +2376,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [required] Type of the additional charge.
  *  Acceptable values are:
- *  - "shipping"
+ *  - "`shipping`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2382,9 +2391,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the verification process for the About page.
  *  Acceptable values are:
- *  - "active"
- *  - "inactive"
- *  - "pending"
+ *  - "`active`"
+ *  - "`inactive`"
+ *  - "`pending`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -2445,18 +2454,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the verification contact.
  *  Acceptable values are:
- *  - "active"
- *  - "inactive"
- *  - "pending"
+ *  - "`active`"
+ *  - "`inactive`"
+ *  - "`pending`"
  */
 @property(nonatomic, copy, nullable) NSString *inventoryVerificationContactStatus;
 
 /**
  *  The status of the inventory verification process.
  *  Acceptable values are:
- *  - "active"
- *  - "inactive"
- *  - "pending"
+ *  - "`active`"
+ *  - "`inactive`"
+ *  - "`pending`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -2474,9 +2483,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the ?On display to order? feature.
  *  Acceptable values are:
- *  - "active"
- *  - "inactive"
- *  - "pending"
+ *  - "`active`"
+ *  - "`inactive`"
+ *  - "`pending`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -2522,7 +2531,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#liaSettings".
+ *  "`content#liaSettings`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2578,7 +2587,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *gmbEmail;
 
 /**
- *  The account Lia settings to update. Only defined if the method is update.
+ *  The account Lia settings to update. Only defined if the method is `update`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_LiaSettings *liaSettings;
 
@@ -2592,12 +2601,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The method of the batch entry.
  *  Acceptable values are:
- *  - "get"
- *  - "getAccessibleGmbAccounts"
- *  - "requestGmbAccess"
- *  - "requestInventoryVerification"
- *  - "setInventoryVerificationContact"
- *  - "update"
+ *  - "`get`"
+ *  - "`getAccessibleGmbAccounts`"
+ *  - "`requestGmbAccess`"
+ *  - "`requestInventoryVerification`"
+ *  - "`setInventoryVerificationContact`"
+ *  - "`update`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -2651,7 +2660,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#liasettingsCustomBatchResponseEntry".
+ *  "`content#liasettingsCustomBatchResponseEntry`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2813,18 +2822,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Service provided to or by the linked account.
  *  Acceptable values are:
- *  - "shoppingActionsOrderManagement"
- *  - "shoppingActionsProductManagement"
- *  - "shoppingAdsProductManagement"
+ *  - "`shoppingActionsOrderManagement`"
+ *  - "`shoppingActionsProductManagement`"
+ *  - "`shoppingAdsProductManagement`"
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
  *  Status of the link
  *  Acceptable values are:
- *  - "active"
- *  - "inactive"
- *  - "pending"
+ *  - "`active`"
+ *  - "`inactive`"
+ *  - "`pending`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -2845,19 +2854,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#localInventory".
+ *  "`content#localInventory`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Supported pickup method for this offer. Unless the value is "not supported",
- *  this field must be submitted together with pickupSla.
+ *  this field must be submitted together with `pickupSla`.
  */
 @property(nonatomic, copy, nullable) NSString *pickupMethod;
 
 /**
  *  Expected date that an order will be ready for pickup relative to the order
- *  date. Must be submitted together with pickupMethod.
+ *  date. Must be submitted together with `pickupMethod`.
  */
 @property(nonatomic, copy, nullable) NSString *pickupSla;
 
@@ -2872,7 +2881,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
 /**
- *  Sale price of the product. Mandatory if sale_price_effective_date is
+ *  Sale price of the product. Mandatory if `sale_price_effective_date` is
  *  defined.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *salePrice;
@@ -2925,7 +2934,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Method of the batch request entry.
  *  Acceptable values are:
- *  - "insert"
+ *  - "`insert`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -2969,7 +2978,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#localinventoryCustomBatchResponseEntry".
+ *  "`content#localinventoryCustomBatchResponseEntry`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3072,11 +3081,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  State of the item.
  *  Acceptable values are:
- *  - "canceled"
- *  - "new"
- *  - "received"
- *  - "refunded"
- *  - "rejected"
+ *  - "`canceled`"
+ *  - "`new`"
+ *  - "`received`"
+ *  - "`refunded`"
+ *  - "`rejected`"
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -3084,8 +3093,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_MinimumOrderValueTable
+ */
+@interface GTLRShoppingContent_MinimumOrderValueTable : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_MinimumOrderValueTableStoreCodeSetWithMov *> *storeCodeSetWithMovs;
+
+@end
+
+
+/**
+ *  A list of store code sets sharing the same minimum order value. At least two
+ *  sets are required and the last one must be empty, which signifies 'MOV for
+ *  all other stores'. Each store code can only appear once across all the sets.
+ *  All prices within a service must have the same currency.
+ */
+@interface GTLRShoppingContent_MinimumOrderValueTableStoreCodeSetWithMov : GTLRObject
+
+/** A list of unique store codes or empty for the catch all. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *storeCodes;
+
+/** The minimum order value for the given stores. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *value;
+
+@end
+
+
+/**
  *  Order. Production access (all methods) requires the order manager role.
- *  Sandbox access does not.
+ *  Sandbox access does not. (== resource_for v2.orders ==) (== resource_for
+ *  v2.1.orders ==)
  */
 @interface GTLRShoppingContent_Order : GTLRObject
 
@@ -3102,7 +3139,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The details of the customer who placed the order. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderCustomer *customer;
 
-/** Delivery details for shipments of type delivery. */
+/** Delivery details for shipments of type `delivery`. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderDeliveryDetails *deliveryDetails;
 
 /**
@@ -3114,7 +3151,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#order".
+ *  "`content#order`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3140,7 +3177,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The net amount for the order (tax part). Note that in certain cases due to
- *  taxable base adjustment netTaxAmount might not match to a sum of tax field
+ *  taxable base adjustment `netTaxAmount` might not match to a sum of tax field
  *  across all lineItems and refunds.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *netTaxAmount;
@@ -3148,14 +3185,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the payment.
  *  Acceptable values are:
- *  - "paymentCaptured"
- *  - "paymentRejected"
- *  - "paymentSecured"
- *  - "pendingAuthorization"
+ *  - "`paymentCaptured`"
+ *  - "`paymentRejected`"
+ *  - "`paymentSecured`"
+ *  - "`pendingAuthorization`"
  */
 @property(nonatomic, copy, nullable) NSString *paymentStatus;
 
-/** Pickup details for shipments of type pickup. */
+/** Pickup details for shipments of type `pickup`. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderPickupDetails *pickupDetails;
 
 /** The date when the order was placed, in ISO 8601 format. */
@@ -3164,20 +3201,20 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Promotions associated with the order.
  *  To determine which promotions apply to which products, check the
- *  Promotions[].appliedItems[].lineItemId field against the LineItems[].id
+ *  `Promotions[].appliedItems[].lineItemId` field against the `LineItems[].id`
  *  field for each promotion. If a promotion is applied to more than 1 offerId,
  *  divide the discount value by the number of affected offers to determine how
  *  much discount to apply to each offerId.
  *  Examples:
  *  - To calculate price paid by the customer for a single line item including
  *  the discount: For each promotion, subtract the
- *  LineItems[].adjustments[].priceAdjustment.value amount from the
- *  LineItems[].Price.value.
+ *  `LineItems[].adjustments[].priceAdjustment.value` amount from the
+ *  `LineItems[].Price.value`.
  *  - To calculate price paid by the customer for a single line item including
  *  the discount in case of multiple quantity: For each promotion, divide the
- *  LineItems[].adjustments[].priceAdjustment.value by the quantity of products
- *  then subtract the resulting value from the LineItems[].Product.Price.value
- *  for each quantity item.
+ *  `LineItems[].adjustments[].priceAdjustment.value` by the quantity of
+ *  products then subtract the resulting value from the
+ *  `LineItems[].Product.Price.value` for each quantity item.
  *  Only 1 promotion can be applied to an offerId in a given order. To refund an
  *  item which had a promotion applied to it, make sure to refund the amount
  *  after first subtracting the promotion discount from the item price.
@@ -3200,23 +3237,23 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the order.
  *  Acceptable values are:
- *  - "canceled"
- *  - "delivered"
- *  - "inProgress"
- *  - "partiallyDelivered"
- *  - "partiallyReturned"
- *  - "partiallyShipped"
- *  - "pendingShipment"
- *  - "returned"
- *  - "shipped"
+ *  - "`canceled`"
+ *  - "`delivered`"
+ *  - "`inProgress`"
+ *  - "`partiallyDelivered`"
+ *  - "`partiallyReturned`"
+ *  - "`partiallyShipped`"
+ *  - "`pendingShipment`"
+ *  - "`returned`"
+ *  - "`shipped`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  The party responsible for collecting and remitting taxes.
  *  Acceptable values are:
- *  - "marketplaceFacilitator"
- *  - "merchant"
+ *  - "`marketplaceFacilitator`"
+ *  - "`merchant`"
  */
 @property(nonatomic, copy, nullable) NSString *taxCollector;
 
@@ -3280,12 +3317,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The actor that created the cancellation.
  *  Acceptable values are:
- *  - "customer"
- *  - "googleBot"
- *  - "googleCustomerService"
- *  - "googlePayments"
- *  - "googleSabre"
- *  - "merchant"
+ *  - "`customer`"
+ *  - "`googleBot`"
+ *  - "`googleCustomerService`"
+ *  - "`googlePayments`"
+ *  - "`googleSabre`"
+ *  - "`merchant`"
  */
 @property(nonatomic, copy, nullable) NSString *actor;
 
@@ -3304,34 +3341,34 @@ NS_ASSUME_NONNULL_BEGIN
  *  reason will lead to the removal of the product from Shopping Actions until
  *  you make an update to that product. This will not affect your Shopping ads.
  *  Acceptable values are:
- *  - "autoPostInternal"
- *  - "autoPostInvalidBillingAddress"
- *  - "autoPostNoInventory"
- *  - "autoPostPriceError"
- *  - "autoPostUndeliverableShippingAddress"
- *  - "couponAbuse"
- *  - "customerCanceled"
- *  - "customerInitiatedCancel"
- *  - "customerSupportRequested"
- *  - "failToPushOrderGoogleError"
- *  - "failToPushOrderMerchantError"
- *  - "failToPushOrderMerchantFulfillmentError"
- *  - "failToPushOrderToMerchant"
- *  - "failToPushOrderToMerchantOutOfStock"
- *  - "invalidCoupon"
- *  - "malformedShippingAddress"
- *  - "merchantDidNotShipOnTime"
- *  - "noInventory"
- *  - "orderTimeout"
- *  - "other"
- *  - "paymentAbuse"
- *  - "paymentDeclined"
- *  - "priceError"
- *  - "returnRefundAbuse"
- *  - "shippingPriceError"
- *  - "taxError"
- *  - "undeliverableShippingAddress"
- *  - "unsupportedPoBoxAddress"
+ *  - "`autoPostInternal`"
+ *  - "`autoPostInvalidBillingAddress`"
+ *  - "`autoPostNoInventory`"
+ *  - "`autoPostPriceError`"
+ *  - "`autoPostUndeliverableShippingAddress`"
+ *  - "`couponAbuse`"
+ *  - "`customerCanceled`"
+ *  - "`customerInitiatedCancel`"
+ *  - "`customerSupportRequested`"
+ *  - "`failToPushOrderGoogleError`"
+ *  - "`failToPushOrderMerchantError`"
+ *  - "`failToPushOrderMerchantFulfillmentError`"
+ *  - "`failToPushOrderToMerchant`"
+ *  - "`failToPushOrderToMerchantOutOfStock`"
+ *  - "`invalidCoupon`"
+ *  - "`malformedShippingAddress`"
+ *  - "`merchantDidNotShipOnTime`"
+ *  - "`noInventory`"
+ *  - "`orderTimeout`"
+ *  - "`other`"
+ *  - "`paymentAbuse`"
+ *  - "`paymentDeclined`"
+ *  - "`priceError`"
+ *  - "`returnRefundAbuse`"
+ *  - "`shippingPriceError`"
+ *  - "`taxError`"
+ *  - "`undeliverableShippingAddress`"
+ *  - "`unsupportedPoBoxAddress`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -3349,11 +3386,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** Full name of the customer. */
 @property(nonatomic, copy, nullable) NSString *fullName;
 
-/**
- *  Email address for the merchant to send value-added tax or invoice
- *  documentation of the order. This documentation is made available to the
- *  customer.
- */
 @property(nonatomic, copy, nullable) NSString *invoiceReceivingEmail;
 
 /** Loyalty program information. */
@@ -3392,12 +3424,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Last known customer selection regarding marketing preferences. In certain
  *  cases this selection might not be known, so this field would be empty. If a
- *  customer selected granted in their most recent order, they can be subscribed
- *  to marketing emails. Customers who have chosen denied must not be
- *  subscribed, or must be unsubscribed if already opted-in.
+ *  customer selected `granted` in their most recent order, they can be
+ *  subscribed to marketing emails. Customers who have chosen `denied` must not
+ *  be subscribed, or must be unsubscribed if already opted-in.
  *  Acceptable values are:
- *  - "denied"
- *  - "granted"
+ *  - "`denied`"
+ *  - "`granted`"
  */
 @property(nonatomic, copy, nullable) NSString *explicitMarketingPreference;
 
@@ -3409,7 +3441,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Email address that can be used for marketing purposes. The field may be
- *  empty even if explicitMarketingPreference is 'granted'. This happens when
+ *  empty even if `explicitMarketingPreference` is 'granted'. This happens when
  *  retrieving an old order from the customer who deleted their account.
  */
 @property(nonatomic, copy, nullable) NSString *marketingEmailAddress;
@@ -3453,8 +3485,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  [required] ID of the shipment group. It is assigned by the merchant in the
- *  shipLineItems method and is used to group multiple line items that have the
- *  same kind of shipping charges.
+ *  `shipLineItems` method and is used to group multiple line items that have
+ *  the same kind of shipping charges.
  */
 @property(nonatomic, copy, nullable) NSString *shipmentGroupId;
 
@@ -3498,15 +3530,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *operationId;
 
 /**
- *  Option to create a refund-only invoice. Exactly one of refundOnlyOption or
- *  returnOption must be provided.
+ *  Option to create a refund-only invoice. Exactly one of `refundOnlyOption` or
+ *  `returnOption` must be provided.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceRefundOption *refundOnlyOption;
 
 /**
  *  Option to create an invoice for a refund and mark all items within the
- *  invoice as returned. Exactly one of refundOnlyOption or returnOption must be
- *  provided.
+ *  invoice as returned. Exactly one of `refundOnlyOption` or `returnOption`
+ *  must be provided.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceReturnOption *returnOption;
 
@@ -3553,50 +3585,50 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [required] Reason for the refund.
  *  Acceptable values are:
- *  - "adjustment"
- *  - "autoPostInternal"
- *  - "autoPostInvalidBillingAddress"
- *  - "autoPostNoInventory"
- *  - "autoPostPriceError"
- *  - "autoPostUndeliverableShippingAddress"
- *  - "couponAbuse"
- *  - "courtesyAdjustment"
- *  - "customerCanceled"
- *  - "customerDiscretionaryReturn"
- *  - "customerInitiatedMerchantCancel"
- *  - "customerSupportRequested"
- *  - "deliveredLateByCarrier"
- *  - "deliveredTooLate"
- *  - "expiredItem"
- *  - "failToPushOrderGoogleError"
- *  - "failToPushOrderMerchantError"
- *  - "failToPushOrderMerchantFulfillmentError"
- *  - "failToPushOrderToMerchant"
- *  - "failToPushOrderToMerchantOutOfStock"
- *  - "feeAdjustment"
- *  - "invalidCoupon"
- *  - "lateShipmentCredit"
- *  - "malformedShippingAddress"
- *  - "merchantDidNotShipOnTime"
- *  - "noInventory"
- *  - "orderTimeout"
- *  - "other"
- *  - "paymentAbuse"
- *  - "paymentDeclined"
- *  - "priceAdjustment"
- *  - "priceError"
- *  - "productArrivedDamaged"
- *  - "productNotAsDescribed"
- *  - "promoReallocation"
- *  - "qualityNotAsExpected"
- *  - "returnRefundAbuse"
- *  - "shippingCostAdjustment"
- *  - "shippingPriceError"
- *  - "taxAdjustment"
- *  - "taxError"
- *  - "undeliverableShippingAddress"
- *  - "unsupportedPoBoxAddress"
- *  - "wrongProductShipped"
+ *  - "`adjustment`"
+ *  - "`autoPostInternal`"
+ *  - "`autoPostInvalidBillingAddress`"
+ *  - "`autoPostNoInventory`"
+ *  - "`autoPostPriceError`"
+ *  - "`autoPostUndeliverableShippingAddress`"
+ *  - "`couponAbuse`"
+ *  - "`courtesyAdjustment`"
+ *  - "`customerCanceled`"
+ *  - "`customerDiscretionaryReturn`"
+ *  - "`customerInitiatedMerchantCancel`"
+ *  - "`customerSupportRequested`"
+ *  - "`deliveredLateByCarrier`"
+ *  - "`deliveredTooLate`"
+ *  - "`expiredItem`"
+ *  - "`failToPushOrderGoogleError`"
+ *  - "`failToPushOrderMerchantError`"
+ *  - "`failToPushOrderMerchantFulfillmentError`"
+ *  - "`failToPushOrderToMerchant`"
+ *  - "`failToPushOrderToMerchantOutOfStock`"
+ *  - "`feeAdjustment`"
+ *  - "`invalidCoupon`"
+ *  - "`lateShipmentCredit`"
+ *  - "`malformedShippingAddress`"
+ *  - "`merchantDidNotShipOnTime`"
+ *  - "`noInventory`"
+ *  - "`orderTimeout`"
+ *  - "`other`"
+ *  - "`paymentAbuse`"
+ *  - "`paymentDeclined`"
+ *  - "`priceAdjustment`"
+ *  - "`priceError`"
+ *  - "`productArrivedDamaged`"
+ *  - "`productNotAsDescribed`"
+ *  - "`promoReallocation`"
+ *  - "`qualityNotAsExpected`"
+ *  - "`returnRefundAbuse`"
+ *  - "`shippingCostAdjustment`"
+ *  - "`shippingPriceError`"
+ *  - "`taxAdjustment`"
+ *  - "`taxError`"
+ *  - "`undeliverableShippingAddress`"
+ *  - "`unsupportedPoBoxAddress`"
+ *  - "`wrongProductShipped`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -3618,19 +3650,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [required] Reason for the return.
  *  Acceptable values are:
- *  - "customerDiscretionaryReturn"
- *  - "customerInitiatedMerchantCancel"
- *  - "deliveredTooLate"
- *  - "expiredItem"
- *  - "invalidCoupon"
- *  - "malformedShippingAddress"
- *  - "other"
- *  - "productArrivedDamaged"
- *  - "productNotAsDescribed"
- *  - "qualityNotAsExpected"
- *  - "undeliverableShippingAddress"
- *  - "unsupportedPoBoxAddress"
- *  - "wrongProductShipped"
+ *  - "`customerDiscretionaryReturn`"
+ *  - "`customerInitiatedMerchantCancel`"
+ *  - "`deliveredTooLate`"
+ *  - "`expiredItem`"
+ *  - "`invalidCoupon`"
+ *  - "`malformedShippingAddress`"
+ *  - "`other`"
+ *  - "`productArrivedDamaged`"
+ *  - "`productNotAsDescribed`"
+ *  - "`qualityNotAsExpected`"
+ *  - "`undeliverableShippingAddress`"
+ *  - "`unsupportedPoBoxAddress`"
+ *  - "`wrongProductShipped`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -3759,7 +3791,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Type of this adjustment.
  *  Acceptable values are:
- *  - "promotion"
+ *  - "`promotion`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3777,9 +3809,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Condition or state of the item.
  *  Acceptable values are:
- *  - "new"
- *  - "refurbished"
- *  - "used"
+ *  - "`new`"
+ *  - "`refurbished`"
+ *  - "`used`"
  */
 @property(nonatomic, copy, nullable) NSString *condition;
 
@@ -3901,11 +3933,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *shipByDate;
 
 /**
- *  Type of shipment. Indicates whether deliveryDetails or pickupDetails is
+ *  Type of shipment. Indicates whether `deliveryDetails` or `pickupDetails` is
  *  applicable for this shipment.
  *  Acceptable values are:
- *  - "delivery"
- *  - "pickup"
+ *  - "`delivery`"
+ *  - "`pickup`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3918,7 +3950,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_OrderLineItemShippingDetailsMethod : GTLRObject
 
 /**
- *  The carrier for the shipping. Optional. See shipments[].carrier for a list
+ *  The carrier for the shipping. Optional. See `shipments[].carrier` for a list
  *  of acceptable values.
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
@@ -3970,7 +4002,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Address of the pickup location where the shipment should be sent. Note that
- *  recipientName in the address is the name of the business at the pickup
+ *  `recipientName` in the address is the name of the business at the pickup
  *  location.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderAddress *address;
@@ -4011,7 +4043,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Items which this promotion have been applied to. Do not provide for
- *  orders.createtestorder.
+ *  `orders.createtestorder`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderPromotionItem *> *appliedItems;
 
@@ -4022,11 +4054,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *endTime;
 
 /**
- *  Required. The party funding the promotion. Only merchant is supported for
- *  orders.createtestorder.
+ *  Required. The party funding the promotion. Only `merchant` is supported for
+ *  `orders.createtestorder`.
  *  Acceptable values are:
- *  - "google"
- *  - "merchant"
+ *  - "`google`"
+ *  - "`merchant`"
  */
 @property(nonatomic, copy, nullable) NSString *funder;
 
@@ -4044,7 +4076,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A short title of the promotion to be shown on the checkout page. Do not
- *  provide for orders.createtestorder.
+ *  provide for `orders.createtestorder`.
  */
 @property(nonatomic, copy, nullable) NSString *shortTitle;
 
@@ -4055,29 +4087,29 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
- *  Required. The category of the promotion. Only moneyOff is supported for
- *  orders.createtestorder.
+ *  Required. The category of the promotion. Only `moneyOff` is supported for
+ *  `orders.createtestorder`.
  *  Acceptable values are:
- *  - "buyMGetMoneyOff"
- *  - "buyMGetNMoneyOff"
- *  - "buyMGetNPercentOff"
- *  - "buyMGetPercentOff"
- *  - "freeGift"
- *  - "freeGiftWithItemId"
- *  - "freeGiftWithValue"
- *  - "freeShippingOvernight"
- *  - "freeShippingStandard"
- *  - "freeShippingTwoDay"
- *  - "moneyOff"
- *  - "percentOff"
- *  - "rewardPoints"
- *  - "salePrice"
+ *  - "`buyMGetMoneyOff`"
+ *  - "`buyMGetNMoneyOff`"
+ *  - "`buyMGetNPercentOff`"
+ *  - "`buyMGetPercentOff`"
+ *  - "`freeGift`"
+ *  - "`freeGiftWithItemId`"
+ *  - "`freeGiftWithValue`"
+ *  - "`freeShippingOvernight`"
+ *  - "`freeShippingStandard`"
+ *  - "`freeShippingTwoDay`"
+ *  - "`moneyOff`"
+ *  - "`percentOff`"
+ *  - "`rewardPoints`"
+ *  - "`salePrice`"
  */
 @property(nonatomic, copy, nullable) NSString *subtype;
 
 /**
  *  Estimated discount applied to tax (if allowed by law). Do not provide for
- *  orders.createtestorder.
+ *  `orders.createtestorder`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxValue;
 
@@ -4085,11 +4117,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  Required. The scope of the promotion. Only product is supported for
- *  orders.createtestorder.
+ *  Required. The scope of the promotion. Only `product` is supported for
+ *  `orders.createtestorder`.
  *  Acceptable values are:
- *  - "product"
- *  - "shipping"
+ *  - "`product`"
+ *  - "`shipping`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4102,19 +4134,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_OrderPromotionItem : GTLRObject
 
 /**
- *  The line item ID of a product. Do not provide for orders.createtestorder.
+ *  The line item ID of a product. Do not provide for `orders.createtestorder`.
  */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
 
-/** Required. Offer ID of a product. Only for orders.createtestorder. */
+/** Required. Offer ID of a product. Only for `orders.createtestorder`. */
 @property(nonatomic, copy, nullable) NSString *offerId;
 
-/** orders.createtestorder. */
+/** `orders.createtestorder`. */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The quantity of the associated product. Do not provide for
- *  orders.createtestorder.
+ *  `orders.createtestorder`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4131,12 +4163,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The actor that created the refund.
  *  Acceptable values are:
- *  - "customer"
- *  - "googleBot"
- *  - "googleCustomerService"
- *  - "googlePayments"
- *  - "googleSabre"
- *  - "merchant"
+ *  - "`customer`"
+ *  - "`googleBot`"
+ *  - "`googleCustomerService`"
+ *  - "`googlePayments`"
+ *  - "`googleSabre`"
+ *  - "`merchant`"
  */
 @property(nonatomic, copy, nullable) NSString *actor;
 
@@ -4149,50 +4181,50 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The reason for the refund.
  *  Acceptable values are:
- *  - "adjustment"
- *  - "autoPostInternal"
- *  - "autoPostInvalidBillingAddress"
- *  - "autoPostNoInventory"
- *  - "autoPostPriceError"
- *  - "autoPostUndeliverableShippingAddress"
- *  - "couponAbuse"
- *  - "courtesyAdjustment"
- *  - "customerCanceled"
- *  - "customerDiscretionaryReturn"
- *  - "customerInitiatedMerchantCancel"
- *  - "customerSupportRequested"
- *  - "deliveredLateByCarrier"
- *  - "deliveredTooLate"
- *  - "expiredItem"
- *  - "failToPushOrderGoogleError"
- *  - "failToPushOrderMerchantError"
- *  - "failToPushOrderMerchantFulfillmentError"
- *  - "failToPushOrderToMerchant"
- *  - "failToPushOrderToMerchantOutOfStock"
- *  - "feeAdjustment"
- *  - "invalidCoupon"
- *  - "lateShipmentCredit"
- *  - "malformedShippingAddress"
- *  - "merchantDidNotShipOnTime"
- *  - "noInventory"
- *  - "orderTimeout"
- *  - "other"
- *  - "paymentAbuse"
- *  - "paymentDeclined"
- *  - "priceAdjustment"
- *  - "priceError"
- *  - "productArrivedDamaged"
- *  - "productNotAsDescribed"
- *  - "promoReallocation"
- *  - "qualityNotAsExpected"
- *  - "returnRefundAbuse"
- *  - "shippingCostAdjustment"
- *  - "shippingPriceError"
- *  - "taxAdjustment"
- *  - "taxError"
- *  - "undeliverableShippingAddress"
- *  - "unsupportedPoBoxAddress"
- *  - "wrongProductShipped"
+ *  - "`adjustment`"
+ *  - "`autoPostInternal`"
+ *  - "`autoPostInvalidBillingAddress`"
+ *  - "`autoPostNoInventory`"
+ *  - "`autoPostPriceError`"
+ *  - "`autoPostUndeliverableShippingAddress`"
+ *  - "`couponAbuse`"
+ *  - "`courtesyAdjustment`"
+ *  - "`customerCanceled`"
+ *  - "`customerDiscretionaryReturn`"
+ *  - "`customerInitiatedMerchantCancel`"
+ *  - "`customerSupportRequested`"
+ *  - "`deliveredLateByCarrier`"
+ *  - "`deliveredTooLate`"
+ *  - "`expiredItem`"
+ *  - "`failToPushOrderGoogleError`"
+ *  - "`failToPushOrderMerchantError`"
+ *  - "`failToPushOrderMerchantFulfillmentError`"
+ *  - "`failToPushOrderToMerchant`"
+ *  - "`failToPushOrderToMerchantOutOfStock`"
+ *  - "`feeAdjustment`"
+ *  - "`invalidCoupon`"
+ *  - "`lateShipmentCredit`"
+ *  - "`malformedShippingAddress`"
+ *  - "`merchantDidNotShipOnTime`"
+ *  - "`noInventory`"
+ *  - "`orderTimeout`"
+ *  - "`other`"
+ *  - "`paymentAbuse`"
+ *  - "`paymentDeclined`"
+ *  - "`priceAdjustment`"
+ *  - "`priceError`"
+ *  - "`productArrivedDamaged`"
+ *  - "`productNotAsDescribed`"
+ *  - "`promoReallocation`"
+ *  - "`qualityNotAsExpected`"
+ *  - "`returnRefundAbuse`"
+ *  - "`shippingCostAdjustment`"
+ *  - "`shippingPriceError`"
+ *  - "`taxAdjustment`"
+ *  - "`taxError`"
+ *  - "`undeliverableShippingAddress`"
+ *  - "`unsupportedPoBoxAddress`"
+ *  - "`wrongProductShipped`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -4203,7 +4235,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Order disbursement. All methods require the payment analyst role.
+ *  Order disbursement. All methods require the payment analyst role. (==
+ *  resource_for v2.orderreports ==) (== resource_for v2.1.orderreports ==)
  */
 @interface GTLRShoppingContent_OrderReportDisbursement : GTLRObject
 
@@ -4336,12 +4369,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The actor that created the refund.
  *  Acceptable values are:
- *  - "customer"
- *  - "googleBot"
- *  - "googleCustomerService"
- *  - "googlePayments"
- *  - "googleSabre"
- *  - "merchant"
+ *  - "`customer`"
+ *  - "`googleBot`"
+ *  - "`googleCustomerService`"
+ *  - "`googlePayments`"
+ *  - "`googleSabre`"
+ *  - "`merchant`"
  */
 @property(nonatomic, copy, nullable) NSString *actor;
 
@@ -4358,19 +4391,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The reason for the return.
  *  Acceptable values are:
- *  - "customerDiscretionaryReturn"
- *  - "customerInitiatedMerchantCancel"
- *  - "deliveredTooLate"
- *  - "expiredItem"
- *  - "invalidCoupon"
- *  - "malformedShippingAddress"
- *  - "other"
- *  - "productArrivedDamaged"
- *  - "productNotAsDescribed"
- *  - "qualityNotAsExpected"
- *  - "undeliverableShippingAddress"
- *  - "unsupportedPoBoxAddress"
- *  - "wrongProductShipped"
+ *  - "`customerDiscretionaryReturn`"
+ *  - "`customerInitiatedMerchantCancel`"
+ *  - "`deliveredTooLate`"
+ *  - "`expiredItem`"
+ *  - "`invalidCoupon`"
+ *  - "`malformedShippingAddress`"
+ *  - "`other`"
+ *  - "`productArrivedDamaged`"
+ *  - "`productNotAsDescribed`"
+ *  - "`qualityNotAsExpected`"
+ *  - "`undeliverableShippingAddress`"
+ *  - "`unsupportedPoBoxAddress`"
+ *  - "`wrongProductShipped`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -4491,16 +4524,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The reason for the cancellation.
  *  Acceptable values are:
- *  - "customerInitiatedCancel"
- *  - "invalidCoupon"
- *  - "malformedShippingAddress"
- *  - "noInventory"
- *  - "other"
- *  - "priceError"
- *  - "shippingPriceError"
- *  - "taxError"
- *  - "undeliverableShippingAddress"
- *  - "unsupportedPoBoxAddress"
+ *  - "`customerInitiatedCancel`"
+ *  - "`invalidCoupon`"
+ *  - "`malformedShippingAddress`"
+ *  - "`noInventory`"
+ *  - "`other`"
+ *  - "`priceError`"
+ *  - "`shippingPriceError`"
+ *  - "`taxError`"
+ *  - "`undeliverableShippingAddress`"
+ *  - "`unsupportedPoBoxAddress`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -4545,16 +4578,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The reason for the cancellation.
  *  Acceptable values are:
- *  - "customerInitiatedCancel"
- *  - "invalidCoupon"
- *  - "malformedShippingAddress"
- *  - "noInventory"
- *  - "other"
- *  - "priceError"
- *  - "shippingPriceError"
- *  - "taxError"
- *  - "undeliverableShippingAddress"
- *  - "unsupportedPoBoxAddress"
+ *  - "`customerInitiatedCancel`"
+ *  - "`invalidCoupon`"
+ *  - "`malformedShippingAddress`"
+ *  - "`noInventory`"
+ *  - "`other`"
+ *  - "`priceError`"
+ *  - "`shippingPriceError`"
+ *  - "`taxError`"
+ *  - "`undeliverableShippingAddress`"
+ *  - "`unsupportedPoBoxAddress`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -4594,9 +4627,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The reason for the cancellation.
  *  Acceptable values are:
- *  - "changedMind"
- *  - "orderedWrongItem"
- *  - "other"
+ *  - "`changedMind`"
+ *  - "`orderedWrongItem`"
+ *  - "`other`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -4624,24 +4657,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The CLDR territory code of the country of the test order to create. Affects
- *  the currency and addresses of orders created via template_name, or the
- *  addresses of orders created via test_order.
+ *  the currency and addresses of orders created via `template_name`, or the
+ *  addresses of orders created via `test_order`.
  *  Acceptable values are:
- *  - "US"
- *  - "FR" Defaults to US.
+ *  - "`US`"
+ *  - "`FR`" Defaults to `US`.
  */
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
- *  The test order template to use. Specify as an alternative to testOrder as a
- *  shortcut for retrieving a template and then creating an order using that
+ *  The test order template to use. Specify as an alternative to `testOrder` as
+ *  a shortcut for retrieving a template and then creating an order using that
  *  template.
  *  Acceptable values are:
- *  - "template1"
- *  - "template1a"
- *  - "template1b"
- *  - "template2"
- *  - "template3"
+ *  - "`template1`"
+ *  - "`template1a`"
+ *  - "`template1b`"
+ *  - "`template2`"
+ *  - "`template3`"
  */
 @property(nonatomic, copy, nullable) NSString *templateName;
 
@@ -4728,7 +4761,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo : GTLRObject
 
 /**
- *  The carrier handling the shipment. See shipments[].carrier in the Orders
+ *  The carrier handling the shipment. See `shipments[].carrier` in the Orders
  *  resource representation for a list of acceptable values.
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
@@ -4797,42 +4830,42 @@ NS_ASSUME_NONNULL_BEGIN
  *  not include the carrier name or tracking URL, and there will be no automatic
  *  order status updates.
  *  Supported carriers for US are:
- *  - "ups" (United Parcel Service) automatic status updates
- *  - "usps" (United States Postal Service) automatic status updates
- *  - "fedex" (FedEx) automatic status updates
- *  - "dhl" (DHL eCommerce) automatic status updates (US only)
- *  - "ontrac" (OnTrac) automatic status updates
- *  - "dhl express" (DHL Express)
- *  - "deliv" (Deliv)
- *  - "dynamex" (TForce)
- *  - "lasership" (LaserShip)
- *  - "mpx" (Military Parcel Xpress)
- *  - "uds" (United Delivery Service)
- *  - "efw" (Estes Forwarding Worldwide)
- *  - "jd logistics" (JD Logistics)
- *  - "yunexpress" (YunExpress)
- *  - "china post" (China Post)
- *  - "china ems" (China Post Express Mail Service)
- *  - "singapore post" (Singapore Post)
- *  - "pos malaysia" (Pos Malaysia)
- *  - "postnl" (PostNL)
- *  - "ptt" (PTT Turkish Post)
- *  - "eub" (ePacket)
- *  - "chukou1" (Chukou1 Logistics)
+ *  - "`ups`" (United Parcel Service) automatic status updates
+ *  - "`usps`" (United States Postal Service) automatic status updates
+ *  - "`fedex`" (FedEx) automatic status updates
+ *  - "`dhl`" (DHL eCommerce) automatic status updates (US only)
+ *  - "`ontrac`" (OnTrac) automatic status updates
+ *  - "`dhl express`" (DHL Express)
+ *  - "`deliv`" (Deliv)
+ *  - "`dynamex`" (TForce)
+ *  - "`lasership`" (LaserShip)
+ *  - "`mpx`" (Military Parcel Xpress)
+ *  - "`uds`" (United Delivery Service)
+ *  - "`efw`" (Estes Forwarding Worldwide)
+ *  - "`jd logistics`" (JD Logistics)
+ *  - "`yunexpress`" (YunExpress)
+ *  - "`china post`" (China Post)
+ *  - "`china ems`" (China Post Express Mail Service)
+ *  - "`singapore post`" (Singapore Post)
+ *  - "`pos malaysia`" (Pos Malaysia)
+ *  - "`postnl`" (PostNL)
+ *  - "`ptt`" (PTT Turkish Post)
+ *  - "`eub`" (ePacket)
+ *  - "`chukou1`" (Chukou1 Logistics)
  *  Supported carriers for FR are:
- *  - "la poste" (La Poste) automatic status updates
- *  - "colissimo" (Colissimo by La Poste) automatic status updates
- *  - "ups" (United Parcel Service) automatic status updates
- *  - "chronopost" (Chronopost by La Poste)
- *  - "gls" (General Logistics Systems France)
- *  - "dpd" (DPD Group by GeoPost)
- *  - "bpost" (Belgian Post Group)
- *  - "colis prive" (Colis Privé)
- *  - "boxtal" (Boxtal)
- *  - "geodis" (GEODIS)
- *  - "tnt" (TNT)
- *  - "db schenker" (DB Schenker)
- *  - "aramex" (Aramex)
+ *  - "`la poste`" (La Poste) automatic status updates
+ *  - "`colissimo`" (Colissimo by La Poste) automatic status updates
+ *  - "`ups`" (United Parcel Service) automatic status updates
+ *  - "`chronopost`" (Chronopost by La Poste)
+ *  - "`gls`" (General Logistics Systems France)
+ *  - "`dpd`" (DPD Group by GeoPost)
+ *  - "`bpost`" (Belgian Post Group)
+ *  - "`colis prive`" (Colis Privé)
+ *  - "`boxtal`" (Boxtal)
+ *  - "`geodis`" (GEODIS)
+ *  - "`tnt`" (TNT)
+ *  - "`db schenker`" (DB Schenker)
+ *  - "`aramex`" (Aramex)
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
@@ -4841,7 +4874,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Date on which the shipment has been delivered, in ISO 8601 format. Present
- *  only if status is delivered
+ *  only if `status` is `delivered`
  */
 @property(nonatomic, copy, nullable) NSString *deliveryDate;
 
@@ -4863,10 +4896,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the shipment.
  *  Acceptable values are:
- *  - "delivered"
- *  - "readyForPickup"
- *  - "shipped"
- *  - "undeliverable"
+ *  - "`delivered`"
+ *  - "`readyForPickup`"
+ *  - "`shipped`"
+ *  - "`undeliverable`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -4941,19 +4974,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The reason for the return.
  *  Acceptable values are:
- *  - "customerDiscretionaryReturn"
- *  - "customerInitiatedMerchantCancel"
- *  - "deliveredTooLate"
- *  - "expiredItem"
- *  - "invalidCoupon"
- *  - "malformedShippingAddress"
- *  - "other"
- *  - "productArrivedDamaged"
- *  - "productNotAsDescribed"
- *  - "qualityNotAsExpected"
- *  - "undeliverableShippingAddress"
- *  - "unsupportedPoBoxAddress"
- *  - "wrongProductShipped"
+ *  - "`customerDiscretionaryReturn`"
+ *  - "`customerInitiatedMerchantCancel`"
+ *  - "`deliveredTooLate`"
+ *  - "`expiredItem`"
+ *  - "`invalidCoupon`"
+ *  - "`malformedShippingAddress`"
+ *  - "`other`"
+ *  - "`productArrivedDamaged`"
+ *  - "`productNotAsDescribed`"
+ *  - "`qualityNotAsExpected`"
+ *  - "`undeliverableShippingAddress`"
+ *  - "`unsupportedPoBoxAddress`"
+ *  - "`wrongProductShipped`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -5050,11 +5083,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The reason for the return.
  *  Acceptable values are:
- *  - "damagedOrUsed"
- *  - "missingComponent"
- *  - "notEligible"
- *  - "other"
- *  - "outOfReturnWindow"
+ *  - "`damagedOrUsed`"
+ *  - "`missingComponent`"
+ *  - "`notEligible`"
+ *  - "`other`"
+ *  - "`outOfReturnWindow`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -5124,19 +5157,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The reason for the return.
  *  Acceptable values are:
- *  - "customerDiscretionaryReturn"
- *  - "customerInitiatedMerchantCancel"
- *  - "deliveredTooLate"
- *  - "expiredItem"
- *  - "invalidCoupon"
- *  - "malformedShippingAddress"
- *  - "other"
- *  - "productArrivedDamaged"
- *  - "productNotAsDescribed"
- *  - "qualityNotAsExpected"
- *  - "undeliverableShippingAddress"
- *  - "unsupportedPoBoxAddress"
- *  - "wrongProductShipped"
+ *  - "`customerDiscretionaryReturn`"
+ *  - "`customerInitiatedMerchantCancel`"
+ *  - "`deliveredTooLate`"
+ *  - "`expiredItem`"
+ *  - "`invalidCoupon`"
+ *  - "`malformedShippingAddress`"
+ *  - "`other`"
+ *  - "`productArrivedDamaged`"
+ *  - "`productNotAsDescribed`"
+ *  - "`qualityNotAsExpected`"
+ *  - "`undeliverableShippingAddress`"
+ *  - "`unsupportedPoBoxAddress`"
+ *  - "`wrongProductShipped`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -5384,14 +5417,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The carrier handling the shipment. Not updated if missing. See
- *  shipments[].carrier in the Orders resource representation for a list of
+ *  `shipments[].carrier` in the Orders resource representation for a list of
  *  acceptable values.
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
 /**
  *  Date on which the shipment has been delivered, in ISO 8601 format. Optional
- *  and can be provided only if status is delivered.
+ *  and can be provided only if `status` is `delivered`.
  */
 @property(nonatomic, copy, nullable) NSString *deliveryDate;
 
@@ -5406,8 +5439,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  New status for the shipment. Not updated if missing.
  *  Acceptable values are:
- *  - "delivered"
- *  - "undeliverable"
+ *  - "`delivered`"
+ *  - "`undeliverable`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -5444,10 +5477,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_PickupCarrierService : GTLRObject
 
-/** The name of the pickup carrier (e.g., "UPS"). Required. */
+/** The name of the pickup carrier (e.g., `"UPS"`). Required. */
 @property(nonatomic, copy, nullable) NSString *carrierName;
 
-/** The name of the pickup service (e.g., "Access point"). Required. */
+/** The name of the pickup service (e.g., `"Access point"`). Required. */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
 @end
@@ -5458,13 +5491,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_PickupServicesPickupService : GTLRObject
 
-/** The name of the carrier (e.g., "UPS"). Always present. */
+/** The name of the carrier (e.g., `"UPS"`). Always present. */
 @property(nonatomic, copy, nullable) NSString *carrierName;
 
 /** The CLDR country code of the carrier (e.g., "US"). Always present. */
 @property(nonatomic, copy, nullable) NSString *country;
 
-/** The name of the pickup service (e.g., "Access point"). Always present. */
+/**
+ *  The name of the pickup service (e.g., `"Access point"`). Always present.
+ */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
 @end
@@ -5493,7 +5528,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
-/** The inventory to submit. Set this only if the method is inventory. */
+/** The inventory to submit. Set this only if the method is `inventory`. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_PosInventory *inventory;
 
 /**
@@ -5506,21 +5541,23 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The method of the batch entry.
  *  Acceptable values are:
- *  - "delete"
- *  - "get"
- *  - "insert"
- *  - "inventory"
- *  - "sale"
+ *  - "`delete`"
+ *  - "`get`"
+ *  - "`insert`"
+ *  - "`inventory`"
+ *  - "`sale`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
-/** The sale information to submit. Set this only if the method is sale. */
+/** The sale information to submit. Set this only if the method is `sale`. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_PosSale *sale;
 
-/** The store information to submit. Set this only if the method is insert. */
+/**
+ *  The store information to submit. Set this only if the method is `insert`.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_PosStore *store;
 
-/** The store code. Set this only if the method is delete or get. */
+/** The store code. Set this only if the method is `delete` or `get`. */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
 /**
@@ -5570,7 +5607,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#posCustomBatchResponseEntry".
+ *  "`content#posCustomBatchResponseEntry`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5634,7 +5671,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#posInventory".
+ *  "`content#posInventory`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5649,7 +5686,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
 /**
- *  Required. The identifier of the merchant's store. Either a storeCode
+ *  Required. The identifier of the merchant's store. Either a `storeCode`
  *  inserted via the API or the code of the store in Google My Business.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
@@ -5688,7 +5725,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
 /**
- *  Required. The identifier of the merchant's store. Either a storeCode
+ *  Required. The identifier of the merchant's store. Either a `storeCode`
  *  inserted via the API or the code of the store in Google My Business.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
@@ -5733,7 +5770,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
 /**
- *  Required. The identifier of the merchant's store. Either a storeCode
+ *  Required. The identifier of the merchant's store. Either a `storeCode`
  *  inserted via the API or the code of the store in Google My Business.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
@@ -5779,7 +5816,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#posSale".
+ *  "`content#posSale`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5798,7 +5835,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *saleId;
 
 /**
- *  Required. The identifier of the merchant's store. Either a storeCode
+ *  Required. The identifier of the merchant's store. Either a `storeCode`
  *  inserted via the API or the code of the store in Google My Business.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
@@ -5841,7 +5878,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *saleId;
 
 /**
- *  Required. The identifier of the merchant's store. Either a storeCode
+ *  Required. The identifier of the merchant's store. Either a `storeCode`
  *  inserted via the API or the code of the store in Google My Business.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
@@ -5890,7 +5927,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *saleId;
 
 /**
- *  Required. The identifier of the merchant's store. Either a storeCode
+ *  Required. The identifier of the merchant's store. Either a `storeCode`
  *  inserted via the API or the code of the store in Google My Business.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
@@ -5911,7 +5948,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#posStore".
+ *  "`content#posStore`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5950,20 +5987,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_PostalCodeRange : GTLRObject
 
 /**
- *  A postal code or a pattern of the form prefix* denoting the inclusive lower
- *  bound of the range defining the area. Examples values: "94108", "9410*",
- *  "9*". Required.
+ *  A postal code or a pattern of the form `prefix*` denoting the inclusive
+ *  lower bound of the range defining the area. Examples values: `"94108"`,
+ *  `"9410*"`, `"9*"`. Required.
  */
 @property(nonatomic, copy, nullable) NSString *postalCodeRangeBegin;
 
 /**
- *  A postal code or a pattern of the form prefix* denoting the inclusive upper
- *  bound of the range defining the area. It must have the same length as
- *  postalCodeRangeBegin: if postalCodeRangeBegin is a postal code then
- *  postalCodeRangeEnd must be a postal code too; if postalCodeRangeBegin is a
- *  pattern then postalCodeRangeEnd must be a pattern with the same prefix
+ *  A postal code or a pattern of the form `prefix*` denoting the inclusive
+ *  upper bound of the range defining the area. It must have the same length as
+ *  `postalCodeRangeBegin`: if `postalCodeRangeBegin` is a postal code then
+ *  `postalCodeRangeEnd` must be a postal code too; if `postalCodeRangeBegin` is
+ *  a pattern then `postalCodeRangeEnd` must be a pattern with the same prefix
  *  length. Optional: if not set, then the area is defined as being all the
- *  postal codes matching postalCodeRangeBegin.
+ *  postal codes matching `postalCodeRangeBegin`.
  */
 @property(nonatomic, copy, nullable) NSString *postalCodeRangeEnd;
 
@@ -5985,6 +6022,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Required product attributes are primarily defined by the products data
+ *  specification. See the Products Data Specification Help Center article for
+ *  information.
+ *  Some attributes are country-specific, so make sure you select the
+ *  appropriate country in the drop-down selector at the top of the page.
  *  Product data. After inserting, updating, or deleting a product, it may take
  *  several minutes before changes take effect.
  */
@@ -6033,8 +6075,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The item's channel (online or local).
  *  Acceptable values are:
- *  - "local"
- *  - "online"
+ *  - "`local`"
+ *  - "`online`"
  */
 @property(nonatomic, copy, nullable) NSString *channel;
 
@@ -6053,7 +6095,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A list of custom (merchant-provided) attributes. It can also be used for
  *  submitting any attribute of the feed specification in its generic form
- *  (e.g., { "name": "size type", "value": "regular" }). This is useful for
+ *  (e.g., `{ "name": "size type", "value": "regular" }`). This is useful for
  *  submitting attributes not explicitly exposed by the API, such as additional
  *  attributes used for Shopping Actions.
  */
@@ -6114,8 +6156,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Date on which the item should expire, as specified upon insertion, in ISO
  *  8601 format. The actual expiration date in Google Shopping is exposed in
- *  productstatuses as googleExpirationDate and might be earlier if
- *  expirationDate is too far in the future.
+ *  `productstatuses` as `googleExpirationDate` and might be earlier if
+ *  `expirationDate` is too far in the future.
  */
 @property(nonatomic, copy, nullable) NSString *expirationDate;
 
@@ -6130,7 +6172,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The REST ID of the product. Content API methods that operate on products
- *  take this as their productId parameter.
+ *  take this as their `productId` parameter.
  *  The REST ID for a product is of the form
  *  channel:contentLanguage:targetCountry:offerId.
  *
@@ -6153,7 +6195,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The list of destinations to include for this target (corresponds to checked
  *  check boxes in Merchant Center). Default destinations are always included
- *  unless provided in excludedDestinations.
+ *  unless provided in `excludedDestinations`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedDestinations;
 
@@ -6173,7 +6215,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#product".
+ *  "`content#product`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6283,7 +6325,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Size of the item. Only one value is allowed. For variants with different
- *  sizes, insert a separate product for each size with the same itemGroupId
+ *  sizes, insert a separate product for each size with the same `itemGroupId`
  *  value (see size definition).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sizes;
@@ -6297,9 +6339,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The source of the offer, i.e., how the offer was created.
  *  Acceptable values are:
- *  - "api"
- *  - "crawl"
- *  - "feed"
+ *  - "`api`"
+ *  - "`crawl`"
+ *  - "`feed`"
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -6390,18 +6432,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The method of the batch entry.
  *  Acceptable values are:
- *  - "delete"
- *  - "get"
- *  - "insert"
+ *  - "`delete`"
+ *  - "`get`"
+ *  - "`insert`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
-/** The product to insert. Only required if the method is insert. */
+/** The product to insert. Only required if the method is `insert`. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Product *product;
 
 /**
- *  The ID of the product to get or delete. Only defined if the method is get or
- *  delete.
+ *  The ID of the product to get or delete. Only defined if the method is `get`
+ *  or `delete`.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
@@ -6442,12 +6484,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#productsCustomBatchResponseEntry".
+ *  "`content#productsCustomBatchResponseEntry`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The inserted product. Only defined if the method is insert and if the
+ *  The inserted product. Only defined if the method is `insert` and if the
  *  request was successful.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Product *product;
@@ -6583,7 +6625,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#productStatus".
+ *  "`content#productStatus`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6661,7 +6703,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The method of the batch entry.
  *  Acceptable values are:
- *  - "get"
+ *  - "`get`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -6705,7 +6747,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#productstatusesCustomBatchResponseEntry".
+ *  "`content#productstatusesCustomBatchResponseEntry`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6868,7 +6910,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Settings for Pub/Sub notifications, all methods require that the caller is a
- *  direct user of the merchant center account.
+ *  direct user of the merchant center account. (== resource_for
+ *  v2.1.pubsubnotificationsettings ==)
  */
 @interface GTLRShoppingContent_PubsubNotificationSettings : GTLRObject
 
@@ -6877,11 +6920,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#pubsubNotificationSettings".
+ *  "`content#pubsubNotificationSettings`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** List of event types. Supported event types: orderPendingShipment. */
+/**
+ *  List of event types.
+ *  Acceptable values are:
+ *  - "`orderPendingShipment`"
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *registeredEvents;
 
 @end
@@ -6901,13 +6948,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *applicableShippingLabels;
 
 /**
- *  A list of carrier rates that can be referred to by mainTable or singleValue.
+ *  A list of carrier rates that can be referred to by `mainTable` or
+ *  `singleValue`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CarrierRate *> *carrierRates;
 
 /**
- *  A table defining the rate group, when singleValue is not expressive enough.
- *  Can only be set if singleValue is not set.
+ *  A table defining the rate group, when `singleValue` is not expressive
+ *  enough. Can only be set if `singleValue` is not set.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Table *mainTable;
 
@@ -6919,13 +6967,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The value of the rate group (e.g. flat rate $10). Can only be set if
- *  mainTable and subtables are not set.
+ *  `mainTable` and `subtables` are not set.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Value *singleValue;
 
 /**
- *  A list of subtables referred to by mainTable. Can only be set if mainTable
- *  is set.
+ *  A list of subtables referred to by `mainTable`. Can only be set if
+ *  `mainTable` is set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Table *> *subtables;
 
@@ -6947,50 +6995,50 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Code of the refund reason.
  *  Acceptable values are:
- *  - "adjustment"
- *  - "autoPostInternal"
- *  - "autoPostInvalidBillingAddress"
- *  - "autoPostNoInventory"
- *  - "autoPostPriceError"
- *  - "autoPostUndeliverableShippingAddress"
- *  - "couponAbuse"
- *  - "courtesyAdjustment"
- *  - "customerCanceled"
- *  - "customerDiscretionaryReturn"
- *  - "customerInitiatedMerchantCancel"
- *  - "customerSupportRequested"
- *  - "deliveredLateByCarrier"
- *  - "deliveredTooLate"
- *  - "expiredItem"
- *  - "failToPushOrderGoogleError"
- *  - "failToPushOrderMerchantError"
- *  - "failToPushOrderMerchantFulfillmentError"
- *  - "failToPushOrderToMerchant"
- *  - "failToPushOrderToMerchantOutOfStock"
- *  - "feeAdjustment"
- *  - "invalidCoupon"
- *  - "lateShipmentCredit"
- *  - "malformedShippingAddress"
- *  - "merchantDidNotShipOnTime"
- *  - "noInventory"
- *  - "orderTimeout"
- *  - "other"
- *  - "paymentAbuse"
- *  - "paymentDeclined"
- *  - "priceAdjustment"
- *  - "priceError"
- *  - "productArrivedDamaged"
- *  - "productNotAsDescribed"
- *  - "promoReallocation"
- *  - "qualityNotAsExpected"
- *  - "returnRefundAbuse"
- *  - "shippingCostAdjustment"
- *  - "shippingPriceError"
- *  - "taxAdjustment"
- *  - "taxError"
- *  - "undeliverableShippingAddress"
- *  - "unsupportedPoBoxAddress"
- *  - "wrongProductShipped"
+ *  - "`adjustment`"
+ *  - "`autoPostInternal`"
+ *  - "`autoPostInvalidBillingAddress`"
+ *  - "`autoPostNoInventory`"
+ *  - "`autoPostPriceError`"
+ *  - "`autoPostUndeliverableShippingAddress`"
+ *  - "`couponAbuse`"
+ *  - "`courtesyAdjustment`"
+ *  - "`customerCanceled`"
+ *  - "`customerDiscretionaryReturn`"
+ *  - "`customerInitiatedMerchantCancel`"
+ *  - "`customerSupportRequested`"
+ *  - "`deliveredLateByCarrier`"
+ *  - "`deliveredTooLate`"
+ *  - "`expiredItem`"
+ *  - "`failToPushOrderGoogleError`"
+ *  - "`failToPushOrderMerchantError`"
+ *  - "`failToPushOrderMerchantFulfillmentError`"
+ *  - "`failToPushOrderToMerchant`"
+ *  - "`failToPushOrderToMerchantOutOfStock`"
+ *  - "`feeAdjustment`"
+ *  - "`invalidCoupon`"
+ *  - "`lateShipmentCredit`"
+ *  - "`malformedShippingAddress`"
+ *  - "`merchantDidNotShipOnTime`"
+ *  - "`noInventory`"
+ *  - "`orderTimeout`"
+ *  - "`other`"
+ *  - "`paymentAbuse`"
+ *  - "`paymentDeclined`"
+ *  - "`priceAdjustment`"
+ *  - "`priceError`"
+ *  - "`productArrivedDamaged`"
+ *  - "`productNotAsDescribed`"
+ *  - "`promoReallocation`"
+ *  - "`qualityNotAsExpected`"
+ *  - "`returnRefundAbuse`"
+ *  - "`shippingCostAdjustment`"
+ *  - "`shippingPriceError`"
+ *  - "`taxAdjustment`"
+ *  - "`taxError`"
+ *  - "`undeliverableShippingAddress`"
+ *  - "`unsupportedPoBoxAddress`"
+ *  - "`wrongProductShipped`"
  */
 @property(nonatomic, copy, nullable) NSString *reasonCode;
 
@@ -7025,7 +7073,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *regionId;
 
 /**
- *  The sale price of the product. Mandatory if sale_price_effective_date is
+ *  The sale price of the product. Mandatory if `sale_price_effective_date` is
  *  defined.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *salePrice;
@@ -7072,7 +7120,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Method of the batch request entry.
  *  Acceptable values are:
- *  - "insert"
+ *  - "`insert`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -7142,7 +7190,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#returnAddress".
+ *  "`content#returnAddress`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -7229,16 +7277,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Method of the batch request entry.
  *  Acceptable values are:
- *  - "delete"
- *  - "get"
- *  - "insert"
+ *  - "`delete`"
+ *  - "`get`"
+ *  - "`insert`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
-/** The return address to submit. Set this only if the method is insert. */
+/** The return address to submit. Set this only if the method is `insert`. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ReturnAddress *returnAddress;
 
-/** The return address ID. Set this only if the method is delete or get. */
+/**
+ *  The return address ID. Set this only if the method is `delete` or `get`.
+ */
 @property(nonatomic, copy, nullable) NSString *returnAddressId;
 
 @end
@@ -7278,7 +7328,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#returnaddressCustomBatchResponseEntry".
+ *  "`content#returnaddressCustomBatchResponseEntry`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -7328,7 +7378,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#returnPolicy".
+ *  "`content#returnPolicy`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -7389,16 +7439,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Method of the batch request entry.
  *  Acceptable values are:
- *  - "delete"
- *  - "get"
- *  - "insert"
+ *  - "`delete`"
+ *  - "`get`"
+ *  - "`insert`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
-/** The return policy to submit. Set this only if the method is insert. */
+/** The return policy to submit. Set this only if the method is `insert`. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ReturnPolicy *returnPolicy;
 
-/** The return policy ID. Set this only if the method is delete or get. */
+/** The return policy ID. Set this only if the method is `delete` or `get`. */
 @property(nonatomic, copy, nullable) NSString *returnPolicyId;
 
 @end
@@ -7438,7 +7488,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#returnpolicyCustomBatchResponseEntry".
+ *  "`content#returnpolicyCustomBatchResponseEntry`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -7497,10 +7547,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  living things. A policy of less than 30 days can only be applied to those
  *  items.
  *  Acceptable values are:
- *  - "lastReturnDate"
- *  - "lifetimeReturns"
- *  - "noReturns"
- *  - "numberOfDaysAfterDelivery"
+ *  - "`lastReturnDate`"
+ *  - "`lifetimeReturns`"
+ *  - "`noReturns`"
+ *  - "`numberOfDaysAfterDelivery`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -7543,9 +7593,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Type of the return method.
  *  Acceptable values are:
- *  - "byMail"
- *  - "contactCustomerSupport"
- *  - "returnless"
+ *  - "`byMail`"
+ *  - "`contactCustomerSupport`"
+ *  - "`returnless`"
  */
 @property(nonatomic, copy, nullable) NSString *returnMethodType;
 
@@ -7564,10 +7614,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  State of the shipment.
  *  Acceptable values are:
- *  - "completed"
- *  - "new"
- *  - "shipped"
- *  - "undeliverable"
+ *  - "`completed`"
+ *  - "`new`"
+ *  - "`shipped`"
+ *  - "`undeliverable`"
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -7581,8 +7631,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The list of cells that constitute the row. Must have the same length as
- *  columnHeaders for two-dimensional tables, a length of 1 for one-dimensional
- *  tables. Required.
+ *  `columnHeaders` for two-dimensional tables, a length of 1 for
+ *  one-dimensional tables. Required.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Value *> *cells;
 
@@ -7622,18 +7672,24 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Eligibility for this service.
  *  Acceptable values are:
- *  - "All scenarios"
- *  - "All scenarios except Shopping Actions"
- *  - "Shopping Actions"
+ *  - "`All scenarios`"
+ *  - "`All scenarios except Shopping Actions`"
+ *  - "`Shopping Actions`"
  */
 @property(nonatomic, copy, nullable) NSString *eligibility;
 
 /**
  *  Minimum order value for this service. If set, indicates that customers will
  *  have to spend at least this amount. All prices within a service must have
- *  the same currency.
+ *  the same currency. Cannot be set together with minimum_order_value_table.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *minimumOrderValue;
+
+/**
+ *  Table of per store minimum order values for the pickup fulfillment type.
+ *  Cannot be set together with minimum_order_value.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_MinimumOrderValueTable *minimumOrderValueTable;
 
 /**
  *  Free-form name of the service. Must be unique within target account.
@@ -7644,25 +7700,344 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The carrier-service pair delivering items to collection points. The list of
  *  supported pickup services can be retrieved via the
- *  getSupportedPickupServices method. Required if and only if the service
- *  delivery type is pickup.
+ *  `getSupportedPickupServices` method. Required if and only if the service
+ *  delivery type is `pickup`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_PickupCarrierService *pickupService;
 
 /**
  *  Shipping rate group definitions. Only the last one is allowed to have an
- *  empty applicableShippingLabels, which means "everything else". The other
- *  applicableShippingLabels must not overlap.
+ *  empty `applicableShippingLabels`, which means "everything else". The other
+ *  `applicableShippingLabels` must not overlap.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_RateGroup *> *rateGroups;
 
 /**
  *  Type of locations this service ships orders to.
  *  Acceptable values are:
- *  - "delivery"
- *  - "pickup"
+ *  - "`delivery`"
+ *  - "`pickup`"
  */
 @property(nonatomic, copy, nullable) NSString *shipmentType;
+
+@end
+
+
+/**
+ *  Settlement reports detail order-level and item-level credits and debits
+ *  between you and Google.
+ */
+@interface GTLRShoppingContent_SettlementReport : GTLRObject
+
+/**
+ *  The end date on which all transactions are included in the report, in ISO
+ *  8601 format.
+ */
+@property(nonatomic, copy, nullable) NSString *endDate;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "`content#settlementReport`"
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The residual amount from the previous invoice. This is set only if the
+ *  previous invoices are not paid because of negative balance.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *previousBalance;
+
+/** The ID of the settlement report. */
+@property(nonatomic, copy, nullable) NSString *settlementId;
+
+/**
+ *  The start date on which all transactions are included in the report, in ISO
+ *  8601 format.
+ */
+@property(nonatomic, copy, nullable) NSString *startDate;
+
+/** The money due to the merchant. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *transferAmount;
+
+/**
+ *  Date on which transfer for this payment was initiated by Google, in ISO 8601
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *transferDate;
+
+/**
+ *  The list of bank identifiers used for the transfer. e.g. Trace ID for
+ *  Federal Automated Clearing House (ACH). This may also be known as the Wire
+ *  ID.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *transferIds;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_SettlementreportsListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resources" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_SettlementreportsListResponse : GTLRCollectionObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#settlementreportsListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The token for the retrieval of the next page of returns. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  resources
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_SettlementReport *> *resources;
+
+@end
+
+
+/**
+ *  Settlement transactions give a detailed breakdown of the settlement report.
+ */
+@interface GTLRShoppingContent_SettlementTransaction : GTLRObject
+
+/** The amount for the transaction. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_SettlementTransactionAmount *amount;
+
+/** Identifiers of the transaction. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_SettlementTransactionIdentifiers *identifiers;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "`content#settlementTransaction`"
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Details of the transaction. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_SettlementTransactionTransaction *transaction;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_SettlementTransactionAmount
+ */
+@interface GTLRShoppingContent_SettlementTransactionAmount : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRShoppingContent_SettlementTransactionAmountCommission *commission;
+
+/**
+ *  The description of the event.
+ *  Acceptable values are:
+ *  - "`taxWithhold`"
+ *  - "`principal`"
+ *  - "`principalAdjustment`"
+ *  - "`shippingFee`"
+ *  - "`merchantRemittedSalesTax`"
+ *  - "`googleRemittedSalesTax`"
+ *  - "`merchantCoupon`"
+ *  - "`merchantCouponTax`"
+ *  - "`merchantRemittedDisposalTax`"
+ *  - "`googleRemittedDisposalTax`"
+ *  - "`merchantRemittedRedemptionFee`"
+ *  - "`googleRemittedRedemptionFee`"
+ *  - "`eeeEcoFee`"
+ *  - "`furnitureEcoFee`"
+ *  - "`copyPrivateFee`"
+ *  - "`eeeEcoFeeCommission`"
+ *  - "`furnitureEcoFeeCommission`"
+ *  - "`copyPrivateFeeCommission`"
+ *  - "`principalRefund`"
+ *  - "`principalRefundTax`"
+ *  - "`itemCommission`"
+ *  - "`adjustmentCommission`"
+ *  - "`shippingFeeCommission`"
+ *  - "`commissionRefund`"
+ *  - "`damaged`"
+ *  - "`damagedOrDefectiveItem`"
+ *  - "`expiredItem`"
+ *  - "`faultyItem`"
+ *  - "`incorrectItemReceived`"
+ *  - "`itemMissing`"
+ *  - "`qualityNotExpected`"
+ *  - "`receivedTooLate`"
+ *  - "`storePackageMissing`"
+ *  - "`transitPackageMissing`"
+ *  - "`unsuccessfulDeliveryUndeliverable`"
+ *  - "`wrongChargeInStore`"
+ *  - "`wrongItem`"
+ *  - "`returns`"
+ *  - "`undeliverable`"
+ *  - "`refundFromMerchant`"
+ *  - "`returnLabelShippingFee`"
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The amount that contributes to the line item price. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *transactionAmount;
+
+/**
+ *  The type of the amount.
+ *  Acceptable values are:
+ *  - "`itemPrice`"
+ *  - "`orderPrice`"
+ *  - "`refund`"
+ *  - "`earlyRefund`"
+ *  - "`courtesyRefund`"
+ *  - "`returnRefund`"
+ *  - "`returnLabelShippingFeeAmount`"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_SettlementTransactionAmountCommission
+ */
+@interface GTLRShoppingContent_SettlementTransactionAmountCommission : GTLRObject
+
+/**
+ *  The category of the commission.
+ *  Acceptable values are:
+ *  - "`animalsAndPetSupplies`"
+ *  - "`dogCatFoodAndCatLitter`"
+ *  - "`apparelAndAccessories`"
+ *  - "`shoesHandbagsAndSunglasses`"
+ *  - "`costumesAndAccessories`"
+ *  - "`jewelry`"
+ *  - "`watches`"
+ *  - "`hobbiesArtsAndCrafts`"
+ *  - "`homeAndGarden`"
+ *  - "`entertainmentCollectibles`"
+ *  - "`collectibleCoins`"
+ *  - "`sportsCollectibles`"
+ *  - "`sportingGoods`"
+ *  - "`toysAndGames`"
+ *  - "`musicalInstruments`"
+ *  - "`giftCards`"
+ *  - "`babyAndToddler`"
+ *  - "`babyFoodWipesAndDiapers`"
+ *  - "`businessAndIndustrial`"
+ *  - "`camerasOpticsAndPhotography`"
+ *  - "`consumerElectronics`"
+ *  - "`electronicsAccessories`"
+ *  - "`personalComputers`"
+ *  - "`videoGameConsoles`"
+ *  - "`foodAndGrocery`"
+ *  - "`beverages`"
+ *  - "`tobaccoProducts`"
+ *  - "`furniture`"
+ *  - "`hardware`"
+ *  - "`buildingMaterials`"
+ *  - "`tools`"
+ *  - "`healthAndPersonalCare`"
+ *  - "`beauty`"
+ *  - "`householdSupplies`"
+ *  - "`kitchenAndDining`"
+ *  - "`majorAppliances`"
+ *  - "`luggageAndBags`"
+ *  - "`media`"
+ *  - "`officeSupplies`"
+ *  - "`softwareAndVideoGames`"
+ *  - "`vehiclePartsAndAccessories`"
+ *  - "`vehicleTiresAndWheels`"
+ *  - "`vehicles`"
+ *  - "`everythingElse`"
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/** Rate of the commission in percentage. */
+@property(nonatomic, copy, nullable) NSString *rate;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_SettlementTransactionIdentifiers
+ */
+@interface GTLRShoppingContent_SettlementTransactionIdentifiers : GTLRObject
+
+/** The identifier of the adjustments, if it is available. */
+@property(nonatomic, copy, nullable) NSString *adjustmentId;
+
+/** The merchant provided order ID. */
+@property(nonatomic, copy, nullable) NSString *merchantOrderId;
+
+/** The unique ID of the settlement transaction entry. */
+@property(nonatomic, copy, nullable) NSString *settlementEntryId;
+
+/** The shipment ids for the item. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentIds;
+
+/** The Google transaction ID. */
+@property(nonatomic, copy, nullable) NSString *transactionId;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_SettlementtransactionsListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resources" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_SettlementtransactionsListResponse : GTLRCollectionObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#settlementtransactionsListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The token for the retrieval of the next page of returns. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  resources
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_SettlementTransaction *> *resources;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_SettlementTransactionTransaction
+ */
+@interface GTLRShoppingContent_SettlementTransactionTransaction : GTLRObject
+
+/** The time on which the event occurred in ISO 8601 format. */
+@property(nonatomic, copy, nullable) NSString *postDate;
+
+/**
+ *  The type of the transaction that occurred.
+ *  Acceptable values are:
+ *  - "`order`"
+ *  - "`reversal`"
+ *  - "`orderRefund`"
+ *  - "`reversalRefund`"
+ *  - "`issueRelatedRefundAndReplacement`"
+ *  - "`returnLabelShippingFeeTransaction`"
+ *  - "`reversalIssueRelatedRefundAndReplacement`"
+ *  - "`reversalReturnLabelShippingFeeTransaction`"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -7680,8 +8055,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  [required] ID of the shipment group. It is assigned by the merchant in the
- *  shipLineItems method and is used to group multiple line items that have the
- *  same kind of shipping charges.
+ *  `shipLineItems` method and is used to group multiple line items that have
+ *  the same kind of shipping charges.
  */
 @property(nonatomic, copy, nullable) NSString *shipmentGroupId;
 
@@ -7724,36 +8099,36 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The shipping carrier that handles the package.
  *  Acceptable values are:
- *  - "boxtal"
- *  - "bpost"
- *  - "chronopost"
- *  - "colisPrive"
- *  - "colissimo"
- *  - "cxt"
- *  - "deliv"
- *  - "dhl"
- *  - "dpd"
- *  - "dynamex"
- *  - "eCourier"
- *  - "easypost"
- *  - "efw"
- *  - "fedex"
- *  - "fedexSmartpost"
- *  - "geodis"
- *  - "gls"
- *  - "googleCourier"
- *  - "gsx"
- *  - "jdLogistics"
- *  - "laPoste"
- *  - "lasership"
- *  - "manual"
- *  - "mpx"
- *  - "onTrac"
- *  - "other"
- *  - "tnt"
- *  - "uds"
- *  - "ups"
- *  - "usps"
+ *  - "`boxtal`"
+ *  - "`bpost`"
+ *  - "`chronopost`"
+ *  - "`colisPrive`"
+ *  - "`colissimo`"
+ *  - "`cxt`"
+ *  - "`deliv`"
+ *  - "`dhl`"
+ *  - "`dpd`"
+ *  - "`dynamex`"
+ *  - "`eCourier`"
+ *  - "`easypost`"
+ *  - "`efw`"
+ *  - "`fedex`"
+ *  - "`fedexSmartpost`"
+ *  - "`geodis`"
+ *  - "`gls`"
+ *  - "`googleCourier`"
+ *  - "`gsx`"
+ *  - "`jdLogistics`"
+ *  - "`laPoste`"
+ *  - "`lasership`"
+ *  - "`manual`"
+ *  - "`mpx`"
+ *  - "`onTrac`"
+ *  - "`other`"
+ *  - "`tnt`"
+ *  - "`uds`"
+ *  - "`ups`"
+ *  - "`usps`"
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
@@ -7778,7 +8153,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *accountId;
 
 /**
- *  A list of postal code groups that can be referred to in services. Optional.
+ *  A list of postal code groups that can be referred to in `services`.
+ *  Optional.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_PostalCodeGroup *> *postalCodeGroups;
 
@@ -7828,14 +8204,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The method of the batch entry.
  *  Acceptable values are:
- *  - "get"
- *  - "update"
+ *  - "`get`"
+ *  - "`update`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
 /**
  *  The account shipping settings to update. Only defined if the method is
- *  update.
+ *  `update`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ShippingSettings *shippingSettings;
 
@@ -7876,7 +8252,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#shippingsettingsCustomBatchResponseEntry".
+ *  "`content#shippingsettingsCustomBatchResponseEntry`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -7986,7 +8362,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The list of rows that constitute the table. Must have the same length as
- *  rowHeaders. Required.
+ *  `rowHeaders`. Required.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Row *> *rows;
 
@@ -8007,7 +8383,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#testOrder".
+ *  "`content#testOrder`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -8017,21 +8393,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_TestOrderLineItem *> *lineItems;
 
-/**
- *  Determines if test order must be pulled by merchant or pushed to merchant
- *  via push integration.
- *  Acceptable values are:
- *  - "checkoutIntegration"
- *  - "merchantPull"
- */
+/** Restricted. Do not use. */
 @property(nonatomic, copy, nullable) NSString *notificationMode;
 
 /**
  *  Required. The billing address.
  *  Acceptable values are:
- *  - "dwight"
- *  - "jim"
- *  - "pam"
+ *  - "`dwight`"
+ *  - "`jim`"
+ *  - "`pam`"
  */
 @property(nonatomic, copy, nullable) NSString *predefinedBillingAddress;
 
@@ -8039,28 +8409,28 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. Identifier of one of the predefined delivery addresses for the
  *  delivery.
  *  Acceptable values are:
- *  - "dwight"
- *  - "jim"
- *  - "pam"
+ *  - "`dwight`"
+ *  - "`jim`"
+ *  - "`pam`"
  */
 @property(nonatomic, copy, nullable) NSString *predefinedDeliveryAddress;
 
 /**
  *  Required. Email address of the customer.
  *  Acceptable values are:
- *  - "pog.dwight.schrute\@gmail.com"
- *  - "pog.jim.halpert\@gmail.com"
- *  - "penpog.pam.beesly\@gmail.comding"
+ *  - "`pog.dwight.schrute\@gmail.com`"
+ *  - "`pog.jim.halpert\@gmail.com`"
+ *  - "`penpog.pam.beesly\@gmail.comding`"
  */
 @property(nonatomic, copy, nullable) NSString *predefinedEmail;
 
 /**
  *  Identifier of one of the predefined pickup details. Required for orders
- *  containing line items with shipping type pickup.
+ *  containing line items with shipping type `pickup`.
  *  Acceptable values are:
- *  - "dwight"
- *  - "jim"
- *  - "pam"
+ *  - "`dwight`"
+ *  - "`jim`"
+ *  - "`pam`"
  */
 @property(nonatomic, copy, nullable) NSString *predefinedPickupDetails;
 
@@ -8078,12 +8448,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The requested shipping option.
  *  Acceptable values are:
- *  - "economy"
- *  - "expedited"
- *  - "oneDay"
- *  - "sameDay"
- *  - "standard"
- *  - "twoDay"
+ *  - "`economy`"
+ *  - "`expedited`"
+ *  - "`oneDay`"
+ *  - "`sameDay`"
+ *  - "`standard`"
+ *  - "`twoDay`"
  */
 @property(nonatomic, copy, nullable) NSString *shippingOption;
 
@@ -8125,15 +8495,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Condition or state of the item.
  *  Acceptable values are:
- *  - "new"
+ *  - "`new`"
  */
 @property(nonatomic, copy, nullable) NSString *condition;
 
 /**
  *  Required. The two-letter ISO 639-1 language code for the item.
  *  Acceptable values are:
- *  - "en"
- *  - "fr"
+ *  - "`en`"
+ *  - "`fr`"
  */
 @property(nonatomic, copy, nullable) NSString *contentLanguage;
 
@@ -8180,8 +8550,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_TransitTable : GTLRObject
 
 /**
- *  A list of postal group names. The last value can be "all other locations".
- *  Example: ["zone 1", "zone 2", "all other locations"]. The referred postal
+ *  A list of postal group names. The last value can be `"all other locations"`.
+ *  Example: `["zone 1", "zone 2", "all other locations"]`. The referred postal
  *  code groups must match the delivery country of the service.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *postalCodeGroupNames;
@@ -8189,8 +8559,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_TransitTableTransitTimeRow *> *rows;
 
 /**
- *  A list of transit time labels. The last value can be "all other labels".
- *  Example: ["food", "electronics", "all other labels"].
+ *  A list of transit time labels. The last value can be `"all other labels"`.
+ *  Example: `["food", "electronics", "all other labels"]`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *transitTimeLabels;
 
@@ -8213,7 +8583,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_TransitTableTransitTimeRowTransitTimeValue : GTLRObject
 
 /**
- *  Must be greater than or equal to minTransitTimeInDays.
+ *  Must be greater than or equal to `minTransitTimeInDays`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -8261,7 +8631,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [required] Type of the additional charge.
  *  Acceptable values are:
- *  - "shipping"
+ *  - "`shipping`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -8277,17 +8647,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxAmount;
 
 /**
- *  Optional name of the tax type. This should only be provided if taxType is
- *  otherFeeTax.
+ *  Optional name of the tax type. This should only be provided if `taxType` is
+ *  `otherFeeTax`.
  */
 @property(nonatomic, copy, nullable) NSString *taxName;
 
 /**
  *  [required] Type of the tax.
  *  Acceptable values are:
- *  - "otherFee"
- *  - "otherFeeTax"
- *  - "sales"
+ *  - "`otherFee`"
+ *  - "`otherFeeTax`"
+ *  - "`sales`"
  */
 @property(nonatomic, copy, nullable) NSString *taxType;
 
@@ -8296,8 +8666,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The single value of a rate group or the value of a rate group table's cell.
- *  Exactly one of noShipping, flatRate, pricePercentage, carrierRateName,
- *  subtableName must be set.
+ *  Exactly one of `noShipping`, `flatRate`, `pricePercentage`,
+ *  `carrierRateName`, `subtableName` must be set.
  */
 @interface GTLRShoppingContent_Value : GTLRObject
 
@@ -8320,7 +8690,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A percentage of the price represented as a number in decimal notation (e.g.,
- *  "5.4"). Can only be set if all other fields are not set.
+ *  `"5.4"`). Can only be set if all other fields are not set.
  */
 @property(nonatomic, copy, nullable) NSString *pricePercentage;
 
@@ -8341,8 +8711,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The weight unit.
  *  Acceptable values are:
- *  - "kg"
- *  - "lb"
+ *  - "`kg`"
+ *  - "`lb`"
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 

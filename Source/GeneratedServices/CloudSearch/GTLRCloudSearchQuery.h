@@ -943,6 +943,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
 /**
  *  Name of the Item to start a resumable upload.
  *  Format: datasources/{source_id}/items/{item_id}.
+ *  The maximum length is 1536 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -960,6 +961,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappings
  *    the query.
  *  @param name Name of the Item to start a resumable upload.
  *    Format: datasources/{source_id}/items/{item_id}.
+ *    The maximum length is 1536 bytes.
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsUpload
  */

@@ -172,7 +172,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsInstancesDeleteWithname:]
 
 /**
- *  Memcached instance resource name in the format:
+ *  Required. Memcached instance resource name in the format:
  *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
  *  where `location_id` refers to a GCP region
  */
@@ -183,7 +183,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a single Instance.
  *
- *  @param name Memcached instance resource name in the format:
+ *  @param name Required. Memcached instance resource name in the format:
  *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
  *    where `location_id` refers to a GCP region
  *

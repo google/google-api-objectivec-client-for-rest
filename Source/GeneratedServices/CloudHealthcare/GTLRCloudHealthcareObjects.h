@@ -1061,7 +1061,6 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Schema
  *  The FHIR specification version that this FHIR store supports natively. This
  *  field is immutable after store creation. Requests are rejected if they
  *  contain FHIR resources of a different version.
- *  An empty value is treated as STU3.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_Dstu2 Draft Standard for

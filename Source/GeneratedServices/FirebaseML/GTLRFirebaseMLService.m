@@ -2,30 +2,30 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Proximity Beacon API (proximitybeacon/v1beta1)
+//   Firebase ML API (firebaseml/v1beta2)
 // Description:
-//   Registers, manages, indexes, and searches beacons.
+//   Access custom machine learning models hosted via Firebase ML.
 // Documentation:
-//   https://developers.google.com/beacons/proximity/
+//   https://firebase.google.com
 
-#import "GTLRProximityBeacon.h"
+#import "GTLRFirebaseML.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeProximityBeaconUserlocationBeaconRegistry = @"https://www.googleapis.com/auth/userlocation.beacon.registry";
+NSString * const kGTLRAuthScopeFirebaseMLCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRProximityBeaconService
+//   GTLRFirebaseMLService
 //
 
-@implementation GTLRProximityBeaconService
+@implementation GTLRFirebaseMLService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://proximitybeacon.googleapis.com/";
+    self.rootURLString = @"https://firebaseml.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

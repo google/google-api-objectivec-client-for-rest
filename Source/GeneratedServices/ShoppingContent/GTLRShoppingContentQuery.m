@@ -2298,6 +2298,78 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 @end
 
+@implementation GTLRShoppingContentQuery_SettlementreportsGet
+
+@dynamic merchantId, settlementId;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                       settlementId:(NSString *)settlementId {
+  NSArray *pathParams = @[
+    @"merchantId", @"settlementId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/settlementreports/{settlementId}";
+  GTLRShoppingContentQuery_SettlementreportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.settlementId = settlementId;
+  query.expectedObjectClass = [GTLRShoppingContent_SettlementReport class];
+  query.loggingName = @"content.settlementreports.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_SettlementreportsList
+
+@dynamic maxResults, merchantId, pageToken, transferEndDate, transferStartDate;
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/settlementreports";
+  GTLRShoppingContentQuery_SettlementreportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_SettlementreportsListResponse class];
+  query.loggingName = @"content.settlementreports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_SettlementtransactionsList
+
+@dynamic maxResults, merchantId, pageToken, settlementId, transactionIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"transactionIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
+                       settlementId:(NSString *)settlementId {
+  NSArray *pathParams = @[
+    @"merchantId", @"settlementId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/settlementreports/{settlementId}/transactions";
+  GTLRShoppingContentQuery_SettlementtransactionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.settlementId = settlementId;
+  query.expectedObjectClass = [GTLRShoppingContent_SettlementtransactionsListResponse class];
+  query.loggingName = @"content.settlementtransactions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_ShippingsettingsCustombatch
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_ShippingsettingsCustomBatchRequest *)object {
