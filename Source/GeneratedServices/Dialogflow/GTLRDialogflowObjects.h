@@ -93,6 +93,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeBatch;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity;
+@class GTLRDialogflow_GoogleCloudDialogflowV2Environment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature;
@@ -857,6 +858,34 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_K
  *  Value: "KIND_UNSPECIFIED"
  */
 GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2Environment.state
+
+/**
+ *  Loading.
+ *
+ *  Value: "LOADING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Loading;
+/**
+ *  Running.
+ *
+ *  Value: "RUNNING"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Running;
+/**
+ *  Not specified. This value is not used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_StateUnspecified;
+/**
+ *  Stopped.
+ *
+ *  Value: "STOPPED"
+ */
+GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Stopped;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature.type
@@ -4417,6 +4446,59 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
 
 
 /**
+ *  Represents an agent environment.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2Environment : GTLRObject
+
+/**
+ *  Optional. The agent version loaded into this environment.
+ *  Format: `projects/<Project ID>/agent/versions/<Version ID>`.
+ */
+@property(nonatomic, copy, nullable) NSString *agentVersion;
+
+/**
+ *  Optional. The developer-provided description for this environment.
+ *  The maximum length is 500 characters. If exceeded, the request is rejected.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The unique identifier of this agent environment.
+ *  Format: `projects/<Project ID>/agent/environments/<Environment ID>`.
+ *  For Environment ID, "-" is reserved for 'draft' environment.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The state of this environment. This field is read-only, i.e.,
+ *  it cannot be
+ *  set by create and update methods.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Loading
+ *        Loading. (Value: "LOADING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Running
+ *        Running. (Value: "RUNNING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_StateUnspecified
+ *        Not specified. This value is not used. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Stopped
+ *        Stopped. (Value: "STOPPED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The last update time of this environment. This field is
+ *  read-only, i.e., it
+ *  cannot be set by create and update methods.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Events allow for matching intents by event name instead of the natural
  *  language input. For instance, input
  *  `<event: { name: "welcome_event", 
@@ -5859,6 +5941,34 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelecti
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2EntityType *> *entityTypes;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no
+ *  more results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response message for Environments.ListEnvironments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "environments" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ListEnvironmentsResponse : GTLRCollectionObject
+
+/**
+ *  The list of agent environments. There will be a maximum number of items
+ *  returned based on the page_size field in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Environment *> *environments;
 
 /**
  *  Token to retrieve the next page of results, or empty if there are no

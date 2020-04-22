@@ -546,7 +546,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
 
 /**
  *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
- *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ *  `GetIamPolicy`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudResourceManager_GetPolicyOptions *options;
 
@@ -931,8 +931,7 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_Erro
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
  *  the fields in the mask will be modified. If no mask is provided, the
  *  following default mask is used:
- *  paths: "bindings, etag"
- *  This field is only used by Cloud IAM.
+ *  `paths: "bindings, etag"`
  *
  *  String format is a comma-separated list of fields.
  */

@@ -92,6 +92,7 @@ NSString * const kGTLRServiceControl_QuotaError_Code_SpatulaHeaderInvalid = @"SP
 NSString * const kGTLRServiceControl_QuotaError_Code_Unspecified = @"UNSPECIFIED";
 
 // GTLRServiceControl_QuotaOperation.quotaMode
+NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_AdjustOnly = @"ADJUST_ONLY";
 NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_BestEffort = @"BEST_EFFORT";
 NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_CheckOnly = @"CHECK_ONLY";
 NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Normal = @"NORMAL";

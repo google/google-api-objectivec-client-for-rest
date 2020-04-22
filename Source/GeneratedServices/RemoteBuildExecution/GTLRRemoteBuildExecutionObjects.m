@@ -927,7 +927,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateInstanceRequest
-@dynamic loggingEnabled, name, updateMask;
+@dynamic instance, loggingEnabled, name, updateMask;
 @end
 
 

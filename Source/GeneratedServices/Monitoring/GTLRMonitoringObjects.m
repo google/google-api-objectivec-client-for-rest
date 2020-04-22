@@ -453,8 +453,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_Condition
-@dynamic conditionAbsent, conditionThreshold, conditionTimeSeriesQueryLanguage,
-         displayName, name;
+@dynamic conditionAbsent, conditionThreshold, displayName, name;
 @end
 
 
@@ -1670,16 +1669,6 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRMonitoring_TimeSeriesQueryLanguageCondition
-//
-
-@implementation GTLRMonitoring_TimeSeriesQueryLanguageCondition
-@dynamic query, summary;
 @end
 
 

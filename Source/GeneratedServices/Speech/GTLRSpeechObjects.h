@@ -347,7 +347,8 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  The URI of the audio file being transcribed. Empty if the audio was sent
+ *  Output only. The URI of the audio file being transcribed. Empty if the audio
+ *  was sent
  *  as byte content.
  */
 @property(nonatomic, copy, nullable) NSString *uri;

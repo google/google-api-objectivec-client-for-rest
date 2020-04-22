@@ -508,6 +508,55 @@ GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 @end
 
 /**
+ *  Returns the list of all non-draft environments of the specified agent.
+ *
+ *  Method: dialogflow.projects.agent.environments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsAgentEnvironmentsList : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsAgentEnvironmentsListWithparent:]
+
+/**
+ *  Optional. The maximum number of items to return in a single page. By default
+ *  100 and
+ *  at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous list request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The agent to list all environments from.
+ *  Format: `projects/<Project ID>/agent`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowV2ListEnvironmentsResponse.
+ *
+ *  Returns the list of all non-draft environments of the specified agent.
+ *
+ *  @param parent Required. The agent to list all environments from.
+ *    Format: `projects/<Project ID>/agent`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a context.
  *  If the specified context already exists, overrides the context.
  *

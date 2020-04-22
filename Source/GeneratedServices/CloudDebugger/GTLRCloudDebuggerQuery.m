@@ -20,6 +20,11 @@
 NSString * const kGTLRCloudDebuggerActionValueCapture = @"CAPTURE";
 NSString * const kGTLRCloudDebuggerActionValueLog     = @"LOG";
 
+// canaryOption
+NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionTryDisable = @"CANARY_OPTION_TRY_DISABLE";
+NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionTryEnable = @"CANARY_OPTION_TRY_ENABLE";
+NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUnspecified = @"CANARY_OPTION_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -32,7 +37,7 @@ NSString * const kGTLRCloudDebuggerActionValueLog     = @"LOG";
 
 @implementation GTLRCloudDebuggerQuery_ControllerDebuggeesBreakpointsList
 
-@dynamic debuggeeId, successOnTimeout, waitToken;
+@dynamic agentId, debuggeeId, successOnTimeout, waitToken;
 
 + (instancetype)queryWithDebuggeeId:(NSString *)debuggeeId {
   NSArray *pathParams = @[ @"debuggeeId" ];
@@ -174,7 +179,7 @@ NSString * const kGTLRCloudDebuggerActionValueLog     = @"LOG";
 
 @implementation GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsSet
 
-@dynamic clientVersion, debuggeeId;
+@dynamic canaryOption, clientVersion, debuggeeId;
 
 + (instancetype)queryWithObject:(GTLRCloudDebugger_Breakpoint *)object
                      debuggeeId:(NSString *)debuggeeId {

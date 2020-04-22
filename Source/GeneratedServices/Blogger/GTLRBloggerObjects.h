@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Blogger API (blogger/v3)
+//   Blogger API v3 (blogger/v3)
 // Description:
-//   API for access to the data within Blogger.
+//   The Blogger API provides access to posts, comments and pages of a
+//   Blogger blog.
 // Documentation:
 //   https://developers.google.com/blogger/docs/3.0/getting_started
 
@@ -54,12 +55,85 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRBlogger_Blog.status
+
+/** Value: "DELETED" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Blog_Status_Deleted;
+/** Value: "LIVE" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Blog_Status_Live;
+
+// ----------------------------------------------------------------------------
+// GTLRBlogger_BlogPerUserInfo.role
+
+/** Value: "ADMIN" */
+GTLR_EXTERN NSString * const kGTLRBlogger_BlogPerUserInfo_Role_Admin;
+/** Value: "AUTHOR" */
+GTLR_EXTERN NSString * const kGTLRBlogger_BlogPerUserInfo_Role_Author;
+/** Value: "READER" */
+GTLR_EXTERN NSString * const kGTLRBlogger_BlogPerUserInfo_Role_Reader;
+/** Value: "VIEW_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRBlogger_BlogPerUserInfo_Role_ViewTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBlogger_Comment.status
+
+/** Value: "EMPTIED" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Comment_Status_Emptied;
+/** Value: "LIVE" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Comment_Status_Live;
+/** Value: "PENDING" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Comment_Status_Pending;
+/** Value: "SPAM" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Comment_Status_Spam;
+
+// ----------------------------------------------------------------------------
+// GTLRBlogger_Page.status
+
+/** Value: "DRAFT" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Page_Status_Draft;
+/** Value: "LIVE" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Page_Status_Live;
+
+// ----------------------------------------------------------------------------
+// GTLRBlogger_Pageviews_Counts_Item.timeRange
+
+/** Value: "ALL_TIME" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_AllTime;
+/** Value: "SEVEN_DAYS" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_SevenDays;
+/** Value: "THIRTY_DAYS" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_ThirtyDays;
+
+// ----------------------------------------------------------------------------
+// GTLRBlogger_Post.readerComments
+
+/** Value: "ALLOW" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Post_ReaderComments_Allow;
+/** Value: "DONT_ALLOW_HIDE_EXISTING" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Post_ReaderComments_DontAllowHideExisting;
+/** Value: "DONT_ALLOW_SHOW_EXISTING" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Post_ReaderComments_DontAllowShowExisting;
+
+// ----------------------------------------------------------------------------
+// GTLRBlogger_Post.status
+
+/** Value: "DRAFT" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Post_Status_Draft;
+/** Value: "LIVE" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Post_Status_Live;
+/** Value: "SCHEDULED" */
+GTLR_EXTERN NSString * const kGTLRBlogger_Post_Status_Scheduled;
+
 /**
  *  GTLRBlogger_Blog
  */
 @interface GTLRBlogger_Blog : GTLRObject
 
-/** The JSON custom meta-data for the Blog */
+/** The JSON custom meta-data for the Blog. */
 @property(nonatomic, copy, nullable) NSString *customMetaData;
 
 /**
@@ -76,7 +150,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** The kind of this entry. Always blogger#blog */
+/** The kind of this entry. Always blogger#blog. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The locale this Blog is set to. */
@@ -92,16 +166,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBlogger_Blog_Posts *posts;
 
 /** RFC 3339 date-time when this blog was published. */
-@property(nonatomic, strong, nullable) GTLRDateTime *published;
+@property(nonatomic, copy, nullable) NSString *published;
 
 /** The API REST URL to fetch this resource from. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** The status of the blog. */
+/**
+ *  The status of the blog.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBlogger_Blog_Status_Deleted Value "DELETED"
+ *    @arg @c kGTLRBlogger_Blog_Status_Live Value "LIVE"
+ */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /** RFC 3339 date-time when this blog was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 /** The URL where this blog is published. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -181,7 +261,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBlogger_BlogList : GTLRCollectionObject
 
-/** Admin level list of blog per-user information */
+/** Admin level list of blog per-user information. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBlogger_BlogUserInfo *> *blogUserInfos;
 
 /**
@@ -192,7 +272,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Blog *> *items;
 
-/** The kind of this entity. Always blogger#blogList */
+/** The kind of this entity. Always blogger#blogList. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -203,7 +283,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBlogger_BlogPerUserInfo : GTLRObject
 
-/** ID of the Blog resource */
+/** ID of the Blog resource. */
 @property(nonatomic, copy, nullable) NSString *blogId;
 
 /**
@@ -213,19 +293,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *hasAdminAccess;
 
-/** The kind of this entity. Always blogger#blogPerUserInfo */
+/** The kind of this entity. Always blogger#blogPerUserInfo. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The Photo Album Key for the user when adding photos to the blog */
+/** The Photo Album Key for the user when adding photos to the blog. */
 @property(nonatomic, copy, nullable) NSString *photosAlbumKey;
 
 /**
  *  Access permissions that the user has for the blog (ADMIN, AUTHOR, or
  *  READER).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBlogger_BlogPerUserInfo_Role_Admin Value "ADMIN"
+ *    @arg @c kGTLRBlogger_BlogPerUserInfo_Role_Author Value "AUTHOR"
+ *    @arg @c kGTLRBlogger_BlogPerUserInfo_Role_Reader Value "READER"
+ *    @arg @c kGTLRBlogger_BlogPerUserInfo_Role_ViewTypeUnspecified Value
+ *        "VIEW_TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
-/** ID of the User */
+/** ID of the User. */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 @end
@@ -242,7 +329,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Information about a User for the Blog. */
 @property(nonatomic, strong, nullable) GTLRBlogger_BlogPerUserInfo *blogUserInfo;
 
-/** The kind of this entity. Always blogger#blogUserInfo */
+/** The kind of this entity. Always blogger#blogUserInfo. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -272,23 +359,31 @@ NS_ASSUME_NONNULL_BEGIN
 /** Data about the comment this is in reply to. */
 @property(nonatomic, strong, nullable) GTLRBlogger_Comment_InReplyTo *inReplyTo;
 
-/** The kind of this entry. Always blogger#comment */
+/** The kind of this entry. Always blogger#comment. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Data about the post containing this comment. */
 @property(nonatomic, strong, nullable) GTLRBlogger_Comment_Post *post;
 
 /** RFC 3339 date-time when this comment was published. */
-@property(nonatomic, strong, nullable) GTLRDateTime *published;
+@property(nonatomic, copy, nullable) NSString *published;
 
 /** The API REST URL to fetch this resource from. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** The status of the comment (only populated for admin users) */
+/**
+ *  The status of the comment (only populated for admin users).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBlogger_Comment_Status_Emptied Value "EMPTIED"
+ *    @arg @c kGTLRBlogger_Comment_Status_Live Value "LIVE"
+ *    @arg @c kGTLRBlogger_Comment_Status_Pending Value "PENDING"
+ *    @arg @c kGTLRBlogger_Comment_Status_Spam Value "SPAM"
+ */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /** RFC 3339 date-time when this comment was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 @end
 
@@ -302,16 +397,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The identifier of the Comment creator.
+ *  The identifier of the creator.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** The comment creator's avatar. */
+/** The creator's avatar. */
 @property(nonatomic, strong, nullable) GTLRBlogger_Comment_Author_Image *image;
 
-/** The URL of the Comment creator's Profile page. */
+/** The URL of the creator's Profile page. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end
@@ -363,11 +458,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The comment creator's avatar.
+ *  The creator's avatar.
  */
 @interface GTLRBlogger_Comment_Author_Image : GTLRObject
 
-/** The comment creator's avatar URL. */
+/** The creator's avatar URL. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end
@@ -394,7 +489,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Comment *> *items;
 
-/** The kind of this entry. Always blogger#commentList */
+/** The kind of this entry. Always blogger#commentList. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Pagination token to fetch the next page, if one exists. */
@@ -430,16 +525,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** The kind of this entity. Always blogger#page */
+/** The kind of this entity. Always blogger#page. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** RFC 3339 date-time when this Page was published. */
-@property(nonatomic, strong, nullable) GTLRDateTime *published;
+@property(nonatomic, copy, nullable) NSString *published;
 
 /** The API REST URL to fetch this resource from. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** The status of the page for admin resources (either LIVE or DRAFT). */
+/**
+ *  The status of the page for admin resources (either LIVE or DRAFT).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBlogger_Page_Status_Draft Value "DRAFT"
+ *    @arg @c kGTLRBlogger_Page_Status_Live Value "LIVE"
+ */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
@@ -449,7 +550,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *title;
 
 /** RFC 3339 date-time when this Page was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 /** The URL that this Page is displayed at. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -466,16 +567,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The identifier of the Page creator.
+ *  The identifier of the creator.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** The page author's avatar. */
+/** The creator's avatar. */
 @property(nonatomic, strong, nullable) GTLRBlogger_Page_Author_Image *image;
 
-/** The URL of the Page creator's Profile page. */
+/** The URL of the creator's Profile page. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end
@@ -497,11 +598,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The page author's avatar.
+ *  The creator's avatar.
  */
 @interface GTLRBlogger_Page_Author_Image : GTLRObject
 
-/** The page author's avatar URL. */
+/** The creator's avatar URL. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end
@@ -528,7 +629,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Page *> *items;
 
-/** The kind of this entity. Always blogger#pageList */
+/** The kind of this entity. Always blogger#pageList. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Pagination token to fetch the next page, if one exists. */
@@ -542,13 +643,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBlogger_Pageviews : GTLRObject
 
-/** Blog Id */
+/** Blog Id. */
 @property(nonatomic, copy, nullable) NSString *blogId;
 
 /** The container of posts in this blog. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Pageviews_Counts_Item *> *counts;
 
-/** The kind of this entry. Always blogger#page_views */
+/** The kind of this entry. Always blogger#page_views. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -560,13 +661,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBlogger_Pageviews_Counts_Item : GTLRObject
 
 /**
- *  Count of page views for the given time range
+ *  Count of page views for the given time range.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
 
-/** Time range the given count applies to */
+/**
+ *  Time range the given count applies to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBlogger_Pageviews_Counts_Item_TimeRange_AllTime Value
+ *        "ALL_TIME"
+ *    @arg @c kGTLRBlogger_Pageviews_Counts_Item_TimeRange_SevenDays Value
+ *        "SEVEN_DAYS"
+ *    @arg @c kGTLRBlogger_Pageviews_Counts_Item_TimeRange_ThirtyDays Value
+ *        "THIRTY_DAYS"
+ */
 @property(nonatomic, copy, nullable) NSString *timeRange;
 
 @end
@@ -602,7 +713,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Display image for the Post. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Post_Images_Item *> *images;
 
-/** The kind of this entity. Always blogger#post */
+/** The kind of this entity. Always blogger#post. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The list of labels this Post was tagged with. */
@@ -612,9 +723,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBlogger_Post_Location *location;
 
 /** RFC 3339 date-time when this Post was published. */
-@property(nonatomic, strong, nullable) GTLRDateTime *published;
+@property(nonatomic, copy, nullable) NSString *published;
 
-/** Comment control and display setting for readers of this post. */
+/**
+ *  Comment control and display setting for readers of this post.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBlogger_Post_ReaderComments_Allow Value "ALLOW"
+ *    @arg @c kGTLRBlogger_Post_ReaderComments_DontAllowHideExisting Value
+ *        "DONT_ALLOW_HIDE_EXISTING"
+ *    @arg @c kGTLRBlogger_Post_ReaderComments_DontAllowShowExisting Value
+ *        "DONT_ALLOW_SHOW_EXISTING"
+ */
 @property(nonatomic, copy, nullable) NSString *readerComments;
 
 /** The container of comments on this Post. */
@@ -623,7 +743,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** The API REST URL to fetch this resource from. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** Status of the post. Only set for admin-level requests */
+/**
+ *  Status of the post. Only set for admin-level requests.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBlogger_Post_Status_Draft Value "DRAFT"
+ *    @arg @c kGTLRBlogger_Post_Status_Live Value "LIVE"
+ *    @arg @c kGTLRBlogger_Post_Status_Scheduled Value "SCHEDULED"
+ */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /** The title of the Post. */
@@ -633,7 +760,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *titleLink;
 
 /** RFC 3339 date-time when this Post was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 /** The URL where this Post is displayed. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -650,16 +777,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The identifier of the Post creator.
+ *  The identifier of the creator.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** The Post author's avatar. */
+/** The creator's avatar. */
 @property(nonatomic, strong, nullable) GTLRBlogger_Post_Author_Image *image;
 
-/** The URL of the Post creator's Profile page. */
+/** The URL of the creator's Profile page. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end
@@ -748,11 +875,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The Post author's avatar.
+ *  The creator's avatar.
  */
 @interface GTLRBlogger_Post_Author_Image : GTLRObject
 
-/** The Post author's avatar URL. */
+/** The creator's avatar URL. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end
@@ -779,11 +906,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBlogger_Post *> *items;
 
-/** The kind of this entity. Always blogger#postList */
+/** The kind of this entity. Always blogger#postList. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Pagination token to fetch the next page, if one exists. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Pagination token to fetch the previous page, if one exists. */
+@property(nonatomic, copy, nullable) NSString *prevPageToken;
 
 @end
 
@@ -803,7 +933,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *hasEditAccess;
 
-/** The kind of this entity. Always blogger#postPerUserInfo */
+/** The kind of this entity. Always blogger#postPerUserInfo. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** ID of the Post resource. */
@@ -820,7 +950,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBlogger_PostUserInfo : GTLRObject
 
-/** The kind of this entity. Always blogger#postUserInfo */
+/** The kind of this entity. Always blogger#postUserInfo. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The Post resource. */
@@ -850,7 +980,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBlogger_PostUserInfo *> *items;
 
-/** The kind of this entity. Always blogger#postList */
+/** The kind of this entity. Always blogger#postList. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Pagination token to fetch the next page, if one exists. */
@@ -871,7 +1001,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBlogger_User_Blogs *blogs;
 
 /** The timestamp of when this profile was created, in seconds since epoch. */
-@property(nonatomic, strong, nullable) GTLRDateTime *created;
+@property(nonatomic, copy, nullable) NSString *created;
 
 /** The display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -883,7 +1013,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** The kind of this entity. Always blogger#user */
+/** The kind of this entity. Always blogger#user. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** This user's locale */
@@ -914,13 +1044,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBlogger_User_Locale : GTLRObject
 
-/** The user's country setting. */
+/** The country this blog's locale is set to. */
 @property(nonatomic, copy, nullable) NSString *country;
 
-/** The user's language setting. */
+/** The language this blog is authored in. */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/** The user's language variant setting. */
+/** The language variant this blog is authored in. */
 @property(nonatomic, copy, nullable) NSString *variant;
 
 @end

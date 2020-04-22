@@ -262,6 +262,25 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 
 @end
 
+@implementation GTLRDialogflowQuery_ProjectsAgentEnvironmentsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/environments";
+  GTLRDialogflowQuery_ProjectsAgentEnvironmentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowV2ListEnvironmentsResponse class];
+  query.loggingName = @"dialogflow.projects.agent.environments.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsContextsCreate
 
 @dynamic parent;

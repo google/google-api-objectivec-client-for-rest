@@ -42,6 +42,16 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueCapture;
 GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 
 // ----------------------------------------------------------------------------
+// canaryOption
+
+/** Value: "CANARY_OPTION_TRY_DISABLE" */
+GTLR_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionTryDisable;
+/** Value: "CANARY_OPTION_TRY_ENABLE" */
+GTLR_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionTryEnable;
+/** Value: "CANARY_OPTION_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUnspecified;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -77,6 +87,12 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 @interface GTLRCloudDebuggerQuery_ControllerDebuggeesBreakpointsList : GTLRCloudDebuggerQuery
 // Previous library name was
 //   +[GTLQueryCloudDebugger queryForControllerDebuggeesBreakpointsListWithdebuggeeId:]
+
+/**
+ *  Identifies the agent.
+ *  This is the ID returned in the RegisterDebuggee response.
+ */
+@property(nonatomic, copy, nullable) NSString *agentId;
 
 /** Required. Identifies the debuggee. */
 @property(nonatomic, copy, nullable) NSString *debuggeeId;
@@ -379,6 +395,19 @@ GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 @interface GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsSet : GTLRCloudDebuggerQuery
 // Previous library name was
 //   +[GTLQueryCloudDebugger queryForDebuggerDebuggeesBreakpointsSetWithObject:debuggeeId:]
+
+/**
+ *  The canary option set by the user upon setting breakpoint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDebuggerCanaryOptionCanaryOptionUnspecified Value
+ *        "CANARY_OPTION_UNSPECIFIED"
+ *    @arg @c kGTLRCloudDebuggerCanaryOptionCanaryOptionTryEnable Value
+ *        "CANARY_OPTION_TRY_ENABLE"
+ *    @arg @c kGTLRCloudDebuggerCanaryOptionCanaryOptionTryDisable Value
+ *        "CANARY_OPTION_TRY_DISABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *canaryOption;
 
 /**
  *  Required. The client version making the call.

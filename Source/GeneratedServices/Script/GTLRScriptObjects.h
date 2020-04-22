@@ -532,10 +532,7 @@ GTLR_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
  */
 @interface GTLRScript_ExecuteStreamResponse : GTLRObject
 
-/**
- *  The result of the execution.
- *  TODO (johnlattin): Add debugging and logging.
- */
+/** The result of the execution. */
 @property(nonatomic, strong, nullable) GTLRScript_ExecutionResult *result;
 
 @end
@@ -651,18 +648,11 @@ GTLR_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 
 /**
- *  The result of an execution
- *  Based on ScriptExecutionResult at:
- *  google3/apps/maestro/api/frontend_execution_common.proto?q=message%5c%20ScriptExecutionResult
+ *  The result of an execution.
  */
 @interface GTLRScript_ExecutionResult : GTLRObject
 
-/**
- *  The returned value of the execution.
- *  TODO (johnlattin): Add HtmlResponse
- *  TODO (johnlattin): Add ExceptionResponse
- *  TODO (johlnattin): Add TextResponse
- */
+/** The returned value of the execution. */
 @property(nonatomic, strong, nullable) GTLRScript_Value *returnValue;
 
 @end
@@ -1092,8 +1082,6 @@ GTLR_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 /**
  *  `ListValue` is a wrapper around a repeated field of values.
- *  Based on LustValue at:
- *  google3/apps/maestro/api/struct.proto?q=message%5c%20ListValue
  */
 @interface GTLRScript_ListValue : GTLRObject
 
@@ -1334,8 +1322,6 @@ GTLR_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 /**
  *  `Struct` represents a structured data value, consisting of fields which map
  *  to dynamically typed values.
- *  Based on Struct at:
- *  google3/apps/maestro/api/struct.proto?q=message%5c%20Struct
  */
 @interface GTLRScript_Struct : GTLRObject
 
@@ -1370,9 +1356,7 @@ GTLR_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 /**
  *  `Value` represents a dynamically typed value which is the outcome of an
- *  executed script
- *  Based on Value at:
- *  google3/apps/maestro/api/struct.proto?q=message%5c%20Value
+ *  executed script.
  */
 @interface GTLRScript_Value : GTLRObject
 

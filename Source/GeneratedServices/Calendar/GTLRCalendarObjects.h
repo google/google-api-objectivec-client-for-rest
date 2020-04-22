@@ -565,7 +565,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *conferenceId;
 
 /**
- *  The conference solution, such as Hangouts or Hangouts Meet.
+ *  The conference solution, such as Hangouts or Google Meet.
  *  Unset for a conference with a failed create request.
  *  Either conferenceSolution and at least one entryPoint, or createRequest is
  *  required.
@@ -729,7 +729,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCalendar_CreateConferenceRequest : GTLRObject
 
-/** The conference solution, such as Hangouts or Hangouts Meet. */
+/** The conference solution, such as Hangouts or Google Meet. */
 @property(nonatomic, strong, nullable) GTLRCalendar_ConferenceSolutionKey *conferenceSolutionKey;
 
 /**
@@ -920,7 +920,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *colorId;
 
 /**
- *  The conference-related information, such as details of a Hangouts Meet
+ *  The conference-related information, such as details of a Google Meet
  *  conference. To create new conference details use the createRequest field. To
  *  persist your changes, remember to set the conferenceDataVersion request
  *  parameter to 1 for all event modification requests.

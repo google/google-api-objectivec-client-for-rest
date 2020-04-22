@@ -2,12 +2,18 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Private Catalog Producer API (cloudprivatecatalogproducer/v1beta1)
+//   Apigee API (apigee/v1)
 // Description:
-//   Enables cloud users to manage and share enterprise catalogs intheir
-//   organizations.
+//   The Apigee API lets you programmatically manage Apigee hybrid with a set of
+//   RESTful operations, including:<ul> <li>Create, edit, and delete API
+//   proxies</li> <li>Manage users</li> <li>Deploy and undeploy proxy
+//   revisions</li> <li>Configure environments</li></ul><p>For information on
+//   using the APIs described in this section, see <a
+//   href="/hybrid/api-get-started">Get started using the
+//   APIs</a>.</p><p><strong>Note:</strong> This product is available as a free
+//   trial for a time period of 60 days.
 // Documentation:
-//   https://cloud.google.com/private-catalog/
+//   https://cloud.google.com/apigee-api-management/
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
@@ -35,25 +41,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudPrivateCatalogProducerCloudPlatform;
+GTLR_EXTERN NSString * const kGTLRAuthScopeApigeeCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudPrivateCatalogProducerService
+//   GTLRApigeeService
 //
 
 /**
- *  Service for executing Cloud Private Catalog Producer API queries.
+ *  Service for executing Apigee API queries.
  *
- *  Enables cloud users to manage and share enterprise catalogs intheir
- *  organizations.
+ *  The Apigee API lets you programmatically manage Apigee hybrid with a set of
+ *  RESTful operations, including:<ul> <li>Create, edit, and delete API
+ *  proxies</li> <li>Manage users</li> <li>Deploy and undeploy proxy
+ *  revisions</li> <li>Configure environments</li></ul><p>For information on
+ *  using the APIs described in this section, see
+ *  <a href="/hybrid/api-get-started">Get started using the
+ *  APIs</a>.</p><p><strong>Note:</strong> This product is available as a free
+ *  trial for a time period of 60 days.
  */
-@interface GTLRCloudPrivateCatalogProducerService : GTLRService
+@interface GTLRApigeeService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudPrivateCatalogProducerQuery.h. The query can the be sent with
-// GTLRService's execute methods,
+// GTLRApigeeQuery.h. The query can the be sent with GTLRService's execute
+// methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

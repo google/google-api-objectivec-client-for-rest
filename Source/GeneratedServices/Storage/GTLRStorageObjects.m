@@ -222,8 +222,8 @@
 //
 
 @implementation GTLRStorage_Bucket_Lifecycle_Rule_Item_Condition
-@dynamic age, createdBefore, isLive, matchesPattern, matchesStorageClass,
-         numNewerVersions;
+@dynamic age, createdBefore, customTimeBefore, daysSinceCustomTime, isLive,
+         matchesPattern, matchesStorageClass, numNewerVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -503,10 +503,11 @@
 @implementation GTLRStorage_Object
 @dynamic acl, bucket, cacheControl, componentCount, contentDisposition,
          contentEncoding, contentLanguage, contentType, crc32c,
-         customerEncryption, ETag, eventBasedHold, generation, identifier, kind,
-         kmsKeyName, md5Hash, mediaLink, metadata, metageneration, name, owner,
-         retentionExpirationTime, selfLink, size, storageClass, temporaryHold,
-         timeCreated, timeDeleted, timeStorageClassUpdated, updated;
+         customerEncryption, customTime, ETag, eventBasedHold, generation,
+         identifier, kind, kmsKeyName, md5Hash, mediaLink, metadata,
+         metageneration, name, owner, retentionExpirationTime, selfLink, size,
+         storageClass, temporaryHold, timeCreated, timeDeleted,
+         timeStorageClassUpdated, updated;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

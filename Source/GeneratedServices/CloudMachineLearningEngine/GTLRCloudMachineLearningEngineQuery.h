@@ -772,8 +772,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Adds a measurement of the objective metrics to a Trial. This measurement
- *  is assumed to have been taken before the Trial is complete.
+ *  Adds a measurement of the objective metrics to a trial. This measurement
+ *  is assumed to have been taken before the trial is complete.
  *
  *  Method: ml.projects.locations.studies.trials.addMeasurement
  *
@@ -790,8 +790,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial.
  *
- *  Adds a measurement of the objective metrics to a Trial. This measurement
- *  is assumed to have been taken before the Trial is complete.
+ *  Adds a measurement of the objective metrics to a trial. This measurement
+ *  is assumed to have been taken before the trial is complete.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1AddTrialMeasurementRequest
@@ -806,7 +806,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Checks whether a trial should stop or not.
+ *  Checks whether a trial should stop or not. Returns a
+ *  long-running operation. When the operation is successful,
+ *  it will contain a
+ *  CheckTrialEarlyStoppingStateResponse.
  *
  *  Method: ml.projects.locations.studies.trials.checkEarlyStoppingState
  *
@@ -823,7 +826,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
  *
- *  Checks whether a trial should stop or not.
+ *  Checks whether a trial should stop or not. Returns a
+ *  long-running operation. When the operation is successful,
+ *  it will contain a
+ *  CheckTrialEarlyStoppingStateResponse.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1CheckTrialEarlyStoppingStateRequest
@@ -838,7 +844,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Marks a Trial as complete.
+ *  Marks a trial as complete.
  *
  *  Method: ml.projects.locations.studies.trials.complete
  *
@@ -849,18 +855,18 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesTrialsCompleteWithObject:name:]
 
-/** Required. The trial name. */
+/** Required. The trial name.metat */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial.
  *
- *  Marks a Trial as complete.
+ *  Marks a trial as complete.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1CompleteTrialRequest to
  *    include in the query.
- *  @param name Required. The trial name.
+ *  @param name Required. The trial name.metat
  *
  *  @return GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsComplete
  */
@@ -870,7 +876,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Adds a user provided trial to a Study.
+ *  Adds a user provided trial to a study.
  *
  *  Method: ml.projects.locations.studies.trials.create
  *
@@ -887,7 +893,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial.
  *
- *  Adds a user provided trial to a Study.
+ *  Adds a user provided trial to a study.
  *
  *  @param object The @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial to
  *    include in the query.
@@ -901,7 +907,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a Trial.
+ *  Deletes a trial.
  *
  *  Method: ml.projects.locations.studies.trials.delete
  *
@@ -918,7 +924,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleProtobufEmpty.
  *
- *  Deletes a Trial.
+ *  Deletes a trial.
  *
  *  @param name Required. The trial name.
  *
@@ -929,7 +935,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a Trial.
+ *  Gets a trial.
  *
  *  Method: ml.projects.locations.studies.trials.get
  *
@@ -946,7 +952,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial.
  *
- *  Gets a Trial.
+ *  Gets a trial.
  *
  *  @param name Required. The trial name.
  *
@@ -957,7 +963,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the trials associated with a Study.
+ *  Lists the trials associated with a study.
  *
  *  Method: ml.projects.locations.studies.trials.list
  *
@@ -975,7 +981,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListTrialsResponse.
  *
- *  Lists the trials associated with a Study.
+ *  Lists the trials associated with a study.
  *
  *  @param parent Required. The name of the study that the trial belongs to.
  *
@@ -1018,8 +1024,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a long-running operation associated with the generation of trial
- *  suggestions.
+ *  Adds one or more trials to a study, with parameter values
+ *  suggested by AI Platform Optimizer. Returns a long-running
+ *  operation associated with the generation of trial suggestions.
+ *  When this long-running operation succeeds, it will contain
+ *  a SuggestTrialsResponse.
  *
  *  Method: ml.projects.locations.studies.trials.suggest
  *
@@ -1036,8 +1045,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
  *
- *  Returns a long-running operation associated with the generation of trial
- *  suggestions.
+ *  Adds one or more trials to a study, with parameter values
+ *  suggested by AI Platform Optimizer. Returns a long-running
+ *  operation associated with the generation of trial suggestions.
+ *  When this long-running operation succeeds, it will contain
+ *  a SuggestTrialsResponse.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsRequest to

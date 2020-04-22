@@ -551,6 +551,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *createdBefore;
 
 /**
+ *  A timestamp in RFC 3339 format. This condition is satisfied when the custom
+ *  time on an object is before this timestamp.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *customTimeBefore;
+
+/**
+ *  Number of days elapsed since the user-specified timestamp set on an object.
+ *  The condition is satisfied if the days elapsed is at least this number. If
+ *  no custom timestamp is specified on an object, the condition does not apply.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *daysSinceCustomTime;
+
+/**
  *  Relevant only for versioned objects. If the value is true, this condition
  *  matches live objects; if the value is false, it matches archived objects.
  *
@@ -1132,6 +1147,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  such a key.
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Object_CustomerEncryption *customerEncryption;
+
+/** A timestamp in RFC 3339 format specified by the user for an object. */
+@property(nonatomic, strong, nullable) GTLRDateTime *customTime;
 
 /** HTTP 1.1 Entity tag for the object. */
 @property(nonatomic, copy, nullable) NSString *ETag;

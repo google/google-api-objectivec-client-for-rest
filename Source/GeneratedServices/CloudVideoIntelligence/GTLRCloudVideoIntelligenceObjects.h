@@ -725,8 +725,8 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  The video data bytes.
- *  If unset, the input video(s) should be specified via `input_uri`.
- *  If set, `input_uri` should be unset.
+ *  If unset, the input video(s) should be specified via the `input_uri`.
+ *  If set, `input_uri` must be unset.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -736,28 +736,29 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /**
  *  Input video location. Currently, only
  *  [Cloud Storage](https://cloud.google.com/storage/) URIs are
- *  supported, which must be specified in the following format:
+ *  supported. URIs must be specified in the following format:
  *  `gs://bucket-id/object-id` (other URI formats return
  *  google.rpc.Code.INVALID_ARGUMENT). For more information, see
  *  [Request URIs](https://cloud.google.com/storage/docs/request-endpoints).
- *  A video URI may include wildcards in `object-id`, and thus identify
- *  multiple videos. Supported wildcards: '*' to match 0 or more characters;
+ *  To identify multiple videos, a video URI may include wildcards in the
+ *  `object-id`. Supported wildcards: '*' to match 0 or more characters;
  *  '?' to match 1 character. If unset, the input video should be embedded
- *  in the request as `input_content`. If set, `input_content` should be unset.
+ *  in the request as `input_content`. If set, `input_content` must be unset.
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
 /**
  *  Optional. Cloud region where annotation should take place. Supported cloud
- *  regions: `us-east1`, `us-west1`, `europe-west1`, `asia-east1`. If no region
- *  is specified, a region will be determined based on video file location.
+ *  regions are: `us-east1`, `us-west1`, `europe-west1`, `asia-east1`. If no
+ *  region is specified, the region will be determined based on video file
+ *  location.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
  *  Optional. Location where the output (in JSON format) should be stored.
  *  Currently, only [Cloud Storage](https://cloud.google.com/storage/)
- *  URIs are supported, which must be specified in the following format:
+ *  URIs are supported. These must be specified in the following format:
  *  `gs://bucket-id/object-id` (other URI formats return
  *  google.rpc.Code.INVALID_ARGUMENT). For more information, see
  *  [Request URIs](https://cloud.google.com/storage/docs/request-endpoints).
@@ -822,7 +823,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The name of the attribute, i.e. glasses, dark_glasses, mouth_open etc.
+ *  The name of the attribute, for example, glasses, dark_glasses, mouth_open.
  *  A full list of supported type names will be provided in the document.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -849,7 +850,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
-/** The name of this landmark, i.e. left_hand, right_shoulder. */
+/** The name of this landmark, for example, left_hand, right_shoulder. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -867,7 +868,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2Entity : GTLRObject
 
 /**
- *  Textual description, e.g. `Fixed-gear bicycle`.
+ *  Textual description, e.g., `Fixed-gear bicycle`.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -939,9 +940,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Common categories for the detected entity.
- *  E.g. when the label is `Terrier` the category is likely `dog`. And in some
- *  cases there might be more than one categories e.g. `Terrier` could also be
- *  a `pet`.
+ *  For example, when the label is `Terrier`, the category is likely `dog`. And
+ *  in some cases there might be more than one categories e.g., `Terrier` could
+ *  also be a `pet`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2Entity *> *categoryEntities;
 
@@ -1193,8 +1194,8 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Output only. A list of word-specific information for each recognized word.
- *  Note: When `enable_speaker_diarization` is true, you will see all the words
- *  from the beginning of the audio.
+ *  Note: When `enable_speaker_diarization` is set to true, you will see all
+ *  the words from the beginning of the audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2WordInfo *> *words;
 
@@ -1335,7 +1336,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Specifies which feature is being tracked if the request contains more than
- *  one features.
+ *  one feature.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ExplicitContentDetection
@@ -1374,7 +1375,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Specifies which segment is being tracked if the request contains more than
- *  one segments.
+ *  one segment.
  */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment *segment;
 
@@ -1425,13 +1426,13 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment *segment;
 
 /**
- *  Topical label annotations on video level or user specified segment level.
+ *  Topical label annotations on video level or user-specified segment level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation *> *segmentLabelAnnotations;
 
 /**
- *  Presence label annotations on video level or user specified segment level.
+ *  Presence label annotations on video level or user-specified segment level.
  *  There is exactly one element for each unique label. Compared to the
  *  existing topical `segment_label_annotations`, this field presents more
  *  fine-grained, segment-level labels detected in video content and is made
@@ -1555,7 +1556,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The name of the attribute, i.e. glasses, dark_glasses, mouth_open etc.
+ *  The name of the attribute, for example, glasses, dark_glasses, mouth_open.
  *  A full list of supported type names will be provided in the document.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1582,7 +1583,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
-/** The name of this landmark, i.e. left_hand, right_shoulder. */
+/** The name of this landmark, for example, left_hand, right_shoulder. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1600,7 +1601,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity : GTLRObject
 
 /**
- *  Textual description, e.g. `Fixed-gear bicycle`.
+ *  Textual description, e.g., `Fixed-gear bicycle`.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1687,9 +1688,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Common categories for the detected entity.
- *  E.g. when the label is `Terrier` the category is likely `dog`. And in some
- *  cases there might be more than one categories e.g. `Terrier` could also be
- *  a `pet`.
+ *  For example, when the label is `Terrier`, the category is likely `dog`. And
+ *  in some cases there might be more than one categories e.g., `Terrier` could
+ *  also be a `pet`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Entity *> *categoryEntities;
 
@@ -1715,7 +1716,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  frame-level detection. If not set, it is set to 0.4 by default. The valid
  *  range for this threshold is [0.1, 0.9]. Any value set outside of this
  *  range will be clipped.
- *  Note: for best results please follow the default threshold. We will update
+ *  Note: For best results, follow the default threshold. We will update
  *  the default threshold everytime when we release a new model.
  *
  *  Uses NSNumber of floatValue.
@@ -1748,9 +1749,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, copy, nullable) NSString *model;
 
 /**
- *  Whether the video has been shot from a stationary (i.e. non-moving) camera.
- *  When set to true, might improve detection accuracy for moving objects.
- *  Should be used with `SHOT_AND_FRAME_MODE` enabled.
+ *  Whether the video has been shot from a stationary (i.e., non-moving)
+ *  camera. When set to true, might improve detection accuracy for moving
+ *  objects. Should be used with `SHOT_AND_FRAME_MODE` enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1758,10 +1759,10 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  The confidence threshold we perform filtering on the labels from
- *  video-level and shot-level detections. If not set, it is set to 0.3 by
+ *  video-level and shot-level detections. If not set, it's set to 0.3 by
  *  default. The valid range for this threshold is [0.1, 0.9]. Any value set
  *  outside of this range will be clipped.
- *  Note: for best results please follow the default threshold. We will update
+ *  Note: For best results, follow the default threshold. We will update
  *  the default threshold everytime when we release a new model.
  *
  *  Uses NSNumber of floatValue.
@@ -2039,7 +2040,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The name of the attribute, i.e. glasses, dark_glasses, mouth_open etc.
+ *  The name of the attribute, for example, glasses, dark_glasses, mouth_open.
  *  A full list of supported type names will be provided in the document.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2066,7 +2067,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
-/** The name of this landmark, i.e. left_hand, right_shoulder. */
+/** The name of this landmark, for example, left_hand, right_shoulder. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2084,7 +2085,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1Entity : GTLRObject
 
 /**
- *  Textual description, e.g. `Fixed-gear bicycle`.
+ *  Textual description, e.g., `Fixed-gear bicycle`.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2156,9 +2157,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Common categories for the detected entity.
- *  E.g. when the label is `Terrier` the category is likely `dog`. And in some
- *  cases there might be more than one categories e.g. `Terrier` could also be
- *  a `pet`.
+ *  For example, when the label is `Terrier`, the category is likely `dog`. And
+ *  in some cases there might be more than one categories e.g., `Terrier` could
+ *  also be a `pet`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1Entity *> *categoryEntities;
 
@@ -2410,8 +2411,8 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Output only. A list of word-specific information for each recognized word.
- *  Note: When `enable_speaker_diarization` is true, you will see all the words
- *  from the beginning of the audio.
+ *  Note: When `enable_speaker_diarization` is set to true, you will see all
+ *  the words from the beginning of the audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1WordInfo *> *words;
 
@@ -2552,7 +2553,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Specifies which feature is being tracked if the request contains more than
- *  one features.
+ *  one feature.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ExplicitContentDetection
@@ -2591,7 +2592,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Specifies which segment is being tracked if the request contains more than
- *  one segments.
+ *  one segment.
  */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoSegment *segment;
 
@@ -2642,13 +2643,13 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoSegment *segment;
 
 /**
- *  Topical label annotations on video level or user specified segment level.
+ *  Topical label annotations on video level or user-specified segment level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation *> *segmentLabelAnnotations;
 
 /**
- *  Presence label annotations on video level or user specified segment level.
+ *  Presence label annotations on video level or user-specified segment level.
  *  There is exactly one element for each unique label. Compared to the
  *  existing topical `segment_label_annotations`, this field presents more
  *  fine-grained, segment-level labels detected in video content and is made
@@ -2798,7 +2799,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The name of the attribute, i.e. glasses, dark_glasses, mouth_open etc.
+ *  The name of the attribute, for example, glasses, dark_glasses, mouth_open.
  *  A full list of supported type names will be provided in the document.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2825,7 +2826,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
-/** The name of this landmark, i.e. left_hand, right_shoulder. */
+/** The name of this landmark, for example, left_hand, right_shoulder. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2843,7 +2844,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1Entity : GTLRObject
 
 /**
- *  Textual description, e.g. `Fixed-gear bicycle`.
+ *  Textual description, e.g., `Fixed-gear bicycle`.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2915,9 +2916,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Common categories for the detected entity.
- *  E.g. when the label is `Terrier` the category is likely `dog`. And in some
- *  cases there might be more than one categories e.g. `Terrier` could also be
- *  a `pet`.
+ *  For example, when the label is `Terrier`, the category is likely `dog`. And
+ *  in some cases there might be more than one categories e.g., `Terrier` could
+ *  also be a `pet`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1Entity *> *categoryEntities;
 
@@ -3169,8 +3170,8 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Output only. A list of word-specific information for each recognized word.
- *  Note: When `enable_speaker_diarization` is true, you will see all the words
- *  from the beginning of the audio.
+ *  Note: When `enable_speaker_diarization` is set to true, you will see all
+ *  the words from the beginning of the audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1WordInfo *> *words;
 
@@ -3311,7 +3312,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Specifies which feature is being tracked if the request contains more than
- *  one features.
+ *  one feature.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ExplicitContentDetection
@@ -3350,7 +3351,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Specifies which segment is being tracked if the request contains more than
- *  one segments.
+ *  one segment.
  */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment *segment;
 
@@ -3401,13 +3402,13 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment *segment;
 
 /**
- *  Topical label annotations on video level or user specified segment level.
+ *  Topical label annotations on video level or user-specified segment level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation *> *segmentLabelAnnotations;
 
 /**
- *  Presence label annotations on video level or user specified segment level.
+ *  Presence label annotations on video level or user-specified segment level.
  *  There is exactly one element for each unique label. Compared to the
  *  existing topical `segment_label_annotations`, this field presents more
  *  fine-grained, segment-level labels detected in video content and is made
@@ -3613,7 +3614,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  The name of the attribute, i.e. glasses, dark_glasses, mouth_open etc.
+ *  The name of the attribute, for example, glasses, dark_glasses, mouth_open.
  *  A full list of supported type names will be provided in the document.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3640,7 +3641,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
-/** The name of this landmark, i.e. left_hand, right_shoulder. */
+/** The name of this landmark, for example, left_hand, right_shoulder. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -3658,7 +3659,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity : GTLRObject
 
 /**
- *  Textual description, e.g. `Fixed-gear bicycle`.
+ *  Textual description, e.g., `Fixed-gear bicycle`.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -3749,9 +3750,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Common categories for the detected entity.
- *  E.g. when the label is `Terrier` the category is likely `dog`. And in some
- *  cases there might be more than one categories e.g. `Terrier` could also be
- *  a `pet`.
+ *  For example, when the label is `Terrier`, the category is likely `dog`. And
+ *  in some cases there might be more than one categories e.g., `Terrier` could
+ *  also be a `pet`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity *> *categoryEntities;
 
@@ -3986,7 +3987,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1PersonDetectionAnnotation : GTLRObject
 
-/** The trackes that a person is detected. */
+/** The detected tracks of a person. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Track *> *tracks;
 
 @end
@@ -4032,8 +4033,8 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Output only. A list of word-specific information for each recognized word.
- *  Note: When `enable_speaker_diarization` is true, you will see all the words
- *  from the beginning of the audio.
+ *  Note: When `enable_speaker_diarization` is set to true, you will see all
+ *  the words from the beginning of the audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1WordInfo *> *words;
 
@@ -4075,10 +4076,10 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1StreamingVideoAnnotationResults *annotationResults;
 
 /**
- *  Cloud Storage URI that stores annotation results of one streaming session.
- *  It is a directory that can hold multiple files in JSON format.
- *  Example uri format:
- *  gs://bucket_id/object_id/cloud_project_name-session_id
+ *  Google Cloud Storage(GCS) URI that stores annotation results of one
+ *  streaming session in JSON format.
+ *  It is the annotation_result_storage_directory
+ *  from the request followed by '/cloud_project_number-session_id'.
  */
 @property(nonatomic, copy, nullable) NSString *annotationResultsUri;
 
@@ -4222,7 +4223,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Specifies which feature is being tracked if the request contains more than
- *  one features.
+ *  one feature.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_CelebrityRecognition
@@ -4267,7 +4268,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Specifies which segment is being tracked if the request contains more than
- *  one segments.
+ *  one segment.
  */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment *segment;
 
@@ -4327,13 +4328,13 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment *segment;
 
 /**
- *  Topical label annotations on video level or user specified segment level.
+ *  Topical label annotations on video level or user-specified segment level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation *> *segmentLabelAnnotations;
 
 /**
- *  Presence label annotations on video level or user specified segment level.
+ *  Presence label annotations on video level or user-specified segment level.
  *  There is exactly one element for each unique label. Compared to the
  *  existing topical `segment_label_annotations`, this field presents more
  *  fine-grained, segment-level labels detected in video content and is made
@@ -4501,8 +4502,8 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Output only. A list of word-specific information for each recognized word.
- *  Note: When `enable_speaker_diarization` is true, you will see all the words
- *  from the beginning of the audio.
+ *  Note: When `enable_speaker_diarization` is set to true, you will see all
+ *  the words from the beginning of the audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1WordInfo *> *words;
 
@@ -4573,7 +4574,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *  the top alternative of the recognition result using a speaker_tag provided
  *  in the WordInfo.
  *  Note: When this is true, we send all the words from the beginning of the
- *  audio for the top alternative in every consecutive responses.
+ *  audio for the top alternative in every consecutive response.
  *  This is done in order to improve our speaker tags as our models learn to
  *  identify the speakers in the conversation over time.
  *
@@ -4759,7 +4760,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Specifies which feature is being tracked if the request contains more than
- *  one features.
+ *  one feature.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ExplicitContentDetection
@@ -4798,7 +4799,7 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /**
  *  Specifies which segment is being tracked if the request contains more than
- *  one segments.
+ *  one segment.
  */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment *segment;
 
@@ -4849,13 +4850,13 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment *segment;
 
 /**
- *  Topical label annotations on video level or user specified segment level.
+ *  Topical label annotations on video level or user-specified segment level.
  *  There is exactly one element for each unique label.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation *> *segmentLabelAnnotations;
 
 /**
- *  Presence label annotations on video level or user specified segment level.
+ *  Presence label annotations on video level or user-specified segment level.
  *  There is exactly one element for each unique label. Compared to the
  *  existing topical `segment_label_annotations`, this field presents more
  *  fine-grained, segment-level labels detected in video content and is made

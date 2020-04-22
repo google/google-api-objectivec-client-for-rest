@@ -122,6 +122,83 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Info;
 GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Warning;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDebugger_Breakpoint.state
+
+/**
+ *  Enabling canary and successfully assigning canary agents.
+ *
+ *  Value: "STATE_CANARY_ACTIVE"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateCanaryActive;
+/**
+ *  Enabling canary but no agents are available.
+ *
+ *  Value: "STATE_CANARY_PENDING_AGENTS"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateCanaryPendingAgents;
+/**
+ *  Breakpoint is hit/complete/failed.
+ *
+ *  Value: "STATE_IS_FINAL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateIsFinal;
+/**
+ *  Breakpoint rolling out to all agents.
+ *
+ *  Value: "STATE_ROLLING_TO_ALL"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateRollingToAll;
+/**
+ *  Breakpoint state UNSPECIFIED.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDebugger_Debuggee.canaryMode
+
+/**
+ *  Always disable breakpoint canary regardless of the value of breakpoint's
+ *  canary option.
+ *
+ *  Value: "CANARY_MODE_ALWAYS_DISABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysDisabled;
+/**
+ *  Always enable breakpoint canary regardless of the value of breakpoint's
+ *  canary option.
+ *
+ *  Value: "CANARY_MODE_ALWAYS_ENABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysEnabled;
+/**
+ *  Depends on the breakpoint's canary option. Disable canary by default if
+ *  the breakpoint's canary option is not specified.
+ *
+ *  Value: "CANARY_MODE_DEFAULT_DISABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultDisabled;
+/**
+ *  Depends on the breakpoint's canary option. Enable canary by default if
+ *  the breakpoint's canary option is not specified.
+ *
+ *  Value: "CANARY_MODE_DEFAULT_ENABLED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultEnabled;
+/**
+ *  Before "use_breakpoint_canary" is deprecated:
+ *  CANARY_MODE_UNSPECIFIED = use_breakpoint_canary ?
+ *  CANARY_MODE_DEFAULT_ENABLED :
+ *  CANARY_MODE_DEFAULT_DISABLED;
+ *  After "use_breakpoint_canary" is deprecated:
+ *  CANARY_MODE_UNSPECIFIED = CANARY_MODE_DEFAULT_ENABLED;
+ *
+ *  Value: "CANARY_MODE_UNSPECIFIED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDebugger_StatusMessage.refersTo
 
 /**
@@ -130,6 +207,13 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Warning;
  *  Value: "BREAKPOINT_AGE"
  */
 GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointAge;
+/**
+ *  Status applies to the breakpoint when the breakpoint failed to exit the
+ *  canary state.
+ *
+ *  Value: "BREAKPOINT_CANARY_FAILED"
+ */
+GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointCanaryFailed;
 /**
  *  Status applies to the breakpoint and is related to its condition.
  *
@@ -216,6 +300,12 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *        deleted or expired. (Value: "LOG")
  */
 @property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  The deadline for the breakpoint to stay in CANARY_ACTIVE state. The value
+ *  is meaningless when the breakpoint is not in CANARY_ACTIVE state.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *canaryExpireTime;
 
 /**
  *  Condition that triggers the breakpoint.
@@ -305,6 +395,25 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  recently entered function.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_StackFrame *> *stackFrames;
+
+/**
+ *  The current state of the breakpoint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDebugger_Breakpoint_State_StateCanaryActive Enabling
+ *        canary and successfully assigning canary agents. (Value:
+ *        "STATE_CANARY_ACTIVE")
+ *    @arg @c kGTLRCloudDebugger_Breakpoint_State_StateCanaryPendingAgents
+ *        Enabling canary but no agents are available. (Value:
+ *        "STATE_CANARY_PENDING_AGENTS")
+ *    @arg @c kGTLRCloudDebugger_Breakpoint_State_StateIsFinal Breakpoint is
+ *        hit/complete/failed. (Value: "STATE_IS_FINAL")
+ *    @arg @c kGTLRCloudDebugger_Breakpoint_State_StateRollingToAll Breakpoint
+ *        rolling out to all agents. (Value: "STATE_ROLLING_TO_ALL")
+ *    @arg @c kGTLRCloudDebugger_Breakpoint_State_StateUnspecified Breakpoint
+ *        state UNSPECIFIED. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Breakpoint status.
@@ -426,6 +535,38 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *  `google.com/java-gcp/v1.1`).
  */
 @property(nonatomic, copy, nullable) NSString *agentVersion;
+
+/**
+ *  Used when setting breakpoint canary for this debuggee.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysDisabled
+ *        Always disable breakpoint canary regardless of the value of
+ *        breakpoint's
+ *        canary option. (Value: "CANARY_MODE_ALWAYS_DISABLED")
+ *    @arg @c kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysEnabled
+ *        Always enable breakpoint canary regardless of the value of
+ *        breakpoint's
+ *        canary option. (Value: "CANARY_MODE_ALWAYS_ENABLED")
+ *    @arg @c kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultDisabled
+ *        Depends on the breakpoint's canary option. Disable canary by default
+ *        if
+ *        the breakpoint's canary option is not specified. (Value:
+ *        "CANARY_MODE_DEFAULT_DISABLED")
+ *    @arg @c kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultEnabled
+ *        Depends on the breakpoint's canary option. Enable canary by default if
+ *        the breakpoint's canary option is not specified. (Value:
+ *        "CANARY_MODE_DEFAULT_ENABLED")
+ *    @arg @c kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeUnspecified
+ *        Before "use_breakpoint_canary" is deprecated:
+ *        CANARY_MODE_UNSPECIFIED = use_breakpoint_canary ?
+ *        CANARY_MODE_DEFAULT_ENABLED :
+ *        CANARY_MODE_DEFAULT_DISABLED;
+ *        After "use_breakpoint_canary" is deprecated:
+ *        CANARY_MODE_UNSPECIFIED = CANARY_MODE_DEFAULT_ENABLED; (Value:
+ *        "CANARY_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *canaryMode;
 
 /**
  *  Human readable description of the debuggee.
@@ -740,6 +881,12 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
 @interface GTLRCloudDebugger_RegisterDebuggeeResponse : GTLRObject
 
 /**
+ *  A unique ID generated for the agent.
+ *  Each RegisterDebuggee request will generate a new agent ID.
+ */
+@property(nonatomic, copy, nullable) NSString *agentId;
+
+/**
  *  Debuggee resource.
  *  The field `id` is guaranteed to be set (in addition to the echoed fields).
  *  If the field `is_disabled` is set to `true`, the agent should disable
@@ -883,6 +1030,10 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableV
  *    @arg @c kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointAge Status
  *        applies to the breakpoint and is related to its age. (Value:
  *        "BREAKPOINT_AGE")
+ *    @arg @c kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointCanaryFailed
+ *        Status applies to the breakpoint when the breakpoint failed to exit
+ *        the
+ *        canary state. (Value: "BREAKPOINT_CANARY_FAILED")
  *    @arg @c kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointCondition
  *        Status applies to the breakpoint and is related to its condition.
  *        (Value: "BREAKPOINT_CONDITION")

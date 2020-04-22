@@ -45,6 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // deobfuscationFileType
 
+/** Value: "nativeCode" */
+GTLR_EXTERN NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode;
 /** Value: "proguard" */
 GTLR_EXTERN NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeProguard;
 
@@ -386,8 +388,10 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 @end
 
 /**
- *  Uploads the deobfuscation file of the specified APK. If a deobfuscation file
- *  already exists, it will be replaced.
+ *  Uploads the deobfuscation file of the specified APK. If a deobfuscation or
+ *  symbolication file already exists, it will be replaced. See
+ *  https://developer.android.com/studio/build/shrink-code to learn more about
+ *  deobfuscation files.
  *
  *  Method: androidpublisher.edits.deobfuscationfiles.upload
  *
@@ -405,6 +409,8 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  deobfuscationFileType
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode Value
+ *        "nativeCode"
  *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeProguard Value
  *        "proguard"
  */
@@ -414,7 +420,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
- *  Unique identifier of the Android app for which the deobfuscatiuon files are
+ *  Unique identifier of the Android app for which the deobfuscation files are
  *  being uploaded; for example, "com.spiffygame".
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -422,17 +428,21 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 /**
  *  Fetches a @c GTLRAndroidPublisher_DeobfuscationFilesUploadResponse.
  *
- *  Uploads the deobfuscation file of the specified APK. If a deobfuscation file
- *  already exists, it will be replaced.
+ *  Uploads the deobfuscation file of the specified APK. If a deobfuscation or
+ *  symbolication file already exists, it will be replaced. See
+ *  https://developer.android.com/studio/build/shrink-code to learn more about
+ *  deobfuscation files.
  *
  *  @param packageName Unique identifier of the Android app for which the
- *    deobfuscatiuon files are being uploaded; for example, "com.spiffygame".
+ *    deobfuscation files are being uploaded; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *  @param apkVersionCode The version code of the APK whose deobfuscation file
  *    is being uploaded.
  *  @param deobfuscationFileType NSString
  *
  *  Likely values for @c deobfuscationFileType:
+ *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode Value
+ *        "nativeCode"
  *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeProguard Value
  *        "proguard"
  *  @param uploadParameters The media to include in this query. Maximum size

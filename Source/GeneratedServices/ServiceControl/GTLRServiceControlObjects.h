@@ -550,6 +550,16 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_Unspecified;
 
 /**
  *  The operation allocates quota for the amount specified in the service
+ *  configuration or specified using the quota metrics. If the requested
+ *  amount is higher than the available quota, request does not fail and
+ *  remaining quota would become negative (going over the limit)
+ *  Not supported for Rate Quota.
+ *
+ *  Value: "ADJUST_ONLY"
+ */
+GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_AdjustOnly;
+/**
+ *  The operation allocates quota for the amount specified in the service
  *  configuration or specified using the quota metrics. If the amount is
  *  higher than the available quota, request does not fail but all available
  *  quota will be allocated.
@@ -2598,6 +2608,12 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnsp
  *  Quota mode for this operation.
  *
  *  Likely values:
+ *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_AdjustOnly The
+ *        operation allocates quota for the amount specified in the service
+ *        configuration or specified using the quota metrics. If the requested
+ *        amount is higher than the available quota, request does not fail and
+ *        remaining quota would become negative (going over the limit)
+ *        Not supported for Rate Quota. (Value: "ADJUST_ONLY")
  *    @arg @c kGTLRServiceControl_QuotaOperation_QuotaMode_BestEffort The
  *        operation allocates quota for the amount specified in the service
  *        configuration or specified using the quota metrics. If the amount is

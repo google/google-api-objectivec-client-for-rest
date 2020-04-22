@@ -16,6 +16,7 @@
 // Constants
 
 // deobfuscationFileType
+NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode = @"nativeCode";
 NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeProguard = @"proguard";
 
 // expansionFileType

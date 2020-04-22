@@ -1302,7 +1302,7 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
 
 /**
  *  Details on how to consolidate related actions that make up the activity. If
- *  not set, then related actions will not be consolidated.
+ *  not set, then related actions are not consolidated.
  */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_ConsolidationStrategy *consolidationStrategy;
 
@@ -1333,8 +1333,8 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
 @property(nonatomic, copy, nullable) NSString *itemName;
 
 /**
- *  The requested number of activity to return. If not set, a default value
- *  will be used.
+ *  The requested number of activities to return. If not set, a default value
+ *  is used.
  *
  *  Uses NSNumber of intValue.
  */

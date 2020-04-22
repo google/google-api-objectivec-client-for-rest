@@ -174,10 +174,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
  *  The set of attributes. Each attribute's key can be up to 128 bytes
  *  long. The value can be a string up to 256 bytes, a signed 64-bit integer,
  *  or the Boolean values `true` and `false`. For example:
- *  "/instance_id": "my-instance"
- *  "/http/user_agent": ""
- *  "/http/request_bytes": 300
- *  "abc.com/myattribute": true
+ *  "/instance_id": { "string_value": { "value": "my-instance" } }
+ *  "/http/request_bytes": { "int_value": 300 }
+ *  "abc.com/myattribute": { "bool_value": false }
  */
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Attributes_AttributeMap *attributeMap;
 
@@ -197,10 +196,9 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
  *  The set of attributes. Each attribute's key can be up to 128 bytes
  *  long. The value can be a string up to 256 bytes, a signed 64-bit integer,
  *  or the Boolean values `true` and `false`. For example:
- *  "/instance_id": "my-instance"
- *  "/http/user_agent": ""
- *  "/http/request_bytes": 300
- *  "abc.com/myattribute": true
+ *  "/instance_id": { "string_value": { "value": "my-instance" } }
+ *  "/http/request_bytes": { "int_value": 300 }
+ *  "abc.com/myattribute": { "bool_value": false }
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudTrace_AttributeValue. Use @c -additionalJSONKeys and @c
