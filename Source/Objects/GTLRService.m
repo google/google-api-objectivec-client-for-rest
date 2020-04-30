@@ -1568,29 +1568,31 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
     }
 
     // Create JSON from the body.
-    NSError *parseError = nil;
+    // (if there is any, methods like delete return nothing)
     NSMutableDictionary *json;
     if (partBodyData) {
+      NSError *parseError = nil;
       json = [NSJSONSerialization JSONObjectWithData:partBodyData
                                              options:NSJSONReadingMutableContainers
                                                error:&parseError];
-    } else {
-      parseError = [NSError errorWithDomain:kGTLRServiceErrorDomain
-                                       code:GTLRServiceErrorBatchResponseUnexpected
-                                   userInfo:nil];
+      if (!json) {
+        if (!parseError) {
+          // There should be an error, but just incase...
+          parseError = [NSError errorWithDomain:kGTLRServiceErrorDomain
+                                           code:GTLRServiceErrorBatchResponseUnexpected
+                                       userInfo:nil];
+        }
+        // Add our content ID and part body data to the parse error.
+        NSMutableDictionary *userInfo =
+            [NSMutableDictionary dictionaryWithDictionary:parseError.userInfo];
+        [userInfo setValue:mimePartBody forKey:kGTLRServiceErrorBodyDataKey];
+        [userInfo setValue:responseContentID forKey:kGTLRServiceErrorContentIDKey];
+        responsePart.parseError = [NSError errorWithDomain:parseError.domain
+                                                      code:parseError.code
+                                                  userInfo:userInfo];
+      }
     }
     responsePart.JSON = json;
-
-    if (!json) {
-      // Add our content ID and part body data to the parse error.
-      NSMutableDictionary *userInfo =
-          [NSMutableDictionary dictionaryWithDictionary:parseError.userInfo];
-      [userInfo setValue:mimePartBody forKey:kGTLRServiceErrorBodyDataKey];
-      [userInfo setValue:responseContentID forKey:kGTLRServiceErrorContentIDKey];
-      responsePart.parseError = [NSError errorWithDomain:parseError.domain
-                                                    code:parseError.code
-                                                userInfo:userInfo];
-    }
   }
   return responsePart;
 }
