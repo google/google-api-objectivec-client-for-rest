@@ -31,6 +31,14 @@
   #endif
 #endif
 
+#if !defined(GTLR_USE_MODULE_IMPORTS)
+  #if defined(SWIFT_PACKAGE) && SWIFT_PACKAGE
+    #define GTLR_USE_MODULE_IMPORTS 1
+  #else
+    #define GTLR_USE_MODULE_IMPORTS 0
+  #endif
+#endif
+
 #import "GTLRService.h"
 
 #import "GTLRDefines.h"
@@ -38,7 +46,10 @@
 #import "GTLRURITemplate.h"
 #import "GTLRUtilities.h"
 
-#if GTLR_USE_FRAMEWORK_IMPORTS
+#if GTLR_USE_MODULE_IMPORTS
+  @import GTMSessionFetcherCore;
+  @import GTMSessionFetcherFull;
+#elif GTLR_USE_FRAMEWORK_IMPORTS
   #import <GTMSessionFetcher/GTMSessionFetcher.h>
   #import <GTMSessionFetcher/GTMSessionFetcherService.h>
   #import <GTMSessionFetcher/GTMMIMEDocument.h>
@@ -191,6 +202,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 //
 // We locally declare some methods of the upload fetcher so we
 // do not need to import the header, as some projects may not have it available
+#if !SWIFT_PACKAGE
 @interface GTMSessionUploadFetcher : GTMSessionFetcher
 
 + (instancetype)uploadFetcherWithRequest:(NSURLRequest *)request
@@ -212,6 +224,7 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 - (void)resumeFetching;
 - (BOOL)isPaused;
 @end
+#endif  // !SWIFT_PACKAGE
 #endif  // GTLR_HAS_SESSION_UPLOAD_FETCHER_IMPORT
 
 
