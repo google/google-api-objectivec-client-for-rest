@@ -4,5 +4,11 @@ Source/Tools/ServiceGenerator/ServiceGenerator.xcodeproj/project.xcworkspace/xcu
 Source/Tools/ServiceGenerator/ServiceGenerator.xcodeproj/xcuserdata
 Source/Tools/ServiceGenerator/build
 
+Package.pins
+Package.resolved
+.swiftpm
+.build
+
 # Any place they exist.
 .DS_Store
+
