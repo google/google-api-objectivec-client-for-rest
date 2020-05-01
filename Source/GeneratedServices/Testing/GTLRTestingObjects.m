@@ -683,7 +683,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_IosXcTest
-@dynamic appBundleId, testsZip, xcodeVersion, xctestrun;
+@dynamic appBundleId, testSpecialEntitlements, testsZip, xcodeVersion,
+         xctestrun;
 @end
 
 

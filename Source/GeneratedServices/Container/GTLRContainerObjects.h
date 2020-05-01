@@ -634,7 +634,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  The accelerator type resource name. List of supported accelerators
- *  [here](/compute/docs/gpus)
+ *  [here](https://cloud.google.com/compute/docs/gpus)
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
@@ -811,8 +811,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the operation resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  operation resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -912,7 +913,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  [Output only] Deprecated, use
- *  [NodePools.version](/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters.nodePools)
+ *  [NodePools.version](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters.nodePools)
  *  instead. The current version of the node software components. If they are
  *  currently at multiple versions because they're in the process of being
  *  upgraded, this reflects the minimum version of all nodes.
@@ -1014,16 +1015,17 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  [Output only] The name of the Google Compute Engine
- *  [zone](/compute/docs/regions-zones/regions-zones#available) or
- *  [region](/compute/docs/regions-zones/regions-zones#available) in which
- *  the cluster resides.
+ *  [zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
+ *  or
+ *  [region](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
+ *  in which the cluster resides.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  The list of Google Compute Engine
- *  [zones](/compute/docs/zones#available) in which the cluster's nodes
- *  should be located.
+ *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster's nodes should be located.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
@@ -1080,9 +1082,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  The name of the Google Compute Engine
- *  [network](/compute/docs/networks-and-firewalls#networks) to which the
- *  cluster is connected. If left unspecified, the `default` network
- *  will be used.
+ *  [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks)
+ *  to which the cluster is connected. If left unspecified, the `default`
+ *  network will be used.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -1189,8 +1191,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  The name of the Google Compute Engine
- *  [subnetwork](/compute/docs/subnetworks) to which the
- *  cluster is connected.
+ *  [subnetwork](https://cloud.google.com/compute/docs/subnetworks) to which
+ *  the cluster is connected.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
@@ -1212,9 +1214,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  [Output only] The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field is deprecated, use location instead.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field is deprecated, use location instead.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1245,8 +1246,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 @interface GTLRContainer_ClusterAutoscaling : GTLRObject
 
 /**
- *  The list of Google Compute Engine [zones](/compute/docs/zones#available)
- *  in which the NodePool's nodes can be created by NAP.
+ *  The list of Google Compute Engine
+ *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  NodePool's nodes can be created by NAP.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *autoprovisioningLocations;
 
@@ -1302,10 +1304,10 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  The desired list of Google Compute Engine
- *  [zones](/compute/docs/zones#available) in which the cluster's nodes
- *  should be located. Changing the locations a cluster is in will result
- *  in nodes being either created or removed from the cluster, depending on
- *  whether locations are being added or removed.
+ *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster's nodes should be located. Changing the locations a cluster is in
+ *  will result in nodes being either created or removed from the cluster,
+ *  depending on whether locations are being added or removed.
  *  This list must always include the cluster's primary zone.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *desiredLocations;
@@ -1423,9 +1425,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1458,7 +1460,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Required. A [cluster
- *  resource](/container-engine/reference/rest/v1/projects.zones.clusters)
+ *  resource](https://cloud.google.com/container-engine/reference/rest/v1/projects.zones.clusters)
  */
 @property(nonatomic, strong, nullable) GTLRContainer_Cluster *cluster;
 
@@ -1477,9 +1479,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the parent field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the parent
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1518,9 +1520,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the parent field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the parent
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2178,16 +2180,17 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Output only. The relative name of the Google Compute Engine
- *  network(/compute/docs/networks-and-firewalls#networks) to which
- *  the cluster is connected.
- *  Example: projects/my-project/global/networks/my-network
+ *  network(https://cloud.google.com/compute/docs/networks-and-firewalls#networks)
+ *  to which the cluster is connected. Example:
+ *  projects/my-project/global/networks/my-network
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
  *  Output only. The relative name of the Google Compute Engine
- *  [subnetwork](/compute/docs/vpc) to which the cluster is connected.
- *  Example: projects/my-project/regions/us-central1/subnetworks/my-subnet
+ *  [subnetwork](https://cloud.google.com/compute/docs/vpc) to which the
+ *  cluster is connected. Example:
+ *  projects/my-project/regions/us-central1/subnetworks/my-subnet
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
@@ -2296,7 +2299,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  The name of a Google Compute Engine [machine
- *  type](/compute/docs/machine-types) (e.g.
+ *  type](https://cloud.google.com/compute/docs/machine-types) (e.g.
  *  `n1-standard-1`).
  *  If unspecified, the default machine type is
  *  `n1-standard-1`.
@@ -2356,7 +2359,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
  *  persistent storage on your nodes.
  *  * `https://www.googleapis.com/auth/devstorage.read_only` is required for
  *  communicating with **gcr.io**
- *  (the [Google Container Registry](/container-registry/)).
+ *  (the [Google Container
+ *  Registry](https://cloud.google.com/container-registry/)).
  *  If unspecified, no scopes are added, unless Cloud Logging or Cloud
  *  Monitoring are enabled, in which case their required scopes will be added.
  */
@@ -2374,7 +2378,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 /**
  *  The optional reservation affinity. Setting this field will apply
  *  the specified [Zonal Compute
- *  Reservation](/compute/docs/instances/reserving-zonal-resources)
+ *  Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
  *  to this node pool.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ReservationAffinity *reservationAffinity;
@@ -2537,14 +2541,15 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  [Output only] The resource URLs of the [managed instance
- *  groups](/compute/docs/instance-groups/creating-groups-of-managed-instances)
+ *  groups](https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-managed-instances)
  *  associated with this node pool.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls;
 
 /**
- *  The list of Google Compute Engine [zones](/compute/docs/zones#available)
- *  in which the NodePool's nodes should be located.
+ *  The list of Google Compute Engine
+ *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  NodePool's nodes should be located.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
@@ -2705,9 +2710,10 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  [Output only] The name of the Google Compute Engine
- *  [zone](/compute/docs/regions-zones/regions-zones#available) or
- *  [region](/compute/docs/regions-zones/regions-zones#available) in which
- *  the cluster resides.
+ *  [zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
+ *  or
+ *  [region](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
+ *  in which the cluster resides.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -2797,9 +2803,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the operation
- *  is taking place.
- *  This field is deprecated, use location instead.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  operation is taking place. This field is deprecated, use location instead.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2936,8 +2941,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 
 /**
- *  [ReservationAffinity](/compute/docs/instances/reserving-zonal-resources) is
- *  the configuration of desired reservation which instances could take
+ *  [ReservationAffinity](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+ *  is the configuration of desired reservation which instances could take
  *  capacity from.
  */
 @interface GTLRContainer_ReservationAffinity : GTLRObject
@@ -3056,9 +3061,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3142,9 +3147,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3194,9 +3199,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3252,9 +3257,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3276,10 +3281,10 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Required. The desired list of Google Compute Engine
- *  [zones](/compute/docs/zones#available) in which the cluster's nodes
- *  should be located. Changing the locations a cluster is in will result
- *  in nodes being either created or removed from the cluster, depending on
- *  whether locations are being added or removed.
+ *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster's nodes should be located. Changing the locations a cluster is in
+ *  will result in nodes being either created or removed from the cluster,
+ *  depending on whether locations are being added or removed.
  *  This list must always include the cluster's primary zone.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
@@ -3299,9 +3304,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3349,9 +3354,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3389,8 +3394,8 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Required. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3449,9 +3454,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3499,9 +3504,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3539,9 +3544,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3586,9 +3591,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3634,9 +3639,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3687,9 +3692,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3776,9 +3781,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3870,9 +3875,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3919,9 +3924,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3946,10 +3951,10 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  The desired list of Google Compute Engine
- *  [zones](/compute/docs/zones#available) in which the node pool's nodes
- *  should be located. Changing the locations for a node pool will result
- *  in nodes being either created or removed from the node pool, depending
- *  on whether locations are being added or removed.
+ *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  node pool's nodes should be located. Changing the locations for a node pool
+ *  will result in nodes being either created or removed from the node pool,
+ *  depending on whether locations are being added or removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
@@ -3994,9 +3999,9 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnsp
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */

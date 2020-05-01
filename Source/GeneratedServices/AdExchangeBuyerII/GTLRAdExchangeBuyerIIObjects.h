@@ -5582,7 +5582,8 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 /**
  *  Note: this resource requires whitelisting for access. Please contact your
  *  account manager for access to Marketplace resources.
- *  Represents a publisher profile in Marketplace.
+ *  Represents a publisher profile
+ *  (https://support.google.com/admanager/answer/6035806?hl=en) in Marketplace.
  *  All fields are read only. All string fields are free-form text entered by
  *  the
  *  publisher unless noted otherwise.
@@ -5618,6 +5619,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPosit
 
 /** URL to publisher's Google+ page. */
 @property(nonatomic, copy, nullable) NSString *googlePlusUrl;
+
+/**
+ *  Indicates if this profile is the parent profile of the seller. A parent
+ *  profile represents all the inventory from the seller, as opposed to child
+ *  profile that is created to brand a portion of inventory. One seller should
+ *  have only one parent publisher profile, and can have multiple child
+ *  profiles. Publisher profiles for the same seller will have same value of
+ *  field google.ads.adexchange.buyer.v2beta1.PublisherProfile.seller.
+ *  See https://support.google.com/admanager/answer/6035806?hl=en for details.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isParent;
 
 /**
  *  A Google public URL to the logo for this publisher profile. The logo is

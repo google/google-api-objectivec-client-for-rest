@@ -1954,6 +1954,8 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 /**
  *  Gets the most recent health check results for this BackendService.
+ *  Example request body:
+ *  { "group": "/zones/us-east1-b/instanceGroups/lb-backend-example" }
  *
  *  Method: compute.backendServices.getHealth
  *
@@ -1977,6 +1979,8 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
  *  Fetches a @c GTLRCompute_BackendServiceGroupHealth.
  *
  *  Gets the most recent health check results for this BackendService.
+ *  Example request body:
+ *  { "group": "/zones/us-east1-b/instanceGroups/lb-backend-example" }
  *
  *  @param object The @c GTLRCompute_ResourceGroupReference to include in the
  *    query.
@@ -15259,7 +15263,7 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 @end
 
 /**
- *  Patch the node group.
+ *  Updates the specified node group.
  *
  *  Method: compute.nodeGroups.patch
  *
@@ -15301,7 +15305,7 @@ GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Patch the node group.
+ *  Updates the specified node group.
  *
  *  @param object The @c GTLRCompute_NodeGroup to include in the query.
  *  @param project Project ID for this request.

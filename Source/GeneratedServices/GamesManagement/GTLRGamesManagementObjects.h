@@ -315,8 +315,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** The ID of the player. */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
-@property(nonatomic, copy, nullable) NSString *playerStattus;
-
 /**
  *  The player's profile settings. Controls whether or not the player's profile
  *  is visible to other players.

@@ -280,7 +280,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
- *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+ *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
  *
  *  Method: bigqueryconnection.projects.locations.connections.setIamPolicy
  *
@@ -303,7 +303,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
- *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+ *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRBigQueryConnectionService_SetIamPolicyRequest to
  *    include in the query.
@@ -321,7 +321,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Returns permissions that a caller has on the specified resource.
  *  If the resource does not exist, this will return an empty set of
- *  permissions, not a NOT_FOUND error.
+ *  permissions, not a `NOT_FOUND` error.
  *  Note: This operation is designed to be used for building permission-aware
  *  UIs and command-line tools, not for authorization checking. This operation
  *  may "fail open" without warning.
@@ -347,7 +347,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns permissions that a caller has on the specified resource.
  *  If the resource does not exist, this will return an empty set of
- *  permissions, not a NOT_FOUND error.
+ *  permissions, not a `NOT_FOUND` error.
  *  Note: This operation is designed to be used for building permission-aware
  *  UIs and command-line tools, not for authorization checking. This operation
  *  may "fail open" without warning.

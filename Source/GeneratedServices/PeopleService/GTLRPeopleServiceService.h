@@ -42,6 +42,12 @@ GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceContacts;
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceContactsReadonly;
 /**
+ *  Authorization scope: See and download your organization's GSuite directory
+ *
+ *  Value "https://www.googleapis.com/auth/directory.readonly"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceDirectoryReadonly;
+/**
  *  Authorization scope: View your street addresses
  *
  *  Value "https://www.googleapis.com/auth/user.addresses.read"
@@ -59,6 +65,12 @@ GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserBirthdayRead;
  *  Value "https://www.googleapis.com/auth/user.emails.read"
  */
 GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserEmailsRead;
+/**
+ *  Authorization scope: See your gender
+ *
+ *  Value "https://www.googleapis.com/auth/user.gender.read"
+ */
+GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserGenderRead;
 /**
  *  Authorization scope: View your email address
  *

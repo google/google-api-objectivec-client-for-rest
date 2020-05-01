@@ -232,7 +232,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
- *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ *  `GetIamPolicy`.
  */
 @property(nonatomic, strong, nullable) GTLRServiceDirectory_GetPolicyOptions *options;
 

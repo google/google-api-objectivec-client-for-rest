@@ -48,6 +48,7 @@
 @class GTLRRemoteBuildExecution_BuildBazelSemverSemVer;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageStat;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAcceleratorConfig;
+@class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAutoscale;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig_Labels;
@@ -243,6 +244,12 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuild
  *  Value: "DOCKER_CREATE_RUNTIME_FILE_NOT_FOUND"
  */
 GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimeFileNotFound;
+/**
+ *  Docker failed to create OCI runtime because of permission denied.
+ *
+ *  Value: "DOCKER_CREATE_RUNTIME_PERMISSION_DENIED"
+ */
+GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimePermissionDenied;
 /**
  *  The bot failed to check docker images.
  *
@@ -2158,6 +2165,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimeFileNotFound
  *        Docker failed to create OCI runtime because of file not found. (Value:
  *        "DOCKER_CREATE_RUNTIME_FILE_NOT_FOUND")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimePermissionDenied
+ *        Docker failed to create OCI runtime because of permission denied.
+ *        (Value: "DOCKER_CREATE_RUNTIME_PERMISSION_DENIED")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageExistError
  *        The bot failed to check docker images. (Value:
  *        "DOCKER_IMAGE_EXIST_ERROR")
@@ -2296,6 +2306,28 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  nVidia Tesla K80.
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
+
+@end
+
+
+/**
+ *  Autoscale defines the autoscaling policy of a worker pool.
+ */
+@interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAutoscale : GTLRObject
+
+/**
+ *  The maximal number of workers. Must be equal to or greater than min_size.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSize;
+
+/**
+ *  The minimal number of workers. Must be greater than 0.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minSize;
 
 @end
 
@@ -2709,6 +2741,9 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *  A worker pool resource in the Remote Build Execution API.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool : GTLRObject
+
+/** The autoscale policy to apply on a pool. */
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAutoscale *autoscale;
 
 /**
  *  WorkerPool resource name formatted as:

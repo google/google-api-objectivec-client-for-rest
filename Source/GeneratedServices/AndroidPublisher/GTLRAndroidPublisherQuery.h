@@ -298,7 +298,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *    updated; for example, "com.spiffygame".
  *  @param editId Unique identifier for this edit.
  *  @param uploadParameters The media to include in this query. Maximum size
- *    2GB. Accepted MIME type: application/octet-stream
+ *    10GB. Accepted MIME type: application/octet-stream
  *
  *  @return GTLRAndroidPublisherQuery_EditsBundlesUpload
  */
@@ -2224,7 +2224,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
  *  @param packageName Unique identifier for the Android app; for example,
  *    "com.spiffygame".
  *  @param uploadParameters The media to include in this query. Maximum size
- *    2GB. Accepted MIME type: application/octet-stream
+ *    10GB. Accepted MIME type: application/octet-stream
  *
  *  @return GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadbundle
  */

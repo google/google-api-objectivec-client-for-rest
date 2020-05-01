@@ -1791,9 +1791,9 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 
 @implementation GTLRAdExchangeBuyerII_PublisherProfile
 @dynamic audienceDescription, buyerPitchStatement, directDealsContact,
-         displayName, domains, googlePlusUrl, logoUrl, mediaKitUrl, overview,
-         programmaticDealsContact, publisherProfileId, rateCardInfoUrl,
-         samplePageUrl, seller, topHeadlines;
+         displayName, domains, googlePlusUrl, isParent, logoUrl, mediaKitUrl,
+         overview, programmaticDealsContact, publisherProfileId,
+         rateCardInfoUrl, samplePageUrl, seller, topHeadlines;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -163,7 +163,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 /**
  *  The maximum number of resource configurations to return in the response,
  *  used for paging. For any response, the actual number of resources returned
- *  may be less than the specified <code>maxResults</code>.
+ *  may be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -380,7 +380,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 /**
  *  The maximum number of resource configurations to return in the response,
  *  used for paging. For any response, the actual number of resources returned
- *  may be less than the specified <code>maxResults</code>.
+ *  may be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 

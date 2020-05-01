@@ -524,7 +524,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Specifies the type and number of accelerator cards attached to the instances
- *  of an instance. See GPUs on Compute Engine.
+ *  of an instance. See GPUs on Compute Engine
+ *  (https://cloud.google.com/compute/docs/gpus/).
  */
 @interface GTLRDataproc_AcceleratorConfig : GTLRObject
 
@@ -537,12 +538,15 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Full URL, partial URI, or short name of the accelerator type resource to
- *  expose to this instance. See Compute Engine AcceleratorTypes.Examples:
+ *  expose to this instance. See Compute Engine AcceleratorTypes
+ *  (https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes).Examples:
  *  https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80
  *  projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80
  *  nvidia-tesla-k80Auto Zone Exception: If you are using the Dataproc Auto Zone
- *  Placement feature, you must use the short name of the accelerator type
- *  resource, for example, nvidia-tesla-k80.
+ *  Placement
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement)
+ *  feature, you must use the short name of the accelerator type resource, for
+ *  example, nvidia-tesla-k80.
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorTypeUri;
 
@@ -836,7 +840,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  bucket, Cloud Dataproc will determine a Cloud Storage location (US, ASIA, or
  *  EU) for your cluster's staging bucket according to the Compute Engine zone
  *  where your cluster is deployed, and then create and manage this
- *  project-level, per-location bucket (see Dataproc staging bucket).
+ *  project-level, per-location bucket (see Dataproc staging bucket
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
  */
 @property(nonatomic, copy, nullable) NSString *configBucket;
 
@@ -1286,9 +1291,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  Optional. The Compute Engine network to be used for machine communications.
  *  Cannot be specified with subnetwork_uri. If neither network_uri nor
  *  subnetwork_uri is specified, the "default" network of the project is used,
- *  if it exists. Cannot be a "Custom Subnet Network" (see Using Subnetworks for
- *  more information).A full URL, partial URI, or short name are valid.
- *  Examples:
+ *  if it exists. Cannot be a "Custom Subnet Network" (see Using Subnetworks
+ *  (https://cloud.google.com/compute/docs/subnetworks) for more information).A
+ *  full URL, partial URI, or short name are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/regions/global/default
  *  projects/[project_id]/regions/global/default
  *  default
@@ -1299,10 +1304,14 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, strong, nullable) GTLRDataproc_ReservationAffinity *reservationAffinity;
 
 /**
- *  Optional. The Dataproc service account (also see VM Data Plane identity)
+ *  Optional. The Dataproc service account
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/service-accounts#service_accounts_in_cloud_dataproc)
+ *  (also see VM Data Plane identity
+ *  (https://cloud.google.com/dataproc/docs/concepts/iam/dataproc-principals#vm_service_account_data_plane_identity))
  *  used by Dataproc cluster VM instances to access Google Cloud Platform
- *  services.If not specified, the Compute Engine default service account is
- *  used.
+ *  services.If not specified, the Compute Engine default service account
+ *  (https://cloud.google.com/compute/docs/access/service-accounts#default_service_account)
+ *  is used.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -1331,7 +1340,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 @property(nonatomic, copy, nullable) NSString *subnetworkUri;
 
 /**
- *  The Compute Engine tags to add to all instances (see Tagging instances).
+ *  The Compute Engine tags to add to all instances (see Tagging instances
+ *  (https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -1644,8 +1654,10 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2
  *  projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2
  *  n1-standard-2Auto Zone Exception: If you are using the Dataproc Auto Zone
- *  Placement feature, you must use the short name of the machine type resource,
- *  for example, n1-standard-2.
+ *  Placement
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement)
+ *  feature, you must use the short name of the machine type resource, for
+ *  example, n1-standard-2.
  */
 @property(nonatomic, copy, nullable) NSString *machineTypeUri;
 
@@ -1657,7 +1669,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. Specifies the minimum cpu platform for the Instance Group. See
- *  Dataproc&rarr;Minimum CPU Platform.
+ *  Dataproc -&gt; Minimum CPU Platform
+ *  (https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
@@ -2483,7 +2496,10 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @interface GTLRDataproc_OrderedJob : GTLRObject
 
+/** Optional. Job is a Hadoop job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_HadoopJob *hadoopJob;
+
+/** Optional. Job is a Hive job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_HiveJob *hiveJob;
 
 /**
@@ -2496,6 +2512,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_OrderedJob_Labels *labels;
 
+/** Optional. Job is a Pig job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_PigJob *pigJob;
 
 /**
@@ -2504,19 +2521,22 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *prerequisiteStepIds;
 
-/** Presto job */
+/** Optional. Job is a Presto job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_PrestoJob *prestoJob;
 
+/** Optional. Job is a PySpark job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_PySparkJob *pysparkJob;
 
 /** Optional. Job scheduling configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobScheduling *scheduling;
 
+/** Optional. Job is a Spark job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkJob *sparkJob;
 
-/** Spark R job */
+/** Optional. Job is a SparkR job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkRJob *sparkRJob;
 
+/** Optional. Job is a SparkSql job. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkSqlJob *sparkSqlJob;
 
 /**
@@ -2744,8 +2764,9 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  A Dataproc job for running Presto (https://prestosql.io/) queries.
- *  IMPORTANT: The Dataproc Presto Optional Component must be enabled when the
- *  cluster is created to submit a Presto job to the cluster.
+ *  IMPORTANT: The Dataproc Presto Optional Component
+ *  (https://cloud.google.com/dataproc/docs/concepts/components/presto) must be
+ *  enabled when the cluster is created to submit a Presto job to the cluster.
  */
 @interface GTLRDataproc_PrestoJob : GTLRObject
 
@@ -2977,9 +2998,12 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Optional. The version of software inside the cluster. It must be one of the
- *  supported Dataproc Versions, such as "1.2" (including a subminor version,
- *  such as "1.2.29"), or the "preview" version. If unspecified, it defaults to
- *  the latest Debian version.
+ *  supported Dataproc Versions
+ *  (https://cloud.google.com/dataproc/docs/concepts/versioning/dataproc-versions#supported_cloud_dataproc_versions),
+ *  such as "1.2" (including a subminor version, such as "1.2.29"), or the
+ *  "preview" version
+ *  (https://cloud.google.com/dataproc/docs/concepts/versioning/dataproc-versions#other_versions).
+ *  If unspecified, it defaults to the latest Debian version.
  */
 @property(nonatomic, copy, nullable) NSString *imageVersion;
 
@@ -2998,7 +3022,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  mapred: mapred-site.xml
  *  pig: pig.properties
  *  spark: spark-defaults.conf
- *  yarn: yarn-site.xmlFor more information, see Cluster properties.
+ *  yarn: yarn-site.xmlFor more information, see Cluster properties
+ *  (https://cloud.google.com/dataproc/docs/concepts/cluster-properties).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_SoftwareConfig_Properties *properties;
 
@@ -3017,7 +3042,8 @@ GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
  *  mapred: mapred-site.xml
  *  pig: pig.properties
  *  spark: spark-defaults.conf
- *  yarn: yarn-site.xmlFor more information, see Cluster properties.
+ *  yarn: yarn-site.xmlFor more information, see Cluster properties
+ *  (https://cloud.google.com/dataproc/docs/concepts/cluster-properties).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

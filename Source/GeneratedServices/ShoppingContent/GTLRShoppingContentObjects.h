@@ -88,8 +88,10 @@
 @class GTLRShoppingContent_LoyaltyPoints;
 @class GTLRShoppingContent_MerchantOrderReturn;
 @class GTLRShoppingContent_MerchantOrderReturnItem;
+@class GTLRShoppingContent_MerchantRejectionReason;
 @class GTLRShoppingContent_MinimumOrderValueTable;
 @class GTLRShoppingContent_MinimumOrderValueTableStoreCodeSetWithMov;
+@class GTLRShoppingContent_MonetaryAmount;
 @class GTLRShoppingContent_Order;
 @class GTLRShoppingContent_OrderAddress;
 @class GTLRShoppingContent_OrderCancellation;
@@ -116,6 +118,10 @@
 @class GTLRShoppingContent_OrderReportDisbursement;
 @class GTLRShoppingContent_OrderReportTransaction;
 @class GTLRShoppingContent_OrderReturn;
+@class GTLRShoppingContent_OrderreturnsPartialRefund;
+@class GTLRShoppingContent_OrderreturnsRefundOperation;
+@class GTLRShoppingContent_OrderreturnsRejectOperation;
+@class GTLRShoppingContent_OrderreturnsReturnItem;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryCreateTestReturnReturnItem;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo;
 @class GTLRShoppingContent_OrderShipment;
@@ -161,6 +167,7 @@
 @class GTLRShoppingContent_ReturnpolicyCustomBatchResponseEntry;
 @class GTLRShoppingContent_ReturnPolicyPolicy;
 @class GTLRShoppingContent_ReturnPolicySeasonalOverride;
+@class GTLRShoppingContent_ReturnPricingInfo;
 @class GTLRShoppingContent_ReturnShipment;
 @class GTLRShoppingContent_Row;
 @class GTLRShoppingContent_Service;
@@ -368,6 +375,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRShoppingContent_AccountGoogleMyBusinessLink
  */
 @interface GTLRShoppingContent_AccountGoogleMyBusinessLink : GTLRObject
+
+/**
+ *  The ID of the GMB account. If this is provided, then `gmbEmail` is ignored.
+ *  The value of this field should match the `accountId` used by the GMB API.
+ */
+@property(nonatomic, copy, nullable) NSString *gmbAccountId;
 
 /**
  *  The GMB email address of which a specific account within a GMB account. A
@@ -2150,7 +2163,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_GmbAccounts : GTLRObject
 
 /**
- *  The ID of the account.
+ *  The ID of the Merchant Center account.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -2555,7 +2568,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_LiasettingsCustomBatchRequestEntry : GTLRObject
 
 /**
- *  The ID of the account for which to get/update account shipping settings.
+ *  The ID of the account for which to get/update account LIA settings.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -2679,7 +2692,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_LiasettingsGetAccessibleGmbAccountsResponse : GTLRObject
 
 /**
- *  The ID of the account.
+ *  The ID of the Merchant Center account.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -3049,6 +3062,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Items of the return. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_MerchantOrderReturnItem *> *returnItems;
 
+/** Information about shipping costs. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ReturnPricingInfo *returnPricingInfo;
+
 /** Shipments of the return. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ReturnShipment *> *returnShipments;
 
@@ -3069,14 +3085,38 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *itemId;
 
+/** The reason that the merchant chose to reject an item return. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_MerchantRejectionReason *merchantRejectionReason;
+
 /** The reason that merchant chooses to accept a return item. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_RefundReason *merchantReturnReason;
 
 /** Product data from the time of the order placement. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderLineItemProduct *product;
 
+/** Maximum amount that can be refunded for this return item. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_MonetaryAmount *refundableAmount;
+
+/**
+ *  Unit level ID for the return item. Different units of the same product will
+ *  have different IDs.
+ */
+@property(nonatomic, copy, nullable) NSString *returnItemId;
+
 /** IDs of the return shipments that this return item belongs to. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *returnShipmentIds;
+
+/**
+ *  ID of the original shipment group. Provided for shipments with invoice
+ *  support.
+ */
+@property(nonatomic, copy, nullable) NSString *shipmentGroupId;
+
+/**
+ *  ID of the shipment unit assigned by the merchant. Provided for shipments
+ *  with invoice support.
+ */
+@property(nonatomic, copy, nullable) NSString *shipmentUnitId;
 
 /**
  *  State of the item.
@@ -3088,6 +3128,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "`rejected`"
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_MerchantRejectionReason
+ */
+@interface GTLRShoppingContent_MerchantRejectionReason : GTLRObject
+
+/**
+ *  Description of the reason.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Code of the rejection reason. */
+@property(nonatomic, copy, nullable) NSString *reasonCode;
 
 @end
 
@@ -3115,6 +3173,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The minimum order value for the given stores. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *value;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_MonetaryAmount
+ */
+@interface GTLRShoppingContent_MonetaryAmount : GTLRObject
+
+/**
+ *  The pre-tax or post-tax price depends on the location of the order. - For
+ *  countries (e.g. US) where price attribute excludes tax, this field
+ *  corresponds to the pre-tax value. - For coutries (e.g. France) where price
+ *  attribute includes tax, this field corresponds to the post-tax value .
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *priceAmount;
+
+/**
+ *  Tax value, present only for countries where price attribute excludes tax
+ *  (e.g. US). No tax is referenced as 0 value with the corresponding
+ *  `currency`.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxAmount;
 
 @end
 
@@ -3386,6 +3467,12 @@ NS_ASSUME_NONNULL_BEGIN
 /** Full name of the customer. */
 @property(nonatomic, copy, nullable) NSString *fullName;
 
+/**
+ *  Email address for the merchant to send value-added tax or invoice
+ *  documentation of the order. Only the last document sent is made available to
+ *  the customer. For more information, see About automated VAT invoicing for
+ *  Shopping Actions.
+ */
 @property(nonatomic, copy, nullable) NSString *invoiceReceivingEmail;
 
 /** Loyalty program information. */
@@ -3501,8 +3588,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -3556,8 +3643,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -4414,6 +4501,42 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_OrderreturnsAcknowledgeRequest
+ */
+@interface GTLRShoppingContent_OrderreturnsAcknowledgeRequest : GTLRObject
+
+/**
+ *  [required] The ID of the operation, unique across all operations for a given
+ *  order return.
+ */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderreturnsAcknowledgeResponse
+ */
+@interface GTLRShoppingContent_OrderreturnsAcknowledgeResponse : GTLRObject
+
+/**
+ *  The status of the execution.
+ *  Acceptable values are:
+ *  - "`duplicate`"
+ *  - "`executed`"
+ */
+@property(nonatomic, copy, nullable) NSString *executionStatus;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#orderreturnsAcknowledgeResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_OrderreturnsListResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4444,6 +4567,133 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_OrderreturnsPartialRefund
+ */
+@interface GTLRShoppingContent_OrderreturnsPartialRefund : GTLRObject
+
+/**
+ *  The pre-tax or post-tax amount to be refunded, depending on the location of
+ *  the order.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *priceAmount;
+
+/**
+ *  Tax amount to be refunded. Note: This has different meaning depending on the
+ *  location of the order.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxAmount;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderreturnsProcessRequest
+ */
+@interface GTLRShoppingContent_OrderreturnsProcessRequest : GTLRObject
+
+/**
+ *  Option to charge the customer return shipping cost.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fullChargeReturnShippingCost;
+
+/**
+ *  [required] The ID of the operation, unique across all operations for a given
+ *  order return.
+ */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/** Refunds for original shipping fee. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_OrderreturnsRefundOperation *refundShippingFee;
+
+/** The list of items to return. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderreturnsReturnItem *> *returnItems;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderreturnsProcessResponse
+ */
+@interface GTLRShoppingContent_OrderreturnsProcessResponse : GTLRObject
+
+/**
+ *  The status of the execution.
+ *  Acceptable values are:
+ *  - "`duplicate`"
+ *  - "`executed`"
+ */
+@property(nonatomic, copy, nullable) NSString *executionStatus;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#orderreturnsProcessResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderreturnsRefundOperation
+ */
+@interface GTLRShoppingContent_OrderreturnsRefundOperation : GTLRObject
+
+/**
+ *  If true, the item will be fully refunded.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fullRefund;
+
+/** If this is set, the item will be partially refunded. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_OrderreturnsPartialRefund *partialRefund;
+
+/** The explanation of the reason. */
+@property(nonatomic, copy, nullable) NSString *reasonText;
+
+/** Code of the refund reason. */
+@property(nonatomic, copy, nullable) NSString *returnRefundReason;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderreturnsRejectOperation
+ */
+@interface GTLRShoppingContent_OrderreturnsRejectOperation : GTLRObject
+
+/** The reason for the return. */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/** The explanation of the reason. */
+@property(nonatomic, copy, nullable) NSString *reasonText;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_OrderreturnsReturnItem
+ */
+@interface GTLRShoppingContent_OrderreturnsReturnItem : GTLRObject
+
+/** Refunds the item. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_OrderreturnsRefundOperation *refund;
+
+/** Rejects the item. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_OrderreturnsRejectOperation *reject;
+
+/**
+ *  Unit level ID for the return item. Different units of the same product will
+ *  have different IDs.
+ */
+@property(nonatomic, copy, nullable) NSString *returnItemId;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_OrdersAcknowledgeRequest
  */
 @interface GTLRShoppingContent_OrdersAcknowledgeRequest : GTLRObject
@@ -4464,8 +4714,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -4551,8 +4801,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -4605,8 +4855,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -5007,8 +5257,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -5105,8 +5355,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -5193,8 +5443,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -5242,8 +5492,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -5292,8 +5542,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -5355,8 +5605,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -5396,8 +5646,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -5458,8 +5708,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The status of the execution.
  *  Acceptable values are:
- *  - "duplicate"
- *  - "executed"
+ *  - "`duplicate`"
+ *  - "`executed`"
  */
 @property(nonatomic, copy, nullable) NSString *executionStatus;
 
@@ -6174,7 +6424,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The REST ID of the product. Content API methods that operate on products
  *  take this as their `productId` parameter.
  *  The REST ID for a product is of the form
- *  channel:contentLanguage:targetCountry:offerId.
+ *  channel:contentLanguage:targetCountry: offerId.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -7580,6 +7830,47 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRShoppingContent_ReturnPricingInfo
+ */
+@interface GTLRShoppingContent_ReturnPricingInfo : GTLRObject
+
+/**
+ *  Default option for whether merchant should charge the customer for return
+ *  shipping costs, based on customer selected return reason and merchant's
+ *  return policy for the items being returned.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *chargeReturnShippingFee;
+
+/**
+ *  Maximum return shipping costs that may be charged to the customer depending
+ *  on merchant's assessment of the return reason and the merchant's return
+ *  policy for the items being returned.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_MonetaryAmount *maxReturnShippingFee;
+
+/**
+ *  Total amount that can be refunded for the items in this return. It
+ *  represents the total amount received by the merchant for the items, after
+ *  applying merchant coupons.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_MonetaryAmount *refundableItemsTotalAmount;
+
+/** Maximum amount that can be refunded for the original shipping fee. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_MonetaryAmount *refundableShippingAmount;
+
+/**
+ *  Total amount already refunded by the merchant. It includes all types of
+ *  refunds (items, shipping, etc.) Not provided if no refund has been applied
+ *  yet.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_MonetaryAmount *totalRefundedAmount;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_ReturnShipment
  */
 @interface GTLRShoppingContent_ReturnShipment : GTLRObject
@@ -7807,6 +8098,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Settlement transactions give a detailed breakdown of the settlement report.
+ *  (== resource_for v2.1.settlementtransactions ==)
  */
 @interface GTLRShoppingContent_SettlementTransaction : GTLRObject
 

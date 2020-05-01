@@ -329,8 +329,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *foregroundColor;
 
 /**
- *  Whether the calendar has been hidden from the list. Optional. The default is
- *  False.
+ *  Whether the calendar has been hidden from the list. Optional. The attribute
+ *  is only returned when the calendar is hidden, in which case the value is
+ *  true.
  *
  *  Uses NSNumber of boolValue.
  */

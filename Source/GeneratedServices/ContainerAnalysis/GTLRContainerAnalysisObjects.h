@@ -1557,7 +1557,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_S
 
 /**
  *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
- *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ *  `GetIamPolicy`.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GetPolicyOptions *options;
 

@@ -486,6 +486,9 @@
 @class GTLRCompute_SslCertificateAggregatedList_Warning_Data_Item;
 @class GTLRCompute_SslCertificateList_Warning;
 @class GTLRCompute_SslCertificateList_Warning_Data_Item;
+@class GTLRCompute_SslCertificateManagedSslCertificate;
+@class GTLRCompute_SslCertificateManagedSslCertificate_DomainStatus;
+@class GTLRCompute_SslCertificateSelfManagedSslCertificate;
 @class GTLRCompute_SslCertificatesScopedList;
 @class GTLRCompute_SslCertificatesScopedList_Warning;
 @class GTLRCompute_SslCertificatesScopedList_Warning_Data_Item;
@@ -7119,6 +7122,16 @@ GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_UndeclaredPr
 GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_SslCertificate.type
+
+/** Value: "MANAGED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificate_Type_Managed;
+/** Value: "SELF_MANAGED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificate_Type_SelfManaged;
+/** Value: "TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificate_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_SslCertificateAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -7217,6 +7230,40 @@ GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_Single
 GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SslCertificateManagedSslCertificate.status
+
+/** Value: "ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_Active;
+/** Value: "MANAGED_CERTIFICATE_STATUS_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_ManagedCertificateStatusUnspecified;
+/** Value: "PROVISIONING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_Provisioning;
+/** Value: "PROVISIONING_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_ProvisioningFailed;
+/** Value: "PROVISIONING_FAILED_PERMANENTLY" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_ProvisioningFailedPermanently;
+/** Value: "RENEWAL_FAILED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_RenewalFailed;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_SslCertificateManagedSslCertificate_DomainStatus.domainStatu
+
+/** Value: "ACTIVE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_Active;
+/** Value: "DOMAIN_STATUS_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_DomainStatusUnspecified;
+/** Value: "FAILED_CAA_CHECKING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedCaaChecking;
+/** Value: "FAILED_CAA_FORBIDDEN" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedCaaForbidden;
+/** Value: "FAILED_NOT_VISIBLE" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedNotVisible;
+/** Value: "FAILED_RATE_LIMITED" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedRateLimited;
+/** Value: "PROVISIONING" */
+GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_Provisioning;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslCertificatesScopedList_Warning.code
@@ -15457,9 +15504,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *labelFingerprint;
 
 /**
- *  Labels to apply to this ExternalVpnGateway resource. These can be later
- *  modified by the setLabels method. Each label key/value must comply with
- *  RFC1035. Label values may be empty.
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_ExternalVpnGateway_Labels *labels;
 
@@ -15494,9 +15541,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 
 /**
- *  Labels to apply to this ExternalVpnGateway resource. These can be later
- *  modified by the setLabels method. Each label key/value must comply with
- *  RFC1035. Label values may be empty.
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
+ *  values may be empty.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -19892,7 +19939,10 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_NamedPort *> *namedPorts;
 
 /**
- *  The URL of the network to which all instances in the instance group belong.
+ *  [Output Only] The URL of the network to which all instances in the instance
+ *  group belong. If your instance has multiple network interfaces, then the
+ *  network and subnetwork fields only refer to the network and subnet used by
+ *  your primary interface (nic0).
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -19917,7 +19967,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  [Output Only] The URL of the subnetwork to which all instances in the
- *  instance group belong.
+ *  instance group belong. If your instance has multiple network interfaces,
+ *  then the network and subnetwork fields only refer to the network and subnet
+ *  used by your primary interface (nic0).
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
@@ -26702,11 +26754,31 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, strong, nullable) NSNumber *exportCustomRoutes;
 
 /**
+ *  Whether subnet routes with public IP range are exported. The default value
+ *  is true, all subnet routes are exported. The IPv4 special-use ranges
+ *  (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always exported
+ *  to peers and are not controlled by this field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exportSubnetRoutesWithPublicIp;
+
+/**
  *  Whether to import the custom routes from peer network.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *importCustomRoutes;
+
+/**
+ *  Whether subnet routes with public IP range are imported. The default value
+ *  is false. The IPv4 special-use ranges
+ *  (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always imported
+ *  from peers and are not controlled by this field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *importSubnetRoutesWithPublicIp;
 
 /**
  *  Name of this peering. Provided by the client when the peering is created.
@@ -35726,6 +35798,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** [Output Only] Expire time of the certificate. RFC3339 */
+@property(nonatomic, copy, nullable) NSString *expireTime;
+
 /**
  *  [Output Only] The unique identifier for the resource. This identifier is
  *  defined by the server.
@@ -35741,6 +35816,9 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  *  certificates.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** Configuration and status of a managed SSL certificate. */
+@property(nonatomic, strong, nullable) GTLRCompute_SslCertificateManagedSslCertificate *managed;
 
 /**
  *  Name of the resource. Provided by the client when the resource is created.
@@ -35767,6 +35845,28 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** Configuration and status of a self-managed SSL certificate. */
+@property(nonatomic, strong, nullable) GTLRCompute_SslCertificateSelfManagedSslCertificate *selfManaged;
+
+/**
+ *  [Output Only] Domains associated with the certificate via Subject
+ *  Alternative Name.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subjectAlternativeNames;
+
+/**
+ *  (Optional) Specifies the type of SSL certificate, either "SELF_MANAGED" or
+ *  "MANAGED". If not specified, the certificate is self-managed and the fields
+ *  certificate and private_key are used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SslCertificate_Type_Managed Value "MANAGED"
+ *    @arg @c kGTLRCompute_SslCertificate_Type_SelfManaged Value "SELF_MANAGED"
+ *    @arg @c kGTLRCompute_SslCertificate_Type_TypeUnspecified Value
+ *        "TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -36050,6 +36150,79 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Configuration and status of a managed SSL certificate.
+ */
+@interface GTLRCompute_SslCertificateManagedSslCertificate : GTLRObject
+
+/**
+ *  The domains for which a managed SSL certificate will be generated. Currently
+ *  only single-domain certs are supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
+
+/**
+ *  [Output only] Detailed statuses of the domains specified for managed
+ *  certificate resource.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SslCertificateManagedSslCertificate_DomainStatus *domainStatus;
+
+/**
+ *  [Output only] Status of the managed certificate resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_SslCertificateManagedSslCertificate_Status_Active
+ *        Value "ACTIVE"
+ *    @arg @c kGTLRCompute_SslCertificateManagedSslCertificate_Status_ManagedCertificateStatusUnspecified
+ *        Value "MANAGED_CERTIFICATE_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRCompute_SslCertificateManagedSslCertificate_Status_Provisioning
+ *        Value "PROVISIONING"
+ *    @arg @c kGTLRCompute_SslCertificateManagedSslCertificate_Status_ProvisioningFailed
+ *        Value "PROVISIONING_FAILED"
+ *    @arg @c kGTLRCompute_SslCertificateManagedSslCertificate_Status_ProvisioningFailedPermanently
+ *        Value "PROVISIONING_FAILED_PERMANENTLY"
+ *    @arg @c kGTLRCompute_SslCertificateManagedSslCertificate_Status_RenewalFailed
+ *        Value "RENEWAL_FAILED"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  [Output only] Detailed statuses of the domains specified for managed
+ *  certificate resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_SslCertificateManagedSslCertificate_DomainStatus : GTLRObject
+@end
+
+
+/**
+ *  Configuration and status of a self-managed SSL certificate.
+ */
+@interface GTLRCompute_SslCertificateSelfManagedSslCertificate : GTLRObject
+
+/**
+ *  A local certificate file. The certificate must be in PEM format. The
+ *  certificate chain must be no greater than 5 certs long. The chain must
+ *  include at least one intermediate cert.
+ */
+@property(nonatomic, copy, nullable) NSString *certificate;
+
+/**
+ *  A write-only private key in PEM format. Only insert requests will include
+ *  this field.
+ */
+@property(nonatomic, copy, nullable) NSString *privateKey;
 
 @end
 
@@ -41512,8 +41685,8 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 @property(nonatomic, copy, nullable) NSString *labelFingerprint;
 
 /**
- *  Labels to apply to this VpnGateway resource. These can be later modified by
- *  the setLabels method. Each label key/value must comply with RFC1035. Label
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
  *  values may be empty.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_VpnGateway_Labels *labels;
@@ -41541,15 +41714,15 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
-/** [Output Only] A list of interfaces on this VPN gateway. */
+/** A list of interfaces on this VPN gateway. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_VpnGatewayVpnGatewayInterface *> *vpnInterfaces;
 
 @end
 
 
 /**
- *  Labels to apply to this VpnGateway resource. These can be later modified by
- *  the setLabels method. Each label key/value must comply with RFC1035. Label
+ *  Labels for this resource. These can only be added or modified by the
+ *  setLabels method. Each label key/value pair must comply with RFC1035. Label
  *  values may be empty.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -42079,7 +42252,7 @@ GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
-/** The external IP address for this VPN gateway interface. */
+/** [Output Only] The external IP address for this VPN gateway interface. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 @end

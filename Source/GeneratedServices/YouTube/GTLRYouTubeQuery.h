@@ -1807,7 +1807,8 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeTextFormatPlainText Returns the comments in plain text
  *        format. (Value: "plainText")
  *
- *  @note If not set, the documented server-side default will be "FORMAT_HTML".
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRYouTubeTextFormatHtml.
  */
 @property(nonatomic, copy, nullable) NSString *textFormat;
 
@@ -2098,7 +2099,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        (Value: "published")
  *
  *  @note If not set, the documented server-side default will be
- *        "MODERATION_STATUS_PUBLISHED".
+ *        kGTLRYouTubeModerationStatusPublished.
  */
 @property(nonatomic, copy, nullable) NSString *moderationStatus;
 
@@ -2114,7 +2115,8 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        "relevance")
  *    @arg @c kGTLRYouTubeOrderTime Order by time. (Value: "time")
  *
- *  @note If not set, the documented server-side default will be "true".
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRYouTubeOrderTime.
  */
 @property(nonatomic, copy, nullable) NSString *order;
 
@@ -2151,7 +2153,8 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeTextFormatPlainText Returns the comments in plain text
  *        format. (Value: "plainText")
  *
- *  @note If not set, the documented server-side default will be "FORMAT_HTML".
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRYouTubeTextFormatHtml.
  */
 @property(nonatomic, copy, nullable) NSString *textFormat;
 
@@ -2758,7 +2761,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        broadcasts. (Value: "persistent")
  *
  *  @note If not set, the documented server-side default will be
- *        "BROADCAST_TYPE_FILTER_EVENT".
+ *        kGTLRYouTubeBroadcastTypeEvent.
  */
 @property(nonatomic, copy, nullable) NSString *broadcastType;
 
@@ -3874,7 +3877,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        first call with this mode was made. (Value: "updates")
  *
  *  @note If not set, the documented server-side default will be
- *        "LIST_MEMBERS_MODE_ALL_CURRENT".
+ *        kGTLRYouTubeModeAllCurrent.
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
@@ -4662,7 +4665,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        lowest number of views. (Value: "viewCount")
  *
  *  @note If not set, the documented server-side default will be
- *        "SEARCH_SORT_RELEVANCE".
+ *        kGTLRYouTubeOrderRelevance.
  */
 @property(nonatomic, copy, nullable) NSString *order;
 
@@ -4750,7 +4753,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        search results. (Value: "strict")
  *
  *  @note If not set, the documented server-side default will be
- *        "SAFE_SEARCH_MODERATE_FILTERING".
+ *        kGTLRYouTubeSafeSearchModerate.
  */
 @property(nonatomic, copy, nullable) NSString *safeSearch;
 
@@ -4944,7 +4947,8 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *    @arg @c kGTLRYouTubeFilterNewest Return the most recent sponsors, from
  *        newest to oldest. (Value: "newest")
  *
- *  @note If not set, the documented server-side default will be "POLL_NEWEST".
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRYouTubeFilterNewest.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5176,7 +5180,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
  *        "unread")
  *
  *  @note If not set, the documented server-side default will be
- *        "SUBSCRIPTION_ORDER_RELEVANCE".
+ *        kGTLRYouTubeOrderRelevance.
  */
 @property(nonatomic, copy, nullable) NSString *order;
 

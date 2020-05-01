@@ -583,9 +583,11 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopePeopleServiceContacts
  *    @c kGTLRAuthScopePeopleServiceContactsReadonly
+ *    @c kGTLRAuthScopePeopleServiceDirectoryReadonly
  *    @c kGTLRAuthScopePeopleServiceUserAddressesRead
  *    @c kGTLRAuthScopePeopleServiceUserBirthdayRead
  *    @c kGTLRAuthScopePeopleServiceUserEmailsRead
+ *    @c kGTLRAuthScopePeopleServiceUserGenderRead
  *    @c kGTLRAuthScopePeopleServiceUserinfoEmail
  *    @c kGTLRAuthScopePeopleServiceUserinfoProfile
  *    @c kGTLRAuthScopePeopleServiceUserOrganizationRead
@@ -683,9 +685,11 @@ GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
  *  Authorization scope(s):
  *    @c kGTLRAuthScopePeopleServiceContacts
  *    @c kGTLRAuthScopePeopleServiceContactsReadonly
+ *    @c kGTLRAuthScopePeopleServiceDirectoryReadonly
  *    @c kGTLRAuthScopePeopleServiceUserAddressesRead
  *    @c kGTLRAuthScopePeopleServiceUserBirthdayRead
  *    @c kGTLRAuthScopePeopleServiceUserEmailsRead
+ *    @c kGTLRAuthScopePeopleServiceUserGenderRead
  *    @c kGTLRAuthScopePeopleServiceUserinfoEmail
  *    @c kGTLRAuthScopePeopleServiceUserinfoProfile
  *    @c kGTLRAuthScopePeopleServiceUserOrganizationRead
