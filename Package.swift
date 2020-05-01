@@ -2,6 +2,31 @@
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 import PackageDescription
 
+/// Helper class used to generate ` Product` and `Target` of services.
+final class GeneratedService: Encodable {
+    let product: PackageDescription.Product
+    let target: PackageDescription.Target
+
+    private init(name: String, dependencies: [PackageDescription.Target.Dependency]) {
+        let serviceName = "GoogleAPIClientForREST" + name
+        let servivePath = "Source/GeneratedServices/" + name
+        product = .library(
+            name: serviceName,
+            targets: [serviceName]
+        )
+        target = .target(
+            name: serviceName,
+            dependencies: dependencies,
+            path: servivePath,
+            publicHeadersPath: "."
+        )
+    }
+
+    static func service(name: String, dependencies: [PackageDescription.Target.Dependency] = ["GoogleAPIClientForRESTCore"]) -> Self {
+        return Self.init(name: name, dependencies: dependencies)
+    }
+}
+
 var products: [PackageDescription.Product] = [
     .library(
         name: "GoogleAPIClientForRESTCore",
@@ -50,6 +75,15 @@ var targets: [PackageDescription.Target] = [
         ]
     )
 ]
+
+/// All the services.
+let generatedServices: [GeneratedService] = [
+]
+
+for generatedService in generatedServices {
+    products.append(generatedService.product)
+    targets.append(generatedService.target)
+}
 
 let package = Package(
     name: "GoogleAPIClientForREST",
