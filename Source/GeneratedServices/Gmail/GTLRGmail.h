@@ -4,8 +4,7 @@
 // API:
 //   Gmail API (gmail/v1)
 // Description:
-//   The Gmail API lets you view and manage Gmail mailbox data like
-//   threads, messages, and labels.
+//   Access Gmail mailboxes including sending user email.
 // Documentation:
 //   https://developers.google.com/gmail/api/
 
