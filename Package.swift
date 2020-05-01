@@ -31,6 +31,23 @@ var targets: [PackageDescription.Target] = [
             .headerSearchPath("Objects"),
             .headerSearchPath("Utilities")
         ]
+    ),
+    .testTarget(
+        name: "GoogleAPIClientForRESTTests",
+        dependencies: [
+            "GoogleAPIClientForRESTCore"
+        ],
+        path: "Source/Tests",
+        exclude: [
+            "CompiledTestNoARC.m"
+        ],
+        sources: [
+            ".",
+            "TestingSvc"
+        ],
+        cSettings: [
+            .headerSearchPath("TestingSvc")
+        ]
     )
 ]
 
