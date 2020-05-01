@@ -4,8 +4,7 @@
 // API:
 //   Gmail API (gmail/v1)
 // Description:
-//   The Gmail API lets you view and manage Gmail mailbox data like
-//   threads, messages, and labels.
+//   Access Gmail mailboxes including sending user email.
 // Documentation:
 //   https://developers.google.com/gmail/api/
 
@@ -54,7 +53,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/drafts";
+  NSString *pathURITemplate = @"{userId}/drafts";
   GTLRGmailQuery_UsersDraftsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -82,7 +81,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/drafts/{id}";
+  NSString *pathURITemplate = @"{userId}/drafts/{id}";
   GTLRGmailQuery_UsersDraftsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -108,7 +107,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/drafts/{id}";
+  NSString *pathURITemplate = @"{userId}/drafts/{id}";
   GTLRGmailQuery_UsersDraftsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -128,7 +127,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/drafts";
+  NSString *pathURITemplate = @"{userId}/drafts";
   GTLRGmailQuery_UsersDraftsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -153,7 +152,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/drafts/send";
+  NSString *pathURITemplate = @"{userId}/drafts/send";
   GTLRGmailQuery_UsersDraftsSend *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -187,7 +186,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/drafts/{id}";
+  NSString *pathURITemplate = @"{userId}/drafts/{id}";
   GTLRGmailQuery_UsersDraftsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -209,7 +208,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/profile";
+  NSString *pathURITemplate = @"{userId}/profile";
   GTLRGmailQuery_UsersGetProfile *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -235,7 +234,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/history";
+  NSString *pathURITemplate = @"{userId}/history";
   GTLRGmailQuery_UsersHistoryList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -259,7 +258,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/labels";
+  NSString *pathURITemplate = @"{userId}/labels";
   GTLRGmailQuery_UsersLabelsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -286,7 +285,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/labels/{id}";
+  NSString *pathURITemplate = @"{userId}/labels/{id}";
   GTLRGmailQuery_UsersLabelsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -312,7 +311,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/labels/{id}";
+  NSString *pathURITemplate = @"{userId}/labels/{id}";
   GTLRGmailQuery_UsersLabelsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -332,7 +331,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/labels";
+  NSString *pathURITemplate = @"{userId}/labels";
   GTLRGmailQuery_UsersLabelsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -363,7 +362,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/labels/{id}";
+  NSString *pathURITemplate = @"{userId}/labels/{id}";
   GTLRGmailQuery_UsersLabelsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -396,7 +395,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/labels/{id}";
+  NSString *pathURITemplate = @"{userId}/labels/{id}";
   GTLRGmailQuery_UsersLabelsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -425,7 +424,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"messageId", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/messages/{messageId}/attachments/{id}";
+  NSString *pathURITemplate = @"{userId}/messages/{messageId}/attachments/{id}";
   GTLRGmailQuery_UsersMessagesAttachmentsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -451,7 +450,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/messages/batchDelete";
+  NSString *pathURITemplate = @"{userId}/messages/batchDelete";
   GTLRGmailQuery_UsersMessagesBatchDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -475,7 +474,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/messages/batchModify";
+  NSString *pathURITemplate = @"{userId}/messages/batchModify";
   GTLRGmailQuery_UsersMessagesBatchModify *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -501,7 +500,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/messages/{id}";
+  NSString *pathURITemplate = @"{userId}/messages/{id}";
   GTLRGmailQuery_UsersMessagesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -534,7 +533,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/messages/{id}";
+  NSString *pathURITemplate = @"{userId}/messages/{id}";
   GTLRGmailQuery_UsersMessagesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -560,7 +559,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/messages/import";
+  NSString *pathURITemplate = @"{userId}/messages/import";
   GTLRGmailQuery_UsersMessagesImport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -587,7 +586,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/messages";
+  NSString *pathURITemplate = @"{userId}/messages";
   GTLRGmailQuery_UsersMessagesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -615,7 +614,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/messages";
+  NSString *pathURITemplate = @"{userId}/messages";
   GTLRGmailQuery_UsersMessagesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -646,7 +645,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/messages/{id}/modify";
+  NSString *pathURITemplate = @"{userId}/messages/{id}/modify";
   GTLRGmailQuery_UsersMessagesModify *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -673,7 +672,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/messages/send";
+  NSString *pathURITemplate = @"{userId}/messages/send";
   GTLRGmailQuery_UsersMessagesSend *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -701,7 +700,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/messages/{id}/trash";
+  NSString *pathURITemplate = @"{userId}/messages/{id}/trash";
   GTLRGmailQuery_UsersMessagesTrash *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -728,7 +727,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/messages/{id}/untrash";
+  NSString *pathURITemplate = @"{userId}/messages/{id}/untrash";
   GTLRGmailQuery_UsersMessagesUntrash *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -753,7 +752,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/delegates";
+  NSString *pathURITemplate = @"{userId}/settings/delegates";
   GTLRGmailQuery_UsersSettingsDelegatesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -776,7 +775,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"delegateEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/delegates/{delegateEmail}";
+  NSString *pathURITemplate = @"{userId}/settings/delegates/{delegateEmail}";
   GTLRGmailQuery_UsersSettingsDelegatesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -798,7 +797,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"delegateEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/delegates/{delegateEmail}";
+  NSString *pathURITemplate = @"{userId}/settings/delegates/{delegateEmail}";
   GTLRGmailQuery_UsersSettingsDelegatesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -818,7 +817,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/delegates";
+  NSString *pathURITemplate = @"{userId}/settings/delegates";
   GTLRGmailQuery_UsersSettingsDelegatesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -842,7 +841,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/filters";
+  NSString *pathURITemplate = @"{userId}/settings/filters";
   GTLRGmailQuery_UsersSettingsFiltersCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -869,7 +868,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/filters/{id}";
+  NSString *pathURITemplate = @"{userId}/settings/filters/{id}";
   GTLRGmailQuery_UsersSettingsFiltersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -895,7 +894,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/filters/{id}";
+  NSString *pathURITemplate = @"{userId}/settings/filters/{id}";
   GTLRGmailQuery_UsersSettingsFiltersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -915,7 +914,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/filters";
+  NSString *pathURITemplate = @"{userId}/settings/filters";
   GTLRGmailQuery_UsersSettingsFiltersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -939,7 +938,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/forwardingAddresses";
+  NSString *pathURITemplate = @"{userId}/settings/forwardingAddresses";
   GTLRGmailQuery_UsersSettingsForwardingAddressesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -962,7 +961,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"forwardingEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail}";
+  NSString *pathURITemplate = @"{userId}/settings/forwardingAddresses/{forwardingEmail}";
   GTLRGmailQuery_UsersSettingsForwardingAddressesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -984,7 +983,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"forwardingEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail}";
+  NSString *pathURITemplate = @"{userId}/settings/forwardingAddresses/{forwardingEmail}";
   GTLRGmailQuery_UsersSettingsForwardingAddressesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1004,7 +1003,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/forwardingAddresses";
+  NSString *pathURITemplate = @"{userId}/settings/forwardingAddresses";
   GTLRGmailQuery_UsersSettingsForwardingAddressesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1023,7 +1022,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/autoForwarding";
+  NSString *pathURITemplate = @"{userId}/settings/autoForwarding";
   GTLRGmailQuery_UsersSettingsGetAutoForwarding *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1042,7 +1041,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/imap";
+  NSString *pathURITemplate = @"{userId}/settings/imap";
   GTLRGmailQuery_UsersSettingsGetImap *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1061,7 +1060,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/language";
+  NSString *pathURITemplate = @"{userId}/settings/language";
   GTLRGmailQuery_UsersSettingsGetLanguage *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1080,7 +1079,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/pop";
+  NSString *pathURITemplate = @"{userId}/settings/pop";
   GTLRGmailQuery_UsersSettingsGetPop *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1099,7 +1098,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/vacation";
+  NSString *pathURITemplate = @"{userId}/settings/vacation";
   GTLRGmailQuery_UsersSettingsGetVacation *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1123,7 +1122,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/sendAs";
+  NSString *pathURITemplate = @"{userId}/settings/sendAs";
   GTLRGmailQuery_UsersSettingsSendAsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1146,7 +1145,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"sendAsEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}";
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}";
   GTLRGmailQuery_UsersSettingsSendAsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1168,7 +1167,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"sendAsEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}";
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}";
   GTLRGmailQuery_UsersSettingsSendAsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1188,7 +1187,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/sendAs";
+  NSString *pathURITemplate = @"{userId}/settings/sendAs";
   GTLRGmailQuery_UsersSettingsSendAsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1215,7 +1214,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"sendAsEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}";
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}";
   GTLRGmailQuery_UsersSettingsSendAsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1244,7 +1243,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"sendAsEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}";
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}";
   GTLRGmailQuery_UsersSettingsSendAsSmimeInfoDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1272,7 +1271,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"sendAsEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}";
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}";
   GTLRGmailQuery_UsersSettingsSendAsSmimeInfoGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1301,7 +1300,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"sendAsEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo";
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}/smimeInfo";
   GTLRGmailQuery_UsersSettingsSendAsSmimeInfoInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1325,7 +1324,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"sendAsEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo";
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}/smimeInfo";
   GTLRGmailQuery_UsersSettingsSendAsSmimeInfoList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1353,7 +1352,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"sendAsEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}/setDefault";
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}/setDefault";
   GTLRGmailQuery_UsersSettingsSendAsSmimeInfoSetDefault *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1381,7 +1380,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"sendAsEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}";
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}";
   GTLRGmailQuery_UsersSettingsSendAsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1405,7 +1404,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"sendAsEmail", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/verify";
+  NSString *pathURITemplate = @"{userId}/settings/sendAs/{sendAsEmail}/verify";
   GTLRGmailQuery_UsersSettingsSendAsVerify *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1429,7 +1428,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/autoForwarding";
+  NSString *pathURITemplate = @"{userId}/settings/autoForwarding";
   GTLRGmailQuery_UsersSettingsUpdateAutoForwarding *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1454,7 +1453,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/imap";
+  NSString *pathURITemplate = @"{userId}/settings/imap";
   GTLRGmailQuery_UsersSettingsUpdateImap *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1479,7 +1478,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/language";
+  NSString *pathURITemplate = @"{userId}/settings/language";
   GTLRGmailQuery_UsersSettingsUpdateLanguage *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1504,7 +1503,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/pop";
+  NSString *pathURITemplate = @"{userId}/settings/pop";
   GTLRGmailQuery_UsersSettingsUpdatePop *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1529,7 +1528,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/settings/vacation";
+  NSString *pathURITemplate = @"{userId}/settings/vacation";
   GTLRGmailQuery_UsersSettingsUpdateVacation *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1549,7 +1548,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/stop";
+  NSString *pathURITemplate = @"{userId}/stop";
   GTLRGmailQuery_UsersStop *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1574,7 +1573,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/threads/{id}";
+  NSString *pathURITemplate = @"{userId}/threads/{id}";
   GTLRGmailQuery_UsersThreadsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1607,7 +1606,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/threads/{id}";
+  NSString *pathURITemplate = @"{userId}/threads/{id}";
   GTLRGmailQuery_UsersThreadsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1634,7 +1633,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/threads";
+  NSString *pathURITemplate = @"{userId}/threads";
   GTLRGmailQuery_UsersThreadsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1665,7 +1664,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/threads/{id}/modify";
+  NSString *pathURITemplate = @"{userId}/threads/{id}/modify";
   GTLRGmailQuery_UsersThreadsModify *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1693,7 +1692,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/threads/{id}/trash";
+  NSString *pathURITemplate = @"{userId}/threads/{id}/trash";
   GTLRGmailQuery_UsersThreadsTrash *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1720,7 +1719,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
   NSArray *pathParams = @[
     @"id", @"userId"
   ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/threads/{id}/untrash";
+  NSString *pathURITemplate = @"{userId}/threads/{id}/untrash";
   GTLRGmailQuery_UsersThreadsUntrash *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1745,7 +1744,7 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"gmail/v1/users/{userId}/watch";
+  NSString *pathURITemplate = @"{userId}/watch";
   GTLRGmailQuery_UsersWatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
