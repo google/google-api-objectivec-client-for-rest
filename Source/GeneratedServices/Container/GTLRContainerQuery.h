@@ -157,7 +157,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a cluster, consisting of the specified number and type of Google
  *  Compute Engine instances.
  *  By default, the cluster is created in the project's
- *  [default network](/compute/docs/networks-and-firewalls#networks).
+ *  [default
+ *  network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
  *  One firewall is added for the cluster. After cluster creation,
  *  the Kubelet creates routes for each node to allow the containers
  *  on that node to communicate with all other instances in the
@@ -186,7 +187,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a cluster, consisting of the specified number and type of Google
  *  Compute Engine instances.
  *  By default, the cluster is created in the project's
- *  [default network](/compute/docs/networks-and-firewalls#networks).
+ *  [default
+ *  network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
  *  One firewall is added for the cluster. After cluster creation,
  *  the Kubelet creates routes for each node to allow the containers
  *  on that node to communicate with all other instances in the
@@ -246,9 +248,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -307,9 +309,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -395,9 +397,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides, or "-" for all zones.
- *  This field has been deprecated and replaced by the parent field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides, or "-" for all zones. This field has been deprecated and
+ *  replaced by the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -498,9 +500,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -562,9 +564,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -619,9 +621,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the parent field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the parent
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -913,7 +915,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the locations for a specific cluster.
  *  Deprecated. Use
- *  [projects.locations.clusters.update](/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
+ *  [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
  *  instead.
  *
  *  Method: container.projects.locations.clusters.setLocations
@@ -936,7 +938,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the locations for a specific cluster.
  *  Deprecated. Use
- *  [projects.locations.clusters.update](/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
+ *  [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
  *  instead.
  *
  *  @param object The @c GTLRContainer_SetLocationsRequest to include in the
@@ -1349,8 +1351,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) to return operations for.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) to return
+ *  operations for. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1439,9 +1442,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1490,8 +1493,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) to return operations for, or `-` for
- *  all zones. This field has been deprecated and replaced by the parent field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) to return
+ *  operations for, or `-` for all zones. This field has been deprecated and
+ *  replaced by the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1540,9 +1544,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1560,9 +1564,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -1602,9 +1606,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1622,9 +1626,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://developers.google.com/console/help/new/#projectnumber).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -1641,7 +1645,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a cluster, consisting of the specified number and type of Google
  *  Compute Engine instances.
  *  By default, the cluster is created in the project's
- *  [default network](/compute/docs/networks-and-firewalls#networks).
+ *  [default
+ *  network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
  *  One firewall is added for the cluster. After cluster creation,
  *  the Kubelet creates routes for each node to allow the containers
  *  on that node to communicate with all other instances in the
@@ -1667,9 +1672,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the parent field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the parent
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1681,7 +1686,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a cluster, consisting of the specified number and type of Google
  *  Compute Engine instances.
  *  By default, the cluster is created in the project's
- *  [default network](/compute/docs/networks-and-firewalls#networks).
+ *  [default
+ *  network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
  *  One firewall is added for the cluster. After cluster creation,
  *  the Kubelet creates routes for each node to allow the containers
  *  on that node to communicate with all other instances in the
@@ -1696,9 +1702,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the parent field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the parent
+ *    field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersCreate
  */
@@ -1747,9 +1753,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1771,9 +1777,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to delete.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -1818,9 +1824,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1836,9 +1842,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to retrieve.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -1877,9 +1883,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1897,9 +1903,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to update.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -1941,9 +1947,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides, or "-" for all zones.
- *  This field has been deprecated and replaced by the parent field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides, or "-" for all zones. This field has been deprecated and
+ *  replaced by the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1960,9 +1966,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides, or "-" for all zones.
- *    This field has been deprecated and replaced by the parent field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides, or "-" for all zones. This field has been deprecated and
+ *    replaced by the parent field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersList
  */
@@ -1974,7 +1980,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the locations for a specific cluster.
  *  Deprecated. Use
- *  [projects.locations.clusters.update](/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
+ *  [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
  *  instead.
  *
  *  Method: container.projects.zones.clusters.locations
@@ -2001,9 +2007,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2014,7 +2020,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the locations for a specific cluster.
  *  Deprecated. Use
- *  [projects.locations.clusters.update](/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
+ *  [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
  *  instead.
  *
  *  @param object The @c GTLRContainer_SetLocationsRequest to include in the
@@ -2024,9 +2030,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -2066,9 +2072,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2086,9 +2092,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -2128,9 +2134,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2148,9 +2154,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -2190,9 +2196,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2210,9 +2216,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -2258,9 +2264,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2278,9 +2284,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool to upgrade.
@@ -2323,9 +2329,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the parent field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the parent
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2343,9 +2349,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://developers.google.com/console/help/new/#projectnumber).
  *    This field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the parent field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the parent
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the parent field.
  *
@@ -2398,9 +2404,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2416,9 +2422,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://developers.google.com/console/help/new/#projectnumber).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool to delete.
@@ -2473,9 +2479,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2491,9 +2497,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://developers.google.com/console/help/new/#projectnumber).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool.
@@ -2541,9 +2547,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the parent field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the parent
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2559,9 +2565,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://developers.google.com/console/help/new/#projectnumber).
  *    This field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the parent field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the parent
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the parent field.
  *
@@ -2607,9 +2613,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2628,9 +2634,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to rollback.
  *    This field has been deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool to rollback.
@@ -2679,9 +2685,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2699,9 +2705,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to update.
  *    This field has been deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool to update.
@@ -2750,9 +2756,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2770,9 +2776,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to update.
  *    This field has been deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool to update.
@@ -2821,9 +2827,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2841,9 +2847,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool to upgrade.
@@ -2886,9 +2892,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2905,9 +2911,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://developers.google.com/console/help/new/#projectnumber).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -2943,8 +2949,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2961,8 +2967,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    project
  *    number](https://support.google.com/cloud/answer/6158840).
  *  @param zoneProperty Required. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides.
  *  @param clusterId Required. The name of the cluster to update.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersSetMaintenancePolicy
@@ -3003,9 +3009,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3025,9 +3031,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -3067,9 +3073,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3087,9 +3093,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://developers.google.com/console/help/new/#projectnumber).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -3129,9 +3135,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3149,9 +3155,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://developers.google.com/console/help/new/#projectnumber).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -3191,9 +3197,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3211,9 +3217,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -3253,8 +3259,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) to return operations for.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) to return
+ *  operations for. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3270,8 +3277,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) to return operations for.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) to return
+ *    operations for. This field has been deprecated and replaced by the name
+ *    field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesGetServerconfig
  */
@@ -3307,8 +3315,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the operation resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  operation resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3326,8 +3335,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the operation resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    operation resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param operationId Deprecated. The server-assigned `name` of the operation.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -3373,9 +3383,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) in which the cluster
- *  resides.
- *  This field has been deprecated and replaced by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3391,9 +3401,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) in which the cluster
- *    resides.
- *    This field has been deprecated and replaced by the name field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *    cluster resides. This field has been deprecated and replaced by the name
+ *    field.
  *  @param operationId Deprecated. The server-assigned `name` of the operation.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -3433,8 +3443,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](/compute/docs/zones#available) to return operations for, or `-` for
- *  all zones. This field has been deprecated and replaced by the parent field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) to return
+ *  operations for, or `-` for all zones. This field has been deprecated and
+ *  replaced by the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3450,9 +3461,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    number](https://support.google.com/cloud/answer/6158840).
  *    This field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](/compute/docs/zones#available) to return operations for, or `-` for
- *    all zones. This field has been deprecated and replaced by the parent
- *    field.
+ *    [zone](https://cloud.google.com/compute/docs/zones#available) to return
+ *    operations for, or `-` for all zones. This field has been deprecated and
+ *    replaced by the parent field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesOperationsList
  */

@@ -897,6 +897,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** All video frames where explicit content was detected. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame *> *frames;
 
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -954,6 +957,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** All video segments where a label was detected. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelSegment *> *segments;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1152,6 +1158,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSNumber *trackId;
 
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -1238,6 +1247,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** The detected text. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1630,6 +1642,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** All video frames where explicit content was detected. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame *> *frames;
 
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -1702,6 +1717,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** All video segments where a label was detected. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelSegment *> *segments;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1966,6 +1984,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSNumber *trackId;
 
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -2114,6 +2135,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** All video frames where explicit content was detected. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame *> *frames;
 
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -2171,6 +2195,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** All video segments where a label was detected. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelSegment *> *segments;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -2369,6 +2396,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSNumber *trackId;
 
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -2455,6 +2485,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** The detected text. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -2873,6 +2906,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** All video frames where explicit content was detected. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame *> *frames;
 
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -2930,6 +2966,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** All video segments where a label was detected. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelSegment *> *segments;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -3128,6 +3167,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSNumber *trackId;
 
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -3214,6 +3256,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** The detected text. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -3583,6 +3628,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1CelebrityTrack *> *celebrityTracks;
 
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -3688,6 +3736,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** All video frames where explicit content was detected. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame *> *frames;
 
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -3740,6 +3791,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 /** The face tracks with attributes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Track *> *tracks;
 
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -3764,6 +3818,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** All video segments where a label was detected. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelSegment *> *segments;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -3962,6 +4019,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  */
 @property(nonatomic, strong, nullable) NSNumber *trackId;
 
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -3989,6 +4049,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** The detected tracks of a person. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Track *> *tracks;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -4125,6 +4188,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** The detected text. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -4639,6 +4705,9 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
 
 /** The detected text. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 

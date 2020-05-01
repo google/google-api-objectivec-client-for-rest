@@ -83,7 +83,7 @@
 //
 
 @implementation GTLRShoppingContent_AccountGoogleMyBusinessLink
-@dynamic gmbEmail, status;
+@dynamic gmbAccountId, gmbEmail, status;
 @end
 
 
@@ -1467,7 +1467,7 @@
 
 @implementation GTLRShoppingContent_MerchantOrderReturn
 @dynamic creationDate, merchantOrderId, orderId, orderReturnId, returnItems,
-         returnShipments;
+         returnPricingInfo, returnShipments;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1486,14 +1486,30 @@
 //
 
 @implementation GTLRShoppingContent_MerchantOrderReturnItem
-@dynamic customerReturnReason, itemId, merchantReturnReason, product,
-         returnShipmentIds, state;
+@dynamic customerReturnReason, itemId, merchantRejectionReason,
+         merchantReturnReason, product, refundableAmount, returnItemId,
+         returnShipmentIds, shipmentGroupId, shipmentUnitId, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"returnShipmentIds" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_MerchantRejectionReason
+//
+
+@implementation GTLRShoppingContent_MerchantRejectionReason
+@dynamic descriptionProperty, reasonCode;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -1532,6 +1548,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_MonetaryAmount
+//
+
+@implementation GTLRShoppingContent_MonetaryAmount
+@dynamic priceAmount, taxAmount;
 @end
 
 
@@ -1993,6 +2019,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_OrderreturnsAcknowledgeRequest
+//
+
+@implementation GTLRShoppingContent_OrderreturnsAcknowledgeRequest
+@dynamic operationId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderreturnsAcknowledgeResponse
+//
+
+@implementation GTLRShoppingContent_OrderreturnsAcknowledgeResponse
+@dynamic executionStatus, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_OrderreturnsListResponse
 //
 
@@ -2010,6 +2056,75 @@
   return @"resources";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderreturnsPartialRefund
+//
+
+@implementation GTLRShoppingContent_OrderreturnsPartialRefund
+@dynamic priceAmount, taxAmount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderreturnsProcessRequest
+//
+
+@implementation GTLRShoppingContent_OrderreturnsProcessRequest
+@dynamic fullChargeReturnShippingCost, operationId, refundShippingFee,
+         returnItems;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"returnItems" : [GTLRShoppingContent_OrderreturnsReturnItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderreturnsProcessResponse
+//
+
+@implementation GTLRShoppingContent_OrderreturnsProcessResponse
+@dynamic executionStatus, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderreturnsRefundOperation
+//
+
+@implementation GTLRShoppingContent_OrderreturnsRefundOperation
+@dynamic fullRefund, partialRefund, reasonText, returnRefundReason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderreturnsRejectOperation
+//
+
+@implementation GTLRShoppingContent_OrderreturnsRejectOperation
+@dynamic reason, reasonText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderreturnsReturnItem
+//
+
+@implementation GTLRShoppingContent_OrderreturnsReturnItem
+@dynamic refund, reject, returnItemId;
 @end
 
 
@@ -3346,6 +3461,18 @@
 
 @implementation GTLRShoppingContent_ReturnPolicySeasonalOverride
 @dynamic endDate, name, policy, startDate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnPricingInfo
+//
+
+@implementation GTLRShoppingContent_ReturnPricingInfo
+@dynamic chargeReturnShippingFee, maxReturnShippingFee,
+         refundableItemsTotalAmount, refundableShippingAmount,
+         totalRefundedAmount;
 @end
 
 

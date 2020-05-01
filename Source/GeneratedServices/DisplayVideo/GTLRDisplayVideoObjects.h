@@ -1693,78 +1693,101 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeAttributes_Creat
 
 /**
  *  Audio creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_HOSTED`
  *
  *  Value: "CREATIVE_TYPE_AUDIO"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeAudio;
 /**
  *  Expandable creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_THIRD_PARTY`
  *
  *  Value: "CREATIVE_TYPE_EXPANDABLE"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeExpandable;
 /**
  *  Responsive and expandable Lightbox creative.
+ *  Create and update methods are **not** supported for this creative type.
  *
  *  Value: "CREATIVE_TYPE_LIGHTBOX"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeLightbox;
 /**
  *  Native creative rendered by publishers with assets from advertiser.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_HOSTED`
  *
  *  Value: "CREATIVE_TYPE_NATIVE"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNative;
 /**
  *  Native app install creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_HOSTED`
  *
  *  Value: "CREATIVE_TYPE_NATIVE_APP_INSTALL"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNativeAppInstall;
 /**
  *  Square native app install creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_HOSTED`
  *
  *  Value: "CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNativeAppInstallSquare;
 /**
  *  Square native creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_HOSTED`
  *
  *  Value: "CREATIVE_TYPE_NATIVE_SITE_SQUARE"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNativeSiteSquare;
 /**
  *  Native video creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_HOSTED`
  *
  *  Value: "CREATIVE_TYPE_NATIVE_VIDEO"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNativeVideo;
 /**
  *  Publisher hosted creative.
+ *  Create and update methods are **not** supported for this creative type.
  *
  *  Value: "CREATIVE_TYPE_PUBLISHER_HOSTED"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypePublisherHosted;
 /**
- *  Standard image creative.
+ *  Standard display creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is one of the following:
+ *  * `HOSTING_SOURCE_HOSTED`
+ *  * `HOSTING_SOURCE_THIRD_PARTY`
  *
  *  Value: "CREATIVE_TYPE_STANDARD"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeStandard;
 /**
  *  Templated app install mobile creative (banner).
+ *  Create and update methods are **not** supported for this creative type.
  *
  *  Value: "CREATIVE_TYPE_TEMPLATED_APP_INSTALL"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeTemplatedAppInstall;
 /**
  *  Interstitial creative including both display and video.
+ *  Create and update methods are **not** supported for this creative type.
  *
  *  Value: "CREATIVE_TYPE_TEMPLATED_APP_INSTALL_INTERSTITIAL"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeTemplatedAppInstallInterstitial;
 /**
  *  Templated app install mobile video creative.
+ *  Create and update methods are **not** supported for this creative type.
  *
  *  Value: "CREATIVE_TYPE_TEMPLATED_APP_INSTALL_VIDEO"
  */
@@ -1777,6 +1800,10 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTyp
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeUnspecified;
 /**
  *  Video creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is one of the following:
+ *  * `HOSTING_SOURCE_HOSTED`
+ *  * `HOSTING_SOURCE_THIRD_PARTY`
  *
  *  Value: "CREATIVE_TYPE_VIDEO"
  */
@@ -1910,24 +1937,41 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_ExpandingDirection_Expan
 
 /**
  *  A creative synced from Campaign Manager.
+ *  Create and update methods are **not** supported for this hosting type.
  *
  *  Value: "HOSTING_SOURCE_CM"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_HostingSource_HostingSourceCm;
 /**
  *  A creative created in DV360 and hosted by Campaign Manager.
+ *  Create and update methods are supported for this hosting type if the
+ *  creative_type is one of the following:
+ *  * `CREATIVE_TYPE_AUDIO`
+ *  * `CREATIVE_TYPE_NATIVE`
+ *  * `CREATIVE_TYPE_NATIVE_APP_INSTALL`
+ *  * `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE`
+ *  * `CREATIVE_TYPE_NATIVE_SITE_SQUARE`
+ *  * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *  * `CREATIVE_TYPE_STANDARD`
+ *  * `CREATIVE_TYPE_VIDEO`
  *
  *  Value: "HOSTING_SOURCE_HOSTED"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_HostingSource_HostingSourceHosted;
 /**
  *  A rich media creative created in Studio and hosted by Campaign Manager.
+ *  Create and update methods are **not** supported for this hosting type.
  *
  *  Value: "HOSTING_SOURCE_RICH_MEDIA"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_HostingSource_HostingSourceRichMedia;
 /**
  *  A creative hosted by a third-party ad server (3PAS).
+ *  Create and update methods are supported for this hosting type if the
+ *  creative_type is one of the following:
+ *  * `CREATIVE_TYPE_EXPANDABLE`
+ *  * `CREATIVE_TYPE_STANDARD`
+ *  * `CREATIVE_TYPE_VIDEO`
  *
  *  Value: "HOSTING_SOURCE_THIRD_PARTY"
  */
@@ -1944,78 +1988,101 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_Creative_HostingSource_HostingSou
 
 /**
  *  Audio creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_HOSTED`
  *
  *  Value: "CREATIVE_TYPE_AUDIO"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeAudio;
 /**
  *  Expandable creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_THIRD_PARTY`
  *
  *  Value: "CREATIVE_TYPE_EXPANDABLE"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeExpandable;
 /**
  *  Responsive and expandable Lightbox creative.
+ *  Create and update methods are **not** supported for this creative type.
  *
  *  Value: "CREATIVE_TYPE_LIGHTBOX"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeLightbox;
 /**
  *  Native creative rendered by publishers with assets from advertiser.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_HOSTED`
  *
  *  Value: "CREATIVE_TYPE_NATIVE"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNative;
 /**
  *  Native app install creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_HOSTED`
  *
  *  Value: "CREATIVE_TYPE_NATIVE_APP_INSTALL"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNativeAppInstall;
 /**
  *  Square native app install creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_HOSTED`
  *
  *  Value: "CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNativeAppInstallSquare;
 /**
  *  Square native creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_HOSTED`
  *
  *  Value: "CREATIVE_TYPE_NATIVE_SITE_SQUARE"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNativeSiteSquare;
 /**
  *  Native video creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is `HOSTING_SOURCE_HOSTED`
  *
  *  Value: "CREATIVE_TYPE_NATIVE_VIDEO"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNativeVideo;
 /**
  *  Publisher hosted creative.
+ *  Create and update methods are **not** supported for this creative type.
  *
  *  Value: "CREATIVE_TYPE_PUBLISHER_HOSTED"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypePublisherHosted;
 /**
- *  Standard image creative.
+ *  Standard display creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is one of the following:
+ *  * `HOSTING_SOURCE_HOSTED`
+ *  * `HOSTING_SOURCE_THIRD_PARTY`
  *
  *  Value: "CREATIVE_TYPE_STANDARD"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeStandard;
 /**
  *  Templated app install mobile creative (banner).
+ *  Create and update methods are **not** supported for this creative type.
  *
  *  Value: "CREATIVE_TYPE_TEMPLATED_APP_INSTALL"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeTemplatedAppInstall;
 /**
  *  Interstitial creative including both display and video.
+ *  Create and update methods are **not** supported for this creative type.
  *
  *  Value: "CREATIVE_TYPE_TEMPLATED_APP_INSTALL_INTERSTITIAL"
  */
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeTemplatedAppInstallInterstitial;
 /**
  *  Templated app install mobile video creative.
+ *  Create and update methods are **not** supported for this creative type.
  *
  *  Value: "CREATIVE_TYPE_TEMPLATED_APP_INSTALL_VIDEO"
  */
@@ -2028,6 +2095,10 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_Creat
 GTLR_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeUnspecified;
 /**
  *  Video creative.
+ *  Create and update methods are supported for this creative type if the
+ *  hosting_source is one of the following:
+ *  * `HOSTING_SOURCE_HOSTED`
+ *  * `HOSTING_SOURCE_THIRD_PARTY`
  *
  *  Value: "CREATIVE_TYPE_VIDEO"
  */
@@ -8169,7 +8240,9 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  Details for assigned app category targeting option. This will be
- *  populated in the details field of an AssignedTargetingOption when
+ *  populated in the
+ *  app_category_details field of
+ *  an AssignedTargetingOption when
  *  targeting_type
  *  is `TARGETING_TYPE_APP_CATEGORY`.
  */
@@ -8199,7 +8272,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
  *  Represents a targetable collection of apps. A collection lets you target
  *  dynamic groups of related apps that are maintained by the platform, for
  *  example `All Apps/Google Play/Games`. This will be populated in the
- *  app_category field when
+ *  app_category_details field when
  *  targeting_type is
  *  `TARGETING_TYPE_APP_CATEGORY`.
  */
@@ -9098,6 +9171,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of assigned targeting options that have been successfully created.
+ *  This list will be absent if empty.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *createdAssignedTargetingOptions;
 
@@ -9116,6 +9190,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of assigned targeting options.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -10164,43 +10239,75 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeAudio Audio
- *        creative. (Value: "CREATIVE_TYPE_AUDIO")
+ *        creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
+ *        "CREATIVE_TYPE_AUDIO")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeExpandable
- *        Expandable creative. (Value: "CREATIVE_TYPE_EXPANDABLE")
+ *        Expandable creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_THIRD_PARTY` (Value:
+ *        "CREATIVE_TYPE_EXPANDABLE")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeLightbox
- *        Responsive and expandable Lightbox creative. (Value:
- *        "CREATIVE_TYPE_LIGHTBOX")
+ *        Responsive and expandable Lightbox creative.
+ *        Create and update methods are **not** supported for this creative
+ *        type. (Value: "CREATIVE_TYPE_LIGHTBOX")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNative Native
- *        creative rendered by publishers with assets from advertiser. (Value:
+ *        creative rendered by publishers with assets from advertiser.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
  *        "CREATIVE_TYPE_NATIVE")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNativeAppInstall
- *        Native app install creative. (Value:
+ *        Native app install creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
  *        "CREATIVE_TYPE_NATIVE_APP_INSTALL")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNativeAppInstallSquare
- *        Square native app install creative. (Value:
+ *        Square native app install creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
  *        "CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNativeSiteSquare
- *        Square native creative. (Value: "CREATIVE_TYPE_NATIVE_SITE_SQUARE")
+ *        Square native creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
+ *        "CREATIVE_TYPE_NATIVE_SITE_SQUARE")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeNativeVideo
- *        Native video creative. (Value: "CREATIVE_TYPE_NATIVE_VIDEO")
+ *        Native video creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
+ *        "CREATIVE_TYPE_NATIVE_VIDEO")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypePublisherHosted
- *        Publisher hosted creative. (Value: "CREATIVE_TYPE_PUBLISHER_HOSTED")
+ *        Publisher hosted creative.
+ *        Create and update methods are **not** supported for this creative
+ *        type. (Value: "CREATIVE_TYPE_PUBLISHER_HOSTED")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeStandard
- *        Standard image creative. (Value: "CREATIVE_TYPE_STANDARD")
+ *        Standard display creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is one of the following:
+ *        * `HOSTING_SOURCE_HOSTED`
+ *        * `HOSTING_SOURCE_THIRD_PARTY` (Value: "CREATIVE_TYPE_STANDARD")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeTemplatedAppInstall
- *        Templated app install mobile creative (banner). (Value:
- *        "CREATIVE_TYPE_TEMPLATED_APP_INSTALL")
+ *        Templated app install mobile creative (banner).
+ *        Create and update methods are **not** supported for this creative
+ *        type. (Value: "CREATIVE_TYPE_TEMPLATED_APP_INSTALL")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeTemplatedAppInstallInterstitial
- *        Interstitial creative including both display and video. (Value:
- *        "CREATIVE_TYPE_TEMPLATED_APP_INSTALL_INTERSTITIAL")
+ *        Interstitial creative including both display and video.
+ *        Create and update methods are **not** supported for this creative
+ *        type. (Value: "CREATIVE_TYPE_TEMPLATED_APP_INSTALL_INTERSTITIAL")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeTemplatedAppInstallVideo
- *        Templated app install mobile video creative. (Value:
- *        "CREATIVE_TYPE_TEMPLATED_APP_INSTALL_VIDEO")
+ *        Templated app install mobile video creative.
+ *        Create and update methods are **not** supported for this creative
+ *        type. (Value: "CREATIVE_TYPE_TEMPLATED_APP_INSTALL_VIDEO")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeUnspecified
  *        Type value is not specified or is unknown in this version. (Value:
  *        "CREATIVE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeVideo Video
- *        creative. (Value: "CREATIVE_TYPE_VIDEO")
+ *        creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is one of the following:
+ *        * `HOSTING_SOURCE_HOSTED`
+ *        * `HOSTING_SOURCE_THIRD_PARTY` (Value: "CREATIVE_TYPE_VIDEO")
  */
 @property(nonatomic, copy, nullable) NSString *creativeType;
 
@@ -10337,16 +10444,32 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_Creative_HostingSource_HostingSourceCm A
- *        creative synced from Campaign Manager. (Value: "HOSTING_SOURCE_CM")
+ *        creative synced from Campaign Manager.
+ *        Create and update methods are **not** supported for this hosting type.
+ *        (Value: "HOSTING_SOURCE_CM")
  *    @arg @c kGTLRDisplayVideo_Creative_HostingSource_HostingSourceHosted A
- *        creative created in DV360 and hosted by Campaign Manager. (Value:
- *        "HOSTING_SOURCE_HOSTED")
+ *        creative created in DV360 and hosted by Campaign Manager.
+ *        Create and update methods are supported for this hosting type if the
+ *        creative_type is one of the following:
+ *        * `CREATIVE_TYPE_AUDIO`
+ *        * `CREATIVE_TYPE_NATIVE`
+ *        * `CREATIVE_TYPE_NATIVE_APP_INSTALL`
+ *        * `CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE`
+ *        * `CREATIVE_TYPE_NATIVE_SITE_SQUARE`
+ *        * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *        * `CREATIVE_TYPE_STANDARD`
+ *        * `CREATIVE_TYPE_VIDEO` (Value: "HOSTING_SOURCE_HOSTED")
  *    @arg @c kGTLRDisplayVideo_Creative_HostingSource_HostingSourceRichMedia A
  *        rich media creative created in Studio and hosted by Campaign Manager.
+ *        Create and update methods are **not** supported for this hosting type.
  *        (Value: "HOSTING_SOURCE_RICH_MEDIA")
  *    @arg @c kGTLRDisplayVideo_Creative_HostingSource_HostingSourceThirdParty A
- *        creative hosted by a third-party ad server (3PAS). (Value:
- *        "HOSTING_SOURCE_THIRD_PARTY")
+ *        creative hosted by a third-party ad server (3PAS).
+ *        Create and update methods are supported for this hosting type if the
+ *        creative_type is one of the following:
+ *        * `CREATIVE_TYPE_EXPANDABLE`
+ *        * `CREATIVE_TYPE_STANDARD`
+ *        * `CREATIVE_TYPE_VIDEO` (Value: "HOSTING_SOURCE_THIRD_PARTY")
  *    @arg @c kGTLRDisplayVideo_Creative_HostingSource_HostingSourceUnspecified
  *        Hosting source is not specified or is unknown in this version. (Value:
  *        "HOSTING_SOURCE_UNSPECIFIED")
@@ -10634,43 +10757,75 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeAudio
- *        Audio creative. (Value: "CREATIVE_TYPE_AUDIO")
+ *        Audio creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
+ *        "CREATIVE_TYPE_AUDIO")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeExpandable
- *        Expandable creative. (Value: "CREATIVE_TYPE_EXPANDABLE")
+ *        Expandable creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_THIRD_PARTY` (Value:
+ *        "CREATIVE_TYPE_EXPANDABLE")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeLightbox
- *        Responsive and expandable Lightbox creative. (Value:
- *        "CREATIVE_TYPE_LIGHTBOX")
+ *        Responsive and expandable Lightbox creative.
+ *        Create and update methods are **not** supported for this creative
+ *        type. (Value: "CREATIVE_TYPE_LIGHTBOX")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNative
  *        Native creative rendered by publishers with assets from advertiser.
- *        (Value: "CREATIVE_TYPE_NATIVE")
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
+ *        "CREATIVE_TYPE_NATIVE")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNativeAppInstall
- *        Native app install creative. (Value:
+ *        Native app install creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
  *        "CREATIVE_TYPE_NATIVE_APP_INSTALL")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNativeAppInstallSquare
- *        Square native app install creative. (Value:
+ *        Square native app install creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
  *        "CREATIVE_TYPE_NATIVE_APP_INSTALL_SQUARE")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNativeSiteSquare
- *        Square native creative. (Value: "CREATIVE_TYPE_NATIVE_SITE_SQUARE")
+ *        Square native creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
+ *        "CREATIVE_TYPE_NATIVE_SITE_SQUARE")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeNativeVideo
- *        Native video creative. (Value: "CREATIVE_TYPE_NATIVE_VIDEO")
+ *        Native video creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
+ *        "CREATIVE_TYPE_NATIVE_VIDEO")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypePublisherHosted
- *        Publisher hosted creative. (Value: "CREATIVE_TYPE_PUBLISHER_HOSTED")
+ *        Publisher hosted creative.
+ *        Create and update methods are **not** supported for this creative
+ *        type. (Value: "CREATIVE_TYPE_PUBLISHER_HOSTED")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeStandard
- *        Standard image creative. (Value: "CREATIVE_TYPE_STANDARD")
+ *        Standard display creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is one of the following:
+ *        * `HOSTING_SOURCE_HOSTED`
+ *        * `HOSTING_SOURCE_THIRD_PARTY` (Value: "CREATIVE_TYPE_STANDARD")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeTemplatedAppInstall
- *        Templated app install mobile creative (banner). (Value:
- *        "CREATIVE_TYPE_TEMPLATED_APP_INSTALL")
+ *        Templated app install mobile creative (banner).
+ *        Create and update methods are **not** supported for this creative
+ *        type. (Value: "CREATIVE_TYPE_TEMPLATED_APP_INSTALL")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeTemplatedAppInstallInterstitial
- *        Interstitial creative including both display and video. (Value:
- *        "CREATIVE_TYPE_TEMPLATED_APP_INSTALL_INTERSTITIAL")
+ *        Interstitial creative including both display and video.
+ *        Create and update methods are **not** supported for this creative
+ *        type. (Value: "CREATIVE_TYPE_TEMPLATED_APP_INSTALL_INTERSTITIAL")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeTemplatedAppInstallVideo
- *        Templated app install mobile video creative. (Value:
- *        "CREATIVE_TYPE_TEMPLATED_APP_INSTALL_VIDEO")
+ *        Templated app install mobile video creative.
+ *        Create and update methods are **not** supported for this creative
+ *        type. (Value: "CREATIVE_TYPE_TEMPLATED_APP_INSTALL_VIDEO")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeUnspecified
  *        Type value is not specified or is unknown in this version. (Value:
  *        "CREATIVE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeVideo
- *        Video creative. (Value: "CREATIVE_TYPE_VIDEO")
+ *        Video creative.
+ *        Create and update methods are supported for this creative type if the
+ *        hosting_source is one of the following:
+ *        * `HOSTING_SOURCE_HOSTED`
+ *        * `HOSTING_SOURCE_THIRD_PARTY` (Value: "CREATIVE_TYPE_VIDEO")
  */
 @property(nonatomic, copy, nullable) NSString *creativeType;
 
@@ -11182,9 +11337,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 @interface GTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails : GTLRObject
 
 /**
- *  Output only. An enum for the content label brand safety tiers. Values from
- *  content-labels.txt. Must be kept in sync with
- *  //contentads/bidder/proto/video_ratings.proto
+ *  Output only. An enum for the content label brand safety tiers.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_DigitalContentLabelTargetingOptionDetails_ContentRatingTier_ContentRatingTierGeneral
@@ -11797,7 +11950,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
  *  exchange_details field
  *  of a TargetingOption when
  *  targeting_type is
- *  `TAREGTING_TYPE_EXCHANGE`.
+ *  `TARGETING_TYPE_EXCHANGE`.
  */
 @interface GTLRDisplayVideo_ExchangeTargetingOptionDetails : GTLRObject
 
@@ -14095,6 +14248,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of advertisers.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14125,6 +14279,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of campaigns.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14154,6 +14309,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of channels.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14183,6 +14339,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of combined audiences.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14213,6 +14370,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of creatives.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14243,6 +14401,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of custom lists.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14272,7 +14431,9 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 @interface GTLRDisplayVideo_ListFirstAndThirdPartyAudiencesResponse : GTLRCollectionObject
 
 /**
- *  The list of first and third party audiences.
+ *  The list of first and third party audiences. Audience size properties will
+ *  not be included.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14303,6 +14464,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of Google audiences.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14333,6 +14495,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of insertion orders.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14362,6 +14525,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of inventory source groups.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14392,6 +14556,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of inventory sources.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14423,6 +14588,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of assigned targeting options.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14455,6 +14621,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of line items.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14485,6 +14652,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of location lists.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14515,6 +14683,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of negative keyword lists.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14555,6 +14724,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  The list of targeting options.
+ *  This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -14947,7 +15117,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
  *  operating_system_details field
  *  of a TargetingOption when
  *  targeting_type is
- *  `TAREGTING_TYPE_OPERATING_SYSTEM`.
+ *  `TARGETING_TYPE_OPERATING_SYSTEM`.
  */
 @interface GTLRDisplayVideo_OperatingSystemTargetingOptionDetails : GTLRObject
 
@@ -16216,7 +16386,7 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
  *  sub_exchange_details field
  *  of a TargetingOption when
  *  targeting_type is
- *  `TAREGTING_TYPE_SUB_EXCHANGE`.
+ *  `TARGETING_TYPE_SUB_EXCHANGE`.
  */
 @interface GTLRDisplayVideo_SubExchangeTargetingOptionDetails : GTLRObject
 
@@ -16909,7 +17079,8 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  Assigned viewability targeting option details. This will be populated in the
- *  details field of an AssignedTargetingOption when
+ *  viewability_details field of
+ *  an AssignedTargetingOption when
  *  targeting_type is
  *  `TARGETING_TYPE_VIEWABILITY`.
  */
@@ -16966,8 +17137,8 @@ GTLR_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails
 
 /**
  *  Represents a targetable viewability. This will be populated in the
- *  details field of a TargetingOption when
- *  targeting_type is
+ *  viewability_details field of a
+ *  TargetingOption when targeting_type is
  *  `TARGETING_TYPE_VIEWABILITY`.
  */
 @interface GTLRDisplayVideo_ViewabilityTargetingOptionDetails : GTLRObject

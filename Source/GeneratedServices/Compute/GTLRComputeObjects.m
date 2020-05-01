@@ -3260,6 +3260,11 @@ NSString * const kGTLRCompute_SnapshotList_Warning_Code_SingleInstancePropertyTe
 NSString * const kGTLRCompute_SnapshotList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_SnapshotList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_SslCertificate.type
+NSString * const kGTLRCompute_SslCertificate_Type_Managed      = @"MANAGED";
+NSString * const kGTLRCompute_SslCertificate_Type_SelfManaged  = @"SELF_MANAGED";
+NSString * const kGTLRCompute_SslCertificate_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRCompute_SslCertificateAggregatedList_Warning.code
 NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -3309,6 +3314,23 @@ NSString * const kGTLRCompute_SslCertificateList_Warning_Code_SchemaValidationIg
 NSString * const kGTLRCompute_SslCertificateList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_SslCertificateList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_SslCertificateList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_SslCertificateManagedSslCertificate.status
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_Active = @"ACTIVE";
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_ManagedCertificateStatusUnspecified = @"MANAGED_CERTIFICATE_STATUS_UNSPECIFIED";
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_Provisioning = @"PROVISIONING";
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_ProvisioningFailed = @"PROVISIONING_FAILED";
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_ProvisioningFailedPermanently = @"PROVISIONING_FAILED_PERMANENTLY";
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_RenewalFailed = @"RENEWAL_FAILED";
+
+// GTLRCompute_SslCertificateManagedSslCertificate_DomainStatus.domainStatu
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_Active = @"ACTIVE";
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_DomainStatusUnspecified = @"DOMAIN_STATUS_UNSPECIFIED";
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedCaaChecking = @"FAILED_CAA_CHECKING";
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedCaaForbidden = @"FAILED_CAA_FORBIDDEN";
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedNotVisible = @"FAILED_NOT_VISIBLE";
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedRateLimited = @"FAILED_RATE_LIMITED";
+NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_Provisioning = @"PROVISIONING";
 
 // GTLRCompute_SslCertificatesScopedList_Warning.code
 NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -10364,7 +10386,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_NetworkPeering
 @dynamic autoCreateRoutes, exchangeSubnetRoutes, exportCustomRoutes,
-         importCustomRoutes, name, network, state, stateDetails;
+         exportSubnetRoutesWithPublicIp, importCustomRoutes,
+         importSubnetRoutesWithPublicIp, name, network, state, stateDetails;
 @end
 
 
@@ -13872,13 +13895,21 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_SslCertificate
-@dynamic certificate, creationTimestamp, descriptionProperty, identifier, kind,
-         name, privateKey, region, selfLink;
+@dynamic certificate, creationTimestamp, descriptionProperty, expireTime,
+         identifier, kind, managed, name, privateKey, region, selfLink,
+         selfManaged, subjectAlternativeNames, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
     @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subjectAlternativeNames" : [NSString class]
   };
   return map;
 }
@@ -13990,6 +14021,48 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_SslCertificateList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SslCertificateManagedSslCertificate
+//
+
+@implementation GTLRCompute_SslCertificateManagedSslCertificate
+@dynamic domains, domainStatus, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"domains" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SslCertificateManagedSslCertificate_DomainStatus
+//
+
+@implementation GTLRCompute_SslCertificateManagedSslCertificate_DomainStatus
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SslCertificateSelfManagedSslCertificate
+//
+
+@implementation GTLRCompute_SslCertificateSelfManagedSslCertificate
+@dynamic certificate, privateKey;
 @end
 
 

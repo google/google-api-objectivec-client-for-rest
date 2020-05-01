@@ -884,7 +884,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unspecifie
 
 /**
  *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
- *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ *  `GetIamPolicy`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIot_GetPolicyOptions *options;
 

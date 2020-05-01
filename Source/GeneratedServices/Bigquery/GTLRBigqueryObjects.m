@@ -24,6 +24,15 @@ NSString * const kGTLRBigquery_Argument_Mode_Inout           = @"INOUT";
 NSString * const kGTLRBigquery_Argument_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 NSString * const kGTLRBigquery_Argument_Mode_Out             = @"OUT";
 
+// GTLRBigquery_ArimaModelInfo.seasonalPeriods
+NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Daily = @"DAILY";
+NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Monthly = @"MONTHLY";
+NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_NoSeasonality = @"NO_SEASONALITY";
+NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Quarterly = @"QUARTERLY";
+NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_SeasonalPeriodTypeUnspecified = @"SEASONAL_PERIOD_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Weekly = @"WEEKLY";
+NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Yearly = @"YEARLY";
+
 // GTLRBigquery_ArimaResult.seasonalPeriods
 NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Daily = @"DAILY";
 NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Monthly = @"MONTHLY";
@@ -168,7 +177,16 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_ArimaModelInfo
-@dynamic arimaCoefficients, arimaFittingMetrics, nonSeasonalOrder;
+@dynamic arimaCoefficients, arimaFittingMetrics, hasDrift, nonSeasonalOrder,
+         seasonalPeriods, timeSeriesId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"seasonalPeriods" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -425,6 +443,16 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ConnectionProperty
+//
+
+@implementation GTLRBigquery_ConnectionProperty
+@dynamic key, value;
 @end
 
 
@@ -697,8 +725,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_ExternalDataConfiguration
 @dynamic autodetect, bigtableOptions, compression, csvOptions,
-         googleSheetsOptions, hivePartitioningMode, hivePartitioningOptions,
-         ignoreUnknownValues, maxBadRecords, schema, sourceFormat, sourceUris;
+         googleSheetsOptions, hivePartitioningOptions, ignoreUnknownValues,
+         maxBadRecords, schema, sourceFormat, sourceUris;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -884,11 +912,11 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 @dynamic allowJaggedRows, allowQuotedNewlines, autodetect, clustering,
          createDisposition, destinationEncryptionConfiguration,
          destinationTable, destinationTableProperties, encoding, fieldDelimiter,
-         hivePartitioningMode, hivePartitioningOptions, ignoreUnknownValues,
-         maxBadRecords, nullMarker, projectionFields, quote, rangePartitioning,
-         schema, schemaInline, schemaInlineFormat, schemaUpdateOptions,
-         skipLeadingRows, sourceFormat, sourceUris, timePartitioning,
-         useAvroLogicalTypes, writeDisposition;
+         hivePartitioningOptions, ignoreUnknownValues, maxBadRecords,
+         nullMarker, projectionFields, quote, rangePartitioning, schema,
+         schemaInline, schemaInlineFormat, schemaUpdateOptions, skipLeadingRows,
+         sourceFormat, sourceUris, timePartitioning, useAvroLogicalTypes,
+         writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -917,7 +945,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"connectionProperties" : [NSObject class],
+    @"connectionProperties" : [GTLRBigquery_ConnectionProperty class],
     @"queryParameters" : [GTLRBigquery_QueryParameter class],
     @"schemaUpdateOptions" : [NSString class],
     @"userDefinedFunctionResources" : [GTLRBigquery_UserDefinedFunctionResource class]
@@ -1473,7 +1501,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"connectionProperties" : [NSObject class],
+    @"connectionProperties" : [GTLRBigquery_ConnectionProperty class],
     @"queryParameters" : [GTLRBigquery_QueryParameter class]
   };
   return map;

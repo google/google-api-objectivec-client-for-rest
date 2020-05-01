@@ -149,7 +149,7 @@
 @implementation GTLRGamesManagement_Player
 @dynamic avatarImageUrl, bannerUrlLandscape, bannerUrlPortrait, displayName,
          experienceInfo, friendStatus, kind, lastPlayedWith, name,
-         originalPlayerId, playerId, playerStattus, profileSettings, title;
+         originalPlayerId, playerId, profileSettings, title;
 @end
 
 

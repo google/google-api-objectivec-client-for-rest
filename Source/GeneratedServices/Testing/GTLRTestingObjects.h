@@ -1877,6 +1877,15 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, copy, nullable) NSString *appBundleId;
 
 /**
+ *  The option to test special app entitlements. Setting this would re-sign the
+ *  app having special entitlements with an explicit application-identifier.
+ *  Currently supports testing aps-environment entitlement.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *testSpecialEntitlements;
+
+/**
  *  Required. The .zip containing the .xctestrun file and the contents of the
  *  DerivedData/Build/Products directory.
  *  The .xctestrun file in this zip is ignored if the xctestrun field is

@@ -440,9 +440,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
 
-/** Override used only by built-in games in Play Games application. */
-@property(nonatomic, copy, nullable) NSString *builtinGameId;
-
 /**
  *  Fetches a @c GTLRGames_AchievementUnlockResponse.
  *
@@ -467,9 +464,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_AchievementsUpdateMultiple : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForAchievementsUpdateMultipleWithObject:]
-
-/** Override used only by built-in games in Play Games application. */
-@property(nonatomic, copy, nullable) NSString *builtinGameId;
 
 /**
  *  Fetches a @c GTLRGames_AchievementUpdateMultipleResponse.
@@ -546,9 +540,6 @@ GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @interface GTLRGamesQuery_ApplicationsPlayed : GTLRGamesQuery
 // Previous library name was
 //   +[GTLQueryGames queryForApplicationsPlayed]
-
-/** Override used only by built-in games in Play Games application. */
-@property(nonatomic, copy, nullable) NSString *builtinGameId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will

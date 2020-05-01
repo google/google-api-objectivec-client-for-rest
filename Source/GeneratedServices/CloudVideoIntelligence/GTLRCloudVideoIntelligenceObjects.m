@@ -255,7 +255,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentAnnotation
-@dynamic frames;
+@dynamic frames, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -283,7 +283,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation
-@dynamic categoryEntities, entity, frames, segments;
+@dynamic categoryEntities, entity, frames, segments, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -380,7 +380,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ObjectTrackingAnnotation
-@dynamic confidence, entity, frames, segment, trackId;
+@dynamic confidence, entity, frames, segment, trackId, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -444,7 +444,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2TextAnnotation
-@dynamic segments, text;
+@dynamic segments, text, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -624,7 +624,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentAnnotation
-@dynamic frames;
+@dynamic frames, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -662,7 +662,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation
-@dynamic categoryEntities, entity, frames, segments;
+@dynamic categoryEntities, entity, frames, segments, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -770,7 +770,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingAnnotation
-@dynamic confidence, entity, frames, segment, trackId;
+@dynamic confidence, entity, frames, segment, trackId, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -879,7 +879,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentAnnotation
-@dynamic frames;
+@dynamic frames, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -907,7 +907,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation
-@dynamic categoryEntities, entity, frames, segments;
+@dynamic categoryEntities, entity, frames, segments, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1004,7 +1004,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ObjectTrackingAnnotation
-@dynamic confidence, entity, frames, segment, trackId;
+@dynamic confidence, entity, frames, segment, trackId, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1068,7 +1068,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1TextAnnotation
-@dynamic segments, text;
+@dynamic segments, text, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1284,7 +1284,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentAnnotation
-@dynamic frames;
+@dynamic frames, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1312,7 +1312,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation
-@dynamic categoryEntities, entity, frames, segments;
+@dynamic categoryEntities, entity, frames, segments, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1409,7 +1409,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ObjectTrackingAnnotation
-@dynamic confidence, entity, frames, segment, trackId;
+@dynamic confidence, entity, frames, segment, trackId, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1473,7 +1473,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1TextAnnotation
-@dynamic segments, text;
+@dynamic segments, text, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1669,7 +1669,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1CelebrityRecognitionAnnotation
-@dynamic celebrityTracks;
+@dynamic celebrityTracks, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1740,7 +1740,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentAnnotation
-@dynamic frames;
+@dynamic frames, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1768,7 +1768,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceDetectionAnnotation
-@dynamic thumbnail, tracks;
+@dynamic thumbnail, tracks, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1786,7 +1786,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation
-@dynamic categoryEntities, entity, frames, segments;
+@dynamic categoryEntities, entity, frames, segments, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1883,7 +1883,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ObjectTrackingAnnotation
-@dynamic confidence, entity, frames, segment, trackId;
+@dynamic confidence, entity, frames, segment, trackId, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1911,7 +1911,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1PersonDetectionAnnotation
-@dynamic tracks;
+@dynamic tracks, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2006,7 +2006,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1TextAnnotation
-@dynamic segments, text;
+@dynamic segments, text, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2239,7 +2239,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1TextAnnotation
-@dynamic segments, text;
+@dynamic segments, text, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

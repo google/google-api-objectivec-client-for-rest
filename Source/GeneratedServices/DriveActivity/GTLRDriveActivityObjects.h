@@ -1321,7 +1321,7 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
  *  parentheses.
  *  Examples:
  *  - <tt>detail.action_detail_case: RENAME</tt>
- *  - <tt>detail.action_detail_case:(CREATE UPLOAD)</tt>
+ *  - <tt>detail.action_detail_case:(CREATE EDIT)</tt>
  *  - <tt>-detail.action_detail_case:MOVE</tt>
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1333,16 +1333,20 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
 @property(nonatomic, copy, nullable) NSString *itemName;
 
 /**
- *  The requested number of activities to return. If not set, a default value
- *  is used.
+ *  The miminum number of activities desired in the response; the server will
+ *  attempt to return at least this quanitity. The server may also return fewer
+ *  activities if it has a partial response ready before the request times out.
+ *  If not set, a default value is used.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  The next_page_token value returned from a previous QueryDriveActivity
- *  request, if any.
+ *  The token identifying which page of results to return. Set this to the
+ *  next_page_token value returned from a previous query to obtain the
+ *  following page of results. If not set, the first page of results will be
+ *  returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

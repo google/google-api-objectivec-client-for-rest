@@ -1476,7 +1476,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *productAvailabilityPolicy;
 
-/** The list of product policies. */
+/**
+ *  The list of product policies. The productAvailabilityPolicy needs to be set
+ *  to WHITELIST or ALL for the product policies to be applied.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ProductPolicy *> *productPolicy;
 
 @end

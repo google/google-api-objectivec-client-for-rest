@@ -4,7 +4,7 @@
 // API:
 //   Cloud Tool Results API (toolresults/v1beta3)
 // Description:
-//   Reads and publishes results from Firebase Test Lab.
+//   API to publish and access results from developer tools.
 // Documentation:
 //   https://firebase.google.com/docs/test-lab/
 
@@ -43,7 +43,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeToolResultsCloudPlatform;
 /**
  *  Service for executing Cloud Tool Results API queries.
  *
- *  Reads and publishes results from Firebase Test Lab.
+ *  API to publish and access results from developer tools.
  */
 @interface GTLRToolResultsService : GTLRService
 

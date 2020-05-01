@@ -40,6 +40,7 @@
 @class GTLRBigquery_Clustering;
 @class GTLRBigquery_ClusteringMetrics;
 @class GTLRBigquery_ConfusionMatrix;
+@class GTLRBigquery_ConnectionProperty;
 @class GTLRBigquery_CsvOptions;
 @class GTLRBigquery_Dataset_Access_Item;
 @class GTLRBigquery_Dataset_Labels;
@@ -182,6 +183,24 @@ GTLR_EXTERN NSString * const kGTLRBigquery_Argument_Mode_ModeUnspecified;
  *  Value: "OUT"
  */
 GTLR_EXTERN NSString * const kGTLRBigquery_Argument_Mode_Out;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_ArimaModelInfo.seasonalPeriods
+
+/** Value: "DAILY" */
+GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Daily;
+/** Value: "MONTHLY" */
+GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Monthly;
+/** Value: "NO_SEASONALITY" */
+GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_NoSeasonality;
+/** Value: "QUARTERLY" */
+GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Quarterly;
+/** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
+GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
+/** Value: "WEEKLY" */
+GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Weekly;
+/** Value: "YEARLY" */
+GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Yearly;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_ArimaResult.seasonalPeriods
@@ -705,21 +724,21 @@ GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_
 @interface GTLRBigquery_ArimaFittingMetrics : GTLRObject
 
 /**
- *  AIC
+ *  AIC.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *aic;
 
 /**
- *  log-likelihood
+ *  Log-likelihood.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *logLikelihood;
 
 /**
- *  variance.
+ *  Variance.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -739,8 +758,25 @@ GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_
 /** Arima fitting metrics. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ArimaFittingMetrics *arimaFittingMetrics;
 
+/**
+ *  Whether Arima model fitted with drift or not. It is always false
+ *  when d is not 1.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasDrift;
+
 /** Non-seasonal order. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ArimaOrder *nonSeasonalOrder;
+
+/**
+ *  Seasonal periods. Repeated because multiple periods are supported
+ *  for one time series.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *seasonalPeriods;
+
+/** The id to indicate different time series. */
+@property(nonatomic, copy, nullable) NSString *timeSeriesId;
 
 @end
 
@@ -1336,6 +1372,20 @@ GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_
 
 /** One row per actual label. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Row *> *rows;
+
+@end
+
+
+/**
+ *  GTLRBigquery_ConnectionProperty
+ */
+@interface GTLRBigquery_ConnectionProperty : GTLRObject
+
+/** [Required] Name of the connection property to set. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Required] Value of the connection property. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -2130,12 +2180,6 @@ GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_
 @property(nonatomic, strong, nullable) GTLRBigquery_GoogleSheetsOptions *googleSheetsOptions;
 
 /**
- *  [Optional, Trusted Tester] Deprecated, do not use. Please set
- *  hivePartitioningOptions instead.
- */
-@property(nonatomic, copy, nullable) NSString *hivePartitioningMode;
-
-/**
  *  [Optional, Trusted Tester] Options to configure hive partitioning support.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_HivePartitioningOptions *hivePartitioningOptions;
@@ -2716,12 +2760,6 @@ GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_
 @property(nonatomic, copy, nullable) NSString *fieldDelimiter;
 
 /**
- *  [Optional, Trusted Tester] Deprecated, do not use. Please set
- *  hivePartitioningOptions instead.
- */
-@property(nonatomic, copy, nullable) NSString *hivePartitioningMode;
-
-/**
  *  [Optional, Trusted Tester] Options to configure hive partitioning support.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_HivePartitioningOptions *hivePartitioningOptions;
@@ -2900,12 +2938,8 @@ GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Clustering *clustering;
 
-/**
- *  Connection properties.
- *
- *  Can be any valid JSON type.
- */
-@property(nonatomic, strong, nullable) NSArray *connectionProperties;
+/** Connection properties. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
 
 /**
  *  [Optional] Specifies whether the job is allowed to create new tables. The
@@ -4173,12 +4207,8 @@ GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_
  */
 @interface GTLRBigquery_QueryRequest : GTLRObject
 
-/**
- *  Connection properties.
- *
- *  Can be any valid JSON type.
- */
-@property(nonatomic, strong, nullable) NSArray *connectionProperties;
+/** Connection properties. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
 
 /**
  *  [Optional] Specifies the default datasetId and projectId to assume for any

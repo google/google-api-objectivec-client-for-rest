@@ -201,7 +201,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_Sc
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string <code>gamesConfiguration#achievementConfiguration</code>.
+ *  string `gamesConfiguration#achievementConfiguration`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -238,7 +238,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_Sc
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string <code>gamesConfiguration#achievementConfigurationDetail</code>.
+ *  string `gamesConfiguration#achievementConfigurationDetail`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -282,8 +282,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_Sc
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string
- *  <code>gamesConfiguration#achievementConfigurationListResponse</code>.
+ *  string `gamesConfiguration#achievementConfigurationListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -408,7 +407,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_Sc
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string <code>gamesConfiguration#imageConfiguration</code>.
+ *  string `gamesConfiguration#imageConfiguration`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -438,7 +437,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_Sc
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string <code>gamesConfiguration#leaderboardConfiguration</code>.
+ *  string `gamesConfiguration#leaderboardConfiguration`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -489,7 +488,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_Sc
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string <code>gamesConfiguration#leaderboardConfigurationDetail</code>.
+ *  string `gamesConfiguration#leaderboardConfigurationDetail`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -530,7 +529,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_Sc
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string
- *  <code>gamesConfiguration#leaderboardConfigurationListResponse</code>.
+ *  `gamesConfiguration#leaderboardConfigurationListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -547,7 +546,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_Sc
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string <code>gamesConfiguration#localizedString</code>.
+ *  string `gamesConfiguration#localizedString`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -567,7 +566,7 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_Sc
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string <code>gamesConfiguration#localizedStringBundle</code>.
+ *  string `gamesConfiguration#localizedStringBundle`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 

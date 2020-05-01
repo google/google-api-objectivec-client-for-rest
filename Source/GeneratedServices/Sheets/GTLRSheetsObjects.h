@@ -7918,8 +7918,8 @@ GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Waterfal
 /**
  *  The column offset of the source range that this grouping is based on.
  *  For example, if the source was `C10:E15`, a `sourceColumnOffset` of `0`
- *  means this group refers to column `C`, whereas the offset `1` would refer
- *  to column `D`.
+ *  means this group refers to column `C`, whereas the offset `1` would
+ *  refer to column `D`.
  *
  *  Uses NSNumber of intValue.
  */

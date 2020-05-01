@@ -328,7 +328,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#achievementUpdateListResponse.
+ *  string games#achievementUpdateMultipleResponse.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1705,8 +1705,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The ID of the player. */
 @property(nonatomic, copy, nullable) NSString *playerId;
-
-@property(nonatomic, copy, nullable) NSString *playerStattus;
 
 /**
  *  The player's profile settings. Controls whether or not the player's profile

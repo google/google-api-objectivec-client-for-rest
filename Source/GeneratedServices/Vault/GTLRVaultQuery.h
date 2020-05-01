@@ -911,7 +911,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 //   +[GTLQueryVault queryForMattersSavedQueriesCreateWithObject:matterId:]
 
 /**
- *  The matter id of the parent matter for which the saved query is to be
+ *  The matter ID of the parent matter for which the saved query is to be
  *  created.
  */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -922,7 +922,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Creates a saved query.
  *
  *  @param object The @c GTLRVault_SavedQuery to include in the query.
- *  @param matterId The matter id of the parent matter for which the saved query
+ *  @param matterId The matter ID of the parent matter for which the saved query
  *    is to be
  *    created.
  *
@@ -946,12 +946,12 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 //   +[GTLQueryVault queryForMattersSavedQueriesDeleteWithmatterId:savedQueryId:]
 
 /**
- *  The matter id of the parent matter for which the saved query is to be
+ *  The matter ID of the parent matter for which the saved query is to be
  *  deleted.
  */
 @property(nonatomic, copy, nullable) NSString *matterId;
 
-/** Id of the saved query to be deleted. */
+/** ID of the saved query to be deleted. */
 @property(nonatomic, copy, nullable) NSString *savedQueryId;
 
 /**
@@ -959,10 +959,10 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *
  *  Deletes a saved query by Id.
  *
- *  @param matterId The matter id of the parent matter for which the saved query
+ *  @param matterId The matter ID of the parent matter for which the saved query
  *    is to be
  *    deleted.
- *  @param savedQueryId Id of the saved query to be deleted.
+ *  @param savedQueryId ID of the saved query to be deleted.
  *
  *  @return GTLRVaultQuery_MattersSavedQueriesDelete
  */
@@ -985,12 +985,12 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 //   +[GTLQueryVault queryForMattersSavedQueriesGetWithmatterId:savedQueryId:]
 
 /**
- *  The matter id of the parent matter for which the saved query is to be
+ *  The matter ID of the parent matter for which the saved query is to be
  *  retrieved.
  */
 @property(nonatomic, copy, nullable) NSString *matterId;
 
-/** Id of the saved query to be retrieved. */
+/** ID of the saved query to be retrieved. */
 @property(nonatomic, copy, nullable) NSString *savedQueryId;
 
 /**
@@ -998,10 +998,10 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *
  *  Retrieves a saved query by Id.
  *
- *  @param matterId The matter id of the parent matter for which the saved query
+ *  @param matterId The matter ID of the parent matter for which the saved query
  *    is to be
  *    retrieved.
- *  @param savedQueryId Id of the saved query to be retrieved.
+ *  @param savedQueryId ID of the saved query to be retrieved.
  *
  *  @return GTLRVaultQuery_MattersSavedQueriesGet
  */
@@ -1025,7 +1025,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 //   +[GTLQueryVault queryForMattersSavedQueriesListWithmatterId:]
 
 /**
- *  The matter id of the parent matter for which the saved queries are to be
+ *  The matter ID of the parent matter for which the saved queries are to be
  *  retrieved.
  */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -1045,7 +1045,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Lists saved queries within a matter. An empty page token in
  *  ListSavedQueriesResponse denotes no more saved queries to list.
  *
- *  @param matterId The matter id of the parent matter for which the saved
+ *  @param matterId The matter ID of the parent matter for which the saved
  *    queries are to be
  *    retrieved.
  *
@@ -1093,7 +1093,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Updates the specified matter.
  *  This updates only the name and description of the matter, identified by
- *  matter id. Changes to any other fields are ignored.
+ *  matter ID. Changes to any other fields are ignored.
  *  Returns the default view of the matter.
  *
  *  Method: vault.matters.update
@@ -1113,7 +1113,7 @@ GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *
  *  Updates the specified matter.
  *  This updates only the name and description of the matter, identified by
- *  matter id. Changes to any other fields are ignored.
+ *  matter ID. Changes to any other fields are ignored.
  *  Returns the default view of the matter.
  *
  *  @param object The @c GTLRVault_Matter to include in the query.

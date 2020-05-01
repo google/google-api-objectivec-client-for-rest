@@ -464,7 +464,7 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @interface GTLRVault_AddHeldAccountsRequest : GTLRObject
 
 /**
- *  Account ids to identify which accounts to add. Only account_ids or only
+ *  Account IDs to identify which accounts to add. Only account_ids or only
  *  emails should be specified, but not both.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accountIds;
@@ -1236,7 +1236,7 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @interface GTLRVault_MatterPermission : GTLRObject
 
 /**
- *  The account id, as provided by
+ *  The account ID, as provided by
  *  <a 
  href="https://developers.google.com/admin-sdk/">Admin SDK</a>.
  */
@@ -1440,7 +1440,7 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  */
 @interface GTLRVault_RemoveHeldAccountsRequest : GTLRObject
 
-/** Account ids to identify HeldAccounts to remove. */
+/** Account IDs to identify HeldAccounts to remove. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accountIds;
 
 @end
@@ -1504,7 +1504,7 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. The matter id of the associated matter.
+ *  Output only. The matter ID of the associated matter.
  *  The server does not look at this field during create and always uses matter
  *  id in the URL.
  */
@@ -1528,7 +1528,7 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @interface GTLRVault_SharedDriveInfo : GTLRObject
 
 /**
- *  List of Shared drive ids, as provided by
+ *  List of Shared drive IDs, as provided by
  *  <a 
  href="https://developers.google.com/drive">Drive API</a>.
  */
@@ -1588,7 +1588,7 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @interface GTLRVault_TeamDriveInfo : GTLRObject
 
 /**
- *  List of Team Drive ids, as provided by
+ *  List of Team Drive IDs, as provided by
  *  <a 
  href="https://developers.google.com/drive">Drive API</a>.
  */

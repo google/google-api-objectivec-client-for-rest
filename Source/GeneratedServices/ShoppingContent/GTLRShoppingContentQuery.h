@@ -34,6 +34,8 @@
 @class GTLRShoppingContent_LocalinventoryCustomBatchRequest;
 @class GTLRShoppingContent_OrderinvoicesCreateChargeInvoiceRequest;
 @class GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceRequest;
+@class GTLRShoppingContent_OrderreturnsAcknowledgeRequest;
+@class GTLRShoppingContent_OrderreturnsProcessRequest;
 @class GTLRShoppingContent_OrdersAcknowledgeRequest;
 @class GTLRShoppingContent_OrdersCancelLineItemRequest;
 @class GTLRShoppingContent_OrdersCancelRequest;
@@ -82,6 +84,38 @@ NS_ASSUME_NONNULL_BEGIN
 GTLR_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeAsc;
 /** Value: "returnCreationTimeDesc" */
 GTLR_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeDesc;
+
+// ----------------------------------------------------------------------------
+// shipmentStates
+
+/** Value: "completed" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatesCompleted;
+/** Value: "new" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatesNew;
+/** Value: "shipped" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatesShipped;
+/** Value: "undeliverable" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatesUndeliverable;
+
+// ----------------------------------------------------------------------------
+// shipmentStatus
+
+/** Value: "inProgress" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatusInProgress;
+/** Value: "new" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatusNew;
+/** Value: "processed" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatusProcessed;
+
+// ----------------------------------------------------------------------------
+// shipmentTypes
+
+/** Value: "byMail" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentTypesByMail;
+/** Value: "contactCustomerSupport" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentTypesContactCustomerSupport;
+/** Value: "returnless" */
+GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentTypesReturnless;
 
 // ----------------------------------------------------------------------------
 // statuses
@@ -177,13 +211,13 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
 
 /**
- *  Only available to selected merchants. When set to True, this flag removes
+ *  Only available to selected merchants. When set to `True`, this flag removes
  *  any existing claim on the requested website by another account and replaces
  *  it with a claim from this account.
  */
@@ -196,7 +230,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account whose website is claimed.
  *
  *  @return GTLRShoppingContentQuery_AccountsClaimwebsite
@@ -297,7 +331,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -309,7 +343,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account.
  *
  *  @return GTLRShoppingContentQuery_AccountsGet
@@ -368,7 +402,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -383,7 +417,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *    the query.
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account that should be linked.
  *
  *  @return GTLRShoppingContentQuery_AccountsLink
@@ -457,7 +491,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -472,7 +506,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to list links.
  *
  *  @return GTLRShoppingContentQuery_AccountsListlinks
@@ -536,7 +570,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -549,7 +583,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account.
  *
  *  @return GTLRShoppingContentQuery_AccountstatusesGet
@@ -624,7 +658,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -637,7 +671,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *  @param object The @c GTLRShoppingContent_Account to include in the query.
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account.
  *
  *  @return GTLRShoppingContentQuery_AccountsUpdate
@@ -691,7 +725,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -703,7 +737,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to get/update account tax
  *    settings.
  *
@@ -773,7 +807,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -786,7 +820,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *  @param object The @c GTLRShoppingContent_AccountTax to include in the query.
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to get/update account tax
  *    settings.
  *
@@ -1223,7 +1257,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -1235,7 +1269,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to get or update LIA
  *    settings.
  *
@@ -1266,7 +1300,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -1279,7 +1313,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to retrieve accessible
  *    Google My Business accounts.
  *
@@ -1377,7 +1411,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -1389,7 +1423,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which GMB access is requested.
  *  @param gmbEmail The email of the Google My Business account.
  *
@@ -1424,7 +1458,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -1437,7 +1471,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account that manages the order. This cannot
  *    be a multi-client account.
  *  @param country The country for which inventory validation is requested.
@@ -1482,7 +1516,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -1495,7 +1529,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account that manages the order. This cannot
  *    be a multi-client account.
  *  @param contactEmail The email of the inventory verification contact.
@@ -1537,7 +1571,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -1557,7 +1591,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to retrieve accessible
  *    Google My Business accounts.
  *  @param country The country for which the POS data provider is selected.
@@ -1587,7 +1621,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -1601,7 +1635,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *    query.
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to get or update LIA
  *    settings.
  *
@@ -1726,7 +1760,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 /**
  *  Creates a refund invoice for one or more shipment groups, and triggers a
  *  refund for orderinvoice enabled orders. This can only be used for line items
- *  that have previously been charged using createChargeInvoice. All amounts
+ *  that have previously been charged using `createChargeInvoice`. All amounts
  *  (except for the summary) are incremental with respect to the previous
  *  invoice.
  *
@@ -1753,7 +1787,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  Creates a refund invoice for one or more shipment groups, and triggers a
  *  refund for orderinvoice enabled orders. This can only be used for line items
- *  that have previously been charged using createChargeInvoice. All amounts
+ *  that have previously been charged using `createChargeInvoice`. All amounts
  *  (except for the summary) are incremental with respect to the previous
  *  invoice.
  *
@@ -1895,6 +1929,46 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 @end
 
 /**
+ *  Acks an order return in your Merchant Center account.
+ *
+ *  Method: content.orderreturns.acknowledge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrderreturnsAcknowledge : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrderreturnsAcknowledgeWithObject:merchantId:returnId:]
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The ID of the return. */
+@property(nonatomic, copy, nullable) NSString *returnId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_OrderreturnsAcknowledgeResponse.
+ *
+ *  Acks an order return in your Merchant Center account.
+ *
+ *  @param object The @c GTLRShoppingContent_OrderreturnsAcknowledgeRequest to
+ *    include in the query.
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *  @param returnId The ID of the return.
+ *
+ *  @return GTLRShoppingContentQuery_OrderreturnsAcknowledge
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrderreturnsAcknowledgeRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                       returnId:(NSString *)returnId;
+
+@end
+
+/**
  *  Retrieves an order return from your Merchant Center account.
  *
  *  Method: content.orderreturns.get
@@ -1944,6 +2018,17 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 //   +[GTLQueryShoppingContent queryForOrderreturnsListWithmerchantId:]
 
 /**
+ *  Obtains order returns that match the acknowledgement status. When set to
+ *  true, obtains order returns that have been acknowledged. When false, obtains
+ *  order returns that have not been acknowledged. When not provided, obtains
+ *  order returns regardless of their acknowledgement status.
+ *  We recommend using this filter set to `false`, in conjunction with the
+ *  `acknowledge` call, such that only un-acknowledged order returns are
+ *  returned.
+ */
+@property(nonatomic, assign) BOOL acknowledged;
+
+/**
  *  Obtains order returns created before this date (inclusively), in ISO 8601
  *  format.
  */
@@ -1954,6 +2039,16 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *  format.
  */
 @property(nonatomic, copy, nullable) NSString *createdStartDate;
+
+/**
+ *  Obtains order returns with the specified order ids. If this parameter is
+ *  provided, createdStartDate, createdEndDate, shipmentType, shipmentStatus,
+ *  shipmentState and acknowledged parameters must be not set.
+ *  Note: if googleOrderId and shipmentTrackingNumber parameters are provided,
+ *  the obtained results will include all order returns that either match the
+ *  specified order id or the specified tracking number.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *googleOrderIds;
 
 /**
  *  The maximum number of order returns to return in the response, used for
@@ -1983,6 +2078,55 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  Obtains order returns that match any shipment state provided in this
+ *  parameter. When this parameter is not provided, order returns are obtained
+ *  regardless of their shipment states.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContentShipmentStatesCompleted Value "completed"
+ *    @arg @c kGTLRShoppingContentShipmentStatesNew Value "new"
+ *    @arg @c kGTLRShoppingContentShipmentStatesShipped Value "shipped"
+ *    @arg @c kGTLRShoppingContentShipmentStatesUndeliverable Value
+ *        "undeliverable"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentStates;
+
+/**
+ *  Obtains order returns that match any shipment status provided in this
+ *  parameter. When this parameter is not provided, order returns are obtained
+ *  regardless of their shipment statuses.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContentShipmentStatusInProgress Value "inProgress"
+ *    @arg @c kGTLRShoppingContentShipmentStatusNew Value "new"
+ *    @arg @c kGTLRShoppingContentShipmentStatusProcessed Value "processed"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentStatus;
+
+/**
+ *  Obtains order returns with the specified tracking numbers. If this parameter
+ *  is provided, createdStartDate, createdEndDate, shipmentType, shipmentStatus,
+ *  shipmentState and acknowledged parameters must be not set.
+ *  Note: if googleOrderId and shipmentTrackingNumber parameters are provided,
+ *  the obtained results will include all order returns that either match the
+ *  specified order id or the specified tracking number.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentTrackingNumbers;
+
+/**
+ *  Obtains order returns that match any shipment type provided in this
+ *  parameter. When this parameter is not provided, order returns are obtained
+ *  regardless of their shipment types.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContentShipmentTypesByMail Value "byMail"
+ *    @arg @c kGTLRShoppingContentShipmentTypesContactCustomerSupport Value
+ *        "contactCustomerSupport"
+ *    @arg @c kGTLRShoppingContentShipmentTypesReturnless Value "returnless"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentTypes;
+
+/**
  *  Fetches a @c GTLRShoppingContent_OrderreturnsListResponse.
  *
  *  Lists order returns in your Merchant Center account.
@@ -1997,6 +2141,46 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *        information.
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Processes return in your Merchant Center account.
+ *
+ *  Method: content.orderreturns.process
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrderreturnsProcess : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrderreturnsProcessWithObject:merchantId:returnId:]
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The ID of the return. */
+@property(nonatomic, copy, nullable) NSString *returnId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_OrderreturnsProcessResponse.
+ *
+ *  Processes return in your Merchant Center account.
+ *
+ *  @param object The @c GTLRShoppingContent_OrderreturnsProcessRequest to
+ *    include in the query.
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *  @param returnId The ID of the return.
+ *
+ *  @return GTLRShoppingContentQuery_OrderreturnsProcess
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrderreturnsProcessRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                       returnId:(NSString *)returnId;
 
 @end
 
@@ -2041,8 +2225,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 @end
 
 /**
- *  Sandbox only. Moves a test order from state "inProgress" to state
- *  "pendingShipment".
+ *  Sandbox only. Moves a test order from state "`inProgress`" to state
+ *  "`pendingShipment`".
  *
  *  Method: content.orders.advancetestorder
  *
@@ -2065,8 +2249,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 /**
  *  Fetches a @c GTLRShoppingContent_OrdersAdvanceTestOrderResponse.
  *
- *  Sandbox only. Moves a test order from state "inProgress" to state
- *  "pendingShipment".
+ *  Sandbox only. Moves a test order from state "`inProgress`" to state
+ *  "`pendingShipment`".
  *
  *  @param merchantId The ID of the account that manages the order. This cannot
  *    be a multi-client account.
@@ -2362,7 +2546,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForOrdersGettestordertemplateWithmerchantId:templateName:]
 
-/** The country of the template to retrieve. Defaults to US. */
+/** The country of the template to retrieve. Defaults to `US`. */
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
@@ -2479,8 +2663,8 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *  Obtains orders that match the acknowledgement status. When set to true,
  *  obtains orders that have been acknowledged. When false, obtains orders that
  *  have not been acknowledged.
- *  We recommend using this filter set to false, in conjunction with the
- *  acknowledge call, such that only un-acknowledged orders are returned.
+ *  We recommend using this filter set to `false`, in conjunction with the
+ *  `acknowledge` call, such that only un-acknowledged orders are returned.
  */
 @property(nonatomic, assign) BOOL acknowledged;
 
@@ -2520,9 +2704,9 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  Obtains orders that match any of the specified statuses. Please note that
- *  active is a shortcut for pendingShipment and partiallyShipped, and completed
- *  is a shortcut for shipped, partiallyDelivered, delivered, partiallyReturned,
- *  returned, and canceled.
+ *  `active` is a shortcut for `pendingShipment` and `partiallyShipped`, and
+ *  `completed` is a shortcut for `shipped`, `partiallyDelivered`, `delivered`,
+ *  `partiallyReturned`, `returned`, and `canceled`.
  *
  *  Likely values:
  *    @arg @c kGTLRShoppingContentStatusesActive Value "active"
@@ -4056,7 +4240,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -4068,7 +4252,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to get/update shipping
  *    settings.
  *
@@ -4232,7 +4416,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  The ID of the managing account. If this parameter is not the same as
- *  accountId, then this account must be a multi-client account and accountId
+ *  accountId, then this account must be a multi-client account and `accountId`
  *  must be the ID of a sub-account of this account.
  */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -4246,7 +4430,7 @@ GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *    query.
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
- *    and accountId must be the ID of a sub-account of this account.
+ *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to get/update shipping
  *    settings.
  *
